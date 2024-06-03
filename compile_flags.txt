@@ -1,0 +1,4 @@
+-I
+build/src/include
+-isystem
+/home/deck/.cache/gbstudio-v4/_gbstools/gbdk/include
