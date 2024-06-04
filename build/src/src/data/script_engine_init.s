@@ -6,9 +6,9 @@
 .area _CODE
 
 _start_scene_x:: 
-        .dw 768
+        .dw 256
 _start_scene_y:: 
-        .dw 2688 
+        .dw 512 
 _start_scene_dir:: 
         .db .DIR_DOWN
 _start_scene::

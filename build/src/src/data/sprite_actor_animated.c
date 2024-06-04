@@ -8,6 +8,8 @@
 BANKREF(sprite_actor_animated)
 
 #define SPRITE_1_STATE_DEFAULT 0
+#define SPRITE_1_STATE_INACTIVE 0
+#define SPRITE_1_STATE_FLASHING 0
 
 const metasprite_t sprite_actor_animated_metasprite_0[]  = {
     { 0, 8, 6, 0 }, { 0, -8, 8, 0 },

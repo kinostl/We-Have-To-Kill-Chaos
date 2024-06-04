@@ -8,6 +8,8 @@
 BANKREF(sprite_characters_warrior)
 
 #define SPRITE_3_STATE_DEFAULT 0
+#define SPRITE_3_STATE_INACTIVE 0
+#define SPRITE_3_STATE_FLASHING 0
 
 const metasprite_t sprite_characters_warrior_metasprite_0[]  = {
     { 0, 8, 0, 0 }, { -16, 0, 2, 0 }, { 16, -8, 0, 8 }, { -16, 0, 2, 8 },

@@ -9,6 +9,7 @@
 #include "data/palette_3.h"
 #include "data/sprite_handcursor.h"
 #include "data/scene_3_actors.h"
+#include "data/scene_3_triggers.h"
 #include "data/scene_3_sprites.h"
 #include "data/scene_3_init.h"
 
@@ -28,10 +29,11 @@ const struct scene_t scene_3 = {
     .reserve_tiles = 0,
     .player_sprite = TO_FAR_PTR_T(sprite_handcursor),
     .n_actors = 1,
-    .n_triggers = 0,
+    .n_triggers = 10,
     .n_sprites = 1,
     .n_projectiles = 0,
     .actors = TO_FAR_PTR_T(scene_3_actors),
+    .triggers = TO_FAR_PTR_T(scene_3_triggers),
     .sprites = TO_FAR_PTR_T(scene_3_sprites),
     .script_init = TO_FAR_PTR_T(scene_3_init)
 };
