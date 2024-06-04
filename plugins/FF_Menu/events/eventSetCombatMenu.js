@@ -16,6 +16,13 @@ const sub_fields = (_key) => ([
         width: "25%"
       }
     ])
+const sub_fields_2 = (_key) => ([
+  {
+    key: `slot_${_key}_name`,
+    type: "text",
+    defaultValue: ""
+  },
+])
 
 const fields = (
   [
@@ -23,8 +30,10 @@ const fields = (
     {type:"group", key:"slot_2", fields: sub_fields(2)},
     {type:"group", key:"slot_3", fields: sub_fields(3)},
     {type:"group", key:"slot_4", fields: sub_fields(4)},
-    {type:"group", key:"slot_5", fields: sub_fields(5)},
-    {type:"group", key:"slot_6", fields: sub_fields(6)},
+    {type:"group", key:"slot_5", fields: sub_fields_2(5)},
+    {type:"group", key:"slot_6", fields: sub_fields_2(6)},
+    {type:"group", key:"slot_7", fields: sub_fields_2(7)},
+    {type:"group", key:"slot_8", fields: sub_fields_2(8)}
   ]
 );
 
@@ -38,13 +47,11 @@ const compile = (input, helpers) => {
   } = helpers;
 
   _addComment(JSON.stringify(input))
-  const str = [
+  const str_1 = [
     "slot_1",
     "slot_2",
     "slot_3",
     "slot_4",
-    "slot_5",
-    "slot_6"
   ].map((i)=>{
     const _name = input[`${i}_name`].slice(0, 6).padEnd(6)
     const _cost = input[`${i}_cost`]
@@ -57,7 +64,18 @@ const compile = (input, helpers) => {
       _cost_display = _cost_display.padEnd(6, " ")
     }
     return `${_name}\\n${_cost_display}`
-  }).join("\\n")
+  })
+
+  const str_2 = [
+    "slot_5",
+    "slot_6",
+    "slot_7",
+    "slot_8"
+  ].map((i)=>{
+    return input[`${i}_name`].slice(0, 6).padEnd(6)
+  })
+
+  const str = str_1.concat(str_2).join("\\n")
   _loadText(0)
   _string(`\\001\\1\\003\\2\\6${str}`)
   _displayText()
