@@ -11223,8 +11223,9 @@
                                         "command": "FF_EVENT_SET_HERO",
                                         "args": {
                                             "name": "frank",
-                                            "hp": "INV",
-                                            "__collapse": true
+                                            "hp": 1,
+                                            "__collapse": false,
+                                            "ap": 4
                                         },
                                         "id": "5f5bc8d3-9d70-4b41-a9f4-1f2f7ff22664"
                                     },
@@ -11232,18 +11233,18 @@
                                         "command": "FF_EVENT_SET_COMBAT_MENU",
                                         "args": {
                                             "slot_1_name": "Fight",
-                                            "slot_1_cost": 2,
+                                            "slot_1_cost": 1,
                                             "slot_2_name": "Block",
                                             "slot_2_cost": -1,
                                             "slot_3_name": "Item",
                                             "slot_3_cost": 0,
                                             "slot_4_name": "Magic",
-                                            "slot_4_cost": 1,
+                                            "slot_4_cost": 3,
                                             "slot_5_name": "Run",
-                                            "slot_5_cost": 2,
+                                            "slot_5_cost": 0,
                                             "slot_6_name": "LimBrk",
                                             "slot_6_cost": 6,
-                                            "__collapse": true
+                                            "__collapse": false
                                         },
                                         "id": "58fffb38-8f2b-4a8a-b9f7-e58e565d298d"
                                     }
@@ -11253,8 +11254,9 @@
                                         "command": "FF_EVENT_SET_HERO",
                                         "args": {
                                             "name": "frank",
-                                            "hp": "INV",
-                                            "__collapse": true
+                                            "hp": "20",
+                                            "__collapse": false,
+                                            "ap": 0
                                         },
                                         "id": "37c72855-ae20-41a3-b673-991f6b4a5b98"
                                     },
@@ -16574,7 +16576,7 @@
         "showCollisionSlopeTiles": false,
         "showCollisionExtraTiles": false,
         "worldScrollX": 2676,
-        "worldScrollY": 237,
+        "worldScrollY": 316,
         "zoom": 286.5,
         "sgbEnabled": false,
         "customHead": "",

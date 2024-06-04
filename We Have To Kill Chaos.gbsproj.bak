@@ -10706,7 +10706,7 @@
                                                                 "command": "EVENT_TEXT",
                                                                 "args": {
                                                                     "text": [
-                                                                        "The Imp is Fuckin Dead."
+                                                                        "The Imp is Fuckin \nDead. $L0$"
                                                                     ],
                                                                     "avatarId": ""
                                                                 },
