@@ -6,14 +6,19 @@ const actions = [
     "Player 1/Fight",
     "Player 1/Shield",
     "Player 1/Limit Break",
-    "MENU/Item",
-    "MENU/Magic",
+    "Menu Choice/Item",
+    "Menu Choice/Magic",
     "Player 1/Block",
-    "MENU/Run",
+    "Menu Choice/Run",
     "Enemy 1/Take Turn",
     "Enemy 1/Do Harm",
     "Player 1/Do Harm",
-    "MENU/Choice Made"
+    "Menu Choice/Choice Made",
+    "MENU/Open Panel",
+    "SCENE/Fade In",
+    "Player 1/End Turn",
+    "MENU/Close Panel",
+    "Enemy 1/End Turn"
 ];
 
 const collator = new Intl.Collator()
