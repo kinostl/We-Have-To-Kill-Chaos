@@ -10,8 +10,13 @@ const actions = [
     "MENU/Magic",
     "Player 1/Block",
     "MENU/Run",
-    "Enemy 1/Take Turn"
+    "Enemy 1/Take Turn",
+    "Enemy 1/Do Harm",
+    "Player 1/Do Harm",
+    "MENU/Choice Made"
 ];
+
+const collator = new Intl.Collator()
 
 const fields = (
   [
@@ -19,7 +24,7 @@ const fields = (
       key: "action",
       type: "select",
       defaultValue: 0,
-      options: actions.map((x, i)=>[i, x])
+      options: actions.map((x, i)=>[i, x]).sort((a,b)=>collator.compare(a[1],b[1]))
     },
     {
       key: "response",
@@ -31,11 +36,13 @@ const fields = (
 const compile = (input, helpers) => {
   const {
     ifVariableValue,
+    variablesLookup,
+    _addComment
   } = helpers;
+  const var_action = Object.values(variablesLookup).find((x)=>x.name=="Action")
 
-  // 00 is VAR_ACTION
   ifVariableValue(
-    '00',
+    var_action.id,
     '.EQ',
     `${input["action"]}`,
     input["response"]
