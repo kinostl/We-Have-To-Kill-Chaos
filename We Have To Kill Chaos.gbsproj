@@ -10341,11 +10341,11 @@
                             "command": "EVENT_SWITCH",
                             "args": {
                                 "variable": "0",
-                                "choices": 1,
+                                "choices": 2,
                                 "__collapseCase0": false,
                                 "value0": 0,
                                 "__collapseCase1": false,
-                                "value1": 2,
+                                "value1": 1,
                                 "__collapseCase2": false,
                                 "value2": 3,
                                 "__collapseCase3": false,
@@ -10397,6 +10397,16 @@
                                             "__collapse": true
                                         },
                                         "id": "1412a641-a1a5-4676-a460-204dce7b308a"
+                                    }
+                                ],
+                                "true1": [
+                                    {
+                                        "command": "EVENT_COMMENT",
+                                        "args": {
+                                            "text": "Unarmed = STR / 2 (Fighter starts with 20)\n9 from Rapier + STR / 2 = 19\n",
+                                            "__collapse": true
+                                        },
+                                        "id": "968c02c9-8f7a-40db-bb93-4d03656bed35"
                                     },
                                     {
                                         "command": "EVENT_SET_VALUE",
@@ -10413,10 +10423,10 @@
                                     {
                                         "command": "EVENT_COMMENT",
                                         "args": {
-                                            "text": "Unarmed = STR / 2 (Fighter starts with 20)\n9 from Rapier + STR / 2 = 19\n",
+                                            "text": "Base 168 + 10 From Innate //\n\n5 from Sword\n\n\n\nC) ACCURACY FORMULAS                                                    [AFRM]\n\n1. Base Chance to Hit (BC) \n\nBase Chance to Hit = 168\n--If the Attacker is blind, subtract -40\n--If the Target is blind, add +40\n--If the Target is weak to an attack, add +40*\n*This occurs if a Weapon Attribute matches an Elemental Weakness or Enemy Type\ncharacteristic on the enemy. This property is bugged and does not work on the\nNES version.\n\n\n2. Chance to Hit \n\nChance to Hit = (BC + H)* - E\n--If the Target is Asleep or Paralyzed, Chance to Hit = BC\n\n*The value in parenthesis is capped at 255 _before_ Evasion is subtracted\n\nA Hit Roll is done and a random number is selected from 0 to 200. If that\nnumber is less than or equal to the Chance to Hit, the Hit connects. 0 is an\nautomatic hit, and 200 is an automatic miss. The % chance of hitting may be\nexpressed by:\n\nPercentage Chance to Hit = [Chance to Hit + 1]/201\n\n\nNOTE: The _proper_ Chance to Hit Formula _should_ be:\n\nBC + H - E\n--If the Target is Asleep or Paralyzed, Chance to Hit = BC + H\n\nHowever, a bug in the NES version clamps Base Chance to Hit and Hit% at 255\nbefore Evasion can be subtracted (and ignores Hit% when asleep or paralyzed).\nThis means that as a practical matter, Hit% greater than 87 is irrelevant for\nAccuracy. This is also what allows a character to become virtually un-hittable\nby repeatedly using RUSE or INVS to reach max evasion. I believe this bug is\nfixed on Origins.",
                                             "__collapse": true
                                         },
-                                        "id": "968c02c9-8f7a-40db-bb93-4d03656bed35"
+                                        "id": "6bdbe8cb-d215-408f-a652-c4f347912e62"
                                     },
                                     {
                                         "command": "EVENT_SET_VALUE",
@@ -10440,10 +10450,10 @@
                                     {
                                         "command": "EVENT_COMMENT",
                                         "args": {
-                                            "text": "Base 168 + 10 From Innate //\n\n5 from Sword\n\n\n\nC) ACCURACY FORMULAS                                                    [AFRM]\n\n1. Base Chance to Hit (BC) \n\nBase Chance to Hit = 168\n--If the Attacker is blind, subtract -40\n--If the Target is blind, add +40\n--If the Target is weak to an attack, add +40*\n*This occurs if a Weapon Attribute matches an Elemental Weakness or Enemy Type\ncharacteristic on the enemy. This property is bugged and does not work on the\nNES version.\n\n\n2. Chance to Hit \n\nChance to Hit = (BC + H)* - E\n--If the Target is Asleep or Paralyzed, Chance to Hit = BC\n\n*The value in parenthesis is capped at 255 _before_ Evasion is subtracted\n\nA Hit Roll is done and a random number is selected from 0 to 200. If that\nnumber is less than or equal to the Chance to Hit, the Hit connects. 0 is an\nautomatic hit, and 200 is an automatic miss. The % chance of hitting may be\nexpressed by:\n\nPercentage Chance to Hit = [Chance to Hit + 1]/201\n\n\nNOTE: The _proper_ Chance to Hit Formula _should_ be:\n\nBC + H - E\n--If the Target is Asleep or Paralyzed, Chance to Hit = BC + H\n\nHowever, a bug in the NES version clamps Base Chance to Hit and Hit% at 255\nbefore Evasion can be subtracted (and ignores Hit% when asleep or paralyzed).\nThis means that as a practical matter, Hit% greater than 87 is irrelevant for\nAccuracy. This is also what allows a character to become virtually un-hittable\nby repeatedly using RUSE or INVS to reach max evasion. I believe this bug is\nfixed on Origins.",
+                                            "text": "Crit % comes from Weapons. Unarmed is 0.",
                                             "__collapse": true
                                         },
-                                        "id": "6bdbe8cb-d215-408f-a652-c4f347912e62"
+                                        "id": "7908eca5-3b19-40e6-94d2-ad8a55a7273f"
                                     },
                                     {
                                         "command": "EVENT_SET_VALUE",
@@ -10456,17 +10466,8 @@
                                             "__collapse": true
                                         },
                                         "id": "29ad1acc-11d9-4509-8102-780895c734f3"
-                                    },
-                                    {
-                                        "command": "EVENT_COMMENT",
-                                        "args": {
-                                            "text": "Crit % comes from Weapons. Unarmed is 0.",
-                                            "__collapse": true
-                                        },
-                                        "id": "7908eca5-3b19-40e6-94d2-ad8a55a7273f"
                                     }
                                 ],
-                                "true1": [],
                                 "true2": [],
                                 "true3": [],
                                 "true4": [],
@@ -10504,7 +10505,7 @@
                     "leaveScript": []
                 },
                 {
-                    "name": "Enemy Store 1",
+                    "name": "Enemy Slots Store",
                     "id": "7e890799-3cbc-41dd-80b5-b164b9555ec7",
                     "x": 1,
                     "y": 1,
@@ -10513,16 +10514,23 @@
                     "height": 2,
                     "script": [
                         {
+                            "command": "EVENT_COMMENT",
+                            "args": {
+                                "text": "Actions 9 10 11 12 13 14 represent the actor slots. \n\nI guess we give an enemy one of these IDs and look out for it?\n\nReusable logic should go into a script probably, with indirects, so don't try to get fancy with making an Imp Logic Store, Horse Logic Store, etc.\n\nThis is an Enemy Slot Store. Although, the Switch might be able to handle all 6? Might be a good idea to consider."
+                            },
+                            "id": "3793c2fa-d8bb-487e-969e-1068f4c4928e"
+                        },
+                        {
                             "command": "EVENT_SWITCH",
                             "args": {
                                 "variable": "0",
-                                "choices": 2,
+                                "choices": 3,
                                 "__collapseCase0": false,
                                 "value0": 0,
-                                "__collapseCase1": false,
+                                "__collapseCase1": true,
                                 "value1": 1,
                                 "__collapseCase2": false,
-                                "value2": 3,
+                                "value2": 9,
                                 "__collapseCase3": false,
                                 "value3": 4,
                                 "__collapseCase4": false,
@@ -10556,7 +10564,8 @@
                                     {
                                         "command": "EVENT_COMMENT",
                                         "args": {
-                                            "text": "Initialize Store"
+                                            "text": "Initialize Store",
+                                            "__collapse": true
                                         },
                                         "id": "94b0c371-1b1e-4b26-a68d-9930843bec2d"
                                     },
@@ -10628,7 +10637,8 @@
                                             "text": [
                                                 "Initiate Attack\nImp: $L0$"
                                             ],
-                                            "avatarId": ""
+                                            "avatarId": "",
+                                            "__collapse": true
                                         },
                                         "id": "f19865cb-6fd9-4fe1-a801-5fa5be803eef"
                                     },
@@ -10642,7 +10652,8 @@
                                                     "type": "variable",
                                                     "value": "9"
                                                 }
-                                            }
+                                            },
+                                            "__collapse": true
                                         },
                                         "id": "d5f783ce-f1d3-4257-b9d5-39f7713347b2"
                                     },
@@ -10660,7 +10671,8 @@
                                                     "value": "T1"
                                                 }
                                             },
-                                            "__collapseElse": false
+                                            "__collapseElse": false,
+                                            "__collapse": true
                                         },
                                         "children": {
                                             "true": [
@@ -10874,7 +10886,25 @@
                                         "id": "0c458637-bd14-4536-a88f-c95290cbec7a"
                                     }
                                 ],
-                                "true2": [],
+                                "true2": [
+                                    {
+                                        "command": "EVENT_COMMENT",
+                                        "args": {
+                                            "text": "Enemy Slot 1 Makes Their Action"
+                                        },
+                                        "id": "a42e25d6-7c15-45f0-b69e-bdb2dcf59a85"
+                                    },
+                                    {
+                                        "command": "EVENT_TEXT",
+                                        "args": {
+                                            "text": [
+                                                "The Imp Attacks!"
+                                            ],
+                                            "avatarId": ""
+                                        },
+                                        "id": "709785db-d821-47bc-b42e-3df46adc2782"
+                                    }
+                                ],
                                 "true3": [],
                                 "true4": [],
                                 "true5": [],
@@ -10903,7 +10933,8 @@
                                 "y": {
                                     "type": "number",
                                     "value": 2
-                                }
+                                },
+                                "__collapse": true
                             },
                             "id": "df23f6c9-c36b-40c1-99bb-98923a2a4d24"
                         }
@@ -11080,7 +11111,7 @@
                                                     "command": "EVENT_GROUP",
                                                     "args": {
                                                         "__label": "Enable Player",
-                                                        "__collapse": false
+                                                        "__collapse": true
                                                     },
                                                     "children": {
                                                         "true": [
@@ -11133,7 +11164,7 @@
                                                                     ],
                                                                     "override": true,
                                                                     "__scriptTabs": "press",
-                                                                    "__collapse": false
+                                                                    "__collapse": true
                                                                 },
                                                                 "children": {
                                                                     "true": [
@@ -11565,7 +11596,7 @@
                                 "variable": "0",
                                 "value": {
                                     "type": "number",
-                                    "value": 6
+                                    "value": 8
                                 }
                             },
                             "id": "75f9ed10-5e26-4b84-ac5d-9ad27e70d55d"
@@ -11588,21 +11619,10 @@
                                 "variable": "0",
                                 "value": {
                                     "type": "number",
-                                    "value": 5
+                                    "value": 7
                                 }
                             },
                             "id": "d61d7a1b-91fc-4147-8450-bb3a77829dad"
-                        },
-                        {
-                            "command": "EVENT_SET_VALUE",
-                            "args": {
-                                "variable": "1",
-                                "value": {
-                                    "type": "number",
-                                    "value": 8
-                                }
-                            },
-                            "id": "a33b021a-6257-467e-862a-b06d85cd1b56"
                         }
                     ],
                     "leaveScript": []
@@ -11707,7 +11727,19 @@
                     "symbol": "trigger_8",
                     "width": 2,
                     "height": 1,
-                    "script": [],
+                    "script": [
+                        {
+                            "command": "EVENT_SET_VALUE",
+                            "args": {
+                                "variable": "0",
+                                "value": {
+                                    "type": "number",
+                                    "value": 6
+                                }
+                            },
+                            "id": "6a6d64f1-edff-4895-951e-aaa34d971e40"
+                        }
+                    ],
                     "leaveScript": []
                 },
                 {
@@ -11729,6 +11761,17 @@
                                 }
                             },
                             "id": "b34c792d-1b5d-4b90-82b1-14c76de7cccc"
+                        },
+                        {
+                            "command": "EVENT_SET_VALUE",
+                            "args": {
+                                "variable": "0",
+                                "value": {
+                                    "type": "number",
+                                    "value": 5
+                                }
+                            },
+                            "id": "84be12b9-0f18-44a7-b146-e71f56bde50c"
                         }
                     ],
                     "leaveScript": []
@@ -11810,7 +11853,8 @@
                 {
                     "command": "EVENT_ACTOR_HIDE",
                     "args": {
-                        "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00"
+                        "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00",
+                        "__collapse": true
                     },
                     "id": "2900e8e4-e4a3-49d9-8a7a-3cc3d0f00187"
                 },
@@ -11889,7 +11933,7 @@
                         "keyH": 18,
                         "keySX": 24,
                         "keySY": 0,
-                        "__collapse": false
+                        "__collapse": true
                     },
                     "id": "0cd4b9de-59f9-4622-ae68-e5f15b86f9b4"
                 },
@@ -11902,7 +11946,7 @@
                         "keyH": 4,
                         "keySX": 8,
                         "keySY": 18,
-                        "__collapse": false,
+                        "__collapse": true,
                         "__comment": true
                     },
                     "id": "7ac4e04c-5b62-4b9c-8dd4-0a23addb7059"
@@ -11917,16 +11961,37 @@
                     "id": "30f15654-53d6-434f-ad19-586c9e03f32c"
                 },
                 {
-                    "command": "EVENT_SET_VALUE",
+                    "command": "FF_EVENT_DISPATCH_ACTION",
                     "args": {
-                        "variable": "0",
-                        "value": {
-                            "type": "number",
-                            "value": 0
-                        },
+                        "action": 0,
+                        "hp": 0,
+                        "ap": 0,
                         "__collapse": false
                     },
-                    "id": "e950a0d7-c43a-4462-8017-9bedc23967db"
+                    "id": "01790889-7f88-496b-ab6a-0bd8b627d76a"
+                },
+                {
+                    "command": "FF_EVENT_SUBSCRIBE_ACTION",
+                    "args": {
+                        "action": 0,
+                        "__collapse": false,
+                        "__comment": false
+                    },
+                    "id": "0bb5e8de-679c-4198-afec-0a9ea5cd9255",
+                    "children": {
+                        "response": [
+                            {
+                                "command": "EVENT_TEXT",
+                                "args": {
+                                    "text": [
+                                        "Hello From Plugin"
+                                    ],
+                                    "avatarId": ""
+                                },
+                                "id": "3380bd2d-608a-44c7-816e-d5dcb76e7d69"
+                            }
+                        ]
+                    }
                 },
                 {
                     "command": "EVENT_ACTOR_SET_POSITION",
@@ -11968,7 +12033,7 @@
             "autoFadeEventCollapse": true
         },
         {
-            "name": "Scene 3",
+            "name": "Title Screen",
             "backgroundId": "1c3b3be9-b74b-4642-b261-7d648844ca1e",
             "tilesetId": "",
             "width": 20,
@@ -14116,6 +14181,7 @@
             "imageWidth": 160,
             "imageHeight": 144,
             "filename": "title.png",
+            "tileColors": [],
             "autoColor": true
         }
     ],
@@ -17272,6 +17338,11 @@
             "symbol": "var_action"
         },
         {
+            "id": "1",
+            "name": "Props/Menu Speed",
+            "symbol": "var_props_menu_speed"
+        },
+        {
             "id": "2",
             "name": "Update View",
             "symbol": "var_update_view"
@@ -17295,6 +17366,21 @@
             "id": "6",
             "name": "Player 1/HP",
             "symbol": "var_player_1_hp"
+        },
+        {
+            "id": "7",
+            "name": "Stack/Crit Chance",
+            "symbol": "var_stack_crit_chance"
+        },
+        {
+            "id": "8",
+            "name": "Temp/Damage Calculation",
+            "symbol": "var_temp_damage_calculation"
+        },
+        {
+            "id": "9",
+            "name": "Const/Global Hit Roll",
+            "symbol": "var_const_global_hit_roll"
         },
         {
             "id": "b543e5af-0a59-46a2-afa4-a8749b768159__L0",
@@ -17340,26 +17426,6 @@
             "id": "7e890799-3cbc-41dd-80b5-b164b9555ec7__L4",
             "name": "Absorb",
             "symbol": "var_absorb"
-        },
-        {
-            "id": "7",
-            "name": "Stack/Crit Chance",
-            "symbol": "var_stack_crit_chance"
-        },
-        {
-            "id": "8",
-            "name": "Temp/Damage Calculation",
-            "symbol": "var_temp_damage_calculation"
-        },
-        {
-            "id": "9",
-            "name": "Const/Global Hit Roll",
-            "symbol": "var_const_global_hit_roll"
-        },
-        {
-            "id": "1",
-            "name": "Props/Menu Speed",
-            "symbol": "var_props_menu_speed"
         }
     ],
     "engineFieldValues": [
@@ -17383,8 +17449,8 @@
         "showConnections": true,
         "showCollisionSlopeTiles": false,
         "showCollisionExtraTiles": false,
-        "worldScrollX": 1682,
-        "worldScrollY": 101,
+        "worldScrollX": 1441,
+        "worldScrollY": 158,
         "zoom": 200,
         "sgbEnabled": false,
         "customHead": "",
@@ -17477,6 +17543,16 @@
         "debuggerPauseOnScriptChanged": false,
         "debuggerPauseOnWatchedVariableChanged": false,
         "debuggerBreakpoints": [
+            {
+                "scriptEventId": "01790889-7f88-496b-ab6a-0bd8b627d76a",
+                "context": {
+                    "type": "entity",
+                    "entityType": "scene",
+                    "entityId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
+                    "sceneId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
+                    "scriptKey": "script"
+                }
+            },
             {
                 "scriptEventId": "45c3c834-1a65-48e7-8823-d4c83eb58e0a",
                 "context": {
