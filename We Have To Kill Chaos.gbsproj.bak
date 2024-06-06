@@ -10848,83 +10848,64 @@
                         {
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
-                                "action": 0,
+                                "action": 8,
                                 "__collapse": false
                             },
                             "children": {
                                 "response": [
                                     {
-                                        "command": "FF_EVENT_INIT_ENEMY",
-                                        "args": {
-                                            "enemySlot": 1,
-                                            "enemyType": 1,
-                                            "__collapse": true
-                                        },
-                                        "id": "30e13599-a529-42bc-9941-632db48324fa"
-                                    },
-                                    {
                                         "command": "EVENT_SET_VALUE",
                                         "args": {
-                                            "variable": "L0",
-                                            "value": {
-                                                "type": "number",
-                                                "value": 8
-                                            },
-                                            "__collapse": true
-                                        },
-                                        "id": "85114e72-75cf-4793-a263-8199d9a6b7bb"
-                                    },
-                                    {
-                                        "command": "EVENT_SET_VALUE",
-                                        "args": {
-                                            "variable": "L1",
+                                            "variable": "3",
                                             "value": {
                                                 "type": "number",
                                                 "value": 4
                                             },
                                             "__collapse": true
                                         },
-                                        "id": "42a2dedc-f935-494b-9509-bc2f070fd05e"
+                                        "id": "52717af7-17c1-4154-b91d-ad5a09cd0d20"
                                     },
                                     {
                                         "command": "EVENT_SET_VALUE",
                                         "args": {
-                                            "variable": "L2",
+                                            "variable": "4",
                                             "value": {
                                                 "type": "number",
                                                 "value": 85
                                             },
                                             "__collapse": true
                                         },
-                                        "id": "26f2b84e-9bf2-43f0-a87f-9ac95d410869"
+                                        "id": "4004f05d-8fdf-42ec-8289-a41401d8036a"
                                     },
                                     {
                                         "command": "EVENT_SET_VALUE",
                                         "args": {
-                                            "variable": "L3",
+                                            "variable": "7",
                                             "value": {
                                                 "type": "number",
-                                                "value": 3
+                                                "value": 1
                                             },
                                             "__collapse": true
                                         },
-                                        "id": "d9a749ae-36a7-4ddd-90a5-7477bb5ce943"
+                                        "id": "ebc3d6c3-5d2e-4410-bbe5-5485945d03b9"
                                     },
                                     {
-                                        "command": "EVENT_SET_VALUE",
+                                        "command": "FF_EVENT_DISPATCH_ACTION",
                                         "args": {
-                                            "variable": "L4",
-                                            "value": {
-                                                "type": "number",
-                                                "value": 4
-                                            },
-                                            "__collapse": true
+                                            "action": 9
                                         },
-                                        "id": "972ae786-ba48-47d5-9ac2-8abdeb9b8011"
+                                        "id": "c8355376-4f44-4d78-9af9-43fbbb48113c"
+                                    },
+                                    {
+                                        "command": "FF_EVENT_DISPATCH_ACTION",
+                                        "args": {
+                                            "action": 16
+                                        },
+                                        "id": "2a871c7f-d9f3-4d73-a110-0236e171a509"
                                     }
                                 ]
                             },
-                            "id": "9627759b-c62a-4136-b753-e3e80f2a0a5f"
+                            "id": "9ac49261-2783-4377-82b7-46499b10d30e"
                         },
                         {
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
@@ -11168,9 +11149,9 @@
                                     {
                                         "command": "FF_EVENT_DISPATCH_ACTION",
                                         "args": {
-                                            "action": 16
+                                            "action": 14
                                         },
-                                        "id": "c2beb8b0-84ba-416d-a1b0-60350751d907"
+                                        "id": "c62abc0f-0752-4ec0-bebb-50ef4077adba"
                                     },
                                     {
                                         "command": "FF_EVENT_DISPATCH_ACTION",
@@ -11186,64 +11167,83 @@
                         {
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
-                                "action": 8,
+                                "action": 0,
                                 "__collapse": false
                             },
                             "children": {
                                 "response": [
                                     {
+                                        "command": "FF_EVENT_INIT_ENEMY",
+                                        "args": {
+                                            "enemySlot": 1,
+                                            "enemyType": 1,
+                                            "__collapse": true
+                                        },
+                                        "id": "30e13599-a529-42bc-9941-632db48324fa"
+                                    },
+                                    {
                                         "command": "EVENT_SET_VALUE",
                                         "args": {
-                                            "variable": "3",
+                                            "variable": "L0",
+                                            "value": {
+                                                "type": "number",
+                                                "value": 8
+                                            },
+                                            "__collapse": true
+                                        },
+                                        "id": "85114e72-75cf-4793-a263-8199d9a6b7bb"
+                                    },
+                                    {
+                                        "command": "EVENT_SET_VALUE",
+                                        "args": {
+                                            "variable": "L1",
                                             "value": {
                                                 "type": "number",
                                                 "value": 4
                                             },
                                             "__collapse": true
                                         },
-                                        "id": "52717af7-17c1-4154-b91d-ad5a09cd0d20"
+                                        "id": "42a2dedc-f935-494b-9509-bc2f070fd05e"
                                     },
                                     {
                                         "command": "EVENT_SET_VALUE",
                                         "args": {
-                                            "variable": "4",
+                                            "variable": "L2",
                                             "value": {
                                                 "type": "number",
                                                 "value": 85
                                             },
                                             "__collapse": true
                                         },
-                                        "id": "4004f05d-8fdf-42ec-8289-a41401d8036a"
+                                        "id": "26f2b84e-9bf2-43f0-a87f-9ac95d410869"
                                     },
                                     {
                                         "command": "EVENT_SET_VALUE",
                                         "args": {
-                                            "variable": "7",
+                                            "variable": "L3",
                                             "value": {
                                                 "type": "number",
-                                                "value": 1
+                                                "value": 3
                                             },
                                             "__collapse": true
                                         },
-                                        "id": "ebc3d6c3-5d2e-4410-bbe5-5485945d03b9"
+                                        "id": "d9a749ae-36a7-4ddd-90a5-7477bb5ce943"
                                     },
                                     {
-                                        "command": "FF_EVENT_DISPATCH_ACTION",
+                                        "command": "EVENT_SET_VALUE",
                                         "args": {
-                                            "action": 9
+                                            "variable": "L4",
+                                            "value": {
+                                                "type": "number",
+                                                "value": 4
+                                            },
+                                            "__collapse": true
                                         },
-                                        "id": "c8355376-4f44-4d78-9af9-43fbbb48113c"
-                                    },
-                                    {
-                                        "command": "FF_EVENT_DISPATCH_ACTION",
-                                        "args": {
-                                            "action": 16
-                                        },
-                                        "id": "2a871c7f-d9f3-4d73-a110-0236e171a509"
+                                        "id": "972ae786-ba48-47d5-9ac2-8abdeb9b8011"
                                     }
                                 ]
                             },
-                            "id": "9ac49261-2783-4377-82b7-46499b10d30e"
+                            "id": "9627759b-c62a-4136-b753-e3e80f2a0a5f"
                         },
                         {
                             "command": "EVENT_ACTOR_SET_POSITION",
@@ -12506,6 +12506,14 @@
                                                     "id": "dd407a87-ff63-4c20-b37e-8c7ab6972372"
                                                 },
                                                 {
+                                                    "command": "EVENT_ACTOR_SET_ANIMATION_SPEED",
+                                                    "args": {
+                                                        "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00",
+                                                        "speed": 3
+                                                    },
+                                                    "id": "4e595285-057c-42d7-9279-4478b5213573"
+                                                },
+                                                {
                                                     "command": "EVENT_ACTOR_SET_STATE",
                                                     "args": {
                                                         "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00",
@@ -12520,13 +12528,6 @@
                                                         "action": 1
                                                     },
                                                     "id": "40b3e50f-f45b-4ccd-9ebb-ed59f6c79030"
-                                                },
-                                                {
-                                                    "command": "FF_EVENT_DISPATCH_ACTION",
-                                                    "args": {
-                                                        "action": 14
-                                                    },
-                                                    "id": "cd626186-4b4d-47a7-90ce-3183edcfc54c"
                                                 },
                                                 {
                                                     "command": "FF_EVENT_DISPATCH_ACTION",
