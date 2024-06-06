@@ -10402,7 +10402,7 @@
                     "hit2Script": [],
                     "hit3Script": [],
                     "id": "9c19db58-2e7a-44d7-861f-c4544041ec00",
-                    "x": 14,
+                    "x": 13,
                     "y": 4
                 }
             ],
@@ -12087,6 +12087,34 @@
                                                     "id": "12e17736-80fa-4e9a-bfa7-d40294afc11e"
                                                 },
                                                 {
+                                                    "command": "EVENT_ACTOR_MOVE_RELATIVE",
+                                                    "args": {
+                                                        "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00",
+                                                        "x": {
+                                                            "type": "number",
+                                                            "value": 1
+                                                        },
+                                                        "y": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "moveType": "horizontal",
+                                                        "useCollisions": false,
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "8eefc28f-6cfe-4d67-90ec-e6e8bb8ea658"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_SET_STATE",
+                                                    "args": {
+                                                        "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00",
+                                                        "spriteStateId": "",
+                                                        "loopAnim": true,
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "5a45c93c-670e-45a1-98cd-7c26fe3fa1b6"
+                                                },
+                                                {
                                                     "command": "EVENT_ACTOR_SHOW",
                                                     "args": {
                                                         "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00",
@@ -12101,7 +12129,8 @@
                                                         "variable": "28",
                                                         "value": {
                                                             "type": "true"
-                                                        }
+                                                        },
+                                                        "__collapse": true
                                                     },
                                                     "id": "90dea67f-4023-4e57-ab58-4a71529ec2c4"
                                                 }
@@ -12164,7 +12193,8 @@
                                                         "variable": "28",
                                                         "value": {
                                                             "type": "false"
-                                                        }
+                                                        },
+                                                        "__collapse": true
                                                     },
                                                     "id": "c2518905-07ad-405e-9188-8b33717f75d2"
                                                 }
@@ -12669,17 +12699,39 @@
                                         "id": "ac272eb3-d466-43c1-869b-9f720243c5f8"
                                     },
                                     {
-                                        "command": "FO_EVENT_SUBMAP2",
+                                        "command": "EVENT_IF",
                                         "args": {
-                                            "keyX": 1,
-                                            "keyY": 1,
-                                            "keyW": 10,
-                                            "keyH": 4,
-                                            "keySX": 0,
-                                            "keySY": 18,
-                                            "__collapse": true
+                                            "condition": {
+                                                "type": "eq",
+                                                "valueA": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                },
+                                                "valueB": {
+                                                    "type": "true"
+                                                }
+                                            },
+                                            "__collapseElse": true
                                         },
-                                        "id": "e9b142a4-3c7b-4359-8902-e2efc4abfd19"
+                                        "children": {
+                                            "true": [
+                                                {
+                                                    "command": "FO_EVENT_SUBMAP2",
+                                                    "args": {
+                                                        "keyX": 1,
+                                                        "keyY": 1,
+                                                        "keyW": 10,
+                                                        "keyH": 4,
+                                                        "keySX": 0,
+                                                        "keySY": 18,
+                                                        "__collapse": false
+                                                    },
+                                                    "id": "e9b142a4-3c7b-4359-8902-e2efc4abfd19"
+                                                }
+                                            ],
+                                            "false": []
+                                        },
+                                        "id": "01534427-331e-4797-8c4f-f0a6ec8f42fa"
                                     },
                                     {
                                         "command": "FO_EVENT_SUBMAP2",
@@ -18575,9 +18627,9 @@
         "showConnections": true,
         "showCollisionSlopeTiles": false,
         "showCollisionExtraTiles": false,
-        "worldScrollX": 1566,
-        "worldScrollY": 158,
-        "zoom": 200,
+        "worldScrollX": 3611,
+        "worldScrollY": 348,
+        "zoom": 376.5,
         "sgbEnabled": false,
         "customHead": "",
         "defaultBackgroundPaletteIds": [
