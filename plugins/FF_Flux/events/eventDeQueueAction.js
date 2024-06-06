@@ -1,6 +1,6 @@
-const id = "FF_EVENT_POP_ACTION";
+const id = "FF_EVENT_DEQUEUE_ACTION";
 const groups = ["Game Specific"];
-const name = "Pop Action";
+const name = "Dequeue Action";
 
 const collator = new Intl.Collator()
 
@@ -10,7 +10,7 @@ const fields = (
     {
       key: "destination",
       type: "label",
-      label: "Removes an Action from the end of the Action Stack and assigns it to Action"
+      label: "Removes an Action from the start of the Action Stack and assigns it to Action"
     }
   ]
 );
@@ -41,11 +41,6 @@ const actionStackMissingError = {
   "id": "report-action-stack-missing"
 }
 
-const stopActionPop = {
-  "command": "EVENT_STOP",
-  "args": {},
-  "id": "stop-pop-action-stack"
-}
 const clearSlot = (variable) => {
   const event = {
     "command": "EVENT_SET_VALUE",
@@ -68,16 +63,16 @@ const compile = (input, helpers) => {
     _addComment,
     _addNL,
     ifVariableValue,
-    variableDec,
+    variableInc,
     caseVariableValue
   } = helpers;
 
   const action = Object.values(variablesLookup).find((x) => x.name == "Action")
-  const stack_ptr = Object.values(variablesLookup).find((x) => x.name == "Action/Stack Pointer")
+  const queue_ptr = Object.values(variablesLookup).find((x) => x.name == "Action/Queue Pointer")
   if (!action) {
     throw new Error(`Variable Not Found: Action`)
   }
-  if (!stack_ptr) {
+  if (!queue_ptr) {
     throw new Error(`Variable Not Found: Action/Stack Pointer`)
   }
 
@@ -94,9 +89,9 @@ const compile = (input, helpers) => {
   })
 
 
-  _addComment(`Pop Action`);
-  variableDec(stack_ptr.id);
-  caseVariableValue(stack_ptr.id, switch_cases, [actionStackMissingError]);
+  _addComment(`Dequeue Action`);
+  caseVariableValue(queue_ptr.id, switch_cases, [actionStackMissingError]);
+  variableInc(queue_ptr.id);
   _addNL();
 };
 

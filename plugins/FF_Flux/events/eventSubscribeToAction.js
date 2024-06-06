@@ -18,7 +18,9 @@ const actions = [
     "SCENE/Fade In",
     "Player 1/End Turn",
     "MENU/Close Panel",
-    "Enemy 1/End Turn"
+    "Enemy 1/End Turn",
+    "REPORT/Prepare",
+    "REPORT/Player Attack"
 ];
 
 const collator = new Intl.Collator()
