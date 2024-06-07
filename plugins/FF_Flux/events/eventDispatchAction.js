@@ -3,25 +3,27 @@ const groups = ["Game Specific"];
 const name = "Dispatch Action";
 const actions = [
     "STORE/Initialize Stores",
-    "Player 1/Fight",
-    "Player 1/Shield",
-    "Player 1/Limit Break",
+    "Player/Fight",
+    "Player/Shield",
+    "Player/Limit Break",
     "Menu Choice/Item",
     "Menu Choice/Magic",
-    "Player 1/Block",
+    "Player/Block",
     "Menu Choice/Run",
-    "Enemy 1/Take Turn",
-    "Enemy 1/Do Harm",
-    "Player 1/Do Harm",
+    "Enemy/Take Turn",
+    "Player/Take Damage",
+    "Enemy/Take Damage",
     "Menu Choice/Choice Made",
     "MENU/Open Panel",
     "SCENE/Fade In",
-    "Player 1/End Turn",
+    "End Turn",
     "MENU/Close Panel",
-    "Enemy 1/End Turn",
+    "TURN/Build Initiative",
     "REPORT/Prepare",
     "REPORT/Player Attack"
 ];
+
+const autoLabel = (fetchArg, input) => `Dispatch: ${actions[input["action"]]}`
 
 const collator = new Intl.Collator()
 
@@ -97,6 +99,7 @@ const compile = (input, helpers) => {
 
 module.exports = {
   id,
+  autoLabel,
   name,
   groups,
   fields,
