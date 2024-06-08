@@ -12676,7 +12676,7 @@
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
                                 "action": 12,
-                                "__collapse": true
+                                "__collapse": false
                             },
                             "children": {
                                 "response": [
@@ -12718,7 +12718,7 @@
                                                         "keyH": 18,
                                                         "keySX": 24,
                                                         "keySY": 0,
-                                                        "__collapse": true
+                                                        "__collapse": false
                                                     },
                                                     "id": "04b6a42f-f4e7-4cdc-b891-edd58c133445"
                                                 },
@@ -12726,8 +12726,8 @@
                                                     "command": "FF_EVENT_SET_HERO",
                                                     "args": {
                                                         "name": "FIGHTR",
-                                                        "hp": 1,
-                                                        "__collapse": true,
+                                                        "hp": "6",
+                                                        "__collapse": false,
                                                         "ap": 4
                                                     },
                                                     "id": "5f5bc8d3-9d70-4b41-a9f4-1f2f7ff22664"
@@ -12747,7 +12747,7 @@
                                                         "slot_6_name": "Magic>",
                                                         "slot_7_name": "Block-",
                                                         "slot_8_name": "Run",
-                                                        "__collapse": true
+                                                        "__collapse": false
                                                     },
                                                     "id": "35558f4f-2de6-4bdb-943f-f636c56e1fb6"
                                                 },
@@ -13901,7 +13901,7 @@
                                                         "__collapseCase15": false,
                                                         "value15": 16,
                                                         "__collapseElse": false,
-                                                        "__collapse": true
+                                                        "__collapse": false
                                                     },
                                                     "children": {
                                                         "true0": [
@@ -24054,7 +24054,7 @@
         }
     ],
     "settings": {
-        "startSceneId": "97ae8775-3b76-4b99-88ae-364931c1f441",
+        "startSceneId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
         "startX": 65,
         "startY": 91,
         "startMoveSpeed": 1,
@@ -24064,8 +24064,8 @@
         "showConnections": true,
         "showCollisionSlopeTiles": false,
         "showCollisionExtraTiles": false,
-        "worldScrollX": 1971,
-        "worldScrollY": 2450,
+        "worldScrollX": 3031,
+        "worldScrollY": 317,
         "zoom": 337,
         "sgbEnabled": false,
         "customHead": "",
@@ -24157,7 +24157,18 @@
         "debuggerCollapsedPanes": [],
         "debuggerPauseOnScriptChanged": false,
         "debuggerPauseOnWatchedVariableChanged": false,
-        "debuggerBreakpoints": [],
+        "debuggerBreakpoints": [
+            {
+                "scriptEventId": "5f5bc8d3-9d70-4b41-a9f4-1f2f7ff22664",
+                "context": {
+                    "type": "entity",
+                    "entityType": "trigger",
+                    "entityId": "182a8ca6-c0cd-4216-ae8f-e3c706512a51",
+                    "sceneId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
+                    "scriptKey": "script"
+                }
+            }
+        ],
         "debuggerWatchedVariables": [
             "46",
             "0"

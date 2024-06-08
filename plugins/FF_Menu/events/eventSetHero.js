@@ -13,10 +13,8 @@ const fields = (
     },
     {
       key: "hp",
-      type: "number",
-      defaultValue: 0,
-      max: 999,
-      min: 1
+      type: "variable",
+      defaultValue: "LAST_VARIABLE",
     },
     {
       key: "ap",
@@ -28,20 +26,23 @@ const fields = (
   ]
 );
 
+
 const compile = (input, helpers) => {
   const {
     _loadText,
     _string,
     _displayText,
-    _overlayWait
+    _overlayWait,
+    getVariableAlias,
+    _dw
   } = helpers;
-
+  const hero_hp = getVariableAlias(input["hp"])
   const _name = input["name"].padEnd(6, " ")
-  const _hp = `${input["hp"]}`.padStart(6, " ")
-  const _ap = Array(input["ap"]).fill("+").join("").padEnd(6,"-")
+  const _ap = Array(input["ap"]).fill("+").join("").padEnd(6, "-")
 
-  _loadText(0)
-  _string(`\\001\\1\\003\\2\\2${_name}\\r${_hp}\\r   ${_ap.substring(0,3)}\\r   ${_ap.substring(3,6)}`)
+  _loadText(1)
+  _dw(hero_hp)
+  _string(`\\001\\1\\003\\2\\2${_name}\\003\\5\\3%D3\\003\\5\\4${_ap.substring(0, 3)}\\n${_ap.substring(3, 6)}`)
   _displayText()
   _overlayWait(true, [".UI_WAIT_TEXT"])
 };
