@@ -16,11 +16,12 @@ const actions = [
     "Menu Choice/Choice Made",
     "MENU/Open Panel",
     "SCENE/Fade In",
-    "End Turn",
+    "TURN/Start Next Turn",
     "MENU/Close Panel",
     "TURN/Build Initiative",
     "REPORT/Prepare",
-    "REPORT/Player Attack"
+    "REPORT/Attack Results",
+    "Player/Take Turn"
 ];
 
 const autoLabel = (fetchArg, input) => `Dispatch: ${actions[input["action"]]}`
