@@ -21,7 +21,9 @@ const actions = [
     "TURN/Build Initiative",
     "REPORT/Prepare",
     "REPORT/Attack Results",
-    "Player/Take Turn"
+    "Player/Take Turn",
+    "REPORT/Reject Menu Choice",
+    "Menu Choice/Handle Choice"
 ];
 
 const collator = new Intl.Collator()
