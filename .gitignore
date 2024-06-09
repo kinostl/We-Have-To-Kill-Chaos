@@ -1,3 +1,4 @@
 build/*
 *jam_orbital*
 node_modules/*
+*.zip

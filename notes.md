@@ -247,3 +247,5 @@ Wait for the UI operation(s) completion
     VM_OVERLAY_MOVE_TO      10, 18, .OVERLAY_OUT_SPEED
     VM_OVERLAY_WAIT         .UI_MODAL, ^/(.UI_WAIT_WINDOW | .UI_WAIT_TEXT)/
     VM_OVERLAY_MOVE_TO      0, 18, .OVERLAY_SPEED_INSTANT
+
+    Party starts with 500G on NES
