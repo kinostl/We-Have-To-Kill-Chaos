@@ -10766,7 +10766,7 @@
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
                                 "action": 1,
-                                "__collapse": true
+                                "__collapse": false
                             },
                             "children": {
                                 "response": [
@@ -13126,7 +13126,7 @@
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
                                 "action": 11,
-                                "__collapse": true
+                                "__collapse": false
                             },
                             "children": {
                                 "response": [
@@ -13278,7 +13278,7 @@
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
                                 "action": 21,
-                                "__collapse": true
+                                "__collapse": false
                             },
                             "children": {
                                 "response": [
@@ -13393,13 +13393,6 @@
                                             "false": []
                                         },
                                         "id": "8da5819c-ad34-4d87-9535-9de7a6818dd9"
-                                    },
-                                    {
-                                        "command": "FF_EVENT_DISPATCH_ACTION",
-                                        "args": {
-                                            "action": 14
-                                        },
-                                        "id": "5b6058fa-d19b-40d6-8b22-3fcda0827cfe"
                                     }
                                 ]
                             },

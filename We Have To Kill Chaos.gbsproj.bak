@@ -12222,46 +12222,9 @@
                                                         ],
                                                         "false": [
                                                             {
-                                                                "command": "EVENT_SET_VALUE",
-                                                                "args": {
-                                                                    "variable": "0",
-                                                                    "value": {
-                                                                        "type": "number",
-                                                                        "value": -1
-                                                                    }
-                                                                },
-                                                                "id": "222ffaca-969b-4da5-8102-aa80eb3835a7"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_COMMENT",
-                                                                "args": {
-                                                                    "text": "Magic Number that can probably be turned into a plugin & settings variable. Its just the ID of \"Action/Stack 1\""
-                                                                },
-                                                                "id": "cb1e7741-6e00-4be0-8a06-940b72ddbf2c"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_SET_VALUE",
-                                                                "args": {
-                                                                    "variable": "29",
-                                                                    "value": {
-                                                                        "type": "number",
-                                                                        "value": 9
-                                                                    },
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "ab98c056-b64c-4dc7-9431-1d6b07d2c641"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_SET_VALUE",
-                                                                "args": {
-                                                                    "variable": "26",
-                                                                    "value": {
-                                                                        "type": "number",
-                                                                        "value": 9
-                                                                    },
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "72e6f80f-4e1a-49ae-bc82-27e92416021c"
+                                                                "command": "FF_EVENT_INIT_ACTION_QUEUE",
+                                                                "args": {},
+                                                                "id": "c7576e40-6d94-4188-b274-b0bb66bb6f35"
                                                             },
                                                             {
                                                                 "command": "EVENT_GROUP",
@@ -14336,45 +14299,9 @@
                     "id": "1927e2c3-83ca-46a8-876c-963891932aee"
                 },
                 {
-                    "command": "EVENT_SET_VALUE",
-                    "args": {
-                        "variable": "0",
-                        "value": {
-                            "type": "number",
-                            "value": -1
-                        },
-                        "__collapse": true
-                    },
-                    "id": "f0da5006-5e0b-4569-b8db-668906ca5c71"
-                },
-                {
                     "command": "FF_EVENT_INIT_ACTION_QUEUE",
                     "args": {},
                     "id": "6129087b-b586-414d-ac56-0880055aabed"
-                },
-                {
-                    "command": "EVENT_SET_VALUE",
-                    "args": {
-                        "variable": "29",
-                        "value": {
-                            "type": "number",
-                            "value": 9
-                        },
-                        "__collapse": false
-                    },
-                    "id": "2e7cbb33-cfc8-4efa-a1bd-92710301456c"
-                },
-                {
-                    "command": "EVENT_SET_VALUE",
-                    "args": {
-                        "variable": "26",
-                        "value": {
-                            "type": "number",
-                            "value": 9
-                        },
-                        "__collapse": false
-                    },
-                    "id": "ef34cfa7-16c8-4b2b-9686-01d4f7360ece"
                 },
                 {
                     "command": "FF_EVENT_DISPATCH_ACTION",
