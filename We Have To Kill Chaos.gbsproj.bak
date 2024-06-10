@@ -10766,7 +10766,7 @@
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
                                 "action": 1,
-                                "__collapse": true
+                                "__collapse": false
                             },
                             "children": {
                                 "response": [
@@ -10872,10 +10872,22 @@
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
                                 "action": 9,
-                                "__collapse": true
+                                "__collapse": false
                             },
                             "children": {
                                 "response": [
+                                    {
+                                        "command": "EVENT_SET_VALUE",
+                                        "args": {
+                                            "variable": "31",
+                                            "value": {
+                                                "type": "variable",
+                                                "value": "6"
+                                            },
+                                            "__collapse": false
+                                        },
+                                        "id": "d56e0d42-2da4-4010-a147-25531a87a6ca"
+                                    },
                                     {
                                         "command": "EVENT_SET_VALUE",
                                         "args": {
@@ -11028,8 +11040,15 @@
                                                                     "value": "8"
                                                                 },
                                                                 "valueB": {
-                                                                    "type": "variable",
-                                                                    "value": "L1"
+                                                                    "type": "sub",
+                                                                    "valueA": {
+                                                                        "type": "variable",
+                                                                        "value": "L1"
+                                                                    },
+                                                                    "valueB": {
+                                                                        "type": "variable",
+                                                                        "value": "64"
+                                                                    }
                                                                 }
                                                             },
                                                             "valueB": {
@@ -11040,6 +11059,17 @@
                                                         "__collapse": false
                                                     },
                                                     "id": "674ffb19-cd92-4e46-86d3-0ccb065fe19f"
+                                                },
+                                                {
+                                                    "command": "EVENT_SET_VALUE",
+                                                    "args": {
+                                                        "variable": "64",
+                                                        "value": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        }
+                                                    },
+                                                    "id": "16420a7b-c738-4ff5-a40a-39f65f4e825b"
                                                 },
                                                 {
                                                     "command": "EVENT_SET_VALUE",
@@ -11817,9 +11847,9 @@
                                             "variable": "L0",
                                             "value": {
                                                 "type": "number",
-                                                "value": 8
+                                                "value": 80
                                             },
-                                            "__collapse": true
+                                            "__collapse": false
                                         },
                                         "id": "85114e72-75cf-4793-a263-8199d9a6b7bb"
                                     },
@@ -13012,6 +13042,17 @@
                                 }
                             },
                             "id": "628c1daf-bf26-4571-8e84-d0da5ca82c90"
+                        },
+                        {
+                            "command": "EVENT_SET_VALUE",
+                            "args": {
+                                "variable": "1",
+                                "value": {
+                                    "type": "number",
+                                    "value": 16
+                                }
+                            },
+                            "id": "08a376a8-4b2e-4e61-82a8-14f14f7f855c"
                         }
                     ],
                     "leaveScript": []
@@ -13126,7 +13167,7 @@
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
                                 "action": 11,
-                                "__collapse": true
+                                "__collapse": false
                             },
                             "children": {
                                 "response": [
@@ -13278,7 +13319,7 @@
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
                                 "action": 21,
-                                "__collapse": true
+                                "__collapse": false
                             },
                             "children": {
                                 "response": [
@@ -13379,6 +13420,17 @@
                                                         "__collapse": true
                                                     },
                                                     "id": "66bd83b3-f83d-44c9-9cd8-da9281f75740"
+                                                },
+                                                {
+                                                    "command": "EVENT_SET_VALUE",
+                                                    "args": {
+                                                        "variable": "64",
+                                                        "value": {
+                                                            "type": "number",
+                                                            "value": 10
+                                                        }
+                                                    },
+                                                    "id": "9bd753fa-f1a8-4bbc-9a2a-b52b4dff7232"
                                                 }
                                             ],
                                             "true7": [],
@@ -13393,13 +13445,6 @@
                                             "false": []
                                         },
                                         "id": "8da5819c-ad34-4d87-9535-9de7a6818dd9"
-                                    },
-                                    {
-                                        "command": "FF_EVENT_DISPATCH_ACTION",
-                                        "args": {
-                                            "action": 14
-                                        },
-                                        "id": "5b6058fa-d19b-40d6-8b22-3fcda0827cfe"
                                     }
                                 ]
                             },
@@ -24661,6 +24706,11 @@
             "id": "f1cf7e1f-1c86-4679-b076-dc3ee8711bff__L0",
             "name": "class",
             "symbol": "var_class"
+        },
+        {
+            "id": "64",
+            "name": "Modifier/Absorb Bonus",
+            "symbol": "var_modifier_absorb_bonus"
         }
     ],
     "engineFieldValues": [
@@ -24684,8 +24734,8 @@
         "showConnections": true,
         "showCollisionSlopeTiles": false,
         "showCollisionExtraTiles": false,
-        "worldScrollX": 1577,
-        "worldScrollY": 0,
+        "worldScrollX": 1726,
+        "worldScrollY": 158,
         "zoom": 200,
         "sgbEnabled": false,
         "customHead": "",
