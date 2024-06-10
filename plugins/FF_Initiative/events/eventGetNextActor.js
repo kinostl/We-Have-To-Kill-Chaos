@@ -50,9 +50,9 @@ const compile = (input, helpers) => {
     .map((x) => getVariableAlias(x.id))
   const max_value = _getVarAlias("Turn Order/Max Value")
   const max_value_ptr = _getVarAlias("Turn Order/Max Value Ptr")
-  const next_actor = _getVarAlias("Turn Order/Next Actor")
+  const current_actor = _getVarAlias("Turn Order/Current Actor")
 
-  _setConst(next_actor, 0)
+  _setConst(current_actor, 0)
 
   turn_slots.forEach(
     (slot, i) => {
@@ -74,7 +74,7 @@ const compile = (input, helpers) => {
       _jump(endLabel)
       _label(trueLabel)
       _setConst(max_value_ptr, slot)
-      _setConst(next_actor, i+1)
+      _setConst(current_actor, i+1)
       _label(endLabel)
       _stackPop(1)
     }
