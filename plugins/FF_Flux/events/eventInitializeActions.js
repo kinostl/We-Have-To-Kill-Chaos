@@ -39,14 +39,9 @@ const compile = (input, helpers) => {
 
   const action = Object.values(variablesLookup).find((x) => x.name == "Action")
   const action_alias = getVariableAlias(action.id)
-  const queue_ptr = Object.values(variablesLookup).find((x) => x.name == "Action/Queue Pointer")
-  const queue_ptr_alias = getVariableAlias(queue_ptr.id)
 
   if (!action) {
     throw new Error(`Variable Not Found: Action`)
-  }
-  if (!queue_ptr) {
-    throw new Error(`Variable Not Found: Action/Queue Pointer`)
   }
 
   _addComment(`Initialize Actions`);
@@ -55,7 +50,6 @@ const compile = (input, helpers) => {
   })
   _setConst(action_alias, -1)
   _setConst(stack_ptr_alias, 9)
-  _setConst(queue_ptr_alias, 9)
   _addNL();
 };
 

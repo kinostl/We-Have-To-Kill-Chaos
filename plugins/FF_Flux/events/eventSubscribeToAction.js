@@ -49,10 +49,22 @@ const compile = (input, helpers) => {
   const {
     ifVariableValue,
     variablesLookup,
-    _addComment
+    _addComment,
+    additionalOutput,
+    entity,
+    entityIndex
   } = helpers;
   const var_action = Object.values(variablesLookup).find((x)=>x.name=="Action")
+  if (!additionalOutput['dat_chart']) {
+    additionalOutput['dat_chart'] = {
+      filename: 'dat_chart.md',
+      data: `a${input["action"]}(${actions[input["action"]]})-.->${entity.id}[(${entity.name})]\n`
+    }
+  } else {
+    additionalOutput['dat_chart'].data = `a${input["action"]}(${actions[input["action"]]})-.->${entity.id}[(${entity.name})]\n` + additionalOutput['dat_chart'].data
+  }
 
+  _addComment(`Subscribe to: ${actions[input["action"]]}`)
   ifVariableValue(
     var_action.id,
     '.EQ',
