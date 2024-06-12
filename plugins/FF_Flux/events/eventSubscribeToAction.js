@@ -10,9 +10,9 @@ const actions = [
     "Menu Choice/Magic",
     "Player/Block",
     "Menu Choice/Run",
-    "Enemy/Take Turn",
-    "Player/Take Damage",
-    "Enemy/Take Damage",
+    "TURN/Take Next Turn",
+    "DEFENDER/Take Damage",
+    "Player/Enable",
     "Menu Choice/Choice Made",
     "MENU/Open Panel",
     "SCENE/Fade In",
@@ -21,7 +21,7 @@ const actions = [
     "TURN/Build Initiative",
     "REPORT/Prepare",
     "REPORT/Attack Results",
-    "Player/Take Turn",
+    "BLANK",
     "REPORT/Reject Menu Choice",
     "Menu Choice/Handle Choice"
 ];
