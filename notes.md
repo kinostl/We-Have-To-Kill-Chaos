@@ -249,3 +249,55 @@ Wait for the UI operation(s) completion
     VM_OVERLAY_MOVE_TO      0, 18, .OVERLAY_SPEED_INSTANT
 
     Party starts with 500G on NES
+
+# Idea For Short Menu
+
+```
+NAMESP
+AAX000
+AAY111
+```
+
+NAMESP is the Name Space
+AA
+AA is the character's walking sprite
+X is the HP *Symbol*
+Y is the AP *Symbol*
+000 is the HP Amount
+111 is the AP Amount? Maybe symbols.
+or do first 1 as AP and other 2 as status symbols
+
+```
+AANAME
+AAX000
+AAY111
+```
+
+Could also do this and get full sized sprites, which would allow for animations. Then shrink names down to 4 and use the two extra spaces in the big view for Status Effects. I like that and combining it with the 1SS thing above.
+
+## Small Mode
+
+```
+AANAME
+AAX000
+AAY1SS
+```
+
+SS is Status Effect Area
+
+```
+NAMESS
+ AA000
+ AAYYY
+ AAYYY
+```
+
+YYY is the AP Blocks
+
+VM_SET_FONT 1
+
+VM_PUSH_CONST 0
+VM_PUSH_CONST .FRAME_TILE_ID
+
+VM_REPLACE_TILE .ARG0, ___bank_tileset_frame_0, _tileset_frame_0, .ARG1, .FRAME_LENGTH
+VM_POP 2
