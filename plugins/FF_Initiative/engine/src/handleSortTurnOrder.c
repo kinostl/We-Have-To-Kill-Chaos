@@ -1,28 +1,30 @@
-#include <stdint.h>
 #pragma bank 255
 
 #include "vm.h"
 #include "data/game_globals.h"
+#include <stdint.h>
 
+#define TURN_ORDER_COUNT 10
 void handleSortTurnOrder(SCRIPT_CTX * THIS) OLDCALL BANKED {
 
-    int16_t * initative_rolls = (uint16_t *) VM_REF_TO_PTR(VAR_TURN_ORDER_SLOT_1_P1);
-    int16_t turn_order[10];
+    int16_t * initative_rolls = (int16_t *) VM_REF_TO_PTR(VAR_TURN_ORDER_SLOT_1_P1);
+    int16_t turn_order[TURN_ORDER_COUNT];
     uint16_t end_of_arr=0;
     int16_t max_val=-1;
     int16_t max_i=0;
-    for(uint16_t i = 0; i<10;i++){
+
+    for(uint16_t i = 0; i<TURN_ORDER_COUNT;i++){
         turn_order[i] = -1;
     }
 
-    for(uint16_t i = 0; i<10;i++){
+    for(uint16_t i = 0; i<TURN_ORDER_COUNT;i++){
         if(initative_rolls[i] < 0){
             continue;
         }
         max_val = initative_rolls[i];
         max_i=i;
 
-        for (uint16_t j = i; j < 10; j++) {
+        for (uint16_t j = i; j < TURN_ORDER_COUNT; j++) {
           if (initative_rolls[j] > max_val) {
             max_val = initative_rolls[j];
           }
@@ -33,7 +35,7 @@ void handleSortTurnOrder(SCRIPT_CTX * THIS) OLDCALL BANKED {
         }
     }
 
-    for(uint16_t i = 0; i<10;i++){
+    for(uint16_t i = 0; i<TURN_ORDER_COUNT;i++){
         initative_rolls[i] = turn_order[i];
     }
 }
