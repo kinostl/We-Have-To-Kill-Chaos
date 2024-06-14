@@ -41,17 +41,13 @@ const compile = (input, helpers) => {
       return a.sortOrder - b.sortOrder
     })
     .map((x) => getVariableAlias(x.id))
-  const max_value = _getVarAlias("Turn Order/Max Value")
-  const max_value_ptr = _getVarAlias("Turn Order/Max Value Ptr")
   const current_actor = _getVarAlias("Turn Order/Current Actor")
 
   _addComment(`Initialize Turn Slots`);
   turn_slots.forEach((x)=>{
     _setConst(x, -1)
   })
-  _setConst(max_value, 0)
-  _setConst(max_value_ptr, 0)
-  _setConst(current_actor, 0)
+  _setConst(current_actor, -1)
   _addNL();
 };
 

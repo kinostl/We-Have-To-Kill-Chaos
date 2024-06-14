@@ -1,6 +1,13 @@
 ```mermaid
 %%{ init: { 'flowchart': { 'curve': 'catmullRom' } } }%%
-flowchart LR
+flowchart TD
+a8(TURN/Take Next Turn)-.->1d2b8415-25a9-44fe-8843-6e86b60f76df[(Player Slot 2 Store)]
+a9(DEFENDER/Take Damage)-.->1d2b8415-25a9-44fe-8843-6e86b60f76df[(Player Slot 2 Store)]
+a1(Player/Fight)-.->1d2b8415-25a9-44fe-8843-6e86b60f76df[(Player Slot 2 Store)]
+a0(STORE/Initialize Stores)-.->1d2b8415-25a9-44fe-8843-6e86b60f76df[(Player Slot 2 Store)]
+a0(STORE/Initialize Stores)-.->b1485b54-946e-4c56-9971-ceef4c138eff[(Enemy Slot 3 Store)]
+a9(DEFENDER/Take Damage)-.->b1485b54-946e-4c56-9971-ceef4c138eff[(Enemy Slot 3 Store)]
+a8(TURN/Take Next Turn)-.->b1485b54-946e-4c56-9971-ceef4c138eff[(Enemy Slot 3 Store)]
 a0(STORE/Initialize Stores)-.->9c7813d8-1d8c-4eab-aaaa-6b885a213232[(Enemy Slot 2 Store)]
 a9(DEFENDER/Take Damage)-.->9c7813d8-1d8c-4eab-aaaa-6b885a213232[(Enemy Slot 2 Store)]
 a8(TURN/Take Next Turn)-.->9c7813d8-1d8c-4eab-aaaa-6b885a213232[(Enemy Slot 2 Store)]
@@ -48,4 +55,11 @@ a0(STORE/Initialize Stores)-.->7e9e2248-0ccc-4df3-aea0-83236a0b7f9d[(Player Slot
 9c7813d8-1d8c-4eab-aaaa-6b885a213232[(Enemy Slot 2 Store)]-->a9(DEFENDER/Take Damage)
 9c7813d8-1d8c-4eab-aaaa-6b885a213232[(Enemy Slot 2 Store)]-->a14(TURN/Start Next Turn)
 9c7813d8-1d8c-4eab-aaaa-6b885a213232[(Enemy Slot 2 Store)]-->a18(REPORT/Attack Results)
+b1485b54-946e-4c56-9971-ceef4c138eff[(Enemy Slot 3 Store)]-->a9(DEFENDER/Take Damage)
+b1485b54-946e-4c56-9971-ceef4c138eff[(Enemy Slot 3 Store)]-->a14(TURN/Start Next Turn)
+b1485b54-946e-4c56-9971-ceef4c138eff[(Enemy Slot 3 Store)]-->a18(REPORT/Attack Results)
+1d2b8415-25a9-44fe-8843-6e86b60f76df[(Player Slot 2 Store)]-->a9(DEFENDER/Take Damage)
+1d2b8415-25a9-44fe-8843-6e86b60f76df[(Player Slot 2 Store)]-->a18(REPORT/Attack Results)
+1d2b8415-25a9-44fe-8843-6e86b60f76df[(Player Slot 2 Store)]-->a12(MENU/Open Panel)
+1d2b8415-25a9-44fe-8843-6e86b60f76df[(Player Slot 2 Store)]-->a10(Player/Enable)
 ```

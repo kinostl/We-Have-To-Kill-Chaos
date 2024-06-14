@@ -54,7 +54,6 @@ const compile = (input, helpers) => {
   const updateView = input["updateView"]
   updateView.unshift(clearSlot(current_store.id))
   
-  _addComment(JSON.stringify(switch_cases))
   _addComment("Propogate Actions");
   variableInc(current_store.id);
   caseVariableValue(current_store.id, switch_cases, updateView);

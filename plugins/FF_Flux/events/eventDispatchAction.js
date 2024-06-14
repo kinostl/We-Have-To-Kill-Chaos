@@ -21,9 +21,10 @@ const actions = [
     "TURN/Build Initiative",
     "REPORT/Prepare",
     "REPORT/Attack Results",
-    "BLANK",
+    "TURN/Roll Initiative",
     "REPORT/Reject Menu Choice",
-    "Menu Choice/Handle Choice"
+    "Menu Choice/Handle Choice",
+    "TURN/Sort Initiative"
 ];
 
 const autoLabel = (fetchArg, input) => `Dispatch: ${actions[input["action"]]}`
@@ -79,7 +80,6 @@ const compile = (input, helpers) => {
   }
 
   _addComment(`Dispatch: ${actions[input["action"]]}`)
-  _addComment(JSON.stringify(stack_ptr))
 
   const trueLabel = getNextLabel()
   const endLabel = getNextLabel()

@@ -301,3 +301,16 @@ VM_PUSH_CONST .FRAME_TILE_ID
 
 VM_REPLACE_TILE .ARG0, ___bank_tileset_frame_0, _tileset_frame_0, .ARG1, .FRAME_LENGTH
 VM_POP 2
+
+  // Enemies don't have Agility, only Evade
+  // Should Players join the queue via Ability or Evade?
+  /**
+   * 4. The formula for a character's Evasion is:
+
+    Evasion = 48 + AGL - Armor Weight
+
+   */
+  // Players should queue via Evade as well.
+
+  // I think 1dHP + EVA sounds fun
+  // Reroll each turn to allow for things like HASTE to matter more

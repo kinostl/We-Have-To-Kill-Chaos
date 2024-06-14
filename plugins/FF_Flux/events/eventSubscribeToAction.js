@@ -21,14 +21,15 @@ const actions = [
     "TURN/Build Initiative",
     "REPORT/Prepare",
     "REPORT/Attack Results",
-    "BLANK",
+    "TURN/Roll Initiative",
     "REPORT/Reject Menu Choice",
-    "Menu Choice/Handle Choice"
+    "Menu Choice/Handle Choice",
+    "TURN/Sort Initiative"
 ];
 
-const collator = new Intl.Collator()
-
 const autoLabel = (fetchArg, input) => `Subscribe to ${actions[input["action"]]}`
+
+const collator = new Intl.Collator()
 
 const fields = (
   [

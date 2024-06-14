@@ -16,76 +16,45 @@ const fields = (
 const compile = (input, helpers) => {
   const {
     variablesLookup,
-    _ifConst,
-    _stackPushConst,
-    _stackPop,
-    _rpn,
     _addComment,
     _addNL,
-    _setConst,
+    _set,
+    variableDec,
     getVariableAlias,
-    getNextLabel,
-    _jump,
-    _label,
-    _setInd
+    _memCpy,
+    _setConst
   } = helpers;
 
-  const _getVarAlias = (var_name)=>{
+  const _getVarAlias = (var_name) => {
     return getVariableAlias(
       Object.values(variablesLookup)
         .find((x) => x.name == var_name).id
     )
   }
-  _addComment("Set Next Actor")
   const turn_slots = Object.values(variablesLookup)
     .filter((x) => x.name.startsWith("Turn Order/Slot"))
-    .map((x)=>{
+    .map((x) => {
       const asArr = x.name.split(/[/ #]/)
       x.sortOrder = Number(asArr[3])
       return x
     })
-    .sort((a, b)=> {
+    .sort((a, b) => {
       return a.sortOrder - b.sortOrder
     })
     .map((x) => getVariableAlias(x.id))
-  const max_value = _getVarAlias("Turn Order/Max Value")
-  const max_value_ptr = _getVarAlias("Turn Order/Max Value Ptr")
+
   const current_actor = _getVarAlias("Turn Order/Current Actor")
 
-  _setConst(current_actor, 0)
-  _setConst(max_value, 0)
+  const next_in_line = turn_slots[0]
+  const copy_start = turn_slots[1]
+  const copy_end = turn_slots[9]
 
-  turn_slots.forEach(
-    (slot, i) => {
-      _stackPushConst(0)
-      const set_max = _rpn()
-      set_max.ref(max_value)
-      set_max.ref(slot)
-      set_max.operator('.MAX')
-      set_max.refSet(max_value)
-      set_max.ref(max_value)
-      set_max.ref(slot)
-      set_max.operator('.EQ')
-      set_max.refSet(".ARG0")
-      set_max.stop()
+  _addComment(`Get Next Actor`);
 
-      const trueLabel = getNextLabel()
-      const endLabel = getNextLabel()
-      _ifConst(".GT", ".ARG0", 0, trueLabel, 0)
-      _jump(endLabel)
-      _label(trueLabel)
-      _setConst(max_value_ptr, slot)
-      _setConst(current_actor, i+1)
-      _label(endLabel)
-      _stackPop(1)
-    }
-  )
-
-  _stackPushConst(-1)
-  _setInd(max_value_ptr, ".ARG0")
-  _stackPop(1)
-
-  _addNL()
+  _set(current_actor, next_in_line);
+  _memCpy(next_in_line, copy_start, 9);
+  _setConst(copy_end, -1);
+  _addNL();
 };
 
 module.exports = {
