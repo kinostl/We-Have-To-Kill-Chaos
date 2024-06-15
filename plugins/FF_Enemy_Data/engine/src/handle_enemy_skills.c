@@ -29,13 +29,13 @@ Short name: GobPun
 void goblinPunch(SCRIPT_CTX *THIS) OLDCALL BANKED {
   int16_t * attacker_damage = GET_GLOBAL_PTR(VAR_ATTACKER_DAMAGE);
 
-  int16_t attacker_max_hp = GET_GLOBAL_VAL(VAR_ATTACKER_MAX_HP);
-  int16_t defender_max_hp = GET_GLOBAL_VAL(VAR_DEFENDER_MAX_HP);
+  const int16_t attacker_max_hp = GET_GLOBAL_VAL(VAR_ATTACKER_MAX_HP);
+  const int16_t defender_max_hp = GET_GLOBAL_VAL(VAR_DEFENDER_MAX_HP);
 
   *attacker_damage -= DIV_4(*attacker_damage);
 
-  int16_t distance = DISTANCE(attacker_max_hp, defender_max_hp);
-  int16_t modifier = 8 - CLAMP(distance, 0, 7);
+  const int16_t distance = DISTANCE(attacker_max_hp, defender_max_hp);
+  const int16_t modifier = 8 - CLAMP(distance, 0, 7);
 
   *attacker_damage *= modifier;
 }
@@ -45,15 +45,15 @@ void howl(SCRIPT_CTX *THIS) OLDCALL BANKED {
 }
 
 void handleChooseEnemySkill(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  int16_t attacker_type = GET_GLOBAL_VAL(VAR_ATTACKER_TYPE);
-  int16_t skill_idx = GET_GLOBAL_VAL(VAR_ATTACKER_SKILL_IDX);
+  const int16_t attacker_type = GET_GLOBAL_VAL(VAR_ATTACKER_TYPE);
+  const int16_t skill_idx = GET_GLOBAL_VAL(VAR_ATTACKER_SKILL_IDX);
   int16_t *skill_id = GET_GLOBAL_PTR(VAR_ATTACKER_SKILL);
 
   *skill_id = enemy_skills[attacker_type][skill_idx];
 }
 
 void handleEnemySkills(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  int16_t skill_id = GET_GLOBAL_VAL(VAR_ATTACKER_SKILL);
+  const int16_t skill_id = GET_GLOBAL_VAL(VAR_ATTACKER_SKILL);
   switch (skill_id) {
   case GOBLIN_PUNCH:
     goblinPunch(THIS);
