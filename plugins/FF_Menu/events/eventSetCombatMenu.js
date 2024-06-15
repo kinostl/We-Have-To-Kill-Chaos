@@ -46,7 +46,6 @@ const compile = (input, helpers) => {
     _addComment
   } = helpers;
 
-  _addComment(JSON.stringify(input))
   const str_1 = [
     "slot_1",
     "slot_2",

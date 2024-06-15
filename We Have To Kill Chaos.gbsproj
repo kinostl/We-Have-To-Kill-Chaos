@@ -11424,7 +11424,7 @@
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
                                 "action": 8,
-                                "__collapse": true
+                                "__collapse": false
                             },
                             "children": {
                                 "response": [
@@ -11447,6 +11447,14 @@
                                         },
                                         "children": {
                                             "true": [
+                                                {
+                                                    "command": "EVENT_ACTOR_SET_SPRITE",
+                                                    "args": {
+                                                        "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00",
+                                                        "spriteSheetId": "75e5bb7d-28eb-4b45-b835-8f4931adab2b"
+                                                    },
+                                                    "id": "7ff6417a-7d20-48d2-ad08-2032e5050cfa"
+                                                },
                                                 {
                                                     "command": "EVENT_INC_VALUE",
                                                     "args": {
@@ -12767,6 +12775,25 @@
                                                                     "__collapse": false
                                                                 },
                                                                 "id": "6bca7d23-873a-4f7d-a011-696707b1c7ed"
+                                                            },
+                                                            {
+                                                                "command": "FF_EVENT_SET_COMBAT_MENU",
+                                                                "args": {
+                                                                    "slot_1_name": "Fight",
+                                                                    "slot_1_cost": 1,
+                                                                    "slot_2_name": "Shield",
+                                                                    "slot_2_cost": 1,
+                                                                    "slot_3_name": "",
+                                                                    "slot_3_cost": 0,
+                                                                    "slot_4_name": "LimBrk",
+                                                                    "slot_4_cost": 6,
+                                                                    "slot_5_name": "Item >",
+                                                                    "slot_6_name": "Magic>",
+                                                                    "slot_7_name": "Block-",
+                                                                    "slot_8_name": "Run",
+                                                                    "__collapse": true
+                                                                },
+                                                                "id": "35558f4f-2de6-4bdb-943f-f636c56e1fb6"
                                                             }
                                                         ],
                                                         "true1": [
@@ -12779,6 +12806,25 @@
                                                                     "__collapse": false
                                                                 },
                                                                 "id": "5a34c3ba-e907-41a7-bec4-9bf3b92ad1bd"
+                                                            },
+                                                            {
+                                                                "command": "FF_EVENT_SET_COMBAT_MENU",
+                                                                "args": {
+                                                                    "slot_1_name": "GobPun",
+                                                                    "slot_1_cost": 1,
+                                                                    "slot_2_name": "",
+                                                                    "slot_2_cost": 0,
+                                                                    "slot_3_name": "",
+                                                                    "slot_3_cost": 0,
+                                                                    "slot_4_name": "",
+                                                                    "slot_4_cost": 0,
+                                                                    "slot_5_name": "Item >",
+                                                                    "slot_6_name": "Copy +",
+                                                                    "slot_7_name": "Block-",
+                                                                    "slot_8_name": "Run",
+                                                                    "__collapse": false
+                                                                },
+                                                                "id": "b4a53408-a1e9-4aeb-aaeb-f753d14ed4e7"
                                                             }
                                                         ],
                                                         "true2": [],
@@ -12798,25 +12844,6 @@
                                                         "false": []
                                                     },
                                                     "id": "d931e515-cded-41de-bf13-e80b54296b07"
-                                                },
-                                                {
-                                                    "command": "FF_EVENT_SET_COMBAT_MENU",
-                                                    "args": {
-                                                        "slot_1_name": "Fight",
-                                                        "slot_1_cost": 1,
-                                                        "slot_2_name": "Shield",
-                                                        "slot_2_cost": 1,
-                                                        "slot_3_name": "",
-                                                        "slot_3_cost": 0,
-                                                        "slot_4_name": "LimBrk",
-                                                        "slot_4_cost": 6,
-                                                        "slot_5_name": "Item >",
-                                                        "slot_6_name": "Magic>",
-                                                        "slot_7_name": "Block-",
-                                                        "slot_8_name": "Run",
-                                                        "__collapse": false
-                                                    },
-                                                    "id": "35558f4f-2de6-4bdb-943f-f636c56e1fb6"
                                                 },
                                                 {
                                                     "command": "EVENT_OVERLAY_MOVE_TO",
@@ -14300,7 +14327,7 @@
                                                             }
                                                         ],
                                                         "script": "VM_SET_CONST VAR_1_C 'F'\nVM_SET_CONST VAR_2_C 'I'\nVM_SET_CONST VAR_3_C 'G'\nVM_SET_CONST VAR_4_C 'H'\nVM_SET_CONST VAR_5_C 'T'\nVM_SET_CONST VAR_6_C 'R'\nVM_SET_CONST VAR_7_C 127\nVM_SET_CONST VAR_8_C 127",
-                                                        "__collapse": true
+                                                        "__collapse": false
                                                     },
                                                     "id": "d5febf19-67c6-4243-96f8-4917b1b656ae"
                                                 }
@@ -14385,7 +14412,7 @@
                                                                 "id": "55"
                                                             }
                                                         ],
-                                                        "script": "VM_SET_CONST VAR_1_C 'T'\nVM_SET_CONST VAR_2_C 'W'\nVM_SET_CONST VAR_3_C 'O'\nVM_SET_CONST VAR_4_C 'F'\nVM_SET_CONST VAR_5_C 'E'\nVM_SET_CONST VAR_6_C 'R'\nVM_SET_CONST VAR_7_C 127\nVM_SET_CONST VAR_8_C 127",
+                                                        "script": "VM_SET_CONST VAR_1_C 'B'\nVM_SET_CONST VAR_2_C 'L'\nVM_SET_CONST VAR_3_C 'U'\nVM_SET_CONST VAR_4_C 'M'\nVM_SET_CONST VAR_5_C 'A'\nVM_SET_CONST VAR_6_C 'G'\nVM_SET_CONST VAR_7_C 127\nVM_SET_CONST VAR_8_C 127",
                                                         "__collapse": false
                                                     },
                                                     "id": "3fc4b8e2-50f5-4083-a846-f403c6644ebc"
@@ -17207,6 +17234,14 @@
                                         "children": {
                                             "true": [
                                                 {
+                                                    "command": "EVENT_ACTOR_SET_SPRITE",
+                                                    "args": {
+                                                        "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00",
+                                                        "spriteSheetId": "b3f370ad-6f8d-4cdb-8159-eba9c51c18a7"
+                                                    },
+                                                    "id": "72d46741-eca0-4fb4-8f6c-8f966e17a852"
+                                                },
+                                                {
                                                     "command": "EVENT_INC_VALUE",
                                                     "args": {
                                                         "variable": "71"
@@ -17332,6 +17367,28 @@
                         "__collapse": true
                     },
                     "id": "7d706c0a-4d3e-4e63-8539-c2d6e50269bf"
+                },
+                {
+                    "command": "EVENT_SET_VALUE",
+                    "args": {
+                        "variable": "44",
+                        "value": {
+                            "type": "number",
+                            "value": 8
+                        }
+                    },
+                    "id": "99ee1eba-f11a-4fb2-9264-c677e4a0bd0a"
+                },
+                {
+                    "command": "EVENT_SET_VALUE",
+                    "args": {
+                        "variable": "45",
+                        "value": {
+                            "type": "number",
+                            "value": 8
+                        }
+                    },
+                    "id": "5904834c-8a9d-45ee-8218-98e7258dcd32"
                 },
                 {
                     "command": "EVENT_SET_VALUE",
@@ -23122,7 +23179,9 @@
             "height": 30,
             "imageWidth": 142,
             "imageHeight": 243,
-            "filename": "battle_sprites_2.png"
+            "filename": "battle_sprites_2.png",
+            "tileColors": [],
+            "autoColor": false
         },
         {
             "id": "c357b361-b8f0-4b35-b99b-02d9b481471f",
@@ -29056,6 +29115,16 @@
             "id": "1d2b8415-25a9-44fe-8843-6e86b60f76df__L5",
             "name": "ID",
             "symbol": "var_id_3"
+        },
+        {
+            "id": "44",
+            "name": "Attacker/Max HP",
+            "symbol": "var_attacker_max_hp"
+        },
+        {
+            "id": "45",
+            "name": "Defender/Max HP",
+            "symbol": "var_defender_max_hp"
         }
     ],
     "engineFieldValues": [
@@ -29069,7 +29138,7 @@
         }
     ],
     "settings": {
-        "startSceneId": "97ae8775-3b76-4b99-88ae-364931c1f441",
+        "startSceneId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
         "startX": 65,
         "startY": 95,
         "startMoveSpeed": 1,
@@ -29079,8 +29148,8 @@
         "showConnections": true,
         "showCollisionSlopeTiles": false,
         "showCollisionExtraTiles": false,
-        "worldScrollX": 5188,
-        "worldScrollY": 379,
+        "worldScrollX": 4297,
+        "worldScrollY": 458,
         "zoom": 499,
         "sgbEnabled": false,
         "customHead": "",
@@ -29172,7 +29241,18 @@
         "debuggerCollapsedPanes": [],
         "debuggerPauseOnScriptChanged": false,
         "debuggerPauseOnWatchedVariableChanged": false,
-        "debuggerBreakpoints": [],
+        "debuggerBreakpoints": [
+            {
+                "scriptEventId": "78b7ed79-3497-4a3b-bd59-eee9cb953346",
+                "context": {
+                    "type": "entity",
+                    "entityType": "scene",
+                    "entityId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
+                    "sceneId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
+                    "scriptKey": "script"
+                }
+            }
+        ],
         "debuggerWatchedVariables": [],
         "colorMode": "color",
         "previewAsMono": false,

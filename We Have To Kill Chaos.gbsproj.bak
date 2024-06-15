@@ -11424,7 +11424,7 @@
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
                                 "action": 8,
-                                "__collapse": true
+                                "__collapse": false
                             },
                             "children": {
                                 "response": [
@@ -11447,6 +11447,14 @@
                                         },
                                         "children": {
                                             "true": [
+                                                {
+                                                    "command": "EVENT_ACTOR_SET_SPRITE",
+                                                    "args": {
+                                                        "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00",
+                                                        "spriteSheetId": "75e5bb7d-28eb-4b45-b835-8f4931adab2b"
+                                                    },
+                                                    "id": "7ff6417a-7d20-48d2-ad08-2032e5050cfa"
+                                                },
                                                 {
                                                     "command": "EVENT_INC_VALUE",
                                                     "args": {
@@ -14300,7 +14308,7 @@
                                                             }
                                                         ],
                                                         "script": "VM_SET_CONST VAR_1_C 'F'\nVM_SET_CONST VAR_2_C 'I'\nVM_SET_CONST VAR_3_C 'G'\nVM_SET_CONST VAR_4_C 'H'\nVM_SET_CONST VAR_5_C 'T'\nVM_SET_CONST VAR_6_C 'R'\nVM_SET_CONST VAR_7_C 127\nVM_SET_CONST VAR_8_C 127",
-                                                        "__collapse": true
+                                                        "__collapse": false
                                                     },
                                                     "id": "d5febf19-67c6-4243-96f8-4917b1b656ae"
                                                 }
@@ -14385,7 +14393,7 @@
                                                                 "id": "55"
                                                             }
                                                         ],
-                                                        "script": "VM_SET_CONST VAR_1_C 'T'\nVM_SET_CONST VAR_2_C 'W'\nVM_SET_CONST VAR_3_C 'O'\nVM_SET_CONST VAR_4_C 'F'\nVM_SET_CONST VAR_5_C 'E'\nVM_SET_CONST VAR_6_C 'R'\nVM_SET_CONST VAR_7_C 127\nVM_SET_CONST VAR_8_C 127",
+                                                        "script": "VM_SET_CONST VAR_1_C 'B'\nVM_SET_CONST VAR_2_C 'L'\nVM_SET_CONST VAR_3_C 'U'\nVM_SET_CONST VAR_4_C 'M'\nVM_SET_CONST VAR_5_C 'A'\nVM_SET_CONST VAR_6_C 'G'\nVM_SET_CONST VAR_7_C 127\nVM_SET_CONST VAR_8_C 127",
                                                         "__collapse": false
                                                     },
                                                     "id": "3fc4b8e2-50f5-4083-a846-f403c6644ebc"
@@ -17206,6 +17214,14 @@
                                         },
                                         "children": {
                                             "true": [
+                                                {
+                                                    "command": "EVENT_ACTOR_SET_SPRITE",
+                                                    "args": {
+                                                        "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00",
+                                                        "spriteSheetId": "b3f370ad-6f8d-4cdb-8159-eba9c51c18a7"
+                                                    },
+                                                    "id": "72d46741-eca0-4fb4-8f6c-8f966e17a852"
+                                                },
                                                 {
                                                     "command": "EVENT_INC_VALUE",
                                                     "args": {
@@ -23122,7 +23138,9 @@
             "height": 30,
             "imageWidth": 142,
             "imageHeight": 243,
-            "filename": "battle_sprites_2.png"
+            "filename": "battle_sprites_2.png",
+            "tileColors": [],
+            "autoColor": false
         },
         {
             "id": "c357b361-b8f0-4b35-b99b-02d9b481471f",
@@ -24893,7 +24911,7 @@
             "symbol": "sprite_characters_blu_mage",
             "numFrames": 7.5,
             "filename": "characters/blu_mage.png",
-            "checksum": "995bee0fda5ae2e10d571e8348d8da71f53aa1d7",
+            "checksum": "647e8872e1f8a93de44061a0a01f040ec9732593",
             "width": 120,
             "height": 32,
             "states": [
@@ -29069,7 +29087,7 @@
         }
     ],
     "settings": {
-        "startSceneId": "97ae8775-3b76-4b99-88ae-364931c1f441",
+        "startSceneId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
         "startX": 65,
         "startY": 95,
         "startMoveSpeed": 1,
@@ -29079,8 +29097,8 @@
         "showConnections": true,
         "showCollisionSlopeTiles": false,
         "showCollisionExtraTiles": false,
-        "worldScrollX": 4082,
-        "worldScrollY": 3934,
+        "worldScrollX": 5188,
+        "worldScrollY": 379,
         "zoom": 499,
         "sgbEnabled": false,
         "customHead": "",
@@ -29172,7 +29190,18 @@
         "debuggerCollapsedPanes": [],
         "debuggerPauseOnScriptChanged": false,
         "debuggerPauseOnWatchedVariableChanged": false,
-        "debuggerBreakpoints": [],
+        "debuggerBreakpoints": [
+            {
+                "scriptEventId": "78b7ed79-3497-4a3b-bd59-eee9cb953346",
+                "context": {
+                    "type": "entity",
+                    "entityType": "scene",
+                    "entityId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
+                    "sceneId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
+                    "scriptKey": "script"
+                }
+            }
+        ],
         "debuggerWatchedVariables": [],
         "colorMode": "color",
         "previewAsMono": false,
