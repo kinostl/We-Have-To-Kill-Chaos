@@ -12667,6 +12667,50 @@
                                         "id": "a8406bf8-3f52-4d92-97a0-fca3c11dfa2f"
                                     },
                                     {
+                                        "command": "EVENT_GROUP",
+                                        "args": {
+                                            "__label": "Fix Sprite Layering",
+                                            "__collapse": true
+                                        },
+                                        "children": {
+                                            "true": [
+                                                {
+                                                    "command": "EVENT_ACTOR_DEACTIVATE",
+                                                    "args": {
+                                                        "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "ea495a20-7773-4838-9204-3dddfe2f5feb"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_DEACTIVATE",
+                                                    "args": {
+                                                        "actorId": "a9b0bbff-2512-44d2-a480-cc6e9282afe3",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "4bf0acf4-bb7c-4d7f-a936-68787a000b69"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_ACTIVATE",
+                                                    "args": {
+                                                        "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "9a1bbd42-7dbf-4fa9-b36a-843199b33dd1"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_ACTIVATE",
+                                                    "args": {
+                                                        "actorId": "a9b0bbff-2512-44d2-a480-cc6e9282afe3",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "5e69c269-dc36-4d62-b913-9dc3977ebe56"
+                                                }
+                                            ]
+                                        },
+                                        "id": "f571485a-e09e-4912-8937-b0bf670a7210"
+                                    },
+                                    {
                                         "command": "EVENT_ACTOR_HIDE",
                                         "args": {
                                             "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00",
@@ -12677,7 +12721,8 @@
                                     {
                                         "command": "EVENT_ACTOR_HIDE",
                                         "args": {
-                                            "actorId": "a9b0bbff-2512-44d2-a480-cc6e9282afe3"
+                                            "actorId": "a9b0bbff-2512-44d2-a480-cc6e9282afe3",
+                                            "__collapse": true
                                         },
                                         "id": "6007a19a-30b5-4978-8f1b-3c3ea0f26776"
                                     },
@@ -12699,7 +12744,7 @@
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
                                 "action": 12,
-                                "__collapse": true
+                                "__collapse": false
                             },
                             "children": {
                                 "response": [
@@ -13341,8 +13386,8 @@
                                                     "command": "EVENT_ACTOR_SET_ANIMATION_SPEED",
                                                     "args": {
                                                         "actorId": "a9b0bbff-2512-44d2-a480-cc6e9282afe3",
-                                                        "speed": 15,
-                                                        "__collapse": true
+                                                        "speed": 3,
+                                                        "__collapse": false
                                                     },
                                                     "id": "18fe9dd6-2ac7-49ef-a245-358ae816d2a7"
                                                 },
@@ -13386,7 +13431,8 @@
                                                 {
                                                     "command": "EVENT_ACTOR_SHOW",
                                                     "args": {
-                                                        "actorId": "a9b0bbff-2512-44d2-a480-cc6e9282afe3"
+                                                        "actorId": "a9b0bbff-2512-44d2-a480-cc6e9282afe3",
+                                                        "__collapse": true
                                                     },
                                                     "id": "34b5f571-a83b-466c-abb8-904eda354d40"
                                                 }
@@ -14217,7 +14263,7 @@
                                             "keyH": 4,
                                             "keySX": 0,
                                             "keySY": 26,
-                                            "__collapse": true
+                                            "__collapse": false
                                         },
                                         "id": "3cb82c86-2272-48a4-8733-dec295aa5b2f"
                                     },
@@ -29127,9 +29173,24 @@
             "symbol": "var_turn_order_slot_10_e6"
         },
         {
+            "id": "44",
+            "name": "Attacker/Max HP",
+            "symbol": "var_attacker_max_hp"
+        },
+        {
+            "id": "45",
+            "name": "Defender/Max HP",
+            "symbol": "var_defender_max_hp"
+        },
+        {
             "id": "46",
             "name": "Turn Order/Current Actor",
             "symbol": "var_turn_order_current_acto"
+        },
+        {
+            "id": "47",
+            "name": "Attacker/Type",
+            "symbol": "var_attacker_type"
         },
         {
             "id": "48",
@@ -29270,6 +29331,16 @@
             "id": "75",
             "name": "Const/Base Player Evade",
             "symbol": "var_const_base_player_evade"
+        },
+        {
+            "id": "76",
+            "name": "Attacker/Skill IDX",
+            "symbol": "var_attacker_skill_idx"
+        },
+        {
+            "id": "77",
+            "name": "Attacker/Skill",
+            "symbol": "var_attacker_skill"
         },
         {
             "id": "b543e5af-0a59-46a2-afa4-a8749b768159__L0",
@@ -29425,31 +29496,6 @@
             "id": "1d2b8415-25a9-44fe-8843-6e86b60f76df__L5",
             "name": "ID",
             "symbol": "var_id_3"
-        },
-        {
-            "id": "44",
-            "name": "Attacker/Max HP",
-            "symbol": "var_attacker_max_hp"
-        },
-        {
-            "id": "45",
-            "name": "Defender/Max HP",
-            "symbol": "var_defender_max_hp"
-        },
-        {
-            "id": "47",
-            "name": "Attacker/Type",
-            "symbol": "var_attacker_type"
-        },
-        {
-            "id": "76",
-            "name": "Attacker/Skill IDX",
-            "symbol": "var_attacker_skill_idx"
-        },
-        {
-            "id": "77",
-            "name": "Attacker/Skill",
-            "symbol": "var_attacker_skill"
         }
     ],
     "engineFieldValues": [
@@ -29474,7 +29520,7 @@
         "showCollisionSlopeTiles": false,
         "showCollisionExtraTiles": false,
         "worldScrollX": 4921,
-        "worldScrollY": 300,
+        "worldScrollY": 1248,
         "zoom": 499,
         "sgbEnabled": false,
         "customHead": "",
@@ -29592,7 +29638,7 @@
         "colorMode": "color",
         "previewAsMono": false,
         "openBuildLogOnWarnings": true,
-        "generateDebugFilesEnabled": false,
+        "generateDebugFilesEnabled": true,
         "defaultFadeStyle": "white",
         "playerSpriteSheetId": "581d34d0-9591-4e6e-a609-1d94f203b0cd"
     }

@@ -74,7 +74,7 @@ const compile = (input, helpers) => {
     _stackPushConst(input.keySX);
     _stackPushConst(input.keySY);
 
-    _callNative('copyWinToBkg');
+    _callNative('copyBkgToBkg');
     
     _stackPop(6);
 };

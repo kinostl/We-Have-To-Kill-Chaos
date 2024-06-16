@@ -1,20 +1,24 @@
-/**
-Goblin Punch
-Usable by:
-- Great Imps (Often)
-- Imps (Rarely)
-
-
-I like GobPun
- */
-
 #pragma bank 255
 
 #include <asm/types.h>
 #include <stdint.h>
 #include "data/game_globals.h"
-#include "handle_enemy_skills.h"
 #include "math.h"
+#include "vm.h"
+
+#define GET_GLOBAL_VAL(X) *(int16_t *)VM_REF_TO_PTR(X)
+#define GET_GLOBAL_PTR(X) (int16_t *)VM_REF_TO_PTR(X)
+
+enum { GOBLIN_PUNCH, HOWL };
+
+// only 129 enemies in FF1
+//
+// Maybe I should have this be a Family based thing.
+// Bosses get up to 12
+// Max seems to be 12
+// Most enemies look like they have 4
+enum { IMP, GRIMP };
+const int8_t enemy_skills[2][5] = {[IMP] = {GOBLIN_PUNCH}, [GRIMP] = {GOBLIN_PUNCH}};
 
 /*
 Effect: An attack thats more powerful if you're close in level to the target
@@ -26,7 +30,7 @@ Normal Attack
 
 Short name: GobPun
 */
-void goblinPunch(SCRIPT_CTX *THIS) OLDCALL BANKED {
+static void goblinPunch(SCRIPT_CTX *THIS) {
   int16_t * attacker_damage = GET_GLOBAL_PTR(VAR_ATTACKER_DAMAGE);
 
   const int16_t attacker_max_hp = GET_GLOBAL_VAL(VAR_ATTACKER_MAX_HP);
@@ -40,7 +44,7 @@ void goblinPunch(SCRIPT_CTX *THIS) OLDCALL BANKED {
   *attacker_damage *= modifier;
 }
 
-void howl(SCRIPT_CTX *THIS) OLDCALL BANKED {
+static void howl(SCRIPT_CTX *THIS) {
   THIS;
 }
 
