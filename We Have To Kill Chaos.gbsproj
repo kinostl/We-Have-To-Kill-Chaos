@@ -9560,7 +9560,12 @@
             "type": "TOPDOWN",
             "paletteIds": [
                 "",
-                ""
+                "48a57591-4530-4f70-90bf-ca3518a0d451",
+                "60b2f583-2e5e-4e12-9977-812d7b10c62f",
+                null,
+                null,
+                null,
+                "38a412cd-6ab3-494f-aa86-81ed589e0d45"
             ],
             "spritePaletteIds": [
                 "349ce35e-4c36-4e07-bf6a-12c2105e2e6f",
@@ -11638,6 +11643,43 @@
                                                         ],
                                                         "false": [
                                                             {
+                                                                "command": "EVENT_GROUP",
+                                                                "args": {},
+                                                                "children": {
+                                                                    "true": [
+                                                                        {
+                                                                            "command": "FO_EVENT_SUBFLASH",
+                                                                            "args": {
+                                                                                "keyX": 1,
+                                                                                "keyY": 5,
+                                                                                "keyW": 5,
+                                                                                "keyH": 4,
+                                                                                "keySX": 0,
+                                                                                "keySY": 26,
+                                                                                "__collapse": true
+                                                                            },
+                                                                            "id": "583330fa-1e20-4018-a14e-5ac270086394"
+                                                                        },
+                                                                        {
+                                                                            "command": "EVENT_CAMERA_SHAKE",
+                                                                            "args": {
+                                                                                "time": 0.5,
+                                                                                "frames": 30,
+                                                                                "shakeDirection": "diagonal",
+                                                                                "magnitude": {
+                                                                                    "type": "number",
+                                                                                    "value": 1
+                                                                                },
+                                                                                "__collapse": true,
+                                                                                "__comment": true
+                                                                            },
+                                                                            "id": "718775f1-abc1-4903-ad3c-5b048e058eab"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                "id": "bfc5b02f-2f73-437c-ac1d-79e7f6f84f19"
+                                                            },
+                                                            {
                                                                 "command": "EVENT_SET_VALUE",
                                                                 "args": {
                                                                     "variable": "3",
@@ -13224,7 +13266,44 @@
                             "id": "08a376a8-4b2e-4e61-82a8-14f14f7f855c"
                         }
                     ],
-                    "leaveScript": []
+                    "leaveScript": [
+                        {
+                            "command": "EVENT_GROUP",
+                            "args": {},
+                            "children": {
+                                "true": [
+                                    {
+                                        "command": "FO_EVENT_SUBFLASH",
+                                        "args": {
+                                            "keyX": 1,
+                                            "keyY": 5,
+                                            "keyW": 5,
+                                            "keyH": 4,
+                                            "keySX": 0,
+                                            "keySY": 26,
+                                            "__collapse": true
+                                        },
+                                        "id": "074b48bb-d225-4694-8308-d0e3eefdf74e"
+                                    },
+                                    {
+                                        "command": "EVENT_CAMERA_SHAKE",
+                                        "args": {
+                                            "time": 0.5,
+                                            "frames": 30,
+                                            "shakeDirection": "diagonal",
+                                            "magnitude": {
+                                                "type": "number",
+                                                "value": 1
+                                            },
+                                            "__collapse": true
+                                        },
+                                        "id": "67fee67a-26f0-4a41-a1ab-f83f353ce27a"
+                                    }
+                                ]
+                            },
+                            "id": "789a2995-d31e-4775-9f49-b3594310f64b"
+                        }
+                    ]
                 },
                 {
                     "name": "",
@@ -14205,19 +14284,6 @@
                                         "id": "6f0d5922-23a8-4ffe-98d2-43d39a28b03a"
                                     },
                                     {
-                                        "command": "FO_EVENT_SUBMAP1",
-                                        "args": {
-                                            "keyX": 0,
-                                            "keyY": 0,
-                                            "keyW": 32,
-                                            "keyH": 32,
-                                            "keySX": 0,
-                                            "keySY": 0,
-                                            "__collapse": true
-                                        },
-                                        "id": "ac272eb3-d466-43c1-869b-9f720243c5f8"
-                                    },
-                                    {
                                         "command": "EVENT_IF",
                                         "args": {
                                             "condition": {
@@ -14276,9 +14342,22 @@
                                             "keyH": 4,
                                             "keySX": 0,
                                             "keySY": 26,
-                                            "__collapse": true
+                                            "__collapse": false
                                         },
                                         "id": "15734cae-6299-410b-beba-1a104d2206df"
+                                    },
+                                    {
+                                        "command": "FO_EVENT_SUBMAP2",
+                                        "args": {
+                                            "keyX": 1,
+                                            "keyY": 13,
+                                            "keyW": 5,
+                                            "keyH": 4,
+                                            "keySX": 0,
+                                            "keySY": 26,
+                                            "__collapse": false
+                                        },
+                                        "id": "a47c2ff7-abc1-47be-a050-82f455143951"
                                     }
                                 ]
                             },
@@ -15533,7 +15612,7 @@
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
                                 "action": 8,
-                                "__collapse": true
+                                "__collapse": false
                             },
                             "children": {
                                 "response": [
@@ -15582,6 +15661,43 @@
                                                             }
                                                         ],
                                                         "false": [
+                                                            {
+                                                                "command": "EVENT_GROUP",
+                                                                "args": {},
+                                                                "children": {
+                                                                    "true": [
+                                                                        {
+                                                                            "command": "FO_EVENT_SUBFLASH",
+                                                                            "args": {
+                                                                                "keyX": 1,
+                                                                                "keyY": 9,
+                                                                                "keyW": 5,
+                                                                                "keyH": 4,
+                                                                                "keySX": 0,
+                                                                                "keySY": 26,
+                                                                                "__collapse": false
+                                                                            },
+                                                                            "id": "c423e276-da0e-408f-843d-69edebfeb72d"
+                                                                        },
+                                                                        {
+                                                                            "command": "EVENT_CAMERA_SHAKE",
+                                                                            "args": {
+                                                                                "time": 0.5,
+                                                                                "frames": 30,
+                                                                                "shakeDirection": "diagonal",
+                                                                                "magnitude": {
+                                                                                    "type": "number",
+                                                                                    "value": 1
+                                                                                },
+                                                                                "__collapse": true,
+                                                                                "__comment": true
+                                                                            },
+                                                                            "id": "fe99adfe-a22a-4c42-b1f0-6a69a80b6eec"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                "id": "5e94e5d3-0169-40cd-98c5-2e9fb117f3f5"
+                                                            },
                                                             {
                                                                 "command": "EVENT_SET_VALUE",
                                                                 "args": {
@@ -15665,7 +15781,7 @@
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
                                 "action": 9,
-                                "__collapse": false
+                                "__collapse": true
                             },
                             "children": {
                                 "response": [
@@ -15735,7 +15851,7 @@
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
                                 "action": 0,
-                                "__collapse": true
+                                "__collapse": false
                             },
                             "children": {
                                 "response": [
@@ -16268,7 +16384,7 @@
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
                                 "action": 8,
-                                "__collapse": true
+                                "__collapse": false
                             },
                             "children": {
                                 "response": [
@@ -16317,6 +16433,43 @@
                                                             }
                                                         ],
                                                         "false": [
+                                                            {
+                                                                "command": "EVENT_GROUP",
+                                                                "args": {},
+                                                                "children": {
+                                                                    "true": [
+                                                                        {
+                                                                            "command": "FO_EVENT_SUBFLASH",
+                                                                            "args": {
+                                                                                "keyX": 1,
+                                                                                "keyY": 13,
+                                                                                "keyW": 5,
+                                                                                "keyH": 4,
+                                                                                "keySX": 0,
+                                                                                "keySY": 26,
+                                                                                "__collapse": false
+                                                                            },
+                                                                            "id": "316c8358-82d4-4d43-9b00-765140e27585"
+                                                                        },
+                                                                        {
+                                                                            "command": "EVENT_CAMERA_SHAKE",
+                                                                            "args": {
+                                                                                "time": 0.5,
+                                                                                "frames": 30,
+                                                                                "shakeDirection": "diagonal",
+                                                                                "magnitude": {
+                                                                                    "type": "number",
+                                                                                    "value": 1
+                                                                                },
+                                                                                "__collapse": true,
+                                                                                "__comment": true
+                                                                            },
+                                                                            "id": "24857922-0ecf-42c3-805c-3e1d112b7adc"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                "id": "530588ea-08b5-4d4d-84fb-5e4ebc1a607f"
+                                                            },
                                                             {
                                                                 "command": "EVENT_SET_VALUE",
                                                                 "args": {
@@ -17502,7 +17655,7 @@
                         ],
                         "override": true,
                         "__scriptTabs": "press",
-                        "__collapse": false,
+                        "__collapse": true,
                         "__label": "Lock Player"
                     },
                     "children": {
@@ -17645,7 +17798,7 @@
                     "command": "EVENT_ACTOR_HIDE",
                     "args": {
                         "actorId": "$self$",
-                        "__collapse": true,
+                        "__collapse": false,
                         "__comment": true
                     },
                     "id": "a00504ec-0bb6-4a67-bead-e06becc4a5d0"
@@ -22497,12 +22650,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
                 7,
                 7,
                 7,
@@ -22529,12 +22676,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
                 7,
                 7,
                 7,
@@ -22561,12 +22702,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
                 7,
                 7,
                 7,
@@ -22593,12 +22728,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
                 7,
                 7,
                 7,
@@ -22625,12 +22754,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
                 7,
                 7,
                 7,
@@ -22657,12 +22780,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
                 7,
                 7,
                 7,
@@ -22689,12 +22806,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
                 7,
                 7,
                 7,
@@ -22721,12 +22832,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
                 7,
                 7,
                 7,
@@ -22753,12 +22858,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
                 7,
                 7,
                 7,
@@ -22785,12 +22884,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
                 7,
                 7,
                 7,
@@ -22817,12 +22910,24 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
                 7,
                 7,
                 7,
@@ -22912,6 +23017,54 @@
                 7,
                 7,
                 7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
+                7,
                 0,
                 0,
                 0,
@@ -23168,10 +23321,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
-                1,
                 1,
                 1,
                 1,
@@ -23182,8 +23331,12 @@
                 1,
                 1,
                 1,
-                1,
-                1,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
                 7,
                 7,
                 7,
@@ -23200,9 +23353,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
                 1,
                 1,
                 1,
@@ -23213,9 +23363,12 @@
                 1,
                 1,
                 1,
-                1,
-                1,
-                1,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
                 7,
                 7,
                 7,
@@ -23232,9 +23385,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
                 1,
                 1,
                 1,
@@ -23245,9 +23395,12 @@
                 1,
                 1,
                 1,
-                1,
-                1,
-                1,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
                 7,
                 7,
                 7,
@@ -23264,8 +23417,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
                 1,
                 1,
                 1,
@@ -23276,10 +23427,12 @@
                 1,
                 1,
                 1,
-                1,
-                1,
-                1,
-                1,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
                 7,
                 7,
                 7,
@@ -23296,7 +23449,6 @@
                 7,
                 7,
                 7,
-                1,
                 1,
                 1,
                 1,
@@ -23307,11 +23459,12 @@
                 1,
                 1,
                 1,
-                1,
-                1,
-                1,
-                1,
-                1,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
                 7,
                 7,
                 7,
@@ -23328,12 +23481,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
                 1,
                 1,
                 1,
@@ -23344,6 +23491,12 @@
                 1,
                 1,
                 1,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
                 7,
                 7,
                 7,
@@ -28215,6 +28368,36 @@
                 "509878",
                 "000000"
             ]
+        },
+        {
+            "id": "48a57591-4530-4f70-90bf-ca3518a0d451",
+            "name": "Enemy Type 1",
+            "colors": [
+                "ffeb97",
+                "ffe300",
+                "ff6f00",
+                "000000"
+            ]
+        },
+        {
+            "id": "60b2f583-2e5e-4e12-9977-812d7b10c62f",
+            "name": "Crazy Horse",
+            "colors": [
+                "ffffff",
+                "ffe300",
+                "c5cb00",
+                "000000"
+            ]
+        },
+        {
+            "id": "38a412cd-6ab3-494f-aa86-81ed589e0d45",
+            "name": "Enemy Flashing",
+            "colors": [
+                "ffffff",
+                "ffffff",
+                "ffffff",
+                "000000"
+            ]
         }
     ],
     "customEvents": [
@@ -28823,6 +29006,15 @@
                     "id": "f669b5c3-5d82-49a8-8ff1-9c0909f73253"
                 }
             ]
+        },
+        {
+            "id": "84767325-44d2-41d2-8c32-d00eeb669796",
+            "name": "Flash And Shake",
+            "description": "",
+            "variables": {},
+            "actors": {},
+            "symbol": "script_0",
+            "script": []
         }
     ],
     "music": [
@@ -29519,9 +29711,9 @@
         "showConnections": true,
         "showCollisionSlopeTiles": false,
         "showCollisionExtraTiles": false,
-        "worldScrollX": 4921,
-        "worldScrollY": 379,
-        "zoom": 499,
+        "worldScrollX": 4398,
+        "worldScrollY": 474,
+        "zoom": 459.5,
         "sgbEnabled": false,
         "customHead": "",
         "defaultBackgroundPaletteIds": [

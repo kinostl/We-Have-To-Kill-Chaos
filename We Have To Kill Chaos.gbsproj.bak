@@ -9560,7 +9560,12 @@
             "type": "TOPDOWN",
             "paletteIds": [
                 "",
-                ""
+                "48a57591-4530-4f70-90bf-ca3518a0d451",
+                "60b2f583-2e5e-4e12-9977-812d7b10c62f",
+                null,
+                null,
+                null,
+                "38a412cd-6ab3-494f-aa86-81ed589e0d45"
             ],
             "spritePaletteIds": [
                 "349ce35e-4c36-4e07-bf6a-12c2105e2e6f",
@@ -13224,7 +13229,21 @@
                             "id": "08a376a8-4b2e-4e61-82a8-14f14f7f855c"
                         }
                     ],
-                    "leaveScript": []
+                    "leaveScript": [
+                        {
+                            "command": "FO_EVENT_SUBFLASH",
+                            "args": {
+                                "keyX": 1,
+                                "keyY": 5,
+                                "keyW": 5,
+                                "keyH": 4,
+                                "keySX": 0,
+                                "keySY": 26,
+                                "__collapse": false
+                            },
+                            "id": "074b48bb-d225-4694-8308-d0e3eefdf74e"
+                        }
+                    ]
                 },
                 {
                     "name": "",
@@ -14203,19 +14222,6 @@
                                             "__comment": false
                                         },
                                         "id": "6f0d5922-23a8-4ffe-98d2-43d39a28b03a"
-                                    },
-                                    {
-                                        "command": "FO_EVENT_SUBMAP1",
-                                        "args": {
-                                            "keyX": 0,
-                                            "keyY": 0,
-                                            "keyW": 32,
-                                            "keyH": 32,
-                                            "keySX": 0,
-                                            "keySY": 0,
-                                            "__collapse": true
-                                        },
-                                        "id": "ac272eb3-d466-43c1-869b-9f720243c5f8"
                                     },
                                     {
                                         "command": "EVENT_IF",
@@ -17502,7 +17508,7 @@
                         ],
                         "override": true,
                         "__scriptTabs": "press",
-                        "__collapse": false,
+                        "__collapse": true,
                         "__label": "Lock Player"
                     },
                     "children": {
@@ -17645,7 +17651,7 @@
                     "command": "EVENT_ACTOR_HIDE",
                     "args": {
                         "actorId": "$self$",
-                        "__collapse": true,
+                        "__collapse": false,
                         "__comment": true
                     },
                     "id": "a00504ec-0bb6-4a67-bead-e06becc4a5d0"
@@ -23178,12 +23184,12 @@
                 1,
                 1,
                 1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
                 7,
                 7,
                 7,
@@ -23200,9 +23206,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
                 1,
                 1,
                 1,
@@ -23213,9 +23216,12 @@
                 1,
                 1,
                 1,
-                1,
-                1,
-                1,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
                 7,
                 7,
                 7,
@@ -23232,12 +23238,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
                 1,
                 1,
                 1,
@@ -23248,6 +23248,12 @@
                 1,
                 1,
                 1,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
                 7,
                 7,
                 7,
@@ -23274,12 +23280,12 @@
                 1,
                 1,
                 1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
                 7,
                 7,
                 7,
@@ -23296,9 +23302,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
                 1,
                 1,
                 1,
@@ -23309,9 +23312,12 @@
                 1,
                 1,
                 1,
-                1,
-                1,
-                1,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
                 7,
                 7,
                 7,
@@ -23328,12 +23334,6 @@
                 7,
                 7,
                 7,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
                 1,
                 1,
                 1,
@@ -23344,6 +23344,12 @@
                 1,
                 1,
                 1,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
                 7,
                 7,
                 7,
@@ -28215,6 +28221,36 @@
                 "509878",
                 "000000"
             ]
+        },
+        {
+            "id": "48a57591-4530-4f70-90bf-ca3518a0d451",
+            "name": "Enemy Type 1",
+            "colors": [
+                "ffeb97",
+                "ffe300",
+                "ff6f00",
+                "000000"
+            ]
+        },
+        {
+            "id": "60b2f583-2e5e-4e12-9977-812d7b10c62f",
+            "name": "Crazy Horse",
+            "colors": [
+                "ffffff",
+                "ffe300",
+                "c5cb00",
+                "000000"
+            ]
+        },
+        {
+            "id": "38a412cd-6ab3-494f-aa86-81ed589e0d45",
+            "name": "Enemy Flashing",
+            "colors": [
+                "7f7d7f",
+                "c3c1c3",
+                "ffffff",
+                "000000"
+            ]
         }
     ],
     "customEvents": [
@@ -29519,9 +29555,9 @@
         "showConnections": true,
         "showCollisionSlopeTiles": false,
         "showCollisionExtraTiles": false,
-        "worldScrollX": 4921,
-        "worldScrollY": 1248,
-        "zoom": 499,
+        "worldScrollX": 4398,
+        "worldScrollY": 474,
+        "zoom": 459.5,
         "sgbEnabled": false,
         "customHead": "",
         "defaultBackgroundPaletteIds": [
