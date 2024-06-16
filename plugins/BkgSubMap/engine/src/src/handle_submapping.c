@@ -1,14 +1,9 @@
-#include "bankdata.h"
 #pragma bank 255
 
-#include "collision.h"
 #include "data_manager.h"
 #include "vm.h"
-#include <asm/types.h>
-#include <gb/hardware.h>
-#include <stdint.h>
-
 #include <gb/gb.h>
+#include <stdint.h>
 
 void copyBkgToBkg(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
@@ -21,13 +16,16 @@ void copyBkgToBkg(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
   const int16_t offset_x = SRC_X - DES_X;
   const int16_t offset_y = SRC_Y - DES_Y;
+  const int16_t offset = offset_x + (offset_y * image_tile_width);
 
   const unsigned char my_tiles[32*32];
-  MemcpyBanked(&my_tiles,image_ptr + offset_x + (offset_y * image_tile_width), sizeof(my_tiles), image_bank);
-  set_bkg_submap(DES_X, DES_Y, W1, H1, my_tiles, image_tile_width);
 
-  MemcpyBanked(&my_tiles,image_attr_ptr + offset_x + (offset_y * image_tile_width), sizeof(my_tiles), image_attr_bank);
   VBK_REG = 1;
-  set_bkg_submap(DES_X, DES_Y, W1, H1, my_tiles, image_tile_width);
+  MemcpyBanked(&my_tiles,image_attr_ptr, sizeof(my_tiles), image_attr_bank);
+  set_bkg_submap(DES_X, DES_Y, W1, H1, my_tiles + offset, image_tile_width);
+  // fill_bkg_rect(DES_X, DES_Y, W1, H1, my_tiles[24*image_tile_width]);
+
   VBK_REG = 0;
+  MemcpyBanked(&my_tiles,image_ptr, sizeof(my_tiles), image_bank);
+  set_bkg_submap(DES_X, DES_Y, W1, H1, my_tiles + offset, image_tile_width);
 }
