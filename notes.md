@@ -314,3 +314,22 @@ VM_POP 2
 
   // I think 1dHP + EVA sounds fun
   // Reroll each turn to allow for things like HASTE to matter more
+
+# Fighter Weapons
+
+Swords have High Hit% Mid Damage
+Axes have Mid Hit% High Damage
+
+Maybe have Swords return a + to replicate this?
+
+# Spell Books
+
+Maybe it could be fun to have a Dicey Dungeons kind of thing for these?
+
+# Fixing Grinding
+
+If we should, maybe add side quests? Theres enough side npcs for it.
+
+# Magic
+
+Casters can maybe put more orbs into a spell to change it between 1/2/etc
