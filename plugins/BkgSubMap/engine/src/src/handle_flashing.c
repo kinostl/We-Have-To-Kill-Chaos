@@ -48,15 +48,11 @@ void makeBkgFlash(SCRIPT_CTX *THIS) OLDCALL BANKED {
     my_tile.attr.palette = 6;
     fill_bkg_rect(DES_X, DES_Y, W1, H1, my_tile._tile);
     vsync();
-    vsync();
-    vsync();
-    vsync();
+    delay(100);
     my_tile.attr.palette = 1;
     fill_bkg_rect(DES_X, DES_Y, W1, H1, my_tile._tile);
     vsync();
-    vsync();
-    vsync();
-    vsync();
+    delay(100);
   }
 
   VBK_REG = 0;
