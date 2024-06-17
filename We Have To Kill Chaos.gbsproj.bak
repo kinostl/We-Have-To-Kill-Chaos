@@ -29380,13 +29380,7 @@
             "id": "659b2f33-c067-4bcc-9256-f32a79bd0fa2",
             "name": "Attack Puffs",
             "description": "",
-            "variables": {
-                "V0": {
-                    "id": "V0",
-                    "name": "Variable A",
-                    "passByReference": true
-                }
-            },
+            "variables": {},
             "actors": {
                 "0": {
                     "id": "0",
@@ -29402,7 +29396,7 @@
                 {
                     "command": "EVENT_LOOP_FOR",
                     "args": {
-                        "variable": "V0",
+                        "variable": "81",
                         "from": {
                             "type": "number",
                             "value": 0
@@ -29410,7 +29404,7 @@
                         "comparison": "<=",
                         "to": {
                             "type": "number",
-                            "value": 10
+                            "value": 12
                         },
                         "operation": "+=",
                         "value": {
@@ -29425,12 +29419,32 @@
                                 "args": {
                                     "actorId": "0",
                                     "x": {
-                                        "type": "number",
-                                        "value": 0
+                                        "type": "add",
+                                        "valueA": {
+                                            "type": "number",
+                                            "value": 1
+                                        },
+                                        "valueB": {
+                                            "type": "rnd",
+                                            "value": {
+                                                "type": "number",
+                                                "value": 5
+                                            }
+                                        }
                                     },
                                     "y": {
-                                        "type": "number",
-                                        "value": 0
+                                        "type": "add",
+                                        "valueA": {
+                                            "type": "number",
+                                            "value": 5
+                                        },
+                                        "valueB": {
+                                            "type": "rnd",
+                                            "value": {
+                                                "type": "number",
+                                                "value": 4
+                                            }
+                                        }
                                     }
                                 },
                                 "id": "eff80de0-a315-40dc-ad2f-c6c6fc29842e"
@@ -29440,23 +29454,46 @@
                                 "args": {
                                     "actorId": "1",
                                     "x": {
-                                        "type": "number",
-                                        "value": 0
+                                        "type": "add",
+                                        "valueA": {
+                                            "type": "number",
+                                            "value": 1
+                                        },
+                                        "valueB": {
+                                            "type": "rnd",
+                                            "value": {
+                                                "type": "number",
+                                                "value": 5
+                                            }
+                                        }
                                     },
                                     "y": {
-                                        "type": "number",
-                                        "value": 0
+                                        "type": "add",
+                                        "valueA": {
+                                            "type": "number",
+                                            "value": 5
+                                        },
+                                        "valueB": {
+                                            "type": "rnd",
+                                            "value": {
+                                                "type": "number",
+                                                "value": 4
+                                            }
+                                        }
                                     }
                                 },
-                                "id": "69c9e3a6-4846-4c98-8f36-8308f42b03c6"
+                                "id": "45ce4711-e456-4060-8874-dd53f617071e"
                             },
                             {
                                 "command": "EVENT_ACTOR_SET_FRAME",
                                 "args": {
                                     "actorId": "0",
                                     "frame": {
-                                        "type": "number",
-                                        "value": 0
+                                        "type": "rnd",
+                                        "value": {
+                                            "type": "number",
+                                            "value": 3
+                                        }
                                     }
                                 },
                                 "id": "45bfbdc4-0cc9-4636-9776-5b70a465da59"
@@ -29466,8 +29503,11 @@
                                 "args": {
                                     "actorId": "1",
                                     "frame": {
-                                        "type": "number",
-                                        "value": 0
+                                        "type": "rnd",
+                                        "value": {
+                                            "type": "number",
+                                            "value": 3
+                                        }
                                     }
                                 },
                                 "id": "7ebdd64f-a306-45d1-9874-cbb63c907d1f"
@@ -30150,6 +30190,26 @@
             "id": "1d2b8415-25a9-44fe-8843-6e86b60f76df__L5",
             "name": "ID",
             "symbol": "var_id_3"
+        },
+        {
+            "id": "78",
+            "name": "Temp/X",
+            "symbol": "var_temp_x"
+        },
+        {
+            "id": "79",
+            "name": "Temp/Y",
+            "symbol": "var_temp_y"
+        },
+        {
+            "id": "80",
+            "name": "Temp/Frame",
+            "symbol": "var_temp_frame"
+        },
+        {
+            "id": "81",
+            "name": "Tempo/Count",
+            "symbol": "var_tempo_count"
         }
     ],
     "engineFieldValues": [
