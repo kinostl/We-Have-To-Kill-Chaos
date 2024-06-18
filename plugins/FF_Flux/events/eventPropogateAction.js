@@ -5,6 +5,12 @@ const name = "Propogate Action";
 const fields = (
   [
     {
+      label: "Informs all stores of the current action."
+    },
+    {
+      label: "Anything placed in Update Stores will be ignored if it is not an Actor Set Position Command that targets the Player Actor."
+    },
+    {
       key: "currentStore",
       label: "Current Store",
       type: "variable"
@@ -52,7 +58,10 @@ const compile = (input, helpers) => {
 
   const switch_cases = {}
   const current_store = input["currentStore"]
-  const stores = input["stores"].filter((x)=>x.command=="EVENT_ACTOR_SET_POSITION")
+  const stores = input["stores"].filter((x)=>(
+    x.command=="EVENT_ACTOR_SET_POSITION" &&
+    x.args.actorId=="$self$"
+  ))
   stores.forEach((x,i)=>{
     switch_cases[i+1] = [x]
   })

@@ -12457,6 +12457,14 @@
                                         "children": {
                                             "stores": [
                                                 {
+                                                    "command": "EVENT_COMMENT",
+                                                    "args": {
+                                                        "text": "Control Stores",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "4840fbad-f7b2-4fca-a6c7-02e1f96492aa"
+                                                },
+                                                {
                                                     "command": "EVENT_ACTOR_SET_POSITION",
                                                     "args": {
                                                         "actorId": "$self$",
