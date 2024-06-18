@@ -18,7 +18,7 @@ enum { GOBLIN_PUNCH, HOWL };
 // Max seems to be 12
 // Most enemies look like they have 4
 enum { IMP, GRIMP, WOLF, GRWOLF };
-const int8_t enemy_skills[4][5] = {[IMP] = {GOBLIN_PUNCH},
+const int8_t enemy_skills[4][4] = {[IMP] = {GOBLIN_PUNCH},
                                    [GRIMP] = {GOBLIN_PUNCH},
                                    [WOLF] = {HOWL},
                                    [GRWOLF] = {HOWL}};

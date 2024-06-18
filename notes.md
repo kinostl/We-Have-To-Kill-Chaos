@@ -333,3 +333,28 @@ If we should, maybe add side quests? Theres enough side npcs for it.
 # Magic
 
 Casters can maybe put more orbs into a spell to change it between 1/2/etc
+
+# Enemy Basics
+
+An enemy may have up to 8 Spells and up to 4 Skills (From the FAQ)
+
+## Original Encounter Numbers
+
+Most pattern tables contain 2 small enemies, and 2 large enemies. These are 
+capable of three formation types:
+
+(Up to) 9 Small Enemies
+(Up to) 4 Large Enemies
+(Up to) 2 Large Enemies and 6 Small Enemies
+
+Two pattern tables contain 2 fiends each, and one pattern table is devoted 
+entirely to Chaos. Each of these can only display one enemy sprite at a time.
+
+We only have 10 x 12 squares so that means...
+
+(a) 6 Small Enemies
+(b) 2 Large Enemies
+(c) 1 Large Enemy & 2 Small Enemies
+
+Small = 4 * 5
+Large = 6 * 6

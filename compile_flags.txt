@@ -1,7 +1,7 @@
 -D__TARGET_gb
 -D__PORT_sm83
 -I
-plugins/*/engine/**
+plugins/*/engine/include
 -I
 /home/deck/.cache/gbstudio-v4/_gbsbuild/include
 -isystem
