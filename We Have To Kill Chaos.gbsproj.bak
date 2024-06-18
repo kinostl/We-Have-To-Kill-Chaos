@@ -12462,6 +12462,48 @@
                                                         "actorId": "$self$",
                                                         "x": {
                                                             "type": "number",
+                                                            "value": 6
+                                                        },
+                                                        "y": {
+                                                            "type": "number",
+                                                            "value": 1
+                                                        },
+                                                        "__collapse": true,
+                                                        "__label": "Scene Store"
+                                                    },
+                                                    "id": "729c0f8f-edca-4a02-81f7-b57154572624"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_SET_POSITION",
+                                                    "args": {
+                                                        "actorId": "$self$",
+                                                        "x": {
+                                                            "type": "number",
+                                                            "value": 8
+                                                        },
+                                                        "y": {
+                                                            "type": "number",
+                                                            "value": 5
+                                                        },
+                                                        "__label": "Turn Order Store",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "2338d00a-e460-448b-a248-6f712e398753"
+                                                },
+                                                {
+                                                    "command": "EVENT_COMMENT",
+                                                    "args": {
+                                                        "text": "Interface Stores",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "1b35cea5-9bf8-4e7e-ab5f-b15a85915d38"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_SET_POSITION",
+                                                    "args": {
+                                                        "actorId": "$self$",
+                                                        "x": {
+                                                            "type": "number",
                                                             "value": 10
                                                         },
                                                         "y": {
@@ -12496,23 +12538,6 @@
                                                         "actorId": "$self$",
                                                         "x": {
                                                             "type": "number",
-                                                            "value": 6
-                                                        },
-                                                        "y": {
-                                                            "type": "number",
-                                                            "value": 1
-                                                        },
-                                                        "__collapse": true,
-                                                        "__label": "Scene Store"
-                                                    },
-                                                    "id": "729c0f8f-edca-4a02-81f7-b57154572624"
-                                                },
-                                                {
-                                                    "command": "EVENT_ACTOR_SET_POSITION",
-                                                    "args": {
-                                                        "actorId": "$self$",
-                                                        "x": {
-                                                            "type": "number",
                                                             "value": 14
                                                         },
                                                         "y": {
@@ -12523,6 +12548,14 @@
                                                         "__collapse": true
                                                     },
                                                     "id": "d1eeecd5-5a4b-4d74-9992-6ffd51dd2417"
+                                                },
+                                                {
+                                                    "command": "EVENT_COMMENT",
+                                                    "args": {
+                                                        "text": "Enemy Stores",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "976206ba-5819-46e2-bb47-bea43776c47d"
                                                 },
                                                 {
                                                     "command": "EVENT_ACTOR_SET_POSITION",
@@ -12581,6 +12614,65 @@
                                                         "actorId": "$self$",
                                                         "x": {
                                                             "type": "number",
+                                                            "value": 6
+                                                        },
+                                                        "y": {
+                                                            "type": "number",
+                                                            "value": 3
+                                                        },
+                                                        "__label": "Enemy 4 Data Store",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "7af07c8e-ec53-426f-bec9-3d4975d8ade7"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_SET_POSITION",
+                                                    "args": {
+                                                        "actorId": "$self$",
+                                                        "x": {
+                                                            "type": "number",
+                                                            "value": 8
+                                                        },
+                                                        "y": {
+                                                            "type": "number",
+                                                            "value": 3
+                                                        },
+                                                        "__label": "Enemy 5 Data Store",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "f931f9a4-3e69-4f39-8552-9255a3e90a98"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_SET_POSITION",
+                                                    "args": {
+                                                        "actorId": "$self$",
+                                                        "x": {
+                                                            "type": "number",
+                                                            "value": 10
+                                                        },
+                                                        "y": {
+                                                            "type": "number",
+                                                            "value": 3
+                                                        },
+                                                        "__label": "Enemy 6 Data Store",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "55d9996d-9836-4e22-8369-a74f42b84ade"
+                                                },
+                                                {
+                                                    "command": "EVENT_COMMENT",
+                                                    "args": {
+                                                        "text": "Player Stores",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "743cb62c-4e24-45ad-9e3f-a4b86c3e6055"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_SET_POSITION",
+                                                    "args": {
+                                                        "actorId": "$self$",
+                                                        "x": {
+                                                            "type": "number",
                                                             "value": 0
                                                         },
                                                         "y": {
@@ -12615,16 +12707,33 @@
                                                         "actorId": "$self$",
                                                         "x": {
                                                             "type": "number",
-                                                            "value": 8
+                                                            "value": 4
                                                         },
                                                         "y": {
                                                             "type": "number",
                                                             "value": 5
                                                         },
-                                                        "__label": "Turn Order Store",
+                                                        "__label": "Player 3 Data Store",
                                                         "__collapse": true
                                                     },
-                                                    "id": "2338d00a-e460-448b-a248-6f712e398753"
+                                                    "id": "61815b12-3800-455e-9a10-2c02565e0a41"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_SET_POSITION",
+                                                    "args": {
+                                                        "actorId": "$self$",
+                                                        "x": {
+                                                            "type": "number",
+                                                            "value": 6
+                                                        },
+                                                        "y": {
+                                                            "type": "number",
+                                                            "value": 5
+                                                        },
+                                                        "__label": "Player 4 Data Store",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "9e342017-bae8-43f2-8cfb-20e128a44ca6"
                                                 }
                                             ],
                                             "updateView": [],
@@ -35060,28 +35169,7 @@
         "debuggerCollapsedPanes": [],
         "debuggerPauseOnScriptChanged": false,
         "debuggerPauseOnWatchedVariableChanged": false,
-        "debuggerBreakpoints": [
-            {
-                "scriptEventId": "e6ddd3a2-4d6d-42ad-9adb-a8a3d05336c6",
-                "context": {
-                    "type": "entity",
-                    "entityType": "trigger",
-                    "entityId": "660916d1-1efb-456e-b770-10b9c9a8f913",
-                    "sceneId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
-                    "scriptKey": "script"
-                }
-            },
-            {
-                "scriptEventId": "ed587ccb-586f-4f90-bafc-89d004d4e116",
-                "context": {
-                    "type": "entity",
-                    "entityType": "trigger",
-                    "entityId": "7e9e2248-0ccc-4df3-aea0-83236a0b7f9d",
-                    "sceneId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
-                    "scriptKey": "script"
-                }
-            }
-        ],
+        "debuggerBreakpoints": [],
         "debuggerWatchedVariables": [],
         "colorMode": "color",
         "previewAsMono": false,

@@ -52,7 +52,7 @@ const compile = (input, helpers) => {
 
   const switch_cases = {}
   const current_store = input["currentStore"]
-  const stores = input["stores"]
+  const stores = input["stores"].filter((x)=>x.command=="EVENT_ACTOR_SET_POSITION")
   stores.forEach((x,i)=>{
     switch_cases[i+1] = [x]
   })
