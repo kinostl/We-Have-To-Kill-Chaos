@@ -5,13 +5,18 @@ const name = "Propogate Action";
 const fields = (
   [
     {
+      key: "currentStore",
+      label: "Current Store",
+      type: "variable"
+    },
+    {
       key: "stores",
-      label:"Update Stores",
+      label: "Update Stores",
       type: "events",
     },
     {
-      key: "updateView",
-      label: "Update Views",
+      key: "getNextAction",
+      label: "Get Next Action",
       type: "events"
     }
   ]
@@ -46,17 +51,15 @@ const compile = (input, helpers) => {
   } = helpers;
 
   const switch_cases = {}
-  const current_store = Object.values(variablesLookup).find((x) => x.name == "Action/Current Store")
+  const current_store = input["currentStore"]
   const stores = input["stores"]
   stores.forEach((x,i)=>{
-    switch_cases[i] = [x]
+    switch_cases[i+1] = [x]
   })
-  const updateView = input["updateView"]
-  updateView.unshift(clearSlot(current_store.id))
+  const getNextAction = input["getNextAction"]
   
   _addComment("Propogate Actions");
-  variableInc(current_store.id);
-  caseVariableValue(current_store.id, switch_cases, updateView);
+  caseVariableValue(current_store.id, switch_cases, getNextAction);
   _addNL();
 };
 
