@@ -28,24 +28,6 @@ const fields = (
   ]
 );
 
-const clearSlot = (variable) => {
-  const randomId = ()=>`${Math.random().toString(16).slice(2)}`
-  
-  const event = {
-    "command": "EVENT_SET_VALUE",
-      "args": {
-      "variable": `${variable}`,
-        "value": {
-        "type": "number",
-          "value": '0'
-      }
-    },
-    "id": `${randomId()}`
-  }
-
-  return event
-}
-
 const compile = (input, helpers) => {
   const {
     _addComment,
