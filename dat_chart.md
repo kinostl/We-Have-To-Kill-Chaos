@@ -1,65 +1,43 @@
 ```mermaid
-%%{ init: { 'flowchart': { 'curve': 'catmullRom' } } }%%
-flowchart TD
-a8(TURN/Take Next Turn)-.->1d2b8415-25a9-44fe-8843-6e86b60f76df[(Player Slot 2 Store)]
-a9(DEFENDER/Take Damage)-.->1d2b8415-25a9-44fe-8843-6e86b60f76df[(Player Slot 2 Store)]
-a1(Player/Fight)-.->1d2b8415-25a9-44fe-8843-6e86b60f76df[(Player Slot 2 Store)]
-a0(STORE/Initialize Stores)-.->1d2b8415-25a9-44fe-8843-6e86b60f76df[(Player Slot 2 Store)]
-a0(STORE/Initialize Stores)-.->b1485b54-946e-4c56-9971-ceef4c138eff[(Enemy Slot 3 Store)]
-a9(DEFENDER/Take Damage)-.->b1485b54-946e-4c56-9971-ceef4c138eff[(Enemy Slot 3 Store)]
-a8(TURN/Take Next Turn)-.->b1485b54-946e-4c56-9971-ceef4c138eff[(Enemy Slot 3 Store)]
-a0(STORE/Initialize Stores)-.->9c7813d8-1d8c-4eab-aaaa-6b885a213232[(Enemy Slot 2 Store)]
-a9(DEFENDER/Take Damage)-.->9c7813d8-1d8c-4eab-aaaa-6b885a213232[(Enemy Slot 2 Store)]
-a8(TURN/Take Next Turn)-.->9c7813d8-1d8c-4eab-aaaa-6b885a213232[(Enemy Slot 2 Store)]
-a16(TURN/Build Initiative)-.->82583aa5-bc2f-4df9-9739-28dbdfb81f7b[(Turn Order Store)]
-a14(TURN/Start Next Turn)-.->82583aa5-bc2f-4df9-9739-28dbdfb81f7b[(Turn Order Store)]
-a0(STORE/Initialize Stores)-.->82583aa5-bc2f-4df9-9739-28dbdfb81f7b[(Turn Order Store)]
-a20(REPORT/Reject Menu Choice)-.->29bc472f-2cd1-48f2-aa4c-2cc45d69707c[(Dialogue Store)]
-a18(REPORT/Attack Results)-.->29bc472f-2cd1-48f2-aa4c-2cc45d69707c[(Dialogue Store)]
-a13(SCENE/Fade In)-.->9804e062-c29c-48b9-a893-f0c02a9b745d[(Scene Store)]
-a0(STORE/Initialize Stores)-.->9804e062-c29c-48b9-a893-f0c02a9b745d[(Scene Store)]
-a10(Player/Enable)-.->84c0a2e8-6dbd-4f3f-b294-2ce0c30e652b[(Player Choice Store)]
-a21(Menu Choice/Handle Choice)-.->84c0a2e8-6dbd-4f3f-b294-2ce0c30e652b[(Player Choice Store)]
-a11(Menu Choice/Choice Made)-.->84c0a2e8-6dbd-4f3f-b294-2ce0c30e652b[(Player Choice Store)]
-a15(MENU/Close Panel)-.->182a8ca6-c0cd-4216-ae8f-e3c706512a51[(Menu Store)]
-a12(MENU/Open Panel)-.->182a8ca6-c0cd-4216-ae8f-e3c706512a51[(Menu Store)]
-a0(STORE/Initialize Stores)-.->182a8ca6-c0cd-4216-ae8f-e3c706512a51[(Menu Store)]
-a0(STORE/Initialize Stores)-.->7e890799-3cbc-41dd-80b5-b164b9555ec7[(Enemy Slot 1 Store)]
-a9(DEFENDER/Take Damage)-.->7e890799-3cbc-41dd-80b5-b164b9555ec7[(Enemy Slot 1 Store)]
-a8(TURN/Take Next Turn)-.->7e890799-3cbc-41dd-80b5-b164b9555ec7[(Enemy Slot 1 Store)]
-a8(TURN/Take Next Turn)-.->7e9e2248-0ccc-4df3-aea0-83236a0b7f9d[(Player Slot 1 Store)]
-a9(DEFENDER/Take Damage)-.->7e9e2248-0ccc-4df3-aea0-83236a0b7f9d[(Player Slot 1 Store)]
-a1(Player/Fight)-.->7e9e2248-0ccc-4df3-aea0-83236a0b7f9d[(Player Slot 1 Store)]
-a0(STORE/Initialize Stores)-.->7e9e2248-0ccc-4df3-aea0-83236a0b7f9d[(Player Slot 1 Store)]
-54274c5f-f51d-420e-b717-bd0d155bcef3[(Corneria Battles)]-->a0(STORE/Initialize Stores)
+flowchart
+a19(TURN/Roll Initiative)-.->9ac61e31-ec75-45a5-bf25-84a0a501eef1[(Player 1)]
+a8(TURN/Take Next Turn)-.->9ac61e31-ec75-45a5-bf25-84a0a501eef1[(Player 1)]
+a9(DEFENDER/Take Damage)-.->9ac61e31-ec75-45a5-bf25-84a0a501eef1[(Player 1)]
+a1(Player/Fight)-.->9ac61e31-ec75-45a5-bf25-84a0a501eef1[(Player 1)]
+a19(TURN/Roll Initiative)-.->1fdbce4b-293e-4d6b-9814-999713fe2059[(Enemy 1)]
+a9(DEFENDER/Take Damage)-.->1fdbce4b-293e-4d6b-9814-999713fe2059[(Enemy 1)]
+a8(TURN/Take Next Turn)-.->1fdbce4b-293e-4d6b-9814-999713fe2059[(Enemy 1)]
+a22(TURN/Sort Initiative)-.->d59534e2-c1fe-464b-84f2-1cc8a57fb469[(Turn)]
+a16(TURN/Build Initiative)-.->d59534e2-c1fe-464b-84f2-1cc8a57fb469[(Turn)]
+a14(TURN/Start Next Turn)-.->d59534e2-c1fe-464b-84f2-1cc8a57fb469[(Turn)]
+a20(REPORT/Reject Menu Choice)-.->7ec82437-bd54-4415-85ec-29cfd162b90e[(Text)]
+a18(REPORT/Attack Results)-.->7ec82437-bd54-4415-85ec-29cfd162b90e[(Text)]
+a10(Player/Enable)-.->7f24e158-f430-43b7-b3b4-0aad714b8f1d[(Pick)]
+a21(Menu Choice/Handle Choice)-.->7f24e158-f430-43b7-b3b4-0aad714b8f1d[(Pick)]
+a11(Menu Choice/Choice Made)-.->7f24e158-f430-43b7-b3b4-0aad714b8f1d[(Pick)]
+a15(MENU/Close Panel)-.->26da9c1f-5ab4-49c1-96da-c6513e769ee3[(Menu)]
+a12(MENU/Open Panel)-.->26da9c1f-5ab4-49c1-96da-c6513e769ee3[(Menu)]
+a13(SCENE/Fade In)-.->cb73bdaa-9746-4d94-a75a-1b8c23a4239b[(Scene)]
 54274c5f-f51d-420e-b717-bd0d155bcef3[(Corneria Battles)]-->a13(SCENE/Fade In)
-7e9e2248-0ccc-4df3-aea0-83236a0b7f9d[(Player Slot 1 Store)]-->a9(DEFENDER/Take Damage)
-7e9e2248-0ccc-4df3-aea0-83236a0b7f9d[(Player Slot 1 Store)]-->a18(REPORT/Attack Results)
-7e9e2248-0ccc-4df3-aea0-83236a0b7f9d[(Player Slot 1 Store)]-->a12(MENU/Open Panel)
-7e9e2248-0ccc-4df3-aea0-83236a0b7f9d[(Player Slot 1 Store)]-->a10(Player/Enable)
-7e890799-3cbc-41dd-80b5-b164b9555ec7[(Enemy Slot 1 Store)]-->a9(DEFENDER/Take Damage)
-7e890799-3cbc-41dd-80b5-b164b9555ec7[(Enemy Slot 1 Store)]-->a14(TURN/Start Next Turn)
-7e890799-3cbc-41dd-80b5-b164b9555ec7[(Enemy Slot 1 Store)]-->a18(REPORT/Attack Results)
-660916d1-1efb-456e-b770-10b9c9a8f913[(Dispatcher)]-->a8(TURN/Take Next Turn)
-84c0a2e8-6dbd-4f3f-b294-2ce0c30e652b[(Player Choice Store)]-->a15(MENU/Close Panel)
-84c0a2e8-6dbd-4f3f-b294-2ce0c30e652b[(Player Choice Store)]-->a21(Menu Choice/Handle Choice)
-84c0a2e8-6dbd-4f3f-b294-2ce0c30e652b[(Player Choice Store)]-->a20(REPORT/Reject Menu Choice)
-84c0a2e8-6dbd-4f3f-b294-2ce0c30e652b[(Player Choice Store)]-->a1(Player/Fight)
-84c0a2e8-6dbd-4f3f-b294-2ce0c30e652b[(Player Choice Store)]-->a14(TURN/Start Next Turn)
-84c0a2e8-6dbd-4f3f-b294-2ce0c30e652b[(Player Choice Store)]-->a11(Menu Choice/Choice Made)
-29bc472f-2cd1-48f2-aa4c-2cc45d69707c[(Dialogue Store)]-->a14(TURN/Start Next Turn)
-82583aa5-bc2f-4df9-9739-28dbdfb81f7b[(Turn Order Store)]-->a16(TURN/Build Initiative)
-82583aa5-bc2f-4df9-9739-28dbdfb81f7b[(Turn Order Store)]-->a16(TURN/Build Initiative)
-82583aa5-bc2f-4df9-9739-28dbdfb81f7b[(Turn Order Store)]-->a8(TURN/Take Next Turn)
-82583aa5-bc2f-4df9-9739-28dbdfb81f7b[(Turn Order Store)]-->a14(TURN/Start Next Turn)
-9c7813d8-1d8c-4eab-aaaa-6b885a213232[(Enemy Slot 2 Store)]-->a9(DEFENDER/Take Damage)
-9c7813d8-1d8c-4eab-aaaa-6b885a213232[(Enemy Slot 2 Store)]-->a14(TURN/Start Next Turn)
-9c7813d8-1d8c-4eab-aaaa-6b885a213232[(Enemy Slot 2 Store)]-->a18(REPORT/Attack Results)
-b1485b54-946e-4c56-9971-ceef4c138eff[(Enemy Slot 3 Store)]-->a9(DEFENDER/Take Damage)
-b1485b54-946e-4c56-9971-ceef4c138eff[(Enemy Slot 3 Store)]-->a14(TURN/Start Next Turn)
-b1485b54-946e-4c56-9971-ceef4c138eff[(Enemy Slot 3 Store)]-->a18(REPORT/Attack Results)
-1d2b8415-25a9-44fe-8843-6e86b60f76df[(Player Slot 2 Store)]-->a9(DEFENDER/Take Damage)
-1d2b8415-25a9-44fe-8843-6e86b60f76df[(Player Slot 2 Store)]-->a18(REPORT/Attack Results)
-1d2b8415-25a9-44fe-8843-6e86b60f76df[(Player Slot 2 Store)]-->a12(MENU/Open Panel)
-1d2b8415-25a9-44fe-8843-6e86b60f76df[(Player Slot 2 Store)]-->a10(Player/Enable)
+54274c5f-f51d-420e-b717-bd0d155bcef3[(Corneria Battles)]-->a16(TURN/Build Initiative)
+9c19db58-2e7a-44d7-861f-c4544041ec00[(Current Player)]-->a15(MENU/Close Panel)
+939cc906-4011-4090-99ce-def3308da22a[(Dispatcher)]-->a8(TURN/Take Next Turn)
+7f24e158-f430-43b7-b3b4-0aad714b8f1d[(Pick)]-->a21(Menu Choice/Handle Choice)
+7f24e158-f430-43b7-b3b4-0aad714b8f1d[(Pick)]-->a20(REPORT/Reject Menu Choice)
+7f24e158-f430-43b7-b3b4-0aad714b8f1d[(Pick)]-->a1(Player/Fight)
+7f24e158-f430-43b7-b3b4-0aad714b8f1d[(Pick)]-->a14(TURN/Start Next Turn)
+7f24e158-f430-43b7-b3b4-0aad714b8f1d[(Pick)]-->a11(Menu Choice/Choice Made)
+7ec82437-bd54-4415-85ec-29cfd162b90e[(Text)]-->a14(TURN/Start Next Turn)
+d59534e2-c1fe-464b-84f2-1cc8a57fb469[(Turn)]-->a16(TURN/Build Initiative)
+d59534e2-c1fe-464b-84f2-1cc8a57fb469[(Turn)]-->a8(TURN/Take Next Turn)
+d59534e2-c1fe-464b-84f2-1cc8a57fb469[(Turn)]-->a19(TURN/Roll Initiative)
+d59534e2-c1fe-464b-84f2-1cc8a57fb469[(Turn)]-->a22(TURN/Sort Initiative)
+d59534e2-c1fe-464b-84f2-1cc8a57fb469[(Turn)]-->a14(TURN/Start Next Turn)
+1fdbce4b-293e-4d6b-9814-999713fe2059[(Enemy 1)]-->a9(DEFENDER/Take Damage)
+1fdbce4b-293e-4d6b-9814-999713fe2059[(Enemy 1)]-->a14(TURN/Start Next Turn)
+1fdbce4b-293e-4d6b-9814-999713fe2059[(Enemy 1)]-->a18(REPORT/Attack Results)
+9ac61e31-ec75-45a5-bf25-84a0a501eef1[(Player 1)]-->a9(DEFENDER/Take Damage)
+9ac61e31-ec75-45a5-bf25-84a0a501eef1[(Player 1)]-->a18(REPORT/Attack Results)
+9ac61e31-ec75-45a5-bf25-84a0a501eef1[(Player 1)]-->a12(MENU/Open Panel)
+9ac61e31-ec75-45a5-bf25-84a0a501eef1[(Player 1)]-->a10(Player/Enable)
 ```
