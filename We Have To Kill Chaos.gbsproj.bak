@@ -10880,6 +10880,22 @@
                                                         "__collapse": true
                                                     },
                                                     "id": "c4127ab8-7889-462c-ab03-a5ecc298a72e"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_START_UPDATE",
+                                                    "args": {
+                                                        "actorId": "1fdbce4b-293e-4d6b-9814-999713fe2059",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "e58663d5-9bd1-405e-b9a2-b33c8cc22d57"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_START_UPDATE",
+                                                    "args": {
+                                                        "actorId": "9ac61e31-ec75-45a5-bf25-84a0a501eef1",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "a51831ef-1e93-46a2-8d2e-0897f4d08fd3"
                                                 }
                                             ],
                                             "updateView": [],
@@ -10887,7 +10903,7 @@
                                                 {
                                                     "command": "EVENT_GROUP",
                                                     "args": {
-                                                        "__collapse": true,
+                                                        "__collapse": false,
                                                         "__label": "Get Next Event"
                                                     },
                                                     "children": {
@@ -12445,7 +12461,7 @@
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
                                 "action": 10,
-                                "__collapse": true
+                                "__collapse": false
                             },
                             "children": {
                                 "response": [
@@ -12544,7 +12560,7 @@
                                                                         {
                                                                             "command": "EVENT_ACTOR_MOVE_RELATIVE",
                                                                             "args": {
-                                                                                "actorId": "$self$",
+                                                                                "actorId": "player",
                                                                                 "x": {
                                                                                     "type": "number",
                                                                                     "value": 0
@@ -12564,7 +12580,7 @@
                                                                         {
                                                                             "command": "EVENT_ACTOR_MOVE_RELATIVE",
                                                                             "args": {
-                                                                                "actorId": "$self$",
+                                                                                "actorId": "player",
                                                                                 "x": {
                                                                                     "type": "number",
                                                                                     "value": 0
@@ -12783,19 +12799,12 @@
                                                                 "id": "22ba0b6e-68fa-4e6b-bc3f-ea5fb2ae24e4"
                                                             },
                                                             {
-                                                                "command": "EVENT_ACTOR_SET_POSITION",
+                                                                "command": "EVENT_ACTOR_START_UPDATE",
                                                                 "args": {
-                                                                    "actorId": "player",
-                                                                    "x": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "y": {
-                                                                        "type": "number",
-                                                                        "value": 1
-                                                                    }
+                                                                    "actorId": "939cc906-4011-4090-99ce-def3308da22a",
+                                                                    "__collapse": true
                                                                 },
-                                                                "id": "b0e92125-f364-4d61-a121-6296239c6fae"
+                                                                "id": "9ff098c2-93e0-4644-86dc-9a577f1517f1"
                                                             }
                                                         ]
                                                     },
@@ -12854,36 +12863,21 @@
                                     }
                                 },
                                 "__collapseElse": false,
-                                "__collapse": true
+                                "__collapse": false
                             },
                             "children": {
                                 "true": [
                                     {
-                                        "command": "EVENT_ACTOR_SET_POSITION",
+                                        "command": "EVENT_ACTOR_START_UPDATE",
                                         "args": {
-                                            "actorId": "player",
-                                            "x": {
-                                                "type": "number",
-                                                "value": 0
-                                            },
-                                            "y": {
-                                                "type": "number",
-                                                "value": 1
-                                            }
+                                            "actorId": "939cc906-4011-4090-99ce-def3308da22a"
                                         },
-                                        "id": "0f97bc2e-2602-44ad-843b-dba6f4ee4900"
+                                        "id": "e81c6b85-507b-4b44-b474-24e9138a91e5"
                                     }
                                 ],
                                 "false": []
                             },
                             "id": "de2211c8-0da4-4edd-a037-edc6fa2c640b"
-                        },
-                        {
-                            "command": "EVENT_ACTOR_START_UPDATE",
-                            "args": {
-                                "actorId": "939cc906-4011-4090-99ce-def3308da22a"
-                            },
-                            "id": "e81c6b85-507b-4b44-b474-24e9138a91e5"
                         },
                         {
                             "command": "EVENT_ACTOR_STOP_UPDATE",
@@ -14662,20 +14656,11 @@
                             "id": "5861334a-b11a-46c0-ab0b-019fb2310f88"
                         },
                         {
-                            "command": "EVENT_ACTOR_SET_POSITION",
+                            "command": "EVENT_ACTOR_START_UPDATE",
                             "args": {
-                                "actorId": "player",
-                                "x": {
-                                    "type": "number",
-                                    "value": 0
-                                },
-                                "y": {
-                                    "type": "number",
-                                    "value": 1
-                                },
-                                "__collapse": true
+                                "actorId": "939cc906-4011-4090-99ce-def3308da22a"
                             },
-                            "id": "e7b948a1-671e-4fc2-a801-8d2a41279bbf"
+                            "id": "ffcca2a5-4d82-4558-acac-c39e9c514a2d"
                         },
                         {
                             "command": "EVENT_ACTOR_STOP_UPDATE",
@@ -15530,19 +15515,11 @@
                             "id": "5efc9ea0-b84b-4368-a441-141a2112d939"
                         },
                         {
-                            "command": "EVENT_ACTOR_SET_POSITION",
+                            "command": "EVENT_ACTOR_START_UPDATE",
                             "args": {
-                                "actorId": "player",
-                                "x": {
-                                    "type": "number",
-                                    "value": 0
-                                },
-                                "y": {
-                                    "type": "number",
-                                    "value": 1
-                                }
+                                "actorId": "939cc906-4011-4090-99ce-def3308da22a"
                             },
-                            "id": "f02124fc-06d9-4980-95c4-1f19ea94a2a8"
+                            "id": "f9a7ab6f-47aa-4fa1-8a85-b0d50ee94598"
                         },
                         {
                             "command": "EVENT_ACTOR_STOP_UPDATE",
@@ -16748,7 +16725,7 @@
                         "variable": "33",
                         "value": {
                             "type": "number",
-                            "value": 0
+                            "value": 1
                         },
                         "__collapse": false
                     },
