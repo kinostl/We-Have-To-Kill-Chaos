@@ -2,6 +2,8 @@ const id = "FO_EVENT_SUBMAP2";
 const groups = ["Plugins"];
 const name = "BKG SubMap";
 
+const numberOpts = Array(8).fill(0).map((x,i)=>[i,`${i+1}`])
+
 const fields = (
   [
     {
@@ -51,7 +53,13 @@ const fields = (
       type: "number",
       defaultValue: 0,
       width: "50%",
-    }
+    },
+    {
+      key:"color",
+      label:"Color",
+      type:"togglebuttons",
+      options:numberOpts
+    },
   ]
 );
 
@@ -65,6 +73,7 @@ const compile = (input, helpers) => {
         appendRaw
     } = helpers;
 
+    _stackPushConst(input.color);
     _stackPushConst(input.keyX);
     _stackPushConst(input.keyY);
     
@@ -76,7 +85,7 @@ const compile = (input, helpers) => {
 
     _callNative('copyBkgToBkg');
     
-    _stackPop(6);
+    _stackPop(7);
 };
 
 module.exports = {

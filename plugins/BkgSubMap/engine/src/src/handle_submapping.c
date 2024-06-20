@@ -20,6 +20,7 @@ union tile {
 
 void copyBkgToBkg(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
+  const int16_t COLOR = *(int16_t *)VM_REF_TO_PTR(FN_ARG6);
   const int16_t DES_X = *(int16_t *)VM_REF_TO_PTR(FN_ARG5);
   const int16_t DES_Y = *(int16_t *)VM_REF_TO_PTR(FN_ARG4);
   const int16_t W1 = *(int16_t *)VM_REF_TO_PTR(FN_ARG3);
@@ -33,10 +34,15 @@ void copyBkgToBkg(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
   unsigned char my_tiles[32*32];
   union tile my_tile;
-  my_tile.attr.palette = 1;
+  my_tile.attr.palette = COLOR;
+  my_tile.attr.bank = 0;
+  my_tile.attr.nothing = 0;
+  my_tile.attr.flip_h = 0;
+  my_tile.attr.flip_v = 0;
+  my_tile.attr.draw_over_objects = 0;
 
   VBK_REG = 1;
-  MemcpyBanked(my_tiles,image_attr_ptr, sizeof(my_tiles), image_attr_bank);
+  // MemcpyBanked(my_tiles,image_attr_ptr, sizeof(my_tiles), image_attr_bank);
   // set_bkg_submap(DES_X, DES_Y, W1, H1, my_tiles + offset, image_tile_width);
   fill_bkg_rect(DES_X, DES_Y, W1, H1, my_tile._tile);
 

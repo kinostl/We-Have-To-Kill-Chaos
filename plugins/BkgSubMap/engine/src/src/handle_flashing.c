@@ -20,6 +20,8 @@ union tile {
 
 void makeBkgFlash(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
+  const int16_t COLOR_1 = *(int16_t *)VM_REF_TO_PTR(FN_ARG7);
+  const int16_t COLOR_2 = *(int16_t *)VM_REF_TO_PTR(FN_ARG6);
   const int16_t DES_X = *(int16_t *)VM_REF_TO_PTR(FN_ARG5);
   const int16_t DES_Y = *(int16_t *)VM_REF_TO_PTR(FN_ARG4);
   const int16_t W1 = *(int16_t *)VM_REF_TO_PTR(FN_ARG3);
@@ -31,31 +33,29 @@ void makeBkgFlash(SCRIPT_CTX *THIS) OLDCALL BANKED {
   const int16_t offset_y = SRC_Y - DES_Y;
   const int16_t offset = offset_x + (offset_y * image_tile_width);
 
-  unsigned char my_tiles[32 * 32];
+  // unsigned char my_tiles[32 * 32];
   union tile my_tile;
-  my_tile.attr.palette = 1;
-
-  VBK_REG = 0;
-  MemcpyBanked(my_tiles, image_ptr, sizeof(my_tiles), image_bank);
-  set_bkg_submap(DES_X, DES_Y, W1, H1, my_tiles + offset, image_tile_width);
+  my_tile.attr.bank = 0;
+  my_tile.attr.nothing = 0;
+  my_tile.attr.flip_h = 0;
+  my_tile.attr.flip_v = 0;
+  my_tile.attr.draw_over_objects = 0;
 
   VBK_REG = 1;
-  MemcpyBanked(my_tiles, image_attr_ptr, sizeof(my_tiles), image_attr_bank);
+  // MemcpyBanked(my_tiles, image_attr_ptr, sizeof(my_tiles), image_attr_bank);
   // set_bkg_submap(DES_X, DES_Y, W1, H1, my_tiles + offset, image_tile_width);
-  fill_bkg_rect(DES_X, DES_Y, W1, H1, my_tile._tile);
+  // fill_bkg_rect(DES_X, DES_Y, W1, H1, my_tile._tile);
 
   for (uint8_t i = 0; i < 2; i++) {
-    my_tile.attr.palette = 6;
+    my_tile.attr.palette = COLOR_2;
     fill_bkg_rect(DES_X, DES_Y, W1, H1, my_tile._tile);
     vsync();
     delay(100);
-    my_tile.attr.palette = 1;
+    my_tile.attr.palette = COLOR_1;
     fill_bkg_rect(DES_X, DES_Y, W1, H1, my_tile._tile);
     vsync();
     delay(100);
   }
 
   VBK_REG = 0;
-  MemcpyBanked(my_tiles, image_ptr, sizeof(my_tiles), image_bank);
-  set_bkg_submap(DES_X, DES_Y, W1, H1, my_tiles + offset, image_tile_width);
 }

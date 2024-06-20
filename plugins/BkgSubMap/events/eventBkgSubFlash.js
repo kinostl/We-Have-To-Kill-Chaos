@@ -2,6 +2,8 @@ const id = "FO_EVENT_SUBFLASH";
 const groups = ["Plugins"];
 const name = "Make BKG Flash";
 
+const numberOpts = Array(8).fill(0).map((x,i)=>[i,`${i+1}`])
+
 const fields = (
   [
     {
@@ -51,6 +53,18 @@ const fields = (
       type: "number",
       defaultValue: 0,
       width: "50%",
+    },
+    {
+      key:"color1",
+      label:"Color 1",
+      type:"togglebuttons",
+      options:numberOpts
+    },
+    {
+      key:"color2",
+      label:"Color 2",
+      type:"togglebuttons",
+      options:numberOpts
     }
   ]
 );
@@ -65,6 +79,9 @@ const compile = (input, helpers) => {
         appendRaw
     } = helpers;
 
+    _stackPushConst(input.color1);
+    _stackPushConst(input.color2);
+
     _stackPushConst(input.keyX);
     _stackPushConst(input.keyY);
     
@@ -76,7 +93,7 @@ const compile = (input, helpers) => {
 
     _callNative('makeBkgFlash');
     
-    _stackPop(6);
+    _stackPop(8);
 };
 
 module.exports = {
