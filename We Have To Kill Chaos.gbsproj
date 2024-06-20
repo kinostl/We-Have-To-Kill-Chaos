@@ -10806,7 +10806,7 @@
                     "animSpeed": 15,
                     "paletteId": "",
                     "isPinned": false,
-                    "persistent": false,
+                    "persistent": true,
                     "collisionGroup": "",
                     "symbol": "actor_7",
                     "script": [],
@@ -13067,7 +13067,7 @@
                             "command": "FF_EVENT_SUBSCRIBE_ACTION",
                             "args": {
                                 "action": 18,
-                                "__collapse": false
+                                "__collapse": true
                             },
                             "children": {
                                 "response": [
@@ -13109,7 +13109,7 @@
                                             "__collapseCase15": false,
                                             "value15": 16,
                                             "__collapseElse": false,
-                                            "__collapse": true
+                                            "__collapse": false
                                         },
                                         "children": {
                                             "true0": [
@@ -21398,9 +21398,9 @@
                                                         },
                                                         "$variable[V4]$": {
                                                             "type": "variable",
-                                                            "value": "86"
+                                                            "value": "87"
                                                         },
-                                                        "__collapse": true
+                                                        "__collapse": false
                                                     },
                                                     "id": "049ea45d-547e-4e44-a902-a4fc433e424f"
                                                 },
@@ -22215,9 +22215,9 @@
                                                         },
                                                         "$variable[V4]$": {
                                                             "type": "variable",
-                                                            "value": "86"
+                                                            "value": "88"
                                                         },
-                                                        "__collapse": true
+                                                        "__collapse": false
                                                     },
                                                     "id": "64e63e42-dd62-4b11-9d59-8236af4fb7ed"
                                                 },
@@ -22733,7 +22733,7 @@
                     "command": "EVENT_ACTOR_START_UPDATE",
                     "args": {
                         "actorId": "939cc906-4011-4090-99ce-def3308da22a",
-                        "__collapse": true
+                        "__collapse": false
                     },
                     "id": "181edd28-b263-4c3b-9b29-88b33ded1090"
                 },
@@ -35077,6 +35077,31 @@
             "symbol": "var_player_3_ap"
         },
         {
+            "id": "84",
+            "name": "Player 4/HP",
+            "symbol": "var_player_4_hp"
+        },
+        {
+            "id": "85",
+            "name": "Player 4/AP",
+            "symbol": "var_player_4_ap"
+        },
+        {
+            "id": "86",
+            "name": "Scene/Enemy 4/Alive",
+            "symbol": "var_scene_enemy_4_alive"
+        },
+        {
+            "id": "87",
+            "name": "Scene/Enemy 5/Alive",
+            "symbol": "var_scene_enemy_5_alive"
+        },
+        {
+            "id": "88",
+            "name": "Scene/Enemy 6/Alive",
+            "symbol": "var_scene_enemy_6_alive"
+        },
+        {
             "id": "b543e5af-0a59-46a2-afa4-a8749b768159__L0",
             "name": "HP",
             "symbol": "var_hp"
@@ -35452,16 +35477,6 @@
             "symbol": "var_absorb_13"
         },
         {
-            "id": "84",
-            "name": "Player 4/HP",
-            "symbol": "var_player_4_hp"
-        },
-        {
-            "id": "85",
-            "name": "Player 4/AP",
-            "symbol": "var_player_4_ap"
-        },
-        {
             "id": "966cedc9-5636-4138-9c7a-ec55eac752ff__L5",
             "name": "ID",
             "symbol": "var_id_14"
@@ -35582,11 +35597,6 @@
             "symbol": "var_absorb_17"
         },
         {
-            "id": "86",
-            "name": "Scene/Enemy 4/Alive",
-            "symbol": "var_scene_enemy_4_alive"
-        },
-        {
             "id": "5bdde63f-6a26-44f2-a806-558bd3730635__L5",
             "name": "ID",
             "symbol": "var_id_18"
@@ -35615,16 +35625,6 @@
             "id": "5bdde63f-6a26-44f2-a806-558bd3730635__L4",
             "name": "Absorb",
             "symbol": "var_absorb_18"
-        },
-        {
-            "id": "87",
-            "name": "Scene/Enemy 5/Alive",
-            "symbol": "var_scene_enemy_5_alive"
-        },
-        {
-            "id": "88",
-            "name": "Scene/Enemy 6/Alive",
-            "symbol": "var_scene_enemy_6_alive"
         },
         {
             "id": "737a215b-ec04-4167-bfd9-34f90646e844__L5",
@@ -35767,22 +35767,11 @@
         ],
         "debuggerEnabled": true,
         "debuggerScriptType": "editor",
-        "debuggerVariablesFilter": "all",
+        "debuggerVariablesFilter": "watched",
         "debuggerCollapsedPanes": [],
         "debuggerPauseOnScriptChanged": false,
-        "debuggerPauseOnWatchedVariableChanged": false,
-        "debuggerBreakpoints": [
-            {
-                "scriptEventId": "181edd28-b263-4c3b-9b29-88b33ded1090",
-                "context": {
-                    "type": "entity",
-                    "entityType": "scene",
-                    "entityId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
-                    "sceneId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
-                    "scriptKey": "script"
-                }
-            }
-        ],
+        "debuggerPauseOnWatchedVariableChanged": true,
+        "debuggerBreakpoints": [],
         "debuggerWatchedVariables": [],
         "colorMode": "color",
         "previewAsMono": false,
