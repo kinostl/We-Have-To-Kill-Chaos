@@ -74,7 +74,7 @@ const compile = (input, helpers) => {
     _stackPushConst(input.keySX);
     _stackPushConst(input.keySY);
 
-    _callNative('copyBkgAttrToBkgAttr');
+    // _callNative('copyBkgAttrToBkgAttr');
     
     _stackPop(6);
 };

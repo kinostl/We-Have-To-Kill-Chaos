@@ -2,18 +2,18 @@ const id = "FF_EVENT_DISPATCH_ACTION";
 const groups = ["Game Specific"];
 const name = "Dispatch Action";
 const actions = [
-    "STORE/Initialize Stores",
+    "ANIMATE/Explosions",
     "Player/Fight",
     "Player/Shield",
     "Player/Limit Break",
-    "Menu Choice/Item",
-    "Menu Choice/Magic",
+    "PICK/Item",
+    "PICK/Magic",
     "Player/Block",
-    "Menu Choice/Run",
+    "PICK/Run",
     "TURN/Take Next Turn",
     "DEFENDER/Take Damage",
-    "Player/Enable",
-    "Menu Choice/Choice Made",
+    "PICK/Enable Player",
+    "PICK/Choice Made",
     "MENU/Open Panel",
     "SCENE/Fade In",
     "TURN/Start Next Turn",
@@ -23,7 +23,7 @@ const actions = [
     "REPORT/Attack Results",
     "TURN/Roll Initiative",
     "REPORT/Reject Menu Choice",
-    "Menu Choice/Handle Choice",
+    "PICK/Handle Choice",
     "TURN/Sort Initiative"
 ];
 
