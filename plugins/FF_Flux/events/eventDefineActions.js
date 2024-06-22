@@ -85,7 +85,7 @@ let ifCount = 0;
 
 const generateChartFromEvent = (start, event) => {
     if (Array.isArray(event)) {
-        return event.map((subev)=>generateChartFromEvent(start, subev)).filter((x)=>x).join('-->')
+        return event.map((subev)=>generateChartFromEvent(start, subev)).filter((x)=>x).join('-.->')
     }
     if(event.command === "FF_EVENT_DISPATCH_ACTION"){
         return `${start}-->${event.args.action}[${actions[event.args.action]}]`
@@ -153,6 +153,9 @@ const compile = (input, helpers) => {
     flows_for_chart = flows_for_chart.map((x)=>{
         if(x.startsWith('-->')){
             return x.substring(3)
+        }
+        if(x.startsWith('-.->')){
+            return x.substring(4)
         }
         return x
     })
