@@ -41,20 +41,6 @@ const fields = (
       type: "break",
     },
     {
-      key: "keySX",
-      label: "SX",
-      type: "number",
-      defaultValue: 0,
-      width: "50%",
-    },
-    {
-      key: "keySY",
-      label: "SY",
-      type: "number",
-      defaultValue: 0,
-      width: "50%",
-    },
-    {
       key:"color1",
       label:"Color 1",
       type:"togglebuttons",
@@ -88,12 +74,9 @@ const compile = (input, helpers) => {
     _stackPushConst(input.keyW);
     _stackPushConst(input.keyH);
 
-    _stackPushConst(input.keySX);
-    _stackPushConst(input.keySY);
-
     _callNative('makeBkgFlash');
     
-    _stackPop(8);
+    _stackPop(6);
 };
 
 module.exports = {
