@@ -64,14 +64,14 @@ const compile = (input, helpers) => {
     entityIndex
   } = helpers;
 
-  if (!additionalOutput['dat_chart']) {
-    additionalOutput['dat_chart'] = {
-      filename: 'dat_chart.md',
-      data: `${entity.id}[(${entity.name})]-->a${input["action"]}(${actions[input["action"]]})\n`
-    }
-  } else {
-    additionalOutput['dat_chart'].data += `${entity.id}[(${entity.name})]-->a${input["action"]}(${actions[input["action"]]})\n`
-  }
+  // if (!additionalOutput['dat_chart']) {
+  //   additionalOutput['dat_chart'] = {
+  //     filename: 'dat_chart.md',
+  //     data: `${entity.id}[(${entity.name})]-->a${input["action"]}(${actions[input["action"]]})\n`
+  //   }
+  // } else {
+  //   additionalOutput['dat_chart'].data += `${entity.id}[(${entity.name})]-->a${input["action"]}(${actions[input["action"]]})\n`
+  // }
 
   const stack_ptr = Object.values(variablesLookup).find((x) => x.name == "Action/End Of Stack")
   const stack_ptr_alias = getVariableAlias(stack_ptr.id)
