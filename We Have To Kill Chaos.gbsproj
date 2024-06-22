@@ -10932,24 +10932,24 @@
                                 "variable": "0",
                                 "__collapseCase1": true,
                                 "__collapseCase14": true,
-                                "__collapseCase8": true,
-                                "__collapseCase9": false,
+                                "__collapseCase8": false,
+                                "__collapseCase9": true,
                                 "__collapseCase15": true,
                                 "__collapseCase12": true,
-                                "__collapseCase11": false,
+                                "__collapseCase11": true,
                                 "__collapseCase10": true,
-                                "__collapseCase21": false,
+                                "__collapseCase21": true,
                                 "__collapseCase4": true,
                                 "__collapseCase5": true,
                                 "__collapseCase7": true,
                                 "__collapseCase6": true,
                                 "__collapseCase3": true,
                                 "__collapseCase2": true,
-                                "__collapseCase18": false,
+                                "__collapseCase18": true,
                                 "__collapseCase17": true,
                                 "__collapseCase20": true,
                                 "__collapseCase13": true,
-                                "__collapseCase0": false,
+                                "__collapseCase0": true,
                                 "__collapseCase16": true,
                                 "__collapseCase19": true,
                                 "__collapseCase22": true,
@@ -11408,7 +11408,7 @@
                                                         "__collapseCase0": false,
                                                         "value0": 5,
                                                         "__collapseCase1": false,
-                                                        "value1": 2,
+                                                        "value1": 6,
                                                         "__collapseCase2": false,
                                                         "value2": 3,
                                                         "__collapseCase3": false,
@@ -11443,125 +11443,296 @@
                                                     "children": {
                                                         "true0": [
                                                             {
-                                                                "command": "FO_EVENT_SUBFLASH",
+                                                                "command": "EVENT_IF",
                                                                 "args": {
-                                                                    "keyX": 1,
-                                                                    "keyY": 5,
-                                                                    "keyW": 5,
-                                                                    "keyH": 4,
-                                                                    "keySX": 0,
-                                                                    "keySY": 0,
-                                                                    "__collapse": true,
-                                                                    "color1": 1,
-                                                                    "color2": 6
-                                                                },
-                                                                "id": "157a7fa6-fad5-46f7-96d2-2130b0021cad"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_SET_VALUE",
-                                                                "args": {
-                                                                    "variable": "56",
-                                                                    "value": {
-                                                                        "type": "number",
-                                                                        "value": 5
-                                                                    },
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "4e2de3c3-4a74-4404-84fa-8f21ad831a0d"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_SET_VALUE",
-                                                                "args": {
-                                                                    "variable": "57",
-                                                                    "value": {
-                                                                        "type": "number",
-                                                                        "value": 1
-                                                                    },
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "6a9b6c0e-e310-4398-afe5-194c4a01100c"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_SET_VALUE",
-                                                                "args": {
-                                                                    "variable": "3",
-                                                                    "value": {
+                                                                    "condition": {
                                                                         "type": "variable",
-                                                                        "value": "90"
+                                                                        "value": "58"
                                                                     },
-                                                                    "__collapse": true
+                                                                    "__collapseElse": false
                                                                 },
-                                                                "id": "18b3cd1b-676e-401f-828a-5bd1003c7e62"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_SET_VALUE",
-                                                                "args": {
-                                                                    "variable": "77",
-                                                                    "value": {
-                                                                        "type": "number",
-                                                                        "value": 1
-                                                                    }
+                                                                "children": {
+                                                                    "true": [
+                                                                        {
+                                                                            "command": "FO_EVENT_SUBFLASH",
+                                                                            "args": {
+                                                                                "keyX": 1,
+                                                                                "keyY": 5,
+                                                                                "keyW": 5,
+                                                                                "keyH": 4,
+                                                                                "keySX": 0,
+                                                                                "keySY": 0,
+                                                                                "__collapse": true,
+                                                                                "color1": 1,
+                                                                                "color2": 6
+                                                                            },
+                                                                            "id": "157a7fa6-fad5-46f7-96d2-2130b0021cad"
+                                                                        },
+                                                                        {
+                                                                            "command": "EVENT_SET_VALUE",
+                                                                            "args": {
+                                                                                "variable": "56",
+                                                                                "value": {
+                                                                                    "type": "number",
+                                                                                    "value": 5
+                                                                                },
+                                                                                "__collapse": true
+                                                                            },
+                                                                            "id": "4e2de3c3-4a74-4404-84fa-8f21ad831a0d"
+                                                                        },
+                                                                        {
+                                                                            "command": "EVENT_SET_VALUE",
+                                                                            "args": {
+                                                                                "variable": "57",
+                                                                                "value": {
+                                                                                    "type": "number",
+                                                                                    "value": 1
+                                                                                },
+                                                                                "__collapse": true
+                                                                            },
+                                                                            "id": "6a9b6c0e-e310-4398-afe5-194c4a01100c"
+                                                                        },
+                                                                        {
+                                                                            "command": "EVENT_SET_VALUE",
+                                                                            "args": {
+                                                                                "variable": "3",
+                                                                                "value": {
+                                                                                    "type": "variable",
+                                                                                    "value": "90"
+                                                                                },
+                                                                                "__collapse": true
+                                                                            },
+                                                                            "id": "18b3cd1b-676e-401f-828a-5bd1003c7e62"
+                                                                        },
+                                                                        {
+                                                                            "command": "EVENT_SET_VALUE",
+                                                                            "args": {
+                                                                                "variable": "77",
+                                                                                "value": {
+                                                                                    "type": "number",
+                                                                                    "value": 1
+                                                                                },
+                                                                                "__collapse": true
+                                                                            },
+                                                                            "id": "d2f0e07a-b2a3-4c76-860c-36493c6af6c6"
+                                                                        },
+                                                                        {
+                                                                            "command": "MY_EVENT_CALL_NATIVE",
+                                                                            "args": {
+                                                                                "argCount": 0,
+                                                                                "arg0": {
+                                                                                    "type": "number",
+                                                                                    "value": 0
+                                                                                },
+                                                                                "arg1": {
+                                                                                    "type": "number",
+                                                                                    "value": 0
+                                                                                },
+                                                                                "arg2": {
+                                                                                    "type": "number",
+                                                                                    "value": 0
+                                                                                },
+                                                                                "arg3": {
+                                                                                    "type": "number",
+                                                                                    "value": 0
+                                                                                },
+                                                                                "arg4": {
+                                                                                    "type": "number",
+                                                                                    "value": 0
+                                                                                },
+                                                                                "arg5": {
+                                                                                    "type": "number",
+                                                                                    "value": 0
+                                                                                },
+                                                                                "arg6": {
+                                                                                    "type": "number",
+                                                                                    "value": 0
+                                                                                },
+                                                                                "arg7": {
+                                                                                    "type": "number",
+                                                                                    "value": 0
+                                                                                },
+                                                                                "funName": "handleEnemySkills",
+                                                                                "__collapse": true
+                                                                            },
+                                                                            "id": "e8b5ef61-b078-4550-bf62-b371dc005b65"
+                                                                        },
+                                                                        {
+                                                                            "command": "FF_EVENT_DISPATCH_ACTION",
+                                                                            "args": {
+                                                                                "action": 9,
+                                                                                "__collapse": true
+                                                                            },
+                                                                            "id": "0a053aac-f5f6-4982-8f91-cdca73aac7b2"
+                                                                        },
+                                                                        {
+                                                                            "command": "FF_EVENT_DISPATCH_ACTION",
+                                                                            "args": {
+                                                                                "action": 18,
+                                                                                "__collapse": true
+                                                                            },
+                                                                            "id": "b5f52401-de22-4af6-926b-2b2742c20a70"
+                                                                        }
+                                                                    ],
+                                                                    "false": [
+                                                                        {
+                                                                            "command": "FF_EVENT_DISPATCH_ACTION",
+                                                                            "args": {
+                                                                                "action": 14
+                                                                            },
+                                                                            "id": "eefbe3c4-0843-4e0d-9976-75cd52e7d7e0"
+                                                                        }
+                                                                    ]
                                                                 },
-                                                                "id": "d2f0e07a-b2a3-4c76-860c-36493c6af6c6"
-                                                            },
-                                                            {
-                                                                "command": "MY_EVENT_CALL_NATIVE",
-                                                                "args": {
-                                                                    "argCount": 0,
-                                                                    "arg0": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "arg1": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "arg2": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "arg3": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "arg4": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "arg5": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "arg6": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "arg7": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "funName": "handleEnemySkills"
-                                                                },
-                                                                "id": "e8b5ef61-b078-4550-bf62-b371dc005b65"
-                                                            },
-                                                            {
-                                                                "command": "FF_EVENT_DISPATCH_ACTION",
-                                                                "args": {
-                                                                    "action": 9,
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "0a053aac-f5f6-4982-8f91-cdca73aac7b2"
-                                                            },
-                                                            {
-                                                                "command": "FF_EVENT_DISPATCH_ACTION",
-                                                                "args": {
-                                                                    "action": 18,
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "b5f52401-de22-4af6-926b-2b2742c20a70"
+                                                                "id": "0e2c242d-9530-45ad-8af8-854fe5635b9d"
                                                             }
                                                         ],
-                                                        "true1": [],
+                                                        "true1": [
+                                                            {
+                                                                "command": "EVENT_IF",
+                                                                "args": {
+                                                                    "condition": {
+                                                                        "type": "variable",
+                                                                        "value": "67"
+                                                                    },
+                                                                    "__collapseElse": false
+                                                                },
+                                                                "children": {
+                                                                    "true": [
+                                                                        {
+                                                                            "command": "FO_EVENT_SUBFLASH",
+                                                                            "args": {
+                                                                                "keyX": 1,
+                                                                                "keyY": 9,
+                                                                                "keyW": 5,
+                                                                                "keyH": 4,
+                                                                                "keySX": 0,
+                                                                                "keySY": 0,
+                                                                                "__collapse": false,
+                                                                                "color1": 1,
+                                                                                "color2": 6
+                                                                            },
+                                                                            "id": "71014802-fd14-4457-8ba9-9128a4e86197"
+                                                                        },
+                                                                        {
+                                                                            "command": "EVENT_SET_VALUE",
+                                                                            "args": {
+                                                                                "variable": "56",
+                                                                                "value": {
+                                                                                    "type": "number",
+                                                                                    "value": 6
+                                                                                },
+                                                                                "__collapse": true
+                                                                            },
+                                                                            "id": "9713964a-9c5b-4314-a3c5-1870cb3b3b4b"
+                                                                        },
+                                                                        {
+                                                                            "command": "EVENT_SET_VALUE",
+                                                                            "args": {
+                                                                                "variable": "57",
+                                                                                "value": {
+                                                                                    "type": "number",
+                                                                                    "value": 1
+                                                                                },
+                                                                                "__collapse": true
+                                                                            },
+                                                                            "id": "c9d0a5b0-6428-4c82-9f8e-e88ab78506ac"
+                                                                        },
+                                                                        {
+                                                                            "command": "EVENT_SET_VALUE",
+                                                                            "args": {
+                                                                                "variable": "3",
+                                                                                "value": {
+                                                                                    "type": "variable",
+                                                                                    "value": "90"
+                                                                                },
+                                                                                "__collapse": true
+                                                                            },
+                                                                            "id": "2c8091f2-21f5-4d2b-b7d3-16ae1cb58a88"
+                                                                        },
+                                                                        {
+                                                                            "command": "EVENT_SET_VALUE",
+                                                                            "args": {
+                                                                                "variable": "77",
+                                                                                "value": {
+                                                                                    "type": "number",
+                                                                                    "value": 0
+                                                                                },
+                                                                                "__collapse": true
+                                                                            },
+                                                                            "id": "8fc6c3f3-5f29-4e21-be1e-0cae7bb421ce"
+                                                                        },
+                                                                        {
+                                                                            "command": "MY_EVENT_CALL_NATIVE",
+                                                                            "args": {
+                                                                                "argCount": 0,
+                                                                                "arg0": {
+                                                                                    "type": "number",
+                                                                                    "value": 0
+                                                                                },
+                                                                                "arg1": {
+                                                                                    "type": "number",
+                                                                                    "value": 0
+                                                                                },
+                                                                                "arg2": {
+                                                                                    "type": "number",
+                                                                                    "value": 0
+                                                                                },
+                                                                                "arg3": {
+                                                                                    "type": "number",
+                                                                                    "value": 0
+                                                                                },
+                                                                                "arg4": {
+                                                                                    "type": "number",
+                                                                                    "value": 0
+                                                                                },
+                                                                                "arg5": {
+                                                                                    "type": "number",
+                                                                                    "value": 0
+                                                                                },
+                                                                                "arg6": {
+                                                                                    "type": "number",
+                                                                                    "value": 0
+                                                                                },
+                                                                                "arg7": {
+                                                                                    "type": "number",
+                                                                                    "value": 0
+                                                                                },
+                                                                                "funName": "handleEnemySkills",
+                                                                                "__collapse": true
+                                                                            },
+                                                                            "id": "9ae310a4-223b-440e-99f8-ed03bcd0e418"
+                                                                        },
+                                                                        {
+                                                                            "command": "FF_EVENT_DISPATCH_ACTION",
+                                                                            "args": {
+                                                                                "action": 9,
+                                                                                "__collapse": true
+                                                                            },
+                                                                            "id": "6606ffe8-881c-419b-930b-38ddf156b64d"
+                                                                        },
+                                                                        {
+                                                                            "command": "FF_EVENT_DISPATCH_ACTION",
+                                                                            "args": {
+                                                                                "action": 18,
+                                                                                "__collapse": true
+                                                                            },
+                                                                            "id": "dcaa1773-1efa-4852-a53a-61af14ec9dab"
+                                                                        }
+                                                                    ],
+                                                                    "false": [
+                                                                        {
+                                                                            "command": "FF_EVENT_DISPATCH_ACTION",
+                                                                            "args": {
+                                                                                "action": 14
+                                                                            },
+                                                                            "id": "55368165-811b-4227-ba8f-6944ceb38658"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                "id": "f2bcbc15-6467-4c64-a86c-ab4e2cbaef17"
+                                                            }
+                                                        ],
                                                         "true2": [],
                                                         "true3": [],
                                                         "true4": [],
@@ -13033,7 +13204,7 @@
                                             "__collapseCase15": false,
                                             "value15": 16,
                                             "__collapseElse": false,
-                                            "__collapse": false
+                                            "__collapse": true
                                         },
                                         "children": {
                                             "true0": [
