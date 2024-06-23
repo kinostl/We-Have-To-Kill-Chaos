@@ -358,3 +358,58 @@ We only have 10 x 12 squares so that means...
 
 Small = 4 * 5
 Large = 6 * 6
+
+## Determining what to put on the battlefield
+
+Step 1. Determine number of large enemies. If 2, draw them and end this list.
+Step 2a. Only 1 large enemy was rolled. Roll number of Small enemies between 0 and 2.
+Step 2b. No large enemies were rolled. Roll number of Small enemies between 1 and 6.
+Step 3. Draw enemies 
+
+### Step 3a. Small + Large
+
+Draw small enemies on top row. Then draw large enemy under them. This lets us standardize for Only Small. After drawing small set y offset to small y endpoint.
+Draw large enemy at small y endpoint.
+
+### Step 3b. Only Small
+
+Loop through the rolled enemies, drawing row by row. Should make Small + Large somewhat easy to use with this.
+Draw first enemy at 1,6. Set x offset to ... no not great solution theres a way to just do this with a dual loop. 
+
+### Step 3c. Only large
+
+Draw the first large enemy then set the y offset to 7. Draw second enemy at y offset.
+
+
+### Loop Solution
+
+set y to 6
+for 1..6 as i
+    if i % 2:
+        bkg_submap(1,y)
+    else:
+        bkg_submap(4,y)
+        y+= enemy_height
+
+# Indirection Tool Plugin
+
+```
+=List of Variables to Iterate Through=
+*Number of Items*
+[list of dropdowns ala switch]
+*Type of Action?* (Loop, Map, etc.)
+[Events applied to each thing]
+```
+
+```
+Number of Vars
+[
+    Var To Use For Indirection,
+    [List of Vars]
+] * Number of Vars
+---
+[Events applied to indirect vars]
+```
+
+Indirection might be an option, so is just replacing them inside the plugin?
+Error out if Indirect Groups aren't same size.

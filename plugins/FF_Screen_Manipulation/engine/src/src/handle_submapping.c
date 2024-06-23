@@ -42,8 +42,6 @@ void copyBkgToBkg(SCRIPT_CTX *THIS) OLDCALL BANKED {
   my_tile.attr.draw_over_objects = 0;
 
   VBK_REG = 1;
-  // MemcpyBanked(my_tiles,image_attr_ptr, sizeof(my_tiles), image_attr_bank);
-  // set_bkg_submap(DES_X, DES_Y, W1, H1, my_tiles + offset, image_tile_width);
   fill_bkg_rect(DES_X, DES_Y, W1, H1, my_tile._tile);
 
   VBK_REG = 0;
