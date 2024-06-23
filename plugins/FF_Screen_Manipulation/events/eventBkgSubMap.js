@@ -75,7 +75,7 @@ const compile = (input, helpers) => {
     _stackPush,
     _stackPushConst,
     _stackPop,
-    variableSetToUnionValue,
+    variableSetToScriptValue,
     _declareLocal
   } = helpers;
   const localVariable = _declareLocal("fo_event_submap2", 1, true)
@@ -83,12 +83,12 @@ const compile = (input, helpers) => {
   if (input.color.type == "togglebuttons") {
     _stackPushConst(input.color.value);
   } else {
-    variableSetToUnionValue(localVariable, input.color.value)
+    variableSetToScriptValue(localVariable, input.color.value)
     _stackPush(localVariable)
   }
   ["keyX", "keyY", "keyW", "keyH", "keySX", "keySY"]
     .forEach((x) => {
-      variableSetToUnionValue(localVariable, input[x])
+      variableSetToScriptValue(localVariable, input[x])
       _stackPush(localVariable)
     })
 
