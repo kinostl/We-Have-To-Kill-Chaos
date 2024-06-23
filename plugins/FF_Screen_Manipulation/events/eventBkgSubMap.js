@@ -9,15 +9,15 @@ const fields = (
     {
       key: "keyX",
       label: "X",
-      type: "number",
-      defaultValue: 0,
+      type: "value",
+      defaultValue: {type:"number",value:"0"},
       width: "50%",
     },
     {
       key: "keyY",
       label: "Y",
-      type: "number",
-      defaultValue: 0,
+      type: "value",
+      defaultValue: {type:"number",value:"0"},
       width: "50%",
     },
     {
@@ -26,15 +26,15 @@ const fields = (
     {
       key: "keyW",
       label: "W",
-      type: "number",
-      defaultValue: 1,
+      type: "value",
+      defaultValue: {type:"number",value:"1"},
       width: "50%",
     },
     {
       key: "keyH",
       label: "H",
-      type: "number",
-      defaultValue: 1,
+      type: "value",
+      defaultValue: {type:"number",value:"1"},
       width: "50%",
     },
     {
@@ -43,49 +43,58 @@ const fields = (
     {
       key: "keySX",
       label: "SX",
-      type: "number",
-      defaultValue: 0,
+      type: "value",
+      defaultValue: {type:"number",value:"0"},
       width: "50%",
     },
     {
       key: "keySY",
       label: "SY",
-      type: "number",
-      defaultValue: 0,
+      type: "value",
+      defaultValue: {type:"number",value:"0"},
       width: "50%",
     },
     {
       key:"color",
       label:"Color",
-      type:"togglebuttons",
+      type:"union",
+      types: ["value", "togglebuttons"],
+      defaultType: "togglebuttons",
+      defaultValue: {
+        togglebuttons: 0,
+        value: 0
+      },
       options:numberOpts
     },
   ]
 );
 
 const compile = (input, helpers) => {
-    const { 
-        _callNative,
-        _stackPushConst,
-        _stackPop,
-        backgrounds,
-        scene,
-        appendRaw
-    } = helpers;
+  const {
+    _callNative,
+    _stackPush,
+    _stackPushConst,
+    _stackPop,
+    variableSetToUnionValue,
+    _declareLocal
+  } = helpers;
+  const localVariable = _declareLocal("fo_event_submap2", 1, true)
 
-    _stackPushConst(input.color);
-    _stackPushConst(input.keyX);
-    _stackPushConst(input.keyY);
-    
-    _stackPushConst(input.keyW);
-    _stackPushConst(input.keyH);
+  if (input.color.type == "togglebuttons") {
+    _stackPushConst(input.color.value);
+  } else {
+    variableSetToUnionValue(localVariable, input.color.value)
+    _stackPush(localVariable)
+  }
+  ["keyX", "keyY", "keyW", "keyH", "keySX", "keySY"]
+    .forEach((x) => {
+      variableSetToUnionValue(localVariable, input[x])
+      _stackPush(localVariable)
+    })
 
-    _stackPushConst(input.keySX);
-    _stackPushConst(input.keySY);
+  _callNative('copyBkgToBkg');
 
-    _callNative('copyBkgToBkg');
-    
-    _stackPop(7);
+  _stackPop(7);
 };
 
 module.exports = {

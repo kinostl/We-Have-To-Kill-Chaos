@@ -16304,25 +16304,10 @@
                                     },
                                     "__collapseElse": true,
                                     "__disableElse": true,
-                                    "__collapse": true
+                                    "__collapse": false
                                 },
                                 "children": {
-                                    "true": [
-                                        {
-                                            "command": "FO_EVENT_SUBMAP2",
-                                            "args": {
-                                                "keyX": 1,
-                                                "keyY": 1,
-                                                "keyW": 10,
-                                                "keyH": 4,
-                                                "keySX": 0,
-                                                "keySY": 18,
-                                                "__collapse": false,
-                                                "color": 3
-                                            },
-                                            "id": "b61f8299-bf4d-470f-a2a1-127e23109163"
-                                        }
-                                    ],
+                                    "true": [],
                                     "false": []
                                 },
                                 "id": "3c1b0ccc-39c2-4263-ad3d-f2bfa8bbebe1"
@@ -16372,95 +16357,6 @@
                                 "command": "FO_EVENT_SUBMAP2",
                                 "args": {
                                     "keyX": 1,
-                                    "keyY": 5,
-                                    "keyW": 5,
-                                    "keyH": 4,
-                                    "keySX": 5,
-                                    "keySY": 26,
-                                    "__collapse": true,
-                                    "color": 1,
-                                    "__comment": false
-                                },
-                                "id": "2e031bab-76b5-4bb5-8e4b-b7b0fdd82d06"
-                            },
-                            {
-                                "command": "FO_EVENT_SUBMAP2",
-                                "args": {
-                                    "keyX": 1,
-                                    "keyY": 9,
-                                    "keyW": 5,
-                                    "keyH": 4,
-                                    "keySX": 0,
-                                    "keySY": 26,
-                                    "__collapse": true,
-                                    "color": 1,
-                                    "__comment": false
-                                },
-                                "id": "7eb429d7-a81c-401d-8d26-c2a738e17ddb"
-                            },
-                            {
-                                "command": "FO_EVENT_SUBMAP2",
-                                "args": {
-                                    "keyX": 1,
-                                    "keyY": 13,
-                                    "keyW": 5,
-                                    "keyH": 4,
-                                    "keySX": 0,
-                                    "keySY": 26,
-                                    "__collapse": true,
-                                    "color": 1,
-                                    "__comment": false
-                                },
-                                "id": "90c2766d-15be-4370-873b-2489aa94b7a4"
-                            },
-                            {
-                                "command": "FO_EVENT_SUBMAP2",
-                                "args": {
-                                    "keyX": 6,
-                                    "keyY": 5,
-                                    "keyW": 5,
-                                    "keyH": 4,
-                                    "keySX": 0,
-                                    "keySY": 26,
-                                    "__collapse": true,
-                                    "color": 1
-                                },
-                                "id": "2551cbaf-1278-4d56-8139-35bf0524aba4"
-                            },
-                            {
-                                "command": "FO_EVENT_SUBMAP2",
-                                "args": {
-                                    "keyX": 6,
-                                    "keyY": 9,
-                                    "keyW": 5,
-                                    "keyH": 4,
-                                    "keySX": 0,
-                                    "keySY": 26,
-                                    "__collapse": true,
-                                    "color": 1,
-                                    "__comment": false
-                                },
-                                "id": "9a61ecfe-4fd8-45ad-b67b-b4471c7833ca"
-                            },
-                            {
-                                "command": "FO_EVENT_SUBMAP2",
-                                "args": {
-                                    "keyX": 6,
-                                    "keyY": 13,
-                                    "keyW": 5,
-                                    "keyH": 4,
-                                    "keySX": 0,
-                                    "keySY": 26,
-                                    "__collapse": true,
-                                    "color": 1,
-                                    "__comment": false
-                                },
-                                "id": "b88deec1-f04e-4609-9a38-cd54e5f2181a"
-                            },
-                            {
-                                "command": "FO_EVENT_SUBMAP2",
-                                "args": {
-                                    "keyX": 1,
                                     "keyY": 9,
                                     "keyW": 6,
                                     "keyH": 6,
@@ -16471,6 +16367,40 @@
                                     "__comment": true
                                 },
                                 "id": "8038ad44-0c12-4ea8-8b98-bf07a0fe20c0"
+                            },
+                            {
+                                "command": "FO_EVENT_SUBMAP2",
+                                "args": {
+                                    "keyX": {
+                                        "type": "number",
+                                        "value": 1
+                                    },
+                                    "keyY": {
+                                        "type": "number",
+                                        "value": 5
+                                    },
+                                    "keyW": {
+                                        "type": "number",
+                                        "value": 5
+                                    },
+                                    "keyH": {
+                                        "type": "number",
+                                        "value": 4
+                                    },
+                                    "keySX": {
+                                        "type": "number",
+                                        "value": "0"
+                                    },
+                                    "keySY": {
+                                        "type": "number",
+                                        "value": 26
+                                    },
+                                    "color": {
+                                        "type": "togglebuttons",
+                                        "value": 2
+                                    }
+                                },
+                                "id": "433d953e-4d4e-41e6-b19e-c15436b51890"
                             },
                             {
                                 "command": "EVENT_IF",
@@ -35294,8 +35224,8 @@
         "showConnections": true,
         "showCollisionSlopeTiles": false,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 2111,
-        "worldScrollY": 0,
+        "worldScrollX": 1951,
+        "worldScrollY": 79,
         "zoom": 222.5,
         "sgbEnabled": false,
         "customHead": "",
@@ -35382,7 +35312,7 @@
             "Shift"
         ],
         "debuggerEnabled": true,
-        "debuggerScriptType": "editor",
+        "debuggerScriptType": "gbvm",
         "debuggerVariablesFilter": "all",
         "debuggerCollapsedPanes": [],
         "debuggerPauseOnScriptChanged": false,
