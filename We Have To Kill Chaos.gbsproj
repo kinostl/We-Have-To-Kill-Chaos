@@ -9285,7 +9285,7 @@
                                                     "type": "rnd",
                                                     "value": {
                                                         "type": "number",
-                                                        "value": 1
+                                                        "value": 255
                                                     }
                                                 },
                                                 "valueB": {
@@ -10972,7 +10972,7 @@
                             "args": {
                                 "variable": "0",
                                 "__collapseCase1": false,
-                                "__collapseCase14": true,
+                                "__collapseCase14": false,
                                 "__collapseCase8": true,
                                 "__collapseCase9": true,
                                 "__collapseCase15": true,
@@ -15892,7 +15892,7 @@
                         "variable": "33",
                         "value": {
                             "type": "number",
-                            "value": 0
+                            "value": 3
                         },
                         "__collapse": false
                     },
@@ -16002,6 +16002,146 @@
                         "__comment": true
                     },
                     "id": "95953b99-cd43-4980-bbbe-dfd037571453"
+                },
+                {
+                    "command": "EVENT_GROUP",
+                    "args": {
+                        "__label": "Collect Enemy Counts"
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "command": "EVENT_SET_VALUE",
+                                "args": {
+                                    "variable": "L2",
+                                    "value": {
+                                        "type": "number",
+                                        "value": 0
+                                    }
+                                },
+                                "id": "3862eeaa-3dda-475f-b15d-461ee61408af"
+                            },
+                            {
+                                "command": "EVENT_SET_VALUE",
+                                "args": {
+                                    "variable": "L1",
+                                    "value": {
+                                        "type": "rnd",
+                                        "value": {
+                                            "type": "number",
+                                            "value": 3
+                                        }
+                                    }
+                                },
+                                "id": "dc281103-ae2d-4522-9aec-6c859418b3e9"
+                            },
+                            {
+                                "command": "EVENT_SWITCH",
+                                "args": {
+                                    "variable": "L1",
+                                    "choices": 2,
+                                    "__collapseCase0": false,
+                                    "value0": 0,
+                                    "__collapseCase1": false,
+                                    "value1": 1,
+                                    "__collapseCase2": false,
+                                    "value2": 3,
+                                    "__collapseCase3": false,
+                                    "value3": 4,
+                                    "__collapseCase4": false,
+                                    "value4": 5,
+                                    "__collapseCase5": false,
+                                    "value5": 6,
+                                    "__collapseCase6": false,
+                                    "value6": 7,
+                                    "__collapseCase7": false,
+                                    "value7": 8,
+                                    "__collapseCase8": false,
+                                    "value8": 9,
+                                    "__collapseCase9": false,
+                                    "value9": 10,
+                                    "__collapseCase10": false,
+                                    "value10": 11,
+                                    "__collapseCase11": false,
+                                    "value11": 12,
+                                    "__collapseCase12": false,
+                                    "value12": 13,
+                                    "__collapseCase13": false,
+                                    "value13": 14,
+                                    "__collapseCase14": false,
+                                    "value14": 15,
+                                    "__collapseCase15": false,
+                                    "value15": 16,
+                                    "__collapseElse": false
+                                },
+                                "children": {
+                                    "true0": [
+                                        {
+                                            "command": "EVENT_SET_VALUE",
+                                            "args": {
+                                                "variable": "L2",
+                                                "value": {
+                                                    "type": "add",
+                                                    "valueA": {
+                                                        "type": "rnd",
+                                                        "value": {
+                                                            "type": "number",
+                                                            "value": 6
+                                                        }
+                                                    },
+                                                    "valueB": {
+                                                        "type": "number",
+                                                        "value": 1
+                                                    }
+                                                }
+                                            },
+                                            "id": "81bfa383-9c1e-424b-91f5-5756d80ef4db"
+                                        }
+                                    ],
+                                    "true1": [
+                                        {
+                                            "command": "EVENT_SET_VALUE",
+                                            "args": {
+                                                "variable": "L2",
+                                                "value": {
+                                                    "type": "add",
+                                                    "valueA": {
+                                                        "type": "rnd",
+                                                        "value": {
+                                                            "type": "number",
+                                                            "value": 2
+                                                        }
+                                                    },
+                                                    "valueB": {
+                                                        "type": "number",
+                                                        "value": 1
+                                                    }
+                                                }
+                                            },
+                                            "id": "f69c8eb3-3a36-4681-b03f-464b5e5af655"
+                                        }
+                                    ],
+                                    "true2": [],
+                                    "true3": [],
+                                    "true4": [],
+                                    "true5": [],
+                                    "true6": [],
+                                    "true7": [],
+                                    "true8": [],
+                                    "true9": [],
+                                    "true10": [],
+                                    "true11": [],
+                                    "true12": [],
+                                    "true13": [],
+                                    "true14": [],
+                                    "true15": [],
+                                    "false": []
+                                },
+                                "id": "1bd2c4fe-3b9f-4ed0-9c1c-f298ab87d7b3"
+                            }
+                        ]
+                    },
+                    "id": "113915e2-0367-4cd6-b40f-82bae0b7eb28"
                 },
                 {
                     "command": "EVENT_GROUP",
@@ -16377,11 +16517,11 @@
                                     },
                                     "keyY": {
                                         "type": "number",
-                                        "value": 5
+                                        "value": 1
                                     },
                                     "keyW": {
                                         "type": "number",
-                                        "value": 5
+                                        "value": 10
                                     },
                                     "keyH": {
                                         "type": "number",
@@ -16393,14 +16533,284 @@
                                     },
                                     "keySY": {
                                         "type": "number",
-                                        "value": 26
+                                        "value": 18
                                     },
                                     "color": {
                                         "type": "togglebuttons",
-                                        "value": 2
-                                    }
+                                        "value": 3
+                                    },
+                                    "__collapse": true
                                 },
-                                "id": "433d953e-4d4e-41e6-b19e-c15436b51890"
+                                "id": "f6ce3221-db69-49e8-a087-7109cf476a51"
+                            },
+                            {
+                                "command": "EVENT_SET_VALUE",
+                                "args": {
+                                    "variable": "T1",
+                                    "value": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "__collapse": true
+                                },
+                                "id": "2b0efdb4-4993-47d3-9239-e860d1bac378"
+                            },
+                            {
+                                "command": "EVENT_LOOP_FOR",
+                                "args": {
+                                    "variable": "T0",
+                                    "from": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "comparison": "<",
+                                    "to": {
+                                        "type": "variable",
+                                        "value": "L1"
+                                    },
+                                    "operation": "+=",
+                                    "value": {
+                                        "type": "number",
+                                        "value": 1
+                                    },
+                                    "__collapse": true
+                                },
+                                "children": {
+                                    "true": [
+                                        {
+                                            "command": "FO_EVENT_SUBMAP2",
+                                            "args": {
+                                                "keyX": {
+                                                    "type": "number",
+                                                    "value": 1
+                                                },
+                                                "keyY": {
+                                                    "type": "add",
+                                                    "valueA": {
+                                                        "type": "number",
+                                                        "value": 5
+                                                    },
+                                                    "valueB": {
+                                                        "type": "variable",
+                                                        "value": "T1"
+                                                    }
+                                                },
+                                                "keyW": {
+                                                    "type": "number",
+                                                    "value": 6
+                                                },
+                                                "keyH": {
+                                                    "type": "number",
+                                                    "value": 6
+                                                },
+                                                "keySX": {
+                                                    "type": "number",
+                                                    "value": 10
+                                                },
+                                                "keySY": {
+                                                    "type": "number",
+                                                    "value": 26
+                                                },
+                                                "color": {
+                                                    "type": "togglebuttons",
+                                                    "value": 2
+                                                }
+                                            },
+                                            "id": "55cf96e0-6e53-4dbc-8e58-47760fc0149d"
+                                        },
+                                        {
+                                            "command": "EVENT_SET_VALUE",
+                                            "args": {
+                                                "variable": "T1",
+                                                "value": {
+                                                    "type": "add",
+                                                    "valueA": {
+                                                        "type": "variable",
+                                                        "value": "T1"
+                                                    },
+                                                    "valueB": {
+                                                        "type": "number",
+                                                        "value": 6
+                                                    }
+                                                }
+                                            },
+                                            "id": "a198195f-8ce7-417e-be2b-a39da1ae251b"
+                                        }
+                                    ]
+                                },
+                                "id": "1111ddba-63fb-4d57-a1a1-424cd59f760a"
+                            },
+                            {
+                                "command": "EVENT_LOOP_FOR",
+                                "args": {
+                                    "variable": "T0",
+                                    "from": {
+                                        "type": "number",
+                                        "value": 1
+                                    },
+                                    "comparison": "<=",
+                                    "to": {
+                                        "type": "variable",
+                                        "value": "L2"
+                                    },
+                                    "operation": "+=",
+                                    "value": {
+                                        "type": "number",
+                                        "value": 1
+                                    },
+                                    "__collapse": true,
+                                    "__comment": false
+                                },
+                                "children": {
+                                    "true": [
+                                        {
+                                            "command": "FO_EVENT_SUBMAP2",
+                                            "args": {
+                                                "keyX": {
+                                                    "type": "add",
+                                                    "valueA": {
+                                                        "type": "mul",
+                                                        "valueA": {
+                                                            "type": "mod",
+                                                            "valueA": {
+                                                                "type": "variable",
+                                                                "value": "T0"
+                                                            },
+                                                            "valueB": {
+                                                                "type": "number",
+                                                                "value": 2
+                                                            }
+                                                        },
+                                                        "valueB": {
+                                                            "type": "number",
+                                                            "value": 5
+                                                        }
+                                                    },
+                                                    "valueB": {
+                                                        "type": "number",
+                                                        "value": 1
+                                                    }
+                                                },
+                                                "keyY": {
+                                                    "type": "add",
+                                                    "valueA": {
+                                                        "type": "number",
+                                                        "value": 5
+                                                    },
+                                                    "valueB": {
+                                                        "type": "variable",
+                                                        "value": "T1"
+                                                    }
+                                                },
+                                                "keyW": {
+                                                    "type": "number",
+                                                    "value": 5
+                                                },
+                                                "keyH": {
+                                                    "type": "number",
+                                                    "value": 4
+                                                },
+                                                "keySX": {
+                                                    "type": "mul",
+                                                    "valueA": {
+                                                        "type": "rnd",
+                                                        "value": {
+                                                            "type": "number",
+                                                            "value": 2
+                                                        }
+                                                    },
+                                                    "valueB": {
+                                                        "type": "number",
+                                                        "value": 5
+                                                    }
+                                                },
+                                                "keySY": {
+                                                    "type": "number",
+                                                    "value": 26
+                                                },
+                                                "color": {
+                                                    "type": "togglebuttons",
+                                                    "value": 1
+                                                }
+                                            },
+                                            "id": "2f0f5b80-9653-492e-b00d-3af90cbf3e39"
+                                        },
+                                        {
+                                            "command": "EVENT_IF",
+                                            "args": {
+                                                "condition": {
+                                                    "type": "and",
+                                                    "valueA": {
+                                                        "type": "eq",
+                                                        "valueA": {
+                                                            "type": "mod",
+                                                            "valueA": {
+                                                                "type": "variable",
+                                                                "value": "T0"
+                                                            },
+                                                            "valueB": {
+                                                                "type": "number",
+                                                                "value": 2
+                                                            }
+                                                        },
+                                                        "valueB": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        }
+                                                    },
+                                                    "valueB": {
+                                                        "type": "ne",
+                                                        "valueA": {
+                                                            "type": "variable",
+                                                            "value": "T0"
+                                                        },
+                                                        "valueB": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        }
+                                                    }
+                                                },
+                                                "__collapseElse": true
+                                            },
+                                            "children": {
+                                                "true": [
+                                                    {
+                                                        "command": "EVENT_SET_VALUE",
+                                                        "args": {
+                                                            "variable": "T1",
+                                                            "value": {
+                                                                "type": "add",
+                                                                "valueA": {
+                                                                    "type": "variable",
+                                                                    "value": "T1"
+                                                                },
+                                                                "valueB": {
+                                                                    "type": "number",
+                                                                    "value": 4
+                                                                }
+                                                            }
+                                                        },
+                                                        "id": "d07755c5-70a9-4d0e-8426-2a9cb1ae9375"
+                                                    }
+                                                ],
+                                                "false": []
+                                            },
+                                            "id": "ef378e99-ba8e-4b1e-a2cc-959d565e96df"
+                                        },
+                                        {
+                                            "command": "EVENT_SET_VALUE",
+                                            "args": {
+                                                "variable": "L0",
+                                                "value": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                }
+                                            },
+                                            "id": "e77a95b7-4adc-4570-93b8-0565a7609d91"
+                                        }
+                                    ]
+                                },
+                                "id": "0405d064-c0ed-40ae-9cd4-d34d727c49e8"
                             },
                             {
                                 "command": "EVENT_IF",
@@ -16447,6 +16857,65 @@
                         ]
                     },
                     "id": "2282dbe8-ac1f-4f1f-b66d-cb2584256625"
+                },
+                {
+                    "command": "EVENT_IF",
+                    "args": {
+                        "condition": {
+                            "type": "eq",
+                            "valueA": {
+                                "type": "variable",
+                                "value": "33"
+                            },
+                            "valueB": {
+                                "type": "number",
+                                "value": 3
+                            }
+                        },
+                        "__collapseElse": true
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "command": "EVENT_FADE_IN",
+                                "args": {
+                                    "speed": "2"
+                                },
+                                "id": "def6122c-2750-4f05-8028-2cc7ddb02698"
+                            },
+                            {
+                                "command": "EVENT_TEXT",
+                                "args": {
+                                    "text": [
+                                        "Debug: Skip Fight"
+                                    ],
+                                    "avatarId": ""
+                                },
+                                "id": "3207be2e-8466-4325-89f0-0bc162fdceda"
+                            },
+                            {
+                                "command": "EVENT_SWITCH_SCENE",
+                                "args": {
+                                    "sceneId": "97ae8775-3b76-4b99-88ae-364931c1f441",
+                                    "x": {
+                                        "type": "variable",
+                                        "value": "60"
+                                    },
+                                    "y": {
+                                        "type": "variable",
+                                        "value": "61"
+                                    },
+                                    "direction": "",
+                                    "fadeSpeed": "2",
+                                    "__collapse": true,
+                                    "__comment": false
+                                },
+                                "id": "3a5ac8d1-6b31-4c53-9163-5b546be14fe2"
+                            }
+                        ],
+                        "false": []
+                    },
+                    "id": "855671a2-ded2-4ccf-bfbf-3f3c1666e671"
                 },
                 {
                     "command": "EVENT_GROUP",
@@ -22666,9 +23135,51 @@
                                         "value": 17
                                     },
                                     "direction": "",
-                                    "fadeSpeed": "2"
+                                    "fadeSpeed": "2",
+                                    "__comment": true
                                 },
                                 "id": "963875be-d921-4659-9c8e-002a381e22ec"
+                            },
+                            {
+                                "command": "EVENT_SET_VALUE",
+                                "args": {
+                                    "variable": "60",
+                                    "value": {
+                                        "type": "number",
+                                        "value": 65
+                                    }
+                                },
+                                "id": "ac8d7816-70e4-4d28-bc9c-3c833dcc3281"
+                            },
+                            {
+                                "command": "EVENT_SET_VALUE",
+                                "args": {
+                                    "variable": "61",
+                                    "value": {
+                                        "type": "number",
+                                        "value": 95
+                                    }
+                                },
+                                "id": "d51e9055-acac-47c4-a9e1-38da2b6cf9b6"
+                            },
+                            {
+                                "command": "EVENT_SWITCH_SCENE",
+                                "args": {
+                                    "sceneId": "97ae8775-3b76-4b99-88ae-364931c1f441",
+                                    "x": {
+                                        "type": "variable",
+                                        "value": "60"
+                                    },
+                                    "y": {
+                                        "type": "variable",
+                                        "value": "61"
+                                    },
+                                    "direction": "",
+                                    "fadeSpeed": "2",
+                                    "__collapse": true,
+                                    "__comment": false
+                                },
+                                "id": "091f1b22-885c-4728-b7bd-8769ef38ac80"
                             }
                         ]
                     },
@@ -35201,6 +35712,26 @@
             "id": "5b07b77a-3792-4fae-a9cf-0868e3eaf12c__L1",
             "name": "direction",
             "symbol": "var_direction"
+        },
+        {
+            "id": "101",
+            "name": "Variable 101",
+            "symbol": "var_variable_101"
+        },
+        {
+            "id": "54274c5f-f51d-420e-b717-bd0d155bcef3__L1",
+            "name": "Large Enemies",
+            "symbol": "var_large_enemies"
+        },
+        {
+            "id": "54274c5f-f51d-420e-b717-bd0d155bcef3__L2",
+            "name": "Small Enemies",
+            "symbol": "var_small_enemies"
+        },
+        {
+            "id": "54274c5f-f51d-420e-b717-bd0d155bcef3__L3",
+            "name": "Enemy Count",
+            "symbol": "var_enemy_count"
         }
     ],
     "engineFieldValues": [
@@ -35214,9 +35745,9 @@
         }
     ],
     "settings": {
-        "startSceneId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
-        "startX": 0,
-        "startY": 0,
+        "startSceneId": "89885cd0-f535-418e-a4ef-8ca95c21182e",
+        "startX": 65,
+        "startY": 95,
         "startMoveSpeed": 1,
         "startAnimSpeed": 15,
         "startDirection": "down",
@@ -35224,9 +35755,9 @@
         "showConnections": true,
         "showCollisionSlopeTiles": false,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 1951,
-        "worldScrollY": 79,
-        "zoom": 222.5,
+        "worldScrollX": 79,
+        "worldScrollY": 0,
+        "zoom": 104,
         "sgbEnabled": false,
         "customHead": "",
         "defaultBackgroundPaletteIds": [
