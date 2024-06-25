@@ -413,3 +413,54 @@ Number of Vars
 
 Indirection might be an option, so is just replacing them inside the plugin?
 Error out if Indirect Groups aren't same size.
+
+Overworld stuff and battle visuals satisfactory ... next is making the random encounters real and not just visual changes?
+
+Is a plugin system my best option for manipulating their values? Its six slots, and thats a lot of similar things going on that I can't use scripts on nicely, and I want things to reset at the start of a battle.
+
+```
+Set Slots
+1. Imp
+2. Imp
+3. Wolf
+4. None
+5. None
+6. None
+```
+
+Maybe something like this, but that'd require doing things manually? 
+
+```
+Encounter Chances
+1. Imp     75%
+2. Wolf    20%
+3. Horse    5%
+4. None
+5. None
+6. None
+```
+
+This would allow the slots to set themselves.
+
+```
+Load Enemy Slot
+Slot [1/2/3/4/5/6]
+```
+
+Fill in the Attacker or Enemy data into the easily usable parts. This is probably an Engine plugin.
+
+```
+HP: Hit Points          SATK: Status Attack     GOLD: Gold
+ATK: Attack             ELEM: S. Attack Element EXP.: Experience
+ACC: Accuracy (#Hits)*  TYPE: Enemy Family
+CRT: Critical Rate      WEAK: Weakness(es)      FORM: Formations
+DEF: Defense            RESI: Resistances       LCTN: Locations
+EVA: Evasion
+M.D: Magic Defense      MAGIC:   X/128 - SPELLS
+MOR: Morale             SPECIAL: X/128 - SKILLS
+```
+
+Enemy data
+
+Enemies have 18 datas?
+Probably part of the engine plugin mentioned above.
