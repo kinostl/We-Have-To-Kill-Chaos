@@ -9272,7 +9272,8 @@
                                         "type": "variable",
                                         "value": "L0"
                                     }
-                                }
+                                },
+                                "__collapse": true
                             },
                             "id": "1d7d8efb-48eb-4b51-90d6-4bd2ebe502f1"
                         },
@@ -9322,7 +9323,8 @@
                                         "command": "EVENT_ACTOR_SET_SPRITE",
                                         "args": {
                                             "actorId": "player",
-                                            "spriteSheetId": "5fbd29ec-74cf-4de9-ae8c-a719fd10983a"
+                                            "spriteSheetId": "5fbd29ec-74cf-4de9-ae8c-a719fd10983a",
+                                            "__collapse": true
                                         },
                                         "id": "20ab7607-ce8c-40ad-b9b8-cda02be35f48"
                                     }
@@ -9332,7 +9334,8 @@
                                         "command": "EVENT_ACTOR_SET_SPRITE",
                                         "args": {
                                             "actorId": "player",
-                                            "spriteSheetId": "3b1fd25e-4a32-4c35-bbb0-8a98183d524b"
+                                            "spriteSheetId": "3b1fd25e-4a32-4c35-bbb0-8a98183d524b",
+                                            "__collapse": true
                                         },
                                         "id": "80b3ff4e-f48a-4e03-9441-ee79c7ac7323"
                                     }
@@ -9556,6 +9559,13 @@
                                                     "children": {
                                                         "true": [
                                                             {
+                                                                "command": "EVENT_ACTOR_STOP_UPDATE",
+                                                                "args": {
+                                                                    "actorId": "player"
+                                                                },
+                                                                "id": "f11daef9-46e4-4e08-8bf6-bd9307706435"
+                                                            },
+                                                            {
                                                                 "command": "EVENT_GROUP",
                                                                 "args": {
                                                                     "__label": "Start Fight"
@@ -9728,7 +9738,8 @@
                     "command": "EVENT_ACTOR_SET_MOVEMENT_SPEED",
                     "args": {
                         "actorId": "$self$",
-                        "speed": 1
+                        "speed": 1,
+                        "__collapse": true
                     },
                     "id": "5d6f7dba-8a12-4489-b339-ba9abd3d0762"
                 },
@@ -9736,7 +9747,8 @@
                     "command": "EVENT_ACTOR_SET_ANIMATION_SPEED",
                     "args": {
                         "actorId": "$self$",
-                        "speed": 15
+                        "speed": 15,
+                        "__collapse": true
                     },
                     "id": "d978e2fa-0442-4385-b858-c9961565bcaf"
                 }
@@ -9744,7 +9756,8 @@
             "playerHit1Script": [],
             "playerHit2Script": [],
             "playerHit3Script": [],
-            "playerSpriteSheetId": "3b1fd25e-4a32-4c35-bbb0-8a98183d524b"
+            "playerSpriteSheetId": "3b1fd25e-4a32-4c35-bbb0-8a98183d524b",
+            "autoFadeEventCollapse": true
         },
         {
             "name": "Corneria Battles",
@@ -36661,7 +36674,7 @@
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
         "worldScrollX": 934,
-        "worldScrollY": 201,
+        "worldScrollY": 359,
         "zoom": 222.5,
         "sgbEnabled": false,
         "customHead": "",
