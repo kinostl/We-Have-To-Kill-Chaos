@@ -9771,7 +9771,7 @@
                 "48a57591-4530-4f70-90bf-ca3518a0d451",
                 "60b2f583-2e5e-4e12-9977-812d7b10c62f",
                 "a8f30788-b6cf-4d18-a38a-558ba6bfa8a8",
-                null,
+                "b2270eb2-f0e1-4c80-a5a6-82a0a13c4b5d",
                 null,
                 "38a412cd-6ab3-494f-aa86-81ed589e0d45"
             ],
@@ -11179,8 +11179,8 @@
                             "command": "FF_EVENT_DEFINE_ACTIONS",
                             "args": {
                                 "variable": "0",
-                                "__collapseCase1": false,
-                                "__collapseCase14": false,
+                                "__collapseCase1": true,
+                                "__collapseCase14": true,
                                 "__collapseCase8": true,
                                 "__collapseCase9": true,
                                 "__collapseCase15": true,
@@ -11199,7 +11199,7 @@
                                 "__collapseCase20": true,
                                 "__collapseCase13": true,
                                 "__collapseCase0": true,
-                                "__collapseCase16": true,
+                                "__collapseCase16": false,
                                 "__collapseCase19": true,
                                 "__collapseCase22": true,
                                 "__collapseCaseGetNextAction": true,
@@ -15705,7 +15705,10 @@
                         },
                         {
                             "command": "EVENT_GROUP",
-                            "args": {},
+                            "args": {
+                                "__collapse": true,
+                                "__label": "Dequeue Action"
+                            },
                             "children": {
                                 "true": [
                                     {
@@ -16072,6 +16075,57 @@
             ],
             "script": [
                 {
+                    "command": "EVENT_SET_VALUE",
+                    "args": {
+                        "variable": "437",
+                        "value": {
+                            "type": "number",
+                            "value": 0
+                        }
+                    },
+                    "id": "8b8f2841-a6a5-4b26-8d17-727da3e06fb5"
+                },
+                {
+                    "command": "MY_EVENT_CALL_NATIVE",
+                    "args": {
+                        "argCount": 0,
+                        "arg0": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg1": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg2": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg3": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg4": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg5": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg6": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg7": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "funName": "handleEnemySlots"
+                    },
+                    "id": "ffd2b1aa-020f-4ffd-9caa-f73138b976e9"
+                },
+                {
                     "command": "EVENT_SET_INPUT_SCRIPT",
                     "args": {
                         "input": [
@@ -16100,7 +16154,7 @@
                         "variable": "33",
                         "value": {
                             "type": "number",
-                            "value": 3
+                            "value": 0
                         },
                         "__collapse": false
                     },
@@ -16203,6 +16257,101 @@
                     "id": "fd63e717-a28a-4387-a368-85276d52bef9"
                 },
                 {
+                    "command": "EVENT_IF",
+                    "args": {
+                        "condition": {
+                            "type": "ne",
+                            "valueA": {
+                                "type": "variable",
+                                "value": "102"
+                            },
+                            "valueB": {
+                                "type": "number",
+                                "value": 0
+                            }
+                        },
+                        "__collapseElse": false,
+                        "__collapse": false
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "command": "FO_EVENT_SUBMAP2",
+                                "args": {
+                                    "keyX": {
+                                        "type": "number",
+                                        "value": 1
+                                    },
+                                    "keyY": {
+                                        "type": "number",
+                                        "value": 1
+                                    },
+                                    "keyW": {
+                                        "type": "number",
+                                        "value": 10
+                                    },
+                                    "keyH": {
+                                        "type": "number",
+                                        "value": 4
+                                    },
+                                    "keySX": {
+                                        "type": "number",
+                                        "value": "0"
+                                    },
+                                    "keySY": {
+                                        "type": "number",
+                                        "value": 22
+                                    },
+                                    "color": {
+                                        "type": "togglebuttons",
+                                        "value": 4
+                                    },
+                                    "__collapse": false
+                                },
+                                "id": "07b965c4-fc0c-4d15-ae28-6bd0045dbc9a"
+                            }
+                        ],
+                        "false": [
+                            {
+                                "command": "FO_EVENT_SUBMAP2",
+                                "args": {
+                                    "keyX": {
+                                        "type": "number",
+                                        "value": 1
+                                    },
+                                    "keyY": {
+                                        "type": "number",
+                                        "value": 1
+                                    },
+                                    "keyW": {
+                                        "type": "number",
+                                        "value": 10
+                                    },
+                                    "keyH": {
+                                        "type": "number",
+                                        "value": 4
+                                    },
+                                    "keySX": {
+                                        "type": "number",
+                                        "value": "0"
+                                    },
+                                    "keySY": {
+                                        "type": "number",
+                                        "value": 18
+                                    },
+                                    "color": {
+                                        "type": "togglebuttons",
+                                        "value": 3
+                                    },
+                                    "__collapse": true
+                                },
+                                "id": "f6ce3221-db69-49e8-a087-7109cf476a51"
+                            }
+                        ]
+                    },
+                    "id": "4d5930ec-1906-4841-b025-be93c5d6bb54"
+                },
+                {
                     "command": "FF_EVENT_DISPATCH_ACTION",
                     "args": {
                         "action": 13,
@@ -16214,7 +16363,8 @@
                 {
                     "command": "EVENT_GROUP",
                     "args": {
-                        "__label": "Collect Enemy Counts"
+                        "__label": "Collect Enemy Counts",
+                        "__collapse": true
                     },
                     "children": {
                         "true": [
@@ -16643,29 +16793,6 @@
                                     "condition": {
                                         "type": "eq",
                                         "valueA": {
-                                            "type": "variable",
-                                            "value": "33"
-                                        },
-                                        "valueB": {
-                                            "type": "false"
-                                        }
-                                    },
-                                    "__collapseElse": true,
-                                    "__disableElse": true,
-                                    "__collapse": false
-                                },
-                                "children": {
-                                    "true": [],
-                                    "false": []
-                                },
-                                "id": "3c1b0ccc-39c2-4263-ad3d-f2bfa8bbebe1"
-                            },
-                            {
-                                "command": "EVENT_IF",
-                                "args": {
-                                    "condition": {
-                                        "type": "eq",
-                                        "valueA": {
                                             "type": "rnd",
                                             "value": {
                                                 "type": "number",
@@ -16715,41 +16842,6 @@
                                     "__comment": true
                                 },
                                 "id": "8038ad44-0c12-4ea8-8b98-bf07a0fe20c0"
-                            },
-                            {
-                                "command": "FO_EVENT_SUBMAP2",
-                                "args": {
-                                    "keyX": {
-                                        "type": "number",
-                                        "value": 1
-                                    },
-                                    "keyY": {
-                                        "type": "number",
-                                        "value": 1
-                                    },
-                                    "keyW": {
-                                        "type": "number",
-                                        "value": 10
-                                    },
-                                    "keyH": {
-                                        "type": "number",
-                                        "value": 4
-                                    },
-                                    "keySX": {
-                                        "type": "number",
-                                        "value": "0"
-                                    },
-                                    "keySY": {
-                                        "type": "number",
-                                        "value": 18
-                                    },
-                                    "color": {
-                                        "type": "togglebuttons",
-                                        "value": 3
-                                    },
-                                    "__collapse": true
-                                },
-                                "id": "f6ce3221-db69-49e8-a087-7109cf476a51"
                             },
                             {
                                 "command": "EVENT_SET_VALUE",
@@ -36052,6 +36144,11 @@
             "symbol": "var_half_hidden"
         },
         {
+            "id": "437",
+            "name": "Start Of Enemies",
+            "symbol": "var_start_of_enemies"
+        },
+        {
             "id": "b543e5af-0a59-46a2-afa4-a8749b768159__L0",
             "name": "HP",
             "symbol": "var_hp"
@@ -36673,8 +36770,8 @@
         "showConnections": true,
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 934,
-        "worldScrollY": 359,
+        "worldScrollX": 1590,
+        "worldScrollY": 122,
         "zoom": 222.5,
         "sgbEnabled": false,
         "customHead": "",
@@ -36762,14 +36859,15 @@
         ],
         "debuggerEnabled": true,
         "debuggerScriptType": "gbvm",
-        "debuggerVariablesFilter": "watched",
+        "debuggerVariablesFilter": "all",
         "debuggerCollapsedPanes": [],
         "debuggerPauseOnScriptChanged": false,
         "debuggerPauseOnWatchedVariableChanged": false,
         "debuggerBreakpoints": [],
         "debuggerWatchedVariables": [
             "102",
-            "101"
+            "101",
+            "437"
         ],
         "colorMode": "color",
         "previewAsMono": false,

@@ -11199,7 +11199,7 @@
                                 "__collapseCase20": true,
                                 "__collapseCase13": true,
                                 "__collapseCase0": true,
-                                "__collapseCase16": true,
+                                "__collapseCase16": false,
                                 "__collapseCase19": true,
                                 "__collapseCase22": true,
                                 "__collapseCaseGetNextAction": true,
@@ -15706,7 +15706,8 @@
                         {
                             "command": "EVENT_GROUP",
                             "args": {
-                                "__collapse": true
+                                "__collapse": true,
+                                "__label": "Dequeue Action"
                             },
                             "children": {
                                 "true": [
@@ -16073,6 +16074,57 @@
                 }
             ],
             "script": [
+                {
+                    "command": "EVENT_SET_VALUE",
+                    "args": {
+                        "variable": "437",
+                        "value": {
+                            "type": "number",
+                            "value": 0
+                        }
+                    },
+                    "id": "8b8f2841-a6a5-4b26-8d17-727da3e06fb5"
+                },
+                {
+                    "command": "MY_EVENT_CALL_NATIVE",
+                    "args": {
+                        "argCount": 0,
+                        "arg0": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg1": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg2": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg3": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg4": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg5": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg6": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg7": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "funName": "handleEnemySlots"
+                    },
+                    "id": "ffd2b1aa-020f-4ffd-9caa-f73138b976e9"
+                },
                 {
                     "command": "EVENT_SET_INPUT_SCRIPT",
                     "args": {
@@ -23346,6 +23398,11 @@
             "actors": [],
             "triggers": [],
             "script": [
+                {
+                    "command": "FF_EVENT_MAKE_MAX_GLOBAL_VARS_H",
+                    "args": {},
+                    "id": "03b99f18-6791-4d95-ab6b-18f482cedcf5"
+                },
                 {
                     "command": "EVENT_SET_INPUT_SCRIPT",
                     "args": {
@@ -36713,7 +36770,7 @@
         "showConnections": true,
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 1590,
+        "worldScrollX": 2064,
         "worldScrollY": 122,
         "zoom": 222.5,
         "sgbEnabled": false,
@@ -36802,14 +36859,18 @@
         ],
         "debuggerEnabled": true,
         "debuggerScriptType": "gbvm",
-        "debuggerVariablesFilter": "watched",
-        "debuggerCollapsedPanes": [],
+        "debuggerVariablesFilter": "all",
+        "debuggerCollapsedPanes": [
+            "state",
+            "breakpoints"
+        ],
         "debuggerPauseOnScriptChanged": false,
         "debuggerPauseOnWatchedVariableChanged": false,
         "debuggerBreakpoints": [],
         "debuggerWatchedVariables": [
             "102",
-            "101"
+            "101",
+            "437"
         ],
         "colorMode": "color",
         "previewAsMono": false,

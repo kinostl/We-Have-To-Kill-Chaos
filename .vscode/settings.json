@@ -1,2 +1,12 @@
 {
+    "files.associations": {
+        "enemy_data.h": "c",
+        "game_globals.h": "c",
+        "max_global_vars.h": "c",
+        "stdlib.h": "c",
+        "types.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "enabled",
+    "C_Cpp.exclusionPolicy": "checkFolders",
+    "C_Cpp.clang_format_fallbackStyle": "WebKit"
 }
