@@ -9544,7 +9544,7 @@
                                                                 "type": "rnd",
                                                                 "value": {
                                                                     "type": "number",
-                                                                    "value": 255
+                                                                    "value": 1
                                                                 }
                                                             },
                                                             "valueB": {
@@ -11180,7 +11180,7 @@
                             "args": {
                                 "variable": "0",
                                 "__collapseCase1": true,
-                                "__collapseCase14": true,
+                                "__collapseCase14": false,
                                 "__collapseCase8": true,
                                 "__collapseCase9": true,
                                 "__collapseCase15": true,
@@ -11535,6 +11535,47 @@
                                                         "__comment": false
                                                     },
                                                     "id": "68be963d-a580-45fc-96f7-4e02b23c9392"
+                                                },
+                                                {
+                                                    "command": "MY_EVENT_CALL_NATIVE",
+                                                    "args": {
+                                                        "argCount": 0,
+                                                        "arg0": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg1": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg2": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg3": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg4": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg5": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg6": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg7": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "funName": "finishBattle",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "2c8c4d86-c0e7-4fa2-8057-68d8d13b6174"
                                                 },
                                                 {
                                                     "command": "EVENT_SWITCH_SCENE",
@@ -16075,17 +16116,6 @@
             ],
             "script": [
                 {
-                    "command": "EVENT_SET_VALUE",
-                    "args": {
-                        "variable": "437",
-                        "value": {
-                            "type": "number",
-                            "value": 0
-                        }
-                    },
-                    "id": "8b8f2841-a6a5-4b26-8d17-727da3e06fb5"
-                },
-                {
                     "command": "MY_EVENT_CALL_NATIVE",
                     "args": {
                         "argCount": 0,
@@ -16154,7 +16184,7 @@
                         "variable": "33",
                         "value": {
                             "type": "number",
-                            "value": 0
+                            "value": 3
                         },
                         "__collapse": false
                     },
@@ -16271,7 +16301,7 @@
                             }
                         },
                         "__collapseElse": false,
-                        "__collapse": false
+                        "__collapse": true
                     },
                     "children": {
                         "true": [
@@ -16505,7 +16535,7 @@
                     "command": "EVENT_GROUP",
                     "args": {
                         "__label": "Initialize Enemies",
-                        "__collapse": false
+                        "__collapse": true
                     },
                     "children": {
                         "true": [
@@ -16766,7 +16796,7 @@
                     "command": "EVENT_GROUP",
                     "args": {
                         "__label": "Prepare Scene (Visuals)",
-                        "__collapse": false
+                        "__collapse": true
                     },
                     "children": {
                         "true": [
@@ -17172,7 +17202,8 @@
                                 "value": 3
                             }
                         },
-                        "__collapseElse": true
+                        "__collapseElse": true,
+                        "__collapse": false
                     },
                     "children": {
                         "true": [
@@ -17192,6 +17223,115 @@
                                     "avatarId": ""
                                 },
                                 "id": "3207be2e-8466-4325-89f0-0bc162fdceda"
+                            },
+                            {
+                                "command": "EVENT_GROUP",
+                                "args": {},
+                                "children": {
+                                    "true": [
+                                        {
+                                            "command": "EVENT_GBVM_SCRIPT",
+                                            "args": {
+                                                "references": [
+                                                    {
+                                                        "type": "variable",
+                                                        "id": "80"
+                                                    }
+                                                ],
+                                                "script": "VM_GET_INT16 VAR_TEMP_FRAME, _end_of_globals",
+                                                "__collapse": false
+                                            },
+                                            "id": "089790a6-bbd6-4423-879f-d86e13f779f8"
+                                        },
+                                        {
+                                            "command": "EVENT_TEXT",
+                                            "args": {
+                                                "text": [
+                                                    "Before Free:\n$80$"
+                                                ],
+                                                "avatarId": "",
+                                                "__collapse": false
+                                            },
+                                            "id": "35bdfb7e-c76c-4d0b-aa24-0b1c9674a59f"
+                                        }
+                                    ]
+                                },
+                                "id": "0039f619-208e-4c3f-ad61-fd7d81d4a87c"
+                            },
+                            {
+                                "command": "MY_EVENT_CALL_NATIVE",
+                                "args": {
+                                    "argCount": 0,
+                                    "arg0": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg1": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg2": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg3": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg4": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg5": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg6": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg7": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "funName": "finishBattle",
+                                    "__collapse": true
+                                },
+                                "id": "7f9e9dbc-a8f3-4b95-a88c-c90ded9ddfe8"
+                            },
+                            {
+                                "command": "EVENT_GROUP",
+                                "args": {},
+                                "children": {
+                                    "true": [
+                                        {
+                                            "command": "EVENT_GBVM_SCRIPT",
+                                            "args": {
+                                                "references": [
+                                                    {
+                                                        "type": "variable",
+                                                        "id": "80"
+                                                    }
+                                                ],
+                                                "script": "VM_GET_INT16 VAR_TEMP_FRAME, _end_of_globals",
+                                                "__collapse": false
+                                            },
+                                            "id": "cc5765e8-f743-4971-9c47-72f6b649daab"
+                                        },
+                                        {
+                                            "command": "EVENT_TEXT",
+                                            "args": {
+                                                "text": [
+                                                    "After Free:\n$80$"
+                                                ],
+                                                "avatarId": "",
+                                                "__collapse": false
+                                            },
+                                            "id": "7d918857-078c-4d5c-ac46-cf32cbcda6ac"
+                                        }
+                                    ]
+                                },
+                                "id": "e5d4ff1b-e1ab-4fe4-8f31-9bc971411026"
                             },
                             {
                                 "command": "EVENT_SWITCH_SCENE",
@@ -23398,6 +23538,11 @@
             "actors": [],
             "triggers": [],
             "script": [
+                {
+                    "command": "FF_EVENT_MAKE_MAX_GLOBAL_VARS_H",
+                    "args": {},
+                    "id": "03b99f18-6791-4d95-ab6b-18f482cedcf5"
+                },
                 {
                     "command": "EVENT_SET_INPUT_SCRIPT",
                     "args": {
@@ -36144,11 +36289,6 @@
             "symbol": "var_half_hidden"
         },
         {
-            "id": "437",
-            "name": "Start Of Enemies",
-            "symbol": "var_start_of_enemies"
-        },
-        {
             "id": "b543e5af-0a59-46a2-afa4-a8749b768159__L0",
             "name": "HP",
             "symbol": "var_hp"
@@ -36770,7 +36910,7 @@
         "showConnections": true,
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 1590,
+        "worldScrollX": 1631,
         "worldScrollY": 122,
         "zoom": 222.5,
         "sgbEnabled": false,
@@ -36860,7 +37000,10 @@
         "debuggerEnabled": true,
         "debuggerScriptType": "gbvm",
         "debuggerVariablesFilter": "all",
-        "debuggerCollapsedPanes": [],
+        "debuggerCollapsedPanes": [
+            "state",
+            "breakpoints"
+        ],
         "debuggerPauseOnScriptChanged": false,
         "debuggerPauseOnWatchedVariableChanged": false,
         "debuggerBreakpoints": [],

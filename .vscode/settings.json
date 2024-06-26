@@ -4,7 +4,9 @@
         "game_globals.h": "c",
         "max_global_vars.h": "c",
         "stdlib.h": "c",
-        "types.h": "c"
+        "types.h": "c",
+        "crash_handler.h": "c",
+        "math.h": "c"
     },
     "C_Cpp.errorSquiggles": "enabled",
     "C_Cpp.exclusionPolicy": "checkFolders",
