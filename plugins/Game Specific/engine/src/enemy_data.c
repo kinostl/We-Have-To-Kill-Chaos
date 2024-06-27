@@ -9,16 +9,22 @@ BANKREF(ff_enemy_data)
 #include "enemy_data/wolf.h"
 
 struct enemy_info get_enemy_data(BYTE enemy_id) {
+  struct enemy_info res;
   switch (enemy_id) {
   case IMP:
-    return imp_data;
+    MemcpyBanked(&res, &imp_data, sizeof(res), BANK(ff_enemy_data_imp));
+    break;
   case WOLF:
-    return wolf_data;
+    MemcpyBanked(&res, &wolf_data, sizeof(res), BANK(ff_enemy_data_wolf));
+    break;
   case MADPONY:
-    return mad_pony_data;
+    MemcpyBanked(&res, &mad_pony_data, sizeof(res), BANK(ff_enemy_data_mad_pony));
+    break;
   default:
-    return imp_data;
+    MemcpyBanked(&res, &imp_data, sizeof(res), BANK(ff_enemy_data_imp));
+    break;
   }
+  return res;
 }
 
 void setup_encounter_table(BYTE encounter_table_id,

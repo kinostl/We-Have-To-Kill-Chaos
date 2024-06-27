@@ -42,15 +42,15 @@ const compile = (input, helpers) => {
   //   throw "Total Chance must be 100"
   // }
 
-  for (let i = 0; i < 6; i++) {
-    const enemyType = input[`enemyType${i}`]
-    const enemyChance = input[`enemyChance${i}`]
-    _stackPushConst(enemyType)
-    _stackPushConst(enemyChance)
-    _stackPushConst(i)
-    //_callNative("handleEnemySlots")
-    _stackPop(3)
-  }
+  _callNative("setupEnemySlots")
+  // for (let i = 0; i < 6; i++) {
+  //   const enemyType = input[`enemyType${i}`]
+  //   const enemyChance = input[`enemyChance${i}`]
+  //   // _stackPushConst(enemyType)
+  //   // _stackPushConst(enemyChance)
+  //   // _stackPushConst(i)
+  //   // _stackPop(3)
+  // }
 };
 
 module.exports = {

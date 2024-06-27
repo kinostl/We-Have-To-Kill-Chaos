@@ -23478,6 +23478,13 @@
                     "id": "8c5b8342-f6e5-4d8d-ae1b-03121a3d479b"
                 },
                 {
+                    "command": "EVENT_GBVM_SCRIPT",
+                    "args": {
+                        "script": "VM_SET 0 105\nVM_SET 1 106\nVM_SET 2 107\nVM_SET 3 108\nVM_SET 4 109\nVM_SET 5 110"
+                    },
+                    "id": "49916b14-2dc4-446a-8bcc-929bd37ab48f"
+                },
+                {
                     "command": "EVENT_SET_INPUT_SCRIPT",
                     "args": {
                         "input": [
@@ -36914,16 +36921,6 @@
         "debuggerPauseOnScriptChanged": false,
         "debuggerPauseOnWatchedVariableChanged": false,
         "debuggerBreakpoints": [
-            {
-                "scriptEventId": "8c5b8342-f6e5-4d8d-ae1b-03121a3d479b",
-                "context": {
-                    "type": "entity",
-                    "entityType": "scene",
-                    "entityId": "89885cd0-f535-418e-a4ef-8ca95c21182e",
-                    "sceneId": "89885cd0-f535-418e-a4ef-8ca95c21182e",
-                    "scriptKey": "script"
-                }
-            },
             {
                 "scriptEventId": "9afeeec5-0b69-4955-9208-a498f3161909",
                 "context": {
