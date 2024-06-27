@@ -1,11 +1,40 @@
 #pragma bank 255
-#include "vm.h"
-#include "enemy_data.h"
-
+#include "vm.h" // IWYU pragma: keep
 BANKREF(ff_enemy_data)
 
-const struct enemy_info enemy_db[128]={
-    [IMP] = { .name = "IMP", .hp = 8, .gold = 6, .exp = 6, .damage = 4, .hits = 1, .hit_chance = 85, .status = -1, .crit_chance = 1, .absorb = 4, .evade = 3, .mdef = 8, .morale = 13, .magic = 0, .spatk = 0, .family = GIANT, .weakness = -1, .resists = -1 },
-    [WOLF] = { .name = "WOLF", .hp = 20, .gold = 6, .exp = 24, .damage = 8, .hits = 1, .hit_chance = 86, .status = -1, .crit_chance = 1, .absorb = 0, .evade = 18, .mdef = 14, .morale = 13, .magic = 0, .spatk = 0, .family = NONE, .weakness = -1, .resists = -1 },
-    [MADPONY] = { .name = "MADPONY", .hp = 64, .gold = 15, .exp = 63, .damage = 10, .hits = 2, .hit_chance = 92, .status = -1, .crit_chance = 1, .absorb = 2, .evade = 11, .mdef = 20, .morale = 13, .magic = 0, .spatk = 0, .family = NONE, .weakness = -1, .resists = -1 }
-};
+#include "enemy_data.h" // IWYU pragma: keep
+#include "imp.h"
+#include "mad_pony.h"
+#include "wolf.h"
+
+struct enemy_info get_enemy_data(BYTE enemy_id) {
+  switch (enemy_id) {
+  case IMP:
+    return imp_data;
+  case WOLF:
+    return wolf_data;
+  case MADPONY:
+    return mad_pony_data;
+  default:
+    return imp_data;
+    break;
+  }
+}
+
+void setup_encounter_table(BYTE encounter_table_id,
+                           struct enemy_info encounter_table[4]) {
+  switch (encounter_table_id) {
+  case 0:
+    encounter_table[0] = get_enemy_data(IMP);
+    encounter_table[1] = get_enemy_data(WOLF);
+    encounter_table[2] = get_enemy_data(MADPONY);
+    encounter_table[3] = get_enemy_data(MADPONY);
+    return;
+  default:
+    encounter_table[0] = get_enemy_data(IMP);
+    encounter_table[1] = get_enemy_data(IMP);
+    encounter_table[2] = get_enemy_data(MADPONY);
+    encounter_table[3] = get_enemy_data(MADPONY);
+    return;
+  }
+}

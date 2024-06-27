@@ -1,0 +1,20 @@
+#include "mad_pony.h"
+#include "enemy_data.h"
+struct enemy_info mad_pony_data = {.name = "MADPONY",
+                                   .hp = 64,
+                                   .gold = 15,
+                                   .exp = 63,
+                                   .damage = 10,
+                                   .hits = 2,
+                                   .hit_chance = 92,
+                                   .status = -1,
+                                   .crit_chance = 1,
+                                   .absorb = 2,
+                                   .evade = 11,
+                                   .mdef = 20,
+                                   .morale = 13,
+                                   .magic = 0,
+                                   .spatk = 0,
+                                   .family = NONE,
+                                   .weakness = -1,
+                                   .resists = -1};

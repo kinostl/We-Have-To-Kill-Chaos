@@ -1,0 +1,14 @@
+-D
+__TARGET_gb
+-D
+__PORT_sm83
+-I
+/home/deck/Documents/We Have To Kill Chaos/assets/engine/include
+-I
+/home/deck/Documents/We Have To Kill Chaos/assets/engine/include/states
+-I
+/home/deck/Documents/We Have To Kill Chaos/assets/engine/include/enemy_data
+-isystem
+/home/deck/.cache/gbstudio-v4/_gbsbuild/include
+-isystem
+/home/deck/.cache/gbstudio-v4/_gbstools/gbdk/include

@@ -1,11 +1,11 @@
 #pragma bank 255
-#include "data/game_globals.h"
 #include "data/max_global_vars.h"
 #include "enemy_data.h"
 #include "math.h"
-#include "rand.h"
+#include "rand.h" // IWYU pragma: keep
 #include "vm.h"
 #include <gb/crash_handler.h>
+#include "enemy_data.h"
 
 WORD end_of_globals = MAX_GLOBAL_VARS;
 
@@ -29,10 +29,55 @@ void extra_free(SCRIPT_CTX *THIS, WORD size) OLDCALL BANKED {
   }
 }
 
+// All FF1 backgrounds have 2 small & 2 large enemies in them
+// Enemies are grouped appropriately for this
+
+/*
+I can't find the real encounter values so using the attack slot logic is
+probably fine.
+
+    50% Slot 1
+    25% Slot 2
+    12.5% Slot 3
+    12.5% Slot 4
+*/
+
+struct enemy_info get_small_enemy(struct enemy_info encounter_table[4]) {
+  const BYTE enemy_roll = rand() % 6;
+  switch (enemy_roll) {
+  case 0:
+  case 1:
+  case 2:
+  case 3:
+    return encounter_table[0];
+  case 4:
+  case 5:
+    return encounter_table[1];
+  default:
+    return encounter_table[0];
+  }
+}
+
+struct enemy_info get_large_enemy(struct enemy_info encounter_table[4]) {
+  const BYTE enemy_roll = rand() % 2;
+  switch (enemy_roll) {
+  case 0:
+    return encounter_table[2];
+    break;
+  case 1:
+    return encounter_table[3];
+    break;
+  default:
+    return encounter_table[2];
+  }
+}
+
 void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   struct enemy_info *enemy_slots =
       extra_reserve(THIS, sizeof(struct enemy_info) * 6);
 
+  struct enemy_info encounter_table[4];
+  setup_encounter_table(0, encounter_table);
   // Default to -1
   enemy_slots[0].type = -1;
   enemy_slots[1].type = -1;
@@ -41,55 +86,29 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   enemy_slots[4].type = -1;
   enemy_slots[5].type = -1;
 
-  switch (rand() % 8) {
+  BYTE large_enemy_count = rand() % 2;
+  BYTE small_enemy_count;
+
+  switch (large_enemy_count) {
   case 0:
+    small_enemy_count = rand() % 2;
+    break;
   case 1:
-  case 2:
-  case 3:
-    // enemy type 1 (small)
+    small_enemy_count = rand() % 6;
     break;
-  case 4:
-  case 5:
-    // enemy type 2 (small)
-    break;
-  case 6:
-    // enemy type 3 (large)
-    break;
-  case 7:
-    // enemy type 4 (large)
+  default:
+    small_enemy_count = 0;
     break;
   }
 
-  // All FF1 backgrounds have 2 small & 2 large enemies in them
-  // Enemies are grouped appropriately for this
-
-  /*
-  I can't find the real encounter values so using the attack slot logic is
-  probably fine.
-
-      50% Slot 1
-      25% Slot 2
-      12.5% Slot 3
-      12.5% Slot 4
-  */
-}
-
-void handleEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  // I think I calculate things in the plugin that has the enemy list
-  // Then push the enemy IDs into the stack
-  // And then unload them here
-  int idx = 0;
-  int i;
-
-  for (i = 0; i < VM_GLOBAL(VAR_S1_LARGE_ENEMIES); i++) {
-    enemy_slots[idx] = enemy_db[MADPONY];
-    idx++;
+  for(BYTE i=0;i<large_enemy_count;i++){
+    enemy_slots[i] = get_large_enemy(encounter_table);
   }
 
-  for (i = 0; i < VM_GLOBAL(VAR_S1_SMALL_ENEMIES); i++) {
-    enemy_slots[idx] = enemy_db[IMP];
-    idx++;
+  for(BYTE i=0;i<small_enemy_count;i++){
+    enemy_slots[i] = get_small_enemy(encounter_table);
   }
+
 }
 
 void finishBattle(SCRIPT_CTX *THIS) OLDCALL BANKED {

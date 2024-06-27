@@ -40,4 +40,6 @@ struct enemy_info {
 };
 
 extern const struct enemy_info enemy_db[128];
+void setup_encounter_table(BYTE encounter_table_id,
+                           struct enemy_info encounter_table[4]);
 #endif
