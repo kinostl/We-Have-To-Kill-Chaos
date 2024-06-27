@@ -76,7 +76,8 @@ const compile = (input, helpers) => {
     _stackPushConst,
     _stackPop,
     variableSetToScriptValue,
-    _declareLocal
+    _declareLocal,
+    markLocalsUsed
   } = helpers;
   const localVariable = _declareLocal("fo_event_submap2", 1, true)
 
@@ -95,6 +96,7 @@ const compile = (input, helpers) => {
   _callNative('copyBkgToBkg');
 
   _stackPop(7);
+  markLocalsUsed(localVariable)
 };
 
 module.exports = {

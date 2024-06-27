@@ -19,6 +19,7 @@ enum enemy_name {
 
 struct enemy_info {
     char name[8];
+    BYTE type;
     BYTE hp;
     BYTE gold;
     BYTE exp;

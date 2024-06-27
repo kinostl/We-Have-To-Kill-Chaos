@@ -11176,11 +11176,47 @@
                     ],
                     "updateScript": [
                         {
+                            "command": "FF_EVENT_SET_ENEMY_DATA",
+                            "args": {
+                                "enemyType0": 0,
+                                "enemyChance0": {
+                                    "type": "number",
+                                    "value": "0"
+                                },
+                                "enemyType1": 0,
+                                "enemyChance1": {
+                                    "type": "number",
+                                    "value": "0"
+                                },
+                                "enemyType2": 0,
+                                "enemyChance2": {
+                                    "type": "number",
+                                    "value": "0"
+                                },
+                                "enemyType3": 0,
+                                "enemyChance3": {
+                                    "type": "number",
+                                    "value": "0"
+                                },
+                                "enemyType4": 0,
+                                "enemyChance4": {
+                                    "type": "number",
+                                    "value": "0"
+                                },
+                                "enemyType5": 0,
+                                "enemyChance5": {
+                                    "type": "number",
+                                    "value": "0"
+                                }
+                            },
+                            "id": "093a3053-058b-4793-b749-11c5ce5385c6"
+                        },
+                        {
                             "command": "FF_EVENT_DEFINE_ACTIONS",
                             "args": {
                                 "variable": "0",
                                 "__collapseCase1": true,
-                                "__collapseCase14": false,
+                                "__collapseCase14": true,
                                 "__collapseCase8": true,
                                 "__collapseCase9": true,
                                 "__collapseCase15": true,
@@ -11194,12 +11230,12 @@
                                 "__collapseCase6": true,
                                 "__collapseCase3": true,
                                 "__collapseCase2": true,
-                                "__collapseCase18": true,
-                                "__collapseCase17": true,
+                                "__collapseCase18": false,
+                                "__collapseCase17": false,
                                 "__collapseCase20": true,
                                 "__collapseCase13": true,
                                 "__collapseCase0": true,
-                                "__collapseCase16": false,
+                                "__collapseCase16": true,
                                 "__collapseCase19": true,
                                 "__collapseCase22": true,
                                 "__collapseCaseGetNextAction": true,
@@ -14787,36 +14823,9 @@
                                                     "id": "20487703-3bb7-46ae-a62b-de0247b36d99"
                                                 }
                                             ],
-                                            "true1": [
-                                                {
-                                                    "command": "FF_EVENT_SET_ENEMY_DATA",
-                                                    "args": {
-                                                        "enemy": 0,
-                                                        "__collapse": false
-                                                    },
-                                                    "id": "b388c8d9-7367-4368-979a-37596e0c38de"
-                                                }
-                                            ],
-                                            "true2": [
-                                                {
-                                                    "command": "FF_EVENT_SET_ENEMY_DATA",
-                                                    "args": {
-                                                        "enemy": 0,
-                                                        "__collapse": false
-                                                    },
-                                                    "id": "598765ca-38a3-46f4-afb7-fa4994b79312"
-                                                }
-                                            ],
-                                            "true3": [
-                                                {
-                                                    "command": "FF_EVENT_SET_ENEMY_DATA",
-                                                    "args": {
-                                                        "enemy": 0,
-                                                        "__collapse": false
-                                                    },
-                                                    "id": "b1d919e2-3ff7-4618-a13a-aa504db95290"
-                                                }
-                                            ],
+                                            "true1": [],
+                                            "true2": [],
+                                            "true3": [],
                                             "true4": [],
                                             "true5": [],
                                             "true6": [],
@@ -14868,7 +14877,7 @@
                                                             }
                                                         ],
                                                         "script": "VM_SET_CONST VAR_1_C 'B'\nVM_SET_CONST VAR_2_C 'L'\nVM_SET_CONST VAR_3_C 'U'\nVM_SET_CONST VAR_4_C 'M'\nVM_SET_CONST VAR_5_C 'A'\nVM_SET_CONST VAR_6_C 'G'\nVM_SET_CONST VAR_7_C 127\nVM_SET_CONST VAR_8_C 127",
-                                                        "__collapse": false
+                                                        "__collapse": true
                                                     },
                                                     "id": "befe19cc-caf4-4fa4-b25f-e650e7e79018"
                                                 }
@@ -17225,40 +17234,6 @@
                                 "id": "3207be2e-8466-4325-89f0-0bc162fdceda"
                             },
                             {
-                                "command": "EVENT_GROUP",
-                                "args": {},
-                                "children": {
-                                    "true": [
-                                        {
-                                            "command": "EVENT_GBVM_SCRIPT",
-                                            "args": {
-                                                "references": [
-                                                    {
-                                                        "type": "variable",
-                                                        "id": "80"
-                                                    }
-                                                ],
-                                                "script": "VM_GET_INT16 VAR_TEMP_FRAME, _end_of_globals",
-                                                "__collapse": false
-                                            },
-                                            "id": "089790a6-bbd6-4423-879f-d86e13f779f8"
-                                        },
-                                        {
-                                            "command": "EVENT_TEXT",
-                                            "args": {
-                                                "text": [
-                                                    "Before Free:\n$80$"
-                                                ],
-                                                "avatarId": "",
-                                                "__collapse": false
-                                            },
-                                            "id": "35bdfb7e-c76c-4d0b-aa24-0b1c9674a59f"
-                                        }
-                                    ]
-                                },
-                                "id": "0039f619-208e-4c3f-ad61-fd7d81d4a87c"
-                            },
-                            {
                                 "command": "MY_EVENT_CALL_NATIVE",
                                 "args": {
                                     "argCount": 0,
@@ -17298,40 +17273,6 @@
                                     "__collapse": true
                                 },
                                 "id": "7f9e9dbc-a8f3-4b95-a88c-c90ded9ddfe8"
-                            },
-                            {
-                                "command": "EVENT_GROUP",
-                                "args": {},
-                                "children": {
-                                    "true": [
-                                        {
-                                            "command": "EVENT_GBVM_SCRIPT",
-                                            "args": {
-                                                "references": [
-                                                    {
-                                                        "type": "variable",
-                                                        "id": "80"
-                                                    }
-                                                ],
-                                                "script": "VM_GET_INT16 VAR_TEMP_FRAME, _end_of_globals",
-                                                "__collapse": false
-                                            },
-                                            "id": "cc5765e8-f743-4971-9c47-72f6b649daab"
-                                        },
-                                        {
-                                            "command": "EVENT_TEXT",
-                                            "args": {
-                                                "text": [
-                                                    "After Free:\n$80$"
-                                                ],
-                                                "avatarId": "",
-                                                "__collapse": false
-                                            },
-                                            "id": "7d918857-078c-4d5c-ac46-cf32cbcda6ac"
-                                        }
-                                    ]
-                                },
-                                "id": "e5d4ff1b-e1ab-4fe4-8f31-9bc971411026"
                             },
                             {
                                 "command": "EVENT_SWITCH_SCENE",
