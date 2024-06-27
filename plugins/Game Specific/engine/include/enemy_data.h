@@ -39,7 +39,6 @@ struct enemy_info {
     BYTE resists;
 };
 
-extern const struct enemy_info enemy_db[128];
 void setup_encounter_table(BYTE encounter_table_id,
-                           struct enemy_info encounter_table[4]);
+                           struct enemy_info encounter_table[4]) OLDCALL BANKED;
 #endif

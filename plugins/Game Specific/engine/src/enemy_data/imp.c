@@ -1,7 +1,9 @@
+#include <gb/gb.h>
+BANKREF(ff_enemy_data_imp)
+
 #include "enemy_data/imp.h"
 #include "enemy_data.h"
-
-const struct enemy_info imp = {.name = "IMP",
+const struct enemy_info imp_data = {.name = "IMP",
                                .hp = 8,
                                .gold = 6,
                                .exp = 6,

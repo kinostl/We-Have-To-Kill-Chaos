@@ -11176,42 +11176,6 @@
                     ],
                     "updateScript": [
                         {
-                            "command": "FF_EVENT_SET_ENEMY_DATA",
-                            "args": {
-                                "enemyType0": 0,
-                                "enemyChance0": {
-                                    "type": "number",
-                                    "value": "0"
-                                },
-                                "enemyType1": 0,
-                                "enemyChance1": {
-                                    "type": "number",
-                                    "value": "0"
-                                },
-                                "enemyType2": 0,
-                                "enemyChance2": {
-                                    "type": "number",
-                                    "value": "0"
-                                },
-                                "enemyType3": 0,
-                                "enemyChance3": {
-                                    "type": "number",
-                                    "value": "0"
-                                },
-                                "enemyType4": 0,
-                                "enemyChance4": {
-                                    "type": "number",
-                                    "value": "0"
-                                },
-                                "enemyType5": 0,
-                                "enemyChance5": {
-                                    "type": "number",
-                                    "value": "0"
-                                }
-                            },
-                            "id": "093a3053-058b-4793-b749-11c5ce5385c6"
-                        },
-                        {
                             "command": "FF_EVENT_DEFINE_ACTIONS",
                             "args": {
                                 "variable": "0",
@@ -11230,8 +11194,8 @@
                                 "__collapseCase6": true,
                                 "__collapseCase3": true,
                                 "__collapseCase2": true,
-                                "__collapseCase18": false,
-                                "__collapseCase17": false,
+                                "__collapseCase18": true,
+                                "__collapseCase17": true,
                                 "__collapseCase20": true,
                                 "__collapseCase13": true,
                                 "__collapseCase0": true,
@@ -16160,7 +16124,8 @@
                             "type": "number",
                             "value": 0
                         },
-                        "funName": "handleEnemySlots"
+                        "funName": "setupEnemySlots",
+                        "__collapse": false
                     },
                     "id": "ffd2b1aa-020f-4ffd-9caa-f73138b976e9"
                 },
@@ -16195,7 +16160,7 @@
                             "type": "number",
                             "value": 3
                         },
-                        "__collapse": false
+                        "__collapse": true
                     },
                     "id": "7d706c0a-4d3e-4e63-8539-c2d6e50269bf"
                 },
@@ -17212,7 +17177,7 @@
                             }
                         },
                         "__collapseElse": true,
-                        "__collapse": false
+                        "__collapse": true
                     },
                     "children": {
                         "true": [
@@ -23485,6 +23450,32 @@
                     "id": "03b99f18-6791-4d95-ab6b-18f482cedcf5"
                 },
                 {
+                    "command": "FF_EVENT_SET_ENEMY_DATA",
+                    "args": {
+                        "largeEnemyCount": {
+                            "type": "number",
+                            "value": 2
+                        },
+                        "smallEnemyCount": {
+                            "type": "number",
+                            "value": 1
+                        },
+                        "enemyType0": 0,
+                        "enemyChance0": 0,
+                        "enemyType1": 0,
+                        "enemyChance1": 0,
+                        "enemyType2": 0,
+                        "enemyChance2": 0,
+                        "enemyType3": 0,
+                        "enemyChance3": 0,
+                        "enemyType4": 0,
+                        "enemyChance4": 0,
+                        "enemyType5": 0,
+                        "enemyChance5": 0
+                    },
+                    "id": "8c5b8342-f6e5-4d8d-ae1b-03121a3d479b"
+                },
+                {
                     "command": "EVENT_SET_INPUT_SCRIPT",
                     "args": {
                         "input": [
@@ -23499,7 +23490,7 @@
                         ],
                         "override": true,
                         "__scriptTabs": "press",
-                        "__collapse": false
+                        "__collapse": true
                     },
                     "children": {
                         "true": [
@@ -24181,33 +24172,6 @@
                         }
                     },
                     "id": "ca8527fa-2015-4634-a41a-c62609042cfa"
-                },
-                {
-                    "command": "EVENT_GROUP",
-                    "args": {},
-                    "children": {
-                        "true": [
-                            {
-                                "command": "FF_EVENT_SET_ENEMY_DATA",
-                                "args": {
-                                    "enemy": 0,
-                                    "__collapse": false
-                                },
-                                "id": "c06f40fd-8a2b-40b1-9aca-d05ab107fa25"
-                            },
-                            {
-                                "command": "EVENT_TEXT",
-                                "args": {
-                                    "text": [
-                                        "#48##49##50##51##52##53##54##55# says hi!"
-                                    ],
-                                    "avatarId": ""
-                                },
-                                "id": "8e00ab0c-70e7-43b8-bc9f-15caa700fbcb"
-                            }
-                        ]
-                    },
-                    "id": "5c37d868-4224-4d2d-89a9-e7bc5c18414d"
                 }
             ],
             "playerHit1Script": [],
@@ -36851,8 +36815,8 @@
         "showConnections": true,
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 1631,
-        "worldScrollY": 122,
+        "worldScrollX": 1925,
+        "worldScrollY": 179,
         "zoom": 222.5,
         "sgbEnabled": false,
         "customHead": "",
@@ -36947,7 +36911,28 @@
         ],
         "debuggerPauseOnScriptChanged": false,
         "debuggerPauseOnWatchedVariableChanged": false,
-        "debuggerBreakpoints": [],
+        "debuggerBreakpoints": [
+            {
+                "scriptEventId": "8c5b8342-f6e5-4d8d-ae1b-03121a3d479b",
+                "context": {
+                    "type": "entity",
+                    "entityType": "scene",
+                    "entityId": "89885cd0-f535-418e-a4ef-8ca95c21182e",
+                    "sceneId": "89885cd0-f535-418e-a4ef-8ca95c21182e",
+                    "scriptKey": "script"
+                }
+            },
+            {
+                "scriptEventId": "9afeeec5-0b69-4955-9208-a498f3161909",
+                "context": {
+                    "type": "entity",
+                    "entityType": "scene",
+                    "entityId": "89885cd0-f535-418e-a4ef-8ca95c21182e",
+                    "sceneId": "89885cd0-f535-418e-a4ef-8ca95c21182e",
+                    "scriptKey": "script"
+                }
+            }
+        ],
         "debuggerWatchedVariables": [
             "102",
             "101",

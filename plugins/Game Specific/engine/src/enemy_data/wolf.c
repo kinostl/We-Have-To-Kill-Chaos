@@ -1,4 +1,7 @@
-#include "wolf.h"
+#include <gb/gb.h>
+BANKREF(ff_enemy_data_wolf)
+
+#include "enemy_data/wolf.h"
 #include "enemy_data.h"
 const struct enemy_info wolf_data = {.name = "WOLF",
                                      .hp = 20,

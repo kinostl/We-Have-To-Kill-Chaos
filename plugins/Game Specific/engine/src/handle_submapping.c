@@ -1,6 +1,6 @@
-#include "bankdata.h"
 #pragma bank 255
 
+#include "bankdata.h"
 #include "data_manager.h"
 #include "vm.h"
 #include <gb/gb.h>

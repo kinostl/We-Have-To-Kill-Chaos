@@ -5,7 +5,6 @@
 #include "rand.h" // IWYU pragma: keep
 #include "vm.h"
 #include <gb/crash_handler.h>
-#include "enemy_data.h"
 
 WORD end_of_globals = MAX_GLOBAL_VARS;
 
@@ -42,33 +41,31 @@ probably fine.
     12.5% Slot 4
 */
 
-struct enemy_info get_small_enemy(struct enemy_info encounter_table[4]) {
+static WORD get_small_enemy_idx(void) {
   const BYTE enemy_roll = rand() % 6;
   switch (enemy_roll) {
   case 0:
   case 1:
   case 2:
   case 3:
-    return encounter_table[0];
+    return 0;
   case 4:
   case 5:
-    return encounter_table[1];
+    return 1;
   default:
-    return encounter_table[0];
+    return 0;
   }
 }
 
-struct enemy_info get_large_enemy(struct enemy_info encounter_table[4]) {
+static WORD get_large_enemy_idx(void) {
   const BYTE enemy_roll = rand() % 2;
   switch (enemy_roll) {
   case 0:
-    return encounter_table[2];
-    break;
+    return 2;
   case 1:
-    return encounter_table[3];
-    break;
+    return 3;
   default:
-    return encounter_table[2];
+    return 2;
   }
 }
 
@@ -101,12 +98,15 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
     break;
   }
 
+  WORD idx;
   for(BYTE i=0;i<large_enemy_count;i++){
-    enemy_slots[i] = get_large_enemy(encounter_table);
+    idx = get_large_enemy_idx();
+    enemy_slots[i] = encounter_table[idx];
   }
 
   for(BYTE i=0;i<small_enemy_count;i++){
-    enemy_slots[i] = get_small_enemy(encounter_table);
+    idx = get_small_enemy_idx();
+    enemy_slots[i] = encounter_table[idx];
   }
 
 }

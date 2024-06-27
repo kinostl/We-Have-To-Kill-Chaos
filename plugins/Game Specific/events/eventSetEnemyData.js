@@ -48,7 +48,7 @@ const compile = (input, helpers) => {
     _stackPushConst(enemyType)
     _stackPushConst(enemyChance)
     _stackPushConst(i)
-    _callNative("handleEnemySlots")
+    //_callNative("handleEnemySlots")
     _stackPop(3)
   }
 };

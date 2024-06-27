@@ -1,7 +1,5 @@
-#include "bankdata.h"
 #pragma bank 255
 
-#include "data_manager.h"
 #include "vm.h"
 #include <gb/gb.h>
 #include <stdint.h>

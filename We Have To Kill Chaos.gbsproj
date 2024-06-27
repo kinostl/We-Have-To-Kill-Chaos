@@ -16124,8 +16124,8 @@
                             "type": "number",
                             "value": 0
                         },
-                        "funName": "handleEnemySlots",
-                        "__collapse": true
+                        "funName": "setupEnemySlots",
+                        "__collapse": false
                     },
                     "id": "ffd2b1aa-020f-4ffd-9caa-f73138b976e9"
                 },
@@ -16770,7 +16770,7 @@
                     "command": "EVENT_GROUP",
                     "args": {
                         "__label": "Prepare Scene (Visuals)",
-                        "__collapse": false
+                        "__collapse": true
                     },
                     "children": {
                         "true": [
@@ -23446,7 +23446,9 @@
             "script": [
                 {
                     "command": "FF_EVENT_MAKE_MAX_GLOBAL_VARS_H",
-                    "args": {},
+                    "args": {
+                        "__collapse": false
+                    },
                     "id": "03b99f18-6791-4d95-ab6b-18f482cedcf5"
                 },
                 {
@@ -36815,7 +36817,7 @@
         "showConnections": true,
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 2067,
+        "worldScrollX": 1925,
         "worldScrollY": 179,
         "zoom": 222.5,
         "sgbEnabled": false,
@@ -36912,6 +36914,16 @@
         "debuggerPauseOnScriptChanged": false,
         "debuggerPauseOnWatchedVariableChanged": false,
         "debuggerBreakpoints": [
+            {
+                "scriptEventId": "8c5b8342-f6e5-4d8d-ae1b-03121a3d479b",
+                "context": {
+                    "type": "entity",
+                    "entityType": "scene",
+                    "entityId": "89885cd0-f535-418e-a4ef-8ca95c21182e",
+                    "sceneId": "89885cd0-f535-418e-a4ef-8ca95c21182e",
+                    "scriptKey": "script"
+                }
+            },
             {
                 "scriptEventId": "9afeeec5-0b69-4955-9208-a498f3161909",
                 "context": {
