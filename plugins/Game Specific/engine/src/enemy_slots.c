@@ -171,7 +171,7 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   #define place_lg_enemy_1(x,y) setupTileBuffer(enemy_buffer, 6, 6, 0, 8, start_of_enemy_vram, import_bkg);\
   set_bkg_tiles(x, y, 6, 6, enemy_buffer);
 
-  #define place_lg_enemy_2(x,y) setupTileBuffer(enemy_buffer, 6, 6, 0, 8, start_of_enemy_vram, import_bkg);\
+  #define place_lg_enemy_2(x,y) setupTileBuffer(enemy_buffer, 6, 6, 6, 8, start_of_enemy_vram, import_bkg);\
   set_bkg_tiles(x, y, 6, 6, enemy_buffer);
 
   WORD idx;
