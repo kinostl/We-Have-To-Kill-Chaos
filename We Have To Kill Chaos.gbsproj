@@ -27742,25 +27742,41 @@
             "triggers": [],
             "script": [
                 {
-                    "command": "EVENT_SET_INPUT_SCRIPT",
+                    "command": "EVENT_ACTOR_HIDE",
                     "args": {
-                        "input": [
-                            "b",
-                            "a"
-                        ],
-                        "override": true,
-                        "__scriptTabs": "press"
+                        "actorId": "$self$"
                     },
-                    "children": {
-                        "true": [
-                            {
-                                "command": "FF_EVENT_SET_ENEMY_DATA",
-                                "args": {},
-                                "id": "5a4abfe5-90d8-4a43-b3bc-920552f19270"
-                            }
-                        ]
+                    "id": "6ae37b0c-170d-456e-9f65-983f51344bc7"
+                },
+                {
+                    "command": "FF_EVENT_SET_ENEMY_DATA",
+                    "args": {},
+                    "id": "5a4abfe5-90d8-4a43-b3bc-920552f19270"
+                },
+                {
+                    "command": "EVENT_WAIT",
+                    "args": {
+                        "time": 2,
+                        "frames": 30
                     },
-                    "id": "8a8ebdc0-2d56-406e-977f-5d95956c7db0"
+                    "id": "b43ea21d-a3e9-4f45-b4ab-af2619109684"
+                },
+                {
+                    "command": "EVENT_SWITCH_SCENE",
+                    "args": {
+                        "sceneId": "40ebe38c-7e25-45cd-a16b-8fc0f2a119eb",
+                        "x": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "y": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "direction": "",
+                        "fadeSpeed": 3
+                    },
+                    "id": "e19379a5-c861-4642-8b87-0ba59c3d06ed"
                 }
             ],
             "playerHit1Script": [],
@@ -36863,7 +36879,7 @@
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
         "worldScrollX": 2533,
-        "worldScrollY": 0,
+        "worldScrollY": 158,
         "zoom": 222.5,
         "sgbEnabled": false,
         "customHead": "",
@@ -36953,7 +36969,6 @@
         "debuggerScriptType": "gbvm",
         "debuggerVariablesFilter": "all",
         "debuggerCollapsedPanes": [
-            "state",
             "breakpoints"
         ],
         "debuggerPauseOnScriptChanged": false,

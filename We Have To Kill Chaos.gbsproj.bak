@@ -16089,45 +16089,17 @@
             ],
             "script": [
                 {
-                    "command": "MY_EVENT_CALL_NATIVE",
+                    "command": "EVENT_GBVM_SCRIPT",
                     "args": {
-                        "argCount": 0,
-                        "arg0": {
-                            "type": "number",
-                            "value": 0
-                        },
-                        "arg1": {
-                            "type": "number",
-                            "value": 0
-                        },
-                        "arg2": {
-                            "type": "number",
-                            "value": 0
-                        },
-                        "arg3": {
-                            "type": "number",
-                            "value": 0
-                        },
-                        "arg4": {
-                            "type": "number",
-                            "value": 0
-                        },
-                        "arg5": {
-                            "type": "number",
-                            "value": 0
-                        },
-                        "arg6": {
-                            "type": "number",
-                            "value": 0
-                        },
-                        "arg7": {
-                            "type": "number",
-                            "value": 0
-                        },
-                        "funName": "setupEnemySlots",
-                        "__collapse": false
+                        "references": [
+                            {
+                                "type": "background",
+                                "id": "bfa477d9-e9de-448a-b5b1-6672e309a8da"
+                            }
+                        ],
+                        "__collapse": true
                     },
-                    "id": "ffd2b1aa-020f-4ffd-9caa-f73138b976e9"
+                    "id": "7f4af0eb-20a8-40a4-900c-d130cdc8c55f"
                 },
                 {
                     "command": "EVENT_SET_INPUT_SCRIPT",
@@ -16158,9 +16130,9 @@
                         "variable": "33",
                         "value": {
                             "type": "number",
-                            "value": 3
+                            "value": 0
                         },
-                        "__collapse": true
+                        "__collapse": false
                     },
                     "id": "7d706c0a-4d3e-4e63-8539-c2d6e50269bf"
                 },
@@ -16770,7 +16742,7 @@
                     "command": "EVENT_GROUP",
                     "args": {
                         "__label": "Prepare Scene (Visuals)",
-                        "__collapse": true
+                        "__collapse": false
                     },
                     "children": {
                         "true": [
@@ -16855,9 +16827,17 @@
                                         "type": "number",
                                         "value": 0
                                     },
-                                    "__collapse": true
+                                    "__collapse": true,
+                                    "__comment": true
                                 },
                                 "id": "2b0efdb4-4993-47d3-9239-e860d1bac378"
+                            },
+                            {
+                                "command": "FF_EVENT_SET_ENEMY_DATA",
+                                "args": {
+                                    "__collapse": true
+                                },
+                                "id": "c3eaf22c-9c83-478b-b453-70ef8197565b"
                             },
                             {
                                 "command": "EVENT_LOOP_FOR",
@@ -16877,7 +16857,8 @@
                                         "type": "number",
                                         "value": 1
                                     },
-                                    "__collapse": true
+                                    "__collapse": false,
+                                    "__comment": true
                                 },
                                 "children": {
                                     "true": [
@@ -16963,7 +16944,7 @@
                                         "value": 1
                                     },
                                     "__collapse": true,
-                                    "__comment": false
+                                    "__comment": true
                                 },
                                 "children": {
                                     "true": [
@@ -27753,45 +27734,73 @@
             "spritePaletteIds": [],
             "collisions": [],
             "autoFadeSpeed": 1,
-            "id": "15d21e31-aacb-4079-b4cd-2fecbdac901d",
+            "id": "40ebe38c-7e25-45cd-a16b-8fc0f2a119eb",
             "symbol": "scene_7",
-            "x": 1456,
+            "x": 1464,
             "y": 80,
             "actors": [],
             "triggers": [],
             "script": [
                 {
-                    "command": "EVENT_GBVM_SCRIPT",
+                    "command": "EVENT_SET_INPUT_SCRIPT",
                     "args": {
-                        "references": [
+                        "input": [
+                            "b",
+                            "a"
+                        ],
+                        "override": true,
+                        "__scriptTabs": "press"
+                    },
+                    "children": {
+                        "true": [
                             {
-                                "type": "background",
-                                "id": "bfa477d9-e9de-448a-b5b1-6672e309a8da"
+                                "command": "FF_EVENT_SET_ENEMY_DATA",
+                                "args": {},
+                                "id": "5a4abfe5-90d8-4a43-b3bc-920552f19270"
+                            },
+                            {
+                                "command": "MY_EVENT_CALL_NATIVE",
+                                "args": {
+                                    "argCount": 0,
+                                    "arg0": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg1": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg2": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg3": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg4": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg5": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg6": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg7": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "funName": "finishBattle"
+                                },
+                                "id": "52cd6a8e-9776-4409-8b7c-e8e52283061e"
                             }
-                        ],
-                        "script": "VM_PUSH_CONST 17\nVM_PUSH_CONST 0\nVM_PUSH_CONST 0\nVM_GET_TILE_XY .ARG0 .ARG1 .ARG2\nVM_RPN\n.R_REF .ARG0\n.R_INT16 2\n.R_OPERATOR .ADD\n.R_STOP\nVM_LOAD_TILESET .ARG0 ___bank_bg_enemies_plains_1, _bg_enemies_plains_1"
+                        ]
                     },
-                    "id": "2bbbf9a2-1dae-48f2-a495-7b8d72f87639"
-                },
-                {
-                    "command": "FF_EVENT_SET_ENEMY_DATA",
-                    "args": {
-                        "__comment": true
-                    },
-                    "id": "003d9bed-d5b0-4a44-9708-71d6c21ed049"
-                },
-                {
-                    "command": "EVENT_TEXT",
-                    "args": {
-                        "text": [
-                            "Sphinx of black\nquartz judge my vow",
-                            "and so I will just\ncontinue to type\nabsolute nonsense",
-                            "to see what it will\ndo to the vram",
-                            "the quick brown fox\njumped over the\nlazy fox"
-                        ],
-                        "avatarId": ""
-                    },
-                    "id": "af4a98dd-19d8-4397-be9d-630a21ec9c89"
+                    "id": "8a8ebdc0-2d56-406e-977f-5d95956c7db0"
                 }
             ],
             "playerHit1Script": [],
@@ -27843,6 +27852,16 @@
                 7,
                 7,
                 7,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
                 7,
                 7,
                 7,
@@ -27865,6 +27884,16 @@
                 7,
                 7,
                 7,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
                 7,
                 7,
                 7,
@@ -27887,6 +27916,16 @@
                 7,
                 7,
                 7,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
                 7,
                 7,
                 7,
@@ -27909,6 +27948,16 @@
                 7,
                 7,
                 7,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
                 7,
                 7,
                 7,
@@ -27931,6 +27980,16 @@
                 7,
                 7,
                 7,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
                 7,
                 7,
                 7,
@@ -27953,6 +28012,16 @@
                 7,
                 7,
                 7,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
                 7,
                 7,
                 7,
@@ -27975,6 +28044,16 @@
                 7,
                 7,
                 7,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
                 7,
                 7,
                 7,
@@ -27997,6 +28076,16 @@
                 7,
                 7,
                 7,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
                 7,
                 7,
                 7,
@@ -28019,6 +28108,16 @@
                 7,
                 7,
                 7,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
                 7,
                 7,
                 7,
@@ -28041,6 +28140,16 @@
                 7,
                 7,
                 7,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
                 7,
                 7,
                 7,
@@ -28063,6 +28172,16 @@
                 7,
                 7,
                 7,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
                 7,
                 7,
                 7,
@@ -28085,6 +28204,16 @@
                 7,
                 7,
                 7,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
                 7,
                 7,
                 7,
@@ -28107,6 +28236,16 @@
                 7,
                 7,
                 7,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
                 7,
                 7,
                 7,
@@ -28129,6 +28268,16 @@
                 7,
                 7,
                 7,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
                 7,
                 7,
                 7,
@@ -28151,6 +28300,16 @@
                 7,
                 7,
                 7,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
                 7,
                 7,
                 7,
@@ -28173,166 +28332,16 @@
                 7,
                 7,
                 7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
                 7,
                 7,
                 7,
@@ -29647,10 +29656,10 @@
             "id": "bfa477d9-e9de-448a-b5b1-6672e309a8da",
             "name": "enemies/plains_1",
             "symbol": "bg_enemies_plains_1",
-            "width": 12,
-            "height": 14,
-            "imageWidth": 96,
-            "imageHeight": 112,
+            "width": 20,
+            "height": 18,
+            "imageWidth": 160,
+            "imageHeight": 144,
             "filename": "enemies/plains_1.png",
             "tileColors": [],
             "autoColor": false
@@ -35753,16 +35762,6 @@
             "imageWidth": 24,
             "imageHeight": 24,
             "filename": "blue_bg_frame.png"
-        },
-        {
-            "id": "62de76f6-7e6d-4a15-9bf2-78654db03142",
-            "name": "enemies/plains_1",
-            "symbol": "tileset_enemies_plains_1",
-            "width": 12,
-            "height": 14,
-            "imageWidth": 96,
-            "imageHeight": 112,
-            "filename": "enemies/plains_1.png"
         }
     ],
     "variables": [
@@ -36893,7 +36892,7 @@
         }
     ],
     "settings": {
-        "startSceneId": "15d21e31-aacb-4079-b4cd-2fecbdac901d",
+        "startSceneId": "40ebe38c-7e25-45cd-a16b-8fc0f2a119eb",
         "startX": 0,
         "startY": 0,
         "startMoveSpeed": 1,
@@ -36903,8 +36902,8 @@
         "showConnections": true,
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 2515,
-        "worldScrollY": 79,
+        "worldScrollX": 2533,
+        "worldScrollY": 237,
         "zoom": 222.5,
         "sgbEnabled": false,
         "customHead": "",

@@ -26,28 +26,27 @@
 // = 152
 // = 152 + 10 = 14
 
-WORD end_of_globals = MAX_GLOBAL_VARS;
 struct enemy_info *enemy_slots;
 
 void *extra_reserve(SCRIPT_CTX *THIS, WORD size) OLDCALL BANKED {
-  void *end_of = VM_REF_TO_PTR(end_of_globals + 1);
-  end_of_globals = end_of_globals + DIV_16(size);
+  return &VM_GLOBAL(MAX_GLOBAL_VARS+1);
+  // end_of_globals = end_of_globals + DIV_16(size);
 
-  if (end_of_globals > 512) {
-    __HandleCrash();
-  }
+  // if (end_of_globals > 512) {
+  //   __HandleCrash();
+  // }
 
-  return end_of;
+  // return end_of;
 }
 
-void extra_free(SCRIPT_CTX *THIS, WORD size) OLDCALL BANKED {
-  THIS;
-  end_of_globals = end_of_globals - DIV_16(size);
+// void extra_free(SCRIPT_CTX *THIS, WORD size) OLDCALL BANKED {
+//   THIS;
+//   end_of_globals = end_of_globals - DIV_16(size);
 
-  if (end_of_globals < MAX_GLOBAL_VARS) {
-    end_of_globals = MAX_GLOBAL_VARS;
-  }
-}
+//   if (end_of_globals < MAX_GLOBAL_VARS) {
+//     end_of_globals = MAX_GLOBAL_VARS;
+//   }
+// }
 
 // All FF1 backgrounds have 2 small & 2 large enemies in them
 // Enemies are grouped appropriately for this
@@ -62,7 +61,7 @@ probably fine.
     12.5% Slot 4
 */
 
-static WORD get_small_enemy_idx(void) {
+WORD get_small_enemy_idx(void) {
   const BYTE enemy_roll = rand() % 6;
   switch (enemy_roll) {
   case 0:
@@ -78,7 +77,7 @@ static WORD get_small_enemy_idx(void) {
   }
 }
 
-static WORD get_large_enemy_idx(void) {
+WORD get_large_enemy_idx(void) {
   const BYTE enemy_roll = rand() % 2;
   switch (enemy_roll) {
   case 0:
@@ -125,15 +124,17 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   enemy_slots[4].type = -1;
   enemy_slots[5].type = -1;
 
-  BYTE large_enemy_count = rand() % 2;
+  BYTE large_enemy_count = rand() % 3;
   BYTE small_enemy_count;
 
   switch (large_enemy_count) {
   case 0:
     small_enemy_count = rand() % 6;
+    small_enemy_count++;
     break;
   case 1:
     small_enemy_count = rand() % 2;
+    small_enemy_count++;
     break;
   default:
     small_enemy_count = 0;
@@ -191,7 +192,7 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
     next_y+=6;
   }
 
-  for(BYTE i=0;i<small_enemy_count;i++){
+  for(BYTE i=large_enemy_count;i<small_enemy_count+large_enemy_count;i++){
     idx = get_small_enemy_idx();
     enemy_slots[i] = encounter_table[idx];
     switch(idx){
@@ -215,5 +216,5 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
 void finishBattle(SCRIPT_CTX *THIS) OLDCALL BANKED {
   // I can probably put EXP Gains and Gil Gains here too.
-  extra_free(THIS, sizeof(struct enemy_info) * 6);
+  // extra_free(THIS, sizeof(struct enemy_info) * 7);
 }
