@@ -1,8 +1,6 @@
 #ifndef FF_ENEMY_SLOTS
 #define FF_ENEMY_SLOTS
 #include "enemy_data.h"
-#include "vm.h"
-#include "data/max_global_vars.h"
 #include <asm/types.h>
 struct enemy_slot {
   BYTE hp;

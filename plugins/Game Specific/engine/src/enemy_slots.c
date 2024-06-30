@@ -1,3 +1,4 @@
+#include "enemy_slots.h"
 #include "data/bg_battle_concept_tileset.h"
 #include "data/bg_enemies_plains_1.h"
 #include "data/bg_enemies_plains_1_tileset.h"
@@ -11,11 +12,11 @@
 #include <data/game_globals.h>
 #include <gb/gb.h>
 #include <gbs_types.h>
-#include "enemy_slots.h"
 
 #pragma bank 255
 
-struct enemy_slot * enemy_slots = (struct enemy_slot *)&VM_GLOBAL(MAX_GLOBAL_VARS + 1);
+struct enemy_slot *enemy_slots =
+    (struct enemy_slot *)&VM_GLOBAL(MAX_GLOBAL_VARS + 1);
 // All FF1 backgrounds have 2 small & 2 large enemies in them
 // Enemies are grouped appropriately for this
 
@@ -107,13 +108,15 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   UBYTE tileset_size;
   background_t import_bkg;
 
-  //When you're ready to make this take more than one background
-  //Refer to BulkTileSwap plugin in DomainDomain
-  //tl;dr
-  // 1. event accepts a type:background with key backgroundId (this makes it do the visuals thing on the ide side)
-  // 2. event iterates through backgrounds array from helper finding the related key
-  // 3. event pushes __bank_bg and _bg into stack
-  // 4. bank and from are the stack vars now
+  // When you're ready to make this take more than one background
+  // Refer to BulkTileSwap plugin in DomainDomain
+  // tl;dr
+  //  1. event accepts a type:background with key backgroundId (this makes it do
+  //  the visuals thing on the ide side)
+  //  2. event iterates through backgrounds array from helper finding the
+  //  related key
+  //  3. event pushes __bank_bg and _bg into stack
+  //  4. bank and from are the stack vars now
   MemcpyBanked(&import_bkg, &bg_enemies_plains_1, sizeof(import_bkg),
                BANK(bg_enemies_plains_1));
 
@@ -136,24 +139,29 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
 #define place_bg_tiles                                                         \
   setupTileBuffer(enemy_buffer, 5, 4, 0, 0, start_of_enemy_vram, import_bkg);  \
   set_bkg_tiles(1, 1, 5, 4, enemy_buffer);                                     \
+  handle_bkg_set_color(1, 1, 1, 5, 4);                                         \
   setupTileBuffer(enemy_buffer, 5, 4, 5, 0, start_of_enemy_vram, import_bkg);  \
-  set_bkg_tiles(6, 1, 5, 4, enemy_buffer)
+  set_bkg_tiles(6, 1, 5, 4, enemy_buffer);                                     \
+  handle_bkg_set_color(1, 6, 1, 5, 4)
 
-#define place_sm_enemy_1(x, y)                                                 \
+#define place_sm_enemy_1(x, y, color)                                          \
   setupTileBuffer(enemy_buffer, 5, 4, 0, 4, start_of_enemy_vram, import_bkg);  \
-  set_bkg_tiles(x, y, 5, 4, enemy_buffer)
+  set_bkg_tiles(x, y, 5, 4, enemy_buffer);                                     \
+  handle_bkg_set_color(color, x, y, 5, 4)
 
-#define place_sm_enemy_2(x, y)                                                 \
+#define place_sm_enemy_2(x, y, color)                                          \
   setupTileBuffer(enemy_buffer, 5, 4, 5, 4, start_of_enemy_vram, import_bkg);  \
-  set_bkg_tiles(x, y, 5, 4, enemy_buffer)
-
-#define place_lg_enemy_1(x, y)                                                 \
+  set_bkg_tiles(x, y, 5, 4, enemy_buffer);                                     \
+  handle_bkg_set_color(color, x, y, 5, 4)
+#define place_lg_enemy_1(x, y, color)                                          \
   setupTileBuffer(enemy_buffer, 6, 6, 0, 8, start_of_enemy_vram, import_bkg);  \
-  set_bkg_tiles(x, y, 6, 6, enemy_buffer)
+  set_bkg_tiles(x, y, 6, 6, enemy_buffer);                                     \
+  handle_bkg_set_color(color, x, y, 6, 6)
 
-#define place_lg_enemy_2(x, y)                                                 \
+#define place_lg_enemy_2(x, y, color)                                          \
   setupTileBuffer(enemy_buffer, 6, 6, 6, 8, start_of_enemy_vram, import_bkg);  \
-  set_bkg_tiles(x, y, 6, 6, enemy_buffer)
+  set_bkg_tiles(x, y, 6, 6, enemy_buffer);                                     \
+  handle_bkg_set_color(color, x, y, 6, 6)
 
   BYTE idx;
   BYTE small_enemies[6] = {-1, -1, -1, -1, -1, -1};
@@ -193,16 +201,16 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   BYTE next_x = 1;
   BYTE next_y = 5;
   BYTE enemy_slot_i = 0;
-  struct enemy_slot * current_enemy;
+  struct enemy_slot *current_enemy;
   for (BYTE i = 0; i < lg_i; i++) {
     current_enemy = &enemy_slots[enemy_slot_i];
     const BYTE idx = large_enemies[i];
     switch (idx) {
     case 2:
-      place_lg_enemy_1(next_x, next_y);
+      place_lg_enemy_1(next_x, next_y, 1);
       break;
     case 3:
-      place_lg_enemy_2(next_x, next_y);
+      place_lg_enemy_2(next_x, next_y, 1);
       break;
     }
     current_enemy->info = encounter_table[idx];
@@ -222,10 +230,10 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
     const BYTE idx = small_enemies[i];
     switch (idx) {
     case 0:
-      place_sm_enemy_1(next_x, next_y);
+      place_sm_enemy_1(next_x, next_y, 1);
       break;
     case 1:
-      place_sm_enemy_2(next_x, next_y);
+      place_sm_enemy_2(next_x, next_y, 1);
       break;
     }
     current_enemy->info = encounter_table[idx];
@@ -247,14 +255,16 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   place_bg_tiles;
 }
 
-void checkEnemyAlive(SCRIPT_CTX * THIS) OLDCALL BANKED {
+void checkEnemyAlive(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  VM_GLOBAL(VAR_ATTACKER_ALIVE) = enemy_slots[VM_GLOBAL(VAR_ATTACKER_ID) - 5].alive;
+  VM_GLOBAL(VAR_ATTACKER_ALIVE) =
+      enemy_slots[VM_GLOBAL(VAR_ATTACKER_ID) - 5].alive;
 }
 
-void enemyFlashBKG(SCRIPT_CTX * THIS) OLDCALL BANKED{
+void enemyFlashBKG(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  struct enemy_slot * enemy = &enemy_slots[VM_GLOBAL(VAR_TURN_ORDER_CURRENT_ACTO) - 5];
+  struct enemy_slot *enemy =
+      &enemy_slots[VM_GLOBAL(VAR_TURN_ORDER_CURRENT_ACTO) - 5];
   WORD color_1 = 1;
   WORD color_2 = 6;
   WORD x = enemy->x;
@@ -264,7 +274,7 @@ void enemyFlashBKG(SCRIPT_CTX * THIS) OLDCALL BANKED{
   handle_bkg_flash(color_1, color_2, x, y, w, h);
 }
 
-void enemyRollInitiative(SCRIPT_CTX *THIS) OLDCALL BANKED{
+void enemyRollInitiative(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
   struct enemy_slot *current_enemy;
   UWORD *turn_slot;
