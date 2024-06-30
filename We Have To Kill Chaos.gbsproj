@@ -11510,6 +11510,20 @@
                                             ],
                                             "false": [
                                                 {
+                                                    "command": "FF_EVENT_DISPATCH_ACTION",
+                                                    "args": {
+                                                        "action": 2
+                                                    },
+                                                    "id": "1982eaa5-0e47-4dfb-9eeb-4ebb7a87f2b4"
+                                                },
+                                                {
+                                                    "command": "FF_EVENT_CHOOSE_SKILL",
+                                                    "args": {
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "e61d5082-8e9b-44c1-b05b-d0e5526138af"
+                                                },
+                                                {
                                                     "command": "FF_EVENT_DEFINE_SKILLS",
                                                     "args": {
                                                         "variable": "77",
@@ -12028,13 +12042,6 @@
                                                     },
                                                     "children": {
                                                         "true": [
-                                                            {
-                                                                "command": "FF_EVENT_CHOOSE_SKILL",
-                                                                "args": {
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "a07fb0eb-6aa0-4739-b7f4-63fa2b53c545"
-                                                            },
                                                             {
                                                                 "command": "FF_EVENT_DISPATCH_ACTION",
                                                                 "args": {
