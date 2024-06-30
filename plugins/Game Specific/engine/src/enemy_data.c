@@ -11,6 +11,7 @@ BANKREF(ff_enemy_data)
 struct enemy_info get_enemy_data(BYTE enemy_id) {
   struct enemy_info res;
   switch (enemy_id) {
+  default:
   case IMP:
     MemcpyBanked(&res, &imp_data, sizeof(res), BANK(ff_enemy_data_imp));
     break;
@@ -19,9 +20,6 @@ struct enemy_info get_enemy_data(BYTE enemy_id) {
     break;
   case MADPONY:
     MemcpyBanked(&res, &mad_pony_data, sizeof(res), BANK(ff_enemy_data_mad_pony));
-    break;
-  default:
-    MemcpyBanked(&res, &imp_data, sizeof(res), BANK(ff_enemy_data_imp));
     break;
   }
   return res;

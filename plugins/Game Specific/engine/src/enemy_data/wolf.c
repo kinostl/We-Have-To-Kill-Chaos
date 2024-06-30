@@ -4,7 +4,7 @@ BANKREF(ff_enemy_data_wolf)
 #include "enemy_data/wolf.h"
 #include "enemy_data.h"
 const struct enemy_info wolf_data = {.name = "WOLF",
-                                     .hp = 20,
+                                     .max_hp = 20,
                                      .gold = 6,
                                      .exp = 24,
                                      .damage = 8,

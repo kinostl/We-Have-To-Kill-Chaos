@@ -4,7 +4,7 @@ BANKREF(ff_enemy_data_mad_pony)
 #include "enemy_data/mad_pony.h"
 #include "enemy_data.h"
 const struct enemy_info mad_pony_data = {.name = "MADPONY",
-                                   .hp = 64,
+                                   .max_hp = 64,
                                    .gold = 15,
                                    .exp = 63,
                                    .damage = 10,

@@ -1,35 +1,14 @@
-#pragma bank 255
-
 #include "data/game_globals.h"
+#include "enemy_data.h"
+#include "enemy_slots.h"
 #include "math.h"
+#include "rand.h"
 #include "vm.h"
 #include <asm/types.h>
-#include <stdint.h>
 
-#define GET_GLOBAL_VAL(X) *(int16_t*)VM_REF_TO_PTR(X)
-#define GET_GLOBAL_PTR(X) (int16_t*)VM_REF_TO_PTR(X)
+#pragma bank 255
 
-enum {
-    GOBLIN_PUNCH,
-    HOWL
-};
-
-// only 129 enemies in FF1
-//
-// Maybe I should have this be a Family based thing.
-// Bosses get up to 12
-// Max seems to be 12
-// Most enemies look like they have 4
-enum {
-    IMP,
-    GRIMP,
-    WOLF,
-    GRWOLF
-};
-const int8_t enemy_skills[4][4] = { [IMP] = { GOBLIN_PUNCH },
-    [GRIMP] = { GOBLIN_PUNCH },
-    [WOLF] = { HOWL },
-    [GRWOLF] = { HOWL } };
+enum { FIGHT, GOBLIN_PUNCH, HOWL, THRASH };
 
 /*
 Effect: An attack thats more powerful if you're close in level to the target
@@ -41,41 +20,84 @@ Normal Attack
 
 Short name: GobPun
 */
-static void goblinPunch(SCRIPT_CTX* THIS)
-{
-    int16_t* attacker_damage = GET_GLOBAL_PTR(VAR_ATTACKER_DAMAGE);
+static void goblinPunch(SCRIPT_CTX *THIS) {
+  BYTE attacker_id = VM_GLOBAL(VAR_ATTACKER_ID);
+  if (attacker_id >= 5) { // Enemy Slots start at 5;
+    VM_GLOBAL(VAR_ATTACKER_MAX_HP) = enemy_slots[attacker_id - 5].info.max_hp;
+  }
 
-    const int16_t attacker_max_hp = GET_GLOBAL_VAL(VAR_ATTACKER_MAX_HP);
-    const int16_t defender_max_hp = GET_GLOBAL_VAL(VAR_DEFENDER_MAX_HP);
+  BYTE defender_id = VM_GLOBAL(VAR_ATTACKER_ID);
+  if (defender_id >= 5) { // Enemy Slots start at 5;
+    VM_GLOBAL(VAR_DEFENDER_MAX_HP) = enemy_slots[defender_id - 5].info.max_hp;
+  }
 
-    *attacker_damage -= DIV_4(*attacker_damage);
+  const WORD attacker_max_hp = VM_GLOBAL(VAR_ATTACKER_MAX_HP);
+  const WORD defender_max_hp = VM_GLOBAL(VAR_DEFENDER_MAX_HP);
+  const WORD distance = DISTANCE(attacker_max_hp, defender_max_hp);
+  const WORD modifier = 8 - CLAMP(distance, 0, 7);
 
-    const int16_t distance = DISTANCE(attacker_max_hp, defender_max_hp);
-    const int16_t modifier = 8 - CLAMP(distance, 0, 7);
-
-    *attacker_damage *= modifier;
+  WORD *attacker_damage = VM_REF_TO_PTR(VAR_ATTACKER_DAMAGE);
+  *attacker_damage -= DIV_4(*attacker_damage);
+  *attacker_damage *= modifier;
 }
 
-static void howl(SCRIPT_CTX* THIS) { THIS; }
+void set_skill_id(UWORD a, UWORD b, UWORD c, UWORD d) OLDCALL BANKED {
+  UWORD *skill_id = &VM_GLOBAL(VAR_ATTACKER_SKILL);
+  if (rand() % 2 > 0) {
+    *skill_id = FIGHT;
+    return;
+  }
 
-void handleChooseEnemySkill(SCRIPT_CTX* THIS) OLDCALL BANKED
-{
-    const int16_t attacker_type = GET_GLOBAL_VAL(VAR_ATTACKER_TYPE);
-    const int16_t skill_idx = GET_GLOBAL_VAL(VAR_ATTACKER_SKILL_IDX);
-    int16_t* skill_id = GET_GLOBAL_PTR(VAR_ATTACKER_SKILL);
+  const BYTE slot_id = VM_GLOBAL(VAR_ATTACKER_ID) - 5;
+  const WORD skill_idx = VM_GLOBAL(VAR_ATTACKER_SKILL_IDX);
+  struct enemy_slot *enemy_slot = &enemy_slots[slot_id];
+  enemy_slot->skill_idx++;
+  if (enemy_slot->skill_idx > 4) {
+    enemy_slot->skill_idx = 1;
+  }
 
-    *skill_id = enemy_skills[attacker_type][skill_idx] + 1;
+  switch (skill_idx) {
+  case 1:
+    *skill_id = a;
+    break;
+  case 2:
+    *skill_id = b;
+    break;
+  case 3:
+    *skill_id = c;
+    break;
+  case 4:
+    *skill_id = d;
+    break;
+  default:
+    *skill_id = FIGHT;
+    break;
+  }
 }
 
-void handleEnemySkills(SCRIPT_CTX* THIS) OLDCALL BANKED
-{
-    const int16_t skill_id = GET_GLOBAL_VAL(VAR_ATTACKER_SKILL);
-    switch (skill_id - 1) {
-    case GOBLIN_PUNCH:
-        goblinPunch(THIS);
-        break;
-    case HOWL:
-        howl(THIS);
-        break;
-    }
+void chooseEnemySkill(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  THIS;
+  const BYTE slot_id = VM_GLOBAL(VAR_TURN_ORDER_CURRENT_ACTO) - 5;
+  const WORD attacker_type = enemy_slots[slot_id].info.type;
+  VM_GLOBAL(VAR_ATTACKER_ID) = VM_GLOBAL(VAR_TURN_ORDER_CURRENT_ACTO);
+  VM_GLOBAL(VAR_DEFENDER_ID) = 1;
+
+
+  switch (attacker_type) {
+  case IMP:
+    set_skill_id(GOBLIN_PUNCH, FIGHT, FIGHT, FIGHT);
+    break;
+  case GrIMP:
+    set_skill_id(GOBLIN_PUNCH, FIGHT, GOBLIN_PUNCH, FIGHT);
+    break;
+  case WOLF:
+    set_skill_id(HOWL, FIGHT, FIGHT, FIGHT);
+    break;
+  case MADPONY:
+    set_skill_id(THRASH, FIGHT, FIGHT, FIGHT);
+    break;
+  default:
+    set_skill_id(FIGHT, FIGHT, FIGHT, FIGHT);
+    break;
+  }
 }

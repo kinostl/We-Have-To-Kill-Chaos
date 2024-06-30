@@ -4,7 +4,7 @@ const name = "Dispatch Action";
 const actions = [
     "ANIMATE/Explosions",
     "ATTACKER/Fight",
-    "Player/Shield",
+    "ANIMATE/Flash Enemy",
     "Player/Limit Break",
     "PICK/Item",
     "PICK/Magic",

@@ -12,3 +12,5 @@ __PORT_sm83
 /home/deck/.cache/gbstudio-v4/_gbsbuild/include
 -isystem
 /home/deck/.cache/gbstudio-v4/_gbstools/gbdk/include
+--std
+c11

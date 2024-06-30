@@ -3,15 +3,19 @@
 #include "data/bg_enemies_plains_1_tileset.h"
 #include "data/max_global_vars.h"
 #include "enemy_data.h"
+#include "handle_flashing.h"
 #include "rand.h" // IWYU pragma: keep
 #include "vm.h"
 #include <asm/types.h>
 #include <bankdata.h>
+#include <data/game_globals.h>
 #include <gb/gb.h>
 #include <gbs_types.h>
+#include "enemy_slots.h"
 
 #pragma bank 255
 
+struct enemy_slot * enemy_slots = (struct enemy_slot *)&VM_GLOBAL(MAX_GLOBAL_VARS + 1);
 // All FF1 backgrounds have 2 small & 2 large enemies in them
 // Enemies are grouped appropriately for this
 
@@ -74,18 +78,26 @@ void setupTileBuffer(UBYTE *buffer, UBYTE w, UBYTE h, UBYTE x, UBYTE y,
   }
 }
 
+void initialize_enemy_slot(struct enemy_slot *slot) OLDCALL BANKED {
+  struct enemy_info blank;
+  slot->hp = 0;
+  slot->skill_idx = 0;
+  slot->info = blank;
+  slot->alive = FALSE;
+}
+
 void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  struct enemy_info *enemy_slots = VM_REF_TO_PTR(MAX_GLOBAL_VARS + 1);
+  THIS;
   struct enemy_info encounter_table[4];
 
   setup_encounter_table(0, encounter_table);
-  // Default to -1
-  enemy_slots[0].type = -1;
-  enemy_slots[1].type = -1;
-  enemy_slots[2].type = -1;
-  enemy_slots[3].type = -1;
-  enemy_slots[4].type = -1;
-  enemy_slots[5].type = -1;
+  // Default to null
+  initialize_enemy_slot(&enemy_slots[0]);
+  initialize_enemy_slot(&enemy_slots[1]);
+  initialize_enemy_slot(&enemy_slots[2]);
+  initialize_enemy_slot(&enemy_slots[3]);
+  initialize_enemy_slot(&enemy_slots[4]);
+  initialize_enemy_slot(&enemy_slots[5]);
 
   // Now load up the enemy VRAM
   // Then draw the tiles manually, knowing that they'll be in order correctly.
@@ -156,8 +168,6 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
       idx = get_enemy_idx();
     }
 
-    enemy_slots[i] = encounter_table[idx];
-
     switch (idx) {
     case 0:
     case 1:
@@ -183,7 +193,9 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   BYTE next_x = 1;
   BYTE next_y = 5;
   BYTE enemy_slot_i = 0;
+  struct enemy_slot * current_enemy;
   for (BYTE i = 0; i < lg_i; i++) {
+    current_enemy = &enemy_slots[enemy_slot_i];
     const BYTE idx = large_enemies[i];
     switch (idx) {
     case 2:
@@ -193,13 +205,20 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
       place_lg_enemy_2(next_x, next_y);
       break;
     }
-    enemy_slots[enemy_slot_i] = encounter_table[idx];
+    current_enemy->info = encounter_table[idx];
+    current_enemy->hp = current_enemy->info.max_hp;
+    current_enemy->alive = TRUE;
+    current_enemy->x = next_x;
+    current_enemy->y = next_y;
+    current_enemy->w = 6;
+    current_enemy->h = 6;
     enemy_slot_i++;
     next_x = 1;
     next_y += 6;
   }
 
   for (BYTE i = 0; i < sm_i; i++) {
+    current_enemy = &enemy_slots[enemy_slot_i];
     const BYTE idx = small_enemies[i];
     switch (idx) {
     case 0:
@@ -209,7 +228,13 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
       place_sm_enemy_2(next_x, next_y);
       break;
     }
-    enemy_slots[enemy_slot_i] = encounter_table[idx];
+    current_enemy->info = encounter_table[idx];
+    current_enemy->hp = current_enemy->info.max_hp;
+    current_enemy->alive = TRUE;
+    current_enemy->x = next_x;
+    current_enemy->y = next_y;
+    current_enemy->w = 5;
+    current_enemy->h = 4;
     enemy_slot_i++;
     next_x += 5;
     if (next_x > 10) {
@@ -217,8 +242,40 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
       next_y += 4;
     }
   }
+  VM_GLOBAL(VAR_SCENE_ENEMIES_ALIVE) = lg_i + sm_i;
 
   place_bg_tiles;
+}
+
+void checkEnemyAlive(SCRIPT_CTX * THIS) OLDCALL BANKED {
+  THIS;
+  VM_GLOBAL(VAR_ATTACKER_ALIVE) = enemy_slots[VM_GLOBAL(VAR_ATTACKER_ID) - 5].alive;
+}
+
+void enemyFlashBKG(SCRIPT_CTX * THIS) OLDCALL BANKED{
+  THIS;
+  struct enemy_slot * enemy = &enemy_slots[VM_GLOBAL(VAR_TURN_ORDER_CURRENT_ACTO) - 5];
+  WORD color_1 = 1;
+  WORD color_2 = 6;
+  WORD x = enemy->x;
+  WORD y = enemy->y;
+  WORD w = enemy->w;
+  WORD h = enemy->h;
+  handle_bkg_flash(color_1, color_2, x, y, w, h);
+}
+
+void enemyRollInitiative(SCRIPT_CTX *THIS) OLDCALL BANKED{
+  THIS;
+  struct enemy_slot *current_enemy;
+  UWORD *turn_slot;
+  for (int i = 0; i < 6; i++) {
+    turn_slot = &VM_GLOBAL(VAR_TURN_ORDER_SLOT_5_E1) + i;
+    current_enemy = &enemy_slots[i];
+    if (!current_enemy->alive)
+      continue;
+    *turn_slot = rand() % current_enemy->info.max_hp;
+    *turn_slot += current_enemy->info.evade;
+  }
 }
 
 void finishBattle(SCRIPT_CTX *THIS) OLDCALL BANKED {

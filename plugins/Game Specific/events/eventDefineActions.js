@@ -6,7 +6,7 @@ const l10n = (x) => `${x}`
 const actions = [
     "ANIMATE/Explosions",
     "ATTACKER/Fight",
-    "Player/Shield",
+    "ANIMATE/Flash Enemy",
     "Player/Limit Break",
     "PICK/Item",
     "PICK/Magic",
@@ -120,6 +120,9 @@ const generateChartFromEvent = (start, event) => {
         "EVENT_GROUP",
     ].includes(event.command)){
         return generateChartFromEvent(start, event.children)
+    }
+    if (event.command == "FF_EVENT_DEFINE_SKILLS") {
+        return ""
     }
     if(event.children){
         throw `Unhandled Event with Children: ${event.command}`
