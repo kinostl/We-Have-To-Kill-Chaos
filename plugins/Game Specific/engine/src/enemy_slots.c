@@ -95,6 +95,13 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   UBYTE tileset_size;
   background_t import_bkg;
 
+  //When you're ready to make this take more than one background
+  //Refer to BulkTileSwap plugin in DomainDomain
+  //tl;dr
+  // 1. event accepts a type:background with key backgroundId (this makes it do the visuals thing on the ide side)
+  // 2. event iterates through backgrounds array from helper finding the related key
+  // 3. event pushes __bank_bg and _bg into stack
+  // 4. bank and from are the stack vars now
   MemcpyBanked(&import_bkg, &bg_enemies_plains_1, sizeof(import_bkg),
                BANK(bg_enemies_plains_1));
 
