@@ -1,9 +1,12 @@
+#pragma bank 255
+#include "entity_data.h"
 #include <gb/gb.h>
-BANKREF(ff_enemy_data_imp)
-
 #include "enemy_data/imp.h"
 #include "enemy_data.h"
-const struct enemy_info imp_data = {.name = "IMP",
+
+BANKREF(ff_enemy_data_imp)
+
+const struct entity_data imp_data = {.name = "IMP",
                                .max_hp = 8,
                                .gold = 6,
                                .exp = 6,
@@ -19,5 +22,6 @@ const struct enemy_info imp_data = {.name = "IMP",
                                .magic = 0,
                                .spatk = 0,
                                .family = GIANT,
+                               .type = IMP,
                                .weakness = -1,
                                .resists = -1};

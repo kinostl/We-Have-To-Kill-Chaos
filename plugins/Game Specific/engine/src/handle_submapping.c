@@ -8,17 +8,17 @@
 
 void copyBkgToBkg(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
-  const WORD COLOR = *(WORD *)VM_REF_TO_PTR(FN_ARG6);
-  const WORD DES_X = *(WORD *)VM_REF_TO_PTR(FN_ARG5);
-  const WORD DES_Y = *(WORD *)VM_REF_TO_PTR(FN_ARG4);
-  const WORD W1 = *(WORD *)VM_REF_TO_PTR(FN_ARG3);
-  const WORD H1 = *(WORD *)VM_REF_TO_PTR(FN_ARG2);
-  const WORD SRC_X = *(WORD *)VM_REF_TO_PTR(FN_ARG1);
-  const WORD SRC_Y = *(WORD *)VM_REF_TO_PTR(FN_ARG0);
+  WORD COLOR = *(WORD *)VM_REF_TO_PTR(FN_ARG6);
+  WORD DES_X = *(WORD *)VM_REF_TO_PTR(FN_ARG5);
+  WORD DES_Y = *(WORD *)VM_REF_TO_PTR(FN_ARG4);
+  WORD W1 = *(WORD *)VM_REF_TO_PTR(FN_ARG3);
+  WORD H1 = *(WORD *)VM_REF_TO_PTR(FN_ARG2);
+  WORD SRC_X = *(WORD *)VM_REF_TO_PTR(FN_ARG1);
+  WORD SRC_Y = *(WORD *)VM_REF_TO_PTR(FN_ARG0);
 
-  const WORD offset_x = SRC_X - DES_X;
-  const WORD offset_y = SRC_Y - DES_Y;
-  const WORD offset = offset_x + (offset_y * image_tile_width);
+  WORD offset_x = SRC_X - DES_X;
+  WORD offset_y = SRC_Y - DES_Y;
+  WORD offset = offset_x + (offset_y * image_tile_width);
 
   UBYTE my_tiles[32 * 32];
   union tile my_tile;

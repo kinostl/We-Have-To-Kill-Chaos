@@ -1,9 +1,12 @@
+#pragma bank 255
+#include "entity_data.h"
 #include <gb/gb.h>
+#include "enemy_data.h"
+#include "enemy_data/wolf.h"
+
 BANKREF(ff_enemy_data_wolf)
 
-#include "enemy_data/wolf.h"
-#include "enemy_data.h"
-const struct enemy_info wolf_data = {.name = "WOLF",
+const struct entity_data wolf_data = {.name = "WOLF",
                                      .max_hp = 20,
                                      .gold = 6,
                                      .exp = 24,
@@ -19,5 +22,6 @@ const struct enemy_info wolf_data = {.name = "WOLF",
                                      .magic = 0,
                                      .spatk = 0,
                                      .family = NONE,
+                                     .type = WOLF,
                                      .weakness = -1,
                                      .resists = -1};

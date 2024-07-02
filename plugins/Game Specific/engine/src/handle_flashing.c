@@ -1,3 +1,4 @@
+#pragma bank 255
 #include "handle_flashing.h"
 #include "handle_submapping.h"
 #include "vm.h"
@@ -5,7 +6,6 @@
 #include <gb/gb.h>
 #include <stdint.h>
 
-#pragma bank 255
 
 void handle_bkg_set_color(WORD color, WORD x, WORD y, WORD w,
                           WORD h) OLDCALL BANKED {
@@ -45,12 +45,12 @@ void handle_bkg_flash(WORD color_1, WORD color_2, WORD x, WORD y, WORD w,
 
 void makeBkgFlash(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
-  const int16_t COLOR_1 = *(int16_t *)VM_REF_TO_PTR(FN_ARG5);
-  const int16_t COLOR_2 = *(int16_t *)VM_REF_TO_PTR(FN_ARG4);
-  const int16_t X = *(int16_t *)VM_REF_TO_PTR(FN_ARG3);
-  const int16_t Y = *(int16_t *)VM_REF_TO_PTR(FN_ARG2);
-  const int16_t W = *(int16_t *)VM_REF_TO_PTR(FN_ARG1);
-  const int16_t H = *(int16_t *)VM_REF_TO_PTR(FN_ARG0);
+  int16_t COLOR_1 = *(int16_t *)VM_REF_TO_PTR(FN_ARG5);
+  int16_t COLOR_2 = *(int16_t *)VM_REF_TO_PTR(FN_ARG4);
+  int16_t X = *(int16_t *)VM_REF_TO_PTR(FN_ARG3);
+  int16_t Y = *(int16_t *)VM_REF_TO_PTR(FN_ARG2);
+  int16_t W = *(int16_t *)VM_REF_TO_PTR(FN_ARG1);
+  int16_t H = *(int16_t *)VM_REF_TO_PTR(FN_ARG0);
 
   handle_bkg_flash(COLOR_1, COLOR_2, X, Y, W, H);
 }
