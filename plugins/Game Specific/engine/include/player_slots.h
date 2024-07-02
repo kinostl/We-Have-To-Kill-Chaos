@@ -3,8 +3,6 @@
 
 #include "vm.h" // IWYU pragma: keep
 #include <asm/types.h>
-BANKREF_EXTERN(ff_player_slots)
-
 #include "entity_data.h"
 
 struct player_slot {

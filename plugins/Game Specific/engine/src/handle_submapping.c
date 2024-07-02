@@ -1,10 +1,10 @@
-#pragma bank 255
-
+#include <gb/gb.h>
 #include "handle_submapping.h"
 #include "bankdata.h"
 #include "data_manager.h"
 #include "vm.h"
-#include <gb/gb.h>
+
+#pragma bank 255
 
 void copyBkgToBkg(SCRIPT_CTX *THIS) OLDCALL BANKED {
 

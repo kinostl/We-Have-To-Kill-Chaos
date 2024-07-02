@@ -1,10 +1,11 @@
-#pragma bank 255
 #include "entity_data.h"
 #include <gb/gb.h>
+BANKREF(ff_enemy_data_wolf)
 #include "enemy_data.h"
 #include "enemy_data/wolf.h"
 
-BANKREF(ff_enemy_data_wolf)
+#pragma bank 255
+
 
 const struct entity_data wolf_data = {.name = "WOLF",
                                      .max_hp = 20,

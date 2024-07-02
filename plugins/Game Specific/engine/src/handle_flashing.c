@@ -1,11 +1,11 @@
-#pragma bank 255
-#include "handle_flashing.h"
-#include "handle_submapping.h"
-#include "vm.h"
 #include <asm/types.h>
 #include <gb/gb.h>
 #include <stdint.h>
+#include "handle_flashing.h"
+#include "handle_submapping.h"
+#include "vm.h"
 
+#pragma bank 255
 
 void handle_bkg_set_color(WORD color, WORD x, WORD y, WORD w,
                           WORD h) OLDCALL BANKED {

@@ -1,4 +1,3 @@
-#pragma bank 255
 #include "data/game_globals.h"
 #include "enemy_data.h"
 #include "enemy_slots.h"
@@ -7,6 +6,7 @@
 #include "vm.h"
 #include <asm/types.h>
 
+#pragma bank 255
 
 enum { FIGHT, GOBLIN_PUNCH, HOWL, THRASH };
 

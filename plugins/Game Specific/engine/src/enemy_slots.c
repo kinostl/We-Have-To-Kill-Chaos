@@ -1,9 +1,8 @@
-#pragma bank 255
 #include <gb/gb.h>
 #include <asm/types.h>
 #include <bankdata.h>
-#include <data/game_globals.h>
 #include <gbs_types.h>
+#include <data/game_globals.h>
 #include "enemy_slots.h"
 #include "data/bg_battle_concept_tileset.h"
 #include "data/bg_enemies_plains_1.h"
@@ -14,9 +13,7 @@
 #include "rand.h" // IWYU pragma: keep
 #include "vm.h"
 
-
-BANKREF(ff_enemy_slots)
-
+#pragma bank 255
 
 // All FF1 backgrounds have 2 small & 2 large enemies in them
 // Enemies are grouped appropriately for this

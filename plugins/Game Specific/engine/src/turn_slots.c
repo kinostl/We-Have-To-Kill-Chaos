@@ -1,15 +1,14 @@
-#pragma bank 255
 #include <gb/gb.h>
-#include "turn_slots.h"
-#include "enemy_slots.h"
-#include "player_slots.h"
-#include "vm.h"
 #include <asm/types.h>
 #include <data/game_globals.h>
 #include <gb/crash_handler.h>
 #include <string.h>
+#include "turn_slots.h"
+#include "enemy_slots.h"
+#include "player_slots.h"
+#include "vm.h"
 
-BANKREF(ff_turn_slots)
+#pragma bank 255
 
 struct turn_slot *turn_slots;
 struct player_slot *player_slots;

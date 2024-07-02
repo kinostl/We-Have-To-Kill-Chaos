@@ -2,8 +2,6 @@
 #define FF_TURN_SLOTS
 #include <asm/types.h>
 #include <gb/gb.h>
-BANKREF_EXTERN(ff_turn_slots)
-
 #include "valloc.h" // IWYU pragma: keep
 
 enum TURN_TAG {PLAYER, ENEMY} ;

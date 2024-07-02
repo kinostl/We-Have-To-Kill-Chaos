@@ -1,8 +1,8 @@
-#pragma bank 255
-
+#include <stdint.h>
 #include "vm.h"
 #include "data/game_globals.h"
-#include <stdint.h>
+
+#pragma bank 255
 
 #define TURN_ORDER_COUNT 10
 void handleSortTurnOrder(SCRIPT_CTX * THIS) OLDCALL BANKED {

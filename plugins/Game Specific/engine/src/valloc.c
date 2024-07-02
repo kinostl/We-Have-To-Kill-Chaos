@@ -1,9 +1,8 @@
-#pragma bank 255
-#include "valloc.h"
 #include <vm.h>
+#include "valloc.h"
 #include "data/max_global_vars.h"
 
-BANKREF(ff_event_valloc)
+#pragma bank 255
 
 void * valloc_ptr = &VM_GLOBAL(MAX_GLOBAL_VARS + 1);
 void * valloc(WORD size) OLDCALL BANKED{

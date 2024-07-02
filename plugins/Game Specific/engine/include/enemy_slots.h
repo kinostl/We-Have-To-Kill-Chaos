@@ -2,8 +2,6 @@
 #define FF_ENEMY_SLOTS
 #include <gb/gb.h>
 #include <asm/types.h>
-BANKREF_EXTERN(ff_enemy_slots)
-
 #include "entity_data.h"
 
 struct enemy_slot {

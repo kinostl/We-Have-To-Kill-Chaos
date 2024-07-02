@@ -1,13 +1,13 @@
-#pragma bank 255
 #include <bankdata.h>
 #include <gb/gb.h>
+BANKREF(ff_enemy_data)
 #include "enemy_data.h" // IWYU pragma: keep
 
 #include "enemy_data/imp.h"
 #include "enemy_data/wolf.h"
 #include "enemy_data/mad_pony.h"
 
-BANKREF(ff_enemy_data)
+#pragma bank 255
 
 
 
