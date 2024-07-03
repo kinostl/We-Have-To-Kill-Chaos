@@ -10,7 +10,7 @@
 
 #pragma bank 255
 
-struct entity_data set_enemy_data(struct entity_data * entity, BYTE enemy_id) OLDCALL BANKED {
+void set_enemy_data(struct entity_data * entity, BYTE enemy_id) OLDCALL BANKED {
   switch (enemy_id) {
   default:
   case IMP:
@@ -25,20 +25,20 @@ struct entity_data set_enemy_data(struct entity_data * entity, BYTE enemy_id) OL
   }
 }
 
-void setup_encounter_table(BYTE encounter_table_id,
-                           struct entity_data encounter_table[4]) OLDCALL BANKED{
+void set_encounter_table(BYTE encounter_table[4], BYTE encounter_table_id)
+                        OLDCALL BANKED{
   switch (encounter_table_id) {
   case 0:
-    set_enemy_data(&encounter_table[0], IMP);
-    set_enemy_data(&encounter_table[1], WOLF);
-    set_enemy_data(&encounter_table[2], MADPONY);
-    set_enemy_data(&encounter_table[3], MADPONY);
+    encounter_table[0] = IMP;
+    encounter_table[1] = WOLF;
+    encounter_table[2] = MADPONY;
+    encounter_table[3] = MADPONY;
     return;
   default:
-    set_enemy_data(&encounter_table[0], IMP);
-    set_enemy_data(&encounter_table[1], IMP);
-    set_enemy_data(&encounter_table[2], MADPONY);
-    set_enemy_data(&encounter_table[3], MADPONY);
+    encounter_table[0] = IMP;
+    encounter_table[1] = IMP;
+    encounter_table[2] = MADPONY;
+    encounter_table[3] = MADPONY;
     return;
   }
 }

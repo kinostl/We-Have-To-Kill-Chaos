@@ -85,9 +85,9 @@ void initialize_entity_data(struct entity_data * slot) OLDCALL BANKED {
 
 void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  struct entity_data encounter_table[4];
+  BYTE encounter_table[4];
 
-  setup_encounter_table(0, encounter_table);
+  set_encounter_table(encounter_table, 0);
   // Default to null
   for (int i = 4; i < 10; i++) {
     initialize_entity_data(&turn_slots[i]);
@@ -206,7 +206,7 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
       place_lg_enemy_2(next_x, next_y, 1);
       break;
     }
-    *current_enemy = encounter_table[idx];
+    set_enemy_data(current_enemy, idx);
     current_enemy->hp = current_enemy->max_hp;
     current_enemy->alive = TRUE;
     current_enemy->x = next_x;
@@ -231,7 +231,7 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
       place_sm_enemy_2(next_x, next_y, 1);
       break;
     }
-    *current_enemy = encounter_table[idx];
+    set_enemy_data(current_enemy, idx);
     current_enemy->hp = current_enemy->max_hp;
     current_enemy->alive = TRUE;
     current_enemy->x = next_x;

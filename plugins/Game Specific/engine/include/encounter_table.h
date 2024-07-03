@@ -1,10 +1,10 @@
 #ifndef FF_ENCOUNTER_TABLE
 #define FF_ENCOUNTER_TABLE
 
-#include "entity_data.h"
 #include <asm/types.h>
 #include <bankdata.h>
+#include "entity_data.h"
 
-void setup_encounter_table(BYTE encounter_table_id,
-                           struct entity_data encounter_table[4]) OLDCALL BANKED;
+void set_enemy_data(struct entity_data * entity, BYTE enemy_id) OLDCALL BANKED;
+void set_encounter_table(BYTE encounter_table[4], BYTE encounter_table_id) OLDCALL BANKED;
 #endif
