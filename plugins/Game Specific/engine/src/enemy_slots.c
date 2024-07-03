@@ -199,6 +199,7 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   for (BYTE i = 0; i < lg_i; i++) {
     current_enemy = &turn_slots[entity_data_i];
     BYTE idx = large_enemies[i];
+
     switch (idx) {
     case 2:
       place_lg_enemy_1(next_x, next_y, 1);
@@ -207,7 +208,8 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
       place_lg_enemy_2(next_x, next_y, 1);
       break;
     }
-    set_enemy_data(current_enemy, idx);
+
+    set_enemy_data(current_enemy, encounter_table[idx]);
     current_enemy->hp = current_enemy->max_hp;
     current_enemy->alive = TRUE;
     current_enemy->x = next_x;
@@ -225,6 +227,7 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   for (BYTE i = 0; i < sm_i; i++) {
     current_enemy = &turn_slots[entity_data_i];
     BYTE idx = small_enemies[i];
+
     switch (idx) {
     case 0:
       place_sm_enemy_1(next_x, next_y, 1);
@@ -233,13 +236,15 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
       place_sm_enemy_2(next_x, next_y, 1);
       break;
     }
-    set_enemy_data(current_enemy, idx);
+
+    set_enemy_data(current_enemy, encounter_table[idx]);
     current_enemy->hp = current_enemy->max_hp;
     current_enemy->alive = TRUE;
     current_enemy->x = next_x;
     current_enemy->y = next_y;
     current_enemy->w = 5;
     current_enemy->h = 4;
+
 
     entity_data_i++;
     enemies_alive++;
@@ -276,8 +281,6 @@ void handleEnemyTakeDamage(SCRIPT_CTX *THIS) OLDCALL BANKED {
   VM_GLOBAL(VAR_EXPLOSION_Y) = current_enemy->y;
   VM_GLOBAL(VAR_EXPLOSION_W) = current_enemy->w;
   VM_GLOBAL(VAR_EXPLOSION_H) = current_enemy->h;
-  VM_GLOBAL(VAR_EXPLOSION_H) = 6;
-  VM_GLOBAL(VAR_EXPLOSION_W) = 9;
 
   // UWORD *hit_roll = &VM_GLOBAL(VAR_TEMP_HIT_ROLL_0);
   // UWORD *damage_calc = &VM_GLOBAL(VAR_TEMP_DAMAGE_CALCULATION);
