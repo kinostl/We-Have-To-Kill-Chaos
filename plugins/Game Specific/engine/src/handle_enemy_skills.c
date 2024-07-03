@@ -49,7 +49,7 @@ void set_skill_id(UWORD a, UWORD b, UWORD c, UWORD d) OLDCALL BANKED {
     return;
   }
 
-  BYTE slot_id = VM_GLOBAL(VAR_ATTACKER_ID) - 5;
+  BYTE slot_id = VM_GLOBAL(VAR_ATTACKER_ID);
   struct entity_data *entity_data = &turn_slots[slot_id];
   entity_data->skill_idx++;
   if (entity_data->skill_idx > 4) {
@@ -77,7 +77,7 @@ void set_skill_id(UWORD a, UWORD b, UWORD c, UWORD d) OLDCALL BANKED {
 
 void chooseEnemySkill(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  BYTE slot_id = VM_GLOBAL(VAR_TURN_ORDER_CURRENT_ACTO) - 5;
+  BYTE slot_id = VM_GLOBAL(VAR_TURN_ORDER_CURRENT_ACTO);
   WORD attacker_type = turn_slots[slot_id].type;
   VM_GLOBAL(VAR_ATTACKER_ID) = VM_GLOBAL(VAR_TURN_ORDER_CURRENT_ACTO);
   VM_GLOBAL(VAR_DEFENDER_ID) = 1;

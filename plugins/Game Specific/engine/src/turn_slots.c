@@ -11,7 +11,9 @@
 
 struct entity_data *turn_slots = (struct entity_data *)&VM_GLOBAL(MAX_GLOBAL_VARS + 1);
 
-void load_attacker(BYTE slot_idx) OLDCALL BANKED {
+void load_attacker(SCRIPT_CTX * THIS) OLDCALL BANKED {
+  THIS;
+  BYTE slot_idx = VM_GLOBAL(VAR_ATTACKER_ID);
   struct entity_data *slot = &turn_slots[slot_idx];
   switch (slot_idx) {
   case 0:
@@ -34,7 +36,9 @@ void load_attacker(BYTE slot_idx) OLDCALL BANKED {
   }
 }
 
-void load_defender(BYTE slot_idx) OLDCALL BANKED {
+void load_defender(SCRIPT_CTX * THIS) OLDCALL BANKED {
+  THIS;
+  BYTE slot_idx = VM_GLOBAL(VAR_DEFENDER_ID);
   struct entity_data *slot = &turn_slots[slot_idx];
   switch (slot_idx) {
   case 0:
@@ -93,7 +97,7 @@ void load_enemy_atk(struct entity_data *enemy) OLDCALL BANKED {
 
 void load_enemy_def(struct entity_data *enemy) OLDCALL BANKED {
   VM_GLOBAL(VAR_DEFENDER_ENDING_HP) = enemy->hp;
-  VM_GLOBAL(VAR_DEFENDER_ID) = enemy->slot_id;
+  VM_GLOBAL(VAR_DEFENDER_ID) = 0;
   VM_GLOBAL(VAR_DEFENDER_MAX_HP) = enemy->max_hp;
   VM_GLOBAL(VAR_DEFENDER_STARTING_HP) = enemy->hp;
 }

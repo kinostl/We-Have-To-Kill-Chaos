@@ -27137,46 +27137,6 @@
                     "children": {
                         "true": [
                             {
-                                "command": "MY_EVENT_CALL_NATIVE",
-                                "args": {
-                                    "argCount": 1,
-                                    "arg0": {
-                                        "type": "variable",
-                                        "value": "L0"
-                                    },
-                                    "arg1": {
-                                        "type": "number",
-                                        "value": 0
-                                    },
-                                    "arg2": {
-                                        "type": "number",
-                                        "value": 0
-                                    },
-                                    "arg3": {
-                                        "type": "number",
-                                        "value": 0
-                                    },
-                                    "arg4": {
-                                        "type": "number",
-                                        "value": 0
-                                    },
-                                    "arg5": {
-                                        "type": "number",
-                                        "value": 0
-                                    },
-                                    "arg6": {
-                                        "type": "number",
-                                        "value": 0
-                                    },
-                                    "arg7": {
-                                        "type": "number",
-                                        "value": 0
-                                    },
-                                    "funName": "load_attacker"
-                                },
-                                "id": "99dc2b80-fad1-476d-897c-65262c6e75d1"
-                            },
-                            {
                                 "command": "EVENT_SET_VALUE",
                                 "args": {
                                     "variable": "57",
@@ -27192,8 +27152,8 @@
                                 "args": {
                                     "argCount": 0,
                                     "arg0": {
-                                        "type": "number",
-                                        "value": 0
+                                        "type": "variable",
+                                        "value": "L0"
                                     },
                                     "arg1": {
                                         "type": "number",
@@ -27231,11 +27191,11 @@
                                 "command": "EVENT_TEXT",
                                 "args": {
                                     "text": [
-                                        "#48##49#\nID: $56$\nType: $47$"
+                                        "#48##49##50##51#"
                                     ],
                                     "avatarId": ""
                                 },
-                                "id": "2a39396a-4a94-42bb-b3b3-f9ce1aa4cf68"
+                                "id": "ccf0369d-2622-4cbb-83e4-a7ac44838775"
                             }
                         ]
                     },
@@ -36541,7 +36501,7 @@
         "startY": 0,
         "startMoveSpeed": 1,
         "startAnimSpeed": 15,
-        "startDirection": "down",
+        "startDirection": "right",
         "showCollisions": true,
         "showConnections": true,
         "showCollisionSlopeTiles": true,
@@ -36639,18 +36599,7 @@
         "debuggerCollapsedPanes": [],
         "debuggerPauseOnScriptChanged": false,
         "debuggerPauseOnWatchedVariableChanged": false,
-        "debuggerBreakpoints": [
-            {
-                "scriptEventId": "2a39396a-4a94-42bb-b3b3-f9ce1aa4cf68",
-                "context": {
-                    "type": "entity",
-                    "entityType": "scene",
-                    "entityId": "801098d7-d77b-41df-98b1-aa40bce310ea",
-                    "sceneId": "801098d7-d77b-41df-98b1-aa40bce310ea",
-                    "scriptKey": "script"
-                }
-            }
-        ],
+        "debuggerBreakpoints": [],
         "debuggerWatchedVariables": [
             "437",
             "46"

@@ -2,9 +2,9 @@
 #define FF_ENEMY_DATA_WOLF
 
 #include "entity_data.h"
+#include <asm/types.h>
 #include <gb/gb.h>
-BANKREF_EXTERN(ff_enemy_data_wolf)
 
-extern const struct entity_data wolf_data;
+void set_to_wolf(struct entity_data *entity) OLDCALL BANKED;
 
 #endif

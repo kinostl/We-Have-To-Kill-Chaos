@@ -1,28 +1,30 @@
-#include "entity_data.h"
-#include <gb/gb.h>
-BANKREF(ff_enemy_data_wolf)
+#include <asm/types.h>
+#include <string.h>
 #include "enemy_data.h"
 #include "enemy_data/wolf.h"
+#include "entity_data.h"
+#include <gb/gb.h>
 
 #pragma bank 255
 
-
-const struct entity_data wolf_data = {.name = "WOLF",
-                                     .max_hp = 20,
-                                     .gold = 6,
-                                     .exp = 24,
-                                     .damage = 8,
-                                     .hits = 1,
-                                     .hit_chance = 86,
-                                     .status = -1,
-                                     .crit_chance = 1,
-                                     .absorb = 0,
-                                     .evade = 18,
-                                     .mdef = 14,
-                                     .morale = 13,
-                                     .magic = 0,
-                                     .spatk = 0,
-                                     .family = NONE,
-                                     .type = WOLF,
-                                     .weakness = -1,
-                                     .resists = -1};
+void set_to_wolf(struct entity_data *entity) OLDCALL BANKED{
+  strcpy(entity->name, "WOLF");
+  entity->max_hp = 20;
+  entity->gold = 6;
+  entity->exp = 24;
+  entity->damage = 8;
+  entity->hits = 1;
+  entity->hit_chance = 86;
+  entity->status = -1;
+  entity->crit_chance = 1;
+  entity->absorb = 0;
+  entity->evade = 18;
+  entity->mdef = 14;
+  entity->morale = 13;
+  entity->magic = 0;
+  entity->spatk = 0;
+  entity->family = NONE;
+  entity->type = WOLF;
+  entity->weakness = -1;
+  entity->resists = -1;
+}

@@ -74,7 +74,7 @@ const compile = (input, helpers) => {
     }
   }
   
-  //_callNative(input.funName)
+  _callNative(input.funName)
   
   if(input.argCount > 0){
     _stackPop(input.argCount)
