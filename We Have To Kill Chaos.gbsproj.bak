@@ -11187,9 +11187,9 @@
                             "command": "FF_EVENT_DEFINE_ACTIONS",
                             "args": {
                                 "variable": "0",
-                                "__collapseCase1": true,
+                                "__collapseCase1": false,
                                 "__collapseCase14": true,
-                                "__collapseCase8": true,
+                                "__collapseCase8": false,
                                 "__collapseCase9": false,
                                 "__collapseCase15": true,
                                 "__collapseCase12": true,
@@ -11206,7 +11206,7 @@
                                 "__collapseCase17": true,
                                 "__collapseCase20": true,
                                 "__collapseCase13": true,
-                                "__collapseCase0": true,
+                                "__collapseCase0": false,
                                 "__collapseCase16": true,
                                 "__collapseCase19": true,
                                 "__collapseCase22": false,
@@ -11229,7 +11229,8 @@
                                                     "value": 5
                                                 }
                                             },
-                                            "__collapseElse": false
+                                            "__collapseElse": false,
+                                            "__collapse": false
                                         },
                                         "children": {
                                             "true": [
@@ -11826,7 +11827,7 @@
                                             },
                                             "__collapseElse": false,
                                             "__disableElse": true,
-                                            "__collapse": false
+                                            "__collapse": true
                                         },
                                         "children": {
                                             "true": [
@@ -12121,7 +12122,7 @@
                                                         "__collapseCase15": false,
                                                         "value15": 16,
                                                         "__collapseElse": false,
-                                                        "__collapse": false
+                                                        "__collapse": true
                                                     },
                                                     "children": {
                                                         "true0": [
@@ -15684,7 +15685,7 @@
                 {
                     "command": "FF_EVENT_SET_ENEMY_DATA",
                     "args": {
-                        "__collapse": true
+                        "__collapse": false
                     },
                     "id": "c3eaf22c-9c83-478b-b453-70ef8197565b"
                 },
@@ -26729,6 +26730,521 @@
             "playerHit1Script": [],
             "playerHit2Script": [],
             "playerHit3Script": []
+        },
+        {
+            "name": "Scene 7",
+            "backgroundId": "1e5f9d6a-bdbc-43e6-8c34-22f5bb5dea05",
+            "tilesetId": "",
+            "width": 20,
+            "height": 18,
+            "type": "TOPDOWN",
+            "paletteIds": [],
+            "spritePaletteIds": [],
+            "collisions": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "autoFadeSpeed": 1,
+            "id": "801098d7-d77b-41df-98b1-aa40bce310ea",
+            "symbol": "scene_7",
+            "x": 606.8314606741573,
+            "y": 1068.4044943820224,
+            "actors": [],
+            "triggers": [],
+            "script": [
+                {
+                    "command": "FF_EVENT_SET_ENEMY_DATA",
+                    "args": {},
+                    "id": "a4cf9abb-0b78-4753-b6b8-173faaa4a607"
+                },
+                {
+                    "command": "EVENT_LOOP_FOR",
+                    "args": {
+                        "variable": "L0",
+                        "from": {
+                            "type": "number",
+                            "value": 4
+                        },
+                        "comparison": "<",
+                        "to": {
+                            "type": "number",
+                            "value": 10
+                        },
+                        "operation": "+=",
+                        "value": {
+                            "type": "number",
+                            "value": 1
+                        }
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "command": "MY_EVENT_CALL_NATIVE",
+                                "args": {
+                                    "argCount": 1,
+                                    "arg0": {
+                                        "type": "variable",
+                                        "value": "L0"
+                                    },
+                                    "arg1": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg2": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg3": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg4": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg5": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg6": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg7": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "funName": "load_attacker"
+                                },
+                                "id": "99dc2b80-fad1-476d-897c-65262c6e75d1"
+                            },
+                            {
+                                "command": "EVENT_SET_VALUE",
+                                "args": {
+                                    "variable": "57",
+                                    "value": {
+                                        "type": "variable",
+                                        "value": "L0"
+                                    }
+                                },
+                                "id": "628c1912-6778-4475-ae09-3ad82570db83"
+                            },
+                            {
+                                "command": "MY_EVENT_CALL_NATIVE",
+                                "args": {
+                                    "argCount": 0,
+                                    "arg0": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg1": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg2": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg3": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg4": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg5": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg6": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "arg7": {
+                                        "type": "number",
+                                        "value": 0
+                                    },
+                                    "funName": "handleEnemyTakeDamage"
+                                },
+                                "id": "ab719bfc-e4ee-4ee8-9eb4-421cda7a99ab"
+                            },
+                            {
+                                "command": "EVENT_TEXT",
+                                "args": {
+                                    "text": [
+                                        "#48##49#\nID: $56$\nType: $47$"
+                                    ],
+                                    "avatarId": ""
+                                },
+                                "id": "2a39396a-4a94-42bb-b3b3-f9ce1aa4cf68"
+                            }
+                        ]
+                    },
+                    "id": "7982a141-74a5-4ffe-9125-68f317e90106"
+                }
+            ],
+            "playerHit1Script": [],
+            "playerHit2Script": [],
+            "playerHit3Script": []
         }
     ],
     "backgrounds": [
@@ -35394,6 +35910,16 @@
             "symbol": "var_half_hidden"
         },
         {
+            "id": "103",
+            "name": "Explosion/w",
+            "symbol": "var_explosion_w"
+        },
+        {
+            "id": "104",
+            "name": "Explosion/h",
+            "symbol": "var_explosion_h"
+        },
+        {
             "id": "b543e5af-0a59-46a2-afa4-a8749b768159__L0",
             "name": "HP",
             "symbol": "var_hp"
@@ -35997,16 +36523,6 @@
             "id": "88e8e886-2f3b-454e-a664-f6d8c0a298de__L1",
             "name": "direction",
             "symbol": "var_direction_0"
-        },
-        {
-            "id": "103",
-            "name": "Explosion/w",
-            "symbol": "var_explosion_w"
-        },
-        {
-            "id": "104",
-            "name": "Explosion/h",
-            "symbol": "var_explosion_h"
         }
     ],
     "engineFieldValues": [
@@ -36020,7 +36536,7 @@
         }
     ],
     "settings": {
-        "startSceneId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
+        "startSceneId": "801098d7-d77b-41df-98b1-aa40bce310ea",
         "startX": 0,
         "startY": 0,
         "startMoveSpeed": 1,
@@ -36030,8 +36546,8 @@
         "showConnections": true,
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 1925,
-        "worldScrollY": 237,
+        "worldScrollX": 932,
+        "worldScrollY": 2313,
         "zoom": 222.5,
         "sgbEnabled": false,
         "customHead": "",
@@ -36059,9 +36575,9 @@
         "defaultUIPaletteId": "default-ui",
         "playerPaletteId": "",
         "navigatorSplitSizes": [
-            184,
-            445,
-            302
+            147,
+            30,
+            754
         ],
         "showNavigator": true,
         "defaultFontId": "4bd653f0-e08d-424e-9e5b-c1f3aaa21e47",
@@ -36119,11 +36635,22 @@
         ],
         "debuggerEnabled": true,
         "debuggerScriptType": "editor",
-        "debuggerVariablesFilter": "watched",
+        "debuggerVariablesFilter": "all",
         "debuggerCollapsedPanes": [],
         "debuggerPauseOnScriptChanged": false,
         "debuggerPauseOnWatchedVariableChanged": false,
-        "debuggerBreakpoints": [],
+        "debuggerBreakpoints": [
+            {
+                "scriptEventId": "2a39396a-4a94-42bb-b3b3-f9ce1aa4cf68",
+                "context": {
+                    "type": "entity",
+                    "entityType": "scene",
+                    "entityId": "801098d7-d77b-41df-98b1-aa40bce310ea",
+                    "sceneId": "801098d7-d77b-41df-98b1-aa40bce310ea",
+                    "scriptKey": "script"
+                }
+            }
+        ],
         "debuggerWatchedVariables": [
             "437",
             "46"

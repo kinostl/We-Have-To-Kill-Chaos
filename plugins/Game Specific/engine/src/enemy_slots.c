@@ -1,9 +1,3 @@
-#include <gb/gb.h>
-#include <asm/types.h>
-#include <bankdata.h>
-#include <gbs_types.h>
-#include <data/game_globals.h>
-#include "enemy_slots.h"
 #include "data/bg_battle_concept_tileset.h"
 #include "data/bg_enemies_plains_1.h"
 #include "data/bg_enemies_plains_1_tileset.h"
@@ -11,7 +5,13 @@
 #include "entity_data.h"
 #include "handle_flashing.h"
 #include "rand.h" // IWYU pragma: keep
+#include "turn_slots.h"
 #include "vm.h"
+#include <asm/types.h>
+#include <bankdata.h>
+#include <data/game_globals.h>
+#include <gb/gb.h>
+#include <gbs_types.h>
 
 #pragma bank 255
 
@@ -31,9 +31,9 @@ After testing, this is a 1/4 chance of getting a big guy in a fight and they
 tend to be dangerous encounters. Not sure if good or bad.
 */
 
-BYTE get_small_enemy_idx(void) OLDCALL BANKED{
+BYTE get_small_enemy_idx(void) OLDCALL BANKED {
   BYTE enemy_roll = rand() % 6;
-  switch (enemy_roll){
+  switch (enemy_roll) {
   default:
     return 0;
   case 4:
@@ -42,7 +42,7 @@ BYTE get_small_enemy_idx(void) OLDCALL BANKED{
   }
 }
 
-BYTE get_enemy_idx(void) OLDCALL BANKED{
+BYTE get_enemy_idx(void) OLDCALL BANKED {
   BYTE enemy_roll = rand() % 8;
   switch (enemy_roll) {
   case 0:
@@ -77,11 +77,9 @@ void setupTileBuffer(UBYTE *buffer, UBYTE w, UBYTE h, UBYTE x, UBYTE y,
   }
 }
 
-void initialize_enemy_slot(struct enemy_slot *slot) OLDCALL BANKED {
-  struct entity_data blank;
+void initialize_entity_data(struct entity_data *slot) OLDCALL BANKED {
   slot->hp = 0;
   slot->skill_idx = 0;
-  slot->info = blank;
   slot->alive = FALSE;
 }
 
@@ -91,12 +89,12 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
   setup_encounter_table(0, encounter_table);
   // Default to null
-  initialize_enemy_slot(&enemy_slots[0]);
-  initialize_enemy_slot(&enemy_slots[1]);
-  initialize_enemy_slot(&enemy_slots[2]);
-  initialize_enemy_slot(&enemy_slots[3]);
-  initialize_enemy_slot(&enemy_slots[4]);
-  initialize_enemy_slot(&enemy_slots[5]);
+  initialize_entity_data(&turn_slots[0]);
+  initialize_entity_data(&turn_slots[1]);
+  initialize_entity_data(&turn_slots[2]);
+  initialize_entity_data(&turn_slots[3]);
+  initialize_entity_data(&turn_slots[4]);
+  initialize_entity_data(&turn_slots[5]);
 
   // Now load up the enemy VRAM
   // Then draw the tiles manually, knowing that they'll be in order correctly.
@@ -198,10 +196,10 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
   BYTE next_x = 1;
   BYTE next_y = 5;
-  BYTE enemy_slot_i = 0;
-  struct enemy_slot *current_enemy;
+  BYTE entity_data_i = 0;
+  struct entity_data *current_enemy;
   for (BYTE i = 0; i < lg_i; i++) {
-    current_enemy = &enemy_slots[enemy_slot_i];
+    current_enemy = &turn_slots[entity_data_i];
     BYTE idx = large_enemies[i];
     switch (idx) {
     case 2:
@@ -211,20 +209,20 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
       place_lg_enemy_2(next_x, next_y, 1);
       break;
     }
-    current_enemy->info = encounter_table[idx];
-    current_enemy->hp = current_enemy->info.max_hp;
+    current_enemy = &encounter_table[idx];
+    current_enemy->hp = current_enemy->max_hp;
     current_enemy->alive = TRUE;
     current_enemy->x = next_x;
     current_enemy->y = next_y;
     current_enemy->w = 6;
     current_enemy->h = 6;
-    enemy_slot_i++;
+    entity_data_i++;
     next_x = 1;
     next_y += 6;
   }
 
   for (BYTE i = 0; i < sm_i; i++) {
-    current_enemy = &enemy_slots[enemy_slot_i];
+    current_enemy = &turn_slots[entity_data_i];
     BYTE idx = small_enemies[i];
     switch (idx) {
     case 0:
@@ -234,14 +232,14 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
       place_sm_enemy_2(next_x, next_y, 1);
       break;
     }
-    current_enemy->info = encounter_table[idx];
-    current_enemy->hp = current_enemy->info.max_hp;
+    current_enemy = &encounter_table[idx];
+    current_enemy->hp = current_enemy->max_hp;
     current_enemy->alive = TRUE;
     current_enemy->x = next_x;
     current_enemy->y = next_y;
     current_enemy->w = 5;
     current_enemy->h = 4;
-    enemy_slot_i++;
+    entity_data_i++;
     next_x += 5;
     if (next_x > 10) {
       next_x = 1;
@@ -256,43 +254,46 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
 void checkEnemyAlive(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
   VM_GLOBAL(VAR_ATTACKER_ALIVE) =
-      enemy_slots[VM_GLOBAL(VAR_ATTACKER_ID) - 5].alive;
+      turn_slots[VM_GLOBAL(VAR_ATTACKER_ID) - 5].alive;
 }
 
 void handleEnemyTakeDamage(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  struct enemy_slot *current_enemy;
-  current_enemy = &enemy_slots[VM_GLOBAL(VAR_DEFENDER_ID) - 5];
+  struct entity_data *current_enemy;
+  current_enemy = &turn_slots[VM_GLOBAL(VAR_DEFENDER_ID) - 5];
   VM_GLOBAL(VAR_EXPLOSION_X) = current_enemy->x;
   VM_GLOBAL(VAR_EXPLOSION_Y) = current_enemy->y;
   VM_GLOBAL(VAR_EXPLOSION_W) = current_enemy->w;
   VM_GLOBAL(VAR_EXPLOSION_H) = current_enemy->h;
 
-  UWORD * hit_roll = &VM_GLOBAL(VAR_TEMP_HIT_ROLL_0);
-  UWORD * damage_calc = &VM_GLOBAL(VAR_TEMP_DAMAGE_CALCULATION);
+  UWORD *hit_roll = &VM_GLOBAL(VAR_TEMP_HIT_ROLL_0);
+  UWORD *damage_calc = &VM_GLOBAL(VAR_TEMP_DAMAGE_CALCULATION);
 
-  if(VM_GLOBAL(VAR_META_DEBUG) > 1){
+  if (VM_GLOBAL(VAR_META_DEBUG) > 1) {
     *hit_roll = 0;
-  }else{
-    // I think this probably needs to be changed to reflect the Attacker's stats.
+  } else {
+    // I think this probably needs to be changed to reflect the Attacker's
+    // stats.
     *hit_roll = rand() % VM_GLOBAL(VAR_CONST_GLOBAL_HIT_ROLL);
   }
 
-  VM_GLOBAL(VAR_ATTACKER_MISSED) = (VM_GLOBAL(VAR_ATTACKER_HIT_CHANCE) - current_enemy-> info.evade) > *hit_roll;
+  VM_GLOBAL(VAR_ATTACKER_MISSED) =
+      (VM_GLOBAL(VAR_ATTACKER_HIT_CHANCE) - current_enemy->evade) > *hit_roll;
 
-  if(VM_GLOBAL(VAR_ATTACKER_MISSED)) return;
+  if (VM_GLOBAL(VAR_ATTACKER_MISSED))
+    return;
 
   UWORD *atk_dmg = &VM_GLOBAL(VAR_ATTACKER_DAMAGE);
   *damage_calc = (rand() % *atk_dmg) + (*atk_dmg + 1);
-  if(VM_GLOBAL(VAR_ATTACKER_CRIT_CHANCE) > *hit_roll){
-   // TODO Finish this after finishing player_slots.h 
+  if (VM_GLOBAL(VAR_ATTACKER_CRIT_CHANCE) > *hit_roll) {
+    // TODO Finish this after finishing player_slots.h
   }
 }
 
 void enemyFlashBKG(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  struct enemy_slot *enemy =
-      &enemy_slots[VM_GLOBAL(VAR_TURN_ORDER_CURRENT_ACTO) - 5];
+  struct entity_data *enemy =
+      &turn_slots[VM_GLOBAL(VAR_TURN_ORDER_CURRENT_ACTO) - 5];
   WORD color_1 = 1;
   WORD color_2 = 6;
   WORD x = enemy->x;
@@ -304,15 +305,15 @@ void enemyFlashBKG(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
 void enemyRollInitiative(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  struct enemy_slot *current_enemy;
+  struct entity_data *current_enemy;
   UWORD *initiative_slot;
   for (int i = 0; i < 6; i++) {
     initiative_slot = &VM_GLOBAL(VAR_TURN_ORDER_SLOT_5_E1) + i;
-    current_enemy = &enemy_slots[i];
+    current_enemy = &turn_slots[i];
     if (!current_enemy->alive)
       continue;
-    *initiative_slot = rand() % current_enemy->info.max_hp;
-    *initiative_slot += current_enemy->info.evade;
+    *initiative_slot = rand() % current_enemy->max_hp;
+    *initiative_slot += current_enemy->evade;
   }
 }
 

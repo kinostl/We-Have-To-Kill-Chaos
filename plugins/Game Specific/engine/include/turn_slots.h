@@ -1,19 +1,16 @@
 #ifndef FF_TURN_SLOTS
 #define FF_TURN_SLOTS
 #include <asm/types.h>
-#include <gb/gb.h>
-#include "valloc.h" // IWYU pragma: keep
+#include "entity_data.h"
 
 enum TURN_TAG {PLAYER, ENEMY} ;
 
-struct turn_slot {
-  enum TURN_TAG tag;
-  void * entity;
-};
-
-void valloc_turn_slots(void) OLDCALL BANKED;
 void load_attacker(BYTE slot_idx) OLDCALL BANKED;
 void load_defender(BYTE slot_idx) OLDCALL BANKED;
 
-extern struct turn_slot * turn_slots;
+void load_player_atk(struct entity_data *player) OLDCALL BANKED;
+void load_player_def(struct entity_data *player) OLDCALL BANKED;
+void load_enemy_atk(struct entity_data *enemy) OLDCALL BANKED;
+void load_enemy_def(struct entity_data *enemy) OLDCALL BANKED;
+extern struct entity_data * turn_slots;
 #endif

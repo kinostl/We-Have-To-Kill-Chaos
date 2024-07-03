@@ -1,47 +1,32 @@
+#include <data/max_global_vars.h>
+#include <entity_data.h>
 #include <gb/gb.h>
 #include <asm/types.h>
 #include <data/game_globals.h>
 #include <gb/crash_handler.h>
-#include <string.h>
 #include "turn_slots.h"
-#include "enemy_slots.h"
-#include "player_slots.h"
 #include "vm.h"
 
 #pragma bank 255
 
-struct turn_slot *turn_slots;
-struct player_slot *player_slots;
-struct enemy_slot *enemy_slots;
-
-void valloc_turn_slots(void) OLDCALL BANKED {
-  turn_slots = valloc(sizeof(struct turn_slot) * 10);
-  player_slots = valloc(sizeof(struct player_slot) * 4);
-  enemy_slots = valloc(sizeof(struct enemy_slot) * 6);
-  struct turn_slot new_slots[10] = {
-    {PLAYER, &player_slots[0]},
-    {PLAYER, &player_slots[1]},
-    {PLAYER, &player_slots[2]},
-    {PLAYER, &player_slots[3]},
-    {ENEMY, &enemy_slots[0]},
-    {ENEMY, &enemy_slots[1]},
-    {ENEMY, &enemy_slots[2]},
-    {ENEMY, &enemy_slots[3]},
-    {ENEMY, &enemy_slots[4]},
-    {ENEMY, &enemy_slots[5]}
-  };
-
-  memcpy(turn_slots, new_slots, sizeof(new_slots));
-}
+struct entity_data *turn_slots = (struct entity_data *)&VM_GLOBAL(MAX_GLOBAL_VARS + 1);
 
 void load_attacker(BYTE slot_idx) OLDCALL BANKED {
-  struct turn_slot *slot = &turn_slots[slot_idx];
-  switch (slot->tag) {
-  case PLAYER:
-    load_player_atk(slot->entity);
+  struct entity_data *slot = &turn_slots[slot_idx];
+  switch (slot_idx) {
+  case 0:
+  case 1:
+  case 2:
+  case 3:
+    load_player_atk(slot);
     break;
-  case ENEMY:
-    load_enemy_atk(slot->entity);
+  case 4:
+  case 5:
+  case 6:
+  case 7:
+  case 8:
+  case 9:
+    load_enemy_atk(slot);
     break;
   default:
     __HandleCrash();
@@ -50,13 +35,21 @@ void load_attacker(BYTE slot_idx) OLDCALL BANKED {
 }
 
 void load_defender(BYTE slot_idx) OLDCALL BANKED {
-  struct turn_slot *slot = &turn_slots[slot_idx];
-  switch (slot->tag) {
-  case PLAYER:
-    load_player_def(slot->entity);
+  struct entity_data *slot = &turn_slots[slot_idx];
+  switch (slot_idx) {
+  case 0:
+  case 1:
+  case 2:
+  case 3:
+    load_player_def(slot);
     break;
-  case ENEMY:
-    load_enemy_def(slot->entity);
+  case 4:
+  case 5:
+  case 6:
+  case 7:
+  case 8:
+  case 9:
+    load_enemy_def(slot);
     break;
   default:
     __HandleCrash();
@@ -64,43 +57,43 @@ void load_defender(BYTE slot_idx) OLDCALL BANKED {
   }
 }
 
-void load_player_atk(struct player_slot *player) OLDCALL BANKED {
-  VM_GLOBAL(VAR_ATTACKER_DAMAGE) = player->info.damage;
+void load_player_atk(struct entity_data *player) OLDCALL BANKED {
+  VM_GLOBAL(VAR_ATTACKER_DAMAGE) = player->damage;
   VM_GLOBAL(VAR_ATTACKER_AP) = player->ap;
-  VM_GLOBAL(VAR_ATTACKER_CRIT_CHANCE) = player->info.crit_chance;
-  VM_GLOBAL(VAR_ATTACKER_CRIT_DAMAGE) = player->info.damage;
-  VM_GLOBAL(VAR_ATTACKER_HIT_CHANCE) = player->info.hit_chance;
+  VM_GLOBAL(VAR_ATTACKER_CRIT_CHANCE) = player->crit_chance;
+  VM_GLOBAL(VAR_ATTACKER_CRIT_DAMAGE) = player->damage;
+  VM_GLOBAL(VAR_ATTACKER_HIT_CHANCE) = player->hit_chance;
   VM_GLOBAL(VAR_ATTACKER_ID) = player->slot_id;
-  VM_GLOBAL(VAR_ATTACKER_MAX_HP) = player->info.max_hp;
+  VM_GLOBAL(VAR_ATTACKER_MAX_HP) = player->max_hp;
   VM_GLOBAL(VAR_ATTACKER_MISSED) = FALSE;
   VM_GLOBAL(VAR_ATTACKER_SKILL) = 0;
   VM_GLOBAL(VAR_ATTACKER_SKILL_IDX) = 0;
-  VM_GLOBAL(VAR_ATTACKER_TYPE) = player->info.type;
+  VM_GLOBAL(VAR_ATTACKER_TYPE) = player->type;
 }
-void load_player_def(struct player_slot *player) OLDCALL BANKED {
+void load_player_def(struct entity_data *player) OLDCALL BANKED {
   VM_GLOBAL(VAR_DEFENDER_ENDING_HP) = player->hp;
   VM_GLOBAL(VAR_DEFENDER_ID) = player->slot_id;
-  VM_GLOBAL(VAR_DEFENDER_MAX_HP) = player->info.max_hp;
+  VM_GLOBAL(VAR_DEFENDER_MAX_HP) = player->max_hp;
   VM_GLOBAL(VAR_DEFENDER_STARTING_HP) = player->hp;
 }
 
-void load_enemy_atk(struct enemy_slot *enemy) OLDCALL BANKED {
-  VM_GLOBAL(VAR_ATTACKER_DAMAGE) = enemy->info.damage;
+void load_enemy_atk(struct entity_data *enemy) OLDCALL BANKED {
+  VM_GLOBAL(VAR_ATTACKER_DAMAGE) = enemy->damage;
   VM_GLOBAL(VAR_ATTACKER_AP) = 0;
-  VM_GLOBAL(VAR_ATTACKER_CRIT_CHANCE) = enemy->info.crit_chance;
-  VM_GLOBAL(VAR_ATTACKER_CRIT_DAMAGE) = enemy->info.damage;
-  VM_GLOBAL(VAR_ATTACKER_HIT_CHANCE) = enemy->info.hit_chance;
+  VM_GLOBAL(VAR_ATTACKER_CRIT_CHANCE) = enemy->crit_chance;
+  VM_GLOBAL(VAR_ATTACKER_CRIT_DAMAGE) = enemy->damage;
+  VM_GLOBAL(VAR_ATTACKER_HIT_CHANCE) = enemy->hit_chance;
   VM_GLOBAL(VAR_ATTACKER_ID) = enemy->slot_id;
-  VM_GLOBAL(VAR_ATTACKER_MAX_HP) = enemy->info.max_hp;
+  VM_GLOBAL(VAR_ATTACKER_MAX_HP) = enemy->max_hp;
   VM_GLOBAL(VAR_ATTACKER_MISSED) = FALSE;
   VM_GLOBAL(VAR_ATTACKER_SKILL) = 0;
   VM_GLOBAL(VAR_ATTACKER_SKILL_IDX) = enemy->skill_idx;
-  VM_GLOBAL(VAR_ATTACKER_TYPE) = enemy->info.type;
+  VM_GLOBAL(VAR_ATTACKER_TYPE) = enemy->type;
 }
 
-void load_enemy_def(struct enemy_slot *enemy) OLDCALL BANKED {
+void load_enemy_def(struct entity_data *enemy) OLDCALL BANKED {
   VM_GLOBAL(VAR_DEFENDER_ENDING_HP) = enemy->hp;
   VM_GLOBAL(VAR_DEFENDER_ID) = enemy->slot_id;
-  VM_GLOBAL(VAR_DEFENDER_MAX_HP) = enemy->info.max_hp;
+  VM_GLOBAL(VAR_DEFENDER_MAX_HP) = enemy->max_hp;
   VM_GLOBAL(VAR_DEFENDER_STARTING_HP) = enemy->hp;
 }

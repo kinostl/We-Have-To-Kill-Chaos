@@ -1,8 +1,9 @@
 #include "data/game_globals.h"
+#include "entity_data.h"
 #include "enemy_data.h"
-#include "enemy_slots.h"
 #include "math.h"
 #include "rand.h" // IWYU pragma: keep
+#include "turn_slots.h"
 #include "vm.h"
 #include <asm/types.h>
 
@@ -23,12 +24,12 @@ Short name: GobPun
 void goblinPunch(SCRIPT_CTX *THIS) OLDCALL BANKED{
   BYTE attacker_id = VM_GLOBAL(VAR_ATTACKER_ID);
   if (attacker_id >= 5) { // Enemy Slots start at 5;
-    VM_GLOBAL(VAR_ATTACKER_MAX_HP) = enemy_slots[attacker_id - 5].info.max_hp;
+    VM_GLOBAL(VAR_ATTACKER_MAX_HP) = turn_slots[attacker_id].max_hp;
   }
 
-  BYTE defender_id = VM_GLOBAL(VAR_ATTACKER_ID);
+  BYTE defender_id = VM_GLOBAL(VAR_DEFENDER_ID);
   if (defender_id >= 5) { // Enemy Slots start at 5;
-    VM_GLOBAL(VAR_DEFENDER_MAX_HP) = enemy_slots[defender_id - 5].info.max_hp;
+    VM_GLOBAL(VAR_DEFENDER_MAX_HP) = turn_slots[defender_id].max_hp;
   }
 
   WORD attacker_max_hp = VM_GLOBAL(VAR_ATTACKER_MAX_HP);
@@ -49,13 +50,13 @@ void set_skill_id(UWORD a, UWORD b, UWORD c, UWORD d) OLDCALL BANKED {
   }
 
   BYTE slot_id = VM_GLOBAL(VAR_ATTACKER_ID) - 5;
-  struct enemy_slot *enemy_slot = &enemy_slots[slot_id];
-  enemy_slot->skill_idx++;
-  if (enemy_slot->skill_idx > 4) {
-    enemy_slot->skill_idx = 1;
+  struct entity_data *entity_data = &turn_slots[slot_id];
+  entity_data->skill_idx++;
+  if (entity_data->skill_idx > 4) {
+    entity_data->skill_idx = 1;
   }
 
-  switch (enemy_slot->skill_idx) {
+  switch (entity_data->skill_idx) {
   case 1:
     *skill_id = a;
     break;
@@ -77,7 +78,7 @@ void set_skill_id(UWORD a, UWORD b, UWORD c, UWORD d) OLDCALL BANKED {
 void chooseEnemySkill(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
   BYTE slot_id = VM_GLOBAL(VAR_TURN_ORDER_CURRENT_ACTO) - 5;
-  WORD attacker_type = enemy_slots[slot_id].info.type;
+  WORD attacker_type = turn_slots[slot_id].type;
   VM_GLOBAL(VAR_ATTACKER_ID) = VM_GLOBAL(VAR_TURN_ORDER_CURRENT_ACTO);
   VM_GLOBAL(VAR_DEFENDER_ID) = 1;
 
