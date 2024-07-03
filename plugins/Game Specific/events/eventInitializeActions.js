@@ -49,7 +49,7 @@ const compile = (input, helpers) => {
     _setConst(x, -1)
   })
   _setConst(action_alias, -1)
-  _setConst(stack_ptr_alias, 9)
+  _setConst(stack_ptr_alias, action_slots[0])
   _addNL();
 };
 

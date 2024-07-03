@@ -194,6 +194,7 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   BYTE next_x = 1;
   BYTE next_y = 5;
   BYTE entity_data_i = 4;
+  BYTE enemies_alive = 0;
   struct entity_data * current_enemy;
   for (BYTE i = 0; i < lg_i; i++) {
     current_enemy = &turn_slots[entity_data_i];
@@ -215,6 +216,7 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
     current_enemy->h = 6;
 
     entity_data_i++;
+    enemies_alive++;
 
     next_x = 1;
     next_y += 6;
@@ -240,13 +242,14 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
     current_enemy->h = 4;
 
     entity_data_i++;
+    enemies_alive++;
     next_x += 5;
     if (next_x > 10) {
       next_x = 1;
       next_y += 4;
     }
   }
-  VM_GLOBAL(VAR_SCENE_ENEMIES_ALIVE) = lg_i + sm_i;
+  VM_GLOBAL(VAR_SCENE_ENEMIES_ALIVE) = enemies_alive;
 
   place_bg_tiles;
 }
