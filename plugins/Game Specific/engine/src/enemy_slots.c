@@ -12,6 +12,7 @@
 #include <data/game_globals.h>
 #include <gb/gb.h>
 #include <gbs_types.h>
+#include <math.h>
 
 #pragma bank 255
 
@@ -267,43 +268,63 @@ void checkEnemyAlive(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
 void handleEnemyTakeDamage(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  struct entity_data *current_enemy;
-  current_enemy = &turn_slots[VM_GLOBAL(VAR_DEFENDER_ID)];
-  VM_GLOBAL(VAR_1_C) = current_enemy->name[0];
-  VM_GLOBAL(VAR_2_C) = current_enemy->name[1];
-  VM_GLOBAL(VAR_3_C) = current_enemy->name[2];
-  VM_GLOBAL(VAR_4_C) = current_enemy->name[3];
-  VM_GLOBAL(VAR_5_C) = current_enemy->name[4];
-  VM_GLOBAL(VAR_6_C) = current_enemy->name[5];
-  VM_GLOBAL(VAR_7_C) = current_enemy->name[6];
-  VM_GLOBAL(VAR_8_C) = current_enemy->name[7];
-  VM_GLOBAL(VAR_EXPLOSION_X) = current_enemy->x;
-  VM_GLOBAL(VAR_EXPLOSION_Y) = current_enemy->y;
-  VM_GLOBAL(VAR_EXPLOSION_W) = current_enemy->w;
-  VM_GLOBAL(VAR_EXPLOSION_H) = current_enemy->h;
+  struct entity_data *defender;
+  defender = &turn_slots[VM_GLOBAL(VAR_DEFENDER_ID)];
+  struct entity_data *attacker;
+  attacker = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
 
-  // UWORD *hit_roll = &VM_GLOBAL(VAR_TEMP_HIT_ROLL_0);
-  // UWORD *damage_calc = &VM_GLOBAL(VAR_TEMP_DAMAGE_CALCULATION);
+  VM_GLOBAL(VAR_1_C) = defender->name[0];
+  VM_GLOBAL(VAR_2_C) = defender->name[1];
+  VM_GLOBAL(VAR_3_C) = defender->name[2];
+  VM_GLOBAL(VAR_4_C) = defender->name[3];
+  VM_GLOBAL(VAR_5_C) = defender->name[4];
+  VM_GLOBAL(VAR_6_C) = defender->name[5];
+  VM_GLOBAL(VAR_7_C) = defender->name[6];
+  VM_GLOBAL(VAR_8_C) = defender->name[7];
+  VM_GLOBAL(VAR_EXPLOSION_X) = 0;
+  VM_GLOBAL(VAR_EXPLOSION_Y) = 0;
+  VM_GLOBAL(VAR_EXPLOSION_W) = 0;
+  VM_GLOBAL(VAR_EXPLOSION_H) = 0;
+  if (VAR_DEFENDER_ID >= 4) {
+    VM_GLOBAL(VAR_EXPLOSION_X) = defender->x;
+    VM_GLOBAL(VAR_EXPLOSION_Y) = defender->y;
+    VM_GLOBAL(VAR_EXPLOSION_W) = defender->w;
+    VM_GLOBAL(VAR_EXPLOSION_H) = defender->h;
+  }
 
-  // if (VM_GLOBAL(VAR_META_DEBUG) > 1) {
-  //   *hit_roll = 0;
-  // } else {
-  //   // I think this probably needs to be changed to reflect the Attacker's
-  //   // stats.
-  //   *hit_roll = rand() % VM_GLOBAL(VAR_CONST_GLOBAL_HIT_ROLL);
-  // }
+  VM_GLOBAL(VAR_DEFENDER_STARTING_HP) = defender->hp;
 
-  // VM_GLOBAL(VAR_ATTACKER_MISSED) =
-  //     (VM_GLOBAL(VAR_ATTACKER_HIT_CHANCE) - current_enemy->evade) > *hit_roll;
+  UWORD hit_roll;
+  UWORD damage_calc;
 
-  // if (VM_GLOBAL(VAR_ATTACKER_MISSED))
-  //   return;
+  if (VM_GLOBAL(VAR_META_DEBUG) > 1) {
+    hit_roll = 0;
+  } else {
+    // I think this probably needs to be changed to reflect the Attacker's
+    // stats.
+    hit_roll = rand() % VM_GLOBAL(VAR_CONST_GLOBAL_HIT_ROLL);
+  }
 
-  // UWORD *atk_dmg = &VM_GLOBAL(VAR_ATTACKER_DAMAGE);
-  // *damage_calc = (rand() % *atk_dmg) + (*atk_dmg + 1);
-  // if (VM_GLOBAL(VAR_ATTACKER_CRIT_CHANCE) > *hit_roll) {
-  //   // TODO Finish this after finishing player_slots.h
-  // }
+  VM_GLOBAL(VAR_ATTACKER_MISSED) =
+      (attacker->hit_chance - defender->evade) > hit_roll;
+
+  if (VM_GLOBAL(VAR_ATTACKER_MISSED))
+    return;
+
+  const UWORD atk_dmg = attacker->damage;
+  damage_calc = (rand() % atk_dmg) + (atk_dmg + 1);
+  if (attacker->crit_chance > hit_roll) {
+    defender->hp -= damage_calc;
+    VM_GLOBAL(VAR_ATTACKER_CRIT_DAMAGE) = damage_calc;
+  }
+  damage_calc = MAX(damage_calc - defender->absorb, 1);
+  defender->hp -= damage_calc;
+  VM_GLOBAL(VAR_DEFENDER_ENDING_HP) = defender->hp;
+
+  if(defender->hp <= 0){
+    defender->alive = FALSE;
+    VM_GLOBAL(VAR_SCENE_ENEMIES_ALIVE)--;
+  }
 }
 
 void enemyFlashBKG(SCRIPT_CTX *THIS) OLDCALL BANKED {

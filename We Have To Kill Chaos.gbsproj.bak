@@ -11187,10 +11187,10 @@
                             "command": "FF_EVENT_DEFINE_ACTIONS",
                             "args": {
                                 "variable": "0",
-                                "__collapseCase1": false,
+                                "__collapseCase1": true,
                                 "__collapseCase14": true,
-                                "__collapseCase8": false,
-                                "__collapseCase9": false,
+                                "__collapseCase8": true,
+                                "__collapseCase9": true,
                                 "__collapseCase15": true,
                                 "__collapseCase12": true,
                                 "__collapseCase11": true,
@@ -11206,10 +11206,10 @@
                                 "__collapseCase17": true,
                                 "__collapseCase20": true,
                                 "__collapseCase13": true,
-                                "__collapseCase0": false,
+                                "__collapseCase0": true,
                                 "__collapseCase16": true,
                                 "__collapseCase19": true,
-                                "__collapseCase22": false,
+                                "__collapseCase22": true,
                                 "__collapseCaseGetNextAction": true,
                                 "__collapse": false
                             },
@@ -11230,7 +11230,7 @@
                                                 }
                                             },
                                             "__collapseElse": false,
-                                            "__collapse": false
+                                            "__collapse": true
                                         },
                                         "children": {
                                             "true": [
@@ -11272,7 +11272,7 @@
                                                         "__collapseCase15": false,
                                                         "value15": 16,
                                                         "__collapseElse": false,
-                                                        "__collapse": true,
+                                                        "__collapse": false,
                                                         "__comment": false
                                                     },
                                                     "children": {
@@ -11288,7 +11288,7 @@
                                                                     "palette5": "",
                                                                     "palette6": "keep",
                                                                     "palette7": "keep",
-                                                                    "__collapse": false
+                                                                    "__collapse": true
                                                                 },
                                                                 "id": "d08bd16a-1c76-44bb-9d81-0ec9def4067f"
                                                             },
@@ -11337,7 +11337,7 @@
                                                                     "palette5": "8ef6f849-9c64-4ff6-8203-e20675c23127",
                                                                     "palette6": "keep",
                                                                     "palette7": "keep",
-                                                                    "__collapse": false
+                                                                    "__collapse": true
                                                                 },
                                                                 "id": "599ac5d0-3c5c-4bdd-a790-c164947ea64c"
                                                             },
@@ -11386,7 +11386,7 @@
                                                                     "palette5": "default-bg-5",
                                                                     "palette6": "keep",
                                                                     "palette7": "keep",
-                                                                    "__collapse": false
+                                                                    "__collapse": true
                                                                 },
                                                                 "id": "47dde75c-4050-4e78-b05d-f828fd69b734"
                                                             },
@@ -11435,7 +11435,7 @@
                                                                     "palette5": "default-bg-4",
                                                                     "palette6": "keep",
                                                                     "palette7": "keep",
-                                                                    "__collapse": false
+                                                                    "__collapse": true
                                                                 },
                                                                 "id": "51c62fc2-b267-4db8-8d6b-f4c3c0edc992"
                                                             },
@@ -12122,7 +12122,8 @@
                                                         "__collapseCase15": false,
                                                         "value15": 16,
                                                         "__collapseElse": false,
-                                                        "__collapse": true
+                                                        "__collapse": true,
+                                                        "__comment": true
                                                     },
                                                     "children": {
                                                         "true0": [
@@ -12150,7 +12151,7 @@
                                                                         "type": "variable",
                                                                         "value": "58"
                                                                     },
-                                                                    "__collapse": true,
+                                                                    "__collapse": false,
                                                                     "__comment": false
                                                                 },
                                                                 "id": "35b7ff08-4182-4043-8b44-268df8e28890"
@@ -12205,7 +12206,7 @@
                                                                         "type": "variable",
                                                                         "value": "67"
                                                                     },
-                                                                    "__collapse": true,
+                                                                    "__collapse": false,
                                                                     "__comment": false
                                                                 },
                                                                 "id": "3aed829d-2e9e-4725-bd03-32c2cbf2cc22"
@@ -12260,7 +12261,7 @@
                                                                         "type": "variable",
                                                                         "value": "29"
                                                                     },
-                                                                    "__collapse": true,
+                                                                    "__collapse": false,
                                                                     "__comment": false
                                                                 },
                                                                 "id": "4b5e87e7-6af5-4534-8c94-25ded300179b"
@@ -12315,7 +12316,7 @@
                                                                         "type": "variable",
                                                                         "value": "86"
                                                                     },
-                                                                    "__collapse": true,
+                                                                    "__collapse": false,
                                                                     "__comment": false
                                                                 },
                                                                 "id": "2332837e-01b5-4d39-a788-11f480f5089c"
@@ -12370,7 +12371,7 @@
                                                                         "type": "variable",
                                                                         "value": "87"
                                                                     },
-                                                                    "__collapse": true,
+                                                                    "__collapse": false,
                                                                     "__comment": false
                                                                 },
                                                                 "id": "29e1a10f-e290-492b-ab11-f10058bf1f3f"
@@ -12425,7 +12426,7 @@
                                                                         "type": "variable",
                                                                         "value": "88"
                                                                     },
-                                                                    "__collapse": true,
+                                                                    "__collapse": false,
                                                                     "__comment": false
                                                                 },
                                                                 "id": "52e08137-c69f-48d9-9f90-cac417b1383c"
@@ -12739,6 +12740,47 @@
                                                         "__comment": true
                                                     },
                                                     "id": "9f8c7da4-7957-4749-9786-994f350e341c"
+                                                },
+                                                {
+                                                    "command": "MY_EVENT_CALL_NATIVE",
+                                                    "args": {
+                                                        "argCount": 0,
+                                                        "arg0": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg1": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg2": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg3": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg4": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg5": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg6": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg7": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "funName": "handleEnemyTakeDamage",
+                                                        "__collapse": false
+                                                    },
+                                                    "id": "72ce125c-6b53-4dc9-b60d-d25e6bb670ad"
                                                 },
                                                 {
                                                     "command": "FF_EVENT_DISPATCH_ACTION",
@@ -13721,7 +13763,7 @@
                                             "__collapseCase15": false,
                                             "value15": 16,
                                             "__collapseElse": false,
-                                            "__collapse": true
+                                            "__collapse": false
                                         },
                                         "children": {
                                             "true0": [
@@ -13762,7 +13804,8 @@
                                                         "value14": 15,
                                                         "__collapseCase15": false,
                                                         "value15": 16,
-                                                        "__collapseElse": false
+                                                        "__collapseElse": false,
+                                                        "__collapse": false
                                                     },
                                                     "children": {
                                                         "true0": [
@@ -14348,11 +14391,6 @@
                                 ],
                                 "true13": [],
                                 "true0": [
-                                    {
-                                        "command": "EVENT_SCRIPT_UNLOCK",
-                                        "args": {},
-                                        "id": "972f2036-bbf6-4ddd-826e-423f0bbf2d8b"
-                                    },
                                     {
                                         "command": "EVENT_SET_VALUE",
                                         "args": {
@@ -15092,9 +15130,13 @@
                             {
                                 "type": "background",
                                 "id": "bfa477d9-e9de-448a-b5b1-6672e309a8da"
+                            },
+                            {
+                                "type": "variable",
+                                "id": "69"
                             }
                         ],
-                        "__collapse": true
+                        "__collapse": false
                     },
                     "id": "7f4af0eb-20a8-40a4-900c-d130cdc8c55f"
                 },
@@ -15683,13 +15725,6 @@
                     "id": "89300931-b8d7-484a-b400-b365ed8fd55a"
                 },
                 {
-                    "command": "FF_EVENT_SET_ENEMY_DATA",
-                    "args": {
-                        "__collapse": false
-                    },
-                    "id": "c3eaf22c-9c83-478b-b453-70ef8197565b"
-                },
-                {
                     "command": "EVENT_GROUP",
                     "args": {
                         "__label": "Initialize Players",
@@ -15704,7 +15739,8 @@
                                     "value": {
                                         "type": "number",
                                         "value": 35
-                                    }
+                                    },
+                                    "__collapse": true
                                 },
                                 "id": "c679ef45-d7a5-4dd3-9bfb-cabce3b3730c"
                             },
@@ -15715,7 +15751,8 @@
                                     "value": {
                                         "type": "number",
                                         "value": 10
-                                    }
+                                    },
+                                    "__collapse": true
                                 },
                                 "id": "3d8d442d-013a-4484-b2ad-387aa7b0ae7a"
                             },
@@ -15726,7 +15763,8 @@
                                     "value": {
                                         "type": "number",
                                         "value": 5
-                                    }
+                                    },
+                                    "__collapse": true
                                 },
                                 "id": "2bc974f1-d493-4787-927b-789d3eb31dbb"
                             },
@@ -15737,13 +15775,21 @@
                                     "value": {
                                         "type": "number",
                                         "value": 5
-                                    }
+                                    },
+                                    "__collapse": true
                                 },
                                 "id": "7baaf292-79a4-4e27-975b-05c653338763"
                             }
                         ]
                     },
                     "id": "5b69cb70-7fc9-4c85-881b-2148d4018149"
+                },
+                {
+                    "command": "FF_EVENT_SET_ENEMY_DATA",
+                    "args": {
+                        "__collapse": true
+                    },
+                    "id": "c3eaf22c-9c83-478b-b453-70ef8197565b"
                 },
                 {
                     "command": "EVENT_GROUP",
@@ -16112,7 +16158,7 @@
                                         }
                                     },
                                     "__collapseElse": false,
-                                    "__collapse": true
+                                    "__collapse": false
                                 },
                                 "children": {
                                     "true": [
@@ -16157,7 +16203,7 @@
                                 "value": 3
                             }
                         },
-                        "__collapseElse": true,
+                        "__collapseElse": false,
                         "__collapse": true
                     },
                     "children": {
@@ -16351,7 +16397,7 @@
                         "__collapse": true,
                         "start_of_turns": "34",
                         "current_actor": "46",
-                        "__comment": true
+                        "__comment": false
                     },
                     "id": "fc52e45f-4c62-4f76-bfaa-816e1097698b"
                 },
@@ -16359,9 +16405,18 @@
                     "command": "FF_EVENT_DISPATCH_ACTION",
                     "args": {
                         "action": 16,
-                        "__collapse": true
+                        "__collapse": true,
+                        "__comment": false
                     },
                     "id": "758236a3-ba92-43be-a4e3-9cfcb0baa4df"
+                },
+                {
+                    "command": "FF_EVENT_DEQUEUE_ACTION",
+                    "args": {
+                        "__collapse": true,
+                        "__comment": false
+                    },
+                    "id": "40c420dc-5dc7-4750-8c79-709cf943bcfa"
                 },
                 {
                     "command": "EVENT_ACTOR_START_UPDATE",
@@ -27132,7 +27187,8 @@
                         "value": {
                             "type": "number",
                             "value": 1
-                        }
+                        },
+                        "__collapse": true
                     },
                     "children": {
                         "true": [
@@ -27191,7 +27247,7 @@
                                 "command": "EVENT_TEXT",
                                 "args": {
                                     "text": [
-                                        "#48##49##50##51#"
+                                        "#48##49##50##51##52##53##54##55#"
                                     ],
                                     "avatarId": ""
                                 },
@@ -34914,7 +34970,7 @@
                             },
                             "valueB": {
                                 "type": "number",
-                                "value": 4
+                                "value": 3
                             }
                         }
                     },
@@ -36496,7 +36552,7 @@
         }
     ],
     "settings": {
-        "startSceneId": "801098d7-d77b-41df-98b1-aa40bce310ea",
+        "startSceneId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
         "startX": 0,
         "startY": 0,
         "startMoveSpeed": 1,
@@ -36506,8 +36562,8 @@
         "showConnections": true,
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 932,
-        "worldScrollY": 2313,
+        "worldScrollX": 1974,
+        "worldScrollY": 156,
         "zoom": 222.5,
         "sgbEnabled": false,
         "customHead": "",
@@ -36536,8 +36592,8 @@
         "playerPaletteId": "",
         "navigatorSplitSizes": [
             147,
-            30,
-            754
+            205,
+            579
         ],
         "showNavigator": true,
         "defaultFontId": "4bd653f0-e08d-424e-9e5b-c1f3aaa21e47",
@@ -36594,12 +36650,23 @@
             "Shift"
         ],
         "debuggerEnabled": true,
-        "debuggerScriptType": "editor",
+        "debuggerScriptType": "gbvm",
         "debuggerVariablesFilter": "all",
         "debuggerCollapsedPanes": [],
         "debuggerPauseOnScriptChanged": false,
         "debuggerPauseOnWatchedVariableChanged": false,
-        "debuggerBreakpoints": [],
+        "debuggerBreakpoints": [
+            {
+                "scriptEventId": "7560f99f-3ef3-466f-8ab4-a75e200cfe4a",
+                "context": {
+                    "type": "entity",
+                    "entityType": "actor",
+                    "entityId": "5b07b77a-3792-4fae-a9cf-0868e3eaf12c",
+                    "sceneId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
+                    "scriptKey": "updateScript"
+                }
+            }
+        ],
         "debuggerWatchedVariables": [
             "437",
             "46"
