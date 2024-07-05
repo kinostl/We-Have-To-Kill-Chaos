@@ -26,4 +26,8 @@ void set_to_mad_pony(struct entity_data *entity) OLDCALL BANKED{
   entity->type = MADPONY;
   entity->weakness = -1;
   entity->resists = -1;
+  entity->skills[0] = THRASH;
+  entity->skills[1] = FIGHT;
+  entity->skills[2] = FIGHT;
+  entity->skills[3] = FIGHT;
 }

@@ -26,4 +26,8 @@ void set_to_imp(struct entity_data *entity) OLDCALL BANKED{
   entity->type = IMP;
   entity->weakness = -1;
   entity->resists = -1;
+  entity->skills[0] = GOBLIN_PUNCH;
+  entity->skills[1] = FIGHT;
+  entity->skills[2] = FIGHT;
+  entity->skills[3] = FIGHT;
 }

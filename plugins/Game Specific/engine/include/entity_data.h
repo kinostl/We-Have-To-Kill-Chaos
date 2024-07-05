@@ -17,6 +17,7 @@ struct entity_data {
   BYTE ap;
   // static data
   char name[8];
+  BYTE skills[4];
   BYTE type;
   BYTE max_hp;
   BYTE gold;

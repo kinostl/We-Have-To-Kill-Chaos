@@ -93,6 +93,7 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[0].crit_chance = 0;
   turn_slots[0].damage = 10;
   turn_slots[0].alive = TRUE;
+  turn_slots[0].ap = 0;
   strcpy(turn_slots[0].name, "RTFIGH");
   //
   turn_slots[1].max_hp = 35;
@@ -101,6 +102,7 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[1].crit_chance = 0;
   turn_slots[1].damage = 10;
   turn_slots[1].alive = TRUE;
+  turn_slots[1].ap = 0;
   strcpy(turn_slots[1].name, "TWOFER");
   //
   turn_slots[2].max_hp = 35;
@@ -109,6 +111,7 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[2].crit_chance = 0;
   turn_slots[2].damage = 10;
   turn_slots[2].alive = TRUE;
+  turn_slots[2].ap = 0;
   strcpy(turn_slots[2].name, "THREEF");
   //
   turn_slots[3].max_hp = 35;
@@ -117,6 +120,7 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[3].crit_chance = 0;
   turn_slots[3].damage = 10;
   turn_slots[3].alive = TRUE;
+  turn_slots[3].ap = 0;
   strcpy(turn_slots[3].name, "FOURNA");
 }
 
@@ -322,7 +326,7 @@ void handleEnemyTakeDamage(SCRIPT_CTX *THIS) OLDCALL BANKED {
   VM_GLOBAL(VAR_EXPLOSION_Y) = 0;
   VM_GLOBAL(VAR_EXPLOSION_W) = 0;
   VM_GLOBAL(VAR_EXPLOSION_H) = 0;
-  if (VAR_DEFENDER_ID >= 4) {
+  if (VM_GLOBAL(VAR_DEFENDER_ID) >= 4) {
     VM_GLOBAL(VAR_EXPLOSION_X) = defender->x;
     VM_GLOBAL(VAR_EXPLOSION_Y) = defender->y;
     VM_GLOBAL(VAR_EXPLOSION_W) = defender->w;
@@ -337,11 +341,18 @@ void handleEnemyTakeDamage(SCRIPT_CTX *THIS) OLDCALL BANKED {
   if (VM_GLOBAL(VAR_META_DEBUG) > 1) {
     hit_roll = 0;
   } else {
-    hit_roll = rand() % (VM_GLOBAL(VAR_CONST_GLOBAL_HIT_ROLL) + attacker->hit_chance);
+    hit_roll = rand() % 201;
   }
 
-  VM_GLOBAL(VAR_ATTACKER_MISSED) =
-      (attacker->hit_chance - defender->evade) > hit_roll;
+  UWORD target_number = (168 + attacker->hit_chance) - defender->evade;
+
+  VM_GLOBAL(VAR_ATTACKER_MISSED) = target_number < hit_roll;
+  if(hit_roll == 0){
+    VM_GLOBAL(VAR_ATTACKER_MISSED) = FALSE;
+  }
+  if(hit_roll == 200){
+    VM_GLOBAL(VAR_ATTACKER_MISSED) = TRUE;
+  }
 
   if (VM_GLOBAL(VAR_ATTACKER_MISSED))
     return;
@@ -358,7 +369,9 @@ void handleEnemyTakeDamage(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
   if(defender->hp <= 0){
     defender->alive = FALSE;
-    VM_GLOBAL(VAR_SCENE_ENEMIES_ALIVE)--;
+    if (VM_GLOBAL(VAR_DEFENDER_ID) >= 4) {
+      VM_GLOBAL(VAR_SCENE_ENEMIES_ALIVE)--;
+    }
   }
 }
 

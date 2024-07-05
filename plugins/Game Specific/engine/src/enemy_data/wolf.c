@@ -27,4 +27,8 @@ void set_to_wolf(struct entity_data *entity) OLDCALL BANKED{
   entity->type = WOLF;
   entity->weakness = -1;
   entity->resists = -1;
+  entity->skills[0] = HOWL;
+  entity->skills[1] = FIGHT;
+  entity->skills[2] = FIGHT;
+  entity->skills[3] = FIGHT;
 }
