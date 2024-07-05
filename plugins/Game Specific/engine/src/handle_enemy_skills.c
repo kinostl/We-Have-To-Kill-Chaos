@@ -79,22 +79,23 @@ void chooseEnemySkill(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
   BYTE slot_id = VM_GLOBAL(VAR_TURN_ORDER_CURRENT_ACTO);
   WORD attacker_type = turn_slots[slot_id].type;
-  VM_GLOBAL(VAR_ATTACKER_ID) = VM_GLOBAL(VAR_TURN_ORDER_CURRENT_ACTO);
-  VM_GLOBAL(VAR_DEFENDER_ID) = 1;
-
 
   switch (attacker_type) {
   case IMP:
-    set_skill_id(GOBLIN_PUNCH, FIGHT, FIGHT, FIGHT);
+    // set_skill_id(GOBLIN_PUNCH, FIGHT, FIGHT, FIGHT);
+    set_skill_id(FIGHT, FIGHT, FIGHT, FIGHT);
     break;
   case GrIMP:
-    set_skill_id(GOBLIN_PUNCH, FIGHT, GOBLIN_PUNCH, FIGHT);
+    // set_skill_id(GOBLIN_PUNCH, FIGHT, GOBLIN_PUNCH, FIGHT);
+    set_skill_id(FIGHT, FIGHT, FIGHT, FIGHT);
     break;
   case WOLF:
-    set_skill_id(HOWL, FIGHT, FIGHT, FIGHT);
+    // set_skill_id(HOWL, FIGHT, FIGHT, FIGHT);
+    set_skill_id(FIGHT, FIGHT, FIGHT, FIGHT);
     break;
   case MADPONY:
-    set_skill_id(THRASH, FIGHT, FIGHT, FIGHT);
+    // set_skill_id(THRASH, FIGHT, FIGHT, FIGHT);
+    set_skill_id(FIGHT, FIGHT, FIGHT, FIGHT);
     break;
   default:
     set_skill_id(FIGHT, FIGHT, FIGHT, FIGHT);

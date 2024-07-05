@@ -13,6 +13,7 @@
 #include <gb/gb.h>
 #include <gbs_types.h>
 #include <math.h>
+#include <string.h>
 
 #pragma bank 255
 
@@ -82,6 +83,41 @@ void initialize_entity_data(struct entity_data * slot) OLDCALL BANKED {
   slot->hp = 0;
   slot->skill_idx = 0;
   slot->alive = FALSE;
+}
+void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  THIS;
+  //
+  turn_slots[0].max_hp = 35;
+  turn_slots[0].hp = 35;
+  turn_slots[0].hit_chance = 10;
+  turn_slots[0].crit_chance = 0;
+  turn_slots[0].damage = 10;
+  turn_slots[0].alive = TRUE;
+  strcpy(turn_slots[0].name, "RTFIGH");
+  //
+  turn_slots[1].max_hp = 35;
+  turn_slots[1].hp = 35;
+  turn_slots[1].hit_chance = 10;
+  turn_slots[1].crit_chance = 0;
+  turn_slots[1].damage = 10;
+  turn_slots[1].alive = TRUE;
+  strcpy(turn_slots[1].name, "TWOFER");
+  //
+  turn_slots[2].max_hp = 35;
+  turn_slots[2].hp = 35;
+  turn_slots[2].hit_chance = 10;
+  turn_slots[2].crit_chance = 0;
+  turn_slots[2].damage = 10;
+  turn_slots[2].alive = TRUE;
+  strcpy(turn_slots[2].name, "THREEF");
+  //
+  turn_slots[3].max_hp = 35;
+  turn_slots[3].hp = 35;
+  turn_slots[3].hit_chance = 10;
+  turn_slots[3].crit_chance = 0;
+  turn_slots[3].damage = 10;
+  turn_slots[3].alive = TRUE;
+  strcpy(turn_slots[3].name, "FOURNA");
 }
 
 void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
@@ -273,14 +309,15 @@ void handleEnemyTakeDamage(SCRIPT_CTX *THIS) OLDCALL BANKED {
   struct entity_data *attacker;
   attacker = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
 
-  VM_GLOBAL(VAR_1_C) = defender->name[0];
-  VM_GLOBAL(VAR_2_C) = defender->name[1];
-  VM_GLOBAL(VAR_3_C) = defender->name[2];
-  VM_GLOBAL(VAR_4_C) = defender->name[3];
-  VM_GLOBAL(VAR_5_C) = defender->name[4];
-  VM_GLOBAL(VAR_6_C) = defender->name[5];
-  VM_GLOBAL(VAR_7_C) = defender->name[6];
-  VM_GLOBAL(VAR_8_C) = defender->name[7];
+  UWORD * name = &VM_GLOBAL(VAR_1_C);
+  UWORD name_l = strlen(defender->name);
+  for(int i=0;i<name_l;i++){
+    name[i] = defender->name[i];
+  }
+  for(int i=name_l;i<8;i++){
+    name[i]=127;
+  }
+
   VM_GLOBAL(VAR_EXPLOSION_X) = 0;
   VM_GLOBAL(VAR_EXPLOSION_Y) = 0;
   VM_GLOBAL(VAR_EXPLOSION_W) = 0;
@@ -300,9 +337,7 @@ void handleEnemyTakeDamage(SCRIPT_CTX *THIS) OLDCALL BANKED {
   if (VM_GLOBAL(VAR_META_DEBUG) > 1) {
     hit_roll = 0;
   } else {
-    // I think this probably needs to be changed to reflect the Attacker's
-    // stats.
-    hit_roll = rand() % VM_GLOBAL(VAR_CONST_GLOBAL_HIT_ROLL);
+    hit_roll = rand() % (VM_GLOBAL(VAR_CONST_GLOBAL_HIT_ROLL) + attacker->hit_chance);
   }
 
   VM_GLOBAL(VAR_ATTACKER_MISSED) =
@@ -342,15 +377,18 @@ void enemyFlashBKG(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
 void enemyRollInitiative(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  struct entity_data *current_enemy;
+  struct entity_data *entity;
   UWORD *initiative_slot;
-  for (int i = 0; i < 6; i++) {
-    initiative_slot = &VM_GLOBAL(VAR_TURN_ORDER_SLOT_5_E1) + i;
-    current_enemy = &turn_slots[i];
-    if (!current_enemy->alive)
+  for (int i = 0; i < 10; i++) {
+    entity = &turn_slots[i];
+    if (!entity->alive)
       continue;
-    *initiative_slot = rand() % current_enemy->max_hp;
-    *initiative_slot += current_enemy->evade;
+    initiative_slot = &VM_GLOBAL(VAR_TURN_ORDER_SLOT_1_P1) + i;
+    *initiative_slot = rand() % entity->max_hp;
+    *initiative_slot += entity->evade;
+    if (i < 4) {
+      *initiative_slot += VM_GLOBAL(VAR_CONST_BASE_PLAYER_EVADE);
+    }
   }
 }
 

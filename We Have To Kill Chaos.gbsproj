@@ -11232,7 +11232,7 @@
                                 "__collapseCase1": true,
                                 "__collapseCase14": true,
                                 "__collapseCase8": true,
-                                "__collapseCase9": false,
+                                "__collapseCase9": true,
                                 "__collapseCase15": true,
                                 "__collapseCase12": true,
                                 "__collapseCase11": true,
@@ -11244,11 +11244,11 @@
                                 "__collapseCase6": true,
                                 "__collapseCase3": true,
                                 "__collapseCase2": true,
-                                "__collapseCase18": false,
+                                "__collapseCase18": true,
                                 "__collapseCase17": true,
                                 "__collapseCase20": true,
                                 "__collapseCase13": true,
-                                "__collapseCase0": false,
+                                "__collapseCase0": true,
                                 "__collapseCase16": true,
                                 "__collapseCase19": true,
                                 "__collapseCase22": true,
@@ -11268,11 +11268,11 @@
                                                 },
                                                 "valueB": {
                                                     "type": "number",
-                                                    "value": 5
+                                                    "value": 4
                                                 }
                                             },
                                             "__collapseElse": false,
-                                            "__collapse": true
+                                            "__collapse": false
                                         },
                                         "children": {
                                             "true": [
@@ -11282,13 +11282,13 @@
                                                         "variable": "46",
                                                         "choices": 4,
                                                         "__collapseCase0": false,
-                                                        "value0": 1,
+                                                        "value0": 0,
                                                         "__collapseCase1": false,
-                                                        "value1": 2,
+                                                        "value1": 1,
                                                         "__collapseCase2": false,
-                                                        "value2": 3,
+                                                        "value2": 2,
                                                         "__collapseCase3": false,
-                                                        "value3": 4,
+                                                        "value3": 3,
                                                         "__collapseCase4": false,
                                                         "value4": 5,
                                                         "__collapseCase5": false,
@@ -11314,7 +11314,7 @@
                                                         "__collapseCase15": false,
                                                         "value15": 16,
                                                         "__collapseElse": false,
-                                                        "__collapse": false,
+                                                        "__collapse": true,
                                                         "__comment": false
                                                     },
                                                     "children": {
@@ -11403,7 +11403,7 @@
                                                                         "type": "number",
                                                                         "value": 1
                                                                     },
-                                                                    "__collapse": true
+                                                                    "__collapse": false
                                                                 },
                                                                 "id": "904fa2da-abc2-43e2-b12d-0c7485dce88c"
                                                             },
@@ -11452,7 +11452,7 @@
                                                                         "type": "number",
                                                                         "value": 1
                                                                     },
-                                                                    "__collapse": true
+                                                                    "__collapse": false
                                                                 },
                                                                 "id": "51918bc5-93a0-4b72-bbd8-60f8565377cd"
                                                             },
@@ -11501,7 +11501,7 @@
                                                                         "type": "number",
                                                                         "value": 1
                                                                     },
-                                                                    "__collapse": true
+                                                                    "__collapse": false
                                                                 },
                                                                 "id": "9c080206-5d69-4812-866a-b038810a2eaa"
                                                             },
@@ -11581,20 +11581,36 @@
                                                     "children": {
                                                         "true0": [
                                                             {
+                                                                "command": "EVENT_SET_VALUE",
+                                                                "args": {
+                                                                    "variable": "56",
+                                                                    "value": {
+                                                                        "type": "variable",
+                                                                        "value": "46"
+                                                                    },
+                                                                    "__collapse": true
+                                                                },
+                                                                "id": "23fb366d-4218-4614-8bb1-68b930733a15"
+                                                            },
+                                                            {
+                                                                "command": "EVENT_SET_VALUE",
+                                                                "args": {
+                                                                    "variable": "57",
+                                                                    "value": {
+                                                                        "type": "number",
+                                                                        "value": 0
+                                                                    },
+                                                                    "__collapse": true
+                                                                },
+                                                                "id": "128ba216-9653-4c17-8ec6-425237e26e04"
+                                                            },
+                                                            {
                                                                 "command": "FF_EVENT_DISPATCH_ACTION",
                                                                 "args": {
                                                                     "action": 9,
                                                                     "__collapse": true
                                                                 },
                                                                 "id": "77f7a981-7c4e-4829-bb45-5437c92d3372"
-                                                            },
-                                                            {
-                                                                "command": "FF_EVENT_DISPATCH_ACTION",
-                                                                "args": {
-                                                                    "action": 18,
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "f823a68c-7213-4245-af16-fe8e8a2a0337"
                                                             }
                                                         ],
                                                         "true1": [
@@ -11646,18 +11662,46 @@
                                                                     "__collapse": true
                                                                 },
                                                                 "id": "e4e03838-d389-4354-aa3b-16ad06713c49"
+                                                            }
+                                                        ],
+                                                        "true2": [
+                                                            {
+                                                                "command": "EVENT_TEXT",
+                                                                "args": {
+                                                                    "text": [
+                                                                        "howl"
+                                                                    ],
+                                                                    "avatarId": ""
+                                                                },
+                                                                "id": "3cab9048-b228-466f-a46b-5f3d0f1a210b"
                                                             },
                                                             {
                                                                 "command": "FF_EVENT_DISPATCH_ACTION",
                                                                 "args": {
-                                                                    "action": 18,
-                                                                    "__collapse": true
+                                                                    "action": 14
                                                                 },
-                                                                "id": "440f23e8-4d76-4f13-98e1-d44d0d6f2220"
+                                                                "id": "7ff25e92-8b8a-456b-bfbf-414a01efa356"
                                                             }
                                                         ],
-                                                        "true2": [],
-                                                        "true3": [],
+                                                        "true3": [
+                                                            {
+                                                                "command": "EVENT_TEXT",
+                                                                "args": {
+                                                                    "text": [
+                                                                        "thrash"
+                                                                    ],
+                                                                    "avatarId": ""
+                                                                },
+                                                                "id": "b8a3131f-2a34-49b0-8dfe-9283d0dafaaa"
+                                                            },
+                                                            {
+                                                                "command": "FF_EVENT_DISPATCH_ACTION",
+                                                                "args": {
+                                                                    "action": 14
+                                                                },
+                                                                "id": "8a64a93d-b894-4664-b39f-fef22603143d"
+                                                            }
+                                                        ],
                                                         "trueGetNextAction": []
                                                     },
                                                     "id": "73166de4-b6db-40a0-9b17-cc88ed63f5e2"
@@ -11797,7 +11841,7 @@
                                                     "command": "EVENT_IF",
                                                     "args": {
                                                         "condition": {
-                                                            "type": "lte",
+                                                            "type": "lt",
                                                             "valueA": {
                                                                 "type": "variable",
                                                                 "value": "46"
@@ -11852,7 +11896,7 @@
                                                     },
                                                     "valueB": {
                                                         "type": "number",
-                                                        "value": 5
+                                                        "value": 4
                                                     }
                                                 },
                                                 "valueB": {
@@ -11863,7 +11907,7 @@
                                                     },
                                                     "valueB": {
                                                         "type": "number",
-                                                        "value": 0
+                                                        "value": -1
                                                     }
                                                 }
                                             },
@@ -11879,13 +11923,13 @@
                                                         "variable": "46",
                                                         "choices": 4,
                                                         "__collapseCase0": false,
-                                                        "value0": 1,
+                                                        "value0": 0,
                                                         "__collapseCase1": false,
-                                                        "value1": 2,
+                                                        "value1": 1,
                                                         "__collapseCase2": false,
-                                                        "value2": 3,
+                                                        "value2": 2,
                                                         "__collapseCase3": false,
-                                                        "value3": 4,
+                                                        "value3": 3,
                                                         "__collapseCase4": false,
                                                         "value4": 5,
                                                         "__collapseCase5": false,
@@ -11911,7 +11955,8 @@
                                                         "__collapseCase15": false,
                                                         "value15": 16,
                                                         "__collapseElse": false,
-                                                        "__disableElse": false
+                                                        "__disableElse": false,
+                                                        "__collapse": false
                                                     },
                                                     "children": {
                                                         "true0": [
@@ -12049,7 +12094,7 @@
                                                 },
                                                 "valueB": {
                                                     "type": "number",
-                                                    "value": 4
+                                                    "value": 3
                                                 }
                                             },
                                             "__collapseElse": true,
@@ -12108,10 +12153,51 @@
                                 ],
                                 "true9": [
                                     {
+                                        "command": "MY_EVENT_CALL_NATIVE",
+                                        "args": {
+                                            "argCount": 0,
+                                            "arg0": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg1": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg2": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg3": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg4": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg5": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg6": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg7": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "funName": "handleEnemyTakeDamage",
+                                            "__collapse": false
+                                        },
+                                        "id": "72ce125c-6b53-4dc9-b60d-d25e6bb670ad"
+                                    },
+                                    {
                                         "command": "EVENT_IF",
                                         "args": {
                                             "condition": {
-                                                "type": "gt",
+                                                "type": "gte",
                                                 "valueA": {
                                                     "type": "variable",
                                                     "value": "57"
@@ -12164,7 +12250,7 @@
                                                         "__collapseCase15": false,
                                                         "value15": 16,
                                                         "__collapseElse": false,
-                                                        "__collapse": true,
+                                                        "__collapse": false,
                                                         "__comment": true
                                                     },
                                                     "children": {
@@ -12784,47 +12870,6 @@
                                                     "id": "9f8c7da4-7957-4749-9786-994f350e341c"
                                                 },
                                                 {
-                                                    "command": "MY_EVENT_CALL_NATIVE",
-                                                    "args": {
-                                                        "argCount": 0,
-                                                        "arg0": {
-                                                            "type": "number",
-                                                            "value": 0
-                                                        },
-                                                        "arg1": {
-                                                            "type": "number",
-                                                            "value": 0
-                                                        },
-                                                        "arg2": {
-                                                            "type": "number",
-                                                            "value": 0
-                                                        },
-                                                        "arg3": {
-                                                            "type": "number",
-                                                            "value": 0
-                                                        },
-                                                        "arg4": {
-                                                            "type": "number",
-                                                            "value": 0
-                                                        },
-                                                        "arg5": {
-                                                            "type": "number",
-                                                            "value": 0
-                                                        },
-                                                        "arg6": {
-                                                            "type": "number",
-                                                            "value": 0
-                                                        },
-                                                        "arg7": {
-                                                            "type": "number",
-                                                            "value": 0
-                                                        },
-                                                        "funName": "handleEnemyTakeDamage",
-                                                        "__collapse": false
-                                                    },
-                                                    "id": "72ce125c-6b53-4dc9-b60d-d25e6bb670ad"
-                                                },
-                                                {
                                                     "command": "FF_EVENT_DISPATCH_ACTION",
                                                     "args": {
                                                         "action": 0,
@@ -12840,19 +12885,26 @@
                                                         "__collapse": true
                                                     },
                                                     "id": "7ae02323-f71b-4c3f-8155-59e25b86e285"
-                                                },
-                                                {
-                                                    "command": "FF_EVENT_DISPATCH_ACTION",
-                                                    "args": {
-                                                        "action": 18,
-                                                        "__collapse": true
-                                                    },
-                                                    "id": "0884d566-bb82-488d-b6c8-4973f2f9f877"
                                                 }
                                             ],
                                             "false": []
                                         },
                                         "id": "2e3d273f-fea0-49d7-828b-70831e62bfa4"
+                                    },
+                                    {
+                                        "command": "FF_EVENT_DISPATCH_ACTION",
+                                        "args": {
+                                            "action": 18,
+                                            "__collapse": true
+                                        },
+                                        "id": "0884d566-bb82-488d-b6c8-4973f2f9f877"
+                                    },
+                                    {
+                                        "command": "FF_EVENT_DISPATCH_ACTION",
+                                        "args": {
+                                            "action": 14
+                                        },
+                                        "id": "1092d925-b5d7-4671-ab09-4db824cee14d"
                                     }
                                 ],
                                 "true15": [
@@ -12935,7 +12987,7 @@
                                                 }
                                             },
                                             "__collapseElse": false,
-                                            "__collapse": false,
+                                            "__collapse": true,
                                             "__disableElse": true
                                         },
                                         "children": {
@@ -12968,10 +13020,20 @@
                                                         "keyH": 18,
                                                         "keySX": 24,
                                                         "keySY": 0,
-                                                        "__collapse": false,
+                                                        "__collapse": true,
                                                         "__comment": false
                                                     },
                                                     "id": "8f01480c-a381-4fcd-a42c-77472e4025ea"
+                                                },
+                                                {
+                                                    "command": "FF_EVENT_SET_HERO",
+                                                    "args": {
+                                                        "name": "RTFIGH",
+                                                        "hp": "6",
+                                                        "ap": "63",
+                                                        "__collapse": false
+                                                    },
+                                                    "id": "038c5ffb-d190-4823-b898-0234482ef0da"
                                                 },
                                                 {
                                                     "command": "EVENT_SWITCH",
@@ -12979,13 +13041,13 @@
                                                         "variable": "46",
                                                         "choices": 4,
                                                         "__collapseCase0": false,
-                                                        "value0": 1,
+                                                        "value0": 0,
                                                         "__collapseCase1": false,
-                                                        "value1": 2,
+                                                        "value1": 1,
                                                         "__collapseCase2": false,
-                                                        "value2": 3,
+                                                        "value2": 2,
                                                         "__collapseCase3": false,
-                                                        "value3": 4,
+                                                        "value3": 3,
                                                         "__collapseCase4": false,
                                                         "value4": 5,
                                                         "__collapseCase5": false,
@@ -13015,16 +13077,6 @@
                                                     "children": {
                                                         "true0": [
                                                             {
-                                                                "command": "FF_EVENT_SET_HERO",
-                                                                "args": {
-                                                                    "name": "RTFIGH",
-                                                                    "hp": "6",
-                                                                    "ap": "63",
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "038c5ffb-d190-4823-b898-0234482ef0da"
-                                                            },
-                                                            {
                                                                 "command": "FF_EVENT_SET_COMBAT_MENU",
                                                                 "args": {
                                                                     "slot_1_name": "Fight",
@@ -13039,7 +13091,7 @@
                                                                     "slot_6_name": "Magic>",
                                                                     "slot_7_name": "Block-",
                                                                     "slot_8_name": "Run",
-                                                                    "__collapse": true
+                                                                    "__collapse": false
                                                                 },
                                                                 "id": "9b738dba-bf7a-4a13-93ac-21525f04b98c"
                                                             }
@@ -13051,7 +13103,7 @@
                                                                     "name": "TWOFER",
                                                                     "hp": "72",
                                                                     "ap": "71",
-                                                                    "__collapse": true
+                                                                    "__collapse": false
                                                                 },
                                                                 "id": "21673a0b-b8cc-48b6-8a42-bbb8d60df7b2"
                                                             },
@@ -13082,7 +13134,7 @@
                                                                     "name": "THREEF",
                                                                     "hp": "82",
                                                                     "ap": "83",
-                                                                    "__collapse": true
+                                                                    "__collapse": false
                                                                 },
                                                                 "id": "990eb7ef-22f0-41cf-bd1c-27d37ad7567c"
                                                             },
@@ -13815,13 +13867,13 @@
                                                         "variable": "46",
                                                         "choices": 4,
                                                         "__collapseCase0": false,
-                                                        "value0": 1,
+                                                        "value0": 0,
                                                         "__collapseCase1": false,
-                                                        "value1": 2,
+                                                        "value1": 1,
                                                         "__collapseCase2": false,
-                                                        "value2": 3,
+                                                        "value2": 2,
                                                         "__collapseCase3": false,
-                                                        "value3": 4,
+                                                        "value3": 3,
                                                         "__collapseCase4": false,
                                                         "value4": 5,
                                                         "__collapseCase5": false,
@@ -13962,10 +14014,34 @@
                                                             {
                                                                 "command": "FF_EVENT_DISPATCH_ACTION",
                                                                 "args": {
+                                                                    "action": 15,
+                                                                    "__collapse": true
+                                                                },
+                                                                "id": "8baa5ff5-f195-4e54-bcff-64215370513b"
+                                                            },
+                                                            {
+                                                                "command": "FF_EVENT_DISPATCH_ACTION",
+                                                                "args": {
                                                                     "action": 20,
                                                                     "__collapse": true
                                                                 },
                                                                 "id": "2a3c556f-4441-42ad-a748-ff705a7f6224"
+                                                            },
+                                                            {
+                                                                "command": "FF_EVENT_DISPATCH_ACTION",
+                                                                "args": {
+                                                                    "action": 12,
+                                                                    "__collapse": true
+                                                                },
+                                                                "id": "183197f2-0915-4b46-8946-22b2bca11fdc"
+                                                            },
+                                                            {
+                                                                "command": "FF_EVENT_DISPATCH_ACTION",
+                                                                "args": {
+                                                                    "action": 10,
+                                                                    "__collapse": true
+                                                                },
+                                                                "id": "4e63c682-c72a-4dbc-be52-5d876d8352bc"
                                                             }
                                                         ]
                                                     },
@@ -14050,7 +14126,8 @@
                                         "args": {
                                             "text": "Initiate Attack vs\n#48##49##50##51##52##53##54##55#: $31$",
                                             "avatarId": "",
-                                            "__comment": false
+                                            "__comment": false,
+                                            "__collapse": true
                                         },
                                         "id": "7560f99f-3ef3-466f-8ab4-a75e200cfe4a"
                                     },
@@ -14078,7 +14155,8 @@
                                                         "text": [
                                                             "Attack Missed.\nNo Damage "
                                                         ],
-                                                        "avatarId": ""
+                                                        "avatarId": "",
+                                                        "__collapse": true
                                                     },
                                                     "id": "5175e1f6-907b-43da-acd7-f7b40f5825c9"
                                                 }
@@ -14099,7 +14177,7 @@
                                                             }
                                                         },
                                                         "__collapseElse": false,
-                                                        "__collapse": true
+                                                        "__collapse": false
                                                     },
                                                     "children": {
                                                         "true": [
@@ -14250,14 +14328,6 @@
                                             ]
                                         },
                                         "id": "4609043a-d91c-4fcd-8e7d-8a0e5b3f9ae4"
-                                    },
-                                    {
-                                        "command": "FF_EVENT_DISPATCH_ACTION",
-                                        "args": {
-                                            "action": 14,
-                                            "__collapse": true
-                                        },
-                                        "id": "6b7c42f5-9787-42a0-a27b-ff663d4584b1"
                                     }
                                 ],
                                 "true17": [],
@@ -14440,7 +14510,7 @@
                                                 }
                                             },
                                             "__collapseElse": true,
-                                            "__comment": false,
+                                            "__comment": true,
                                             "__disableElse": true,
                                             "__collapse": true
                                         },
@@ -14487,7 +14557,7 @@
                                                 }
                                             },
                                             "__collapseElse": true,
-                                            "__comment": false,
+                                            "__comment": true,
                                             "__disableElse": true,
                                             "__collapse": true
                                         },
@@ -14534,7 +14604,7 @@
                                                 }
                                             },
                                             "__collapseElse": true,
-                                            "__comment": false,
+                                            "__comment": true,
                                             "__disableElse": true,
                                             "__collapse": true
                                         },
@@ -14581,7 +14651,7 @@
                                                 }
                                             },
                                             "__collapseElse": true,
-                                            "__comment": false,
+                                            "__comment": true,
                                             "__disableElse": true,
                                             "__collapse": true
                                         },
@@ -15065,7 +15135,7 @@
                             "type": "number",
                             "value": 0
                         },
-                        "__collapse": true
+                        "__collapse": false
                     },
                     "id": "7d706c0a-4d3e-4e63-8539-c2d6e50269bf"
                 },
@@ -15677,6 +15747,46 @@
                         ]
                     },
                     "id": "5b69cb70-7fc9-4c85-881b-2148d4018149"
+                },
+                {
+                    "command": "MY_EVENT_CALL_NATIVE",
+                    "args": {
+                        "argCount": 0,
+                        "arg0": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg1": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg2": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg3": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg4": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg5": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg6": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg7": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "funName": "setupPlayerSlots"
+                    },
+                    "id": "c6aa797f-5341-4d8c-9b50-b7dd868f5abd"
                 },
                 {
                     "command": "FF_EVENT_SET_ENEMY_DATA",
@@ -36456,8 +36566,8 @@
         "showConnections": true,
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 1925,
-        "worldScrollY": 156,
+        "worldScrollX": 1982,
+        "worldScrollY": 204,
         "zoom": 222.5,
         "sgbEnabled": false,
         "customHead": "",
@@ -36552,7 +36662,7 @@
         "debuggerBreakpoints": [],
         "debuggerWatchedVariables": [
             "437",
-            "94"
+            "0"
         ],
         "colorMode": "color",
         "previewAsMono": false,

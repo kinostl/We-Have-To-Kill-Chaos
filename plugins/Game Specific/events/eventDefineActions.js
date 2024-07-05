@@ -44,7 +44,7 @@ const fields = [
             {
 
                 key: `__collapseCase${i}`,
-                label: `${x}`,
+                label: `${x} (${i})`,
                 type: "collapsable",
                 defaultValue: true,
             },
@@ -82,50 +82,71 @@ const fields = [
 ].flat(2);
 
 let ifCount = 0;
+let switchCount = 0;
+let flowCount = 0;
 
-const generateChartFromEvent = (start, event) => {
+function generateChartFromEvent(start, event, conn) {
+    const start_id = start.replace(/[^a-zA-Z ]/g, "")
+    if (!Array.isArray(event)) {
+        if (!event.command) return null
+        if (![
+            "FF_EVENT_DISPATCH_ACTION",
+            "EVENT_IF",
+            "EVENT_SWITCH",
+            "EVENT_SET_INPUT_SCRIPT",
+            "EVENT_GROUP",
+            "FF_EVENT_DEFINE_SKILLS"
+        ].includes(event.command)) {
+            if (event.children) throw `Unhandled Event with Children: ${event.command}`
+            return null
+        }
+    }
+
     if (Array.isArray(event)) {
-        return event.map((subev)=>generateChartFromEvent(start, subev)).filter((x)=>x).join('-.->')
+        if (event.length == 0) return null
+        let x = start;
+        let connector = conn
+        let flowStr = `flow:${++flowCount}`
+
+        for (let i = 0; i < event.length; i++) {
+            const new_val = generateChartFromEvent(x, event[i], connector)
+            if (new_val) {
+                x = new_val
+                connector = `-. "${flowStr}" .->`
+            }
+        }
+        if(x == start) return null
+        return x
     }
-    if(event.command === "FF_EVENT_DISPATCH_ACTION"){
-        return `${start}-->${event.args.action}[${actions[event.args.action]}]`
+
+    if (event.command === "FF_EVENT_DISPATCH_ACTION") {
+        return `${start}${conn}${event.args.action}[${actions[event.args.action]}]`
     }
-    // if(event.command === "EVENT_IF"){
-    //     ifCount++;
-    //     const if_start = `if_count_${ifCount}{${ifCount}}`
-    //     const true_side = generateChartFromEvent(`${if_start}--true`,event.children.true)
-    //     const false_side = generateChartFromEvent(`${if_start}--false`, event.children.false)
-    //     const branch = [`${start}-->${if_start}`]
-    //     if(true_side !== `${if_start}--true->`){
-    //         branch.push(true_side)
-    //     }
-    //     if(false_side !== `${if_start}--false->`){
-    //         branch.push(false_side)
-    //     }
-    //     return branch.join('\n')
-    // }
-    if(event.command == "EVENT_IF"){
+
+    if (event.command == "EVENT_IF") {
+        const if_start = `${start}---if${++ifCount}{if:${ifCount}}`
+        const true_p = generateChartFromEvent(if_start, event.children.true, `--if:${ifCount}:true-->`)
+        const false_p = generateChartFromEvent(if_start, event.children.false, `--if:${ifCount}:false-->`)
+
         return [
-            generateChartFromEvent(start, event.children.true),
-            generateChartFromEvent(start, event.children.false),
-        ].join('\n')
+            true_p,
+            false_p,
+        ].filter((x) => x != null).join('\n')
     }
-    if(event.command == "EVENT_SWITCH"){
-        return Object.values(event.children).map((x)=>generateChartFromEvent(start,x)).join('\n')
+
+    if (event.command == "EVENT_SWITCH" || event.command == "FF_EVENT_DEFINE_SKILLS") {
+        const sw_start = `${start}---sw${++switchCount}{sw:${switchCount}}`
+        const output =  Object.values(event.children).map((x, i) => generateChartFromEvent(sw_start, x, `-- sw:${switchCount}:${i} -->`)).filter((x) => x != null)
+        return output.join("\n")
     }
+
     if (event.command == "EVENT_SET_INPUT_SCRIPT") {
-        return generateChartFromEvent(start, event.children.true)
+        return generateChartFromEvent(start, event.children.true, '-->')
     }
-    if([
-        "EVENT_GROUP",
-    ].includes(event.command)){
-        return generateChartFromEvent(start, event.children)
-    }
-    if (event.command == "FF_EVENT_DEFINE_SKILLS") {
-        return ""
-    }
-    if(event.children){
-        throw `Unhandled Event with Children: ${event.command}`
+
+    if (event.command == "EVENT_GROUP") {
+        let output = generateChartFromEvent(start, event.children, '-->')
+        return output
     }
 }
 
@@ -149,30 +170,30 @@ const compile = (input, helpers) => {
     }
 
     for (const rada of radarada) {
-        flows_for_chart.push(generateChartFromEvent(`${rada[0]}[${actions[rada[0]]}]`, input[rada[1]]))
+        flows_for_chart.push(generateChartFromEvent(`${rada[0]}[${actions[rada[0]]}]`, input[rada[1]],'-->'))
     }
 
     flows_for_chart = flows_for_chart.join('\n').split('\n')
-    flows_for_chart = flows_for_chart.map((x)=>{
-        if(x.startsWith('-->')){
-            return x.substring(3)
-        }
-        if(x.startsWith('-.->')){
-            return x.substring(4)
-        }
-        return x
-    })
-    flows_for_chart = flows_for_chart.filter((x, i, arr) => {
-        let longest = true
-        arr.forEach((y) => {
-            if (x.includes(y) || y.includes(x)) {
-                if (x !== y && longest) {
-                    longest = x.length > y.length
-                }
-            }
-        })
-        return longest
-    })
+    // flows_for_chart = flows_for_chart.map((x)=>{
+    //     if(x.startsWith('-->')){
+    //         return x.substring(3)
+    //     }
+    //     if(x.startsWith('-.->')){
+    //         return x.substring(4)
+    //     }
+    //     return x
+    // })
+    // flows_for_chart = flows_for_chart.filter((x, i, arr) => {
+    //     let longest = true
+    //     arr.forEach((y) => {
+    //         if (x.includes(y) || y.includes(x)) {
+    //             if (x !== y && longest) {
+    //                 longest = x.length > y.length
+    //             }
+    //         }
+    //     })
+    //     return longest
+    // })
     flows_for_chart = [...new Set(flows_for_chart)]
     additionalOutput["dat_chart"] = {
         filename: "dat_chart.md",

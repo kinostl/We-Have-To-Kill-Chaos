@@ -30,7 +30,7 @@ void handleSortTurnOrder(SCRIPT_CTX * THIS) OLDCALL BANKED {
           }
         }
         if (max_val > -1) {
-          turn_order[end_of_arr] = max_i+1;
+          turn_order[end_of_arr] = max_i;
           end_of_arr++;
         }
     }
