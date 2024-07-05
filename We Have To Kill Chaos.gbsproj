@@ -11231,7 +11231,7 @@
                                 "variable": "0",
                                 "__collapseCase1": true,
                                 "__collapseCase14": true,
-                                "__collapseCase8": true,
+                                "__collapseCase8": false,
                                 "__collapseCase9": true,
                                 "__collapseCase15": true,
                                 "__collapseCase12": true,
@@ -11563,7 +11563,7 @@
                                                 {
                                                     "command": "FF_EVENT_CHOOSE_SKILL",
                                                     "args": {
-                                                        "__collapse": true
+                                                        "__collapse": false
                                                     },
                                                     "id": "e61d5082-8e9b-44c1-b05b-d0e5526138af"
                                                 },
@@ -11913,7 +11913,7 @@
                                             },
                                             "__collapseElse": false,
                                             "__disableElse": true,
-                                            "__collapse": true
+                                            "__collapse": false
                                         },
                                         "children": {
                                             "true": [
@@ -11956,7 +11956,8 @@
                                                         "value15": 16,
                                                         "__collapseElse": false,
                                                         "__disableElse": false,
-                                                        "__collapse": false
+                                                        "__collapse": true,
+                                                        "__comment": true
                                                     },
                                                     "children": {
                                                         "true0": [
@@ -11968,14 +11969,6 @@
                                                                     "__collapse": true
                                                                 },
                                                                 "id": "f5a95b7b-fe41-475d-8cb4-2feb8f90449b"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_INC_VALUE",
-                                                                "args": {
-                                                                    "variable": "63",
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "bee72ce7-f042-4301-8b3f-4540907a38ef"
                                                             }
                                                         ],
                                                         "true1": [
@@ -11987,14 +11980,6 @@
                                                                     "__collapse": true
                                                                 },
                                                                 "id": "c2801042-6002-430e-a51d-2090417235a4"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_INC_VALUE",
-                                                                "args": {
-                                                                    "variable": "71",
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "43ef4444-2d62-4420-a534-6c3af2278d0b"
                                                             }
                                                         ],
                                                         "true2": [
@@ -12006,14 +11991,6 @@
                                                                     "__collapse": true
                                                                 },
                                                                 "id": "13d33680-6c19-48d8-9961-e95cff3ee149"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_INC_VALUE",
-                                                                "args": {
-                                                                    "variable": "83",
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "d0e2e4e2-b5c4-4107-94f7-fb938e9c904b"
                                                             }
                                                         ],
                                                         "true3": [
@@ -12025,14 +12002,6 @@
                                                                     "__collapse": true
                                                                 },
                                                                 "id": "7a3a790e-625f-41e5-bf27-6cee9e6f5fb5"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_INC_VALUE",
-                                                                "args": {
-                                                                    "variable": "85",
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "e7d2b4c0-cda9-44ad-a868-ccaaefffccc9"
                                                             }
                                                         ],
                                                         "true4": [],
@@ -12061,6 +12030,110 @@
                                                         ]
                                                     },
                                                     "id": "9cf16d6e-60b1-460a-b9c8-85a3c87687d9"
+                                                },
+                                                {
+                                                    "command": "FF_EVENT_START_HERO_TURN",
+                                                    "args": {
+                                                        "heroActor": "9c19db58-2e7a-44d7-861f-c4544041ec00",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "155b1b96-d09a-44f7-8370-4d4e1a822c3c"
+                                                },
+                                                {
+                                                    "command": "EVENT_SWITCH",
+                                                    "args": {
+                                                        "variable": "47",
+                                                        "choices": 7,
+                                                        "__collapseCase0": false,
+                                                        "value0": 1,
+                                                        "__collapseCase1": false,
+                                                        "value1": 2,
+                                                        "__collapseCase2": false,
+                                                        "value2": 3,
+                                                        "__collapseCase3": false,
+                                                        "value3": 4,
+                                                        "__collapseCase4": false,
+                                                        "value4": 5,
+                                                        "__collapseCase5": false,
+                                                        "value5": 6,
+                                                        "__collapseCase6": false,
+                                                        "value6": 7,
+                                                        "__collapseCase7": false,
+                                                        "value7": 8,
+                                                        "__collapseCase8": false,
+                                                        "value8": 9,
+                                                        "__collapseCase9": false,
+                                                        "value9": 10,
+                                                        "__collapseCase10": false,
+                                                        "value10": 11,
+                                                        "__collapseCase11": false,
+                                                        "value11": 12,
+                                                        "__collapseCase12": false,
+                                                        "value12": 13,
+                                                        "__collapseCase13": false,
+                                                        "value13": 14,
+                                                        "__collapseCase14": false,
+                                                        "value14": 15,
+                                                        "__collapseCase15": false,
+                                                        "value15": 16,
+                                                        "__collapseElse": false
+                                                    },
+                                                    "children": {
+                                                        "true0": [
+                                                            {
+                                                                "command": "EVENT_ACTOR_SET_SPRITE",
+                                                                "args": {
+                                                                    "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00",
+                                                                    "spriteSheetId": "75e5bb7d-28eb-4b45-b835-8f4931adab2b"
+                                                                },
+                                                                "id": "599a0ea0-3189-4778-b4ee-25a1ba73e53f"
+                                                            }
+                                                        ],
+                                                        "true1": [
+                                                            {
+                                                                "command": "EVENT_ACTOR_SET_SPRITE",
+                                                                "args": {
+                                                                    "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00",
+                                                                    "spriteSheetId": "b3f370ad-6f8d-4cdb-8159-eba9c51c18a7"
+                                                                },
+                                                                "id": "d8920f9e-40f7-4ef9-930c-75d947b008b2"
+                                                            }
+                                                        ],
+                                                        "true2": [
+                                                            {
+                                                                "command": "EVENT_ACTOR_SET_SPRITE",
+                                                                "args": {
+                                                                    "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00",
+                                                                    "spriteSheetId": "e2e51ea5-c880-461c-852b-02f3172779c2"
+                                                                },
+                                                                "id": "d550ca04-3af7-48a7-9235-7dd5f4eed377"
+                                                            }
+                                                        ],
+                                                        "true3": [
+                                                            {
+                                                                "command": "EVENT_ACTOR_SET_SPRITE",
+                                                                "args": {
+                                                                    "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00",
+                                                                    "spriteSheetId": "9b3b9f83-c75e-47a9-b32a-0023d1419039"
+                                                                },
+                                                                "id": "7930f343-481a-409d-8129-644d4461e65c"
+                                                            }
+                                                        ],
+                                                        "true4": [],
+                                                        "true5": [],
+                                                        "true6": [],
+                                                        "true7": [],
+                                                        "true8": [],
+                                                        "true9": [],
+                                                        "true10": [],
+                                                        "true11": [],
+                                                        "true12": [],
+                                                        "true13": [],
+                                                        "true14": [],
+                                                        "true15": [],
+                                                        "false": []
+                                                    },
+                                                    "id": "59930c5a-cb92-4990-813f-774554ac46ad"
                                                 },
                                                 {
                                                     "command": "FF_EVENT_DISPATCH_ACTION",
@@ -12099,14 +12172,25 @@
                                             },
                                             "__collapseElse": true,
                                             "__disableElse": true,
-                                            "__collapse": false
+                                            "__collapse": true
                                         },
                                         "children": {
                                             "true": [
                                                 {
+                                                    "command": "EVENT_SET_VALUE",
+                                                    "args": {
+                                                        "variable": "56",
+                                                        "value": {
+                                                            "type": "variable",
+                                                            "value": "46"
+                                                        }
+                                                    },
+                                                    "id": "0321915c-62b0-4cb3-a3b6-f2c2a2e1ee82"
+                                                },
+                                                {
                                                     "command": "FF_EVENT_CHECK_ENEMY_ALIVE",
                                                     "args": {
-                                                        "__collapse": true
+                                                        "__collapse": false
                                                     },
                                                     "id": "3829cb7c-1755-46a9-866c-09d5f6febebd"
                                                 },
@@ -12987,7 +13071,7 @@
                                                 }
                                             },
                                             "__collapseElse": false,
-                                            "__collapse": true,
+                                            "__collapse": false,
                                             "__disableElse": true
                                         },
                                         "children": {
@@ -13020,7 +13104,7 @@
                                                         "keyH": 18,
                                                         "keySX": 24,
                                                         "keySY": 0,
-                                                        "__collapse": true,
+                                                        "__collapse": false,
                                                         "__comment": false
                                                     },
                                                     "id": "8f01480c-a381-4fcd-a42c-77472e4025ea"
@@ -13098,16 +13182,6 @@
                                                         ],
                                                         "true1": [
                                                             {
-                                                                "command": "FF_EVENT_SET_HERO",
-                                                                "args": {
-                                                                    "name": "TWOFER",
-                                                                    "hp": "72",
-                                                                    "ap": "71",
-                                                                    "__collapse": false
-                                                                },
-                                                                "id": "21673a0b-b8cc-48b6-8a42-bbb8d60df7b2"
-                                                            },
-                                                            {
                                                                 "command": "FF_EVENT_SET_COMBAT_MENU",
                                                                 "args": {
                                                                     "slot_1_name": "GobPun",
@@ -13129,16 +13203,6 @@
                                                         ],
                                                         "true2": [
                                                             {
-                                                                "command": "FF_EVENT_SET_HERO",
-                                                                "args": {
-                                                                    "name": "THREEF",
-                                                                    "hp": "82",
-                                                                    "ap": "83",
-                                                                    "__collapse": false
-                                                                },
-                                                                "id": "990eb7ef-22f0-41cf-bd1c-27d37ad7567c"
-                                                            },
-                                                            {
                                                                 "command": "FF_EVENT_SET_COMBAT_MENU",
                                                                 "args": {
                                                                     "slot_1_name": "Harm",
@@ -13159,16 +13223,6 @@
                                                             }
                                                         ],
                                                         "true3": [
-                                                            {
-                                                                "command": "FF_EVENT_SET_HERO",
-                                                                "args": {
-                                                                    "name": "FOURNA",
-                                                                    "hp": "84",
-                                                                    "ap": "85",
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "914b3dc5-5ae5-40ee-baf0-a1669fd8dc47"
-                                                            },
                                                             {
                                                                 "command": "FF_EVENT_SET_COMBAT_MENU",
                                                                 "args": {
@@ -13899,7 +13953,8 @@
                                                         "__collapseCase15": false,
                                                         "value15": 16,
                                                         "__collapseElse": false,
-                                                        "__collapse": false
+                                                        "__collapse": false,
+                                                        "__comment": true
                                                     },
                                                     "children": {
                                                         "true0": [
@@ -35635,11 +35690,6 @@
             "symbol": "var_turn_order_slot_10_e6"
         },
         {
-            "id": "44",
-            "name": "Attacker/Max HP",
-            "symbol": "var_attacker_max_hp"
-        },
-        {
             "id": "45",
             "name": "Defender/Max HP",
             "symbol": "var_defender_max_hp"
@@ -36543,6 +36593,11 @@
             "id": "88e8e886-2f3b-454e-a664-f6d8c0a298de__L1",
             "name": "direction",
             "symbol": "var_direction_0"
+        },
+        {
+            "id": "44",
+            "name": "Attacker/HP",
+            "symbol": "var_attacker_hp"
         }
     ],
     "engineFieldValues": [

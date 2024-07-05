@@ -11229,7 +11229,7 @@
                             "command": "FF_EVENT_DEFINE_ACTIONS",
                             "args": {
                                 "variable": "0",
-                                "__collapseCase1": false,
+                                "__collapseCase1": true,
                                 "__collapseCase14": true,
                                 "__collapseCase8": true,
                                 "__collapseCase9": true,
@@ -11237,7 +11237,7 @@
                                 "__collapseCase12": true,
                                 "__collapseCase11": true,
                                 "__collapseCase10": true,
-                                "__collapseCase21": false,
+                                "__collapseCase21": true,
                                 "__collapseCase4": true,
                                 "__collapseCase5": true,
                                 "__collapseCase7": true,
@@ -12987,7 +12987,7 @@
                                                 }
                                             },
                                             "__collapseElse": false,
-                                            "__collapse": false,
+                                            "__collapse": true,
                                             "__disableElse": true
                                         },
                                         "children": {
@@ -13020,7 +13020,7 @@
                                                         "keyH": 18,
                                                         "keySX": 24,
                                                         "keySY": 0,
-                                                        "__collapse": false,
+                                                        "__collapse": true,
                                                         "__comment": false
                                                     },
                                                     "id": "8f01480c-a381-4fcd-a42c-77472e4025ea"

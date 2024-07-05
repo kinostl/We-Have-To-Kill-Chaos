@@ -378,7 +378,7 @@ void handleEnemyTakeDamage(SCRIPT_CTX *THIS) OLDCALL BANKED {
 void enemyFlashBKG(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
   struct entity_data *enemy =
-      &turn_slots[VM_GLOBAL(VAR_TURN_ORDER_CURRENT_ACTO)];
+      &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
   WORD color_1 = 1;
   WORD color_2 = 6;
   WORD x = enemy->x;
