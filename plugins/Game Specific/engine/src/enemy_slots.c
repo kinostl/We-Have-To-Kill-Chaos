@@ -2,6 +2,7 @@
 #include "data/bg_enemies_plains_1.h"
 #include "data/bg_enemies_plains_1_tileset.h"
 #include "encounter_table.h"
+#include "enemy_data.h"
 #include "entity_data.h"
 #include "handle_flashing.h"
 #include "rand.h" // IWYU pragma: keep
@@ -95,6 +96,14 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[0].alive = TRUE;
   turn_slots[0].ap = 0;
   strcpy(turn_slots[0].name, "RTFIGH");
+  turn_slots[0].skills[0] = FIGHT;
+  turn_slots[0].skill_costs[0] = 1;
+
+  turn_slots[0].skills[1] = SHIELD;
+  turn_slots[0].skill_costs[1] = 1;
+
+  turn_slots[0].skills[3] = OVERSOUL;
+  turn_slots[0].skill_costs[3] = 6;
   //
   turn_slots[1].max_hp = 35;
   turn_slots[1].hp = 35;
@@ -104,6 +113,8 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[1].alive = TRUE;
   turn_slots[1].ap = 0;
   strcpy(turn_slots[1].name, "TWOFER");
+  turn_slots[1].skills[0] = FIGHT;
+  turn_slots[1].skills[1] = GOBLIN_PUNCH;
   //
   turn_slots[2].max_hp = 35;
   turn_slots[2].hp = 35;
@@ -113,6 +124,7 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[2].alive = TRUE;
   turn_slots[2].ap = 0;
   strcpy(turn_slots[2].name, "THREEF");
+  turn_slots[2].skills[0] = FIGHT;
   //
   turn_slots[3].max_hp = 35;
   turn_slots[3].hp = 35;
@@ -122,6 +134,7 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[3].alive = TRUE;
   turn_slots[3].ap = 0;
   strcpy(turn_slots[3].name, "FOURNA");
+  turn_slots[3].skills[0] = FIGHT;
 }
 
 void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {

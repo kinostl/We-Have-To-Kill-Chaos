@@ -24,9 +24,9 @@ const compile = (input, helpers) => {
   _displayText()
   _overlayWait(true, [".UI_WAIT_TEXT"])
 
-  // _callNative('loadHeroMenu')
-  // _displayText()
-  // _overlayWait(true, [".UI_WAIT_TEXT"])
+  _callNative('loadHeroMenu')
+  _displayText()
+  _overlayWait(true, [".UI_WAIT_TEXT"])
 };
 
 module.exports = {

@@ -13,6 +13,6 @@ enum enemy_name {
     MADPONY
 };
 
-enum battle_skills { FIGHT, GOBLIN_PUNCH, HOWL, THRASH };
+enum battle_skills { BLANK, FIGHT, SHIELD, OVERSOUL, GOBLIN_PUNCH, HOWL, THRASH };
 
 #endif

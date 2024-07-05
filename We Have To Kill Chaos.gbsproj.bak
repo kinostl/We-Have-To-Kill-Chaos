@@ -11252,11 +11252,11 @@
                             "command": "FF_EVENT_DEFINE_ACTIONS",
                             "args": {
                                 "variable": "0",
-                                "__collapseCase1": false,
-                                "__collapseCase14": false,
-                                "__collapseCase8": false,
-                                "__collapseCase9": false,
-                                "__collapseCase15": false,
+                                "__collapseCase1": true,
+                                "__collapseCase14": true,
+                                "__collapseCase8": true,
+                                "__collapseCase9": true,
+                                "__collapseCase15": true,
                                 "__collapseCase12": false,
                                 "__collapseCase11": false,
                                 "__collapseCase10": false,
@@ -13180,7 +13180,8 @@
                                                         "value14": 15,
                                                         "__collapseCase15": false,
                                                         "value15": 16,
-                                                        "__collapseElse": false
+                                                        "__collapseElse": false,
+                                                        "__comment": true
                                                     },
                                                     "children": {
                                                         "true0": [
@@ -15178,6 +15179,14 @@
                             {
                                 "type": "variable",
                                 "id": "69"
+                            },
+                            {
+                                "type": "variable",
+                                "id": "4"
+                            },
+                            {
+                                "type": "variable",
+                                "id": "7"
                             }
                         ],
                         "__collapse": false
@@ -36643,9 +36652,9 @@
         }
     ],
     "settings": {
-        "startSceneId": "97ae8775-3b76-4b99-88ae-364931c1f441",
-        "startX": 65,
-        "startY": 94,
+        "startSceneId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
+        "startX": 0,
+        "startY": 0,
         "startMoveSpeed": 1,
         "startAnimSpeed": 15,
         "startDirection": "right",
@@ -36653,8 +36662,8 @@
         "showConnections": true,
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 432,
-        "worldScrollY": 0,
+        "worldScrollX": 1760,
+        "worldScrollY": 158,
         "zoom": 222.5,
         "sgbEnabled": false,
         "customHead": "",
