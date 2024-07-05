@@ -81,10 +81,6 @@ const fields = [
     }
 ].flat(2);
 
-let ifCount = 0;
-let switchCount = 0;
-let flowCount = 0;
-
 function generateChartFromEvent(start, event, conn) {
     const start_id = start.replace(/[^a-zA-Z ]/g, "")
     if (!Array.isArray(event)) {
@@ -106,13 +102,12 @@ function generateChartFromEvent(start, event, conn) {
         if (event.length == 0) return null
         let x = start;
         let connector = conn
-        let flowStr = `flow:${++flowCount}`
 
         for (let i = 0; i < event.length; i++) {
             const new_val = generateChartFromEvent(x, event[i], connector)
             if (new_val) {
                 x = new_val
-                connector = `-. "${flowStr}" .->`
+                connector = `-.->`
             }
         }
         if(x == start) return null
@@ -124,9 +119,8 @@ function generateChartFromEvent(start, event, conn) {
     }
 
     if (event.command == "EVENT_IF") {
-        const if_start = `${start}---if${++ifCount}{if:${ifCount}}`
-        const true_p = generateChartFromEvent(if_start, event.children.true, `--if:${ifCount}:true-->`)
-        const false_p = generateChartFromEvent(if_start, event.children.false, `--if:${ifCount}:false-->`)
+        const true_p = generateChartFromEvent(start, event.children.true, `--true-->`)
+        const false_p = generateChartFromEvent(start, event.children.false, `--false-->`)
 
         return [
             true_p,
@@ -135,8 +129,7 @@ function generateChartFromEvent(start, event, conn) {
     }
 
     if (event.command == "EVENT_SWITCH" || event.command == "FF_EVENT_DEFINE_SKILLS") {
-        const sw_start = `${start}---sw${++switchCount}{sw:${switchCount}}`
-        const output =  Object.values(event.children).map((x, i) => generateChartFromEvent(sw_start, x, `-- sw:${switchCount}:${i} -->`)).filter((x) => x != null)
+        const output =  Object.values(event.children).map((x, i) => generateChartFromEvent(start, x, `-- ${i} -->`)).filter((x) => x != null)
         return output.join("\n")
     }
 
