@@ -9280,6 +9280,17 @@
                         {
                             "command": "EVENT_SET_VALUE",
                             "args": {
+                                "variable": "101",
+                                "value": {
+                                    "type": "variable",
+                                    "value": "L3"
+                                }
+                            },
+                            "id": "d7065d77-47b6-4618-8b8e-15a543a65839"
+                        },
+                        {
+                            "command": "EVENT_SET_VALUE",
+                            "args": {
                                 "variable": "102",
                                 "value": {
                                     "type": "variable",
@@ -9369,7 +9380,8 @@
                                         "type": "variable",
                                         "id": "102"
                                     }
-                                ]
+                                ],
+                                "__comment": true
                             },
                             "id": "b3fc6754-0214-4506-93ea-eec4c9b67fd7"
                         },
@@ -9544,7 +9556,7 @@
                                                                 "type": "rnd",
                                                                 "value": {
                                                                     "type": "number",
-                                                                    "value": 1
+                                                                    "value": 255
                                                                 }
                                                             },
                                                             "valueB": {
@@ -9626,6 +9638,17 @@
                                                                                 }
                                                                             },
                                                                             "id": "da488892-0e41-4e10-bec9-1c27e0dae3bc"
+                                                                        },
+                                                                        {
+                                                                            "command": "EVENT_SET_VALUE",
+                                                                            "args": {
+                                                                                "variable": "L3",
+                                                                                "value": {
+                                                                                    "type": "variable",
+                                                                                    "value": "101"
+                                                                                }
+                                                                            },
+                                                                            "id": "7deaf4a3-2deb-48ac-9100-5e49ae43a38a"
                                                                         },
                                                                         {
                                                                             "command": "EVENT_SWITCH_SCENE",
@@ -11229,15 +11252,15 @@
                             "command": "FF_EVENT_DEFINE_ACTIONS",
                             "args": {
                                 "variable": "0",
-                                "__collapseCase1": true,
-                                "__collapseCase14": true,
+                                "__collapseCase1": false,
+                                "__collapseCase14": false,
                                 "__collapseCase8": false,
-                                "__collapseCase9": true,
-                                "__collapseCase15": true,
-                                "__collapseCase12": true,
-                                "__collapseCase11": true,
-                                "__collapseCase10": true,
-                                "__collapseCase21": true,
+                                "__collapseCase9": false,
+                                "__collapseCase15": false,
+                                "__collapseCase12": false,
+                                "__collapseCase11": false,
+                                "__collapseCase10": false,
+                                "__collapseCase21": false,
                                 "__collapseCase4": true,
                                 "__collapseCase5": true,
                                 "__collapseCase7": true,
@@ -11315,7 +11338,7 @@
                                                         "value15": 16,
                                                         "__collapseElse": false,
                                                         "__collapse": true,
-                                                        "__comment": false
+                                                        "__comment": true
                                                     },
                                                     "children": {
                                                         "true0": [
@@ -12076,7 +12099,8 @@
                                                         "value14": 15,
                                                         "__collapseCase15": false,
                                                         "value15": 16,
-                                                        "__collapseElse": false
+                                                        "__collapseElse": false,
+                                                        "__collapse": true
                                                     },
                                                     "children": {
                                                         "true0": [
@@ -14113,7 +14137,8 @@
                                                     "command": "EVENT_INC_VALUE",
                                                     "args": {
                                                         "variable": "63",
-                                                        "__collapse": true
+                                                        "__collapse": true,
+                                                        "__comment": true
                                                     },
                                                     "id": "8f54ab52-c759-4cb5-a9bb-9e865c7c6054"
                                                 },
@@ -15747,7 +15772,8 @@
                     "command": "EVENT_GROUP",
                     "args": {
                         "__label": "Initialize Players",
-                        "__collapse": true
+                        "__collapse": false,
+                        "__comment": true
                     },
                     "children": {
                         "true": [
@@ -15839,7 +15865,8 @@
                             "type": "number",
                             "value": 0
                         },
-                        "funName": "setupPlayerSlots"
+                        "funName": "setupPlayerSlots",
+                        "__collapse": true
                     },
                     "id": "c6aa797f-5341-4d8c-9b50-b7dd868f5abd"
                 },
@@ -36598,6 +36625,11 @@
             "id": "44",
             "name": "Attacker/HP",
             "symbol": "var_attacker_hp"
+        },
+        {
+            "id": "36a0cecb-5fcb-44a9-b735-10989bb6cc57__L3",
+            "name": "Clone Safe From Monsters",
+            "symbol": "var_clone_safe_from_monster"
         }
     ],
     "engineFieldValues": [
@@ -36611,9 +36643,9 @@
         }
     ],
     "settings": {
-        "startSceneId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
-        "startX": 0,
-        "startY": 0,
+        "startSceneId": "97ae8775-3b76-4b99-88ae-364931c1f441",
+        "startX": 65,
+        "startY": 94,
         "startMoveSpeed": 1,
         "startAnimSpeed": 15,
         "startDirection": "right",
@@ -36621,8 +36653,8 @@
         "showConnections": true,
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 1982,
-        "worldScrollY": 204,
+        "worldScrollX": 432,
+        "worldScrollY": 0,
         "zoom": 222.5,
         "sgbEnabled": false,
         "customHead": "",

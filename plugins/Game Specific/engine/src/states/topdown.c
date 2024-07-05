@@ -8,6 +8,7 @@
 #include "camera.h"
 #include "collision.h"
 #include "data_manager.h"
+#include "data/game_globals.h"
 #include "game_time.h"
 #include "input.h"
 #include "trigger.h"
@@ -29,16 +30,16 @@
 #define TILE_AT tile_at(x, y)
 
 UBYTE topdown_grid;
-UBYTE safe_from_monsters;
-UBYTE half_hidden;
+UWORD * safe_from_monsters = &VM_GLOBAL(VAR_SAFE_FROM_MONSTERS);
+UWORD * half_hidden = &VM_GLOBAL(VAR_HALF_HIDDEN);
 
 void topdown_init(void) BANKED {
     camera_offset_x = 0;
     camera_offset_y = 0;
     camera_deadzone_x = 0;
     camera_deadzone_y = 0;
-    safe_from_monsters = FALSE;
-    half_hidden = FALSE;
+    *safe_from_monsters = FALSE;
+    *half_hidden = FALSE;
 
     if (topdown_grid == 16) {
         // Snap to 16px grid
@@ -52,8 +53,8 @@ void topdown_init(void) BANKED {
 
 void set_flags(UBYTE x, UBYTE y) BANKED {
   UBYTE tile = tile_at(x, y);
-  safe_from_monsters = tile == SAFE_FROM_MONSTERS;
-  half_hidden = tile == HALF_HIDDEN;
+  *safe_from_monsters = tile == SAFE_FROM_MONSTERS;
+  *half_hidden = tile == HALF_HIDDEN;
 }
 
 void topdown_update(void) BANKED {
