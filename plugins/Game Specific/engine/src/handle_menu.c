@@ -65,6 +65,7 @@ void loadHeroData(SCRIPT_CTX *THIS) OLDCALL BANKED {
   *d++='\0';
 }
 
+// TODO This is where you left off - Trying to make this menu a bit more dynamic by making use of the fact that skills are stored in the entity data now.
 // void loadHeroMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
 //   struct entity_data *player = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
 //   unsigned char * d = ui_text_data;
