@@ -11257,9 +11257,9 @@
                                 "__collapseCase8": true,
                                 "__collapseCase9": true,
                                 "__collapseCase15": true,
-                                "__collapseCase12": false,
+                                "__collapseCase12": true,
                                 "__collapseCase11": false,
-                                "__collapseCase10": false,
+                                "__collapseCase10": true,
                                 "__collapseCase21": false,
                                 "__collapseCase4": true,
                                 "__collapseCase5": true,
@@ -14081,6 +14081,14 @@
                                                     },
                                                     "children": {
                                                         "true": [
+                                                            {
+                                                                "command": "FF_EVENT_DISPATCH_ACTION",
+                                                                "args": {
+                                                                    "action": 15,
+                                                                    "__collapse": true
+                                                                },
+                                                                "id": "910a85f7-2eb1-41c4-a463-9ac1de52b7d4"
+                                                            },
                                                             {
                                                                 "command": "FF_EVENT_DISPATCH_ACTION",
                                                                 "args": {

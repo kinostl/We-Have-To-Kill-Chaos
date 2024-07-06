@@ -3,8 +3,20 @@ const groups = ["Game Specific"];
 const name = "Define Skills";
 
 const actions = [
-    "FIGHT", "GOBLIN_PUNCH", "HOWL", "THRASH"
-].map((x)=>{
+ "BLANK",
+ "FIGHT",
+ "SHIELD",
+ "OVERSOUL",
+ "FIRE",
+ "ICE",
+ "HARM",
+ "HEAL",
+ "GOBLIN_PUNCH",
+ "HOWL",
+ "THRASH"
+]
+
+const action_labels = actions.map((x)=>{
     return x.split("_")
         .map((y) => {
             const cap = y.substring(0, 1).toUpperCase()
@@ -24,8 +36,8 @@ const fields = [
         return [
             {
 
-                key: `__collapseCase${i}`,
-                label: `${x}`,
+                key: `__collapseCase${x}`,
+                label: `${action_labels[i]}`,
                 type: "collapsable",
                 defaultValue: true,
             },
@@ -33,7 +45,7 @@ const fields = [
                 key: `true${i}`,
                 conditions: [
                     {
-                        key: `__collapseCase${i}`,
+                        key: `__collapseCase${x}`,
                         ne: true,
                     },
                 ],

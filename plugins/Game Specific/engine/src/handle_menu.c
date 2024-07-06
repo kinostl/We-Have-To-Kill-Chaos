@@ -4,7 +4,6 @@
 #include <asm/types.h>
 #include <data/game_globals.h>
 #include <gb/gb.h>
-#include <stdlib.h>
 #include <string.h>
 #include <ui.h>
 #include <vm.h>
@@ -73,7 +72,7 @@ void load_skill_name(BYTE skill_id, char *d) OLDCALL BANKED {
   case SHIELD:
     strcpy(d, "Shield");
     break;
-    case OVERSOUL:
+  case OVERSOUL:
     strcpy(d, "OvrSol");
     break;
   case GOBLIN_PUNCH:
@@ -84,6 +83,18 @@ void load_skill_name(BYTE skill_id, char *d) OLDCALL BANKED {
     break;
   case THRASH:
     strcpy(d, "Thrash");
+    break;
+  case FIRE:
+    strcpy(d, "Fire");
+    break;
+  case ICE:
+    strcpy(d, "Ice");
+    break;
+  case HARM:
+    strcpy(d, "Harm");
+    break;
+  case HEAL:
+    strcpy(d, "Heal");
     break;
   default:
   case BLANK:
@@ -115,13 +126,10 @@ BYTE load_menu_item(BYTE skill_id, unsigned char *d) OLDCALL BANKED {
   return str_len;
 }
 
-// TODO This is where you left off - Trying to make this menu a bit more dynamic
-// by making use of the fact that skills are stored in the entity data now.
 void loadHeroMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
   struct entity_data *player = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
   unsigned char *d = ui_text_data;
-  //_string(`\\001\\1\\003\\2\\6${str}`)
   *d++ = 0x01;
   *d++ = 1;
   *d++ = 0x03;
@@ -134,7 +142,7 @@ void loadHeroMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
     *d++ = '\n';
   }
   const char r_menu[25] = "Item >\nMagic>\nBlock-\nRun";
-  for (int i = 0; i < 24; i++) {
+  for (int i = 0; i < strlen(r_menu); i++) {
     *d++ = r_menu[i];
   }
   *d++='\0';

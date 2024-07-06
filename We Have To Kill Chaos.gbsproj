@@ -11253,21 +11253,21 @@
                             "args": {
                                 "variable": "0",
                                 "__collapseCase1": true,
-                                "__collapseCase14": true,
-                                "__collapseCase8": true,
+                                "__collapseCase14": false,
+                                "__collapseCase8": false,
                                 "__collapseCase9": true,
                                 "__collapseCase15": true,
                                 "__collapseCase12": true,
-                                "__collapseCase11": false,
+                                "__collapseCase11": true,
                                 "__collapseCase10": true,
-                                "__collapseCase21": false,
+                                "__collapseCase21": true,
                                 "__collapseCase4": true,
                                 "__collapseCase5": true,
                                 "__collapseCase7": true,
                                 "__collapseCase6": true,
                                 "__collapseCase3": true,
                                 "__collapseCase2": true,
-                                "__collapseCase18": true,
+                                "__collapseCase18": false,
                                 "__collapseCase17": true,
                                 "__collapseCase20": true,
                                 "__collapseCase13": true,
@@ -11281,300 +11281,37 @@
                             "children": {
                                 "true1": [
                                     {
+                                        "command": "EVENT_SET_VALUE",
+                                        "args": {
+                                            "variable": "56",
+                                            "value": {
+                                                "type": "variable",
+                                                "value": "46"
+                                            },
+                                            "__collapse": true
+                                        },
+                                        "id": "23fb366d-4218-4614-8bb1-68b930733a15"
+                                    },
+                                    {
                                         "command": "EVENT_IF",
                                         "args": {
                                             "condition": {
-                                                "type": "lt",
+                                                "type": "gt",
                                                 "valueA": {
                                                     "type": "variable",
-                                                    "value": "46"
+                                                    "value": "56"
                                                 },
                                                 "valueB": {
                                                     "type": "number",
-                                                    "value": 4
+                                                    "value": 3
                                                 }
                                             },
                                             "__collapseElse": false,
-                                            "__collapse": false
+                                            "__collapse": false,
+                                            "__disableElse": false
                                         },
                                         "children": {
                                             "true": [
-                                                {
-                                                    "command": "EVENT_SWITCH",
-                                                    "args": {
-                                                        "variable": "46",
-                                                        "choices": 4,
-                                                        "__collapseCase0": false,
-                                                        "value0": 0,
-                                                        "__collapseCase1": false,
-                                                        "value1": 1,
-                                                        "__collapseCase2": false,
-                                                        "value2": 2,
-                                                        "__collapseCase3": false,
-                                                        "value3": 3,
-                                                        "__collapseCase4": false,
-                                                        "value4": 5,
-                                                        "__collapseCase5": false,
-                                                        "value5": 6,
-                                                        "__collapseCase6": false,
-                                                        "value6": 7,
-                                                        "__collapseCase7": false,
-                                                        "value7": 8,
-                                                        "__collapseCase8": false,
-                                                        "value8": 9,
-                                                        "__collapseCase9": false,
-                                                        "value9": 10,
-                                                        "__collapseCase10": false,
-                                                        "value10": 11,
-                                                        "__collapseCase11": false,
-                                                        "value11": 12,
-                                                        "__collapseCase12": false,
-                                                        "value12": 13,
-                                                        "__collapseCase13": false,
-                                                        "value13": 14,
-                                                        "__collapseCase14": false,
-                                                        "value14": 15,
-                                                        "__collapseCase15": false,
-                                                        "value15": 16,
-                                                        "__collapseElse": false,
-                                                        "__collapse": true,
-                                                        "__comment": true
-                                                    },
-                                                    "children": {
-                                                        "true0": [
-                                                            {
-                                                                "command": "EVENT_PALETTE_SET_SPRITE",
-                                                                "args": {
-                                                                    "palette0": "keep",
-                                                                    "palette1": "keep",
-                                                                    "palette2": "keep",
-                                                                    "palette3": "keep",
-                                                                    "palette4": "keep",
-                                                                    "palette5": "",
-                                                                    "palette6": "keep",
-                                                                    "palette7": "keep",
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "d08bd16a-1c76-44bb-9d81-0ec9def4067f"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_CALL_CUSTOM_EVENT",
-                                                                "args": {
-                                                                    "customEventId": "c2c40df3-9781-4502-8c4d-5d2d619b1bf0",
-                                                                    "$variable[V0]$": {
-                                                                        "type": "number",
-                                                                        "value": 10
-                                                                    },
-                                                                    "$variable[V1]$": {
-                                                                        "type": "number",
-                                                                        "value": 10
-                                                                    },
-                                                                    "$variable[V2]$": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "$variable[V3]$": {
-                                                                        "type": "number",
-                                                                        "value": 1
-                                                                    },
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "75ef52b9-a649-4877-bacf-e47a580268e1"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_DEC_VALUE",
-                                                                "args": {
-                                                                    "variable": "63",
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "6710a98f-0b47-4a6b-b437-73a6fbc706a9"
-                                                            }
-                                                        ],
-                                                        "true1": [
-                                                            {
-                                                                "command": "EVENT_PALETTE_SET_SPRITE",
-                                                                "args": {
-                                                                    "palette0": "keep",
-                                                                    "palette1": "keep",
-                                                                    "palette2": "keep",
-                                                                    "palette3": "keep",
-                                                                    "palette4": "keep",
-                                                                    "palette5": "8ef6f849-9c64-4ff6-8203-e20675c23127",
-                                                                    "palette6": "keep",
-                                                                    "palette7": "keep",
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "599ac5d0-3c5c-4bdd-a790-c164947ea64c"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_CALL_CUSTOM_EVENT",
-                                                                "args": {
-                                                                    "customEventId": "c2c40df3-9781-4502-8c4d-5d2d619b1bf0",
-                                                                    "$variable[V0]$": {
-                                                                        "type": "number",
-                                                                        "value": 10
-                                                                    },
-                                                                    "$variable[V1]$": {
-                                                                        "type": "number",
-                                                                        "value": 10
-                                                                    },
-                                                                    "$variable[V2]$": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "$variable[V3]$": {
-                                                                        "type": "number",
-                                                                        "value": 1
-                                                                    },
-                                                                    "__collapse": false
-                                                                },
-                                                                "id": "904fa2da-abc2-43e2-b12d-0c7485dce88c"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_DEC_VALUE",
-                                                                "args": {
-                                                                    "variable": "71",
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "cb419963-2942-46a0-b6ad-0effded34ec1"
-                                                            }
-                                                        ],
-                                                        "true2": [
-                                                            {
-                                                                "command": "EVENT_PALETTE_SET_SPRITE",
-                                                                "args": {
-                                                                    "palette0": "keep",
-                                                                    "palette1": "keep",
-                                                                    "palette2": "keep",
-                                                                    "palette3": "keep",
-                                                                    "palette4": "keep",
-                                                                    "palette5": "default-bg-5",
-                                                                    "palette6": "keep",
-                                                                    "palette7": "keep",
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "47dde75c-4050-4e78-b05d-f828fd69b734"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_CALL_CUSTOM_EVENT",
-                                                                "args": {
-                                                                    "customEventId": "c2c40df3-9781-4502-8c4d-5d2d619b1bf0",
-                                                                    "$variable[V0]$": {
-                                                                        "type": "number",
-                                                                        "value": 10
-                                                                    },
-                                                                    "$variable[V1]$": {
-                                                                        "type": "number",
-                                                                        "value": 10
-                                                                    },
-                                                                    "$variable[V2]$": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "$variable[V3]$": {
-                                                                        "type": "number",
-                                                                        "value": 1
-                                                                    },
-                                                                    "__collapse": false
-                                                                },
-                                                                "id": "51918bc5-93a0-4b72-bbd8-60f8565377cd"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_DEC_VALUE",
-                                                                "args": {
-                                                                    "variable": "83",
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "fbecbba0-f10f-4c69-a504-573a4572c4b1"
-                                                            }
-                                                        ],
-                                                        "true3": [
-                                                            {
-                                                                "command": "EVENT_PALETTE_SET_SPRITE",
-                                                                "args": {
-                                                                    "palette0": "keep",
-                                                                    "palette1": "keep",
-                                                                    "palette2": "keep",
-                                                                    "palette3": "keep",
-                                                                    "palette4": "keep",
-                                                                    "palette5": "default-bg-4",
-                                                                    "palette6": "keep",
-                                                                    "palette7": "keep",
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "51c62fc2-b267-4db8-8d6b-f4c3c0edc992"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_CALL_CUSTOM_EVENT",
-                                                                "args": {
-                                                                    "customEventId": "c2c40df3-9781-4502-8c4d-5d2d619b1bf0",
-                                                                    "$variable[V0]$": {
-                                                                        "type": "number",
-                                                                        "value": 10
-                                                                    },
-                                                                    "$variable[V1]$": {
-                                                                        "type": "number",
-                                                                        "value": 10
-                                                                    },
-                                                                    "$variable[V2]$": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "$variable[V3]$": {
-                                                                        "type": "number",
-                                                                        "value": 1
-                                                                    },
-                                                                    "__collapse": false
-                                                                },
-                                                                "id": "9c080206-5d69-4812-866a-b038810a2eaa"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_DEC_VALUE",
-                                                                "args": {
-                                                                    "variable": "85",
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "f7d43aba-379f-4150-a352-9575fd171f8a"
-                                                            }
-                                                        ],
-                                                        "true4": [],
-                                                        "true5": [],
-                                                        "true6": [],
-                                                        "true7": [],
-                                                        "true8": [],
-                                                        "true9": [],
-                                                        "true10": [],
-                                                        "true11": [],
-                                                        "true12": [],
-                                                        "true13": [],
-                                                        "true14": [],
-                                                        "true15": [],
-                                                        "false": [
-                                                            {
-                                                                "command": "EVENT_TEXT",
-                                                                "args": {
-                                                                    "text": [
-                                                                        "**Player Fight**\nActor Not Found\n#$46$"
-                                                                    ],
-                                                                    "avatarId": ""
-                                                                },
-                                                                "id": "6ae7598a-5201-4999-b4e0-41dcc31433ae"
-                                                            }
-                                                        ]
-                                                    },
-                                                    "id": "40ea3599-6ea7-4254-9932-4b3209dd5f34"
-                                                },
-                                                {
-                                                    "command": "FF_EVENT_DISPATCH_ACTION",
-                                                    "args": {
-                                                        "action": 9,
-                                                        "__collapse": true,
-                                                        "__comment": false
-                                                    },
-                                                    "id": "9d06ca9e-5707-493f-bae7-4d0e7b61dd3a"
-                                                }
-                                            ],
-                                            "false": [
                                                 {
                                                     "command": "FF_EVENT_DISPATCH_ACTION",
                                                     "args": {
@@ -11584,154 +11321,191 @@
                                                     "id": "1982eaa5-0e47-4dfb-9eeb-4ebb7a87f2b4"
                                                 },
                                                 {
-                                                    "command": "FF_EVENT_CHOOSE_SKILL",
+                                                    "command": "MY_EVENT_CALL_NATIVE",
                                                     "args": {
+                                                        "argCount": 0,
+                                                        "arg0": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg1": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg2": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg3": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg4": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg5": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg6": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg7": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "funName": "handleSetEnemyTarget",
                                                         "__collapse": false
                                                     },
-                                                    "id": "e61d5082-8e9b-44c1-b05b-d0e5526138af"
+                                                    "id": "21c6bc2e-be7e-43df-be1b-5f460dd944fc"
                                                 },
                                                 {
-                                                    "command": "FF_EVENT_DEFINE_SKILLS",
+                                                    "command": "FF_EVENT_CHOOSE_SKILL",
                                                     "args": {
-                                                        "variable": "77",
-                                                        "__collapseCase0": false,
-                                                        "__collapseCase1": false,
-                                                        "__collapseCase2": false,
-                                                        "__collapseCase3": false,
-                                                        "__collapseCaseGetNextAction": true,
-                                                        "__collapse": false
+                                                        "__collapse": true
                                                     },
-                                                    "children": {
-                                                        "true0": [
-                                                            {
-                                                                "command": "EVENT_SET_VALUE",
-                                                                "args": {
-                                                                    "variable": "56",
-                                                                    "value": {
-                                                                        "type": "variable",
-                                                                        "value": "46"
-                                                                    },
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "23fb366d-4218-4614-8bb1-68b930733a15"
+                                                    "id": "e61d5082-8e9b-44c1-b05b-d0e5526138af"
+                                                }
+                                            ],
+                                            "false": [
+                                                {
+                                                    "command": "EVENT_SET_VALUE",
+                                                    "args": {
+                                                        "variable": "57",
+                                                        "value": {
+                                                            "type": "add",
+                                                            "valueA": {
+                                                                "type": "variable",
+                                                                "value": "69"
                                                             },
-                                                            {
-                                                                "command": "EVENT_SET_VALUE",
-                                                                "args": {
-                                                                    "variable": "57",
-                                                                    "value": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "128ba216-9653-4c17-8ec6-425237e26e04"
-                                                            },
-                                                            {
-                                                                "command": "FF_EVENT_DISPATCH_ACTION",
-                                                                "args": {
-                                                                    "action": 9,
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "77f7a981-7c4e-4829-bb45-5437c92d3372"
+                                                            "valueB": {
+                                                                "type": "number",
+                                                                "value": 3
                                                             }
-                                                        ],
-                                                        "true1": [
-                                                            {
-                                                                "command": "MY_EVENT_CALL_NATIVE",
-                                                                "args": {
-                                                                    "argCount": 0,
-                                                                    "arg0": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "arg1": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "arg2": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "arg3": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "arg4": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "arg5": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "arg6": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "arg7": {
-                                                                        "type": "number",
-                                                                        "value": 0
-                                                                    },
-                                                                    "funName": "goblinPunch",
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "9d6f9b27-e709-4b42-b265-8815eb43a0c0"
-                                                            },
-                                                            {
-                                                                "command": "FF_EVENT_DISPATCH_ACTION",
-                                                                "args": {
-                                                                    "action": 9,
-                                                                    "__collapse": true
-                                                                },
-                                                                "id": "e4e03838-d389-4354-aa3b-16ad06713c49"
-                                                            }
-                                                        ],
-                                                        "true2": [
-                                                            {
-                                                                "command": "EVENT_TEXT",
-                                                                "args": {
-                                                                    "text": [
-                                                                        "howl"
-                                                                    ],
-                                                                    "avatarId": ""
-                                                                },
-                                                                "id": "3cab9048-b228-466f-a46b-5f3d0f1a210b"
-                                                            },
-                                                            {
-                                                                "command": "FF_EVENT_DISPATCH_ACTION",
-                                                                "args": {
-                                                                    "action": 14
-                                                                },
-                                                                "id": "7ff25e92-8b8a-456b-bfbf-414a01efa356"
-                                                            }
-                                                        ],
-                                                        "true3": [
-                                                            {
-                                                                "command": "EVENT_TEXT",
-                                                                "args": {
-                                                                    "text": [
-                                                                        "thrash"
-                                                                    ],
-                                                                    "avatarId": ""
-                                                                },
-                                                                "id": "b8a3131f-2a34-49b0-8dfe-9283d0dafaaa"
-                                                            },
-                                                            {
-                                                                "command": "FF_EVENT_DISPATCH_ACTION",
-                                                                "args": {
-                                                                    "action": 14
-                                                                },
-                                                                "id": "8a64a93d-b894-4664-b39f-fef22603143d"
-                                                            }
-                                                        ],
-                                                        "trueGetNextAction": []
+                                                        }
                                                     },
-                                                    "id": "73166de4-b6db-40a0-9b17-cc88ed63f5e2"
+                                                    "id": "23c42eb4-416b-4330-b045-80b43bc4a218"
                                                 }
                                             ]
                                         },
                                         "id": "199eb99d-40b2-43b0-913a-cc3bce7ad83f"
+                                    },
+                                    {
+                                        "command": "FF_EVENT_DEFINE_SKILLS",
+                                        "args": {
+                                            "variable": "77",
+                                            "__collapseCase0": false,
+                                            "__collapseCase1": false,
+                                            "__collapseCase2": false,
+                                            "__collapseCase3": false,
+                                            "__collapseCaseGetNextAction": true,
+                                            "__collapse": false
+                                        },
+                                        "children": {
+                                            "true0": [
+                                                {
+                                                    "command": "FF_EVENT_DISPATCH_ACTION",
+                                                    "args": {
+                                                        "action": 9,
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "77f7a981-7c4e-4829-bb45-5437c92d3372"
+                                                }
+                                            ],
+                                            "true1": [
+                                                {
+                                                    "command": "MY_EVENT_CALL_NATIVE",
+                                                    "args": {
+                                                        "argCount": 0,
+                                                        "arg0": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg1": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg2": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg3": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg4": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg5": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg6": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg7": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "funName": "goblinPunch",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "9d6f9b27-e709-4b42-b265-8815eb43a0c0"
+                                                },
+                                                {
+                                                    "command": "FF_EVENT_DISPATCH_ACTION",
+                                                    "args": {
+                                                        "action": 9,
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "e4e03838-d389-4354-aa3b-16ad06713c49"
+                                                }
+                                            ],
+                                            "true2": [
+                                                {
+                                                    "command": "EVENT_TEXT",
+                                                    "args": {
+                                                        "text": [
+                                                            "howl"
+                                                        ],
+                                                        "avatarId": ""
+                                                    },
+                                                    "id": "3cab9048-b228-466f-a46b-5f3d0f1a210b"
+                                                },
+                                                {
+                                                    "command": "FF_EVENT_DISPATCH_ACTION",
+                                                    "args": {
+                                                        "action": 14
+                                                    },
+                                                    "id": "7ff25e92-8b8a-456b-bfbf-414a01efa356"
+                                                }
+                                            ],
+                                            "true3": [
+                                                {
+                                                    "command": "EVENT_TEXT",
+                                                    "args": {
+                                                        "text": [
+                                                            "thrash"
+                                                        ],
+                                                        "avatarId": ""
+                                                    },
+                                                    "id": "b8a3131f-2a34-49b0-8dfe-9283d0dafaaa"
+                                                },
+                                                {
+                                                    "command": "FF_EVENT_DISPATCH_ACTION",
+                                                    "args": {
+                                                        "action": 14
+                                                    },
+                                                    "id": "8a64a93d-b894-4664-b39f-fef22603143d"
+                                                }
+                                            ],
+                                            "trueGetNextAction": []
+                                        },
+                                        "id": "73166de4-b6db-40a0-9b17-cc88ed63f5e2"
                                     }
                                 ],
                                 "true14": [
@@ -12100,7 +11874,8 @@
                                                         "__collapseCase15": false,
                                                         "value15": 16,
                                                         "__collapseElse": false,
-                                                        "__collapse": true
+                                                        "__collapse": false,
+                                                        "__comment": true
                                                     },
                                                     "children": {
                                                         "true0": [
@@ -12158,6 +11933,18 @@
                                                         "false": []
                                                     },
                                                     "id": "59930c5a-cb92-4990-813f-774554ac46ad"
+                                                },
+                                                {
+                                                    "command": "EVENT_CALL_CUSTOM_EVENT",
+                                                    "args": {
+                                                        "customEventId": "18c95038-7066-4edd-991d-856988fa0379",
+                                                        "$variable[V0]$": {
+                                                            "type": "variable",
+                                                            "value": "47"
+                                                        },
+                                                        "$actor[0]$": "9c19db58-2e7a-44d7-861f-c4544041ec00"
+                                                    },
+                                                    "id": "68a46514-15ac-4714-a223-8d1c0b4b5ada"
                                                 },
                                                 {
                                                     "command": "FF_EVENT_DISPATCH_ACTION",
@@ -14166,6 +13953,14 @@
                                                 {
                                                     "command": "FF_EVENT_DISPATCH_ACTION",
                                                     "args": {
+                                                        "action": 15,
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "481c97e6-ad88-4b07-bc40-7808a939667e"
+                                                },
+                                                {
+                                                    "command": "FF_EVENT_DISPATCH_ACTION",
+                                                    "args": {
                                                         "action": 14
                                                     },
                                                     "id": "26c72b77-c0db-4b1d-9df3-065643f976ef"
@@ -14292,31 +14087,36 @@
                                                                     "__collapseCase1": false,
                                                                     "__collapseCase2": false,
                                                                     "__collapseCase3": false,
-                                                                    "__collapse": true
+                                                                    "__collapse": false
                                                                 },
                                                                 "children": {
                                                                     "true0": [],
-                                                                    "true1": [
+                                                                    "true1": [],
+                                                                    "true2": [],
+                                                                    "true3": [],
+                                                                    "true8": [
                                                                         {
                                                                             "command": "FF_EVENT_BATTLE_TEXT",
                                                                             "args": {
                                                                                 "text": "Attacker Used\nGoblin Punch!",
-                                                                                "avatarId": ""
+                                                                                "avatarId": "",
+                                                                                "__collapse": false
                                                                             },
                                                                             "id": "9f00a69d-45b9-4061-8e92-61e98600fe99"
                                                                         }
                                                                     ],
-                                                                    "true2": [
+                                                                    "true5": [
                                                                         {
                                                                             "command": "FF_EVENT_BATTLE_TEXT",
                                                                             "args": {
                                                                                 "text": "Used Howl!",
-                                                                                "avatarId": ""
+                                                                                "avatarId": "",
+                                                                                "__collapse": false
                                                                             },
                                                                             "id": "624c8d90-ef7d-4057-9ffc-ede63fa764fa"
                                                                         }
                                                                     ],
-                                                                    "true3": [
+                                                                    "true10": [
                                                                         {
                                                                             "command": "FF_EVENT_BATTLE_TEXT",
                                                                             "args": {
@@ -14325,7 +14125,9 @@
                                                                             },
                                                                             "id": "e4e99821-b02a-4a2a-8a4c-3cdc7f7ced8c"
                                                                         }
-                                                                    ]
+                                                                    ],
+                                                                    "true9": [],
+                                                                    "true7": []
                                                                 },
                                                                 "id": "2b4778a4-d115-4452-9f5d-d0ad98b2ab87"
                                                             }
@@ -35376,6 +35178,124 @@
                     "id": "0ca16164-ffba-4c6b-8056-ba900c01dc04"
                 }
             ]
+        },
+        {
+            "id": "18c95038-7066-4edd-991d-856988fa0379",
+            "name": "Change Actor Sprite Sheet",
+            "description": "",
+            "variables": {
+                "V0": {
+                    "id": "V0",
+                    "name": "Sheet ID",
+                    "passByReference": true
+                }
+            },
+            "actors": {
+                "0": {
+                    "id": "0",
+                    "name": "Actor to Change"
+                }
+            },
+            "symbol": "script_6",
+            "script": [
+                {
+                    "command": "EVENT_SWITCH",
+                    "args": {
+                        "variable": "V0",
+                        "choices": 7,
+                        "__collapseCase0": false,
+                        "value0": 1,
+                        "__collapseCase1": false,
+                        "value1": 2,
+                        "__collapseCase2": false,
+                        "value2": 3,
+                        "__collapseCase3": false,
+                        "value3": 4,
+                        "__collapseCase4": false,
+                        "value4": 5,
+                        "__collapseCase5": false,
+                        "value5": 6,
+                        "__collapseCase6": false,
+                        "value6": 7,
+                        "__collapseCase7": false,
+                        "value7": 8,
+                        "__collapseCase8": false,
+                        "value8": 9,
+                        "__collapseCase9": false,
+                        "value9": 10,
+                        "__collapseCase10": false,
+                        "value10": 11,
+                        "__collapseCase11": false,
+                        "value11": 12,
+                        "__collapseCase12": false,
+                        "value12": 13,
+                        "__collapseCase13": false,
+                        "value13": 14,
+                        "__collapseCase14": false,
+                        "value14": 15,
+                        "__collapseCase15": false,
+                        "value15": 16,
+                        "__collapseElse": false,
+                        "__collapse": false
+                    },
+                    "children": {
+                        "true0": [
+                            {
+                                "command": "EVENT_ACTOR_SET_SPRITE",
+                                "args": {
+                                    "actorId": "0",
+                                    "spriteSheetId": "75e5bb7d-28eb-4b45-b835-8f4931adab2b"
+                                },
+                                "id": "29c52e98-2181-4e41-a06f-ab823c46353d"
+                            }
+                        ],
+                        "true1": [
+                            {
+                                "command": "EVENT_ACTOR_SET_SPRITE",
+                                "args": {
+                                    "actorId": "0",
+                                    "spriteSheetId": "b3f370ad-6f8d-4cdb-8159-eba9c51c18a7"
+                                },
+                                "id": "7203f2bf-d697-4730-92a3-2d3205f241e4"
+                            }
+                        ],
+                        "true2": [
+                            {
+                                "command": "EVENT_ACTOR_SET_SPRITE",
+                                "args": {
+                                    "actorId": "0",
+                                    "spriteSheetId": "e2e51ea5-c880-461c-852b-02f3172779c2"
+                                },
+                                "id": "e9bd0593-5efd-4983-86f3-a735af8f3728"
+                            }
+                        ],
+                        "true3": [
+                            {
+                                "command": "EVENT_ACTOR_SET_SPRITE",
+                                "args": {
+                                    "actorId": "0",
+                                    "spriteSheetId": "9b3b9f83-c75e-47a9-b32a-0023d1419039"
+                                },
+                                "id": "7879c0c0-cada-4aba-932c-c2110d2f544a"
+                            }
+                        ],
+                        "true4": [],
+                        "true5": [],
+                        "true6": [],
+                        "true7": [],
+                        "true8": [],
+                        "true9": [],
+                        "true10": [],
+                        "true11": [],
+                        "true12": [],
+                        "true13": [],
+                        "true14": [],
+                        "true15": [],
+                        "false": []
+                    },
+                    "id": "1363d092-bd9f-40fb-855a-b56a67e1ff02"
+                }
+            ]
         }
     ],
     "music": [
@@ -36670,8 +36590,8 @@
         "showConnections": true,
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 1760,
-        "worldScrollY": 158,
+        "worldScrollX": 2161,
+        "worldScrollY": 0,
         "zoom": 222.5,
         "sgbEnabled": false,
         "customHead": "",

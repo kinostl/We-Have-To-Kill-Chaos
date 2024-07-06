@@ -33,6 +33,26 @@ probably fine.
 After testing, this is a 1/4 chance of getting a big guy in a fight and they
 tend to be dangerous encounters. Not sure if good or bad.
 */
+void handleSetEnemyTarget(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  THIS;
+  BYTE enemy_roll = rand() % 8;
+  UWORD *target = &VM_GLOBAL(VAR_DEFENDER_ID);
+  switch (enemy_roll) {
+  default:
+    *target = 0;
+    break;
+  case 4:
+  case 5:
+    *target = 1;
+    break;
+  case 6:
+    *target = 2;
+    break;
+  case 7:
+    *target = 3;
+    break;
+  }
+}
 
 BYTE get_small_enemy_idx(void) OLDCALL BANKED {
   BYTE enemy_roll = rand() % 6;
@@ -114,7 +134,9 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[1].ap = 0;
   strcpy(turn_slots[1].name, "TWOFER");
   turn_slots[1].skills[0] = FIGHT;
+  turn_slots[1].skill_costs[0] = 1;
   turn_slots[1].skills[1] = GOBLIN_PUNCH;
+  turn_slots[1].skill_costs[1] = 1;
   //
   turn_slots[2].max_hp = 35;
   turn_slots[2].hp = 35;
@@ -124,7 +146,10 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[2].alive = TRUE;
   turn_slots[2].ap = 0;
   strcpy(turn_slots[2].name, "THREEF");
-  turn_slots[2].skills[0] = FIGHT;
+  turn_slots[2].skills[0] = FIRE;
+  turn_slots[2].skill_costs[0] = 1;
+  turn_slots[2].skills[1] = ICE;
+  turn_slots[2].skill_costs[1] = 1;
   //
   turn_slots[3].max_hp = 35;
   turn_slots[3].hp = 35;
@@ -134,7 +159,10 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[3].alive = TRUE;
   turn_slots[3].ap = 0;
   strcpy(turn_slots[3].name, "FOURNA");
-  turn_slots[3].skills[0] = FIGHT;
+  turn_slots[3].skills[0] = HARM;
+  turn_slots[3].skill_costs[0] = 1;
+  turn_slots[3].skills[1] = HEAL;
+  turn_slots[3].skill_costs[1] = 1;
 }
 
 void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
