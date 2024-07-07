@@ -115,3 +115,17 @@
 - [ ] Wandering Minstrel has an EX Version of Garland that has skills based on Disidia Garland
 - [ ] Level up to 5? If its just gonna be stats then I guess I don't need to actually cap it.
 - [ ] Schools for changing Abilities?
+
+# Character Screen
+
+- [ ] Equipment Information
+- [ ] Character Information
+
+# Inventory Screen
+
+Note: It could be fun if this is like Gen 3 or 2 Pokemon Inventory. List of items on the left. Picture? + Description + Effect on the right? Full Screen and interesting.
+
+- [ ] Item list
+- [ ] Item Information
+- [ ] Equip from Inventory
+- [ ] Use Item From Inventory

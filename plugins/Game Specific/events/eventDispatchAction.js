@@ -1,6 +1,7 @@
 const id = "FF_EVENT_DISPATCH_ACTION";
 const groups = ["Game Specific"];
 const name = "Dispatch Action";
+
 const actions = [
     "ANIMATE/Explosions",
     "ATTACKER/Fight",
@@ -14,17 +15,20 @@ const actions = [
     "DEFENDER/Take Damage",
     "PICK/Enable Player",
     "PICK/Choice Made",
-    "MENU/Open Panel",
+    "PANEL/Display Menu",
     "SCENE/Fade In",
     "ATTACKER/Start Next Turn",
-    "MENU/Close Panel",
+    "PANEL/Close Panel",
     "TURN/Build Initiative",
     "REPORT/Prepare",
     "REPORT/Attack Results",
     "TURN/Roll Initiative",
     "REPORT/Reject Menu Choice",
     "PICK/Handle Choice",
-    "TURN/Sort Initiative"
+    "TURN/Sort Initiative",
+    "PANEL/Display Party",
+    "PANEL/Open Panel",
+    "ANIMATE/Player Actor"
 ];
 
 const autoLabel = (fetchArg, input) => `Dispatch: ${actions[input["action"]]}`
@@ -37,7 +41,7 @@ const fields = (
       key: "action",
       type: "select",
       defaultValue: 0,
-      options: actions.map((x, i)=>[i, x]).sort((a,b)=>collator.compare(a[1],b[1]))
+      options: actions.map((x, i)=>[i, `${x} (${i})`]).sort((a,b)=>collator.compare(a[1],b[1]))
     }
   ]
 );

@@ -10939,8 +10939,8 @@
                     "hit2Script": [],
                     "hit3Script": [],
                     "id": "9c19db58-2e7a-44d7-861f-c4544041ec00",
-                    "x": 14,
-                    "y": 4
+                    "x": 28,
+                    "y": 6
                 },
                 {
                     "name": "Weapon",
@@ -11253,11 +11253,11 @@
                             "args": {
                                 "variable": "0",
                                 "__collapseCase1": true,
-                                "__collapseCase14": false,
-                                "__collapseCase8": false,
+                                "__collapseCase14": true,
+                                "__collapseCase8": true,
                                 "__collapseCase9": true,
                                 "__collapseCase15": true,
-                                "__collapseCase12": true,
+                                "__collapseCase12": false,
                                 "__collapseCase11": true,
                                 "__collapseCase10": true,
                                 "__collapseCase21": true,
@@ -11267,7 +11267,7 @@
                                 "__collapseCase6": true,
                                 "__collapseCase3": true,
                                 "__collapseCase2": true,
-                                "__collapseCase18": false,
+                                "__collapseCase18": true,
                                 "__collapseCase17": true,
                                 "__collapseCase20": true,
                                 "__collapseCase13": true,
@@ -12883,7 +12883,8 @@
                                             },
                                             "__collapseElse": false,
                                             "__collapse": false,
-                                            "__disableElse": true
+                                            "__disableElse": true,
+                                            "__comment": true
                                         },
                                         "children": {
                                             "true": [
@@ -13131,6 +13132,76 @@
                                             "false": []
                                         },
                                         "id": "10f74cfb-36fd-48e6-8e4a-487ebd773d93"
+                                    },
+                                    {
+                                        "command": "FO_EVENT_SUBMAP1",
+                                        "args": {
+                                            "keyX": 0,
+                                            "keyY": 0,
+                                            "keyW": 8,
+                                            "keyH": 18,
+                                            "keySX": 24,
+                                            "keySY": 0,
+                                            "__collapse": false,
+                                            "__comment": false
+                                        },
+                                        "id": "334d6785-b99e-47fd-9f42-729d729f3e75"
+                                    },
+                                    {
+                                        "command": "MY_EVENT_CALL_NATIVE",
+                                        "args": {
+                                            "argCount": 0,
+                                            "arg0": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg1": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg2": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg3": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg4": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg5": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg6": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg7": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "funName": "loadPartyMenu"
+                                        },
+                                        "id": "4f2b2f62-c1bd-4aad-b418-6d18ce46870b"
+                                    },
+                                    {
+                                        "command": "EVENT_GBVM_SCRIPT",
+                                        "args": {
+                                            "script": "VM_DISPLAY_TEXT"
+                                        },
+                                        "id": "cae762aa-9405-4a1b-9636-2b9161aad24e"
+                                    },
+                                    {
+                                        "command": "EVENT_OVERLAY_MOVE_TO",
+                                        "args": {
+                                            "x": 12,
+                                            "y": 0,
+                                            "speed": "0"
+                                        },
+                                        "id": "7537846e-fbae-46e4-ac10-723db2e57788"
                                     }
                                 ],
                                 "true11": [
@@ -14727,6 +14798,98 @@
                     "id": "5b07b77a-3792-4fae-a9cf-0868e3eaf12c",
                     "x": 0,
                     "y": 1
+                },
+                {
+                    "name": "Hero List 1",
+                    "frame": 0,
+                    "animate": false,
+                    "spriteSheetId": "b3f370ad-6f8d-4cdb-8159-eba9c51c18a7",
+                    "direction": "down",
+                    "moveSpeed": 1,
+                    "animSpeed": 15,
+                    "paletteId": "",
+                    "isPinned": false,
+                    "persistent": false,
+                    "collisionGroup": "",
+                    "symbol": "actor_9",
+                    "script": [],
+                    "startScript": [],
+                    "updateScript": [],
+                    "hit1Script": [],
+                    "hit2Script": [],
+                    "hit3Script": [],
+                    "id": "7dddd02b-ef88-4bba-8807-184322cffbee",
+                    "x": 13,
+                    "y": 8
+                },
+                {
+                    "name": "Hero List 1",
+                    "frame": 0,
+                    "animate": false,
+                    "spriteSheetId": "e2e51ea5-c880-461c-852b-02f3172779c2",
+                    "direction": "down",
+                    "moveSpeed": 1,
+                    "animSpeed": 15,
+                    "paletteId": "",
+                    "isPinned": false,
+                    "persistent": false,
+                    "collisionGroup": "",
+                    "symbol": "actor_11",
+                    "script": [],
+                    "startScript": [],
+                    "updateScript": [],
+                    "hit1Script": [],
+                    "hit2Script": [],
+                    "hit3Script": [],
+                    "id": "325da794-c46f-47bf-9026-e15107611caf",
+                    "x": 13,
+                    "y": 12
+                },
+                {
+                    "name": "Hero List 1",
+                    "frame": 0,
+                    "animate": false,
+                    "spriteSheetId": "9b3b9f83-c75e-47a9-b32a-0023d1419039",
+                    "direction": "down",
+                    "moveSpeed": 1,
+                    "animSpeed": 15,
+                    "paletteId": "",
+                    "isPinned": false,
+                    "persistent": false,
+                    "collisionGroup": "",
+                    "symbol": "actor_12",
+                    "script": [],
+                    "startScript": [],
+                    "updateScript": [],
+                    "hit1Script": [],
+                    "hit2Script": [],
+                    "hit3Script": [],
+                    "id": "6cccadcd-af9a-4421-b505-4ad8e71c9614",
+                    "x": 13,
+                    "y": 16
+                },
+                {
+                    "name": "Hero List 1",
+                    "frame": 0,
+                    "animate": false,
+                    "spriteSheetId": "75e5bb7d-28eb-4b45-b835-8f4931adab2b",
+                    "direction": "down",
+                    "moveSpeed": 1,
+                    "animSpeed": 15,
+                    "paletteId": "",
+                    "isPinned": false,
+                    "persistent": false,
+                    "collisionGroup": "",
+                    "symbol": "actor_8",
+                    "script": [],
+                    "startScript": [],
+                    "updateScript": [],
+                    "hit1Script": [],
+                    "hit2Script": [],
+                    "hit3Script": [],
+                    "id": "ac24926e-3cff-4f95-83fa-0a07d7997779",
+                    "x": 13,
+                    "y": 4
                 }
             ],
             "triggers": [
@@ -35654,6 +35817,11 @@
             "symbol": "var_turn_order_slot_10_e6"
         },
         {
+            "id": "44",
+            "name": "Attacker/HP",
+            "symbol": "var_attacker_hp"
+        },
+        {
             "id": "45",
             "name": "Defender/Max HP",
             "symbol": "var_defender_max_hp"
@@ -36559,11 +36727,6 @@
             "symbol": "var_direction_0"
         },
         {
-            "id": "44",
-            "name": "Attacker/HP",
-            "symbol": "var_attacker_hp"
-        },
-        {
             "id": "36a0cecb-5fcb-44a9-b735-10989bb6cc57__L3",
             "name": "Clone Safe From Monsters",
             "symbol": "var_clone_safe_from_monster"
@@ -36590,8 +36753,8 @@
         "showConnections": true,
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 2161,
-        "worldScrollY": 0,
+        "worldScrollX": 1925,
+        "worldScrollY": 79,
         "zoom": 222.5,
         "sgbEnabled": false,
         "customHead": "",

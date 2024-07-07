@@ -2,7 +2,6 @@ const id = "FF_EVENT_DEFINE_ACTIONS";
 const groups = ["Game Specific"];
 const name = "Define Actions";
 
-const l10n = (x) => `${x}`
 const actions = [
     "ANIMATE/Explosions",
     "ATTACKER/Fight",
@@ -16,17 +15,20 @@ const actions = [
     "DEFENDER/Take Damage",
     "PICK/Enable Player",
     "PICK/Choice Made",
-    "MENU/Open Panel",
+    "PANEL/Display Menu",
     "SCENE/Fade In",
     "ATTACKER/Start Next Turn",
-    "MENU/Close Panel",
+    "PANEL/Close Panel",
     "TURN/Build Initiative",
     "REPORT/Prepare",
     "REPORT/Attack Results",
     "TURN/Roll Initiative",
     "REPORT/Reject Menu Choice",
     "PICK/Handle Choice",
-    "TURN/Sort Initiative"
+    "TURN/Sort Initiative",
+    "PANEL/Display Party",
+    "PANEL/Open Panel",
+    "ANIMATE/Player Actor"
 ];
 
 const collator = new Intl.Collator()

@@ -76,12 +76,6 @@ void loadPartyMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   }
 }
 
-void loadHeroData(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  THIS;
-  struct entity_data *player = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
-  unsigned char *d = ui_text_data;
-  d+=create_hero_data(player, d, 0);
-}
 void load_skill_name(BYTE skill_id, char *d) OLDCALL BANKED {
   switch (skill_id) {
   case FIGHT:
@@ -148,6 +142,8 @@ void loadHeroMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
   struct entity_data *player = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
   unsigned char *d = ui_text_data;
+  d+=create_hero_data(player, d, 0);
+  *d-- = '\n';
   *d++ = 0x01;
   *d++ = 1;
   *d++ = 0x03;
