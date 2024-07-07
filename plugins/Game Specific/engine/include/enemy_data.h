@@ -24,7 +24,8 @@ enum battle_skills {
   HEAL,
   GOBLIN_PUNCH,
   HOWL,
-  THRASH
+  THRASH,
+  RUIN
 };
 
 #endif

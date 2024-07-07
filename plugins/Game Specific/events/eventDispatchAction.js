@@ -28,7 +28,10 @@ const actions = [
     "TURN/Sort Initiative",
     "PANEL/Display Party",
     "PANEL/Open Panel",
-    "ANIMATE/Player Actor"
+    "PANEL/Display Current Actor",
+    "PANEL/Display Party Actors",
+    "PANEL/Hide Current Actor",
+    "PANEL/Hide Party Actors",
 ];
 
 const autoLabel = (fetchArg, input) => `Dispatch: ${actions[input["action"]]}`

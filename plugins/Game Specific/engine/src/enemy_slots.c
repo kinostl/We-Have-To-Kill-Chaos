@@ -115,15 +115,18 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[0].damage = 10;
   turn_slots[0].alive = TRUE;
   turn_slots[0].ap = 0;
-  strcpy(turn_slots[0].name, "RTFIGH");
+  strcpy(turn_slots[0].name, "ONCLER");
   turn_slots[0].skills[0] = FIGHT;
   turn_slots[0].skill_costs[0] = 1;
 
   turn_slots[0].skills[1] = SHIELD;
   turn_slots[0].skill_costs[1] = 1;
 
+  turn_slots[0].skills[2] = RUIN;
+  turn_slots[0].skill_costs[2] = 2;
+
   turn_slots[0].skills[3] = OVERSOUL;
-  turn_slots[0].skill_costs[3] = 6;
+  turn_slots[0].skill_costs[3] = 3;
   //
   turn_slots[1].max_hp = 20;
   turn_slots[1].hp = 20;

@@ -84,6 +84,9 @@ void load_skill_name(BYTE skill_id, char *d) OLDCALL BANKED {
   case SHIELD:
     strcpy(d, "Shield");
     break;
+  case RUIN:
+    strcpy(d, "Ruin");
+    break;
   case OVERSOUL:
     strcpy(d, "OvrSol");
     break;

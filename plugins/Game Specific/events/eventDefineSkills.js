@@ -13,7 +13,8 @@ const actions = [
  "HEAL",
  "GOBLIN_PUNCH",
  "HOWL",
- "THRASH"
+ "THRASH",
+ "RUIN"
 ]
 
 const action_labels = actions.map((x)=>{

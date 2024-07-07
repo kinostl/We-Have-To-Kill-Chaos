@@ -12,13 +12,14 @@
 - [/] Heros Can Attack and use Skills
 - [X] All entities take turns doing actions
 - [/] Heros animate their attacks
-- [ ] Enemies animate their attacks
+- [ ] Enemies animate their attacks // Attack explosions on Party List
 - [/] Hero Weapon displays when attacking
 - [ ] Player can see Heros being attacked
 - [ ] Player can change equipment
 - [ ] Player can have Hero use items
 - [ ] Hero can Block to gain AP and improve Absorb
 - [ ] Player can view Initiative Order
+- [/] Player can view Party List
 - [ ] Player can select enemies
 - [ ] Enemies can have a "Defender" status that prevents the player from selecting other enemies than them
 - [ ] Player can Run from Fight
