@@ -12,8 +12,8 @@ Note: Fighter & Thief learn spells later. They can use them by spending 1 AP.
 ## Thief
 
 - Fight (1)
-- Weak  (1) // Reduces target's Absorb and Evade
-- Steal (2) // Attempts to gain an item from the enemy. Usually a potion.
+- Steal (1) // Attempts to gain an item from the enemy. Usually a potion.
+- Weak  (2) // Reduces target's Absorb and Evade
 - Sneak (3) // Ignores P. Defender Status, Absorb, and Evade
 
 ## Monk
