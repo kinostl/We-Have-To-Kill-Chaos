@@ -125,8 +125,8 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[0].skills[3] = OVERSOUL;
   turn_slots[0].skill_costs[3] = 6;
   //
-  turn_slots[1].max_hp = 35;
-  turn_slots[1].hp = 35;
+  turn_slots[1].max_hp = 20;
+  turn_slots[1].hp = 20;
   turn_slots[1].hit_chance = 10;
   turn_slots[1].crit_chance = 0;
   turn_slots[1].damage = 10;
@@ -138,8 +138,8 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[1].skills[1] = GOBLIN_PUNCH;
   turn_slots[1].skill_costs[1] = 1;
   //
-  turn_slots[2].max_hp = 35;
-  turn_slots[2].hp = 35;
+  turn_slots[2].max_hp = 25;
+  turn_slots[2].hp = 25;
   turn_slots[2].hit_chance = 10;
   turn_slots[2].crit_chance = 0;
   turn_slots[2].damage = 10;
@@ -151,8 +151,8 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[2].skills[1] = ICE;
   turn_slots[2].skill_costs[1] = 1;
   //
-  turn_slots[3].max_hp = 35;
-  turn_slots[3].hp = 35;
+  turn_slots[3].max_hp = 10;
+  turn_slots[3].hp = 10;
   turn_slots[3].hit_chance = 10;
   turn_slots[3].crit_chance = 0;
   turn_slots[3].damage = 10;

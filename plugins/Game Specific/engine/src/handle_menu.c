@@ -18,10 +18,8 @@ inline UBYTE itoa_format(INT16 v, UBYTE *d, UBYTE dlen) {
   return len;
 }
 
-void loadHeroData(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  THIS;
-  struct entity_data *player = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
-  unsigned char *d = ui_text_data;
+BYTE create_hero_data(struct entity_data *player, unsigned char *d, BYTE row) OLDCALL BANKED {
+  unsigned char *f = d;
 
   // Fast Text Speed
   *d++ = 0x01;
@@ -30,15 +28,19 @@ void loadHeroData(SCRIPT_CTX *THIS) OLDCALL BANKED {
   // Set to Name Location
   *d++ = 0x03;
   *d++ = 2;
-  *d++ = 2;
+  *d++ = 2+(row*4);
   // Load Name
   for (int i = 0; i < strlen(player->name); i++) {
     *d++ = player->name[i];
   }
+
+  // Status Effect Area
+
+
   // Set to HP Location
   *d++ = 0x03;
   *d++ = 5;
-  *d++ = 3;
+  *d++ = 4+(row*4);
   // HP Here
   if (player->hp < 100) {
     *d++ = ' ';
@@ -51,18 +53,34 @@ void loadHeroData(SCRIPT_CTX *THIS) OLDCALL BANKED {
   // Set to AP Location
   *d++ = 0x03;
   *d++ = 5;
-  *d++ = 4;
+  *d++ = 5+(row*4);
   // AP Stars here
-  for (int i = 0; i < 7; i++) {
-    if (i == 3) {
-      *d++ = '\n';
-    } else if (i < player->ap) {
+  for (int i = 0; i < 3; i++) {
+    if (i < player->ap) {
       *d++ = '+';
     } else {
       *d++ = '-';
     }
   }
+
   *d++ = '\0';
+  return d - f;
+}
+
+void loadPartyMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  THIS;
+  unsigned char *d = ui_text_data;
+  for (int i = 0; i < 4; i++) {
+    d += create_hero_data(&turn_slots[i], d, i);
+    *d-- = '\n';
+  }
+}
+
+void loadHeroData(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  THIS;
+  struct entity_data *player = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
+  unsigned char *d = ui_text_data;
+  d+=create_hero_data(player, d, 0);
 }
 void load_skill_name(BYTE skill_id, char *d) OLDCALL BANKED {
   switch (skill_id) {
