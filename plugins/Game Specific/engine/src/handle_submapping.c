@@ -1,3 +1,4 @@
+#include <collision.h>
 #include <gb/gb.h>
 #include "handle_submapping.h"
 #include "bankdata.h"

@@ -122,10 +122,10 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[0].skills[1] = SHIELD;
   turn_slots[0].skill_costs[1] = 1;
 
-  turn_slots[0].skills[2] = RUIN;
+  turn_slots[0].skills[2] = RUNE_SWORD;
   turn_slots[0].skill_costs[2] = 2;
 
-  turn_slots[0].skills[3] = OVERSOUL;
+  turn_slots[0].skills[3] = LUSTER;
   turn_slots[0].skill_costs[3] = 3;
   //
   turn_slots[1].max_hp = 20;

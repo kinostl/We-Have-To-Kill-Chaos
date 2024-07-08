@@ -31,7 +31,7 @@ const actions = [
     "PANEL/Display Current Actor",
     "PANEL/Display Party Actors",
     "PANEL/Hide Current Actor",
-    "PANEL/Hide Party Actors",
+    "PANEL/Hide Party Actors"
 ];
 
 const collator = new Intl.Collator()

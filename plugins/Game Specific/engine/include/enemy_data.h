@@ -17,7 +17,7 @@ enum battle_skills {
   BLANK,
   FIGHT,
   SHIELD,
-  OVERSOUL,
+  LUSTER,
   FIRE,
   ICE,
   HARM,
@@ -25,7 +25,7 @@ enum battle_skills {
   GOBLIN_PUNCH,
   HOWL,
   THRASH,
-  RUIN
+  RUNE_SWORD
 };
 
 #endif
