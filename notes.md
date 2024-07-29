@@ -465,3 +465,38 @@ Enemy data
 Enemies have 18 datas?
 Probably part of the engine plugin mentioned above.
 
+# Bosses
+
+## Primary Bosses
+
+Garland
+Pirates
+Piscodemon
+Astos
+Vampire
+Lich (Fiend of Earth)
+Marilith (Fiend of Fire)
+Kraken (Fiend of Water)
+Tiamat, Fiend of Air
+Chaos
+
+## All Bosses
+
+Garland
+Pirates
+Piscodemon
+Astos
+Vampire
+Lich (Fiend of Earth)
+Red Dragon (Not officially a boss)
+Marilith (Fiend of Fire)
+Evil Eye
+Dragon Zombies (Optional)
+Kraken (Fiend of Water)
+Blue Dragon (Not officially a boss)
+Warmech (Optional, Superboss)
+Tiamat, Fiend of Air
+Boss Rush
+Chaos
+
+10 Primary bosses, so 5 levels per boss. Which means demo goes up to Level 5.

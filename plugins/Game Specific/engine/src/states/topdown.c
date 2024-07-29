@@ -7,7 +7,6 @@
 #include "actor.h"
 #include "camera.h"
 #include "collision.h"
-#include "data_manager.h"
 #include "data/game_globals.h"
 #include "game_time.h"
 #include "input.h"
@@ -20,26 +19,22 @@
 #endif
 
 #ifndef SAFE_FROM_MONSTERS
-#define SAFE_FROM_MONSTERS 0x20
+#define SAFE_FROM_MONSTERS 0xF0
 #endif
 
 #ifndef HALF_HIDDEN
-#define HALF_HIDDEN 0x30
+#define HALF_HIDDEN 0xA0
 #endif
 
-#define TILE_AT tile_at(x, y)
-
 UBYTE topdown_grid;
-UWORD * safe_from_monsters = &VM_GLOBAL(VAR_SAFE_FROM_MONSTERS);
-UWORD * half_hidden = &VM_GLOBAL(VAR_HALF_HIDDEN);
 
 void topdown_init(void) BANKED {
     camera_offset_x = 0;
     camera_offset_y = 0;
     camera_deadzone_x = 0;
     camera_deadzone_y = 0;
-    *safe_from_monsters = FALSE;
-    *half_hidden = FALSE;
+    VM_GLOBAL(VAR_SAFE_FROM_MONSTERS) = FALSE;
+    VM_GLOBAL(VAR_HALF_HIDDEN) = FALSE;
 
     if (topdown_grid == 16) {
         // Snap to 16px grid
@@ -51,10 +46,10 @@ void topdown_init(void) BANKED {
     }
 }
 
-void set_flags(UBYTE x, UBYTE y) BANKED {
+void set_player_flags(UBYTE x, UBYTE y) BANKED {
   UBYTE tile = tile_at(x, y);
-  *safe_from_monsters = tile == SAFE_FROM_MONSTERS;
-  *half_hidden = tile == HALF_HIDDEN;
+  VM_GLOBAL(VAR_HALF_HIDDEN) = tile == HALF_HIDDEN;
+  VM_GLOBAL(VAR_SAFE_FROM_MONSTERS) = tile == SAFE_FROM_MONSTERS;
 }
 
 void topdown_update(void) BANKED {
@@ -85,7 +80,7 @@ void topdown_update(void) BANKED {
             tile_end   = (((PLAYER.pos.y >> 4) + PLAYER.bounds.bottom) >> 3) + 1;
             UBYTE tile_x = ((PLAYER.pos.x >> 4) + PLAYER.bounds.left) >> 3;
             while (tile_start != tile_end) {
-                set_flags(tile_x - 1, tile_start);
+                set_player_flags(tile_x - 1, tile_start);
                 if (tile_at(tile_x - 1, tile_start) & COLLISION_RIGHT) {
                     player_moving = FALSE;
                     break;
@@ -101,7 +96,7 @@ void topdown_update(void) BANKED {
             tile_end   = (((PLAYER.pos.y >> 4) + PLAYER.bounds.bottom) >> 3) + 1;
             UBYTE tile_x = ((PLAYER.pos.x >> 4) + PLAYER.bounds.right) >> 3;
             while (tile_start != tile_end) {
-                set_flags(tile_x + 1, tile_start);
+                set_player_flags(tile_x + 1, tile_start);
                 if (tile_at(tile_x + 1, tile_start) & COLLISION_LEFT) {
                     player_moving = FALSE;
                     break;
@@ -117,7 +112,7 @@ void topdown_update(void) BANKED {
             tile_end   = (((PLAYER.pos.x >> 4) + PLAYER.bounds.right) >> 3) + 1;
             UBYTE tile_y = ((PLAYER.pos.y >> 4) + PLAYER.bounds.top) >> 3;
             while (tile_start != tile_end) {
-                set_flags(tile_start, tile_y - 1);
+                set_player_flags(tile_start, tile_y - 1);
                 if (tile_at(tile_start, tile_y - 1) & COLLISION_BOTTOM) {
                     player_moving = FALSE;
                     break;
@@ -133,7 +128,7 @@ void topdown_update(void) BANKED {
             tile_end   = (((PLAYER.pos.x >> 4) + PLAYER.bounds.right) >> 3) + 1;
             UBYTE tile_y = ((PLAYER.pos.y >> 4) + PLAYER.bounds.bottom) >> 3;
             while (tile_start != tile_end) {
-                set_flags(tile_start, tile_y + 1);
+                set_player_flags(tile_start, tile_y + 1);
                 if (tile_at(tile_start, tile_y + 1) & COLLISION_TOP) {
                     player_moving = FALSE;
                     break;
