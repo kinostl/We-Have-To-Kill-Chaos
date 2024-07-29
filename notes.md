@@ -500,3 +500,10 @@ Boss Rush
 Chaos
 
 10 Primary bosses, so 5 levels per boss. Which means demo goes up to Level 5.
+
+Last left off: Trying to figure out how to make the Party screen look good during the opponent's turn. Maybe not displaying text during battle anymore and using numbers instead?
+
+Use moogle from FF3 for EX Garland
+https://www.spriters-resource.com/nes/finalfantasy3jpn/sheet/32907/
+
+FF3 damage numbers just uses the standard font, in pink for some reason. Try yellow to match modern but if that doesn't work use pink as well.
