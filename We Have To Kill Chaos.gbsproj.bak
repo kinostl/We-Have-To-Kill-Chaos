@@ -13977,6 +13977,269 @@
                                                     "id": "b580383e-5d57-4656-842e-85bc2ac96041"
                                                 },
                                                 {
+                                                    "command": "EVENT_SET_VALUE",
+                                                    "args": {
+                                                        "variable": "T0",
+                                                        "value": {
+                                                            "type": "sub",
+                                                            "valueA": {
+                                                                "type": "variable",
+                                                                "value": "31"
+                                                            },
+                                                            "valueB": {
+                                                                "type": "variable",
+                                                                "value": "32"
+                                                            }
+                                                        },
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "0d78460c-bf94-4dc2-b6fb-aa342b849d6a"
+                                                },
+                                                {
+                                                    "command": "EVENT_IF",
+                                                    "args": {
+                                                        "condition": {
+                                                            "type": "gt",
+                                                            "valueA": {
+                                                                "type": "variable",
+                                                                "value": "T0"
+                                                            },
+                                                            "valueB": {
+                                                                "type": "number",
+                                                                "value": 99
+                                                            }
+                                                        },
+                                                        "__collapseElse": false,
+                                                        "__disableElse": true,
+                                                        "__collapse": true
+                                                    },
+                                                    "children": {
+                                                        "true": [
+                                                            {
+                                                                "command": "EVENT_SET_VALUE",
+                                                                "args": {
+                                                                    "variable": "T1",
+                                                                    "value": {
+                                                                        "type": "div",
+                                                                        "valueA": {
+                                                                            "type": "variable",
+                                                                            "value": "T0"
+                                                                        },
+                                                                        "valueB": {
+                                                                            "type": "number",
+                                                                            "value": 100
+                                                                        }
+                                                                    },
+                                                                    "__collapse": false
+                                                                },
+                                                                "id": "aa8c9bf0-454a-4ba2-ad3a-d5be0ffb5443"
+                                                            },
+                                                            {
+                                                                "command": "EVENT_ACTOR_SET_FRAME",
+                                                                "args": {
+                                                                    "actorId": "e5ba9932-e5c5-4728-bfbc-0aad330673b9",
+                                                                    "frame": {
+                                                                        "type": "variable",
+                                                                        "value": "T1"
+                                                                    }
+                                                                },
+                                                                "id": "29e76d51-e3e3-41d5-91df-3fe8abda80d7"
+                                                            },
+                                                            {
+                                                                "command": "EVENT_SET_VALUE",
+                                                                "args": {
+                                                                    "variable": "T0",
+                                                                    "value": {
+                                                                        "type": "sub",
+                                                                        "valueA": {
+                                                                            "type": "variable",
+                                                                            "value": "T0"
+                                                                        },
+                                                                        "valueB": {
+                                                                            "type": "mul",
+                                                                            "valueA": {
+                                                                                "type": "variable",
+                                                                                "value": "T1"
+                                                                            },
+                                                                            "valueB": {
+                                                                                "type": "number",
+                                                                                "value": 100
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "id": "9bc7f91d-3f77-4fa4-b5d9-77f4f989145c"
+                                                            },
+                                                            {
+                                                                "command": "EVENT_ACTOR_SET_POSITION",
+                                                                "args": {
+                                                                    "actorId": "e5ba9932-e5c5-4728-bfbc-0aad330673b9",
+                                                                    "x": {
+                                                                        "type": "number",
+                                                                        "value": 7
+                                                                    },
+                                                                    "y": {
+                                                                        "type": "number",
+                                                                        "value": 3
+                                                                    },
+                                                                    "__collapse": false
+                                                                },
+                                                                "id": "342c2bdf-abe0-4dcf-88ed-9b4f896993d1"
+                                                            }
+                                                        ],
+                                                        "false": []
+                                                    },
+                                                    "id": "1b5a88a1-ae9d-4ec2-9f65-8a2ebe7fc818"
+                                                },
+                                                {
+                                                    "command": "EVENT_IF",
+                                                    "args": {
+                                                        "condition": {
+                                                            "type": "gt",
+                                                            "valueA": {
+                                                                "type": "variable",
+                                                                "value": "T0"
+                                                            },
+                                                            "valueB": {
+                                                                "type": "number",
+                                                                "value": 9
+                                                            }
+                                                        },
+                                                        "__collapseElse": false,
+                                                        "__disableElse": true,
+                                                        "__collapse": true
+                                                    },
+                                                    "children": {
+                                                        "true": [
+                                                            {
+                                                                "command": "EVENT_SET_VALUE",
+                                                                "args": {
+                                                                    "variable": "T1",
+                                                                    "value": {
+                                                                        "type": "div",
+                                                                        "valueA": {
+                                                                            "type": "variable",
+                                                                            "value": "T0"
+                                                                        },
+                                                                        "valueB": {
+                                                                            "type": "number",
+                                                                            "value": 10
+                                                                        }
+                                                                    },
+                                                                    "__collapse": false
+                                                                },
+                                                                "id": "0f78f870-611b-4c93-a828-3482e4e6fdec"
+                                                            },
+                                                            {
+                                                                "command": "EVENT_ACTOR_SET_FRAME",
+                                                                "args": {
+                                                                    "actorId": "12b92964-1724-452d-b4f9-3c198fa26912",
+                                                                    "frame": {
+                                                                        "type": "variable",
+                                                                        "value": "T1"
+                                                                    }
+                                                                },
+                                                                "id": "3182f282-1530-479f-873f-f71d16cbebe3"
+                                                            },
+                                                            {
+                                                                "command": "EVENT_SET_VALUE",
+                                                                "args": {
+                                                                    "variable": "T0",
+                                                                    "value": {
+                                                                        "type": "sub",
+                                                                        "valueA": {
+                                                                            "type": "variable",
+                                                                            "value": "T0"
+                                                                        },
+                                                                        "valueB": {
+                                                                            "type": "mul",
+                                                                            "valueA": {
+                                                                                "type": "variable",
+                                                                                "value": "T1"
+                                                                            },
+                                                                            "valueB": {
+                                                                                "type": "number",
+                                                                                "value": 10
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "id": "313d36b5-cc8d-47b0-bda8-7a165ed3eb3a"
+                                                            },
+                                                            {
+                                                                "command": "EVENT_ACTOR_SET_POSITION",
+                                                                "args": {
+                                                                    "actorId": "12b92964-1724-452d-b4f9-3c198fa26912",
+                                                                    "x": {
+                                                                        "type": "number",
+                                                                        "value": 8
+                                                                    },
+                                                                    "y": {
+                                                                        "type": "number",
+                                                                        "value": 3
+                                                                    },
+                                                                    "__collapse": false
+                                                                },
+                                                                "id": "3e762390-3482-4079-9449-74558539bd32"
+                                                            }
+                                                        ],
+                                                        "false": []
+                                                    },
+                                                    "id": "28404166-6e95-4366-8599-e7e43db71425"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_SET_FRAME",
+                                                    "args": {
+                                                        "actorId": "d4c2a8e2-dff4-4a73-aec2-ec9f9ce304c9",
+                                                        "frame": {
+                                                            "type": "variable",
+                                                            "value": "T0"
+                                                        },
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "e8ef264e-f948-4f5f-90a8-56431c062623"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_SET_POSITION",
+                                                    "args": {
+                                                        "actorId": "d4c2a8e2-dff4-4a73-aec2-ec9f9ce304c9",
+                                                        "x": {
+                                                            "type": "number",
+                                                            "value": 9
+                                                        },
+                                                        "y": {
+                                                            "type": "number",
+                                                            "value": 3
+                                                        },
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "c14eaec2-7c36-4e39-b119-f316f46cdd2b"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_START_UPDATE",
+                                                    "args": {
+                                                        "actorId": "e5ba9932-e5c5-4728-bfbc-0aad330673b9",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "a1a709c9-7b58-4602-a1fb-a0d1ee026a31"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_START_UPDATE",
+                                                    "args": {
+                                                        "actorId": "12b92964-1724-452d-b4f9-3c198fa26912",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "66f2bceb-86bc-40ad-9293-20734c45847b"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_START_UPDATE",
+                                                    "args": {
+                                                        "actorId": "d4c2a8e2-dff4-4a73-aec2-ec9f9ce304c9",
+                                                        "__collapse": true
+                                                    },
+                                                    "id": "19af4a8e-7bfb-4740-897b-d9202d08cf01"
+                                                },
+                                                {
                                                     "command": "EVENT_IF",
                                                     "args": {
                                                         "condition": {
@@ -13992,7 +14255,7 @@
                                                         },
                                                         "__collapseElse": false,
                                                         "__collapse": false,
-                                                        "__comment": false,
+                                                        "__comment": true,
                                                         "__disableElse": true
                                                     },
                                                     "children": {
@@ -14007,208 +14270,6 @@
                                                                     "__comment": true
                                                                 },
                                                                 "id": "2833a637-4773-4d06-877e-fac707e9b185"
-                                                            },
-                                                            {
-                                                                "command": "EVENT_GROUP",
-                                                                "args": {
-                                                                    "__comment": false
-                                                                },
-                                                                "children": {
-                                                                    "true": [
-                                                                        {
-                                                                            "command": "EVENT_SET_VALUE",
-                                                                            "args": {
-                                                                                "variable": "T0",
-                                                                                "value": {
-                                                                                    "type": "sub",
-                                                                                    "valueA": {
-                                                                                        "type": "variable",
-                                                                                        "value": "31"
-                                                                                    },
-                                                                                    "valueB": {
-                                                                                        "type": "variable",
-                                                                                        "value": "32"
-                                                                                    }
-                                                                                },
-                                                                                "__collapse": false
-                                                                            },
-                                                                            "id": "0d78460c-bf94-4dc2-b6fb-aa342b849d6a"
-                                                                        },
-                                                                        {
-                                                                            "command": "EVENT_IF",
-                                                                            "args": {
-                                                                                "condition": {
-                                                                                    "type": "gt",
-                                                                                    "valueA": {
-                                                                                        "type": "variable",
-                                                                                        "value": "T0"
-                                                                                    },
-                                                                                    "valueB": {
-                                                                                        "type": "number",
-                                                                                        "value": 99
-                                                                                    }
-                                                                                },
-                                                                                "__collapseElse": false,
-                                                                                "__disableElse": true,
-                                                                                "__collapse": true
-                                                                            },
-                                                                            "children": {
-                                                                                "true": [
-                                                                                    {
-                                                                                        "command": "EVENT_SET_VALUE",
-                                                                                        "args": {
-                                                                                            "variable": "T1",
-                                                                                            "value": {
-                                                                                                "type": "div",
-                                                                                                "valueA": {
-                                                                                                    "type": "variable",
-                                                                                                    "value": "T0"
-                                                                                                },
-                                                                                                "valueB": {
-                                                                                                    "type": "number",
-                                                                                                    "value": 100
-                                                                                                }
-                                                                                            },
-                                                                                            "__collapse": false
-                                                                                        },
-                                                                                        "id": "aa8c9bf0-454a-4ba2-ad3a-d5be0ffb5443"
-                                                                                    },
-                                                                                    {
-                                                                                        "command": "EVENT_ACTOR_SET_FRAME",
-                                                                                        "args": {
-                                                                                            "actorId": "e5ba9932-e5c5-4728-bfbc-0aad330673b9",
-                                                                                            "frame": {
-                                                                                                "type": "variable",
-                                                                                                "value": "T1"
-                                                                                            }
-                                                                                        },
-                                                                                        "id": "29e76d51-e3e3-41d5-91df-3fe8abda80d7"
-                                                                                    },
-                                                                                    {
-                                                                                        "command": "EVENT_SET_VALUE",
-                                                                                        "args": {
-                                                                                            "variable": "T0",
-                                                                                            "value": {
-                                                                                                "type": "sub",
-                                                                                                "valueA": {
-                                                                                                    "type": "variable",
-                                                                                                    "value": "T0"
-                                                                                                },
-                                                                                                "valueB": {
-                                                                                                    "type": "mul",
-                                                                                                    "valueA": {
-                                                                                                        "type": "variable",
-                                                                                                        "value": "T1"
-                                                                                                    },
-                                                                                                    "valueB": {
-                                                                                                        "type": "number",
-                                                                                                        "value": 100
-                                                                                                    }
-                                                                                                }
-                                                                                            }
-                                                                                        },
-                                                                                        "id": "9bc7f91d-3f77-4fa4-b5d9-77f4f989145c"
-                                                                                    }
-                                                                                ],
-                                                                                "false": []
-                                                                            },
-                                                                            "id": "1b5a88a1-ae9d-4ec2-9f65-8a2ebe7fc818"
-                                                                        },
-                                                                        {
-                                                                            "command": "EVENT_IF",
-                                                                            "args": {
-                                                                                "condition": {
-                                                                                    "type": "gt",
-                                                                                    "valueA": {
-                                                                                        "type": "variable",
-                                                                                        "value": "T0"
-                                                                                    },
-                                                                                    "valueB": {
-                                                                                        "type": "number",
-                                                                                        "value": 9
-                                                                                    }
-                                                                                },
-                                                                                "__collapseElse": false,
-                                                                                "__disableElse": true,
-                                                                                "__collapse": true
-                                                                            },
-                                                                            "children": {
-                                                                                "true": [
-                                                                                    {
-                                                                                        "command": "EVENT_SET_VALUE",
-                                                                                        "args": {
-                                                                                            "variable": "T1",
-                                                                                            "value": {
-                                                                                                "type": "div",
-                                                                                                "valueA": {
-                                                                                                    "type": "variable",
-                                                                                                    "value": "T0"
-                                                                                                },
-                                                                                                "valueB": {
-                                                                                                    "type": "number",
-                                                                                                    "value": 10
-                                                                                                }
-                                                                                            },
-                                                                                            "__collapse": false
-                                                                                        },
-                                                                                        "id": "0f78f870-611b-4c93-a828-3482e4e6fdec"
-                                                                                    },
-                                                                                    {
-                                                                                        "command": "EVENT_ACTOR_SET_FRAME",
-                                                                                        "args": {
-                                                                                            "actorId": "12b92964-1724-452d-b4f9-3c198fa26912",
-                                                                                            "frame": {
-                                                                                                "type": "variable",
-                                                                                                "value": "T1"
-                                                                                            }
-                                                                                        },
-                                                                                        "id": "3182f282-1530-479f-873f-f71d16cbebe3"
-                                                                                    },
-                                                                                    {
-                                                                                        "command": "EVENT_SET_VALUE",
-                                                                                        "args": {
-                                                                                            "variable": "T0",
-                                                                                            "value": {
-                                                                                                "type": "sub",
-                                                                                                "valueA": {
-                                                                                                    "type": "variable",
-                                                                                                    "value": "T0"
-                                                                                                },
-                                                                                                "valueB": {
-                                                                                                    "type": "mul",
-                                                                                                    "valueA": {
-                                                                                                        "type": "variable",
-                                                                                                        "value": "T1"
-                                                                                                    },
-                                                                                                    "valueB": {
-                                                                                                        "type": "number",
-                                                                                                        "value": 10
-                                                                                                    }
-                                                                                                }
-                                                                                            }
-                                                                                        },
-                                                                                        "id": "313d36b5-cc8d-47b0-bda8-7a165ed3eb3a"
-                                                                                    }
-                                                                                ],
-                                                                                "false": []
-                                                                            },
-                                                                            "id": "28404166-6e95-4366-8599-e7e43db71425"
-                                                                        },
-                                                                        {
-                                                                            "command": "EVENT_ACTOR_SET_FRAME",
-                                                                            "args": {
-                                                                                "actorId": "d4c2a8e2-dff4-4a73-aec2-ec9f9ce304c9",
-                                                                                "frame": {
-                                                                                    "type": "variable",
-                                                                                    "value": "T0"
-                                                                                },
-                                                                                "__collapse": true
-                                                                            },
-                                                                            "id": "e8ef264e-f948-4f5f-90a8-56431c062623"
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                "id": "672f3588-7c84-4437-bcb7-333e3545aaf3"
                                                             }
                                                         ],
                                                         "false": [
@@ -15604,16 +15665,42 @@
                             "args": {
                                 "actorId": "$self$"
                             },
-                            "id": "e16e24ef-6e3f-4fae-b10b-998bfba94445"
+                            "id": "6a313a69-800d-4a43-9a88-d7847c0302ff"
                         }
                     ],
-                    "updateScript": [],
+                    "updateScript": [
+                        {
+                            "command": "EVENT_ACTOR_MOVE_RELATIVE",
+                            "args": {
+                                "actorId": "$self$",
+                                "x": {
+                                    "type": "number",
+                                    "value": 0
+                                },
+                                "y": {
+                                    "type": "number",
+                                    "value": -1
+                                },
+                                "moveType": "vertical",
+                                "useCollisions": false,
+                                "units": "tiles"
+                            },
+                            "id": "4bd2c618-ae0e-4a18-a080-8af155e6fc52"
+                        },
+                        {
+                            "command": "EVENT_ACTOR_STOP_UPDATE",
+                            "args": {
+                                "actorId": "$self$"
+                            },
+                            "id": "fe9844a1-6013-4d04-acc5-66a640214471"
+                        }
+                    ],
                     "hit1Script": [],
                     "hit2Script": [],
                     "hit3Script": [],
                     "id": "d4c2a8e2-dff4-4a73-aec2-ec9f9ce304c9",
-                    "x": 6,
-                    "y": 7
+                    "x": 21,
+                    "y": 0
                 },
                 {
                     "name": "doubles",
@@ -15635,16 +15722,42 @@
                             "args": {
                                 "actorId": "$self$"
                             },
-                            "id": "02fc9140-d938-4cd7-a536-e94fa36bbd80"
+                            "id": "5fd1df60-5900-48fd-be33-7493cc5f8675"
                         }
                     ],
-                    "updateScript": [],
+                    "updateScript": [
+                        {
+                            "command": "EVENT_ACTOR_MOVE_RELATIVE",
+                            "args": {
+                                "actorId": "$self$",
+                                "x": {
+                                    "type": "number",
+                                    "value": 0
+                                },
+                                "y": {
+                                    "type": "number",
+                                    "value": -1
+                                },
+                                "moveType": "vertical",
+                                "useCollisions": false,
+                                "units": "tiles"
+                            },
+                            "id": "4bfcd7a6-dae1-4939-9cfd-e6da5b81e62f"
+                        },
+                        {
+                            "command": "EVENT_ACTOR_STOP_UPDATE",
+                            "args": {
+                                "actorId": "$self$"
+                            },
+                            "id": "0ed83788-fb1f-4713-85dc-1397914a440f"
+                        }
+                    ],
                     "hit1Script": [],
                     "hit2Script": [],
                     "hit3Script": [],
                     "id": "12b92964-1724-452d-b4f9-3c198fa26912",
-                    "x": 5,
-                    "y": 7
+                    "x": 20,
+                    "y": 0
                 },
                 {
                     "name": "triples",
@@ -15666,16 +15779,42 @@
                             "args": {
                                 "actorId": "$self$"
                             },
-                            "id": "8b4b4156-65b1-4b99-8e6f-ce3cb17a07d3"
+                            "id": "680c8bf9-ffe1-433c-b9e3-324f6f0677a9"
                         }
                     ],
-                    "updateScript": [],
+                    "updateScript": [
+                        {
+                            "command": "EVENT_ACTOR_MOVE_RELATIVE",
+                            "args": {
+                                "actorId": "$self$",
+                                "x": {
+                                    "type": "number",
+                                    "value": 0
+                                },
+                                "y": {
+                                    "type": "number",
+                                    "value": -1
+                                },
+                                "moveType": "vertical",
+                                "useCollisions": false,
+                                "units": "tiles"
+                            },
+                            "id": "5bf1e020-b552-4292-8c16-b647738ff7bc"
+                        },
+                        {
+                            "command": "EVENT_ACTOR_STOP_UPDATE",
+                            "args": {
+                                "actorId": "$self$"
+                            },
+                            "id": "b23204ef-a0d4-4a6a-a15b-3dec81a6ebaf"
+                        }
+                    ],
                     "hit1Script": [],
                     "hit2Script": [],
                     "hit3Script": [],
                     "id": "e5ba9932-e5c5-4728-bfbc-0aad330673b9",
-                    "x": 4,
-                    "y": 7
+                    "x": 19,
+                    "y": 0
                 }
             ],
             "triggers": [
@@ -16119,7 +16258,7 @@
                             "type": "number",
                             "value": 48
                         },
-                        "__collapse": true
+                        "__collapse": false
                     },
                     "id": "fd63e717-a28a-4387-a368-85276d52bef9"
                 },
@@ -38524,7 +38663,7 @@
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
         "worldScrollX": 3844,
-        "worldScrollY": 275,
+        "worldScrollY": 316,
         "zoom": 400,
         "sgbEnabled": false,
         "customHead": "",

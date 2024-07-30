@@ -1,4 +1,3 @@
-#include <data/max_global_vars.h>
 #include <entity_data.h>
 #include <gb/gb.h>
 #include <asm/types.h>
