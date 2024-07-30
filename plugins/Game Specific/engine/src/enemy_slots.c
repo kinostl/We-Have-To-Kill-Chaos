@@ -118,6 +118,11 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   strcpy(turn_slots[0].name, "ONCLER");
   turn_slots[0].skills[0] = FIGHT;
   turn_slots[0].skill_costs[0] = 1;
+  turn_slots[0].x = 13;
+  turn_slots[0].y = 2;
+  turn_slots[0].w = 3;
+  turn_slots[0].h = 3;
+
 
   turn_slots[0].skills[1] = SHIELD;
   turn_slots[0].skill_costs[1] = 1;
@@ -140,6 +145,10 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[1].skill_costs[0] = 1;
   turn_slots[1].skills[1] = GOBLIN_PUNCH;
   turn_slots[1].skill_costs[1] = 1;
+  turn_slots[1].x = 13;
+  turn_slots[1].y = 2;
+  turn_slots[1].w = 3;
+  turn_slots[1].h = 3;
   //
   turn_slots[2].max_hp = 25;
   turn_slots[2].hp = 25;
@@ -153,6 +162,10 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[2].skill_costs[0] = 1;
   turn_slots[2].skills[1] = ICE;
   turn_slots[2].skill_costs[1] = 1;
+  turn_slots[2].x = 13;
+  turn_slots[2].y = 10;
+  turn_slots[2].w = 3;
+  turn_slots[2].h = 3;
   //
   turn_slots[3].max_hp = 10;
   turn_slots[3].hp = 10;
@@ -166,6 +179,10 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[3].skill_costs[0] = 1;
   turn_slots[3].skills[1] = HEAL;
   turn_slots[3].skill_costs[1] = 1;
+  turn_slots[3].x = 13;
+  turn_slots[3].y = 14;
+  turn_slots[3].w = 3;
+  turn_slots[3].h = 3;
 }
 
 void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
@@ -366,16 +383,10 @@ void handleEnemyTakeDamage(SCRIPT_CTX *THIS) OLDCALL BANKED {
     name[i]=127;
   }
 
-  VM_GLOBAL(VAR_EXPLOSION_X) = 0;
-  VM_GLOBAL(VAR_EXPLOSION_Y) = 0;
-  VM_GLOBAL(VAR_EXPLOSION_W) = 0;
-  VM_GLOBAL(VAR_EXPLOSION_H) = 0;
-  if (VM_GLOBAL(VAR_DEFENDER_ID) >= 4) {
-    VM_GLOBAL(VAR_EXPLOSION_X) = defender->x;
-    VM_GLOBAL(VAR_EXPLOSION_Y) = defender->y;
-    VM_GLOBAL(VAR_EXPLOSION_W) = defender->w;
-    VM_GLOBAL(VAR_EXPLOSION_H) = defender->h;
-  }
+  VM_GLOBAL(VAR_EXPLOSION_X) = defender->x;
+  VM_GLOBAL(VAR_EXPLOSION_Y) = defender->y;
+  VM_GLOBAL(VAR_EXPLOSION_W) = defender->w;
+  VM_GLOBAL(VAR_EXPLOSION_H) = defender->h;
 
   VM_GLOBAL(VAR_DEFENDER_STARTING_HP) = defender->hp;
 

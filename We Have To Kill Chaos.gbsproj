@@ -11286,7 +11286,7 @@
                                 "__collapseCase17": true,
                                 "__collapseCase20": true,
                                 "__collapseCase13": true,
-                                "__collapseCase0": true,
+                                "__collapseCase0": false,
                                 "__collapseCase16": true,
                                 "__collapseCase19": true,
                                 "__collapseCase22": true,
@@ -11930,6 +11930,14 @@
                                         "id": "72ce125c-6b53-4dc9-b60d-d25e6bb670ad"
                                     },
                                     {
+                                        "command": "FF_EVENT_DISPATCH_ACTION",
+                                        "args": {
+                                            "action": 0,
+                                            "__collapse": true
+                                        },
+                                        "id": "6e317b91-1874-4aa1-9dc8-58a90037e8e0"
+                                    },
+                                    {
                                         "command": "EVENT_IF",
                                         "args": {
                                             "condition": {
@@ -11944,7 +11952,8 @@
                                                 }
                                             },
                                             "__collapseElse": false,
-                                            "__collapse": false
+                                            "__collapse": false,
+                                            "__comment": true
                                         },
                                         "children": {
                                             "true": [
@@ -12604,14 +12613,6 @@
                                                         "__comment": true
                                                     },
                                                     "id": "9f8c7da4-7957-4749-9786-994f350e341c"
-                                                },
-                                                {
-                                                    "command": "FF_EVENT_DISPATCH_ACTION",
-                                                    "args": {
-                                                        "action": 0,
-                                                        "__collapse": true
-                                                    },
-                                                    "id": "6e317b91-1874-4aa1-9dc8-58a90037e8e0"
                                                 },
                                                 {
                                                     "command": "FF_EVENT_DISPATCH_ACTION",
@@ -14077,16 +14078,51 @@
                                                                 "args": {
                                                                     "actorId": "e5ba9932-e5c5-4728-bfbc-0aad330673b9",
                                                                     "x": {
-                                                                        "type": "number",
-                                                                        "value": 5
+                                                                        "type": "add",
+                                                                        "valueA": {
+                                                                            "type": "add",
+                                                                            "valueA": {
+                                                                                "type": "variable",
+                                                                                "value": "94"
+                                                                            },
+                                                                            "valueB": {
+                                                                                "type": "number",
+                                                                                "value": -3
+                                                                            }
+                                                                        },
+                                                                        "valueB": {
+                                                                            "type": "div",
+                                                                            "valueA": {
+                                                                                "type": "variable",
+                                                                                "value": "103"
+                                                                            },
+                                                                            "valueB": {
+                                                                                "type": "number",
+                                                                                "value": 2
+                                                                            }
+                                                                        }
                                                                     },
                                                                     "y": {
-                                                                        "type": "number",
-                                                                        "value": 13
+                                                                        "type": "add",
+                                                                        "valueA": {
+                                                                            "type": "variable",
+                                                                            "value": "95"
+                                                                        },
+                                                                        "valueB": {
+                                                                            "type": "sub",
+                                                                            "valueA": {
+                                                                                "type": "variable",
+                                                                                "value": "104"
+                                                                            },
+                                                                            "valueB": {
+                                                                                "type": "number",
+                                                                                "value": 2
+                                                                            }
+                                                                        }
                                                                     },
                                                                     "__collapse": false
                                                                 },
-                                                                "id": "342c2bdf-abe0-4dcf-88ed-9b4f896993d1"
+                                                                "id": "a919c78d-0ae8-49f6-98d5-1f0f91be4b6a"
                                                             }
                                                         ],
                                                         "false": []
@@ -14109,7 +14145,7 @@
                                                         },
                                                         "__collapseElse": false,
                                                         "__disableElse": true,
-                                                        "__collapse": true
+                                                        "__collapse": false
                                                     },
                                                     "children": {
                                                         "true": [
@@ -14175,16 +14211,51 @@
                                                                 "args": {
                                                                     "actorId": "12b92964-1724-452d-b4f9-3c198fa26912",
                                                                     "x": {
-                                                                        "type": "number",
-                                                                        "value": 6
+                                                                        "type": "add",
+                                                                        "valueA": {
+                                                                            "type": "add",
+                                                                            "valueA": {
+                                                                                "type": "variable",
+                                                                                "value": "94"
+                                                                            },
+                                                                            "valueB": {
+                                                                                "type": "number",
+                                                                                "value": -2
+                                                                            }
+                                                                        },
+                                                                        "valueB": {
+                                                                            "type": "div",
+                                                                            "valueA": {
+                                                                                "type": "variable",
+                                                                                "value": "103"
+                                                                            },
+                                                                            "valueB": {
+                                                                                "type": "number",
+                                                                                "value": 2
+                                                                            }
+                                                                        }
                                                                     },
                                                                     "y": {
-                                                                        "type": "number",
-                                                                        "value": 13
+                                                                        "type": "add",
+                                                                        "valueA": {
+                                                                            "type": "variable",
+                                                                            "value": "95"
+                                                                        },
+                                                                        "valueB": {
+                                                                            "type": "sub",
+                                                                            "valueA": {
+                                                                                "type": "variable",
+                                                                                "value": "104"
+                                                                            },
+                                                                            "valueB": {
+                                                                                "type": "number",
+                                                                                "value": 2
+                                                                            }
+                                                                        }
                                                                     },
                                                                     "__collapse": false
                                                                 },
-                                                                "id": "3e762390-3482-4079-9449-74558539bd32"
+                                                                "id": "1a693080-383d-4e44-a4db-3dd54b8b7d65"
                                                             }
                                                         ],
                                                         "false": []
@@ -14208,16 +14279,51 @@
                                                     "args": {
                                                         "actorId": "d4c2a8e2-dff4-4a73-aec2-ec9f9ce304c9",
                                                         "x": {
-                                                            "type": "number",
-                                                            "value": 7
+                                                            "type": "add",
+                                                            "valueA": {
+                                                                "type": "add",
+                                                                "valueA": {
+                                                                    "type": "variable",
+                                                                    "value": "94"
+                                                                },
+                                                                "valueB": {
+                                                                    "type": "number",
+                                                                    "value": -1
+                                                                }
+                                                            },
+                                                            "valueB": {
+                                                                "type": "div",
+                                                                "valueA": {
+                                                                    "type": "variable",
+                                                                    "value": "103"
+                                                                },
+                                                                "valueB": {
+                                                                    "type": "number",
+                                                                    "value": 2
+                                                                }
+                                                            }
                                                         },
                                                         "y": {
-                                                            "type": "number",
-                                                            "value": 13
+                                                            "type": "add",
+                                                            "valueA": {
+                                                                "type": "variable",
+                                                                "value": "95"
+                                                            },
+                                                            "valueB": {
+                                                                "type": "sub",
+                                                                "valueA": {
+                                                                    "type": "variable",
+                                                                    "value": "104"
+                                                                },
+                                                                "valueB": {
+                                                                    "type": "number",
+                                                                    "value": 2
+                                                                }
+                                                            }
                                                         },
                                                         "__collapse": false
                                                     },
-                                                    "id": "c14eaec2-7c36-4e39-b119-f316f46cdd2b"
+                                                    "id": "fdb1c6e2-79ad-4e76-ae92-d693b1681ae4"
                                                 },
                                                 {
                                                     "command": "EVENT_ACTOR_START_UPDATE",
@@ -14415,7 +14521,7 @@
                                     {
                                         "command": "EVENT_ACTOR_SHOW",
                                         "args": {
-                                            "actorId": "a00f7549-8982-494f-95e9-b66e1a1919db",
+                                            "actorId": "4f10ec7c-9939-4098-9220-2a41f5c30369",
                                             "__collapse": true
                                         },
                                         "id": "d9e27ab7-24b4-4cee-9d35-be23d8145163"
@@ -17807,10 +17913,18 @@
                                 "command": "EVENT_GROUP",
                                 "args": {
                                     "__label": "Fix Sprite Layering",
-                                    "__collapse": true
+                                    "__collapse": false
                                 },
                                 "children": {
                                     "true": [
+                                        {
+                                            "command": "EVENT_COMMENT",
+                                            "args": {
+                                                "text": "Weapons",
+                                                "__collapse": true
+                                            },
+                                            "id": "95960b07-c825-4aaa-bf9e-ee78d1319c50"
+                                        },
                                         {
                                             "command": "EVENT_ACTOR_DEACTIVATE",
                                             "args": {
@@ -17842,6 +17956,158 @@
                                                 "__collapse": true
                                             },
                                             "id": "59d2a188-4f1e-4018-9a70-05b50e894be4"
+                                        },
+                                        {
+                                            "command": "EVENT_COMMENT",
+                                            "args": {
+                                                "text": "Explosions and Numbers",
+                                                "__collapse": true
+                                            },
+                                            "id": "24ec3227-7a85-4742-85f9-439f3aaf2977"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_DEACTIVATE",
+                                            "args": {
+                                                "actorId": "a00f7549-8982-494f-95e9-b66e1a1919db",
+                                                "__collapse": true
+                                            },
+                                            "id": "1f261ffa-f96b-4d02-86a2-0405ac3091e1"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_DEACTIVATE",
+                                            "args": {
+                                                "actorId": "4f10ec7c-9939-4098-9220-2a41f5c30369",
+                                                "__collapse": true
+                                            },
+                                            "id": "9879a834-7cb8-4087-9c5a-aee35789debd"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_DEACTIVATE",
+                                            "args": {
+                                                "actorId": "d4c2a8e2-dff4-4a73-aec2-ec9f9ce304c9",
+                                                "__collapse": true
+                                            },
+                                            "id": "e47580a2-af4b-4744-9381-5773f3adb9af"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_DEACTIVATE",
+                                            "args": {
+                                                "actorId": "12b92964-1724-452d-b4f9-3c198fa26912",
+                                                "__collapse": true
+                                            },
+                                            "id": "49fb98e9-5fb7-4f55-a3cf-46550a735fca"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_DEACTIVATE",
+                                            "args": {
+                                                "actorId": "e5ba9932-e5c5-4728-bfbc-0aad330673b9",
+                                                "__collapse": true
+                                            },
+                                            "id": "0173576c-ec0a-4b0d-80d2-1075c139984e"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_DEACTIVATE",
+                                            "args": {
+                                                "actorId": "d656824d-1c2d-47dd-84ba-0396e71f5a22",
+                                                "__collapse": true
+                                            },
+                                            "id": "c9b703a3-2264-4fbd-982e-5dd75e0a0a32"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_DEACTIVATE",
+                                            "args": {
+                                                "actorId": "ce60be76-4d3c-4369-baed-ccf3eecae9b5",
+                                                "__collapse": true
+                                            },
+                                            "id": "df188e25-22c8-4eb3-ba7f-e7cb728fc884"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_DEACTIVATE",
+                                            "args": {
+                                                "actorId": "50666575-24b3-4404-a755-906e6a587041",
+                                                "__collapse": true
+                                            },
+                                            "id": "6ac81096-1046-459e-bbdf-d0c54a5e1ecd"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_DEACTIVATE",
+                                            "args": {
+                                                "actorId": "f21ec9e5-1a7d-4586-85bf-0124911f4af1",
+                                                "__collapse": true
+                                            },
+                                            "id": "b1959e53-b348-43ec-aec0-e53b6437763c"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_ACTIVATE",
+                                            "args": {
+                                                "actorId": "d656824d-1c2d-47dd-84ba-0396e71f5a22",
+                                                "__collapse": true
+                                            },
+                                            "id": "ee75e6dd-ca3d-4305-b5c2-6211b3a3835d"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_ACTIVATE",
+                                            "args": {
+                                                "actorId": "ce60be76-4d3c-4369-baed-ccf3eecae9b5",
+                                                "__collapse": true
+                                            },
+                                            "id": "55fe05c0-fa0e-4e9e-9c05-e806da638759"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_ACTIVATE",
+                                            "args": {
+                                                "actorId": "50666575-24b3-4404-a755-906e6a587041",
+                                                "__collapse": true
+                                            },
+                                            "id": "fbb21c46-6e6d-49a0-84a1-c97c60b6b1f7"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_ACTIVATE",
+                                            "args": {
+                                                "actorId": "f21ec9e5-1a7d-4586-85bf-0124911f4af1",
+                                                "__collapse": true
+                                            },
+                                            "id": "5b6e31fa-5123-4270-b62e-7d7759415cf7"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_ACTIVATE",
+                                            "args": {
+                                                "actorId": "a00f7549-8982-494f-95e9-b66e1a1919db",
+                                                "__collapse": true
+                                            },
+                                            "id": "eb51b4f6-47f9-4d46-be9e-043d3e9444ce"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_ACTIVATE",
+                                            "args": {
+                                                "actorId": "4f10ec7c-9939-4098-9220-2a41f5c30369",
+                                                "__collapse": true
+                                            },
+                                            "id": "4b1167bf-2cca-4762-9cad-62490b8da512"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_ACTIVATE",
+                                            "args": {
+                                                "actorId": "d4c2a8e2-dff4-4a73-aec2-ec9f9ce304c9",
+                                                "__collapse": true
+                                            },
+                                            "id": "3a48f190-3c7a-4fda-b64f-69e291d1980f"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_ACTIVATE",
+                                            "args": {
+                                                "actorId": "12b92964-1724-452d-b4f9-3c198fa26912",
+                                                "__collapse": true
+                                            },
+                                            "id": "9bc8bc3d-dfc8-4ceb-b7e6-ae62fca22e13"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_ACTIVATE",
+                                            "args": {
+                                                "actorId": "e5ba9932-e5c5-4728-bfbc-0aad330673b9",
+                                                "__collapse": true
+                                            },
+                                            "id": "57f9a318-e211-4e27-a62e-ec7c065b5f07"
                                         }
                                     ]
                                 },
@@ -39123,7 +39389,7 @@
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
         "worldScrollX": 3844,
-        "worldScrollY": 316,
+        "worldScrollY": 395,
         "zoom": 400,
         "sgbEnabled": false,
         "customHead": "",
