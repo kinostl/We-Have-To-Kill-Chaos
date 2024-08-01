@@ -12,14 +12,17 @@
 - [/] Heros Can Attack and use Skills
 - [X] All entities take turns doing actions
 - [/] Heros animate their attacks
-- [ ] Enemies animate their attacks // Attack explosions on Party List
+- [X] Enemies animate their attacks // Attack explosions on Party List
 - [/] Hero Weapon displays when attacking
-- [ ] Player can see Heros being attacked
+- [ ] Hero spends AP when attacking
+- [/] Player can see Heros being attacked
 - [ ] Player can change equipment
 - [ ] Player can have Hero use items
 - [ ] Hero can Block to gain AP and improve Absorb
 - [ ] Player can view Initiative Order
-- [/] Player can view Party List
+- [X] Player can view Party List
+- [ ] Party List should display statuses such as poison, death, and stunned
+- [ ] Party List should not display HP below 0
 - [ ] Player can select enemies
 - [ ] Enemies can have a "Defender" status that prevents the player from selecting other enemies than them
 - [ ] Player can Run from Fight

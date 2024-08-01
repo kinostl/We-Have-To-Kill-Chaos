@@ -507,3 +507,6 @@ Use moogle from FF3 for EX Garland
 https://www.spriters-resource.com/nes/finalfantasy3jpn/sheet/32907/
 
 FF3 damage numbers just uses the standard font, in pink for some reason. Try yellow to match modern but if that doesn't work use pink as well.
+
+Took 3 days to fix a problem that should have been an hour to fix, and the fix doesn't even look good. Programming is stupid. show/hide and stop/start effects the OAM or something. Had to do the de/activate trick at the time of animation. Causes minor slowdown. Sucks, don't like how it looks as code, ignoring all these facts before I make a whole ass Reorder Sprite Layers plugin that no one will understand. Fuck you OAM.
+

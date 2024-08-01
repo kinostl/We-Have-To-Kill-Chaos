@@ -15967,7 +15967,7 @@
                     "animSpeed": 255,
                     "paletteId": "",
                     "isPinned": false,
-                    "persistent": true,
+                    "persistent": false,
                     "collisionGroup": "",
                     "symbol": "actor_13",
                     "script": [],
@@ -16144,7 +16144,7 @@
                     "hit2Script": [],
                     "hit3Script": [],
                     "id": "d4c2a8e2-dff4-4a73-aec2-ec9f9ce304c9",
-                    "x": 5,
+                    "x": 3,
                     "y": 4
                 },
                 {
@@ -16157,7 +16157,7 @@
                     "animSpeed": 255,
                     "paletteId": "",
                     "isPinned": false,
-                    "persistent": true,
+                    "persistent": false,
                     "collisionGroup": "",
                     "symbol": "actor_14",
                     "script": [],
@@ -16334,7 +16334,7 @@
                     "hit2Script": [],
                     "hit3Script": [],
                     "id": "12b92964-1724-452d-b4f9-3c198fa26912",
-                    "x": 3,
+                    "x": 2,
                     "y": 4
                 },
                 {
@@ -16347,7 +16347,7 @@
                     "animSpeed": 255,
                     "paletteId": "",
                     "isPinned": false,
-                    "persistent": true,
+                    "persistent": false,
                     "collisionGroup": "",
                     "symbol": "actor_15",
                     "script": [],
