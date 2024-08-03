@@ -1,15 +1,11 @@
 #include <entity_data.h>
-#include <gb/gb.h>
 #include <asm/types.h>
 #include <data/game_globals.h>
-#include <gb/crash_handler.h>
 #include <string.h>
+#include "extra_data.h"
 #include "turn_slots.h"
-#include "vm.h"
 
 #pragma bank 255
-
-struct entity_data *turn_slots = (struct entity_data *)&VM_GLOBAL(MAX_GLOBAL_VARS + 1);
 
 void load_attacker(SCRIPT_CTX * THIS) OLDCALL BANKED {
   THIS;
@@ -31,7 +27,6 @@ void load_attacker(SCRIPT_CTX * THIS) OLDCALL BANKED {
     load_enemy_atk(slot);
     break;
   default:
-    __HandleCrash();
     break;
   }
 }
@@ -56,7 +51,6 @@ void load_defender(SCRIPT_CTX * THIS) OLDCALL BANKED {
     load_enemy_def(slot);
     break;
   default:
-    __HandleCrash();
     break;
   }
 }

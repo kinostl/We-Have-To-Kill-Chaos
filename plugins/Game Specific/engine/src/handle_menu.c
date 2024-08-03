@@ -1,9 +1,8 @@
 #include "enemy_data.h"
 #include "entity_data.h"
-#include "turn_slots.h"
+#include "extra_data.h"
 #include <asm/types.h>
 #include <data/game_globals.h>
-#include <gb/gb.h>
 #include <string.h>
 #include <ui.h>
 #include <vm.h>

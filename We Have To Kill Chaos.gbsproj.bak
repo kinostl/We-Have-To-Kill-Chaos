@@ -11695,20 +11695,6 @@
                                                     "id": "90dcb9fe-3875-48da-a440-4bdc329169f2"
                                                 },
                                                 {
-                                                    "command": "EVENT_INC_VALUE",
-                                                    "args": {
-                                                        "variable": "90"
-                                                    },
-                                                    "id": "289b853d-d9f1-42ea-90a2-ada827b38d12"
-                                                },
-                                                {
-                                                    "command": "EVENT_INC_VALUE",
-                                                    "args": {
-                                                        "variable": "91"
-                                                    },
-                                                    "id": "dddc4b25-832f-4094-af3a-3fa155ab417d"
-                                                },
-                                                {
                                                     "command": "EVENT_SWITCH",
                                                     "args": {
                                                         "variable": "91",
@@ -17257,6 +17243,16 @@
                         "__collapse": false
                     },
                     "id": "7f4af0eb-20a8-40a4-900c-d130cdc8c55f"
+                },
+                {
+                    "command": "EVENT_TEXT",
+                    "args": {
+                        "text": [
+                            "$48$ $49$ $50$ $51$\n$52$ $53$ $54$ $55$"
+                        ],
+                        "avatarId": ""
+                    },
+                    "id": "21a4d75c-9e49-4b16-8c7a-be87496b5980"
                 },
                 {
                     "command": "EVENT_SET_INPUT_SCRIPT",

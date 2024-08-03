@@ -3,7 +3,7 @@
 #include "enemy_data.h"
 #include "math.h"
 #include "rand.h" // IWYU pragma: keep
-#include "turn_slots.h"
+#include "extra_data.h"
 #include "vm.h"
 #include <asm/types.h>
 

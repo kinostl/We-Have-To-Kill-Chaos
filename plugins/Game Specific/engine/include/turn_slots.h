@@ -14,5 +14,4 @@ void load_player_def(struct entity_data * player) OLDCALL BANKED;
 void load_enemy_atk(struct entity_data * enemy) OLDCALL BANKED;
 void load_enemy_def(struct entity_data * enemy) OLDCALL BANKED;
 void load_name(struct entity_data * entity) OLDCALL BANKED;
-extern struct entity_data * turn_slots;
 #endif

@@ -1,4 +1,4 @@
-#include "turn_slots.h"
+#include "extra_data.h"
 #include "data/game_globals.h"
 #include <asm/types.h>
 #include <vm.h>

@@ -5,8 +5,9 @@
 #include "enemy_data.h"
 #include "entity_data.h"
 #include "handle_flashing.h"
+#include "item_slot.h"
 #include "rand.h" // IWYU pragma: keep
-#include "turn_slots.h"
+#include "extra_data.h"
 #include "vm.h"
 #include <asm/types.h>
 #include <bankdata.h>
@@ -122,7 +123,6 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[0].y = 2;
   turn_slots[0].w = 3;
   turn_slots[0].h = 3;
-
 
   turn_slots[0].skills[1] = SHIELD;
   turn_slots[0].skill_costs[1] = 1;
