@@ -16,9 +16,6 @@ struct entity_data {
   // player only data
   BYTE ap;
   // static data
-  char name[8];
-  BYTE skills[4];
-  BYTE skill_costs[4];
   BYTE type;
   BYTE max_hp;
   BYTE gold;
@@ -37,6 +34,9 @@ struct entity_data {
   BYTE family;
   BYTE weakness;
   BYTE resists;
+  BYTE skills[4];
+  BYTE skill_costs[4];
+  char name[8];
 };
 
 #endif

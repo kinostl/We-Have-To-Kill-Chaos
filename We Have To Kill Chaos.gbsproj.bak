@@ -17245,6 +17245,46 @@
                     "id": "7f4af0eb-20a8-40a4-900c-d130cdc8c55f"
                 },
                 {
+                    "command": "MY_EVENT_CALL_NATIVE",
+                    "args": {
+                        "argCount": 0,
+                        "arg0": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg1": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg2": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg3": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg4": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg5": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg6": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg7": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "funName": "setupPlayerSlots"
+                    },
+                    "id": "34cb0dbb-5454-4818-a821-38f8eb4a0b39"
+                },
+                {
                     "command": "EVENT_TEXT",
                     "args": {
                         "text": [
