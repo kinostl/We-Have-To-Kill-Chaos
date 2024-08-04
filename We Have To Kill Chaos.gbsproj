@@ -11623,7 +11623,7 @@
                                             },
                                             "__collapseElse": false,
                                             "__disableElse": true,
-                                            "__collapse": true
+                                            "__collapse": false
                                         },
                                         "children": {
                                             "true": [
@@ -12002,7 +12002,7 @@
                                             },
                                             "__collapseElse": true,
                                             "__disableElse": true,
-                                            "__collapse": false
+                                            "__collapse": true
                                         },
                                         "children": {
                                             "true": [
@@ -41769,7 +41769,7 @@
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
         "worldScrollX": 3314,
-        "worldScrollY": 237,
+        "worldScrollY": 316,
         "zoom": 360.5,
         "sgbEnabled": false,
         "customHead": "",

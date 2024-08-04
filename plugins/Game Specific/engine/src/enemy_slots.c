@@ -16,6 +16,8 @@
 #include <gbs_types.h>
 #include <math.h>
 #include <string.h>
+#include "weapon_data.h"
+#include "weapon_data/iron_hammer.h"
 
 #pragma bank 255
 
@@ -133,14 +135,6 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[0].skills[3] = LUSTER;
   turn_slots[0].skill_costs[3] = 3;
 
-  weapon_slots[0].type=6;
-  weapon_slots[0].color=2;
-  weapon_slots[0].attack=69;
-  weapon_slots[0].classes=69;
-  weapon_slots[0].crit_chance=69;
-  weapon_slots[0].hit_chance=69;
-  weapon_slots[0].id=69;
-  weapon_slots[0].price=69;
   item_slots[0].count=42;
   item_slots[0].type=42;
   //
@@ -160,15 +154,6 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[1].y = 2;
   turn_slots[1].w = 3;
   turn_slots[1].h = 3;
-
-  weapon_slots[1].type=8;
-  weapon_slots[1].color=4;
-  weapon_slots[1].attack=69;
-  weapon_slots[1].classes=69;
-  weapon_slots[1].crit_chance=69;
-  weapon_slots[1].hit_chance=69;
-  weapon_slots[1].id=69;
-  weapon_slots[1].price=69;
   //
   turn_slots[2].max_hp = 25;
   turn_slots[2].hp = 25;
@@ -186,14 +171,6 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[2].y = 10;
   turn_slots[2].w = 3;
   turn_slots[2].h = 3;
-  weapon_slots[2].type=8;
-  weapon_slots[2].color=3;
-  weapon_slots[2].attack=69;
-  weapon_slots[2].classes=69;
-  weapon_slots[2].crit_chance=69;
-  weapon_slots[2].hit_chance=69;
-  weapon_slots[2].id=69;
-  weapon_slots[2].price=69;
   //
   turn_slots[3].max_hp = 10;
   turn_slots[3].hp = 10;
@@ -211,14 +188,10 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[3].y = 14;
   turn_slots[3].w = 3;
   turn_slots[3].h = 3;
-  weapon_slots[3].type=3;
-  weapon_slots[3].color=1;
-  weapon_slots[3].attack=69;
-  weapon_slots[3].classes=69;
-  weapon_slots[3].crit_chance=69;
-  weapon_slots[3].hit_chance=69;
-  weapon_slots[3].id=69;
-  weapon_slots[3].price=69;
+  set_weapon(1, &weapon_slots[0]);
+  set_weapon(2, &weapon_slots[1]);
+  set_weapon(3, &weapon_slots[2]);
+  set_weapon(4, &weapon_slots[3]);
 }
 
 void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {

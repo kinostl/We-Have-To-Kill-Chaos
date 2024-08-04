@@ -13,7 +13,7 @@
 - [X] All entities take turns doing actions
 - [/] Heros animate their attacks
 - [X] Enemies animate their attacks // Attack explosions on Party List
-- [/] Hero Weapon displays when attacking
+- [X] Hero Weapon displays when attacking
 - [ ] Hero spends AP when attacking
 - [/] Player can see Heros being attacked
 - [ ] Player can change equipment
