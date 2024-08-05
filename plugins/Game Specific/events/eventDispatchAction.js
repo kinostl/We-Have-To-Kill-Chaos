@@ -31,7 +31,8 @@ const actions = [
     "PANEL/Display Current Actor",
     "PANEL/Display Party Actors",
     "PANEL/Hide Current Actor",
-    "PANEL/Hide Party Actors"
+    "PANEL/Hide Party Actors",
+    "PANEL/Load Items"
 ];
 
 const autoLabel = (fetchArg, input) => `Dispatch: ${actions[input["action"]]}`

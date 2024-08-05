@@ -510,3 +510,12 @@ FF3 damage numbers just uses the standard font, in pink for some reason. Try yel
 
 Took 3 days to fix a problem that should have been an hour to fix, and the fix doesn't even look good. Programming is stupid. show/hide and stop/start effects the OAM or something. Had to do the de/activate trick at the time of animation. Causes minor slowdown. Sucks, don't like how it looks as code, ignoring all these facts before I make a whole ass Reorder Sprite Layers plugin that no one will understand. Fuck you OAM.
 
+Started item stuff, thought I could do it in the short menu, might need to do it in an item scene or an overlay event.
+
+Items should be a screen lightly inspired by GBA and Pokemon. Two columns of item names + symbols + count. Key/Item/Equip tabs on top(?) Description of the item at the bottom. Columns don't have boxes, description does. I like GBA's method of 
+
+```
+SNAME  XX
+```
+
+I like how that looks for items but maybe I should still do the full screen item screen, it looks like it might be confusing otherwise.

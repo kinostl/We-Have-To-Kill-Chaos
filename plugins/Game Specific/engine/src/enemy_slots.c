@@ -188,10 +188,16 @@ void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   turn_slots[3].y = 14;
   turn_slots[3].w = 3;
   turn_slots[3].h = 3;
-  set_weapon(1, &weapon_slots[0]);
-  set_weapon(2, &weapon_slots[1]);
-  set_weapon(3, &weapon_slots[2]);
-  set_weapon(4, &weapon_slots[3]);
+
+
+  item_slots[0].count=1;
+  item_slots[0].type=1;
+  item_slots[1].count=1;
+  item_slots[1].type=2;
+  item_slots[2].count=1;
+  item_slots[2].type=3;
+  item_slots[3].count=1;
+  item_slots[3].type=4;
 }
 
 void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
