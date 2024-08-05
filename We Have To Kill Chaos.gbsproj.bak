@@ -29854,6 +29854,13 @@
                 "d8ef3f33-956f-4f96-a8a4-774608a880da"
             ],
             "spritePaletteIds": [
+                "7b685cdb-bcfb-4bcc-9eb2-7ffd6aec1e77",
+                "7b685cdb-bcfb-4bcc-9eb2-7ffd6aec1e77",
+                null,
+                null,
+                null,
+                null,
+                null,
                 "7b685cdb-bcfb-4bcc-9eb2-7ffd6aec1e77"
             ],
             "collisions": [
@@ -30278,11 +30285,162 @@
                                     },
                                     "valueB": {
                                         "type": "number",
-                                        "value": 2
+                                        "value": 3
                                     }
                                 }
                             },
                             "id": "a0249c5e-7636-4b7e-9b27-cc62b8f51d43"
+                        },
+                        {
+                            "command": "EVENT_IF",
+                            "args": {
+                                "condition": {
+                                    "type": "ne",
+                                    "valueA": {
+                                        "type": "variable",
+                                        "value": "L0"
+                                    },
+                                    "valueB": {
+                                        "type": "variable",
+                                        "value": "79"
+                                    }
+                                },
+                                "__collapseElse": true
+                            },
+                            "children": {
+                                "true": [
+                                    {
+                                        "command": "EVENT_SET_VALUE",
+                                        "args": {
+                                            "variable": "L0",
+                                            "value": {
+                                                "type": "variable",
+                                                "value": "79"
+                                            }
+                                        },
+                                        "id": "44fff564-1bbf-4879-a3a8-602617be27e4"
+                                    },
+                                    {
+                                        "command": "EVENT_GBVM_SCRIPT",
+                                        "args": {
+                                            "script": "VM_OVERLAY_SHOW 0, 12, .UI_COLOR_WHITE, .UI_DRAW_FRAME\nVM_LOAD_TEXT 0",
+                                            "__collapse": false
+                                        },
+                                        "id": "dcf4ca66-fc97-4a59-98e1-5b8e30d6fb8b"
+                                    },
+                                    {
+                                        "command": "EVENT_SWITCH",
+                                        "args": {
+                                            "variable": "L0",
+                                            "choices": 4,
+                                            "__collapseCase0": false,
+                                            "value0": 1,
+                                            "__collapseCase1": false,
+                                            "value1": 2,
+                                            "__collapseCase2": false,
+                                            "value2": 3,
+                                            "__collapseCase3": false,
+                                            "value3": 4,
+                                            "__collapseCase4": false,
+                                            "value4": 5,
+                                            "__collapseCase5": false,
+                                            "value5": 6,
+                                            "__collapseCase6": false,
+                                            "value6": 7,
+                                            "__collapseCase7": false,
+                                            "value7": 8,
+                                            "__collapseCase8": false,
+                                            "value8": 9,
+                                            "__collapseCase9": false,
+                                            "value9": 10,
+                                            "__collapseCase10": false,
+                                            "value10": 11,
+                                            "__collapseCase11": false,
+                                            "value11": 12,
+                                            "__collapseCase12": false,
+                                            "value12": 13,
+                                            "__collapseCase13": false,
+                                            "value13": 14,
+                                            "__collapseCase14": false,
+                                            "value14": 15,
+                                            "__collapseCase15": false,
+                                            "value15": 16,
+                                            "__collapseElse": false,
+                                            "__collapse": false
+                                        },
+                                        "children": {
+                                            "true0": [
+                                                {
+                                                    "command": "EVENT_GBVM_SCRIPT",
+                                                    "args": {
+                                                        "script": ".asciz \"Wooden Nunchucks\""
+                                                    },
+                                                    "id": "357768ba-d17b-498c-82f4-7f0d0b71c7a8"
+                                                }
+                                            ],
+                                            "true1": [
+                                                {
+                                                    "command": "EVENT_GBVM_SCRIPT",
+                                                    "args": {
+                                                        "script": ".asciz \"Small Dagger\""
+                                                    },
+                                                    "id": "aa71b6ca-f710-4015-9b62-b3730a1649c9"
+                                                }
+                                            ],
+                                            "true2": [
+                                                {
+                                                    "command": "EVENT_GBVM_SCRIPT",
+                                                    "args": {
+                                                        "script": ".asciz \"Wood Rod\""
+                                                    },
+                                                    "id": "78f76c2e-2b6c-4e5f-93f1-6eedb362da9a"
+                                                }
+                                            ],
+                                            "true3": [
+                                                {
+                                                    "command": "EVENT_GBVM_SCRIPT",
+                                                    "args": {
+                                                        "script": ".asciz \"Rapier\""
+                                                    },
+                                                    "id": "4e86a68e-c3b6-467c-b88e-d22be4e4f78d"
+                                                }
+                                            ],
+                                            "true4": [],
+                                            "true5": [],
+                                            "true6": [],
+                                            "true7": [],
+                                            "true8": [],
+                                            "true9": [],
+                                            "true10": [],
+                                            "true11": [],
+                                            "true12": [],
+                                            "true13": [],
+                                            "true14": [],
+                                            "true15": [],
+                                            "false": [
+                                                {
+                                                    "command": "EVENT_GBVM_SCRIPT",
+                                                    "args": {
+                                                        "script": ".asciz \"\""
+                                                    },
+                                                    "id": "3a569274-9498-4fe4-8deb-3447b033c8d3"
+                                                }
+                                            ]
+                                        },
+                                        "id": "0e3a2554-e701-4789-8f22-9b13620d7e16"
+                                    },
+                                    {
+                                        "command": "EVENT_GBVM_SCRIPT",
+                                        "args": {
+                                            "script": "VM_DISPLAY_TEXT",
+                                            "__collapse": true
+                                        },
+                                        "id": "2975b655-3139-4446-b469-6ca083217789"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            "id": "0e560dd3-e1c2-4fc3-a1d4-b82c117db54d"
                         }
                     ],
                     "hit1Script": [],
@@ -30392,7 +30550,7 @@
                         "override": true,
                         "__scriptTabs": "press",
                         "__comment": false,
-                        "__collapse": false
+                        "__collapse": true
                     },
                     "children": {
                         "true": [
@@ -30406,13 +30564,13 @@
                                             "value": "79"
                                         },
                                         "valueB": {
-                                            "type": "number",
-                                            "value": 10
+                                            "type": "variable",
+                                            "value": "80"
                                         }
                                     },
                                     "__collapseElse": true,
                                     "__disableElse": true,
-                                    "__collapse": true
+                                    "__collapse": false
                                 },
                                 "children": {
                                     "true": [
@@ -30549,7 +30707,7 @@
                 {
                     "command": "EVENT_GBVM_SCRIPT",
                     "args": {
-                        "script": "VM_SET_CONST_UINT8 _show_actors_on_overlay, 1\nVM_SET_CONST_UINT8 _overlay_priority, 0\nVM_OVERLAY_SHOW 0, 12, .UI_COLOR_WHITE, .UI_DRAW_FRAME\nVM_LOAD_TEXT 0\n.asciz \"Wooden Staff\\nAtk 12\\nHit% 0\\nCrit% 10\"\nVM_DISPLAY_TEXT"
+                        "script": "VM_SET_CONST_UINT8 _show_actors_on_overlay, 1\nVM_SET_CONST_UINT8 _overlay_priority, 0"
                     },
                     "id": "9420c3a2-1649-4e20-988d-149628602024"
                 }
@@ -32641,7 +32799,6 @@
             "imageWidth": 160,
             "imageHeight": 144,
             "filename": "inventory.png",
-            "autoColor": false,
             "tileColors": [
                 6,
                 6,
@@ -32663,26 +32820,26 @@
                 6,
                 6,
                 6,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
-                7,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
                 7,
                 7,
                 7,
@@ -33003,7 +33160,8 @@
                 7,
                 7,
                 7
-            ]
+            ],
+            "autoColor": false
         },
         {
             "id": "4e1dad79-9b8a-4bff-b613-5580521fc599",
@@ -42953,6 +43111,11 @@
             "id": "5b07b77a-3792-4fae-a9cf-0868e3eaf12c__L4",
             "name": "damage digit",
             "symbol": "var_damage_digit"
+        },
+        {
+            "id": "a85649cc-8deb-4340-887a-f2067d3ecd2e__L0",
+            "name": "Prev Y",
+            "symbol": "var_prev_y"
         }
     ],
     "engineFieldValues": [
@@ -42977,7 +43140,7 @@
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
         "worldScrollX": 1552,
-        "worldScrollY": 2732,
+        "worldScrollY": 2520,
         "zoom": 242,
         "sgbEnabled": false,
         "customHead": "",

@@ -1,6 +1,5 @@
 #include "extra_data.h"
 #include "menu_helper.h"
-// #include "scroll.h"
 #include <asm/types.h>
 #include <gb/gb.h>
 #include <gbs_types.h>
@@ -10,13 +9,11 @@
 #include "data/font_gbs_mono.h"
 #include "data/bg_inventory_tileset.h"
 #include <bankdata.h>
+#include "data/game_globals.h"
 #pragma bank 255
 
-#define W_FONT 128 
 UBYTE start_of_bkg_vram;
 font_desc_t _font;
-
-void ui_draw_frame_row(void * dest, UBYTE tile, UBYTE width) OLDCALL;
 
 inline void add_item_sym(unsigned char *d, BYTE sym) {
   *d = '~' + 2 + sym;
@@ -39,11 +36,11 @@ UBYTE write_item_name(BYTE item_id, unsigned char *d) OLDCALL BANKED {
     strcat(item_s, "SMALL DAGGER");
     break;
   case 3:
-    add_item_sym(d++, 1);
-    strcat(item_s, "WOOD HAMMER");
+    add_item_sym(d++, 3);
+    strcat(item_s, "WOOD ROD");
     break;
   case 4:
-    add_item_sym(d++, 3);
+    add_item_sym(d++, 4);
     strcat(item_s, "RAPIER");
     break;
   }
@@ -60,28 +57,9 @@ void loadItemMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   for (BYTE i = 0; i < 4; i++) {
     d += write_item_name(item_slots[i].type, d);
     *d++ = '\n';
-    // d += itoa_format(item_slots[i].count, d, 0);
   }
   *d++ = '\0';
 }
-
-// #define ui_frame_l_tiles  0xC3u
-// #define ui_frame_tl_tiles 0xC0u
-// #define ui_frame_bl_tiles 0xC6u
-
-// void draw_window(void) OLDCALL BANKED {
-//   UBYTE height = 6;
-//   UBYTE width = 20;
-
-//   UBYTE *base_addr = GetBkgAddr() + (11 << 5);
-//   ui_draw_frame_row(base_addr, ui_frame_tl_tiles, width);
-//   for (UBYTE i = height - 1; i != 0; i--) {
-//     base_addr += 32;
-//     ui_draw_frame_row(base_addr, ui_frame_l_tiles, width);
-//   }
-//   base_addr += 32;
-//   ui_draw_frame_row(base_addr, ui_frame_bl_tiles, width);
-// }
 
 void drawMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
@@ -115,9 +93,18 @@ void drawMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
     menu[i] += start_of_bkg_vram;
   }
   set_bkg_tiles(2, 0, 17, 1, menu);
+  if(item_slots[0].type == NULL){
+    VM_GLOBAL(VAR_TEMP_FRAME) = 0;
+    return;
+  }
 
   s_i = 0;
-  for (BYTE i = 0; i < 4; i++) {
+  VM_GLOBAL(VAR_TEMP_FRAME) = 9;
+  for (BYTE i = 0; i < 10; i++) {
+    if (item_slots[i].type == NULL) {
+      VM_GLOBAL(VAR_TEMP_FRAME) = i - 1;
+      break;
+    }
     for (BYTE j = 0; j < 3; j++) {
       menu[s_i] = ' ';
       s_i++;
@@ -128,9 +115,6 @@ void drawMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
       s_i++;
     }
     itoa_format(item_slots[i].count, &menu[s_i - 2], 0);
-    // if (i % 2 != 0) {
-    //   strcat(menu, "\n");
-    // }
   }
   for (UBYTE i = 0; i<(20*10); i++) {
     UBYTE t = menu[i];
