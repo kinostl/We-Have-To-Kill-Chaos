@@ -1,4 +1,5 @@
 #include "extra_data.h"
+#include "item_slot.h"
 #include "menu_helper.h"
 #include <asm/types.h>
 #include <gb/gb.h>
@@ -10,6 +11,7 @@
 #include "data/bg_inventory_tileset.h"
 #include <bankdata.h>
 #include "data/game_globals.h"
+#include "weapon_data.h"
 #pragma bank 255
 
 UBYTE start_of_bkg_vram;
@@ -123,6 +125,63 @@ void drawMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   }
   set_bkg_tiles(0, 2, 20, 10, menu);
   // draw_window();
+}
+
+void progress_blanks(unsigned char * d, UBYTE len) OLDCALL BANKED {
+  for(int i=0;i<len;i++){
+    strcat(d, " ");
+  }
+}
+
+void loadWeaponInfo(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  THIS;
+  unsigned char *d = ui_text_data;
+  *d++=0x01;
+  *d++=1;
+  UWORD item_idx = VM_GLOBAL(VAR_S7A7_CURRENT_ITEM);
+
+  struct item_slot i_slot;
+  i_slot = item_slots[item_idx];
+  struct weapon_data w_data;
+  set_weapon(i_slot.type, &w_data);
+  switch (w_data.id) {
+  default:
+  case 0:
+    strcpy(d, "");
+    break;
+  case 1:
+    strcpy(d, "Wooden Nunchucks");
+    break;
+  case 2:
+    strcpy(d, "Small Dagger");
+    break;
+  case 3:
+    strcpy(d, "Wood Rod");
+    break;
+  case 4:
+    strcpy(d, "Rapier");
+    break;
+  }
+  strcat(d, "\n");
+  progress_blanks(d, 5);
+  strcat(d, "Atk : ");
+  unsigned char t[4];
+  itoa_format(w_data.attack, t, 3);
+  strcat(d, t);
+
+  strcat(d, "\n");
+  progress_blanks(d, 5);
+  strcat(d, "Hit : ");
+  itoa_format(w_data.hit_chance, t, 3);
+  strcat(d, t);
+  strcat(d, "%");
+
+  strcat(d, "\n");
+  progress_blanks(d, 5);
+  strcat(d, "Crit: ");
+  itoa_format(w_data.crit_chance, t, 3);
+  strcat(d, t);
+  strcat(d, "%");
 }
 
 void loadFontIntoBkg(SCRIPT_CTX * THIS) OLDCALL BANKED {

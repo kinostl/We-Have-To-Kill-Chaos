@@ -30235,25 +30235,17 @@
                     "name": "",
                     "frame": 0,
                     "animate": false,
-                    "spriteSheetId": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
+                    "spriteSheetId": "2ef651de-48d3-493a-9f45-607ca2b67081",
                     "direction": "down",
                     "moveSpeed": 1,
-                    "animSpeed": 15,
+                    "animSpeed": 255,
                     "paletteId": "",
                     "isPinned": false,
                     "persistent": false,
                     "collisionGroup": "",
                     "symbol": "actor_16",
                     "script": [],
-                    "startScript": [
-                        {
-                            "command": "EVENT_ACTOR_HIDE",
-                            "args": {
-                                "actorId": "$self$"
-                            },
-                            "id": "5ef1e0aa-fcaf-425d-9319-eec51fd582a0"
-                        }
-                    ],
+                    "startScript": [],
                     "updateScript": [
                         {
                             "command": "EVENT_ACTOR_SET_POSITION",
@@ -30321,12 +30313,44 @@
                                         "id": "44fff564-1bbf-4879-a3a8-602617be27e4"
                                     },
                                     {
-                                        "command": "EVENT_GBVM_SCRIPT",
+                                        "command": "MY_EVENT_CALL_NATIVE",
                                         "args": {
-                                            "script": "VM_OVERLAY_SHOW 0, 12, .UI_COLOR_WHITE, .UI_DRAW_FRAME\nVM_LOAD_TEXT 0",
-                                            "__collapse": false
+                                            "argCount": 0,
+                                            "arg0": {
+                                                "type": "actor",
+                                                "value": "$self$"
+                                            },
+                                            "arg1": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg2": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg3": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg4": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg5": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg6": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg7": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "funName": "loadWeaponInfo"
                                         },
-                                        "id": "dcf4ca66-fc97-4a59-98e1-5b8e30d6fb8b"
+                                        "id": "d88c49ff-f7f3-4fef-99c0-c227ab988e1c"
                                     },
                                     {
                                         "command": "EVENT_SWITCH",
@@ -30366,43 +30390,80 @@
                                             "__collapseCase15": false,
                                             "value15": 16,
                                             "__collapseElse": false,
-                                            "__collapse": false
+                                            "__collapse": true,
+                                            "__comment": true
                                         },
                                         "children": {
                                             "true0": [
                                                 {
                                                     "command": "EVENT_GBVM_SCRIPT",
                                                     "args": {
-                                                        "script": ".asciz \"Wooden Nunchucks\""
+                                                        "script": "VM_LOAD_TEXT 0\n.asciz \"Wooden Nunchucks\""
                                                     },
                                                     "id": "357768ba-d17b-498c-82f4-7f0d0b71c7a8"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_SET_STATE",
+                                                    "args": {
+                                                        "actorId": "$self$",
+                                                        "spriteStateId": "Nunchucks",
+                                                        "loopAnim": true
+                                                    },
+                                                    "id": "27e01143-33c1-4b7e-86e2-c1b0233a8f01"
                                                 }
                                             ],
                                             "true1": [
                                                 {
                                                     "command": "EVENT_GBVM_SCRIPT",
                                                     "args": {
-                                                        "script": ".asciz \"Small Dagger\""
+                                                        "script": "VM_LOAD_TEXT 0\n.asciz \"Small Dagger\""
                                                     },
                                                     "id": "aa71b6ca-f710-4015-9b62-b3730a1649c9"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_SET_STATE",
+                                                    "args": {
+                                                        "actorId": "$self$",
+                                                        "spriteStateId": "Dagger",
+                                                        "loopAnim": true
+                                                    },
+                                                    "id": "26505749-58f3-4f74-9b44-64a56d9de10e"
                                                 }
                                             ],
                                             "true2": [
                                                 {
                                                     "command": "EVENT_GBVM_SCRIPT",
                                                     "args": {
-                                                        "script": ".asciz \"Wood Rod\""
+                                                        "script": "VM_LOAD_TEXT 0\n.asciz \"Wood Rod\""
                                                     },
                                                     "id": "78f76c2e-2b6c-4e5f-93f1-6eedb362da9a"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_SET_STATE",
+                                                    "args": {
+                                                        "actorId": "$self$",
+                                                        "spriteStateId": "Staff",
+                                                        "loopAnim": true
+                                                    },
+                                                    "id": "5286d2cc-da77-4178-a013-73f668f1c0d4"
                                                 }
                                             ],
                                             "true3": [
                                                 {
                                                     "command": "EVENT_GBVM_SCRIPT",
                                                     "args": {
-                                                        "script": ".asciz \"Rapier\""
+                                                        "script": "VM_LOAD_TEXT 0\n.asciz \"Rapier\""
                                                     },
                                                     "id": "4e86a68e-c3b6-467c-b88e-d22be4e4f78d"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_SET_STATE",
+                                                    "args": {
+                                                        "actorId": "$self$",
+                                                        "spriteStateId": "Sword 1",
+                                                        "loopAnim": true
+                                                    },
+                                                    "id": "823d3870-bd3a-4386-9df0-024000a90e18"
                                                 }
                                             ],
                                             "true4": [],
@@ -30421,9 +30482,18 @@
                                                 {
                                                     "command": "EVENT_GBVM_SCRIPT",
                                                     "args": {
-                                                        "script": ".asciz \"\""
+                                                        "script": "VM_LOAD_TEXT 0\n.asciz \"\""
                                                     },
                                                     "id": "3a569274-9498-4fe4-8deb-3447b033c8d3"
+                                                },
+                                                {
+                                                    "command": "EVENT_ACTOR_SET_STATE",
+                                                    "args": {
+                                                        "actorId": "$self$",
+                                                        "spriteStateId": "",
+                                                        "loopAnim": true
+                                                    },
+                                                    "id": "0ce69891-41a8-4f1b-b21d-8a5bebb862bf"
                                                 }
                                             ]
                                         },
@@ -30432,8 +30502,8 @@
                                     {
                                         "command": "EVENT_GBVM_SCRIPT",
                                         "args": {
-                                            "script": "VM_DISPLAY_TEXT",
-                                            "__collapse": true
+                                            "script": "VM_OVERLAY_SHOW 0, 12, .UI_COLOR_WHITE, .UI_DRAW_FRAME\nVM_DISPLAY_TEXT",
+                                            "__collapse": false
                                         },
                                         "id": "2975b655-3139-4446-b469-6ca083217789"
                                     }
@@ -30447,8 +30517,8 @@
                     "hit2Script": [],
                     "hit3Script": [],
                     "id": "a85649cc-8deb-4340-887a-f2067d3ecd2e",
-                    "x": 18,
-                    "y": 17
+                    "x": 2,
+                    "y": 16
                 }
             ],
             "triggers": [],
@@ -43114,8 +43184,8 @@
         },
         {
             "id": "a85649cc-8deb-4340-887a-f2067d3ecd2e__L0",
-            "name": "Prev Y",
-            "symbol": "var_prev_y"
+            "name": "Current Item",
+            "symbol": "var_current_item"
         }
     ],
     "engineFieldValues": [
@@ -43140,7 +43210,7 @@
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
         "worldScrollX": 1552,
-        "worldScrollY": 2520,
+        "worldScrollY": 2599,
         "zoom": 242,
         "sgbEnabled": false,
         "customHead": "",
