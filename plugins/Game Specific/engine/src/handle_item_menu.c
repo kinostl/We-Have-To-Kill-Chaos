@@ -17,55 +17,70 @@
 UBYTE start_of_bkg_vram;
 font_desc_t _font;
 
-inline void add_item_sym(unsigned char *d, BYTE sym) {
-  *d = '~' + 2 + sym;
+inline void fill_space(unsigned char * d, UBYTE len, unsigned char c) {
+  unsigned char buf[2] = {c, '\0'};
+  for(int i=0;i<len;i++){
+    strcat(d, buf);
+  }
 }
 
-UBYTE write_item_name(BYTE item_id, unsigned char *d) OLDCALL BANKED {
+inline void progress_blanks(unsigned char * d, UBYTE len) {
+  fill_space(d, len, ' ');
+}
+
+inline void add_item_sym(unsigned char *d, BYTE sym_id) {
+  const unsigned char sym_base = 137;
+  unsigned char sym[2] = {sym_base+sym_id, '\0'};
+  strcat(d, sym);
+}
+
+inline void add_new_line(unsigned char *d, UBYTE i) {
+  progress_blanks(d, i - (strlen(d) % i));
+}
+
+inline void draw_amt(unsigned char *d, UBYTE i){
+  unsigned char a[3];
+  itoa_format(item_slots[i].count, a, 0);
+
+  UBYTE rem = 20 - (strlen(d) % 20);
+  rem -= strlen(a);
+  rem--;
+
+  progress_blanks(d, rem);
+  strcat(d, a);
+  progress_blanks(d, 1);
+}
+
+inline void write_item_name(BYTE item_id, unsigned char *item_s) {
   // TODO should display item type symbol then name
   // Also should make so and so wide
   // Max Count is 99 I guess
-  char item_s[15] = "";
   switch (item_id) {
   default:
     break;
   case 1:
-    add_item_sym(d++, 2);
+    add_item_sym(item_s, 2);
     strcat(item_s, "WOOD NUNCHAKU");
     break;
   case 2:
-    add_item_sym(d++, 0);
+    add_item_sym(item_s, 0);
     strcat(item_s, "SMALL DAGGER");
     break;
   case 3:
-    add_item_sym(d++, 3);
+    add_item_sym(item_s, 3);
     strcat(item_s, "WOOD ROD");
     break;
   case 4:
-    add_item_sym(d++, 4);
+    add_item_sym(item_s, 4);
     strcat(item_s, "RAPIER");
     break;
   }
-  BYTE item_len = strlen(item_s);
-  for (BYTE i = 0; i < item_len; i++) {
-    *d++ = item_s[i];
-  }
-  return item_len+1;
-}
-
-void loadItemMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  THIS;
-  unsigned char *d = ui_text_data;
-  for (BYTE i = 0; i < 4; i++) {
-    d += write_item_name(item_slots[i].type, d);
-    *d++ = '\n';
-  }
-  *d++ = '\0';
 }
 
 void drawMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  UBYTE menu[20 * 18] = {' '};
+  UBYTE header[18] = "";
+  // Staged data
   item_slots[0].count=1;
   item_slots[0].type=1;
   item_slots[1].count=1;
@@ -74,49 +89,36 @@ void drawMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   item_slots[2].type=3;
   item_slots[3].count=1;
   item_slots[3].type=4;
-  UBYTE s_i=0;
-  const char item_header[9] = "<Items>";
-  for (BYTE i = 0; i < strlen(item_header); i++) {
-    menu[s_i] = item_header[i];
-    s_i++;
+
+  // Item Header
+  strcpy(header, "Items 1/1");
+  add_new_line(header, 20);
+  header[strlen(header) - 4] = '#';
+  for (UBYTE i = 0; i<strlen(header); i++) {
+    UBYTE t = header[i];
+    header[i] = ReadBankedUBYTE(_font.recode_table + t, BANK(font_gbs_mono));
+    header[i] += start_of_bkg_vram;
   }
-  menu[s_i++] = ' ';
-  menu[s_i++] = '1';
-  menu[s_i++] = '/';
-  menu[s_i++] = '1';
-  while (s_i % 20 != 0) {
-    menu[s_i] = ' ';
-    s_i++;
-  }
-  menu[s_i - 4] = '#';
-  for (UBYTE i = 0; i<s_i; i++) {
-    UBYTE t = menu[i];
-    menu[i] = ReadBankedUBYTE(_font.recode_table + t, BANK(font_gbs_mono));
-    menu[i] += start_of_bkg_vram;
-  }
-  set_bkg_tiles(2, 0, 17, 1, menu);
+  set_bkg_tiles(2, 0, 17, 1, header);
+
   if(item_slots[0].type == NULL){
     VM_GLOBAL(VAR_TEMP_FRAME) = 0;
     return;
   }
 
-  s_i = 0;
   VM_GLOBAL(VAR_TEMP_FRAME) = 9;
+
+
+  // Item List
+  UBYTE menu[20 * 10] = "";
   for (BYTE i = 0; i < 10; i++) {
     if (item_slots[i].type == NULL) {
       VM_GLOBAL(VAR_TEMP_FRAME) = i - 1;
       break;
     }
-    for (BYTE j = 0; j < 3; j++) {
-      menu[s_i] = ' ';
-      s_i++;
-    }
-    s_i += write_item_name(item_slots[i].type, &menu[s_i]);
-    while (s_i % 20 != 0) {
-      menu[s_i] = ' ';
-      s_i++;
-    }
-    itoa_format(item_slots[i].count, &menu[s_i - 2], 0);
+    progress_blanks(menu, 3);
+    write_item_name(item_slots[i].type, menu);
+    draw_amt(menu, item_slots[i].count);
   }
   for (UBYTE i = 0; i<(20*10); i++) {
     UBYTE t = menu[i];
@@ -127,61 +129,106 @@ void drawMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   // draw_window();
 }
 
-void progress_blanks(unsigned char * d, UBYTE len) OLDCALL BANKED {
-  for(int i=0;i<len;i++){
-    strcat(d, " ");
+inline void writeItemDesc(BYTE item_id, unsigned char *item_s){
+
+  switch (item_id) {
+  default:
+  case 0:
+    strcat(item_s, "");
+    break;
+  case 1:
+    strcat(item_s, "Wooden Nunchucks");
+    break;
+  case 2:
+    strcat(item_s, "Small Dagger");
+    break;
+  case 3:
+    strcat(item_s, "Wood Rod");
+    break;
+  case 4:
+    strcat(item_s, "Rapier");
+    break;
   }
+}
+
+void drawBox(SCRIPT_CTX * THIS) OLDCALL BANKED {
+  THIS;
+  UBYTE menu[20 * 6] = "";
+  unsigned char border_char = 128;
+  // Top
+  fill_space(menu, 1, border_char);
+  border_char++;
+  fill_space(menu, 18, border_char);
+  border_char++;
+  fill_space(menu, 1, border_char);
+  border_char++;
+
+  // Rows
+  for (BYTE i = 0; i < 4; i++) {
+
+    fill_space(menu, 1, border_char);
+    border_char++;
+    fill_space(menu, 18, border_char);
+    border_char++;
+    fill_space(menu, 1, border_char);
+    border_char -= 2;
+  }
+
+  border_char+=3;
+  fill_space(menu, 1, border_char);
+  border_char++;
+  fill_space(menu, 18, border_char);
+  border_char++;
+  fill_space(menu, 1, border_char);
+
+
+  for (UBYTE i = 0; i<(20*6); i++) {
+    UBYTE j = menu[i];
+    menu[i] = ReadBankedUBYTE(_font.recode_table + j, BANK(font_gbs_mono));
+    menu[i] += start_of_bkg_vram;
+  }
+
+  set_bkg_tiles(0, 12, 20, 6, menu);
 }
 
 void loadWeaponInfo(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  unsigned char *d = ui_text_data;
-  *d++=0x01;
-  *d++=1;
-  UWORD item_idx = VM_GLOBAL(VAR_S7A7_CURRENT_ITEM);
+  UBYTE menu[18 * 8] = "";
+  UWORD item_idx = VM_GLOBAL(VAR_TEMP_Y);
 
   struct item_slot i_slot;
   i_slot = item_slots[item_idx];
   struct weapon_data w_data;
   set_weapon(i_slot.type, &w_data);
-  switch (w_data.id) {
-  default:
-  case 0:
-    strcpy(d, "");
-    break;
-  case 1:
-    strcpy(d, "Wooden Nunchucks");
-    break;
-  case 2:
-    strcpy(d, "Small Dagger");
-    break;
-  case 3:
-    strcpy(d, "Wood Rod");
-    break;
-  case 4:
-    strcpy(d, "Rapier");
-    break;
-  }
-  strcat(d, "\n");
-  progress_blanks(d, 5);
-  strcat(d, "Atk : ");
+  writeItemDesc(w_data.id, menu);
+  add_new_line(menu, 18);
+  progress_blanks(menu, 5);
+  strcat(menu, "Atk : ");
   unsigned char t[4];
   itoa_format(w_data.attack, t, 3);
-  strcat(d, t);
+  strcat(menu, t);
 
-  strcat(d, "\n");
-  progress_blanks(d, 5);
-  strcat(d, "Hit : ");
+  add_new_line(menu, 18);
+  progress_blanks(menu, 5);
+  strcat(menu, "Hit : ");
   itoa_format(w_data.hit_chance, t, 3);
-  strcat(d, t);
-  strcat(d, "%");
+  strcat(menu, t);
+  strcat(menu, "%");
 
-  strcat(d, "\n");
-  progress_blanks(d, 5);
-  strcat(d, "Crit: ");
+  add_new_line(menu, 18);
+  progress_blanks(menu, 5);
+  strcat(menu, "Crit: ");
   itoa_format(w_data.crit_chance, t, 3);
-  strcat(d, t);
-  strcat(d, "%");
+  strcat(menu, t);
+  strcat(menu, "%");
+
+  for (UBYTE i = 0; i<(20*8); i++) {
+    UBYTE j = menu[i];
+    menu[i] = ReadBankedUBYTE(_font.recode_table + j, BANK(font_gbs_mono));
+    menu[i] += start_of_bkg_vram;
+  }
+
+  set_bkg_tiles(1, 13, 18, 4, menu);
 }
 
 void loadFontIntoBkg(SCRIPT_CTX * THIS) OLDCALL BANKED {
@@ -189,5 +236,5 @@ void loadFontIntoBkg(SCRIPT_CTX * THIS) OLDCALL BANKED {
   MemcpyBanked(&start_of_bkg_vram, &bg_inventory_tileset.n_tiles,
                sizeof(UBYTE), BANK(bg_inventory_tileset));
   MemcpyBanked(&_font, font_gbs_mono, sizeof(font_desc_t), BANK(font_gbs_mono));
-  SetBankedBkgData(start_of_bkg_vram, 16*7, _font.bitmaps, BANK(font_gbs_mono));
+  SetBankedBkgData(start_of_bkg_vram, 16*14, _font.bitmaps, BANK(font_gbs_mono));
 }
