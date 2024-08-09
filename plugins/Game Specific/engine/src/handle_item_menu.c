@@ -7,36 +7,11 @@
 #include <string.h>
 #include <ui.h>
 #include <vm.h>
-#include "data/font_gbs_mono.h"
-#include "data/bg_inventory_tileset.h"
 #include <bankdata.h>
 #include "data/game_globals.h"
 #include "weapon_data.h"
+#include "load_font_into_bg.h"
 #pragma bank 255
-
-UBYTE start_of_bkg_vram;
-font_desc_t _font;
-
-inline void fill_space(unsigned char * d, UBYTE len, unsigned char c) {
-  unsigned char buf[2] = {c, '\0'};
-  for(int i=0;i<len;i++){
-    strcat(d, buf);
-  }
-}
-
-inline void progress_blanks(unsigned char * d, UBYTE len) {
-  fill_space(d, len, ' ');
-}
-
-inline void add_item_sym(unsigned char *d, BYTE sym_id) {
-  const unsigned char sym_base = 137;
-  unsigned char sym[2] = {sym_base+sym_id, '\0'};
-  strcat(d, sym);
-}
-
-inline void add_new_line(unsigned char *d, UBYTE i) {
-  progress_blanks(d, i - (strlen(d) % i));
-}
 
 inline void draw_amt(unsigned char *d, UBYTE i){
   unsigned char a[3];
@@ -96,7 +71,7 @@ void drawMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   header[strlen(header) - 4] = '#';
   for (UBYTE i = 0; i<strlen(header); i++) {
     UBYTE t = header[i];
-    header[i] = ReadBankedUBYTE(_font.recode_table + t, BANK(font_gbs_mono));
+    header[i] = ReadBankedUBYTE(bg_font.recode_table + t, bg_font_bank);
     header[i] += start_of_bkg_vram;
   }
   set_bkg_tiles(2, 0, 17, 1, header);
@@ -122,11 +97,10 @@ void drawMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   }
   for (UBYTE i = 0; i<(20*10); i++) {
     UBYTE t = menu[i];
-    menu[i] = ReadBankedUBYTE(_font.recode_table + t, BANK(font_gbs_mono));
+    menu[i] = ReadBankedUBYTE(bg_font.recode_table + t, bg_font_bank);
     menu[i] += start_of_bkg_vram;
   }
   set_bkg_tiles(0, 2, 20, 10, menu);
-  // draw_window();
 }
 
 inline void writeItemDesc(BYTE item_id, unsigned char *item_s){
@@ -151,44 +125,9 @@ inline void writeItemDesc(BYTE item_id, unsigned char *item_s){
   }
 }
 
-void drawBox(SCRIPT_CTX * THIS) OLDCALL BANKED {
+void drawItemInfoBox(SCRIPT_CTX * THIS) OLDCALL BANKED {
   THIS;
-  UBYTE menu[20 * 6] = "";
-  unsigned char border_char = 128;
-  // Top
-  fill_space(menu, 1, border_char);
-  border_char++;
-  fill_space(menu, 18, border_char);
-  border_char++;
-  fill_space(menu, 1, border_char);
-  border_char++;
-
-  // Rows
-  for (BYTE i = 0; i < 4; i++) {
-
-    fill_space(menu, 1, border_char);
-    border_char++;
-    fill_space(menu, 18, border_char);
-    border_char++;
-    fill_space(menu, 1, border_char);
-    border_char -= 2;
-  }
-
-  border_char+=3;
-  fill_space(menu, 1, border_char);
-  border_char++;
-  fill_space(menu, 18, border_char);
-  border_char++;
-  fill_space(menu, 1, border_char);
-
-
-  for (UBYTE i = 0; i<(20*6); i++) {
-    UBYTE j = menu[i];
-    menu[i] = ReadBankedUBYTE(_font.recode_table + j, BANK(font_gbs_mono));
-    menu[i] += start_of_bkg_vram;
-  }
-
-  set_bkg_tiles(0, 12, 20, 6, menu);
+  make_box(0, 12, 20,6);
 }
 
 void loadWeaponInfo(SCRIPT_CTX *THIS) OLDCALL BANKED {
@@ -224,17 +163,9 @@ void loadWeaponInfo(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
   for (UBYTE i = 0; i<(20*8); i++) {
     UBYTE j = menu[i];
-    menu[i] = ReadBankedUBYTE(_font.recode_table + j, BANK(font_gbs_mono));
+    menu[i] = ReadBankedUBYTE(bg_font.recode_table + j, bg_font_bank);
     menu[i] += start_of_bkg_vram;
   }
 
   set_bkg_tiles(1, 13, 18, 4, menu);
-}
-
-void loadFontIntoBkg(SCRIPT_CTX * THIS) OLDCALL BANKED {
-  THIS;
-  MemcpyBanked(&start_of_bkg_vram, &bg_inventory_tileset.n_tiles,
-               sizeof(UBYTE), BANK(bg_inventory_tileset));
-  MemcpyBanked(&_font, font_gbs_mono, sizeof(font_desc_t), BANK(font_gbs_mono));
-  SetBankedBkgData(start_of_bkg_vram, 16*14, _font.bitmaps, BANK(font_gbs_mono));
 }

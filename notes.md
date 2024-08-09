@@ -519,3 +519,15 @@ SNAME  XX
 ```
 
 I like how that looks for items but maybe I should still do the full screen item screen, it looks like it might be confusing otherwise.
+
+NES FF1 only used inventory for overworld items. Equip has its own screen just for weapons and another just for armor. There seems to be no in-battle equipment changing.
+
+GBA version has a proper / more traditional / more modern equip screen that integrates everything.
+
+I think removing in-battle equip is the more fun option and easier to design around.
+
+Lets drop Item stuff for now and work on the equip screen.
+
+Equip screen can probably take inspiration from GBA. Drop the idea of seperating armor and weapon screens and weapon inventory
+
+Equip screen, stats show on the left side, and sub-stats on the right. During equip, replace stats with choices?
