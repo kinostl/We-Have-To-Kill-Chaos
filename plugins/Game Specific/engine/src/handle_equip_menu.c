@@ -25,10 +25,11 @@ inline void screenf(unsigned char *d, UBYTE x, UBYTE y, UBYTE w, UBYTE h) {
 void loadEquipMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
 
-  unsigned char name[12] = "Monk Fred";
+  unsigned char name[7] = "Fred";
   screenf(name, 1, 1, strlen(name), 1);
-  unsigned char label[6] = "Equip";
-  screenf(label, 14, 1, strlen(label), 1);
+
+  unsigned char hp[11] = "HP 999/999";
+  screenf(hp, 9, 1, strlen(hp), 1);
 
   unsigned char weapon[12] = "W Nunchucks";
   weapon[1] = 150;
@@ -36,11 +37,22 @@ void loadEquipMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   unsigned char armor[12] = "A Cloth";
   armor[1] = 150;
   screenf(armor, 8, 6, strlen(armor), 1);
-  unsigned char exp[12] = "+++--  Lv 2";
-  screenf(exp, 8, 9, strlen(exp), 1);
 
-  unsigned char hp[6] = " 6/ 9";
-  screenf(hp, 1, 9, strlen(hp), 1);
+unsigned char lv_label[3] = "Lv";
+  screenf(lv_label, 1, 15, strlen(lv_label), 1);
+  unsigned char total_exp_label[]="EXP";
+  screenf(total_exp_label, 5, 15, strlen(total_exp_label), 1);
+  unsigned char next_exp_label[]="NxtLv";
+  screenf(next_exp_label, 13, 15, strlen(next_exp_label), 1);
+
+  unsigned char lv[]="49";
+  unsigned char total_exp[]="956841";
+  unsigned char next_exp[]=" 32800";
+
+  screenf(lv, 1, 16, strlen(lv), 1);
+  screenf(total_exp, 5, 16, strlen(total_exp), 1);
+  screenf(next_exp, 13, 16, strlen(next_exp), 1);
+
 
   unsigned char strength[9] = "STR   10";
   unsigned char agility[9] = "AGL    8";
@@ -48,18 +60,18 @@ void loadEquipMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   unsigned char stamina[9] = "STA   15";
   unsigned char luck[9] = "LCK    8";
 
-  screenf(strength, 1, 12, strlen(strength), 1);
-  screenf(agility, 1, 13, strlen(agility), 1);
-  screenf(intel, 1, 14, strlen(intel), 1);
-  screenf(stamina, 1, 15, strlen(stamina), 1);
-  screenf(luck, 1, 16, strlen(luck), 1);
+  screenf(strength, 1, 9, strlen(strength), 1);
+  screenf(agility, 1, 10, strlen(agility), 1);
+  screenf(intel, 1, 11, strlen(intel), 1);
+  screenf(stamina, 1, 12, strlen(stamina), 1);
+  screenf(luck, 1, 13, strlen(luck), 1);
 
   unsigned char attack[9] = "ATK   10";
   unsigned char accuracy[9] = "ACC   28";
   unsigned char defense[9] = "DEF    1";
   unsigned char evasion[9] = "EVA   15";
-  screenf(attack, 11, 12, strlen(attack), 1);
-  screenf(accuracy, 11, 13, strlen(accuracy), 1);
-  screenf(defense, 11, 14, strlen(defense), 1);
-  screenf(evasion, 11, 15, strlen(evasion), 1);
+  screenf(attack, 11, 9, strlen(attack), 1);
+  screenf(accuracy, 11, 10, strlen(accuracy), 1);
+  screenf(defense, 11, 11, strlen(defense), 1);
+  screenf(evasion, 11, 12, strlen(evasion), 1);
 }
