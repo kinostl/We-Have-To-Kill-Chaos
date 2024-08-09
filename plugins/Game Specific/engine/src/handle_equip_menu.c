@@ -24,20 +24,18 @@ inline void screenf(unsigned char *d, UBYTE x, UBYTE y, UBYTE w, UBYTE h) {
 
 void loadEquipMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  unsigned char opts[12] = "Choose Best";
-  screenf(opts, 1, 1, strlen(opts), 1);
 
+  unsigned char name[12] = "Monk Fred";
+  screenf(name, 1, 1, strlen(name), 1);
   unsigned char label[6] = "Equip";
   screenf(label, 14, 1, strlen(label), 1);
 
-  unsigned char name[12] = "Monk Fred";
-  screenf(name, 8, 3, strlen(name), 1);
   unsigned char weapon[12] = "W Nunchucks";
   weapon[1] = 150;
-  screenf(weapon, 8, 5, strlen(weapon), 1);
+  screenf(weapon, 8, 4, strlen(weapon), 1);
   unsigned char armor[12] = "A Cloth";
   armor[1] = 150;
-  screenf(armor, 8, 7, strlen(armor), 1);
+  screenf(armor, 8, 6, strlen(armor), 1);
   unsigned char exp[12] = "+++--  Lv 2";
   screenf(exp, 8, 9, strlen(exp), 1);
 
