@@ -1,0 +1,89 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "maps/random_menu.tmx",
+    "automapping.whileDrawing": true,
+    "expandedProjectPaths": [
+        "maps",
+        "."
+    ],
+    "exportAsImage.includeBackgroundColor": true,
+    "fileStates": {
+        "maps/black_magic.tmx": {
+            "scale": 5.647222222222222,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 79.86227250368913,
+                "y": 71.89375307427447
+            }
+        },
+        "maps/frame.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 32
+        },
+        "maps/random_menu.tmx": {
+            "scale": 5.634027777777777,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 80.04930358683598,
+                "y": 71.9733760631086
+            }
+        },
+        "maps/store_tiles.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "maps/tileset_for_stores.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "maps/white_magic_shop.tmx": {
+            "scale": 4,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 97.375,
+                "y": 77.625
+            }
+        },
+        "tilesets/store_tiles.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        }
+    },
+    "last.imagePath": "/home/deck/Documents/We Have To Kill Chaos/assets/ui",
+    "map.height": 18,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 8,
+    "map.tileWidth": 8,
+    "map.width": 20,
+    "openFiles": [
+        "maps/white_magic_shop.tmx",
+        "tilesets/store_tiles.tsx",
+        "maps/store_tiles.tsx",
+        "maps/tileset_for_stores.tsx",
+        "maps/black_magic.tmx",
+        "maps/frame.tsx",
+        "maps/random_menu.tmx"
+    ],
+    "project": "custom_stores.tiled-project",
+    "recentFiles": [
+        "maps/frame.tsx",
+        "maps/white_magic_shop.tmx",
+        "tilesets/store_tiles.tsx",
+        "maps/store_tiles.tsx",
+        "maps/tileset_for_stores.tsx",
+        "maps/black_magic.tmx",
+        "maps/random_menu.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 8,
+        "width": 8
+    },
+    "tileset.type": 0
+}

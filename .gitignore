@@ -3,3 +3,5 @@ build/*
 node_modules/*
 *.zip
 backup*
+tilesets/*
+tilesets2/*

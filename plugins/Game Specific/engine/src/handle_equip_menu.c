@@ -74,4 +74,7 @@ unsigned char lv_label[3] = "Lv";
   screenf(accuracy, 11, 10, strlen(accuracy), 1);
   screenf(defense, 11, 11, strlen(defense), 1);
   screenf(evasion, 11, 12, strlen(evasion), 1);
+
+  unsigned char mdef[9] = "MDEF 206";
+  screenf(mdef, 11, 13, strlen(mdef), 1);
 }
