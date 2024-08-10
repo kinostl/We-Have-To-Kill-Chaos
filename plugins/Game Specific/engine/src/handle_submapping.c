@@ -1,3 +1,4 @@
+#include <asm/types.h>
 #include <collision.h>
 #include <gb/gb.h>
 #include "handle_submapping.h"
@@ -36,4 +37,45 @@ void copyBkgToBkg(SCRIPT_CTX *THIS) OLDCALL BANKED {
   VBK_REG = 0;
   MemcpyBanked(my_tiles, image_ptr, sizeof(my_tiles), image_bank);
   set_bkg_submap(DES_X, DES_Y, W1, H1, my_tiles + offset, image_tile_width);
+}
+
+void clearSection(UBYTE x, UBYTE y, UBYTE w, UBYTE h) OLDCALL BANKED {
+  union tile blank_tile;
+  blank_tile.attr.palette = 0;
+  blank_tile.attr.bank = 0;
+  blank_tile.attr.nothing = 0;
+  blank_tile.attr.flip_h = 0;
+  blank_tile.attr.flip_v = 0;
+  blank_tile.attr.draw_over_objects = 0;
+
+  fill_bkg_rect(x, y, w, h, blank_tile._tile);
+}
+
+void clearAttrsSection(UBYTE x, UBYTE y, UBYTE w, UBYTE h) OLDCALL BANKED {
+  VBK_REG = 1;
+  clearSection(x, y, w, h);
+  VBK_REG = 0;
+}
+
+void clearTile(union tile * blank_tile) OLDCALL BANKED {
+  blank_tile->attr.palette = 0;
+  blank_tile->attr.bank = 0;
+  blank_tile->attr.nothing = 0;
+  blank_tile->attr.flip_h = 0;
+  blank_tile->attr.flip_v = 0;
+  blank_tile->attr.draw_over_objects = 0;
+}
+
+void setAttrsSectionColor(UBYTE x, UBYTE y, UBYTE w, UBYTE h, UBYTE palette_id) OLDCALL BANKED {
+  VBK_REG = 1;
+  union tile _tile;
+  _tile.attr.palette = palette_id;
+  _tile.attr.bank = 0;
+  _tile.attr.nothing = 0;
+  _tile.attr.flip_h = 0;
+  _tile.attr.flip_v = 0;
+  _tile.attr.draw_over_objects = 0;
+
+  fill_bkg_rect(x, y, w, h, _tile._tile);
+  VBK_REG = 0;
 }

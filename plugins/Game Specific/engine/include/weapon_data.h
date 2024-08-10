@@ -1,36 +1,30 @@
 #ifndef FF_WEAPON_DATA
 #define FF_WEAPON_DATA
-#include <asm/types.h>
 #include "macro.h"
+#include <asm/types.h>
 
 enum W_TYPE {
-    UNARMED,
-    FISTS,
-    DAGGER,
-    HAMMER,
-    NUNCHUCKS,
-    STAFF,
-    SWORD_1,
-    SWORD_2,
-    SWORD_3
+  UNARMED,
+  FISTS,
+  DAGGER,
+  HAMMER,
+  NUNCHUCKS,
+  STAFF,
+  SWORD_1,
+  SWORD_2,
+  SWORD_3
 };
 
-enum W_COLOR {
-    DMG,
-    BROWN,
-    GREY,
-    PURPLE,
-    PINK
-};
+enum W_COLOR { DMG, BROWN, GREY, PURPLE, PINK };
 
-enum W_CLASSES{
-    FIGHTER,
-    THIEF,
-    MONK,
-    RED_MAGE,
-    WHITE_MAGE,
-    BLACK_MAGE,
-    BLUE_MAGE
+enum W_CLASSES {
+  FIGHTER = 1 << 0,
+  THIEF = 1 << 1,
+  MONK = 1 << 2,
+  RED_MAGE = 1 << 3,
+  WHITE_MAGE = 1 << 4,
+  BLACK_MAGE = 1 << 5,
+  BLUE_MAGE = 1 << 6
 };
 
 #define add_fighter(c) SET_FLAG(c, FIGHTER)
@@ -42,14 +36,14 @@ enum W_CLASSES{
 #define add_blue_mage(c) SET_FLAG(c, BLUE_MAGE)
 
 struct weapon_data {
-    BYTE id;
-    enum W_TYPE type;
-    enum W_COLOR color;
-    BYTE attack;
-    BYTE hit_chance;
-    BYTE crit_chance;
-    UWORD price;
-    UWORD classes; // Flag
+  BYTE id;
+  enum W_TYPE type;
+  enum W_COLOR color;
+  BYTE attack;
+  BYTE hit_chance;
+  BYTE crit_chance;
+  UWORD price;
+  UWORD classes; // Flag
 };
 
 void set_weapon(BYTE weapon_id, struct weapon_data *weapon) OLDCALL BANKED;

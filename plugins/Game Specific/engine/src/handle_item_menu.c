@@ -26,7 +26,7 @@ inline void draw_amt(unsigned char *d, UBYTE i){
   progress_blanks(d, 1);
 }
 
-inline void write_item_name(BYTE item_id, unsigned char *item_s) {
+inline void write_weapon_name(BYTE item_id, unsigned char *item_s) {
   // TODO should display item type symbol then name
   // Also should make so and so wide
   // Max Count is 99 I guess
@@ -92,7 +92,7 @@ void drawMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
       break;
     }
     progress_blanks(menu, 3);
-    write_item_name(item_slots[i].type, menu);
+    write_weapon_name(item_slots[i].type, menu);
     draw_amt(menu, item_slots[i].count);
   }
   for (UBYTE i = 0; i<(20*10); i++) {

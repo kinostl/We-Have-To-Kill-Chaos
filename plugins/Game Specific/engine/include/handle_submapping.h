@@ -13,4 +13,9 @@ union tile {
         UBYTE draw_over_objects : 1;
     } attr;
 };
+
+void clearAttrsSection(UBYTE x, UBYTE y, UBYTE w, UBYTE h) OLDCALL BANKED;
+void clearSection(UBYTE x, UBYTE y, UBYTE w, UBYTE h) OLDCALL BANKED;
+void clearTile(union tile * blank_tile) OLDCALL BANKED;
+void setAttrsSectionColor(UBYTE x, UBYTE y, UBYTE w, UBYTE h, UBYTE palette_id) OLDCALL BANKED;
 #endif

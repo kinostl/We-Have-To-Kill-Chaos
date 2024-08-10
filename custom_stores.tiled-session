@@ -6,8 +6,8 @@
     "activeFile": "maps/random_menu.tmx",
     "automapping.whileDrawing": true,
     "expandedProjectPaths": [
-        "maps",
-        "."
+        ".",
+        "maps"
     ],
     "exportAsImage.includeBackgroundColor": true,
     "fileStates": {
@@ -25,10 +25,10 @@
         },
         "maps/random_menu.tmx": {
             "scale": 5.634027777777777,
-            "selectedLayer": 0,
+            "selectedLayer": -1,
             "viewCenter": {
-                "x": 80.04930358683598,
-                "y": 71.9733760631086
+                "x": 74.5470232959448,
+                "y": 55.11154936521635
             }
         },
         "maps/store_tiles.tsx": {
@@ -67,18 +67,17 @@
         "maps/store_tiles.tsx",
         "maps/tileset_for_stores.tsx",
         "maps/black_magic.tmx",
-        "maps/frame.tsx",
         "maps/random_menu.tmx"
     ],
     "project": "custom_stores.tiled-project",
     "recentFiles": [
-        "maps/frame.tsx",
         "maps/white_magic_shop.tmx",
         "tilesets/store_tiles.tsx",
         "maps/store_tiles.tsx",
         "maps/tileset_for_stores.tsx",
         "maps/black_magic.tmx",
-        "maps/random_menu.tmx"
+        "maps/random_menu.tmx",
+        "maps/frame.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
