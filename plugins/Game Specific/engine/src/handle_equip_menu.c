@@ -9,6 +9,7 @@
 #include <macro.h>
 #include <string.h>
 #include <vm.h>
+#include "menu_helper.h"
 #pragma bank 255
 
 inline void clearChSection(UBYTE x, UBYTE y, UBYTE w, UBYTE h) {
@@ -55,6 +56,25 @@ void loadStatsArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   screenf(luck, 1, 13);
 }
 
+void loadSubStatsArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  THIS;
+  clearAttrsSection(10, 8, 10, 7);
+  setAttrsSectionColor(10, 8, 10, 7, 1);
+  clearChSection(11, 9, 8, 5);
+
+  unsigned char attack[9] = "ATK   10";
+  unsigned char accuracy[9] = "ACC   28";
+  unsigned char defense[9] = "DEF    1";
+  unsigned char evasion[9] = "EVA   15";
+  unsigned char crit[9] = "CRT    1";
+  screenf(attack, 11, 9);
+  screenf(accuracy, 11, 10);
+  screenf(defense, 11, 11);
+  screenf(evasion, 11, 12);
+  screenf(crit, 11, 13);
+}
+
+
 void loadEquipMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
 
@@ -87,24 +107,7 @@ void loadEquipMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   screenf(next_exp, 13, 16);
 
   loadStatsArea(THIS);
-
-  unsigned char attack[9] = "ATK < 10";
-  unsigned char accuracy[9] = "ACC > 28";
-  unsigned char defense[9] = "DEF =  1";
-  unsigned char evasion[9] = "EVA = 15";
-  screenf(attack, 11, 9);
-  screenf(accuracy, 11, 10);
-  screenf(defense, 11, 11);
-  screenf(evasion, 11, 12);
-
-  unsigned char mdef[9] = "MDEF 206";
-  screenf(mdef, 11, 13);
-}
-
-inline void add_item_sym(unsigned char *d, BYTE sym_id) {
-  const unsigned char sym_base = 137;
-  unsigned char sym[2] = {sym_base + sym_id, '\0'};
-  strcat(d, sym);
+  loadSubStatsArea(THIS);
 }
 
 inline void write_weapon_name(BYTE item_id, unsigned char *item_s) {
@@ -177,9 +180,9 @@ void loadEquipList(SCRIPT_CTX *THIS) OLDCALL BANKED {
       }
 
       set_weapon(i_slot.type, &w_data);
-      if (!CHK_FLAG(w_data.classes, turn_slots[currentPlayer].type)) {
-        continue;
-      }
+      // if (!CHK_FLAG(w_data.classes, turn_slots[currentPlayer].type)) {
+      //   continue;
+      // }
 
       unsigned char line[8] = "";
       write_weapon_name(i_slot.type, line);
@@ -188,4 +191,57 @@ void loadEquipList(SCRIPT_CTX *THIS) OLDCALL BANKED {
     }
     break;
   }
+}
+
+inline void addStatToString(unsigned char string[9], UBYTE stat) {
+  unsigned char stat_str[4];
+  itoa_fmt(stat, stat_str);
+  UBYTE stat_len = strlen(stat_str);
+  strcpy(&string[8 - stat_len], stat_str);
+}
+
+inline void addCompareToString(unsigned char string[9], UBYTE a, UBYTE b, UBYTE row){
+  if(a > b){
+    string[4]='>';
+    setAttrsSectionColor(15, 9+row, 1, 1, 2);
+  } else if(a < b){
+    string[4]='<';
+    setAttrsSectionColor(15, 9+row, 1, 1, 3);
+  } else {
+    string[4]='=';
+    setAttrsSectionColor(15, 9+row, 1, 1, 4);
+  }
+}
+
+void loadSubStatsCompareArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  THIS;
+  item_slots[0].count = 2;
+  item_slots[0].type = 5;
+  item_slots[1].count = 1;
+  item_slots[1].type = 1;
+  UBYTE equip_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
+  UBYTE check_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
+  struct weapon_data equip_w, check_w;
+
+  set_weapon(item_slots[equip_id].type, &equip_w);
+  set_weapon(item_slots[check_id].type, &check_w);
+
+  unsigned char lines[5][9];
+  strcpy(lines[0], "ATK     ");
+  strcpy(lines[1], "ACC     ");
+  // strcpy(lines[2], "DEF     ");
+  // strcpy(lines[3], "EVA     ");
+  strcpy(lines[4], "CRT     ");
+
+  addStatToString(lines[0], check_w.attack);
+  addStatToString(lines[1], check_w.hit_chance);
+  addStatToString(lines[4], check_w.crit_chance);
+
+  addCompareToString(lines[0], check_w.attack, equip_w.attack, 0);
+  addCompareToString(lines[1], check_w.hit_chance, equip_w.hit_chance, 1);
+  addCompareToString(lines[4], check_w.crit_chance, equip_w.crit_chance, 4);
+
+  screenf(lines[0], 11, 9 + 0);
+  screenf(lines[1], 11, 9 + 1);
+  screenf(lines[4], 11, 9 + 4);
 }

@@ -25,13 +25,7 @@ const fields = [
     return {
       key: `arg${i}`,
        label: `Argument #${i+1}`,
-       type: "union",
-       types: ["number", "variable", "actor"],
-       defaultType: "number",
-         defaultValue: {
-           number: 0,
-       variable: "LAST_VARIABLE",
-         },
+       type: "value",
        conditions: [
          {
            key: "argCount",
@@ -43,42 +37,31 @@ const fields = [
 ]
 
 const compile = (input, helpers) => {
-  const { 
-    _callNative,
-    _stackPushConst,
+  const {
+    _addComment,
+    variableSetToScriptValue,
     _stackPush,
     _stackPop,
-    getActorIndex,
-    getVariableAlias
+    _callNative,
+    _declareLocal,
+    _markLocalUse
   } = helpers
-  
-  const pushUnion = (union) => {
-    switch(union.type){
-      case "number":
-        _stackPushConst(union.value)
-        break;
-      case "variable":
-        _stackPush(getVariableAlias(union.value))
-        break;
-      case "actor":
-        _stackPushConst(
-          getActorIndex(union.value)
-        )
-        break;
+
+  _addComment(`Call Native: ${input['funName']}`)
+  const valHolder = _declareLocal(`my_event_call_native_val`, 1, true);
+  if (input.argCount > 0) {
+    for (let i = 0; i < input.argCount; i++) {
+      variableSetToScriptValue(valHolder, input[`arg${i}`]);
+      _stackPush(valHolder)
     }
   }
-  
-  if(input.argCount > 0){
-    for(let i=0; i<input.argCount; i++){
-      pushUnion(input[`arg${i}`])
-    }
-  }
-  
+
   _callNative(input.funName)
-  
-  if(input.argCount > 0){
+
+  if (input.argCount > 0) {
     _stackPop(input.argCount)
   }
+  _markLocalUse(valHolder)
 }
 
 module.exports = {

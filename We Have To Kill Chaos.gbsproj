@@ -31901,8 +31901,8 @@
             "paletteIds": [
                 "c44a3db8-0ae3-4795-b66f-ce83151927a9",
                 "d8ef3f33-956f-4f96-a8a4-774608a880da",
-                "0daf4a27-26d4-4ef5-bb8c-0868079f49b5",
                 "51ecd2ed-393f-46b3-b8a3-81caa4b56b1d",
+                "0daf4a27-26d4-4ef5-bb8c-0868079f49b5",
                 "591e2a7c-81f3-400f-bd01-ec2032e2bce3"
             ],
             "spritePaletteIds": [
@@ -32843,6 +32843,130 @@
                     "id": "b8eed5ed-41f7-423f-ba71-437c00421c76",
                     "x": 8,
                     "y": 9
+                },
+                {
+                    "name": "Sub Stat Coordinator",
+                    "frame": 0,
+                    "animate": false,
+                    "spriteSheetId": "2ef651de-48d3-493a-9f45-607ca2b67081",
+                    "direction": "down",
+                    "moveSpeed": 1,
+                    "animSpeed": 15,
+                    "paletteId": "",
+                    "isPinned": false,
+                    "persistent": false,
+                    "collisionGroup": "",
+                    "symbol": "actor_29",
+                    "script": [],
+                    "startScript": [
+                        {
+                            "command": "EVENT_SET_VALUE",
+                            "args": {
+                                "variable": "L0",
+                                "value": {
+                                    "type": "number",
+                                    "value": -1
+                                }
+                            },
+                            "id": "4488b05e-eda4-4f6a-9d64-5b56aba74bb6"
+                        },
+                        {
+                            "command": "EVENT_ACTOR_STOP_UPDATE",
+                            "args": {
+                                "actorId": "$self$"
+                            },
+                            "id": "91d1be71-b4b8-4449-8ded-21c7f9c33978"
+                        }
+                    ],
+                    "updateScript": [
+                        {
+                            "command": "EVENT_IF",
+                            "args": {
+                                "condition": {
+                                    "type": "ne",
+                                    "valueA": {
+                                        "type": "variable",
+                                        "value": "L0"
+                                    },
+                                    "valueB": {
+                                        "type": "variable",
+                                        "value": "78"
+                                    }
+                                },
+                                "__collapseElse": true
+                            },
+                            "children": {
+                                "true": [
+                                    {
+                                        "command": "EVENT_SET_VALUE",
+                                        "args": {
+                                            "variable": "L0",
+                                            "value": {
+                                                "type": "variable",
+                                                "value": "78"
+                                            }
+                                        },
+                                        "id": "9e2461a7-67e3-4cc6-8fe6-3a4b89a1aebf"
+                                    },
+                                    {
+                                        "command": "MY_EVENT_CALL_NATIVE",
+                                        "args": {
+                                            "argCount": 2,
+                                            "arg0": {
+                                                "type": "number",
+                                                "value": 1
+                                            },
+                                            "arg1": {
+                                                "type": "sub",
+                                                "valueA": {
+                                                    "type": "variable",
+                                                    "value": "78"
+                                                },
+                                                "valueB": {
+                                                    "type": "number",
+                                                    "value": 1
+                                                }
+                                            },
+                                            "arg2": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg3": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg4": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg5": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg6": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "arg7": {
+                                                "type": "number",
+                                                "value": 0
+                                            },
+                                            "funName": "loadSubStatsCompareArea"
+                                        },
+                                        "id": "d432fc10-dd67-46c3-adbe-33cb92577de3"
+                                    }
+                                ],
+                                "false": []
+                            },
+                            "id": "beb273ca-dd28-45b6-8f81-1d730f97c136"
+                        }
+                    ],
+                    "hit1Script": [],
+                    "hit2Script": [],
+                    "hit3Script": [],
+                    "id": "0b754db9-4064-4163-ab06-4e4a064be67c",
+                    "x": 18,
+                    "y": 8
                 }
             ],
             "triggers": [],
@@ -33004,6 +33128,14 @@
                                                         "id": "e6095bd6-d1ff-4ee5-bb15-716d3c1b9b13"
                                                     },
                                                     {
+                                                        "command": "EVENT_ACTOR_STOP_UPDATE",
+                                                        "args": {
+                                                            "actorId": "0b754db9-4064-4163-ab06-4e4a064be67c",
+                                                            "__collapse": true
+                                                        },
+                                                        "id": "87acfa0f-401c-4430-8cb7-01e6b5a4844e"
+                                                    },
+                                                    {
                                                         "command": "EVENT_ACTOR_START_UPDATE",
                                                         "args": {
                                                             "actorId": "a4a34b96-2d28-43d7-8403-4a2b327a4502",
@@ -33125,6 +33257,15 @@
                                                             "__collapse": true
                                                         },
                                                         "id": "2dd484e6-6846-4e0a-8ea1-d8c83835f330"
+                                                    },
+                                                    {
+                                                        "command": "MY_EVENT_CALL_NATIVE",
+                                                        "args": {
+                                                            "argCount": 0,
+                                                            "funName": "loadSubStatsArea",
+                                                            "__collapse": true
+                                                        },
+                                                        "id": "30dfd526-f6d4-4ca9-8f0e-4612e662ba90"
                                                     }
                                                 ]
                                             },
@@ -33170,6 +33311,14 @@
                                                 "__collapse": true
                                             },
                                             "id": "883cb036-8725-4d25-952a-c10bead25e9d"
+                                        },
+                                        {
+                                            "command": "EVENT_ACTOR_START_UPDATE",
+                                            "args": {
+                                                "actorId": "0b754db9-4064-4163-ab06-4e4a064be67c",
+                                                "__collapse": true
+                                            },
+                                            "id": "939361b3-a99c-4bd2-b883-8e45caf443ca"
                                         },
                                         {
                                             "command": "EVENT_SET_VALUE",
@@ -33382,6 +33531,14 @@
                                                         "id": "19e010da-4147-4ba8-b97f-db8a04b532f8"
                                                     },
                                                     {
+                                                        "command": "EVENT_ACTOR_STOP_UPDATE",
+                                                        "args": {
+                                                            "actorId": "0b754db9-4064-4163-ab06-4e4a064be67c",
+                                                            "__collapse": true
+                                                        },
+                                                        "id": "c49d4a97-d587-4cd6-9c50-79bdb9d4eb0a"
+                                                    },
+                                                    {
                                                         "command": "EVENT_ACTOR_START_UPDATE",
                                                         "args": {
                                                             "actorId": "a4a34b96-2d28-43d7-8403-4a2b327a4502",
@@ -33396,6 +33553,14 @@
                                                             "__collapse": true
                                                         },
                                                         "id": "8844c82d-d100-4a5f-971c-6dad01d569c4"
+                                                    },
+                                                    {
+                                                        "command": "MY_EVENT_CALL_NATIVE",
+                                                        "args": {
+                                                            "argCount": 0,
+                                                            "funName": "loadSubStatsArea"
+                                                        },
+                                                        "id": "eb119945-85b1-4a8f-8fdd-5cccac11f509"
                                                     },
                                                     {
                                                         "command": "EVENT_IF",
@@ -35509,7 +35674,6 @@
             "imageWidth": 160,
             "imageHeight": 144,
             "filename": "black_magic_shop.png",
-            "autoColor": true,
             "tileColors": [
                 0,
                 0,
@@ -35871,7 +36035,8 @@
                 0,
                 0,
                 0
-            ]
+            ],
+            "autoColor": true
         },
         {
             "id": "9afbe1bb-cf1d-4527-b3c5-9bdcc37b66b5",
@@ -35881,7 +36046,9 @@
             "height": 18,
             "imageWidth": 160,
             "imageHeight": 144,
-            "filename": "black_magic.png"
+            "filename": "black_magic.png",
+            "tileColors": [],
+            "autoColor": false
         },
         {
             "id": "5494490a-137d-4746-8283-643f70a53a74",
@@ -36870,7 +37037,6 @@
                 1,
                 1,
                 1,
-                2,
                 1,
                 1,
                 1,
@@ -36890,7 +37056,6 @@
                 1,
                 1,
                 1,
-                3,
                 1,
                 1,
                 1,
@@ -36910,7 +37075,6 @@
                 1,
                 1,
                 1,
-                4,
                 1,
                 1,
                 1,
@@ -36930,7 +37094,10 @@
                 1,
                 1,
                 1,
-                4,
+                1,
+                1,
+                1,
+                1,
                 1,
                 1,
                 1,
@@ -37684,6 +37851,7 @@
             "imageWidth": 544,
             "imageHeight": 400,
             "filename": "tileset_for_stores.png",
+            "tileColors": [],
             "autoColor": true
         },
         {
@@ -37707,6 +37875,7 @@
             "imageWidth": 160,
             "imageHeight": 144,
             "filename": "white_magic_shop.png",
+            "tileColors": [],
             "autoColor": true
         }
     ],
@@ -48548,14 +48717,16 @@
         ],
         "debuggerEnabled": true,
         "debuggerScriptType": "gbvm",
-        "debuggerVariablesFilter": "all",
+        "debuggerVariablesFilter": "watched",
         "debuggerCollapsedPanes": [],
         "debuggerPauseOnScriptChanged": false,
         "debuggerPauseOnWatchedVariableChanged": false,
         "debuggerBreakpoints": [],
         "debuggerWatchedVariables": [
             "437",
-            "0"
+            "0",
+            "78",
+            "79"
         ],
         "colorMode": "color",
         "previewAsMono": false,
