@@ -3,7 +3,7 @@
 #include "weapon_data.h"
 #include "menu_helper.h"
 
-void add_armor_sym(unsigned char *d, BYTE sym_id) OLDCALL BANKED {
+void add_armor_sym(unsigned char *d, enum A_TYPE sym_id) OLDCALL BANKED {
   unsigned char sym_base = 144;
   switch (sym_id) {
   case ARMOR:
@@ -31,7 +31,7 @@ void add_armor_sym(unsigned char *d, BYTE sym_id) OLDCALL BANKED {
   strcat(d, sym);
 }
 
-void add_weapon_sym(unsigned char *d, BYTE sym_id) OLDCALL BANKED {
+void add_weapon_sym(unsigned char *d, enum W_TYPE sym_id) OLDCALL BANKED {
   unsigned char sym_base = 137;
   switch (sym_id) {
   case SWORD_1:

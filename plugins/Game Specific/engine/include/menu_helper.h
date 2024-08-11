@@ -1,7 +1,9 @@
 #ifndef FF_MENU_HELPER
 #define FF_MENU_HELPER
 
+#include "armor_data.h"
 #include "string.h"
+#include "weapon_data.h"
 #include <asm/types.h>
 
 extern UBYTE _itoa_fmt_len;
@@ -24,8 +26,8 @@ inline void progress_blanks(unsigned char *d, UBYTE len) {
   fill_space(d, len, ' ');
 }
 
-void add_armor_sym(unsigned char *d, BYTE sym_id) OLDCALL BANKED;
-void add_weapon_sym(unsigned char *d, BYTE sym_id) OLDCALL BANKED;
+void add_armor_sym(unsigned char *d, enum A_TYPE sym_id) OLDCALL BANKED;
+void add_weapon_sym(unsigned char *d, enum W_TYPE sym_id) OLDCALL BANKED;
 inline void add_potion_sym(unsigned char *d) {
   const unsigned char sym[2] = {143, '\0'};
   strcat(d, sym);
