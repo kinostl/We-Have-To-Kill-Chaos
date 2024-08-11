@@ -33333,6 +33333,54 @@
                                             "id": "b9df9dcd-2401-4094-b71c-f80e0ed85705"
                                         },
                                         {
+                                            "command": "MY_EVENT_CALL_NATIVE",
+                                            "args": {
+                                                "argCount": 2,
+                                                "arg0": {
+                                                    "type": "number",
+                                                    "value": 1
+                                                },
+                                                "arg1": {
+                                                    "type": "sub",
+                                                    "valueA": {
+                                                        "type": "variable",
+                                                        "value": "78"
+                                                    },
+                                                    "valueB": {
+                                                        "type": "number",
+                                                        "value": 1
+                                                    }
+                                                },
+                                                "arg2": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                },
+                                                "arg3": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                },
+                                                "arg4": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                },
+                                                "arg5": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                },
+                                                "arg6": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                },
+                                                "arg7": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                },
+                                                "funName": "loadSubStatsCompareArea",
+                                                "__collapse": true
+                                            },
+                                            "id": "e6fe8147-2bb3-4fce-88b9-af742eea5bc9"
+                                        },
+                                        {
                                             "command": "EVENT_ACTOR_SET_POSITION",
                                             "args": {
                                                 "actorId": "player",

@@ -58,9 +58,9 @@ void loadStatsArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
 void loadSubStatsArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  clearAttrsSection(10, 8, 10, 7);
-  setAttrsSectionColor(10, 8, 10, 7, 1);
-  clearChSection(11, 9, 8, 5);
+  // clearAttrsSection(10, 8, 10, 7);
+  // setAttrsSectionColor(10, 8, 10, 7, 1);
+  // clearChSection(11, 9, 8, 5);
 
   unsigned char attack[9] = "ATK   10";
   unsigned char accuracy[9] = "ACC   28";
