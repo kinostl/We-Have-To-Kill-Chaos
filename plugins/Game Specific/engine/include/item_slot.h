@@ -24,5 +24,6 @@ BYTE addArmorItem(BYTE item_id) OLDCALL BANKED;
 BYTE addPotionItem(BYTE item_id) OLDCALL BANKED;
 BYTE removeItems(BYTE item_id, enum I_TYPE type, BYTE count) OLDCALL BANKED;
 BYTE removeItem(BYTE item_id, enum I_TYPE type) OLDCALL BANKED;
+BYTE getNthItemSlotIndexOfItem(BYTE nth, enum I_TYPE type) OLDCALL BANKED;
 
 #endif

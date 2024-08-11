@@ -66,8 +66,9 @@ BYTE removeItems(BYTE item_id, enum I_TYPE type, BYTE count) OLDCALL BANKED {
 
   if (item_slots[slot_i].count < 1) {
     for(int i=slot_i;i<MAX_ITEM_SLOTS - 1;i++){
-        item_slots[slot_i] = item_slots[slot_i + 1];
+        item_slots[i] = item_slots[i + 1];
     }
+
     item_slots[MAX_ITEM_SLOTS - 1].id = NULL;
     item_slots[MAX_ITEM_SLOTS - 1].type = NULL_I;
     item_slots[MAX_ITEM_SLOTS - 1].count = 0;
@@ -79,4 +80,17 @@ BYTE removeItems(BYTE item_id, enum I_TYPE type, BYTE count) OLDCALL BANKED {
 
 BYTE removeItem(BYTE item_id, enum I_TYPE type) OLDCALL BANKED {
   return removeItems(item_id, type, 1);
+}
+
+BYTE getNthItemSlotIndexOfItem(BYTE nth, enum I_TYPE type) OLDCALL BANKED {
+  BYTE n = 0;
+  for (int i = 0; i < MAX_ITEM_SLOTS; i++) {
+    if (item_slots[i].type == type) {
+      if (nth == n) {
+        return i;
+      }
+      n++;
+    }
+  }
+  return ITEM_NOT_FOUND;
 }

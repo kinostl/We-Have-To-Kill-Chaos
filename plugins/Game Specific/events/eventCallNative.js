@@ -51,7 +51,7 @@ const compile = (input, helpers) => {
   _addComment(`Call Native: ${input['funName']}`)
   const valHolder = _declareLocal(`my_event_call_native_val`, 1, true);
   if (input.argCount > 0) {
-    for (let i = 0; i < input.argCount; i++) {
+    for (let i = input.argCount - 1; i >= 0; i--) {
       variableSetToScriptValue(valHolder, input[`arg${i}`]);
       _stackPush(valHolder)
     }

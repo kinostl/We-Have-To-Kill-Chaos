@@ -31903,7 +31903,8 @@
                 "d8ef3f33-956f-4f96-a8a4-774608a880da",
                 "51ecd2ed-393f-46b3-b8a3-81caa4b56b1d",
                 "0daf4a27-26d4-4ef5-bb8c-0868079f49b5",
-                "591e2a7c-81f3-400f-bd01-ec2032e2bce3"
+                "591e2a7c-81f3-400f-bd01-ec2032e2bce3",
+                ""
             ],
             "spritePaletteIds": [
                 "",
@@ -32387,22 +32388,42 @@
                             "children": {
                                 "true": [
                                     {
-                                        "command": "EVENT_SET_VALUE",
+                                        "command": "EVENT_IF",
                                         "args": {
-                                            "variable": "79",
-                                            "value": {
-                                                "type": "false"
-                                            }
+                                            "condition": {
+                                                "type": "gt",
+                                                "valueA": {
+                                                    "type": "variable",
+                                                    "value": "79"
+                                                },
+                                                "valueB": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                }
+                                            },
+                                            "__collapseElse": true
                                         },
-                                        "id": "0ba186a1-f96b-4935-a92b-33723d1b024a"
-                                    },
-                                    {
-                                        "command": "EVENT_WAIT",
-                                        "args": {
-                                            "time": 0.1,
-                                            "frames": 30
+                                        "children": {
+                                            "true": [
+                                                {
+                                                    "command": "EVENT_DEC_VALUE",
+                                                    "args": {
+                                                        "variable": "79"
+                                                    },
+                                                    "id": "56b096e1-04de-405c-a4e6-2c7935eaf252"
+                                                },
+                                                {
+                                                    "command": "EVENT_WAIT",
+                                                    "args": {
+                                                        "time": 0.1,
+                                                        "frames": 30
+                                                    },
+                                                    "id": "6b0865f9-6b1e-4fc2-9881-9d88c8046ae7"
+                                                }
+                                            ],
+                                            "false": []
                                         },
-                                        "id": "6b0865f9-6b1e-4fc2-9881-9d88c8046ae7"
+                                        "id": "4614c6f2-d350-4a68-86b8-7ad5d7775405"
                                     }
                                 ],
                                 "false": []
@@ -32420,22 +32441,42 @@
                             "children": {
                                 "true": [
                                     {
-                                        "command": "EVENT_SET_VALUE",
+                                        "command": "EVENT_IF",
                                         "args": {
-                                            "variable": "79",
-                                            "value": {
-                                                "type": "true"
-                                            }
+                                            "condition": {
+                                                "type": "lt",
+                                                "valueA": {
+                                                    "type": "variable",
+                                                    "value": "79"
+                                                },
+                                                "valueB": {
+                                                    "type": "number",
+                                                    "value": 4
+                                                }
+                                            },
+                                            "__collapseElse": true
                                         },
-                                        "id": "56866124-50a9-4cb5-917c-2f064d348f21"
-                                    },
-                                    {
-                                        "command": "EVENT_WAIT",
-                                        "args": {
-                                            "time": 0.1,
-                                            "frames": 30
+                                        "children": {
+                                            "true": [
+                                                {
+                                                    "command": "EVENT_INC_VALUE",
+                                                    "args": {
+                                                        "variable": "79"
+                                                    },
+                                                    "id": "53707b82-33f0-45ec-af7a-071bf8456864"
+                                                },
+                                                {
+                                                    "command": "EVENT_WAIT",
+                                                    "args": {
+                                                        "time": 0.1,
+                                                        "frames": 30
+                                                    },
+                                                    "id": "aad6815f-cc85-496b-be4b-5e9dade09a4e"
+                                                }
+                                            ],
+                                            "false": []
                                         },
-                                        "id": "aad6815f-cc85-496b-be4b-5e9dade09a4e"
+                                        "id": "ec12cc5a-7d2e-4687-aa30-eede6b688cd8"
                                     }
                                 ],
                                 "false": []
@@ -32508,51 +32549,26 @@
                                         "id": "188254e1-44b0-4a29-97e4-a2bc64fe94cb"
                                     },
                                     {
-                                        "command": "EVENT_IF",
+                                        "command": "EVENT_ACTOR_SET_POSITION",
                                         "args": {
-                                            "condition": {
-                                                "type": "variable",
-                                                "value": "79"
+                                            "actorId": "player",
+                                            "x": {
+                                                "type": "number",
+                                                "value": 6
                                             },
-                                            "__collapseElse": false
-                                        },
-                                        "children": {
-                                            "true": [
-                                                {
-                                                    "command": "EVENT_ACTOR_SET_POSITION",
-                                                    "args": {
-                                                        "actorId": "player",
-                                                        "x": {
-                                                            "type": "number",
-                                                            "value": 6
-                                                        },
-                                                        "y": {
-                                                            "type": "number",
-                                                            "value": 7
-                                                        }
-                                                    },
-                                                    "id": "ad1a9a15-b3b3-444d-9616-9fd148551775"
+                                            "y": {
+                                                "type": "add",
+                                                "valueA": {
+                                                    "type": "variable",
+                                                    "value": "79"
+                                                },
+                                                "valueB": {
+                                                    "type": "number",
+                                                    "value": 4
                                                 }
-                                            ],
-                                            "false": [
-                                                {
-                                                    "command": "EVENT_ACTOR_SET_POSITION",
-                                                    "args": {
-                                                        "actorId": "player",
-                                                        "x": {
-                                                            "type": "number",
-                                                            "value": 6
-                                                        },
-                                                        "y": {
-                                                            "type": "number",
-                                                            "value": 5
-                                                        }
-                                                    },
-                                                    "id": "9b7f99ba-fbfd-41e4-a6ff-306141a97a94"
-                                                }
-                                            ]
+                                            }
                                         },
-                                        "id": "66e463f3-6d1b-4736-a055-7290b5c2bfa8"
+                                        "id": "9b7f99ba-fbfd-41e4-a6ff-306141a97a94"
                                     }
                                 ],
                                 "false": []
@@ -32605,7 +32621,7 @@
                     "hit3Script": [],
                     "id": "728471e3-2287-455d-a1eb-27c52be5a973",
                     "x": 6,
-                    "y": 5
+                    "y": 4
                 },
                 {
                     "name": "Equipment List Position Manager",
@@ -32663,7 +32679,7 @@
                                                 },
                                                 "valueB": {
                                                     "type": "number",
-                                                    "value": 1
+                                                    "value": 0
                                                 }
                                             },
                                             "__collapseElse": true
@@ -32715,8 +32731,8 @@
                                                     "value": "78"
                                                 },
                                                 "valueB": {
-                                                    "type": "number",
-                                                    "value": 5
+                                                    "type": "variable",
+                                                    "value": "80"
                                                 }
                                             },
                                             "__collapseElse": true
@@ -32821,7 +32837,7 @@
                                                 "type": "add",
                                                 "valueA": {
                                                     "type": "number",
-                                                    "value": 9
+                                                    "value": 10
                                                 },
                                                 "valueB": {
                                                     "type": "variable",
@@ -32912,8 +32928,15 @@
                                         "command": "EVENT_IF",
                                         "args": {
                                             "condition": {
-                                                "type": "variable",
-                                                "value": "79"
+                                                "type": "gt",
+                                                "valueA": {
+                                                    "type": "variable",
+                                                    "value": "79"
+                                                },
+                                                "valueB": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                }
                                             },
                                             "__collapseElse": false
                                         },
@@ -32925,18 +32948,11 @@
                                                         "argCount": 2,
                                                         "arg0": {
                                                             "type": "number",
-                                                            "value": 1
+                                                            "value": 0
                                                         },
                                                         "arg1": {
-                                                            "type": "sub",
-                                                            "valueA": {
-                                                                "type": "variable",
-                                                                "value": "78"
-                                                            },
-                                                            "valueB": {
-                                                                "type": "number",
-                                                                "value": 1
-                                                            }
+                                                            "type": "variable",
+                                                            "value": "78"
                                                         },
                                                         "arg2": {
                                                             "type": "number",
@@ -32974,18 +32990,11 @@
                                                         "argCount": 2,
                                                         "arg0": {
                                                             "type": "number",
-                                                            "value": 1
+                                                            "value": 0
                                                         },
                                                         "arg1": {
-                                                            "type": "sub",
-                                                            "valueA": {
-                                                                "type": "variable",
-                                                                "value": "78"
-                                                            },
-                                                            "valueB": {
-                                                                "type": "number",
-                                                                "value": 1
-                                                            }
+                                                            "type": "variable",
+                                                            "value": "78"
                                                         },
                                                         "arg2": {
                                                             "type": "number",
@@ -33017,7 +33026,7 @@
                                                 }
                                             ]
                                         },
-                                        "id": "775266ba-90bd-464c-9006-041d4399c431"
+                                        "id": "55a3bf43-42fa-4d48-be5f-c146ca087f26"
                                     }
                                 ],
                                 "false": []
@@ -33074,6 +33083,46 @@
                         "funName": "loadFontIntoBkg"
                     },
                     "id": "2ad02730-02a7-4630-a484-d1d8f56e4b19"
+                },
+                {
+                    "command": "MY_EVENT_CALL_NATIVE",
+                    "args": {
+                        "argCount": 0,
+                        "arg0": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg1": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg2": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg3": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg4": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg5": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg6": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "arg7": {
+                            "type": "number",
+                            "value": 0
+                        },
+                        "funName": "falsifyData"
+                    },
+                    "id": "383c766f-c1cd-4113-b837-04e4f8e41aa1"
                 },
                 {
                     "command": "MY_EVENT_CALL_NATIVE",
@@ -33219,49 +33268,82 @@
                                                         "command": "EVENT_IF",
                                                         "args": {
                                                             "condition": {
-                                                                "type": "variable",
-                                                                "value": "79"
+                                                                "type": "gt",
+                                                                "valueA": {
+                                                                    "type": "variable",
+                                                                    "value": "79"
+                                                                },
+                                                                "valueB": {
+                                                                    "type": "number",
+                                                                    "value": 0
+                                                                }
                                                             },
-                                                            "__collapseElse": false,
-                                                            "__collapse": true
+                                                            "__collapseElse": false
                                                         },
                                                         "children": {
                                                             "true": [
                                                                 {
-                                                                    "command": "EVENT_ACTOR_SET_POSITION",
+                                                                    "command": "MY_EVENT_CALL_NATIVE",
                                                                     "args": {
-                                                                        "actorId": "player",
-                                                                        "x": {
+                                                                        "argCount": 2,
+                                                                        "arg0": {
                                                                             "type": "number",
-                                                                            "value": 6
+                                                                            "value": 0
                                                                         },
-                                                                        "y": {
-                                                                            "type": "number",
-                                                                            "value": 7
-                                                                        }
+                                                                        "arg1": {
+                                                                            "type": "variable",
+                                                                            "value": "78"
+                                                                        },
+                                                                        "funName": "equipArmor",
+                                                                        "__collapse": true
                                                                     },
-                                                                    "id": "abe1339a-bcfb-4a70-bf1a-5da5633dd2a6"
+                                                                    "id": "ce74da79-fca7-49c3-b730-8851e739daaf"
                                                                 }
                                                             ],
                                                             "false": [
                                                                 {
-                                                                    "command": "EVENT_ACTOR_SET_POSITION",
+                                                                    "command": "MY_EVENT_CALL_NATIVE",
                                                                     "args": {
-                                                                        "actorId": "player",
-                                                                        "x": {
+                                                                        "argCount": 2,
+                                                                        "arg0": {
                                                                             "type": "number",
-                                                                            "value": 6
+                                                                            "value": 0
                                                                         },
-                                                                        "y": {
-                                                                            "type": "number",
-                                                                            "value": 5
-                                                                        }
+                                                                        "arg1": {
+                                                                            "type": "variable",
+                                                                            "value": "78"
+                                                                        },
+                                                                        "funName": "equipWeapon",
+                                                                        "__collapse": true
                                                                     },
-                                                                    "id": "8d5a5cc7-fcee-42a2-9e41-5da8d2d3b614"
+                                                                    "id": "598d6128-938d-456b-bec5-c9ccee703534"
                                                                 }
                                                             ]
                                                         },
-                                                        "id": "096d3eec-669b-491a-bf47-da0e952f6590"
+                                                        "id": "927de6b4-fbeb-40cf-af41-aa6180e989b3"
+                                                    },
+                                                    {
+                                                        "command": "EVENT_ACTOR_SET_POSITION",
+                                                        "args": {
+                                                            "actorId": "player",
+                                                            "x": {
+                                                                "type": "number",
+                                                                "value": 6
+                                                            },
+                                                            "y": {
+                                                                "type": "add",
+                                                                "valueA": {
+                                                                    "type": "variable",
+                                                                    "value": "79"
+                                                                },
+                                                                "valueB": {
+                                                                    "type": "number",
+                                                                    "value": 4
+                                                                }
+                                                            },
+                                                            "__collapse": true
+                                                        },
+                                                        "id": "8ded529d-fc78-4fcc-bc7e-9c0da86c2495"
                                                     },
                                                     {
                                                         "command": "EVENT_SET_VALUE",
@@ -33390,7 +33472,7 @@
                                                 "variable": "78",
                                                 "value": {
                                                     "type": "number",
-                                                    "value": 1
+                                                    "value": 0
                                                 },
                                                 "__collapse": true
                                             },
@@ -33413,140 +33495,47 @@
                                             "id": "a30b636a-3ee3-42bc-b25e-6224a2e348dc"
                                         },
                                         {
+                                            "command": "EVENT_ACTOR_SET_POSITION",
+                                            "args": {
+                                                "actorId": "728471e3-2287-455d-a1eb-27c52be5a973",
+                                                "x": {
+                                                    "type": "number",
+                                                    "value": 6
+                                                },
+                                                "y": {
+                                                    "type": "add",
+                                                    "valueA": {
+                                                        "type": "variable",
+                                                        "value": "79"
+                                                    },
+                                                    "valueB": {
+                                                        "type": "number",
+                                                        "value": 4
+                                                    }
+                                                },
+                                                "__collapse": true
+                                            },
+                                            "id": "0b5db952-6a65-49ca-b865-20cb1b0161e8"
+                                        },
+                                        {
                                             "command": "EVENT_IF",
                                             "args": {
                                                 "condition": {
-                                                    "type": "variable",
-                                                    "value": "79"
+                                                    "type": "eq",
+                                                    "valueA": {
+                                                        "type": "variable",
+                                                        "value": "79"
+                                                    },
+                                                    "valueB": {
+                                                        "type": "number",
+                                                        "value": 0
+                                                    }
                                                 },
                                                 "__collapseElse": false,
-                                                "__collapse": false
+                                                "__collapse": true
                                             },
                                             "children": {
                                                 "true": [
-                                                    {
-                                                        "command": "EVENT_ACTOR_SET_POSITION",
-                                                        "args": {
-                                                            "actorId": "728471e3-2287-455d-a1eb-27c52be5a973",
-                                                            "x": {
-                                                                "type": "number",
-                                                                "value": 6
-                                                            },
-                                                            "y": {
-                                                                "type": "number",
-                                                                "value": 7
-                                                            },
-                                                            "__collapse": true
-                                                        },
-                                                        "id": "0fa4ca60-914f-4de9-bd1e-c0bb4fde7a4e"
-                                                    },
-                                                    {
-                                                        "command": "MY_EVENT_CALL_NATIVE",
-                                                        "args": {
-                                                            "argCount": 1,
-                                                            "arg0": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg1": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg2": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg3": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg4": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg5": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg6": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg7": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "funName": "loadEquipArmorList",
-                                                            "__collapse": true
-                                                        },
-                                                        "id": "c3695428-22b4-48cd-9c36-2f0127d4a47e"
-                                                    },
-                                                    {
-                                                        "command": "MY_EVENT_CALL_NATIVE",
-                                                        "args": {
-                                                            "argCount": 2,
-                                                            "arg0": {
-                                                                "type": "number",
-                                                                "value": 1
-                                                            },
-                                                            "arg1": {
-                                                                "type": "sub",
-                                                                "valueA": {
-                                                                    "type": "variable",
-                                                                    "value": "78"
-                                                                },
-                                                                "valueB": {
-                                                                    "type": "number",
-                                                                    "value": 1
-                                                                }
-                                                            },
-                                                            "arg2": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg3": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg4": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg5": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg6": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg7": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "funName": "loadSubStatsCompareArmorArea",
-                                                            "__collapse": true
-                                                        },
-                                                        "id": "e6fe8147-2bb3-4fce-88b9-af742eea5bc9"
-                                                    }
-                                                ],
-                                                "false": [
-                                                    {
-                                                        "command": "EVENT_ACTOR_SET_POSITION",
-                                                        "args": {
-                                                            "actorId": "728471e3-2287-455d-a1eb-27c52be5a973",
-                                                            "x": {
-                                                                "type": "number",
-                                                                "value": 6
-                                                            },
-                                                            "y": {
-                                                                "type": "number",
-                                                                "value": 5
-                                                            },
-                                                            "__collapse": true
-                                                        },
-                                                        "id": "0b5db952-6a65-49ca-b865-20cb1b0161e8"
-                                                    },
                                                     {
                                                         "command": "MY_EVENT_CALL_NATIVE",
                                                         "args": {
@@ -33635,6 +33624,97 @@
                                                             "__collapse": true
                                                         },
                                                         "id": "3f676a86-3816-47f5-b07e-6ddd36ecf9c5"
+                                                    }
+                                                ],
+                                                "false": [
+                                                    {
+                                                        "command": "MY_EVENT_CALL_NATIVE",
+                                                        "args": {
+                                                            "argCount": 1,
+                                                            "arg0": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg1": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg2": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg3": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg4": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg5": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg6": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg7": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "funName": "loadEquipArmorList",
+                                                            "__collapse": true
+                                                        },
+                                                        "id": "c3695428-22b4-48cd-9c36-2f0127d4a47e"
+                                                    },
+                                                    {
+                                                        "command": "MY_EVENT_CALL_NATIVE",
+                                                        "args": {
+                                                            "argCount": 2,
+                                                            "arg0": {
+                                                                "type": "number",
+                                                                "value": 1
+                                                            },
+                                                            "arg1": {
+                                                                "type": "sub",
+                                                                "valueA": {
+                                                                    "type": "variable",
+                                                                    "value": "78"
+                                                                },
+                                                                "valueB": {
+                                                                    "type": "number",
+                                                                    "value": 1
+                                                                }
+                                                            },
+                                                            "arg2": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg3": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg4": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg5": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg6": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg7": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "funName": "loadSubStatsCompareArmorArea",
+                                                            "__collapse": true
+                                                        },
+                                                        "id": "e6fe8147-2bb3-4fce-88b9-af742eea5bc9"
                                                     }
                                                 ]
                                             },
@@ -33760,57 +33840,33 @@
                                                         "command": "MY_EVENT_CALL_NATIVE",
                                                         "args": {
                                                             "argCount": 0,
-                                                            "funName": "loadSubStatsArea"
+                                                            "funName": "loadSubStatsArea",
+                                                            "__collapse": true
                                                         },
                                                         "id": "eb119945-85b1-4a8f-8fdd-5cccac11f509"
                                                     },
                                                     {
-                                                        "command": "EVENT_IF",
+                                                        "command": "EVENT_ACTOR_SET_POSITION",
                                                         "args": {
-                                                            "condition": {
-                                                                "type": "variable",
-                                                                "value": "79"
+                                                            "actorId": "player",
+                                                            "x": {
+                                                                "type": "number",
+                                                                "value": 6
                                                             },
-                                                            "__collapseElse": false,
-                                                            "__collapse": false
-                                                        },
-                                                        "children": {
-                                                            "true": [
-                                                                {
-                                                                    "command": "EVENT_ACTOR_SET_POSITION",
-                                                                    "args": {
-                                                                        "actorId": "player",
-                                                                        "x": {
-                                                                            "type": "number",
-                                                                            "value": 6
-                                                                        },
-                                                                        "y": {
-                                                                            "type": "number",
-                                                                            "value": 7
-                                                                        }
-                                                                    },
-                                                                    "id": "3c895ee8-77d1-48b7-9522-7341462656b8"
+                                                            "y": {
+                                                                "type": "add",
+                                                                "valueA": {
+                                                                    "type": "variable",
+                                                                    "value": "79"
+                                                                },
+                                                                "valueB": {
+                                                                    "type": "number",
+                                                                    "value": 4
                                                                 }
-                                                            ],
-                                                            "false": [
-                                                                {
-                                                                    "command": "EVENT_ACTOR_SET_POSITION",
-                                                                    "args": {
-                                                                        "actorId": "player",
-                                                                        "x": {
-                                                                            "type": "number",
-                                                                            "value": 6
-                                                                        },
-                                                                        "y": {
-                                                                            "type": "number",
-                                                                            "value": 5
-                                                                        }
-                                                                    },
-                                                                    "id": "756c6255-1777-47f1-8611-e9410969bed0"
-                                                                }
-                                                            ]
+                                                            },
+                                                            "__collapse": true
                                                         },
-                                                        "id": "2ddb222f-5e40-4863-b248-9e9502fe559c"
+                                                        "id": "3c895ee8-77d1-48b7-9522-7341462656b8"
                                                     },
                                                     {
                                                         "command": "EVENT_SET_VALUE",
@@ -37195,7 +37251,7 @@
                 0,
                 0,
                 0,
-                0,
+                1,
                 0,
                 0,
                 0,
