@@ -10,13 +10,14 @@
         "maps"
     ],
     "exportAsImage.includeBackgroundColor": true,
+    "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "maps/black_magic.tmx": {
             "scale": 5.647222222222222,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 79.86227250368913,
-                "y": 71.89375307427447
+                "x": 122.36104279390064,
+                "y": 76.76340383669455
             }
         },
         "maps/frame.tsx": {
@@ -25,10 +26,10 @@
         },
         "maps/random_menu.tmx": {
             "scale": 5.634027777777777,
-            "selectedLayer": -1,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 74.5470232959448,
-                "y": 55.11154936521635
+                "x": 117.14532232219896,
+                "y": 60.08135091827931
             }
         },
         "maps/store_tiles.tsx": {
@@ -45,8 +46,8 @@
             "scale": 4,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 97.375,
-                "y": 77.625
+                "x": 169.5,
+                "y": 118.375
             }
         },
         "tilesets/store_tiles.tsx": {

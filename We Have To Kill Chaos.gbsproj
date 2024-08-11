@@ -31903,7 +31903,8 @@
                 "d8ef3f33-956f-4f96-a8a4-774608a880da",
                 "51ecd2ed-393f-46b3-b8a3-81caa4b56b1d",
                 "0daf4a27-26d4-4ef5-bb8c-0868079f49b5",
-                "591e2a7c-81f3-400f-bd01-ec2032e2bce3"
+                "591e2a7c-81f3-400f-bd01-ec2032e2bce3",
+                ""
             ],
             "spritePaletteIds": [
                 "",
@@ -32387,22 +32388,42 @@
                             "children": {
                                 "true": [
                                     {
-                                        "command": "EVENT_SET_VALUE",
+                                        "command": "EVENT_IF",
                                         "args": {
-                                            "variable": "79",
-                                            "value": {
-                                                "type": "false"
-                                            }
+                                            "condition": {
+                                                "type": "gt",
+                                                "valueA": {
+                                                    "type": "variable",
+                                                    "value": "79"
+                                                },
+                                                "valueB": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                }
+                                            },
+                                            "__collapseElse": true
                                         },
-                                        "id": "0ba186a1-f96b-4935-a92b-33723d1b024a"
-                                    },
-                                    {
-                                        "command": "EVENT_WAIT",
-                                        "args": {
-                                            "time": 0.1,
-                                            "frames": 30
+                                        "children": {
+                                            "true": [
+                                                {
+                                                    "command": "EVENT_DEC_VALUE",
+                                                    "args": {
+                                                        "variable": "79"
+                                                    },
+                                                    "id": "56b096e1-04de-405c-a4e6-2c7935eaf252"
+                                                },
+                                                {
+                                                    "command": "EVENT_WAIT",
+                                                    "args": {
+                                                        "time": 0.1,
+                                                        "frames": 30
+                                                    },
+                                                    "id": "6b0865f9-6b1e-4fc2-9881-9d88c8046ae7"
+                                                }
+                                            ],
+                                            "false": []
                                         },
-                                        "id": "6b0865f9-6b1e-4fc2-9881-9d88c8046ae7"
+                                        "id": "4614c6f2-d350-4a68-86b8-7ad5d7775405"
                                     }
                                 ],
                                 "false": []
@@ -32420,22 +32441,42 @@
                             "children": {
                                 "true": [
                                     {
-                                        "command": "EVENT_SET_VALUE",
+                                        "command": "EVENT_IF",
                                         "args": {
-                                            "variable": "79",
-                                            "value": {
-                                                "type": "true"
-                                            }
+                                            "condition": {
+                                                "type": "lt",
+                                                "valueA": {
+                                                    "type": "variable",
+                                                    "value": "79"
+                                                },
+                                                "valueB": {
+                                                    "type": "number",
+                                                    "value": 4
+                                                }
+                                            },
+                                            "__collapseElse": true
                                         },
-                                        "id": "56866124-50a9-4cb5-917c-2f064d348f21"
-                                    },
-                                    {
-                                        "command": "EVENT_WAIT",
-                                        "args": {
-                                            "time": 0.1,
-                                            "frames": 30
+                                        "children": {
+                                            "true": [
+                                                {
+                                                    "command": "EVENT_INC_VALUE",
+                                                    "args": {
+                                                        "variable": "79"
+                                                    },
+                                                    "id": "53707b82-33f0-45ec-af7a-071bf8456864"
+                                                },
+                                                {
+                                                    "command": "EVENT_WAIT",
+                                                    "args": {
+                                                        "time": 0.1,
+                                                        "frames": 30
+                                                    },
+                                                    "id": "aad6815f-cc85-496b-be4b-5e9dade09a4e"
+                                                }
+                                            ],
+                                            "false": []
                                         },
-                                        "id": "aad6815f-cc85-496b-be4b-5e9dade09a4e"
+                                        "id": "ec12cc5a-7d2e-4687-aa30-eede6b688cd8"
                                     }
                                 ],
                                 "false": []
@@ -32508,51 +32549,26 @@
                                         "id": "188254e1-44b0-4a29-97e4-a2bc64fe94cb"
                                     },
                                     {
-                                        "command": "EVENT_IF",
+                                        "command": "EVENT_ACTOR_SET_POSITION",
                                         "args": {
-                                            "condition": {
-                                                "type": "variable",
-                                                "value": "79"
+                                            "actorId": "player",
+                                            "x": {
+                                                "type": "number",
+                                                "value": 9
                                             },
-                                            "__collapseElse": false
-                                        },
-                                        "children": {
-                                            "true": [
-                                                {
-                                                    "command": "EVENT_ACTOR_SET_POSITION",
-                                                    "args": {
-                                                        "actorId": "player",
-                                                        "x": {
-                                                            "type": "number",
-                                                            "value": 6
-                                                        },
-                                                        "y": {
-                                                            "type": "number",
-                                                            "value": 7
-                                                        }
-                                                    },
-                                                    "id": "ad1a9a15-b3b3-444d-9616-9fd148551775"
+                                            "y": {
+                                                "type": "add",
+                                                "valueA": {
+                                                    "type": "variable",
+                                                    "value": "79"
+                                                },
+                                                "valueB": {
+                                                    "type": "number",
+                                                    "value": 4
                                                 }
-                                            ],
-                                            "false": [
-                                                {
-                                                    "command": "EVENT_ACTOR_SET_POSITION",
-                                                    "args": {
-                                                        "actorId": "player",
-                                                        "x": {
-                                                            "type": "number",
-                                                            "value": 6
-                                                        },
-                                                        "y": {
-                                                            "type": "number",
-                                                            "value": 5
-                                                        }
-                                                    },
-                                                    "id": "9b7f99ba-fbfd-41e4-a6ff-306141a97a94"
-                                                }
-                                            ]
+                                            }
                                         },
-                                        "id": "66e463f3-6d1b-4736-a055-7290b5c2bfa8"
+                                        "id": "9b7f99ba-fbfd-41e4-a6ff-306141a97a94"
                                     }
                                 ],
                                 "false": []
@@ -32604,8 +32620,8 @@
                     "hit2Script": [],
                     "hit3Script": [],
                     "id": "728471e3-2287-455d-a1eb-27c52be5a973",
-                    "x": 6,
-                    "y": 5
+                    "x": 8,
+                    "y": 4
                 },
                 {
                     "name": "Equipment List Position Manager",
@@ -37195,7 +37211,7 @@
                 0,
                 0,
                 0,
-                0,
+                1,
                 0,
                 0,
                 0,

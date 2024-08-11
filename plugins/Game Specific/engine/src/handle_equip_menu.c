@@ -23,13 +23,6 @@ inline void clearChSection(UBYTE x, UBYTE y, UBYTE w, UBYTE h) {
 inline void screenf(unsigned char *d, UBYTE x, UBYTE y) {
   clearChSection(x, y, strlen(d), 1);
   for (UBYTE i = 0; i < strlen(d); i++) {
-    // if(d[i] == '\n'){
-    //     for(int w=0;w<wrap;w++){
-    //         d[i+w] = ReadBankedUBYTE(bg_font.recode_table + ' ',
-    //         bg_font_bank); d[i+w] += start_of_bkg_vram;
-    //     }
-    //     continue;
-    // }
     UBYTE j = d[i];
     d[i] = ReadBankedUBYTE(bg_font.recode_table + j, bg_font_bank);
     d[i] += start_of_bkg_vram;
@@ -42,7 +35,7 @@ void loadStatsArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
   clearAttrsSection(0, 8, 10, 7);
   setAttrsSectionColor(0, 8, 10, 7, 1);
-  clearChSection(1, 9, 8, 5);
+  // clearChSection(1, 9, 8, 5);
 
   unsigned char strength[9] = "STR   10";
   unsigned char agility[9] = "AGL    8";
@@ -76,42 +69,8 @@ void loadSubStatsArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
 }
 
 
-void loadEquipMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  THIS;
 
-  unsigned char name[7] = "Fred";
-  screenf(name, 1, 1);
-
-  unsigned char hp[11] = "HP 999/999";
-  screenf(hp, 9, 1);
-
-  unsigned char weapon[12] = "W Nunchucks";
-  weapon[1] = 150;
-  screenf(weapon, 8, 4);
-  unsigned char armor[12] = "A Cloth";
-  armor[1] = 150;
-  screenf(armor, 8, 6);
-
-  unsigned char lv_label[3] = "Lv";
-  screenf(lv_label, 1, 15);
-  unsigned char total_exp_label[] = "EXP";
-  screenf(total_exp_label, 5, 15);
-  unsigned char next_exp_label[] = "NxtLv";
-  screenf(next_exp_label, 13, 15);
-
-  unsigned char lv[] = "49";
-  unsigned char total_exp[] = "956841";
-  unsigned char next_exp[] = " 32800";
-
-  screenf(lv, 1, 16);
-  screenf(total_exp, 5, 16);
-  screenf(next_exp, 13, 16);
-
-  loadStatsArea(THIS);
-  loadSubStatsArea(THIS);
-}
-
-inline void write_weapon_name(BYTE item_id, unsigned char *item_s) {
+void write_weapon_name(BYTE item_id, unsigned char *item_s) OLDCALL BANKED{
   // TODO should display item type symbol then name
   // Also should make so and so wide
   // Max Count is 99 I guess
@@ -142,7 +101,7 @@ inline void write_weapon_name(BYTE item_id, unsigned char *item_s) {
   }
 }
 
-inline void write_armor_name(BYTE item_id, unsigned char *item_s) {
+void write_armor_name(BYTE item_id, unsigned char *item_s) OLDCALL BANKED{
   // TODO should display item type symbol then name
   // Also should make so and so wide
   // Max Count is 99 I guess
@@ -163,6 +122,50 @@ inline void write_armor_name(BYTE item_id, unsigned char *item_s) {
     strcat(item_s, "CHAIN");
     break;
   }
+
+}
+void loadEquipMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  THIS;
+
+  unsigned char name[7] = "Fred";
+  screenf(name, 1, 1);
+
+  unsigned char hp[11] = "HP 999/999";
+  screenf(hp, 9, 1);
+
+  unsigned char weapon[9]="";
+  write_weapon_name(1, weapon);
+  screenf(weapon, 8, 3);
+  unsigned char armor[9]="";
+  write_armor_name(1, armor);
+  screenf(armor, 8, 4);
+  unsigned char shield[9]="";
+  add_armor_sym(shield, SHIELD);
+  screenf(shield, 8, 5);
+  unsigned char helmet[9] = "";
+  add_armor_sym(helmet, HELMET);
+  screenf(helmet, 8, 6);
+  unsigned char gloves[9] = "";
+  add_armor_sym(gloves, GAUNTLET);
+  screenf(gloves, 8, 7);
+
+  unsigned char lv_label[3] = "Lv";
+  screenf(lv_label, 1, 15);
+  unsigned char total_exp_label[] = "EXP";
+  screenf(total_exp_label, 5, 15);
+  unsigned char next_exp_label[] = "NxtLv";
+  screenf(next_exp_label, 13, 15);
+
+  unsigned char lv[] = "49";
+  unsigned char total_exp[] = "956841";
+  unsigned char next_exp[] = " 32800";
+
+  screenf(lv, 1, 16);
+  screenf(total_exp, 5, 16);
+  screenf(next_exp, 13, 16);
+
+  loadStatsArea(THIS);
+  loadSubStatsArea(THIS);
 }
 
 void loadEquipWeaponList(SCRIPT_CTX *THIS) OLDCALL BANKED {
