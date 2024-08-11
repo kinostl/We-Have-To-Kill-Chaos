@@ -24,8 +24,14 @@ inline void progress_blanks(unsigned char * d, UBYTE len) {
   fill_space(d, len, ' ');
 }
 
-inline void add_item_sym(unsigned char *d, BYTE sym_id) {
+inline void add_weapon_sym(unsigned char *d, BYTE sym_id) {
   const unsigned char sym_base = 137;
+  unsigned char sym[2] = {sym_base+sym_id, '\0'};
+  strcat(d, sym);
+}
+
+inline void add_armor_sym(unsigned char *d, BYTE sym_id) {
+  const unsigned char sym_base = 143;
   unsigned char sym[2] = {sym_base+sym_id, '\0'};
   strcat(d, sym);
 }

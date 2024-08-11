@@ -3,6 +3,7 @@
 #include "item_slot.h"
 #include "load_font_into_bg.h"
 #include "weapon_data.h"
+#include "armor_data.h"
 #include <asm/types.h>
 #include <gb/gb.h>
 #include <gb/hardware.h>
@@ -64,14 +65,14 @@ void loadSubStatsArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
   unsigned char attack[9] = "ATK   10";
   unsigned char accuracy[9] = "ACC   28";
+  unsigned char crit[9] = "CRT    1";
   unsigned char defense[9] = "DEF    1";
   unsigned char evasion[9] = "EVA   15";
-  unsigned char crit[9] = "CRT    1";
   screenf(attack, 11, 9);
   screenf(accuracy, 11, 10);
-  screenf(defense, 11, 11);
-  screenf(evasion, 11, 12);
-  screenf(crit, 11, 13);
+  screenf(crit, 11, 11);
+  screenf(defense, 11, 12);
+  screenf(evasion, 11, 13);
 }
 
 
@@ -119,37 +120,54 @@ inline void write_weapon_name(BYTE item_id, unsigned char *item_s) {
     strcat(item_s, " ");
     break;
   case 1:
-    add_item_sym(item_s, 2);
+    add_weapon_sym(item_s, 2);
     strcat(item_s, "WOOD");
     break;
   case 2:
-    add_item_sym(item_s, 0);
+    add_weapon_sym(item_s, 0);
     strcat(item_s, "SMALL");
     break;
   case 3:
-    add_item_sym(item_s, 3);
+    add_weapon_sym(item_s, 3);
     strcat(item_s, "WOOD");
     break;
   case 4:
-    add_item_sym(item_s, 4);
+    add_weapon_sym(item_s, 4);
     strcat(item_s, "RAPIER");
     break;
   case 5:
-    add_item_sym(item_s, 1);
+    add_weapon_sym(item_s, 1);
     strcat(item_s, "IRON");
     break;
   }
 }
 
-void loadEquipList(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  UBYTE listType = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
-  // UBYTE currentPlayer = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
-  UBYTE currentPlayer = 0;
-  turn_slots[0].type = WHITE_MAGE;
+inline void write_armor_name(BYTE item_id, unsigned char *item_s) {
+  // TODO should display item type symbol then name
+  // Also should make so and so wide
+  // Max Count is 99 I guess
+  switch (item_id) {
+  default:
+    strcat(item_s, " ");
+    break;
+  case 1:
+    add_armor_sym(item_s, 0);
+    strcat(item_s, "CLOTH");
+    break;
+  case 2:
+    add_armor_sym(item_s, 0);
+    strcat(item_s, "WOOD");
+    break;
+  case 3:
+    add_armor_sym(item_s, 0);
+    strcat(item_s, "CHAIN");
+    break;
+  }
+}
 
-  //ATK > 10
-  //ATK < 10
-  //ATK = 10
+void loadEquipWeaponList(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  UBYTE currentPlayer = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
+  turn_slots[currentPlayer].type = WHITE_MAGE;
 
   clearAttrsSection(0, 8, 10, 7);
   clearChSection(1, 9, 8, 5);
@@ -157,39 +175,59 @@ void loadEquipList(SCRIPT_CTX *THIS) OLDCALL BANKED {
   item_slots[0].type = 5;
   item_slots[1].count = 1;
   item_slots[1].type = 1;
-  
 
-  int i;
-  int inv_i;
-  switch (listType) {
-  default:
-    for (i = 0; i < 5; i++) {
-      unsigned char line[8] = " ";
-      screenf(line, 2, 9 + i);
+  int i = 0;
+  int inv_i = 0;
+  struct item_slot i_slot;
+  struct weapon_data w_data;
+  while (i < 5) {
+    i_slot = item_slots[inv_i++];
+    if (i_slot.type == NULL) {
+      break;
     }
-    break;
-  case 0:
-    i = 0;
-    inv_i = 0;
-    struct item_slot i_slot;
-    struct weapon_data w_data;
-    while (i < 5) {
-      i_slot = item_slots[inv_i++];
-      if (i_slot.type == NULL) {
-        break;
-      }
 
-      set_weapon(i_slot.type, &w_data);
-      // if (!CHK_FLAG(w_data.classes, turn_slots[currentPlayer].type)) {
-      //   continue;
-      // }
+    set_weapon(i_slot.type, &w_data);
+    // if (!CHK_FLAG(w_data.classes, turn_slots[currentPlayer].type)) {
+    //   continue;
+    // }
 
-      unsigned char line[8] = "";
-      write_weapon_name(i_slot.type, line);
-      screenf(line, 2, 9 + i);
-      i++;
+    unsigned char line[8] = "";
+    write_weapon_name(i_slot.type, line);
+    screenf(line, 2, 9 + i);
+    i++;
+  }
+}
+
+void loadEquipArmorList(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  UBYTE currentPlayer = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
+  turn_slots[currentPlayer].type = WHITE_MAGE;
+
+  clearAttrsSection(0, 8, 10, 7);
+  clearChSection(1, 9, 8, 5);
+  item_slots[0].count = 2;
+  item_slots[0].type = 3;
+  item_slots[1].count = 1;
+  item_slots[1].type = 1;
+
+  int i = 0;
+  int inv_i = 0;
+  struct item_slot i_slot;
+  struct armor_data a_data;
+  while (i < 5) {
+    i_slot = item_slots[inv_i++];
+    if (i_slot.type == NULL) {
+      break;
     }
-    break;
+
+    set_armor(i_slot.type, &a_data);
+    // if (!CHK_FLAG(w_data.classes, turn_slots[currentPlayer].type)) {
+    //   continue;
+    // }
+
+    unsigned char line[8] = "";
+    write_armor_name(i_slot.type, line);
+    screenf(line, 2, 9 + i);
+    i++;
   }
 }
 
@@ -213,7 +251,7 @@ inline void addCompareToString(unsigned char string[9], UBYTE a, UBYTE b, UBYTE 
   }
 }
 
-void loadSubStatsCompareArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
+void loadSubStatsCompareWeaponArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
   item_slots[0].count = 2;
   item_slots[0].type = 5;
@@ -226,22 +264,54 @@ void loadSubStatsCompareArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   set_weapon(item_slots[equip_id].type, &equip_w);
   set_weapon(item_slots[check_id].type, &check_w);
 
-  unsigned char lines[5][9];
+  unsigned char lines[3][9];
   strcpy(lines[0], "ATK     ");
   strcpy(lines[1], "ACC     ");
-  // strcpy(lines[2], "DEF     ");
-  // strcpy(lines[3], "EVA     ");
-  strcpy(lines[4], "CRT     ");
+  strcpy(lines[2], "CRT     ");
 
   addStatToString(lines[0], check_w.attack);
   addStatToString(lines[1], check_w.hit_chance);
-  addStatToString(lines[4], check_w.crit_chance);
+  addStatToString(lines[2], check_w.crit_chance);
 
   addCompareToString(lines[0], check_w.attack, equip_w.attack, 0);
   addCompareToString(lines[1], check_w.hit_chance, equip_w.hit_chance, 1);
-  addCompareToString(lines[4], check_w.crit_chance, equip_w.crit_chance, 4);
+  addCompareToString(lines[2], check_w.crit_chance, equip_w.crit_chance, 2);
 
   screenf(lines[0], 11, 9 + 0);
   screenf(lines[1], 11, 9 + 1);
-  screenf(lines[4], 11, 9 + 4);
+  screenf(lines[2], 11, 9 + 2);
+}
+
+inline BYTE calculateEvasion(UBYTE weight, UBYTE agility){
+  return 48 + agility - weight;
+}
+
+void loadSubStatsCompareArmorArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  THIS;
+  item_slots[0].count = 1;
+  item_slots[0].type = 1;
+  item_slots[1].count = 1;
+  item_slots[1].type = 3;
+  UBYTE equip_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
+  UBYTE check_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
+  struct armor_data equip_a, check_a;
+
+  set_armor(item_slots[equip_id].type, &equip_a);
+  set_armor(item_slots[check_id].type, &check_a);
+
+  unsigned char lines[2][9];
+  strcpy(lines[0], "DEF     ");
+  strcpy(lines[1], "EVA     ");
+
+  BYTE equip_evasion =  calculateEvasion(equip_a.weight, 8);
+  BYTE check_evasion =  calculateEvasion(check_a.weight, 8);
+
+  addStatToString(lines[0], check_a.defense);
+  addStatToString(lines[1], check_evasion);
+
+  addCompareToString(lines[0], check_a.defense, equip_a.defense, 3);
+  addCompareToString(lines[1], check_evasion, equip_evasion, 4);
+
+  screenf(lines[0], 11, 9 + 3);
+  screenf(lines[1], 11, 9 + 4);
 }

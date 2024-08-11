@@ -32909,51 +32909,115 @@
                                         "id": "9e2461a7-67e3-4cc6-8fe6-3a4b89a1aebf"
                                     },
                                     {
-                                        "command": "MY_EVENT_CALL_NATIVE",
+                                        "command": "EVENT_IF",
                                         "args": {
-                                            "argCount": 2,
-                                            "arg0": {
-                                                "type": "number",
-                                                "value": 1
+                                            "condition": {
+                                                "type": "variable",
+                                                "value": "79"
                                             },
-                                            "arg1": {
-                                                "type": "sub",
-                                                "valueA": {
-                                                    "type": "variable",
-                                                    "value": "78"
-                                                },
-                                                "valueB": {
-                                                    "type": "number",
-                                                    "value": 1
-                                                }
-                                            },
-                                            "arg2": {
-                                                "type": "number",
-                                                "value": 0
-                                            },
-                                            "arg3": {
-                                                "type": "number",
-                                                "value": 0
-                                            },
-                                            "arg4": {
-                                                "type": "number",
-                                                "value": 0
-                                            },
-                                            "arg5": {
-                                                "type": "number",
-                                                "value": 0
-                                            },
-                                            "arg6": {
-                                                "type": "number",
-                                                "value": 0
-                                            },
-                                            "arg7": {
-                                                "type": "number",
-                                                "value": 0
-                                            },
-                                            "funName": "loadSubStatsCompareArea"
+                                            "__collapseElse": false
                                         },
-                                        "id": "d432fc10-dd67-46c3-adbe-33cb92577de3"
+                                        "children": {
+                                            "true": [
+                                                {
+                                                    "command": "MY_EVENT_CALL_NATIVE",
+                                                    "args": {
+                                                        "argCount": 2,
+                                                        "arg0": {
+                                                            "type": "number",
+                                                            "value": 1
+                                                        },
+                                                        "arg1": {
+                                                            "type": "sub",
+                                                            "valueA": {
+                                                                "type": "variable",
+                                                                "value": "78"
+                                                            },
+                                                            "valueB": {
+                                                                "type": "number",
+                                                                "value": 1
+                                                            }
+                                                        },
+                                                        "arg2": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg3": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg4": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg5": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg6": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg7": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "funName": "loadSubStatsCompareArmorArea"
+                                                    },
+                                                    "id": "23c98c75-94ab-4fbb-91c7-730293f7377a"
+                                                }
+                                            ],
+                                            "false": [
+                                                {
+                                                    "command": "MY_EVENT_CALL_NATIVE",
+                                                    "args": {
+                                                        "argCount": 2,
+                                                        "arg0": {
+                                                            "type": "number",
+                                                            "value": 1
+                                                        },
+                                                        "arg1": {
+                                                            "type": "sub",
+                                                            "valueA": {
+                                                                "type": "variable",
+                                                                "value": "78"
+                                                            },
+                                                            "valueB": {
+                                                                "type": "number",
+                                                                "value": 1
+                                                            }
+                                                        },
+                                                        "arg2": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg3": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg4": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg5": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg6": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "arg7": {
+                                                            "type": "number",
+                                                            "value": 0
+                                                        },
+                                                        "funName": "loadSubStatsCompareWeaponArea"
+                                                    },
+                                                    "id": "d432fc10-dd67-46c3-adbe-33cb92577de3"
+                                                }
+                                            ]
+                                        },
+                                        "id": "775266ba-90bd-464c-9006-041d4399c431"
                                     }
                                 ],
                                 "false": []
@@ -33356,7 +33420,7 @@
                                                     "value": "79"
                                                 },
                                                 "__collapseElse": false,
-                                                "__collapse": true
+                                                "__collapse": false
                                             },
                                             "children": {
                                                 "true": [
@@ -33372,9 +33436,98 @@
                                                                 "type": "number",
                                                                 "value": 7
                                                             },
-                                                            "__collapse": false
+                                                            "__collapse": true
                                                         },
                                                         "id": "0fa4ca60-914f-4de9-bd1e-c0bb4fde7a4e"
+                                                    },
+                                                    {
+                                                        "command": "MY_EVENT_CALL_NATIVE",
+                                                        "args": {
+                                                            "argCount": 1,
+                                                            "arg0": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg1": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg2": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg3": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg4": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg5": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg6": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg7": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "funName": "loadEquipArmorList",
+                                                            "__collapse": true
+                                                        },
+                                                        "id": "c3695428-22b4-48cd-9c36-2f0127d4a47e"
+                                                    },
+                                                    {
+                                                        "command": "MY_EVENT_CALL_NATIVE",
+                                                        "args": {
+                                                            "argCount": 2,
+                                                            "arg0": {
+                                                                "type": "number",
+                                                                "value": 1
+                                                            },
+                                                            "arg1": {
+                                                                "type": "sub",
+                                                                "valueA": {
+                                                                    "type": "variable",
+                                                                    "value": "78"
+                                                                },
+                                                                "valueB": {
+                                                                    "type": "number",
+                                                                    "value": 1
+                                                                }
+                                                            },
+                                                            "arg2": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg3": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg4": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg5": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg6": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg7": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "funName": "loadSubStatsCompareArmorArea",
+                                                            "__collapse": true
+                                                        },
+                                                        "id": "e6fe8147-2bb3-4fce-88b9-af742eea5bc9"
                                                     }
                                                 ],
                                                 "false": [
@@ -33390,9 +33543,98 @@
                                                                 "type": "number",
                                                                 "value": 5
                                                             },
-                                                            "__collapse": false
+                                                            "__collapse": true
                                                         },
                                                         "id": "0b5db952-6a65-49ca-b865-20cb1b0161e8"
+                                                    },
+                                                    {
+                                                        "command": "MY_EVENT_CALL_NATIVE",
+                                                        "args": {
+                                                            "argCount": 1,
+                                                            "arg0": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg1": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg2": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg3": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg4": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg5": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg6": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg7": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "funName": "loadEquipWeaponList",
+                                                            "__collapse": true
+                                                        },
+                                                        "id": "490710bf-b7e9-4b6f-9cdb-0f3b8941c007"
+                                                    },
+                                                    {
+                                                        "command": "MY_EVENT_CALL_NATIVE",
+                                                        "args": {
+                                                            "argCount": 2,
+                                                            "arg0": {
+                                                                "type": "number",
+                                                                "value": 1
+                                                            },
+                                                            "arg1": {
+                                                                "type": "sub",
+                                                                "valueA": {
+                                                                    "type": "variable",
+                                                                    "value": "78"
+                                                                },
+                                                                "valueB": {
+                                                                    "type": "number",
+                                                                    "value": 1
+                                                                }
+                                                            },
+                                                            "arg2": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg3": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg4": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg5": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg6": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg7": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "funName": "loadSubStatsCompareWeaponArea",
+                                                            "__collapse": true
+                                                        },
+                                                        "id": "3f676a86-3816-47f5-b07e-6ddd36ecf9c5"
                                                     }
                                                 ]
                                             },
@@ -33416,46 +33658,6 @@
                                                 "__collapse": true
                                             },
                                             "id": "df677cb7-ec63-49d2-9b12-2084b8ac5f40"
-                                        },
-                                        {
-                                            "command": "MY_EVENT_CALL_NATIVE",
-                                            "args": {
-                                                "argCount": 1,
-                                                "arg0": {
-                                                    "type": "number",
-                                                    "value": 0
-                                                },
-                                                "arg1": {
-                                                    "type": "number",
-                                                    "value": 0
-                                                },
-                                                "arg2": {
-                                                    "type": "number",
-                                                    "value": 0
-                                                },
-                                                "arg3": {
-                                                    "type": "number",
-                                                    "value": 0
-                                                },
-                                                "arg4": {
-                                                    "type": "number",
-                                                    "value": 0
-                                                },
-                                                "arg5": {
-                                                    "type": "number",
-                                                    "value": 0
-                                                },
-                                                "arg6": {
-                                                    "type": "number",
-                                                    "value": 0
-                                                },
-                                                "arg7": {
-                                                    "type": "number",
-                                                    "value": 0
-                                                },
-                                                "funName": "loadEquipList"
-                                            },
-                                            "id": "490710bf-b7e9-4b6f-9cdb-0f3b8941c007"
                                         },
                                         {
                                             "command": "EVENT_SCRIPT_UNLOCK",
@@ -33570,7 +33772,7 @@
                                                                 "value": "79"
                                                             },
                                                             "__collapseElse": false,
-                                                            "__collapse": true
+                                                            "__collapse": false
                                                         },
                                                         "children": {
                                                             "true": [

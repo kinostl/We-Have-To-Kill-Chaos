@@ -26,28 +26,28 @@ inline void draw_amt(unsigned char *d, UBYTE i){
   progress_blanks(d, 1);
 }
 
-inline void write_weapon_name(BYTE item_id, unsigned char *item_s) {
+inline void write_weapon_name(BYTE weapon_id, unsigned char *weapon_s) {
   // TODO should display item type symbol then name
   // Also should make so and so wide
   // Max Count is 99 I guess
-  switch (item_id) {
+  switch (weapon_id) {
   default:
     break;
   case 1:
-    add_item_sym(item_s, 2);
-    strcat(item_s, "WOOD NUNCHAKU");
+    add_weapon_sym(weapon_s, 2);
+    strcat(weapon_s, "WOOD NUNCHAKU");
     break;
   case 2:
-    add_item_sym(item_s, 0);
-    strcat(item_s, "SMALL DAGGER");
+    add_weapon_sym(weapon_s, 0);
+    strcat(weapon_s, "SMALL DAGGER");
     break;
   case 3:
-    add_item_sym(item_s, 3);
-    strcat(item_s, "WOOD ROD");
+    add_weapon_sym(weapon_s, 3);
+    strcat(weapon_s, "WOOD ROD");
     break;
   case 4:
-    add_item_sym(item_s, 4);
-    strcat(item_s, "RAPIER");
+    add_weapon_sym(weapon_s, 4);
+    strcat(weapon_s, "RAPIER");
     break;
   }
 }

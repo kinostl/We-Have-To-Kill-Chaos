@@ -3,6 +3,7 @@ const groups = ["Native Helper"]
 const name = "Call Native"
 
 MAX_STACK_SIZE = 8
+const autoLabel = (fetchArg, input) => `${name}: ${input["funName"]}`
 
 const fields = [
   {
@@ -67,6 +68,7 @@ const compile = (input, helpers) => {
 module.exports = {
   id,
   name,
+  autoLabel,
   groups,
   fields,
   compile,
