@@ -120,23 +120,23 @@ inline void write_weapon_name(BYTE item_id, unsigned char *item_s) {
     strcat(item_s, " ");
     break;
   case 1:
-    add_weapon_sym(item_s, 2);
+    add_weapon_sym(item_s, NUNCHUCKS);
     strcat(item_s, "WOOD");
     break;
   case 2:
-    add_weapon_sym(item_s, 0);
+    add_weapon_sym(item_s, DAGGER);
     strcat(item_s, "SMALL");
     break;
   case 3:
-    add_weapon_sym(item_s, 3);
+    add_weapon_sym(item_s, STAFF);
     strcat(item_s, "WOOD");
     break;
   case 4:
-    add_weapon_sym(item_s, 4);
+    add_weapon_sym(item_s, SWORD_1);
     strcat(item_s, "RAPIER");
     break;
   case 5:
-    add_weapon_sym(item_s, 1);
+    add_weapon_sym(item_s, HAMMER);
     strcat(item_s, "IRON");
     break;
   }
@@ -151,15 +151,15 @@ inline void write_armor_name(BYTE item_id, unsigned char *item_s) {
     strcat(item_s, " ");
     break;
   case 1:
-    add_armor_sym(item_s, 0);
+    add_armor_sym(item_s, ROBE);
     strcat(item_s, "CLOTH");
     break;
   case 2:
-    add_armor_sym(item_s, 0);
+    add_armor_sym(item_s, ARMOR);
     strcat(item_s, "WOOD");
     break;
   case 3:
-    add_armor_sym(item_s, 0);
+    add_armor_sym(item_s, ARMOR);
     strcat(item_s, "CHAIN");
     break;
   }

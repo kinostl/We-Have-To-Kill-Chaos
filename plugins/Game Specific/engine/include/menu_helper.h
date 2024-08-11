@@ -3,6 +3,8 @@
 
 #include <asm/types.h>
 #include "string.h"
+#include "weapon_data.h"
+#include "armor_data.h"
 
 extern UBYTE _itoa_fmt_len;
 UBYTE itoa_fmt(INT16 v, UBYTE *d) OLDCALL BANKED PRESERVES_REGS(b, c);
@@ -26,13 +28,59 @@ inline void progress_blanks(unsigned char * d, UBYTE len) {
 
 inline void add_weapon_sym(unsigned char *d, BYTE sym_id) {
   const unsigned char sym_base = 137;
-  unsigned char sym[2] = {sym_base+sym_id, '\0'};
+  unsigned char sym[2] = {sym_base, '\0'};
+  switch (sym_id) {
+  case SWORD_1:
+  case SWORD_2:
+  case SWORD_3:
+    break;
+  case HAMMER:
+    sym[0] += 1;
+    break;
+  case DAGGER:
+    sym[0] += 2;
+    break;
+  // case AXE:
+  // sym[0]+=3;
+  // break;
+  case STAFF:
+    sym[0] += 4;
+    break;
+  case NUNCHUCKS:
+    sym[0] += 5;
+    break;
+  default:
+    sym[0] = ' ';
+    break;
+  }
   strcat(d, sym);
 }
 
 inline void add_armor_sym(unsigned char *d, BYTE sym_id) {
-  const unsigned char sym_base = 143;
-  unsigned char sym[2] = {sym_base+sym_id, '\0'};
+  const unsigned char sym_base = 144;
+  unsigned char sym[2] = {sym_base, '\0'};
+  switch (sym_id) {
+  case ARMOR:
+    break;
+  case SHIELD:
+    sym[0] += 1;
+    break;
+  case HELMET:
+    sym[0] += 2;
+    break;
+  case GAUNTLET:
+    sym[0] += 3;
+    break;
+  case BRACELET:
+    sym[0] += 4;
+    break;
+  case ROBE:
+    sym[0] += 5;
+    break;
+  default:
+    sym[0] = ' ';
+    break;
+  }
   strcat(d, sym);
 }
 

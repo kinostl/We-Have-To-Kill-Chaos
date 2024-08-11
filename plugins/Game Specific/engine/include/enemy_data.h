@@ -16,7 +16,7 @@ enum enemy_name {
 enum battle_skills {
   BLANK,
   FIGHT,
-  SHIELD,
+  SHIELD_SKILL,
   LUSTER,
   FIRE,
   ICE,
