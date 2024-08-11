@@ -35,6 +35,29 @@ inline void screenf(unsigned char *d, UBYTE x, UBYTE y) {
   screenfw(d, x, y, strlen(d));
 }
 
+inline void addStatToString(unsigned char string[9], UBYTE stat) {
+  unsigned char stat_str[4];
+  itoa_fmt(stat, stat_str);
+  UBYTE stat_len = strlen(stat_str);
+  strcpy(&string[8 - stat_len], stat_str);
+}
+
+inline BYTE calculateEvasion(UBYTE weight, UBYTE agility){
+  return 48 + agility - weight;
+}
+inline BYTE calculateAttack(BYTE attack, BYTE strength){
+  return attack + (strength / 2);
+}
+
+inline BYTE calculateAccuracy(BYTE weapon_hit_chance, BYTE hit_chance){
+  return weapon_hit_chance + hit_chance;
+}
+
+inline BYTE calculateCritChance(BYTE weapon_crit_chance, BYTE luck){
+  return weapon_crit_chance + (luck /2);
+
+}
+
 void loadStatsArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
   clearAttrsSection(0, 8, 10, 7);
@@ -60,11 +83,25 @@ void loadSubStatsArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   // setAttrsSectionColor(10, 8, 10, 7, 1);
   // clearChSection(11, 9, 8, 5);
 
-  unsigned char attack[9] = "ATK   10";
-  unsigned char accuracy[9] = "ACC   28";
-  unsigned char crit[9] = "CRT    1";
-  unsigned char defense[9] = "DEF    1";
-  unsigned char evasion[9] = "EVA   15";
+  BYTE strength = 10;
+  BYTE luck = 8;
+  BYTE agility = 8;
+  BYTE base_hit_chance = 5;
+
+  unsigned char attack[9] = "ATK     ";
+  unsigned char accuracy[9] = "ACC     ";
+  unsigned char crit[9] = "CRT     ";
+  unsigned char defense[9] = "DEF     ";
+  unsigned char evasion[9] = "EVA     ";
+
+  addStatToString(attack, calculateAttack(weapon_slots[0].attack, strength));
+  addStatToString(accuracy, calculateAccuracy(weapon_slots[0].hit_chance, base_hit_chance));
+  addStatToString(crit, calculateCritChance(weapon_slots[0].crit_chance, luck));
+  //Normally this should just be the weapon's index number, and luck normally does nothing.
+
+  addStatToString(defense, armor_slots[0].defense);
+  addStatToString(evasion, calculateEvasion(armor_slots[0].weight, agility));
+
   screenf(attack, 11, 9);
   screenf(accuracy, 11, 10);
   screenf(crit, 11, 11);
@@ -256,12 +293,6 @@ void loadEquipArmorList(SCRIPT_CTX *THIS) OLDCALL BANKED {
   }
 }
 
-inline void addStatToString(unsigned char string[9], UBYTE stat) {
-  unsigned char stat_str[4];
-  itoa_fmt(stat, stat_str);
-  UBYTE stat_len = strlen(stat_str);
-  strcpy(&string[8 - stat_len], stat_str);
-}
 
 inline void addCompareToString(unsigned char string[9], UBYTE a, UBYTE b, UBYTE row){
   if(a > b){
@@ -277,34 +308,45 @@ inline void addCompareToString(unsigned char string[9], UBYTE a, UBYTE b, UBYTE 
 }
 
 void loadSubStatsCompareWeaponArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  BYTE strength = 10;
+  BYTE luck = 8;
+  BYTE base_hit_chance = 5;
+
   THIS;
   UBYTE character_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
   UBYTE check_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
   struct weapon_data equip_w, check_w;
+  BYTE weapon_slot = getNthItemSlotIndexOfItem(check_id, WEAPON_I);
 
   set_weapon(weapon_slots[character_id].id, &equip_w);
-  set_weapon(item_slots[check_id].id, &check_w);
+  set_weapon(item_slots[weapon_slot].id, &check_w);
 
   unsigned char lines[3][9];
   strcpy(lines[0], "ATK     ");
   strcpy(lines[1], "ACC     ");
   strcpy(lines[2], "CRT     ");
 
-  addStatToString(lines[0], check_w.attack);
-  addStatToString(lines[1], check_w.hit_chance);
-  addStatToString(lines[2], check_w.crit_chance);
+  //Displaying wrong because not doing calculations correctly
 
-  addCompareToString(lines[0], check_w.attack, equip_w.attack, 0);
-  addCompareToString(lines[1], check_w.hit_chance, equip_w.hit_chance, 1);
-  addCompareToString(lines[2], check_w.crit_chance, equip_w.crit_chance, 2);
+  BYTE check_attack = calculateAttack(check_w.attack, strength);
+  BYTE check_accuracy = calculateAccuracy(check_w.hit_chance, base_hit_chance);
+  BYTE check_crit = calculateCritChance(check_w.crit_chance, luck);
+
+  BYTE equip_attack = calculateAttack(equip_w.attack, strength);
+  BYTE equip_accuracy = calculateAccuracy(equip_w.hit_chance, base_hit_chance);
+  BYTE equip_crit = calculateCritChance(equip_w.crit_chance, luck);
+
+  addStatToString(lines[0], check_attack);
+  addStatToString(lines[1], check_accuracy);
+  addStatToString(lines[2], check_crit);
+
+  addCompareToString(lines[0], check_attack, equip_attack, 0);
+  addCompareToString(lines[1], check_accuracy, equip_accuracy, 1);
+  addCompareToString(lines[2], check_crit, equip_crit, 2);
 
   screenf(lines[0], 11, 9 + 0);
   screenf(lines[1], 11, 9 + 1);
   screenf(lines[2], 11, 9 + 2);
-}
-
-inline BYTE calculateEvasion(UBYTE weight, UBYTE agility){
-  return 48 + agility - weight;
 }
 
 void loadSubStatsCompareArmorArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
@@ -312,9 +354,10 @@ void loadSubStatsCompareArmorArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   UBYTE character_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
   UBYTE check_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
   struct armor_data equip_a, check_a;
+  BYTE armor_slot = getNthItemSlotIndexOfItem(check_id, ARMOR_I);
 
   set_armor(armor_slots[character_id].id, &equip_a);
-  set_armor(item_slots[check_id].id, &check_a);
+  set_armor(item_slots[armor_slot].id, &check_a);
 
   unsigned char lines[2][9];
   strcpy(lines[0], "DEF     ");
@@ -359,10 +402,24 @@ void equipArmor(SCRIPT_CTX * THIS) OLDCALL BANKED {
   addArmorItem(armor_id);
 }
 
+void equipHelmet(SCRIPT_CTX * THIS) OLDCALL BANKED {
+  UBYTE character_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
+  UBYTE equip_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
+
+  UBYTE helmet_id = helmet_slots[character_id].id;
+  BYTE equip_slot = getNthItemSlotIndexOfItem(equip_id, HELMET_I);
+  BYTE e_helmet_id = item_slots[equip_slot].id;
+
+  set_armor(e_helmet_id, &helmet_slots[character_id]);
+  removeItem(e_helmet_id, HELMET_I);
+  addHelmetItem(helmet_id);
+}
+
 void falsifyData(SCRIPT_CTX * THIS) OLDCALL BANKED {
   THIS;
   addArmorItem(2);
   addArmorItem(3);
+  addArmorItem(26);
   addWeaponItem(2);
   addWeaponItem(3);
   set_weapon(1, &weapon_slots[0]);

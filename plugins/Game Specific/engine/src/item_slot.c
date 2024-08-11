@@ -53,6 +53,15 @@ BYTE addWeaponItem(BYTE item_id) OLDCALL BANKED {
 BYTE addArmorItem(BYTE item_id) OLDCALL BANKED {
   return addItem(item_id, ARMOR_I);
 }
+BYTE addShieldItem(BYTE item_id) OLDCALL BANKED {
+  return addItem(item_id, SHIELD_I);
+}
+BYTE addGloveItem(BYTE item_id) OLDCALL BANKED {
+  return addItem(item_id, GLOVE_I);
+}
+BYTE addHelmetItem(BYTE item_id) OLDCALL BANKED {
+  return addItem(item_id, HELMET_I);
+}
 BYTE addPotionItem(BYTE item_id) OLDCALL BANKED {
   return addItem(item_id, POTION_I);
 }

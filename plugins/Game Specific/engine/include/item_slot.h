@@ -6,7 +6,10 @@ enum I_TYPE{
     NULL_I,
     POTION_I,
     WEAPON_I,
-    ARMOR_I
+    ARMOR_I,
+    SHIELD_I,
+    GLOVE_I,
+    HELMET_I,
 };
 
 struct item_slot{
@@ -21,6 +24,9 @@ BYTE addItems(BYTE item_id, enum I_TYPE type, BYTE count) OLDCALL BANKED;
 BYTE addItem(BYTE item_id, enum I_TYPE type) OLDCALL BANKED;
 BYTE addWeaponItem(BYTE item_id) OLDCALL BANKED;
 BYTE addArmorItem(BYTE item_id) OLDCALL BANKED;
+BYTE addShieldItem(BYTE item_id) OLDCALL BANKED;
+BYTE addGloveItem(BYTE item_id) OLDCALL BANKED;
+BYTE addHelmetItem(BYTE item_id) OLDCALL BANKED;
 BYTE addPotionItem(BYTE item_id) OLDCALL BANKED;
 BYTE removeItems(BYTE item_id, enum I_TYPE type, BYTE count) OLDCALL BANKED;
 BYTE removeItem(BYTE item_id, enum I_TYPE type) OLDCALL BANKED;

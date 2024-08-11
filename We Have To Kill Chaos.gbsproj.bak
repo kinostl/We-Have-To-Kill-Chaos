@@ -33412,6 +33412,47 @@
                                                             "__collapse": true
                                                         },
                                                         "id": "30dfd526-f6d4-4ca9-8f0e-4612e662ba90"
+                                                    },
+                                                    {
+                                                        "command": "MY_EVENT_CALL_NATIVE",
+                                                        "args": {
+                                                            "argCount": 1,
+                                                            "arg0": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg1": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg2": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg3": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg4": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg5": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg6": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "arg7": {
+                                                                "type": "number",
+                                                                "value": 0
+                                                            },
+                                                            "funName": "loadEquipArea",
+                                                            "__collapse": false
+                                                        },
+                                                        "id": "6ad68d63-050c-4b8b-ba44-9218ab7f4475"
                                                     }
                                                 ]
                                             },
@@ -37251,7 +37292,7 @@
                 0,
                 0,
                 0,
-                1,
+                0,
                 0,
                 0,
                 0,
