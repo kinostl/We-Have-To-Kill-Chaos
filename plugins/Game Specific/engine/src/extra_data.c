@@ -7,9 +7,11 @@
 #include <vm.h>
 #pragma bank 255
 
+
 #define entity_size (sizeof(struct entity_data) * 10) / sizeof(WORD)
 #define weapon_size (sizeof(struct weapon_data) * 4) / sizeof(WORD)
 #define armor_size (sizeof(struct armor_data) * 4) / sizeof(WORD)
+#define item_size (sizeof(struct item_slot) * MAX_ITEM_SLOTS) / sizeof(WORD)
 
 #define weapon_start MAX_GLOBAL_VARS + entity_size
 #define armor_start weapon_start + weapon_size

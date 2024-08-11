@@ -166,15 +166,16 @@ inline void write_armor_name(BYTE item_id, unsigned char *item_s) {
 }
 
 void loadEquipWeaponList(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  addArmorItem(1);
+  addArmorItem(2);
+  addWeaponItem(3);
+  addWeaponItem(4);
+
   UBYTE currentPlayer = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
   turn_slots[currentPlayer].type = WHITE_MAGE;
 
   clearAttrsSection(0, 8, 10, 7);
   clearChSection(1, 9, 8, 5);
-  item_slots[0].count = 2;
-  item_slots[0].type = 5;
-  item_slots[1].count = 1;
-  item_slots[1].type = 1;
 
   int i = 0;
   int inv_i = 0;
@@ -182,32 +183,35 @@ void loadEquipWeaponList(SCRIPT_CTX *THIS) OLDCALL BANKED {
   struct weapon_data w_data;
   while (i < 5) {
     i_slot = item_slots[inv_i++];
-    if (i_slot.type == NULL) {
+    if (i_slot.type == NULL_I) {
       break;
     }
+    if (i_slot.type != WEAPON_I) {
+      continue;
+    }
 
-    set_weapon(i_slot.type, &w_data);
+    set_weapon(i_slot.id, &w_data);
     // if (!CHK_FLAG(w_data.classes, turn_slots[currentPlayer].type)) {
     //   continue;
     // }
 
     unsigned char line[8] = "";
-    write_weapon_name(i_slot.type, line);
+    write_weapon_name(i_slot.id, line);
     screenf(line, 2, 9 + i);
     i++;
   }
 }
 
 void loadEquipArmorList(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  addArmorItem(1);
+  addArmorItem(2);
+  addWeaponItem(3);
+  addWeaponItem(4);
   UBYTE currentPlayer = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
   turn_slots[currentPlayer].type = WHITE_MAGE;
 
   clearAttrsSection(0, 8, 10, 7);
   clearChSection(1, 9, 8, 5);
-  item_slots[0].count = 2;
-  item_slots[0].type = 3;
-  item_slots[1].count = 1;
-  item_slots[1].type = 1;
 
   int i = 0;
   int inv_i = 0;
@@ -215,17 +219,20 @@ void loadEquipArmorList(SCRIPT_CTX *THIS) OLDCALL BANKED {
   struct armor_data a_data;
   while (i < 5) {
     i_slot = item_slots[inv_i++];
-    if (i_slot.type == NULL) {
+    if (i_slot.type == NULL_I) {
       break;
     }
+    if (i_slot.type != ARMOR_I) {
+      continue;
+    }
 
-    set_armor(i_slot.type, &a_data);
+    set_armor(i_slot.id, &a_data);
     // if (!CHK_FLAG(w_data.classes, turn_slots[currentPlayer].type)) {
     //   continue;
     // }
 
     unsigned char line[8] = "";
-    write_armor_name(i_slot.type, line);
+    write_armor_name(i_slot.id, line);
     screenf(line, 2, 9 + i);
     i++;
   }
@@ -315,3 +322,12 @@ void loadSubStatsCompareArmorArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   screenf(lines[0], 11, 9 + 3);
   screenf(lines[1], 11, 9 + 4);
 }
+
+// void equipWeapon(SCRIPT_CTX * THIS) OLDCALL BANKED {
+//   UBYTE equip_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
+//   UBYTE character_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
+//   addItem(1, WEAPON_I);
+//   addItem(3, WEAPON_I);
+
+//   set_armor(item_slots[equip_id].type, &armor_slots[character_id]);
+// }
