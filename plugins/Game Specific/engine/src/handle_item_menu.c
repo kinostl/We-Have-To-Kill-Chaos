@@ -34,19 +34,19 @@ inline void write_weapon_name(BYTE weapon_id, unsigned char *weapon_s) {
   default:
     break;
   case 1:
-    add_weapon_sym(weapon_s, 2);
+    add_weapon_sym(weapon_s, NUNCHUCKS);
     strcat(weapon_s, "WOOD NUNCHAKU");
     break;
   case 2:
-    add_weapon_sym(weapon_s, 0);
+    add_weapon_sym(weapon_s, DAGGER);
     strcat(weapon_s, "SMALL DAGGER");
     break;
   case 3:
-    add_weapon_sym(weapon_s, 3);
+    add_weapon_sym(weapon_s, STAFF);
     strcat(weapon_s, "WOOD ROD");
     break;
   case 4:
-    add_weapon_sym(weapon_s, 4);
+    add_weapon_sym(weapon_s, SWORD_1);
     strcat(weapon_s, "RAPIER");
     break;
   }
