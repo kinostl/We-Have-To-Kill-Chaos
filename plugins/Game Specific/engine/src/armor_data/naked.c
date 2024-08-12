@@ -5,7 +5,7 @@
 
 void naked(struct armor_data *armor) OLDCALL BANKED {
   armor->id = 0;
-  armor->type = ROBE;
+  armor->type = UNARMORED;
   armor->defense = 0;
   armor->weight = 0;
   armor->price = 0;

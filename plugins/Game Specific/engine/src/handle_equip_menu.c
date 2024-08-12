@@ -1,3 +1,4 @@
+#include "armor_data/naked.h"
 #include "extra_data.h"
 #include "handle_submapping.h"
 #include "item_slot.h"
@@ -42,9 +43,8 @@ inline void addStatToString(unsigned char string[9], UBYTE stat) {
   strcpy(&string[8 - stat_len], stat_str);
 }
 
-inline BYTE calculateEvasion(UBYTE weight, UBYTE agility){
-  return 48 + agility - weight;
-}
+#define calculateEvasion(weight, agility) 48 + agility - weight
+
 inline BYTE calculateAttack(BYTE attack, BYTE strength){
   return attack + (strength / 2);
 }
@@ -77,6 +77,16 @@ void loadStatsArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   screenf(luck, 1, 13);
 }
 
+inline UBYTE sum_armor_def(UBYTE i) {
+  return armor_slots[i].defense + shield_slots[i].defense +
+         helmet_slots[i].defense + glove_slots[i].defense;
+}
+
+inline UBYTE sum_armor_weight(UBYTE i) {
+  return armor_slots[i].weight + shield_slots[i].weight +
+         helmet_slots[i].weight + glove_slots[i].weight;
+}
+
 void loadSubStatsArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
   // clearAttrsSection(10, 8, 10, 7);
@@ -99,8 +109,8 @@ void loadSubStatsArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   addStatToString(crit, calculateCritChance(weapon_slots[0].crit_chance, luck));
   //Normally this should just be the weapon's index number, and luck normally does nothing.
 
-  addStatToString(defense, armor_slots[0].defense);
-  addStatToString(evasion, calculateEvasion(armor_slots[0].weight, agility));
+  addStatToString(defense, sum_armor_def(0));
+  addStatToString(evasion, calculateEvasion( sum_armor_weight(0) , agility));
 
   screenf(attack, 11, 9);
   screenf(accuracy, 11, 10);
@@ -226,12 +236,14 @@ void loadEquipMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
 }
 
 void loadEquipList(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  UBYTE currentPlayer = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
+  // UBYTE currentPlayer = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
+  UBYTE currentPlayer = 0;
   UBYTE entityType = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
-  turn_slots[currentPlayer].type = WHITE_MAGE;
+  turn_slots[currentPlayer].type = MONK;
 
   clearAttrsSection(0, 8, 10, 7);
   clearChSection(1, 9, 8, 5);
+  clearMenu();
 
   int i = 0;
   int inv_i = 0;
@@ -242,7 +254,7 @@ void loadEquipList(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
   while (i < 5) {
     i_slot = item_slots[inv_i++];
-    if (i_slot.type == NULL_I) {
+    if (!i_slot.type) {
       break;
     }
     if (i_slot.type != i_type) {
@@ -252,16 +264,16 @@ void loadEquipList(SCRIPT_CTX *THIS) OLDCALL BANKED {
     unsigned char line[8] = "";
     if (i_type == WEAPON_I) {
       set_weapon(i_slot.id, &w_data);
-      // if (!CHK_FLAG(w_data.classes, turn_slots[currentPlayer].type)) {
-      //   continue;
-      // }
+      if (!CHK_FLAG(w_data.classes, turn_slots[currentPlayer].type)) {
+        continue;
+      }
 
       write_weapon_name(i_slot.id, line);
     } else {
       set_armor(i_slot.id, &a_data);
-      // if (!CHK_FLAG(w_data.classes, turn_slots[currentPlayer].type)) {
-      //   continue;
-      // }
+      if (!CHK_FLAG(a_data.classes, turn_slots[currentPlayer].type)) {
+        continue;
+      }
       write_armor_name(i_slot.id, NULL, line);
     }
     if(i_slot.id == 0){
@@ -269,6 +281,7 @@ void loadEquipList(SCRIPT_CTX *THIS) OLDCALL BANKED {
     }
     screenf(line, 2, 9 + i);
     i++;
+    if(addMenuItem(i_slot.id, i_type) >= 4) break;
   }
   if (i - 1 > 0) {
     VM_GLOBAL(VAR_TEMP_FRAME) = i - 1;
@@ -296,13 +309,13 @@ void loadSubStatsCompareWeaponArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   BYTE base_hit_chance = 5;
 
   THIS;
-  UBYTE character_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
+  // UBYTE character_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
+  UBYTE character_id = 0;
   UBYTE check_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
   struct weapon_data equip_w, check_w;
-  BYTE weapon_slot = getNthItemSlotIndexOfItem(check_id, WEAPON_I);
 
   set_weapon(weapon_slots[character_id].id, &equip_w);
-  set_weapon(item_slots[weapon_slot].id, &check_w);
+  set_weapon(menu_slots[check_id].id, &check_w);
 
   unsigned char lines[3][9];
   strcpy(lines[0], "ATK     ");
@@ -334,25 +347,55 @@ void loadSubStatsCompareWeaponArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
 void loadSubStatsCompareArmorArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  UBYTE character_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
+  // UBYTE character_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
+  UBYTE character_id = 0;
   UBYTE check_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
-  struct armor_data equip_a, check_a;
-  BYTE armor_slot = getNthItemSlotIndexOfItem(check_id, ARMOR_I);
+  struct armor_data check_t;
+  UBYTE check_d, equip_d;
+  UBYTE check_w, equip_w;
 
-  set_armor(armor_slots[character_id].id, &equip_a);
-  set_armor(item_slots[armor_slot].id, &check_a);
+  equip_d = sum_armor_def(character_id);
+  check_d = equip_d;
+  equip_w = sum_armor_weight(character_id);
+  check_w = equip_w;
+
+  set_armor(menu_slots[check_id].id, &check_t);
+
+  switch (menu_slots[check_id].type) {
+  case ARMOR_I:
+    check_d -= armor_slots[character_id].defense;
+    check_w -= armor_slots[character_id].weight;
+    break;
+  case SHIELD_I:
+    check_d -= shield_slots[character_id].defense;
+    check_w -= shield_slots[character_id].weight;
+    break;
+  case HELMET_I:
+    check_d -= helmet_slots[character_id].defense;
+    check_w -= helmet_slots[character_id].weight;
+    break;
+  case GLOVE_I:
+    check_d -= glove_slots[character_id].defense;
+    check_w -= glove_slots[character_id].weight;
+    break;
+  default:
+    break;
+  }
+
+  check_d += check_t.defense;
+  check_w += check_t.weight;
 
   unsigned char lines[2][9];
   strcpy(lines[0], "DEF     ");
   strcpy(lines[1], "EVA     ");
 
-  BYTE equip_evasion =  calculateEvasion(equip_a.weight, 8);
-  BYTE check_evasion =  calculateEvasion(check_a.weight, 8);
+  UBYTE equip_evasion =  calculateEvasion(equip_w, 8);
+  UBYTE check_evasion =  calculateEvasion(check_w, 8);
 
-  addStatToString(lines[0], check_a.defense);
+  addStatToString(lines[0], check_d);
   addStatToString(lines[1], check_evasion);
 
-  addCompareToString(lines[0], check_a.defense, equip_a.defense, 3);
+  addCompareToString(lines[0], check_d, equip_d, 3);
   addCompareToString(lines[1], check_evasion, equip_evasion, 4);
 
   screenf(lines[0], 11, 9 + 3);
@@ -364,14 +407,9 @@ void equipWeapon(SCRIPT_CTX *THIS) OLDCALL BANKED {
   UBYTE equip_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
 
   UBYTE weapon_id = weapon_slots[character_id].id;
-  BYTE equip_slot = getNthItemSlotIndexOfItem(equip_id, WEAPON_I);
-  BYTE e_weapon_id=0;
-  if (equip_slot < ITEM_NOT_FOUND) {
-    e_weapon_id = item_slots[equip_slot].id;
-  }
 
-  set_weapon(e_weapon_id, &weapon_slots[character_id]);
-  removeItem(e_weapon_id, WEAPON_I);
+  set_weapon(menu_slots[equip_id].id, &weapon_slots[character_id]);
+  removeItem(menu_slots[equip_id].id, WEAPON_I);
   addWeaponItem(weapon_id);
 }
 
@@ -380,14 +418,9 @@ void equipArmor(SCRIPT_CTX *THIS) OLDCALL BANKED {
   UBYTE equip_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
 
   UBYTE armor_id = armor_slots[character_id].id;
-  BYTE equip_slot = getNthItemSlotIndexOfItem(equip_id, ARMOR_I);
-  BYTE e_armor_id=0;
-  if (equip_slot < ITEM_NOT_FOUND) {
-    e_armor_id = item_slots[equip_slot].id;
-  }
 
-  set_armor(e_armor_id, &armor_slots[character_id]);
-  removeItem(e_armor_id, ARMOR_I);
+  set_armor(menu_slots[equip_id].id, &armor_slots[character_id]);
+  removeItem(menu_slots[equip_id].id, ARMOR_I);
   addArmorItem(armor_id);
 }
 
@@ -396,26 +429,27 @@ void equipHelmet(SCRIPT_CTX * THIS) OLDCALL BANKED {
   UBYTE equip_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
 
   UBYTE helmet_id = helmet_slots[character_id].id;
-  BYTE equip_slot = getNthItemSlotIndexOfItem(equip_id, HELMET_I);
-  BYTE e_helmet_id=0;
-  if (equip_slot < ITEM_NOT_FOUND) {
-    e_helmet_id = item_slots[equip_slot].id;
-  }
 
-  set_armor(e_helmet_id, &helmet_slots[character_id]);
-  removeItem(e_helmet_id, HELMET_I);
+  set_armor(menu_slots[equip_id].id, &helmet_slots[character_id]);
+  removeItem(menu_slots[equip_id].id, HELMET_I);
   addHelmetItem(helmet_id);
 }
 
 void falsifyData(SCRIPT_CTX * THIS) OLDCALL BANKED {
   THIS;
-  addArmorItem(0);
+  addArmorItem(1);
   addArmorItem(2);
   addArmorItem(3);
+
   addHelmetItem(26);
+
   addWeaponItem(1);
   addWeaponItem(2);
   addWeaponItem(3);
+
   set_weapon(0, &weapon_slots[0]);
-  set_armor(1, &armor_slots[0]);
+  set_armor(0, &armor_slots[0]);
+  set_armor(0, &shield_slots[0]);
+  set_armor(0, &helmet_slots[0]);
+  set_armor(0, &glove_slots[0]);
 }

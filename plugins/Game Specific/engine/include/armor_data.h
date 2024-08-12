@@ -8,8 +8,8 @@ enum A_TYPE { UNARMORED, ARMOR, ROBE, BRACELET, SHIELD, HELMET, GAUNTLET };
 struct armor_data {
   BYTE id;
   enum A_TYPE type;
-  BYTE defense;
-  BYTE weight;
+  UBYTE defense;
+  UBYTE weight;
   UWORD price;
   UWORD classes; // Flag
 };

@@ -33651,7 +33651,7 @@
                                                     "value": 0
                                                 },
                                                 "funName": "loadEquipList",
-                                                "__collapse": false
+                                                "__collapse": true
                                             },
                                             "id": "490710bf-b7e9-4b6f-9cdb-0f3b8941c007"
                                         },
@@ -49017,7 +49017,7 @@
         ],
         "debuggerEnabled": true,
         "debuggerScriptType": "gbvm",
-        "debuggerVariablesFilter": "watched",
+        "debuggerVariablesFilter": "all",
         "debuggerCollapsedPanes": [],
         "debuggerPauseOnScriptChanged": false,
         "debuggerPauseOnWatchedVariableChanged": false,

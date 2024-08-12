@@ -5,45 +5,74 @@
 #include "extra_data.h"
 #include "item_slot.h"
 
+BYTE get_item_slot_index(BYTE item_id, enum I_TYPE type, struct item_slot * slots) OLDCALL BANKED{
+    for(int i=0;i<MAX_ITEM_SLOTS;i++){
+        if(slots[i].id == item_id && slots[i].type == type){
+            return i;
+        };
+    }
+    return ITEM_NOT_FOUND;
+}
 
 BYTE getItemSlotIndex(BYTE item_id, enum I_TYPE type) OLDCALL BANKED {
+    return get_item_slot_index(item_id, type, item_slots);
+}
+
+BYTE get_next_item_slot_index(struct item_slot * slots){
     for(int i=0;i<MAX_ITEM_SLOTS;i++){
-        if(item_slots[i].id == item_id && item_slots[i].type == type){
+        if(slots[i].type == NULL_I){
             return i;
         };
     }
     return ITEM_NOT_FOUND;
-}
 
+}
 BYTE getNextItemSlotIndex(void) OLDCALL BANKED {
-    for(int i=0;i<MAX_ITEM_SLOTS;i++){
-        if(item_slots[i].type == NULL_I){
-            return i;
-        };
-    }
-    return ITEM_NOT_FOUND;
+    return get_next_item_slot_index(item_slots);
 }
-
-BYTE addItems(BYTE item_id, enum I_TYPE type, BYTE count) OLDCALL BANKED{
-    UBYTE slot_i = getItemSlotIndex(item_id, type);
+BYTE add_items(BYTE item_id, enum I_TYPE type, BYTE count, struct item_slot * slots) OLDCALL BANKED{
+    UBYTE slot_i = get_item_slot_index(item_id, type, slots);
     if (slot_i >= ITEM_NOT_FOUND) {
-      slot_i = getNextItemSlotIndex();
+      slot_i = get_next_item_slot_index(slots);
       if (slot_i >= ITEM_NOT_FOUND) {
         return ITEM_NOT_FOUND;
       }
 
-      item_slots[slot_i].id = item_id;
-      item_slots[slot_i].type = type;
-      item_slots[slot_i].count = 0;
+      slots[slot_i].id = item_id;
+      slots[slot_i].type = type;
+      slots[slot_i].count = 0;
     }
 
-    item_slots[slot_i].count+= count;
+    slots[slot_i].count+= count;
 
     return slot_i;
 }
 
+BYTE addItems(BYTE item_id, enum I_TYPE type, BYTE count) OLDCALL BANKED{
+    return add_items(item_id, type, count, item_slots);
+}
+
+BYTE addMenuItems(BYTE item_id, enum I_TYPE type, BYTE count) OLDCALL BANKED{
+    return add_items(item_id, type, count, menu_slots);
+}
+
 BYTE addItem(BYTE item_id, enum I_TYPE type) OLDCALL BANKED{
     return addItems(item_id, type, 1);
+}
+
+BYTE addMenuItem(BYTE item_id, enum I_TYPE type) OLDCALL BANKED{
+    return addMenuItems(item_id, type, 1);
+}
+
+BYTE getMenuLength(void) OLDCALL BANKED {
+    BYTE n=0;
+    for(int i=0;i<MAX_ITEM_SLOTS;i++){
+        if(menu_slots[i].type == NULL_I){
+            break;
+        }
+        n++;
+    }
+    return n;
 }
 
 BYTE addWeaponItem(BYTE item_id) OLDCALL BANKED {
@@ -101,4 +130,12 @@ BYTE getNthItemSlotIndexOfItem(BYTE nth, enum I_TYPE type) OLDCALL BANKED {
     }
   }
   return ITEM_NOT_FOUND;
+}
+
+void clearMenu(void) OLDCALL BANKED{
+    for(int i=0;i<MAX_ITEM_SLOTS;i++){
+        menu_slots[i].id = NULL;
+        menu_slots[i].type = NULL_I;
+        menu_slots[i].count = 0;
+    }
 }

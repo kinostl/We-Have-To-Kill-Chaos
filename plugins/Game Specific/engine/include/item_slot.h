@@ -32,4 +32,9 @@ BYTE removeItems(BYTE item_id, enum I_TYPE type, BYTE count) OLDCALL BANKED;
 BYTE removeItem(BYTE item_id, enum I_TYPE type) OLDCALL BANKED;
 BYTE getNthItemSlotIndexOfItem(BYTE nth, enum I_TYPE type) OLDCALL BANKED;
 
+void clearMenu(void) OLDCALL BANKED;
+BYTE addMenuItem(BYTE item_id, enum I_TYPE type) OLDCALL BANKED;
+BYTE addMenuItems(BYTE item_id, enum I_TYPE type, BYTE count) OLDCALL BANKED;
+
+BYTE getMenuLength(void) OLDCALL BANKED;
 #endif
