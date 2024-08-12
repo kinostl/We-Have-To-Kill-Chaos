@@ -417,6 +417,8 @@ void equipWeapon(SCRIPT_CTX *THIS) OLDCALL BANKED {
   set_weapon(menu_slots[equip_id].id, &weapon_slots[character_id]);
   removeItem(menu_slots[equip_id].id, WEAPON_I);
   addWeaponItem(weapon_id);
+  VM_GLOBAL(VAR_1WEAPON_TYPE) = weapon_slots[character_id].type;
+  VM_GLOBAL(VAR_1WEAPON_COLORS) = weapon_slots[character_id].color;
 }
 
 void equipArmor(SCRIPT_CTX *THIS) OLDCALL BANKED {
@@ -449,6 +451,7 @@ void falsifyData(SCRIPT_CTX * THIS) OLDCALL BANKED {
 
   addHelmetItem(26);
 
+  addWeaponItem(1);
   addWeaponItem(1);
   addWeaponItem(2);
   addWeaponItem(3);
