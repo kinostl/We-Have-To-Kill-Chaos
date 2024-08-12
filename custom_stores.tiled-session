@@ -24,11 +24,19 @@
             "scaleInDock": 1,
             "scaleInEditor": 32
         },
-        "maps/random_menu.tmx": {
-            "scale": 5.634027777777777,
+        "maps/inn.tmx": {
+            "scale": 2,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 117.14532232219896,
+                "x": 166.5,
+                "y": 148.75
+            }
+        },
+        "maps/random_menu.tmx": {
+            "scale": 5.634027777777777,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 76.49944533464813,
                 "y": 60.08135091827931
             }
         },
@@ -36,6 +44,14 @@
             "dynamicWrapping": true,
             "scaleInDock": 4,
             "scaleInEditor": 1
+        },
+        "maps/tavern.tmx": {
+            "scale": 5.634027777777777,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 78.62936028596081,
+                "y": 71.9733760631086
+            }
         },
         "maps/tileset_for_stores.tsx": {
             "dynamicWrapping": false,
@@ -57,6 +73,7 @@
         }
     },
     "last.imagePath": "/home/deck/Documents/We Have To Kill Chaos/assets/ui",
+    "map.fixedSize": true,
     "map.height": 18,
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 8,
@@ -80,6 +97,7 @@
         "maps/random_menu.tmx",
         "maps/frame.tsx"
     ],
+    "resizeMap.removeObjects": false,
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
         "height": 8,

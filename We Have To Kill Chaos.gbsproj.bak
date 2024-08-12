@@ -33175,6 +33175,14 @@
                     "id": "47498d51-9d9d-44cc-b190-23f9a40e4230"
                 },
                 {
+                    "command": "EVENT_CALL_CUSTOM_EVENT",
+                    "args": {
+                        "customEventId": "14789182-c86e-40a0-b290-d27337b748f4",
+                        "$actor[0]$": "5278e4fb-df01-43ad-929c-6a2e2456428e"
+                    },
+                    "id": "2b37a35a-fa3b-49c3-98ba-5e8c13bf81b9"
+                },
+                {
                     "command": "EVENT_SET_INPUT_SCRIPT",
                     "args": {
                         "input": [
