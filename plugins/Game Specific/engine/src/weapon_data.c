@@ -11,6 +11,9 @@
 #pragma bank 255
 
 void set_weapon(BYTE weapon_id, struct weapon_data *weapon) OLDCALL BANKED {
+  unarmed(weapon);
+  weapon->classes=0;
+
   switch (weapon_id) {
   default:
   case 0:

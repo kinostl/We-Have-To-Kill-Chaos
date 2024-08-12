@@ -8,6 +8,8 @@
 #pragma bank 255
 
 void set_armor(BYTE armor_id, struct armor_data *armor) OLDCALL BANKED {
+  naked(armor);
+  armor->classes = 0;
   switch (armor_id) {
   default:
   case 0:

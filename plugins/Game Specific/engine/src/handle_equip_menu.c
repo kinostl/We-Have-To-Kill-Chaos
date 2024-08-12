@@ -264,17 +264,18 @@ void loadEquipList(SCRIPT_CTX *THIS) OLDCALL BANKED {
     unsigned char line[8] = "";
     if (i_type == WEAPON_I) {
       set_weapon(i_slot.id, &w_data);
-      if (!CHK_FLAG(w_data.classes, turn_slots[currentPlayer].type)) {
+      if (CHK_FLAG(w_data.classes, turn_slots[currentPlayer].type)) {
+      write_weapon_name(i_slot.id, line);
+      }else{
         continue;
       }
-
-      write_weapon_name(i_slot.id, line);
     } else {
       set_armor(i_slot.id, &a_data);
-      if (!CHK_FLAG(a_data.classes, turn_slots[currentPlayer].type)) {
+      if (CHK_FLAG(a_data.classes, turn_slots[currentPlayer].type)) {
+        write_armor_name(i_slot.id, NULL, line);
+      } else {
         continue;
       }
-      write_armor_name(i_slot.id, NULL, line);
     }
     if(i_slot.id == 0){
       strcpy(line, "Remove");
