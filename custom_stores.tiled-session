@@ -13,12 +13,20 @@
     "exportAsImage.includeBackgroundColor": true,
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "maps/armor_store.tmx": {
+            "scale": 5.634027777777777,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 66.11610994699866,
+                "y": 93.80500431406386
+            }
+        },
         "maps/black_magic.tmx": {
             "scale": 5.647222222222222,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 122.36104279390064,
-                "y": 76.85194294146581
+                "x": 79.77373339891786,
+                "y": 38.16035415641909
             }
         },
         "maps/frame.tsx": {
@@ -26,11 +34,19 @@
             "scaleInEditor": 32
         },
         "maps/inn.tmx": {
-            "scale": 2,
+            "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 166.5,
-                "y": 148.5
+                "x": 81.45454545454545,
+                "y": 242.27272727272728
+            }
+        },
+        "maps/item_shop.tmx": {
+            "scale": 5.391249999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 80.03709714815675,
+                "y": 72.06121029445862
             }
         },
         "maps/random_menu.tmx": {
@@ -50,14 +66,30 @@
             "scale": 5.634027777777777,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 78.62936028596081,
-                "y": 72.06212251941331
+                "x": 49.165536792801696,
+                "y": 76.9431776161716
             }
         },
         "maps/tileset_for_stores.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 1,
             "scaleInEditor": 1
+        },
+        "maps/weapon_armor_shop.tmx": {
+            "scale": 3.33984375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 168.12163742690058,
+                "y": 63.925146198830404
+            }
+        },
+        "maps/weapon_store.tmx": {
+            "scale": 3,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 67.16666666666666,
+                "y": 110.16666666666669
+            }
         },
         "maps/white_magic_shop.tmx": {
             "scale": 4,
@@ -73,7 +105,11 @@
             "scaleInEditor": 1
         }
     },
-    "last.imagePath": "/home/deck/Documents/We Have To Kill Chaos/assets/ui",
+    "last.imagePath": "/home/deck/Documents/We Have To Kill Chaos/maps",
+    "last.worldFilePath": "/home/deck/Documents/We Have To Kill Chaos/maps",
+    "loadedWorlds": [
+        "/home/deck/Documents/We Have To Kill Chaos/maps/weapon_armor_shop.world"
+    ],
     "map.fixedSize": true,
     "map.height": 18,
     "map.lastUsedFormat": "tmx",
@@ -93,6 +129,7 @@
     ],
     "project": "custom_stores.tiled-project",
     "recentFiles": [
+        "maps/weapon_armor_shop.tmx",
         "maps/white_magic_shop.tmx",
         "tilesets/store_tiles.tsx",
         "maps/store_tiles.tsx",
