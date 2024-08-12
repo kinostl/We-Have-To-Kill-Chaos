@@ -18,7 +18,7 @@
             "selectedLayer": 0,
             "viewCenter": {
                 "x": 122.36104279390064,
-                "y": 76.76340383669455
+                "y": 76.85194294146581
             }
         },
         "maps/frame.tsx": {
@@ -30,15 +30,15 @@
             "selectedLayer": 0,
             "viewCenter": {
                 "x": 166.5,
-                "y": 148.75
+                "y": 148.5
             }
         },
         "maps/random_menu.tmx": {
             "scale": 5.634027777777777,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 76.49944533464813,
-                "y": 60.08135091827931
+                "x": 76.49944533464812,
+                "y": 59.992604461974636
             }
         },
         "maps/store_tiles.tsx": {
@@ -51,7 +51,7 @@
             "selectedLayer": 0,
             "viewCenter": {
                 "x": 78.62936028596081,
-                "y": 71.9733760631086
+                "y": 72.06212251941331
             }
         },
         "maps/tileset_for_stores.tsx": {
@@ -63,8 +63,8 @@
             "scale": 4,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 169.5,
-                "y": 118.375
+                "x": 241.75,
+                "y": 159.125
             }
         },
         "tilesets/store_tiles.tsx": {
