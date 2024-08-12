@@ -5,6 +5,7 @@
 #include "weapon_data.h"
 
 #define MAX_ITEM_SLOTS 20
+#define ITEM_NOT_FOUND MAX_ITEM_SLOTS + 1
 
 extern struct entity_data * turn_slots;
 extern struct item_slot * item_slots;

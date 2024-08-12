@@ -33265,23 +33265,65 @@
                                                         "id": "e033ec5c-d737-4d7e-bc2f-f299df9aa833"
                                                     },
                                                     {
-                                                        "command": "EVENT_IF",
+                                                        "command": "EVENT_SWITCH",
                                                         "args": {
-                                                            "condition": {
-                                                                "type": "gt",
-                                                                "valueA": {
-                                                                    "type": "variable",
-                                                                    "value": "79"
-                                                                },
-                                                                "valueB": {
-                                                                    "type": "number",
-                                                                    "value": 0
-                                                                }
-                                                            },
+                                                            "variable": "79",
+                                                            "choices": 3,
+                                                            "__collapseCase0": false,
+                                                            "value0": 0,
+                                                            "__collapseCase1": false,
+                                                            "value1": 1,
+                                                            "__collapseCase2": false,
+                                                            "value2": 3,
+                                                            "__collapseCase3": false,
+                                                            "value3": 4,
+                                                            "__collapseCase4": false,
+                                                            "value4": 5,
+                                                            "__collapseCase5": false,
+                                                            "value5": 6,
+                                                            "__collapseCase6": false,
+                                                            "value6": 7,
+                                                            "__collapseCase7": false,
+                                                            "value7": 8,
+                                                            "__collapseCase8": false,
+                                                            "value8": 9,
+                                                            "__collapseCase9": false,
+                                                            "value9": 10,
+                                                            "__collapseCase10": false,
+                                                            "value10": 11,
+                                                            "__collapseCase11": false,
+                                                            "value11": 12,
+                                                            "__collapseCase12": false,
+                                                            "value12": 13,
+                                                            "__collapseCase13": false,
+                                                            "value13": 14,
+                                                            "__collapseCase14": false,
+                                                            "value14": 15,
+                                                            "__collapseCase15": false,
+                                                            "value15": 16,
                                                             "__collapseElse": false
                                                         },
                                                         "children": {
-                                                            "true": [
+                                                            "true0": [
+                                                                {
+                                                                    "command": "MY_EVENT_CALL_NATIVE",
+                                                                    "args": {
+                                                                        "argCount": 2,
+                                                                        "arg0": {
+                                                                            "type": "number",
+                                                                            "value": 0
+                                                                        },
+                                                                        "arg1": {
+                                                                            "type": "variable",
+                                                                            "value": "78"
+                                                                        },
+                                                                        "funName": "equipWeapon",
+                                                                        "__collapse": true
+                                                                    },
+                                                                    "id": "598d6128-938d-456b-bec5-c9ccee703534"
+                                                                }
+                                                            ],
+                                                            "true1": [
                                                                 {
                                                                     "command": "MY_EVENT_CALL_NATIVE",
                                                                     "args": {
@@ -33300,7 +33342,7 @@
                                                                     "id": "ce74da79-fca7-49c3-b730-8851e739daaf"
                                                                 }
                                                             ],
-                                                            "false": [
+                                                            "true2": [
                                                                 {
                                                                     "command": "MY_EVENT_CALL_NATIVE",
                                                                     "args": {
@@ -33313,14 +33355,28 @@
                                                                             "type": "variable",
                                                                             "value": "78"
                                                                         },
-                                                                        "funName": "equipWeapon",
+                                                                        "funName": "equipHelmet",
                                                                         "__collapse": true
                                                                     },
-                                                                    "id": "598d6128-938d-456b-bec5-c9ccee703534"
+                                                                    "id": "3f985453-eabb-40f8-9ebd-6613de97a401"
                                                                 }
-                                                            ]
+                                                            ],
+                                                            "true3": [],
+                                                            "true4": [],
+                                                            "true5": [],
+                                                            "true6": [],
+                                                            "true7": [],
+                                                            "true8": [],
+                                                            "true9": [],
+                                                            "true10": [],
+                                                            "true11": [],
+                                                            "true12": [],
+                                                            "true13": [],
+                                                            "true14": [],
+                                                            "true15": [],
+                                                            "false": []
                                                         },
-                                                        "id": "927de6b4-fbeb-40cf-af41-aa6180e989b3"
+                                                        "id": "dacc7ad6-bf06-46c1-b53e-57fa77ada42f"
                                                     },
                                                     {
                                                         "command": "EVENT_ACTOR_SET_POSITION",
@@ -33559,6 +33615,47 @@
                                             "id": "0b5db952-6a65-49ca-b865-20cb1b0161e8"
                                         },
                                         {
+                                            "command": "MY_EVENT_CALL_NATIVE",
+                                            "args": {
+                                                "argCount": 2,
+                                                "arg0": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                },
+                                                "arg1": {
+                                                    "type": "variable",
+                                                    "value": "79"
+                                                },
+                                                "arg2": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                },
+                                                "arg3": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                },
+                                                "arg4": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                },
+                                                "arg5": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                },
+                                                "arg6": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                },
+                                                "arg7": {
+                                                    "type": "number",
+                                                    "value": 0
+                                                },
+                                                "funName": "loadEquipList",
+                                                "__collapse": false
+                                            },
+                                            "id": "490710bf-b7e9-4b6f-9cdb-0f3b8941c007"
+                                        },
+                                        {
                                             "command": "EVENT_IF",
                                             "args": {
                                                 "condition": {
@@ -33577,47 +33674,6 @@
                                             },
                                             "children": {
                                                 "true": [
-                                                    {
-                                                        "command": "MY_EVENT_CALL_NATIVE",
-                                                        "args": {
-                                                            "argCount": 1,
-                                                            "arg0": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg1": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg2": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg3": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg4": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg5": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg6": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg7": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "funName": "loadEquipWeaponList",
-                                                            "__collapse": true
-                                                        },
-                                                        "id": "490710bf-b7e9-4b6f-9cdb-0f3b8941c007"
-                                                    },
                                                     {
                                                         "command": "MY_EVENT_CALL_NATIVE",
                                                         "args": {
@@ -33661,47 +33717,6 @@
                                                     }
                                                 ],
                                                 "false": [
-                                                    {
-                                                        "command": "MY_EVENT_CALL_NATIVE",
-                                                        "args": {
-                                                            "argCount": 1,
-                                                            "arg0": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg1": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg2": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg3": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg4": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg5": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg6": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "arg7": {
-                                                                "type": "number",
-                                                                "value": 0
-                                                            },
-                                                            "funName": "loadEquipArmorList",
-                                                            "__collapse": true
-                                                        },
-                                                        "id": "c3695428-22b4-48cd-9c36-2f0127d4a47e"
-                                                    },
                                                     {
                                                         "command": "MY_EVENT_CALL_NATIVE",
                                                         "args": {

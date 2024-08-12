@@ -6,6 +6,7 @@
 #include "weapon_data/were_sword.h"
 #include "weapon_data/wood_nunchucks.h"
 #include "weapon_data/wood_staff.h"
+#include "weapon_data/unarmed.h"
 #include <asm/types.h>
 #pragma bank 255
 
@@ -17,6 +18,7 @@ void set_weapon(BYTE weapon_id, struct weapon_data *weapon) OLDCALL BANKED {
     // Unarmed
     // else
     // Fists
+    unarmed(weapon);
     break;
   case 1:
     wood_nunchucks(weapon);

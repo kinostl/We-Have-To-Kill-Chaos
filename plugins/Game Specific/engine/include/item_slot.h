@@ -8,8 +8,8 @@ enum I_TYPE{
     WEAPON_I,
     ARMOR_I,
     SHIELD_I,
-    GLOVE_I,
     HELMET_I,
+    GLOVE_I,
 };
 
 struct item_slot{

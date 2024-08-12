@@ -117,6 +117,8 @@ void write_weapon_name(BYTE item_id, unsigned char *item_s) OLDCALL BANKED{
   // Max Count is 99 I guess
   switch (item_id) {
   default:
+  case 0:
+    add_weapon_sym(item_s, SWORD_1);
     strcat(item_s, " ");
     break;
   case 1:
@@ -142,12 +144,13 @@ void write_weapon_name(BYTE item_id, unsigned char *item_s) OLDCALL BANKED{
   }
 }
 
-void write_armor_name(BYTE item_id, unsigned char *item_s) OLDCALL BANKED{
+void write_armor_name(BYTE item_id, enum A_TYPE type,unsigned char *item_s) OLDCALL BANKED{
   // TODO should display item type symbol then name
   // Also should make so and so wide
   // Max Count is 99 I guess
   switch (item_id) {
   default:
+    add_armor_sym(item_s, type);
     strcat(item_s, " ");
     break;
   case 1:
@@ -162,8 +165,11 @@ void write_armor_name(BYTE item_id, unsigned char *item_s) OLDCALL BANKED{
     add_armor_sym(item_s, ARMOR);
     strcat(item_s, "CHAIN");
     break;
+  case 26:
+    add_armor_sym(item_s, HELMET);
+    strcat(item_s, "CAP");
+    break;
   }
-
 }
 
 void load_equip_area(UBYTE character_id) OLDCALL BANKED {
@@ -171,13 +177,13 @@ void load_equip_area(UBYTE character_id) OLDCALL BANKED {
   write_weapon_name(weapon_slots[character_id].id, weapon);
   screenfw(weapon, 8, 3, 8);
   unsigned char armor[9] = "";
-  write_armor_name(armor_slots[character_id].id, armor);
+  write_armor_name(armor_slots[character_id].id, ARMOR, armor);
   screenfw(armor, 8, 4, 8);
   unsigned char shield[9] = "";
   add_armor_sym(shield, SHIELD);
   screenfw(shield, 8, 5, 8);
   unsigned char helmet[9] = "";
-  add_armor_sym(helmet, HELMET);
+  write_armor_name(helmet_slots[character_id].id, HELMET, helmet);
   screenfw(helmet, 8, 6, 8);
   unsigned char gloves[9] = "";
   add_armor_sym(gloves, GAUNTLET);
@@ -219,8 +225,9 @@ void loadEquipMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   loadSubStatsArea(THIS);
 }
 
-void loadEquipWeaponList(SCRIPT_CTX *THIS) OLDCALL BANKED {
+void loadEquipList(SCRIPT_CTX *THIS) OLDCALL BANKED {
   UBYTE currentPlayer = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
+  UBYTE entityType = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
   turn_slots[currentPlayer].type = WHITE_MAGE;
 
   clearAttrsSection(0, 8, 10, 7);
@@ -230,59 +237,36 @@ void loadEquipWeaponList(SCRIPT_CTX *THIS) OLDCALL BANKED {
   int inv_i = 0;
   struct item_slot i_slot;
   struct weapon_data w_data;
-  while (i < 5) {
-    i_slot = item_slots[inv_i++];
-    if (i_slot.type == NULL_I) {
-      break;
-    }
-    if (i_slot.type != WEAPON_I) {
-      continue;
-    }
-
-    set_weapon(i_slot.id, &w_data);
-    // if (!CHK_FLAG(w_data.classes, turn_slots[currentPlayer].type)) {
-    //   continue;
-    // }
-
-    unsigned char line[8] = "";
-    write_weapon_name(i_slot.id, line);
-    screenf(line, 2, 9 + i);
-    i++;
-  }
-  if (i - 1 > 0) {
-    VM_GLOBAL(VAR_TEMP_FRAME) = i - 1;
-  } else {
-    VM_GLOBAL(VAR_TEMP_FRAME) = 0;
-  }
-}
-
-void loadEquipArmorList(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  UBYTE currentPlayer = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
-  turn_slots[currentPlayer].type = WHITE_MAGE;
-
-  clearAttrsSection(0, 8, 10, 7);
-  clearChSection(1, 9, 8, 5);
-
-  int i = 0;
-  int inv_i = 0;
-  struct item_slot i_slot;
   struct armor_data a_data;
+  enum I_TYPE i_type = WEAPON_I + entityType;
+
   while (i < 5) {
     i_slot = item_slots[inv_i++];
     if (i_slot.type == NULL_I) {
       break;
     }
-    if (i_slot.type != ARMOR_I) {
+    if (i_slot.type != i_type) {
       continue;
     }
 
-    set_armor(i_slot.id, &a_data);
-    // if (!CHK_FLAG(w_data.classes, turn_slots[currentPlayer].type)) {
-    //   continue;
-    // }
-
     unsigned char line[8] = "";
-    write_armor_name(i_slot.id, line);
+    if (i_type == WEAPON_I) {
+      set_weapon(i_slot.id, &w_data);
+      // if (!CHK_FLAG(w_data.classes, turn_slots[currentPlayer].type)) {
+      //   continue;
+      // }
+
+      write_weapon_name(i_slot.id, line);
+    } else {
+      set_armor(i_slot.id, &a_data);
+      // if (!CHK_FLAG(w_data.classes, turn_slots[currentPlayer].type)) {
+      //   continue;
+      // }
+      write_armor_name(i_slot.id, NULL, line);
+    }
+    if(i_slot.id == 0){
+      strcpy(line, "Remove");
+    }
     screenf(line, 2, 9 + i);
     i++;
   }
@@ -292,7 +276,6 @@ void loadEquipArmorList(SCRIPT_CTX *THIS) OLDCALL BANKED {
     VM_GLOBAL(VAR_TEMP_FRAME) = 0;
   }
 }
-
 
 inline void addCompareToString(unsigned char string[9], UBYTE a, UBYTE b, UBYTE row){
   if(a > b){
@@ -376,26 +359,32 @@ void loadSubStatsCompareArmorArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   screenf(lines[1], 11, 9 + 4);
 }
 
-void equipWeapon(SCRIPT_CTX * THIS) OLDCALL BANKED {
+void equipWeapon(SCRIPT_CTX *THIS) OLDCALL BANKED {
   UBYTE character_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
   UBYTE equip_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
 
   UBYTE weapon_id = weapon_slots[character_id].id;
   BYTE equip_slot = getNthItemSlotIndexOfItem(equip_id, WEAPON_I);
-  BYTE e_weapon_id = item_slots[equip_slot].id;
+  BYTE e_weapon_id=0;
+  if (equip_slot < ITEM_NOT_FOUND) {
+    e_weapon_id = item_slots[equip_slot].id;
+  }
 
   set_weapon(e_weapon_id, &weapon_slots[character_id]);
   removeItem(e_weapon_id, WEAPON_I);
   addWeaponItem(weapon_id);
 }
 
-void equipArmor(SCRIPT_CTX * THIS) OLDCALL BANKED {
+void equipArmor(SCRIPT_CTX *THIS) OLDCALL BANKED {
   UBYTE character_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
   UBYTE equip_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
 
   UBYTE armor_id = armor_slots[character_id].id;
   BYTE equip_slot = getNthItemSlotIndexOfItem(equip_id, ARMOR_I);
-  BYTE e_armor_id = item_slots[equip_slot].id;
+  BYTE e_armor_id=0;
+  if (equip_slot < ITEM_NOT_FOUND) {
+    e_armor_id = item_slots[equip_slot].id;
+  }
 
   set_armor(e_armor_id, &armor_slots[character_id]);
   removeItem(e_armor_id, ARMOR_I);
@@ -408,7 +397,10 @@ void equipHelmet(SCRIPT_CTX * THIS) OLDCALL BANKED {
 
   UBYTE helmet_id = helmet_slots[character_id].id;
   BYTE equip_slot = getNthItemSlotIndexOfItem(equip_id, HELMET_I);
-  BYTE e_helmet_id = item_slots[equip_slot].id;
+  BYTE e_helmet_id=0;
+  if (equip_slot < ITEM_NOT_FOUND) {
+    e_helmet_id = item_slots[equip_slot].id;
+  }
 
   set_armor(e_helmet_id, &helmet_slots[character_id]);
   removeItem(e_helmet_id, HELMET_I);
@@ -417,11 +409,13 @@ void equipHelmet(SCRIPT_CTX * THIS) OLDCALL BANKED {
 
 void falsifyData(SCRIPT_CTX * THIS) OLDCALL BANKED {
   THIS;
+  addArmorItem(0);
   addArmorItem(2);
   addArmorItem(3);
-  addArmorItem(26);
+  addHelmetItem(26);
+  addWeaponItem(1);
   addWeaponItem(2);
   addWeaponItem(3);
-  set_weapon(1, &weapon_slots[0]);
+  set_weapon(0, &weapon_slots[0]);
   set_armor(1, &armor_slots[0]);
 }

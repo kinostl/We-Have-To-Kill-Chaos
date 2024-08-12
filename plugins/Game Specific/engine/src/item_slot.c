@@ -5,7 +5,6 @@
 #include "extra_data.h"
 #include "item_slot.h"
 
-#define ITEM_NOT_FOUND MAX_ITEM_SLOTS + 1
 
 BYTE getItemSlotIndex(BYTE item_id, enum I_TYPE type) OLDCALL BANKED {
     for(int i=0;i<MAX_ITEM_SLOTS;i++){
