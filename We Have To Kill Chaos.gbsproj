@@ -25041,6 +25041,13 @@
             "triggers": [],
             "script": [
                 {
+                    "command": "EVENT_MUSIC_PLAY",
+                    "args": {
+                        "musicId": "f18cef85-d504-429e-b9ab-78ddcc2fba2c"
+                    },
+                    "id": "b1064d37-d01b-4a33-b673-f99fcb2c9aa2"
+                },
+                {
                     "command": "FF_EVENT_SET_ENEMY_DATA",
                     "args": {
                         "largeEnemyCount": {
@@ -25062,7 +25069,8 @@
                         "enemyType4": 0,
                         "enemyChance4": 0,
                         "enemyType5": 0,
-                        "enemyChance5": 0
+                        "enemyChance5": 0,
+                        "__comment": true
                     },
                     "id": "8c5b8342-f6e5-4d8d-ae1b-03121a3d479b"
                 },
@@ -28950,7 +28958,15 @@
                     "leaveScript": []
                 }
             ],
-            "script": [],
+            "script": [
+                {
+                    "command": "EVENT_MUSIC_PLAY",
+                    "args": {
+                        "musicId": "c32779b9-e20a-4f12-9659-d22d4e9b004c"
+                    },
+                    "id": "700a3ae2-e4a3-45bc-92a5-7c5492064619"
+                }
+            ],
             "playerHit1Script": [],
             "playerHit2Script": [],
             "playerHit3Script": [],
@@ -36128,6 +36144,8 @@
                 15,
                 15,
                 15,
+                0,
+                0,
                 15,
                 15,
                 15,
@@ -36148,10 +36166,8 @@
                 15,
                 15,
                 15,
-                15,
-                15,
-                15,
-                15,
+                0,
+                0,
                 15,
                 15,
                 15,
@@ -36169,8 +36185,46 @@
             "x": 1554.5136612021856,
             "y": 650.1420765027323,
             "actors": [],
-            "triggers": [],
-            "script": [],
+            "triggers": [
+                {
+                    "name": "",
+                    "id": "28d88585-824d-4a4d-876b-fdd40425bdb9",
+                    "x": 10,
+                    "y": 36,
+                    "symbol": "trigger_11",
+                    "width": 2,
+                    "height": 2,
+                    "script": [
+                        {
+                            "command": "EVENT_SWITCH_SCENE",
+                            "args": {
+                                "sceneId": "16ab15f9-e634-46f8-877c-bd32dca7c8bb",
+                                "x": {
+                                    "type": "number",
+                                    "value": 22
+                                },
+                                "y": {
+                                    "type": "number",
+                                    "value": 39
+                                },
+                                "direction": "down",
+                                "fadeSpeed": "2"
+                            },
+                            "id": "58eff245-5689-4321-b7c0-b34b6081135d"
+                        }
+                    ],
+                    "leaveScript": []
+                }
+            ],
+            "script": [
+                {
+                    "command": "EVENT_MUSIC_PLAY",
+                    "args": {
+                        "musicId": "f18cef85-d504-429e-b9ab-78ddcc2fba2c"
+                    },
+                    "id": "d74e739d-e034-4ce3-aca0-e0aa15745337"
+                }
+            ],
             "playerHit1Script": [],
             "playerHit2Script": [],
             "playerHit3Script": []
@@ -49202,6 +49256,40 @@
     ],
     "music": [
         {
+            "id": "c32779b9-e20a-4f12-9659-d22d4e9b004c",
+            "name": "cornelia",
+            "symbol": "song_cornelia",
+            "filename": "cornelia.mod",
+            "settings": {},
+            "type": "mod"
+        },
+        {
+            "id": "80565551-6fbf-4208-ae59-5e36cdc1e11e",
+            "name": "ff1_prolog",
+            "symbol": "song_ff1_prolog",
+            "filename": "ff1_prolog.mod",
+            "settings": {
+                "disableSpeedConversion": false
+            },
+            "type": "mod"
+        },
+        {
+            "id": "f18cef85-d504-429e-b9ab-78ddcc2fba2c",
+            "name": "proglog",
+            "symbol": "song_opening",
+            "filename": "proglog.uge",
+            "settings": {},
+            "type": "uge"
+        },
+        {
+            "id": "1ca16acd-7eac-4ba8-846b-b09034406b1f",
+            "name": "prolog2",
+            "symbol": "song_prolog2",
+            "filename": "prolog2.uge",
+            "settings": {},
+            "type": "uge"
+        },
+        {
             "id": "f50428ab-a084-4591-9bba-2ba10fe7b1c6",
             "name": "template",
             "symbol": "song_template",
@@ -50532,7 +50620,7 @@
         }
     ],
     "settings": {
-        "startSceneId": "be5b0473-3fb7-451f-919f-f84236825b34",
+        "startSceneId": "89885cd0-f535-418e-a4ef-8ca95c21182e",
         "startX": 10,
         "startY": 35,
         "startMoveSpeed": 1,
@@ -50543,7 +50631,7 @@
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
         "worldScrollX": 2131,
-        "worldScrollY": 890,
+        "worldScrollY": 179,
         "zoom": 183,
         "sgbEnabled": false,
         "customHead": "",
@@ -50579,7 +50667,7 @@
         "defaultFontId": "4bd653f0-e08d-424e-9e5b-c1f3aaa21e47",
         "defaultCharacterEncoding": "",
         "defaultPlayerSprites": {
-            "TOPDOWN": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
+            "TOPDOWN": "3b1fd25e-4a32-4c35-bbb0-8a98183d524b",
             "PLATFORM": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
             "ADVENTURE": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
             "SHMUP": "581d34d0-9591-4e6e-a609-1d94f203b0cd",

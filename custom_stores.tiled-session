@@ -3,10 +3,11 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "maps/random_menu.tmx",
+    "activeFile": "maps/inn.tmx",
     "automapping.whileDrawing": true,
     "expandedProjectPaths": [
         ".",
+        "tilesets",
         "maps"
     ],
     "exportAsImage.includeBackgroundColor": true,
@@ -85,7 +86,10 @@
         "maps/store_tiles.tsx",
         "maps/tileset_for_stores.tsx",
         "maps/black_magic.tmx",
-        "maps/random_menu.tmx"
+        "maps/random_menu.tmx",
+        "maps/frame.tsx",
+        "maps/inn.tmx",
+        "maps/tavern.tmx"
     ],
     "project": "custom_stores.tiled-project",
     "recentFiles": [
@@ -95,7 +99,9 @@
         "maps/tileset_for_stores.tsx",
         "maps/black_magic.tmx",
         "maps/random_menu.tmx",
-        "maps/frame.tsx"
+        "maps/frame.tsx",
+        "maps/tavern.tmx",
+        "maps/inn.tmx"
     ],
     "resizeMap.removeObjects": false,
     "tileset.lastUsedFormat": "tsx",
