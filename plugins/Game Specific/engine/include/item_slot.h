@@ -37,4 +37,5 @@ BYTE addMenuItem(BYTE item_id, enum I_TYPE type) OLDCALL BANKED;
 BYTE addMenuItems(BYTE item_id, enum I_TYPE type, BYTE count) OLDCALL BANKED;
 
 BYTE getMenuLength(void) OLDCALL BANKED;
+void sortMenu(void) OLDCALL BANKED;
 #endif

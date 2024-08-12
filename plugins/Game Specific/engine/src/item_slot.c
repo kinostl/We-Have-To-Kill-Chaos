@@ -139,3 +139,18 @@ void clearMenu(void) OLDCALL BANKED{
         menu_slots[i].count = 0;
     }
 }
+
+void sortMenu(void) OLDCALL BANKED{
+    struct item_slot temp;
+    for (int i = 0; i < MAX_ITEM_SLOTS - 1; i++) {
+      UBYTE largest = i;
+      for (int j = i + 1; j < MAX_ITEM_SLOTS; j++) {
+        if (menu_slots[largest].id < menu_slots[j].id) {
+          largest = j;
+        }
+      }
+      temp = menu_slots[i];
+      menu_slots[i] = menu_slots[largest];
+      menu_slots[largest] = temp;
+    }
+}

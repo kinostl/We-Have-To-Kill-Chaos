@@ -48905,6 +48905,11 @@
             "id": "072be6ca-1a97-4258-b235-8529b3dd23a0__L0",
             "name": "Choose Equip",
             "symbol": "var_choose_equip"
+        },
+        {
+            "id": "072be6ca-1a97-4258-b235-8529b3dd23a0__L1",
+            "name": "Exit Out",
+            "symbol": "var_exit_out"
         }
     ],
     "engineFieldValues": [

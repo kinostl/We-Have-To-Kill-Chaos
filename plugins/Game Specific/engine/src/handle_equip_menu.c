@@ -261,33 +261,38 @@ void loadEquipList(SCRIPT_CTX *THIS) OLDCALL BANKED {
       continue;
     }
 
-    unsigned char line[8] = "";
     if (i_type == WEAPON_I) {
       set_weapon(i_slot.id, &w_data);
-      if (CHK_FLAG(w_data.classes, turn_slots[currentPlayer].type)) {
-      write_weapon_name(i_slot.id, line);
-      }else{
+      if (!CHK_FLAG(w_data.classes, turn_slots[currentPlayer].type))
         continue;
-      }
     } else {
       set_armor(i_slot.id, &a_data);
-      if (CHK_FLAG(a_data.classes, turn_slots[currentPlayer].type)) {
-        write_armor_name(i_slot.id, NULL, line);
-      } else {
+      if (!CHK_FLAG(a_data.classes, turn_slots[currentPlayer].type))
         continue;
-      }
     }
-    if(i_slot.id == 0){
-      strcpy(line, "Remove");
-    }
-    screenf(line, 2, 9 + i);
     i++;
-    if(addMenuItem(i_slot.id, i_type) >= 4) break;
+    if (addMenuItem(i_slot.id, i_type) >= 4)
+      break;
   }
+  sortMenu();
   if (i - 1 > 0) {
     VM_GLOBAL(VAR_TEMP_FRAME) = i - 1;
   } else {
     VM_GLOBAL(VAR_TEMP_FRAME) = 0;
+  }
+  for (i = 0; i < 5; i++) {
+    i_slot = menu_slots[i];
+    if(menu_slots[i].type == NULL_I) break;
+    unsigned char line[8] = "";
+    if (i_type == WEAPON_I) {
+      write_weapon_name(i_slot.id, line);
+    } else {
+      write_armor_name(i_slot.id, NULL, line);
+    }
+    if (i_slot.id == 0) {
+      strcpy(line, "Remove");
+    }
+    screenf(line, 2, 9 + i);
   }
 }
 
