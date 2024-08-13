@@ -37580,7 +37580,7 @@
                     "y": 6
                 },
                 {
-                    "name": "",
+                    "name": "Weapons Guy",
                     "frame": 0,
                     "animate": false,
                     "spriteSheetId": "97299165-33bb-48df-a55d-489727e82cec",
@@ -37601,6 +37601,56 @@
                     "id": "23e80358-5a3e-445a-9acf-6602af1e62ec",
                     "x": 29,
                     "y": 6
+                },
+                {
+                    "name": "",
+                    "frame": 0,
+                    "animate": false,
+                    "spriteSheetId": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
+                    "direction": "down",
+                    "moveSpeed": 1,
+                    "animSpeed": 15,
+                    "paletteId": "",
+                    "isPinned": false,
+                    "persistent": false,
+                    "collisionGroup": "",
+                    "symbol": "actor_39",
+                    "script": [
+                        {
+                            "command": "EVENT_MENU",
+                            "args": {
+                                "variable": "L0",
+                                "items": 4,
+                                "option1": "Wood Staff",
+                                "option2": "Small Dagger",
+                                "option3": "Wood Nunchuck",
+                                "option4": "Rapier",
+                                "option5": "",
+                                "option6": "",
+                                "option7": "",
+                                "option8": "",
+                                "cancelOnB": true,
+                                "layout": "dialogue"
+                            },
+                            "id": "6d41518b-9e9f-458f-8d21-ff2822dd7ae8"
+                        }
+                    ],
+                    "startScript": [
+                        {
+                            "command": "EVENT_ACTOR_HIDE",
+                            "args": {
+                                "actorId": "$self$"
+                            },
+                            "id": "02530dd2-d782-4283-bcef-b53806279ac5"
+                        }
+                    ],
+                    "updateScript": [],
+                    "hit1Script": [],
+                    "hit2Script": [],
+                    "hit3Script": [],
+                    "id": "ff423321-46c6-4209-9441-e3210bebb29d",
+                    "x": 29,
+                    "y": 9
                 }
             ],
             "triggers": [
@@ -37663,7 +37713,22 @@
                     "leaveScript": []
                 }
             ],
-            "script": [],
+            "script": [
+                {
+                    "command": "EVENT_PALETTE_SET_BACKGROUND",
+                    "args": {
+                        "palette0": "keep",
+                        "palette1": "keep",
+                        "palette2": "keep",
+                        "palette3": "keep",
+                        "palette4": "keep",
+                        "palette5": "keep",
+                        "palette6": "keep",
+                        "palette7": "d8ef3f33-956f-4f96-a8a4-774608a880da"
+                    },
+                    "id": "09b3ee0c-8c6d-45f2-a79a-8ca4bf55ae00"
+                }
+            ],
             "playerHit1Script": [],
             "playerHit2Script": [],
             "playerHit3Script": []
@@ -56635,9 +56700,9 @@
         }
     ],
     "settings": {
-        "startSceneId": "16ab15f9-e634-46f8-877c-bd32dca7c8bb",
-        "startX": 48,
-        "startY": 13,
+        "startSceneId": "2c0e6f2e-0ea4-41e1-a9bd-91c275a8e510",
+        "startX": 29,
+        "startY": 10,
         "startMoveSpeed": 1,
         "startAnimSpeed": 15,
         "startDirection": "up",
@@ -56645,9 +56710,9 @@
         "showConnections": true,
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 3482,
-        "worldScrollY": 930,
-        "zoom": 218.5,
+        "worldScrollX": 1012,
+        "worldScrollY": 578,
+        "zoom": 100,
         "sgbEnabled": false,
         "customHead": "",
         "defaultBackgroundPaletteIds": [

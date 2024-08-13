@@ -17,7 +17,8 @@ const compile = (input, helpers) => {
     _addNL
   } = helpers;
 
-  _addComment(JSON.stringify(input["action"]))
+  throw JSON.stringify(input["action"], null, 4)
+  _addComment()
   _addNL()
 };
 
