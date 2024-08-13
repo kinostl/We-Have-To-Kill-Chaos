@@ -63,7 +63,13 @@ const compile = (input, helpers) => {
         _stackPop,
         getActorIndex,
         actorHide,
+        scene,
+        sprites
     } = helpers;
+
+    const actor = scene.actors[getActorIndex(input.actor) - 1]
+    const a_sprite = sprites.find((s) => s.id === actor.spriteSheetId)
+    const a_width = a_sprite.boundsWidth
 
     if(input.actor == "player") {
         throw "Do not use the player actor as a menu cursor"
@@ -82,13 +88,13 @@ const compile = (input, helpers) => {
         input.option8,
     ].splice(0, input.items)
 
+    _stackPushConst(a_width)
     _stackPushConst(input.items)
     _stackPushConst(getActorIndex(input.actor))
     _stackPushConst(input.setvar)
 
-    const text = options.map((i, idx) => `\\003\\${decOct(3)}\\${decOct(2 + idx)}${i}`).join('\r')
+    const text = options.map((i, idx) => `\\003\\${decOct((a_width / 8) + 1)}\\${decOct(2 + idx)}${i}`).join('\r')
 
-    // _addCmd("VM_SET_CONST_UINT8 _overlay_priority, 0")
     _addCmd("VM_SET_CONST_UINT8 _show_actors_on_overlay, 1")
 
     // draw menu
@@ -100,12 +106,10 @@ const compile = (input, helpers) => {
     _overlayWait(true, [".UI_WAIT_WINDOW", ".UI_WAIT_TEXT"]);
 
     // handle menuing
-    // _callNative("eventLayerMenu")
     _callNative("eventMyMenu")
     _overlayMoveTo(0, 18, ".OVERLAY_IN_SPEED");
-    _stackPop(3)
+    _stackPop(4)
 
-    // _addCmd("VM_SET_CONST_UINT8 _overlay_priority, 1")
     _addCmd("VM_SET_CONST_UINT8 _show_actors_on_overlay, 0")
 
 };
