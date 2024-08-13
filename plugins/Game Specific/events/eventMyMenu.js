@@ -88,25 +88,24 @@ const compile = (input, helpers) => {
 
     const text = options.map((i, idx) => `\\003\\${decOct(3)}\\${decOct(2 + idx)}${i}`).join('\r')
 
-    _addCmd("VM_SET_CONST_UINT8 _overlay_priority, 0")
+    // _addCmd("VM_SET_CONST_UINT8 _overlay_priority, 0")
     _addCmd("VM_SET_CONST_UINT8 _show_actors_on_overlay, 1")
 
     // draw menu
     _overlayClear(0, 0, 20, input.items + 2, ".UI_COLOR_WHITE", true);
-    _callNative("eventLayerMenu")
     _overlayMoveTo(0, 18 - input.items - 2, ".OVERLAY_IN_SPEED");
 
     _loadStructuredText(text)
-
     _displayText()
     _overlayWait(true, [".UI_WAIT_WINDOW", ".UI_WAIT_TEXT"]);
 
     // handle menuing
+    // _callNative("eventLayerMenu")
     _callNative("eventMyMenu")
     _overlayMoveTo(0, 18, ".OVERLAY_IN_SPEED");
     _stackPop(3)
 
-    _addCmd("VM_SET_CONST_UINT8 _overlay_priority, 1")
+    // _addCmd("VM_SET_CONST_UINT8 _overlay_priority, 1")
     _addCmd("VM_SET_CONST_UINT8 _show_actors_on_overlay, 0")
 
 };

@@ -13,22 +13,23 @@
 #include <vm.h>
 #pragma bank 255
 
-void eventLayerMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
+void eventMyMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
   union tile _tile;
   clearTile(&_tile);
-  _tile.attr.draw_over_objects = TRUE;
+  _tile.attr.draw_over_objects = FALSE;
   _tile.attr.palette = 7;
   VBK_REG = 1;
-  fill_win_rect(2, 0, 18, 2, _tile._tile);
+  fill_win_rect(0, 0, 2, 10, _tile._tile);
   VBK_REG = 0;
-}
 
-void eventMyMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  THIS;
   UBYTE idx = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
   UBYTE actorId = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
   UBYTE menuSize = *(UBYTE *)VM_REF_TO_PTR(FN_ARG2);
+  UWORD start_x = actors[actorId].pos.x;
+  UWORD start_y = actors[actorId].pos.y;
+  _Bool start_hidden = actors[actorId].hidden;
+  _Bool start_pinned = actors[actorId].pinned;
 
   actors[actorId].pos.x = 0;
   actors[actorId].hidden = FALSE;
@@ -75,5 +76,9 @@ void eventMyMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
       continue;
     }
   };
-  actors[actorId].hidden = TRUE;
+
+  actors[actorId].hidden = start_hidden;
+  actors[actorId].pinned = start_pinned;
+  actors[actorId].pos.x = start_x;
+  actors[actorId].pos.y = start_y;
 }
