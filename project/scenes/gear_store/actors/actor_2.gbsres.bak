@@ -18,31 +18,23 @@
   "collisionGroup": "",
   "script": [
     {
-      "command": "FF_EVENT_MY_SHOP_MENU",
+      "command": "FF_EVENT_MY_MENU",
       "args": {
         "actor": "$self$",
         "setvar": "L0",
         "items": 6,
-        "option1": "Wood Staff",
-        "option1_cost": 5,
-        "option2": "Small Knife",
-        "option2_cost": 5,
-        "option3": "Wood Nunchuku",
-        "option3_cost": 10,
-        "option4": "Rapier",
-        "option4_cost": 10,
-        "option5": "Iron Hammer",
-        "option5_cost": 10,
-        "option6": "Leave",
-        "option6_cost": 0,
+        "option1": "Wood Staff\\003\\021\\0025 G",
+        "option2": "Small Dagger\\003\\021\\0035 G",
+        "option3": "Wood Nunchucks\\003\\021\\00410G",
+        "option4": "Rapier\\003\\021\\00510G",
+        "option5": "Iron Hammer\\003\\021\\00610G",
+        "option6": "Cancel",
         "option7": "",
-        "option7_cost": 0,
         "option8": "",
-        "option8_cost": 0,
-        "cancelOnB": true,
-        "cancelOnLastOption": true
+        "cancelOnLastOption": true,
+        "cancelOnB": true
       },
-      "id": "d3831b97-f353-46a9-9b19-4b5e48c8e6ff"
+      "id": "3cf1f3bb-48af-438e-9d7b-bdfcfb6c7c31"
     },
     {
       "command": "EVENT_IF",

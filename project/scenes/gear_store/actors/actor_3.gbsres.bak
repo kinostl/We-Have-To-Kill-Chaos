@@ -1,11 +1,11 @@
 {
   "_resourceType": "actor",
-  "id": "edd40c2b-632a-4a2e-989b-171f27b2a571",
-  "_index": 1,
-  "symbol": "actor_43",
+  "id": "3b906fda-1996-45c5-a469-d7e78c0398db",
+  "_index": 3,
+  "symbol": "actor_41",
   "name": "",
-  "x": 9,
-  "y": 11,
+  "x": 8,
+  "y": 9,
   "frame": 0,
   "animate": false,
   "spriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
@@ -18,24 +18,23 @@
   "collisionGroup": "",
   "script": [
     {
-      "command": "FF_EVENT_MY_SHOP_MENU",
+      "command": "FF_EVENT_MY_MENU",
       "args": {
         "actor": "$self$",
         "setvar": "L0",
         "items": 4,
+        "option1": "Cloth Robe \\003\\021\\00210G",
+        "option2": "Wood Armor \\003\\021\\00350G",
+        "option3": "Chain Armor \\003\\021\\00480G",
+        "option4": "Cancel",
+        "option5": "",
+        "option6": "",
+        "option7": "",
+        "option8": "",
         "cancelOnB": true,
-        "layout": "dialogue",
-        "__collapse": false,
-        "cancelOnLastOption": true,
-        "option4": "Leave",
-        "option1": "Heal Pot",
-        "option1_cost": 60,
-        "option2": "Pure Pot",
-        "option2_cost": 75,
-        "option3": "Tent",
-        "option3_cost": 100
+        "cancelOnLastOption": true
       },
-      "id": "c5241377-1c33-45fa-a90e-292ea1aa8a4e"
+      "id": "1ba3fc03-ebc1-4ee3-9e74-dca0d052be5a"
     }
   ],
   "startScript": [
@@ -44,7 +43,7 @@
       "args": {
         "actorId": "$self$"
       },
-      "id": "f5b64336-6415-4249-8ab9-f8ff0e74bc42"
+      "id": "7b1ddb0c-4a69-4d44-8f9e-4608c6a09751"
     }
   ],
   "updateScript": [],

@@ -18,23 +18,31 @@
   "collisionGroup": "",
   "script": [
     {
-      "command": "FF_EVENT_MY_MENU",
+      "command": "FF_EVENT_MY_SHOP_MENU",
       "args": {
         "actor": "$self$",
         "setvar": "L0",
         "items": 4,
-        "option1": "Cloth Robe \\003\\021\\00210G",
-        "option2": "Wood Armor \\003\\021\\00350G",
-        "option3": "Chain Armor \\003\\021\\00480G",
-        "option4": "Cancel",
+        "option1": "Cloth Robe",
+        "option1_cost": 10,
+        "option2": "Wood Armor",
+        "option2_cost": 50,
+        "option3": "Chain Armor",
+        "option3_cost": 80,
+        "option4": "Leave",
+        "option4_cost": 0,
         "option5": "",
+        "option5_cost": 0,
         "option6": "",
+        "option6_cost": 0,
         "option7": "",
+        "option7_cost": 0,
         "option8": "",
+        "option8_cost": 0,
         "cancelOnB": true,
         "cancelOnLastOption": true
       },
-      "id": "1ba3fc03-ebc1-4ee3-9e74-dca0d052be5a"
+      "id": "2bad2a70-b0e5-4378-9485-7820db22c815"
     }
   ],
   "startScript": [

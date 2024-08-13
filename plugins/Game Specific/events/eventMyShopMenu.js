@@ -1,6 +1,6 @@
-const id = "FF_EVENT_MY_MENU";
+const id = "FF_EVENT_MY_SHOP_MENU";
 const groups = ["Game Specific"];
-const name = "My Menu";
+const name = "My Shop Menu";
 const l10n = require("../helpers/l10n").default;
 
 const autoLabel = (fetchArg) => {
@@ -11,10 +11,10 @@ const autoLabel = (fetchArg) => {
             return `"${fetchArg(`option${i + 1}`)}"`;
         })
         .join();
-    return l10n("EVENT_MENU_LABEL", {
+    return `(Shop) ${l10n("EVENT_MENU_LABEL", {
         variable: fetchArg("setvar"),
         text,
-    });
+    })}`;
 };
 
 const fields = [].concat(
@@ -49,7 +49,7 @@ const fields = [].concat(
         .fill()
         .reduce((arr, _, i) => {
             const value = i + 1;
-            arr.push(
+            const options = [
                 {
                     key: `option${i + 1}`,
                     label: l10n("FIELD_SET_TO_VALUE_IF", { value: String(i + 1) }),
@@ -110,7 +110,25 @@ const fields = [].concat(
                         },
                     ],
                 }
-            );
+
+            ].map((x) => {
+                return {
+                    type: "group",
+                    fields: [
+                        x,
+                        {
+                            type: "number",
+                            label: l10n("FIELD_VALUE"),
+                            key: `option${i + 1}_cost`,
+                            defaultValue: 0,
+                            conditions: x.conditions
+                        }
+                    ],
+                    conditions: x.conditions
+                }
+            })
+            options[2] = options[2].fields[0]
+            arr.push(...options)
             return arr;
         }, []),
     {
@@ -129,17 +147,6 @@ const fields = [].concat(
         key: "cancelOnB",
         defaultValue: true,
     },
-    {
-        key: "layout",
-        type: "select",
-        label: l10n("FIELD_LAYOUT"),
-        description: l10n("FIELD_LAYOUT_MENU_DESC"),
-        options: [
-            ["dialogue", l10n("FIELD_LAYOUT_DIALOGUE")],
-            ["menu", l10n("FIELD_LAYOUT_MENU")],
-        ],
-        defaultValue: "dialogue",
-    }
 );
 
 
@@ -203,7 +210,15 @@ const compile = (input, helpers) => {
     _stackPushConst(getActorIndex(input.actor))
     _stackPushReference(getVariableAlias(input.setvar))
 
-    const text = options.map((i, idx) => `\\003\\${decOct((a_width / 8) + 2)}\\${decOct(2 + idx)}${i}`).join('\r')
+    const text = options.map((i, idx) => {
+        const cost = input[`option${idx + 1}_cost`]
+        if (cost && cost > 0) {
+            const c_len = `${cost}`.length
+            return `\\003\\${decOct((a_width / 8) + 2)}\\${decOct(2 + idx)}${i}\\003\\${decOct(20 - c_len)}\\${decOct(2 + idx)}${cost}`
+        }else{
+            return `\\003\\${decOct((a_width / 8) + 2)}\\${decOct(2 + idx)}${i}`
+        }
+    }).join('\r')
 
     _addCmd("VM_SET_CONST_UINT8 _show_actors_on_overlay, 1")
 
