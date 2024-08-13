@@ -28972,14 +28972,25 @@
             "width": 20,
             "height": 18,
             "type": "TOPDOWN",
-            "paletteIds": [],
+            "paletteIds": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                "d8ef3f33-956f-4f96-a8a4-774608a880da"
+            ],
             "spritePaletteIds": [
-                "8ef6f849-9c64-4ff6-8203-e20675c23127",
+                "7b685cdb-bcfb-4bcc-9eb2-7ffd6aec1e77",
                 "default-bg-5",
                 "b959f53e-9802-4702-b821-dee970d9b4eb",
                 "b2270eb2-f0e1-4c80-a5a6-82a0a13c4b5d",
                 "29012add-949c-4c9a-b943-28c8d987720f",
-                "default-bg-4"
+                "default-bg-4",
+                "7b685cdb-bcfb-4bcc-9eb2-7ffd6aec1e77",
+                "7b685cdb-bcfb-4bcc-9eb2-7ffd6aec1e77"
             ],
             "collisions": [
                 0,
@@ -29348,7 +29359,31 @@
             "symbol": "scene_7",
             "x": 608,
             "y": 952,
-            "actors": [],
+            "actors": [
+                {
+                    "name": "",
+                    "frame": 0,
+                    "animate": false,
+                    "spriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
+                    "direction": "down",
+                    "moveSpeed": 1,
+                    "animSpeed": 15,
+                    "paletteId": "",
+                    "isPinned": false,
+                    "persistent": false,
+                    "collisionGroup": "",
+                    "symbol": "actor_40",
+                    "script": [],
+                    "startScript": [],
+                    "updateScript": [],
+                    "hit1Script": [],
+                    "hit2Script": [],
+                    "hit3Script": [],
+                    "id": "0d8be9af-c1b7-4722-aac6-3a241e6d7fdb",
+                    "x": 18,
+                    "y": 1
+                }
+            ],
             "triggers": [],
             "script": [
                 {
@@ -29447,6 +29482,13 @@
                     "id": "7982a141-74a5-4ffe-9125-68f317e90106"
                 },
                 {
+                    "command": "EVENT_FADE_IN",
+                    "args": {
+                        "speed": "2"
+                    },
+                    "id": "12fd0cfb-b3b5-4560-a3f7-dfa93ef7443e"
+                },
+                {
                     "command": "EVENT_COMMENT",
                     "args": {
                         "text": "Workaround for weird loading bug on Battle.\nBattle scene can not load graphics when started on directly."
@@ -29467,14 +29509,34 @@
                         },
                         "direction": "",
                         "fadeSpeed": "2",
-                        "__comment": false
+                        "__comment": true
                     },
                     "id": "e35e8347-514f-4ac2-8bb4-d0f7859b517a"
+                },
+                {
+                    "command": "FF_EVENT_MY_MENU",
+                    "args": {
+                        "argCount": 3,
+                        "items": 8,
+                        "option1": "Sphinx",
+                        "option2": "of ",
+                        "option3": "of",
+                        "option4": "black",
+                        "option5": "quartz",
+                        "option6": "judge",
+                        "option7": "my",
+                        "option8": "vow",
+                        "setvar": "0",
+                        "__collapse": false,
+                        "actor": "0d8be9af-c1b7-4722-aac6-3a241e6d7fdb"
+                    },
+                    "id": "1d8ee784-0723-4df1-a49f-ae484f2b7d6f"
                 }
             ],
             "playerHit1Script": [],
             "playerHit2Script": [],
-            "playerHit3Script": []
+            "playerHit3Script": [],
+            "playerSpriteSheetId": ""
         },
         {
             "name": "Inventory",
@@ -56700,7 +56762,7 @@
         }
     ],
     "settings": {
-        "startSceneId": "2c0e6f2e-0ea4-41e1-a9bd-91c275a8e510",
+        "startSceneId": "801098d7-d77b-41df-98b1-aa40bce310ea",
         "startX": 29,
         "startY": 10,
         "startMoveSpeed": 1,
@@ -56711,7 +56773,7 @@
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
         "worldScrollX": 1012,
-        "worldScrollY": 578,
+        "worldScrollY": 681,
         "zoom": 100,
         "sgbEnabled": false,
         "customHead": "",
@@ -56802,8 +56864,29 @@
         "debuggerVariablesFilter": "all",
         "debuggerCollapsedPanes": [],
         "debuggerPauseOnScriptChanged": false,
-        "debuggerPauseOnWatchedVariableChanged": false,
-        "debuggerBreakpoints": [],
+        "debuggerPauseOnWatchedVariableChanged": true,
+        "debuggerBreakpoints": [
+            {
+                "scriptEventId": "998c4e6f-ce39-42fc-a5da-d328fb821bd5",
+                "context": {
+                    "type": "entity",
+                    "entityType": "scene",
+                    "entityId": "801098d7-d77b-41df-98b1-aa40bce310ea",
+                    "sceneId": "801098d7-d77b-41df-98b1-aa40bce310ea",
+                    "scriptKey": "script"
+                }
+            },
+            {
+                "scriptEventId": "b615c908-4b39-4063-bee3-410cfd99d4e5",
+                "context": {
+                    "type": "entity",
+                    "entityType": "scene",
+                    "entityId": "801098d7-d77b-41df-98b1-aa40bce310ea",
+                    "sceneId": "801098d7-d77b-41df-98b1-aa40bce310ea",
+                    "scriptKey": "script"
+                }
+            }
+        ],
         "debuggerWatchedVariables": [
             "437",
             "0",

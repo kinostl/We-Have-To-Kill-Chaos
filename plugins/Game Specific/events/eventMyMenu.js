@@ -31,7 +31,8 @@ const fields = (
                 return {
                     key: `option${i + 1}`,
                     label: `Set to ${i + 1} if`,
-                    type: "text",
+                    type: "textarea",
+                    multiple: false,
                     defaultValue: "",
                     placeholder: `Item ${i+1}`,
                     conditions: [
@@ -62,7 +63,6 @@ const compile = (input, helpers) => {
         _stackPop,
         getActorIndex,
         actorHide,
-        actorShow
     } = helpers;
 
     if(input.actor == "player") {
@@ -82,25 +82,33 @@ const compile = (input, helpers) => {
         input.option8,
     ].splice(0, input.items)
 
-    const text = options.map((i, idx) => `\\003\\${decOct(3)}\\${decOct(2 + idx)}${i}`).join('\n')
+    _stackPushConst(input.items)
+    _stackPushConst(getActorIndex(input.actor))
+    _stackPushConst(input.setvar)
+
+    const text = options.map((i, idx) => `\\003\\${decOct(3)}\\${decOct(2 + idx)}${i}`).join('\r')
 
     _addCmd("VM_SET_CONST_UINT8 _overlay_priority, 0")
     _addCmd("VM_SET_CONST_UINT8 _show_actors_on_overlay, 1")
 
     // draw menu
-    _loadStructuredText(text)
     _overlayClear(0, 0, 20, input.items + 2, ".UI_COLOR_WHITE", true);
+    _callNative("eventLayerMenu")
     _overlayMoveTo(0, 18 - input.items - 2, ".OVERLAY_IN_SPEED");
+
+    _loadStructuredText(text)
+
     _displayText()
     _overlayWait(true, [".UI_WAIT_WINDOW", ".UI_WAIT_TEXT"]);
 
     // handle menuing
-    _stackPushConst(input.items)
-    _stackPushConst(getActorIndex(input.actor))
-    _stackPushConst(input.setvar)
     _callNative("eventMyMenu")
     _overlayMoveTo(0, 18, ".OVERLAY_IN_SPEED");
     _stackPop(3)
+
+    _addCmd("VM_SET_CONST_UINT8 _overlay_priority, 1")
+    _addCmd("VM_SET_CONST_UINT8 _show_actors_on_overlay, 0")
+
 };
 
 module.exports = {

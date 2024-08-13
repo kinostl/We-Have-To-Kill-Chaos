@@ -1,7 +1,10 @@
+#include "handle_submapping.h"
 #include <asm/types.h>
 #include <camera.h>
 #include <data/game_globals.h>
 #include <game_time.h>
+#include <gb/gb.h>
+#include <gb/hardware.h>
 #include <input.h>
 #include <projectiles.h>
 #include <scroll.h>
@@ -10,14 +13,27 @@
 #include <vm.h>
 #pragma bank 255
 
+void eventLayerMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  THIS;
+  union tile _tile;
+  clearTile(&_tile);
+  _tile.attr.draw_over_objects = TRUE;
+  _tile.attr.palette = 7;
+  VBK_REG = 1;
+  fill_win_rect(2, 0, 18, 2, _tile._tile);
+  VBK_REG = 0;
+}
+
 void eventMyMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
   UBYTE idx = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
   UBYTE actorId = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
   UBYTE menuSize = *(UBYTE *)VM_REF_TO_PTR(FN_ARG2);
 
-  actors[actorId].pos.x = 3;
+  actors[actorId].pos.x = 0;
   actors[actorId].hidden = FALSE;
+  actors[actorId].pinned = TRUE;
+
   UBYTE yOffset = (18 - menuSize - 1);
 
   VM_GLOBAL(idx) = 1;

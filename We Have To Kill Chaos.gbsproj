@@ -29509,28 +29509,9 @@
                         },
                         "direction": "",
                         "fadeSpeed": "2",
-                        "__comment": true
+                        "__comment": false
                     },
                     "id": "e35e8347-514f-4ac2-8bb4-d0f7859b517a"
-                },
-                {
-                    "command": "FF_EVENT_MY_MENU",
-                    "args": {
-                        "argCount": 3,
-                        "items": 8,
-                        "option1": "Sphinx",
-                        "option2": "of ",
-                        "option3": "of",
-                        "option4": "black",
-                        "option5": "quartz",
-                        "option6": "judge",
-                        "option7": "my",
-                        "option8": "vow",
-                        "setvar": "0",
-                        "__collapse": false,
-                        "actor": "0d8be9af-c1b7-4722-aac6-3a241e6d7fdb"
-                    },
-                    "id": "1d8ee784-0723-4df1-a49f-ae484f2b7d6f"
                 }
             ],
             "playerHit1Script": [],
@@ -36888,7 +36869,12 @@
             "spritePaletteIds": [
                 null,
                 "1f547334-5907-4c60-8f0b-cf76de3e4d49",
-                "b7d0eb5b-19e5-4a67-b9b3-2750a57719bc"
+                "b7d0eb5b-19e5-4a67-b9b3-2750a57719bc",
+                null,
+                null,
+                null,
+                null,
+                "7b685cdb-bcfb-4bcc-9eb2-7ffd6aec1e77"
             ],
             "collisions": [
                 15,
@@ -37679,22 +37665,21 @@
                     "symbol": "actor_39",
                     "script": [
                         {
-                            "command": "EVENT_MENU",
+                            "command": "FF_EVENT_MY_MENU",
                             "args": {
-                                "variable": "L0",
-                                "items": 4,
-                                "option1": "Wood Staff",
-                                "option2": "Small Dagger",
-                                "option3": "Wood Nunchuck",
-                                "option4": "Rapier",
-                                "option5": "",
+                                "actor": "25eb6d74-ad4e-4ddd-9dd2-62106a7db229",
+                                "setvar": "0",
+                                "items": 5,
+                                "option1": "Wood Staff\\003\\021\\0025 G",
+                                "option2": "Small Dagger\\003\\021\\0035 G",
+                                "option3": "Wood Nunchucks\\003\\021\\00410G",
+                                "option4": "Rapier\\003\\021\\00510G",
+                                "option5": "Iron Hammer\\003\\021\\00610G",
                                 "option6": "",
                                 "option7": "",
-                                "option8": "",
-                                "cancelOnB": true,
-                                "layout": "dialogue"
+                                "option8": ""
                             },
-                            "id": "6d41518b-9e9f-458f-8d21-ff2822dd7ae8"
+                            "id": "3cf1f3bb-48af-438e-9d7b-bdfcfb6c7c31"
                         }
                     ],
                     "startScript": [
@@ -37713,6 +37698,37 @@
                     "id": "ff423321-46c6-4209-9441-e3210bebb29d",
                     "x": 29,
                     "y": 9
+                },
+                {
+                    "name": "",
+                    "frame": 0,
+                    "animate": false,
+                    "spriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
+                    "direction": "down",
+                    "moveSpeed": 1,
+                    "animSpeed": 15,
+                    "paletteId": "",
+                    "isPinned": false,
+                    "persistent": false,
+                    "collisionGroup": "",
+                    "symbol": "actor_41",
+                    "script": [],
+                    "startScript": [
+                        {
+                            "command": "EVENT_ACTOR_HIDE",
+                            "args": {
+                                "actorId": "$self$"
+                            },
+                            "id": "c85e698f-6d99-4819-a284-3c314c1004b3"
+                        }
+                    ],
+                    "updateScript": [],
+                    "hit1Script": [],
+                    "hit2Script": [],
+                    "hit3Script": [],
+                    "id": "25eb6d74-ad4e-4ddd-9dd2-62106a7db229",
+                    "x": 20,
+                    "y": 4
                 }
             ],
             "triggers": [
@@ -37786,7 +37802,7 @@
                         "palette4": "keep",
                         "palette5": "keep",
                         "palette6": "keep",
-                        "palette7": "d8ef3f33-956f-4f96-a8a4-774608a880da"
+                        "palette7": ""
                     },
                     "id": "09b3ee0c-8c6d-45f2-a79a-8ca4bf55ae00"
                 }
@@ -56762,9 +56778,9 @@
         }
     ],
     "settings": {
-        "startSceneId": "801098d7-d77b-41df-98b1-aa40bce310ea",
+        "startSceneId": "2c0e6f2e-0ea4-41e1-a9bd-91c275a8e510",
         "startX": 29,
-        "startY": 10,
+        "startY": 11,
         "startMoveSpeed": 1,
         "startAnimSpeed": 15,
         "startDirection": "up",
@@ -56772,9 +56788,9 @@
         "showConnections": true,
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 553,
-        "worldScrollY": 918,
-        "zoom": 100,
+        "worldScrollX": 5504,
+        "worldScrollY": 2480,
+        "zoom": 337,
         "sgbEnabled": false,
         "customHead": "",
         "defaultBackgroundPaletteIds": [
