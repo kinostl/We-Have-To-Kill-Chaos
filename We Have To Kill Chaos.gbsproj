@@ -37654,7 +37654,7 @@
                     "name": "",
                     "frame": 0,
                     "animate": false,
-                    "spriteSheetId": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
+                    "spriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
                     "direction": "down",
                     "moveSpeed": 1,
                     "animSpeed": 15,
@@ -37667,9 +37667,9 @@
                         {
                             "command": "FF_EVENT_MY_MENU",
                             "args": {
-                                "actor": "25eb6d74-ad4e-4ddd-9dd2-62106a7db229",
+                                "actor": "$self$",
                                 "setvar": "0",
-                                "items": 5,
+                                "items": 8,
                                 "option1": "Wood Staff\\003\\021\\0025 G",
                                 "option2": "Small Dagger\\003\\021\\0035 G",
                                 "option3": "Wood Nunchucks\\003\\021\\00410G",
@@ -37677,7 +37677,7 @@
                                 "option5": "Iron Hammer\\003\\021\\00610G",
                                 "option6": "",
                                 "option7": "",
-                                "option8": ""
+                                "option8": "Cancel"
                             },
                             "id": "3cf1f3bb-48af-438e-9d7b-bdfcfb6c7c31"
                         }
@@ -37698,37 +37698,6 @@
                     "id": "ff423321-46c6-4209-9441-e3210bebb29d",
                     "x": 29,
                     "y": 9
-                },
-                {
-                    "name": "",
-                    "frame": 0,
-                    "animate": false,
-                    "spriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
-                    "direction": "down",
-                    "moveSpeed": 1,
-                    "animSpeed": 15,
-                    "paletteId": "",
-                    "isPinned": false,
-                    "persistent": false,
-                    "collisionGroup": "",
-                    "symbol": "actor_41",
-                    "script": [],
-                    "startScript": [
-                        {
-                            "command": "EVENT_ACTOR_HIDE",
-                            "args": {
-                                "actorId": "$self$"
-                            },
-                            "id": "c85e698f-6d99-4819-a284-3c314c1004b3"
-                        }
-                    ],
-                    "updateScript": [],
-                    "hit1Script": [],
-                    "hit2Script": [],
-                    "hit3Script": [],
-                    "id": "25eb6d74-ad4e-4ddd-9dd2-62106a7db229",
-                    "x": 20,
-                    "y": 4
                 }
             ],
             "triggers": [
@@ -38676,6 +38645,7 @@
             "imageWidth": 160,
             "imageHeight": 144,
             "filename": "armor_store.png",
+            "tileColors": [],
             "autoColor": true
         },
         {
@@ -40518,6 +40488,7 @@
             "imageWidth": 160,
             "imageHeight": 144,
             "filename": "clinic.png",
+            "tileColors": [],
             "autoColor": true
         },
         {
@@ -41912,6 +41883,7 @@
             "imageWidth": 160,
             "imageHeight": 144,
             "filename": "item_shop.png",
+            "tileColors": [],
             "autoColor": true
         },
         {
@@ -42007,6 +41979,7 @@
             "imageWidth": 320,
             "imageHeight": 144,
             "filename": "weapon_armor_shop.png",
+            "tileColors": [],
             "autoColor": true
         },
         {
@@ -42018,6 +41991,7 @@
             "imageWidth": 160,
             "imageHeight": 144,
             "filename": "weapon_store.png",
+            "tileColors": [],
             "autoColor": true
         },
         {
@@ -56789,7 +56763,7 @@
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
         "worldScrollX": 5504,
-        "worldScrollY": 2480,
+        "worldScrollY": 2322,
         "zoom": 337,
         "sgbEnabled": false,
         "customHead": "",

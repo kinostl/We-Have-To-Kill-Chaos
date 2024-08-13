@@ -88,7 +88,7 @@ const compile = (input, helpers) => {
         input.option8,
     ].splice(0, input.items)
 
-    _stackPushConst(a_width)
+    _stackPushConst(a_width / 8)
     _stackPushConst(input.items)
     _stackPushConst(getActorIndex(input.actor))
     _stackPushConst(input.setvar)

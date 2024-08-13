@@ -21,7 +21,7 @@ void eventMyMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   _tile.attr.draw_over_objects = FALSE;
   _tile.attr.palette = 7;
   VBK_REG = 1;
-  fill_win_rect(0, 0, cursorW / 8, 10, _tile._tile);
+  fill_win_rect(0, 0, cursorW, 10, _tile._tile);
   VBK_REG = 0;
 
   UBYTE idx = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
