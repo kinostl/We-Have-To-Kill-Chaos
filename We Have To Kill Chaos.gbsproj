@@ -56636,8 +56636,8 @@
     ],
     "settings": {
         "startSceneId": "16ab15f9-e634-46f8-877c-bd32dca7c8bb",
-        "startX": 12,
-        "startY": 23,
+        "startX": 48,
+        "startY": 13,
         "startMoveSpeed": 1,
         "startAnimSpeed": 15,
         "startDirection": "up",
@@ -56645,9 +56645,9 @@
         "showConnections": true,
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 6643,
-        "worldScrollY": 1817,
-        "zoom": 376.5,
+        "worldScrollX": 5320,
+        "worldScrollY": 1866,
+        "zoom": 416,
         "sgbEnabled": false,
         "customHead": "",
         "defaultBackgroundPaletteIds": [
