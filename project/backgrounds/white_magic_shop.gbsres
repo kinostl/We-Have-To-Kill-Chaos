@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "1c42443c-ba98-4877-a078-445225cb31bc",
+  "name": "white_magic_shop",
+  "symbol": "bg_white_magic_shop",
+  "width": 20,
+  "height": 18,
+  "imageWidth": 160,
+  "imageHeight": 144,
+  "filename": "white_magic_shop.png",
+  "tileColors": "",
+  "autoColor": true
+}

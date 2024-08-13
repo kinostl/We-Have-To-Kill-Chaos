@@ -21,18 +21,20 @@ void eventMyMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   _tile.attr.draw_over_objects = FALSE;
   _tile.attr.palette = 7;
   VBK_REG = 1;
-  fill_win_rect(0, 0, cursorW, 10, _tile._tile);
+  fill_win_rect(0, 0, cursorW + 1, 10, _tile._tile);
   VBK_REG = 0;
 
   UBYTE idx = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
   UBYTE actorId = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
   UBYTE menuSize = *(UBYTE *)VM_REF_TO_PTR(FN_ARG2);
+  UBYTE cancelOnB = *(UBYTE *)VM_REF_TO_PTR(FN_ARG4);
+  UBYTE cancelOnLast = *(UBYTE *)VM_REF_TO_PTR(FN_ARG5);
   UWORD start_x = actors[actorId].pos.x;
   UWORD start_y = actors[actorId].pos.y;
   _Bool start_hidden = actors[actorId].hidden;
   _Bool start_pinned = actors[actorId].pinned;
 
-  actors[actorId].pos.x = 0;
+  actors[actorId].pos.x = 128;
   actors[actorId].hidden = FALSE;
   actors[actorId].pinned = TRUE;
 
@@ -64,15 +66,21 @@ void eventMyMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
       continue;
     } else if (INPUT_DOWN_PRESSED) {
       VM_GLOBAL(idx)++;
-      if (VM_GLOBAL(idx) >= menuSize) {
+      if (VM_GLOBAL(idx) > menuSize) {
         VM_GLOBAL(idx) = menuSize;
       }
       continue;
     } else if (INPUT_A_PRESSED) {
+      if (cancelOnLast > 0 && VM_GLOBAL(idx) == menuSize) {
+        VM_GLOBAL(idx) = 0;
+      }
       break;
     } else if ((INPUT_B_PRESSED)) {
-      VM_GLOBAL(idx) = 0;
-      break;
+      if (cancelOnB > 0) {
+        VM_GLOBAL(idx) = 0;
+        break;
+      }
+      continue;
     } else {
       continue;
     }

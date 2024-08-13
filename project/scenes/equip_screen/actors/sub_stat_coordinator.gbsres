@@ -1,0 +1,183 @@
+{
+  "_resourceType": "actor",
+  "id": "0b754db9-4064-4163-ab06-4e4a064be67c",
+  "_index": 7,
+  "symbol": "actor_29",
+  "name": "Sub Stat Coordinator",
+  "x": 18,
+  "y": 8,
+  "frame": 0,
+  "animate": false,
+  "spriteSheetId": "2ef651de-48d3-493a-9f45-607ca2b67081",
+  "paletteId": "",
+  "direction": "down",
+  "moveSpeed": 1,
+  "animSpeed": 15,
+  "isPinned": false,
+  "persistent": false,
+  "collisionGroup": "",
+  "script": [],
+  "startScript": [
+    {
+      "command": "EVENT_SET_VALUE",
+      "args": {
+        "variable": "L0",
+        "value": {
+          "type": "number",
+          "value": -1
+        }
+      },
+      "id": "4488b05e-eda4-4f6a-9d64-5b56aba74bb6"
+    },
+    {
+      "command": "EVENT_ACTOR_STOP_UPDATE",
+      "args": {
+        "actorId": "$self$"
+      },
+      "id": "91d1be71-b4b8-4449-8ded-21c7f9c33978"
+    }
+  ],
+  "updateScript": [
+    {
+      "command": "EVENT_IF",
+      "args": {
+        "condition": {
+          "type": "ne",
+          "valueA": {
+            "type": "variable",
+            "value": "L0"
+          },
+          "valueB": {
+            "type": "variable",
+            "value": "78"
+          }
+        },
+        "__collapseElse": true
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_SET_VALUE",
+            "args": {
+              "variable": "L0",
+              "value": {
+                "type": "variable",
+                "value": "78"
+              }
+            },
+            "id": "9e2461a7-67e3-4cc6-8fe6-3a4b89a1aebf"
+          },
+          {
+            "command": "EVENT_IF",
+            "args": {
+              "condition": {
+                "type": "gt",
+                "valueA": {
+                  "type": "variable",
+                  "value": "79"
+                },
+                "valueB": {
+                  "type": "number",
+                  "value": 0
+                }
+              },
+              "__collapseElse": false
+            },
+            "children": {
+              "true": [
+                {
+                  "command": "MY_EVENT_CALL_NATIVE",
+                  "args": {
+                    "argCount": 2,
+                    "arg0": {
+                      "type": "number",
+                      "value": 0
+                    },
+                    "arg1": {
+                      "type": "variable",
+                      "value": "78"
+                    },
+                    "arg2": {
+                      "type": "number",
+                      "value": 0
+                    },
+                    "arg3": {
+                      "type": "number",
+                      "value": 0
+                    },
+                    "arg4": {
+                      "type": "number",
+                      "value": 0
+                    },
+                    "arg5": {
+                      "type": "number",
+                      "value": 0
+                    },
+                    "arg6": {
+                      "type": "number",
+                      "value": 0
+                    },
+                    "arg7": {
+                      "type": "number",
+                      "value": 0
+                    },
+                    "funName": "loadSubStatsCompareArmorArea"
+                  },
+                  "id": "23c98c75-94ab-4fbb-91c7-730293f7377a"
+                }
+              ],
+              "false": [
+                {
+                  "command": "MY_EVENT_CALL_NATIVE",
+                  "args": {
+                    "argCount": 2,
+                    "arg0": {
+                      "type": "number",
+                      "value": 0
+                    },
+                    "arg1": {
+                      "type": "variable",
+                      "value": "78"
+                    },
+                    "arg2": {
+                      "type": "number",
+                      "value": 0
+                    },
+                    "arg3": {
+                      "type": "number",
+                      "value": 0
+                    },
+                    "arg4": {
+                      "type": "number",
+                      "value": 0
+                    },
+                    "arg5": {
+                      "type": "number",
+                      "value": 0
+                    },
+                    "arg6": {
+                      "type": "number",
+                      "value": 0
+                    },
+                    "arg7": {
+                      "type": "number",
+                      "value": 0
+                    },
+                    "funName": "loadSubStatsCompareWeaponArea"
+                  },
+                  "id": "d432fc10-dd67-46c3-adbe-33cb92577de3"
+                }
+              ]
+            },
+            "id": "55a3bf43-42fa-4d48-be5f-c146ca087f26"
+          }
+        ],
+        "false": []
+      },
+      "id": "beb273ca-dd28-45b6-8f81-1d730f97c136"
+    }
+  ],
+  "hit1Script": [],
+  "hit2Script": [],
+  "hit3Script": []
+}

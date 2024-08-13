@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "ce672ef5-9e1b-4dfb-bf3f-c071e35b1f12",
+  "name": "headers/dense_forest",
+  "symbol": "bg_dense_forest",
+  "width": 14,
+  "height": 4,
+  "imageWidth": 112,
+  "imageHeight": 32,
+  "filename": "headers/dense_forest.png",
+  "tileColors": "",
+  "autoColor": false
+}

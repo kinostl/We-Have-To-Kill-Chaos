@@ -1,0 +1,25 @@
+{
+  "_resourceType": "trigger",
+  "id": "9f7acf42-304f-4223-851b-abe3533375d6",
+  "_index": 1,
+  "symbol": "trigger_1",
+  "name": "",
+  "x": 11,
+  "y": 16,
+  "width": 2,
+  "height": 1,
+  "script": [
+    {
+      "command": "EVENT_SET_VALUE",
+      "args": {
+        "variable": "27",
+        "value": {
+          "type": "number",
+          "value": 7
+        }
+      },
+      "id": "d61d7a1b-91fc-4147-8450-bb3a77829dad"
+    }
+  ],
+  "leaveScript": []
+}

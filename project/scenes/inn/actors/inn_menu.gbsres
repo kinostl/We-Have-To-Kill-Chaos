@@ -1,0 +1,53 @@
+{
+  "_resourceType": "actor",
+  "id": "3731a6c3-4471-4dba-ba2d-ad085cd1e6d3",
+  "_index": 1,
+  "symbol": "actor_42",
+  "name": "Inn Menu",
+  "x": 15,
+  "y": 31,
+  "frame": 0,
+  "animate": false,
+  "spriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
+  "paletteId": "",
+  "direction": "down",
+  "moveSpeed": 1,
+  "animSpeed": 15,
+  "isPinned": false,
+  "persistent": false,
+  "collisionGroup": "",
+  "script": [
+    {
+      "command": "FF_EVENT_MY_MENU",
+      "args": {
+        "actor": "$self$",
+        "setvar": "L0",
+        "items": 3,
+        "option1": "Stay for 30G",
+        "option2": "Small Talk",
+        "option3": "Leave",
+        "option4": "Cancel",
+        "option5": "",
+        "option6": "",
+        "option7": "",
+        "option8": "",
+        "cancelOnB": true,
+        "cancelOnLastOption": true
+      },
+      "id": "9ecf273c-c9af-498c-bafd-e8e8f7d71a26"
+    }
+  ],
+  "startScript": [
+    {
+      "command": "EVENT_ACTOR_HIDE",
+      "args": {
+        "actorId": "$self$"
+      },
+      "id": "71c0c76b-8f42-403d-a56e-7fbc1d79d9e4"
+    }
+  ],
+  "updateScript": [],
+  "hit1Script": [],
+  "hit2Script": [],
+  "hit3Script": []
+}

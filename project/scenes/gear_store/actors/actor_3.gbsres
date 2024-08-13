@@ -1,0 +1,53 @@
+{
+  "_resourceType": "actor",
+  "id": "3b906fda-1996-45c5-a469-d7e78c0398db",
+  "_index": 3,
+  "symbol": "actor_41",
+  "name": "",
+  "x": 8,
+  "y": 9,
+  "frame": 0,
+  "animate": false,
+  "spriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
+  "paletteId": "",
+  "direction": "down",
+  "moveSpeed": 1,
+  "animSpeed": 15,
+  "isPinned": false,
+  "persistent": false,
+  "collisionGroup": "",
+  "script": [
+    {
+      "command": "FF_EVENT_MY_MENU",
+      "args": {
+        "actor": "$self$",
+        "setvar": "L0",
+        "items": 4,
+        "option1": "Cloth Robe \\003\\021\\00210G",
+        "option2": "Wood Armor \\003\\021\\00350G",
+        "option3": "Chain Armor \\003\\021\\00480G",
+        "option4": "Cancel",
+        "option5": "",
+        "option6": "",
+        "option7": "",
+        "option8": "",
+        "cancelOnB": true,
+        "cancelOnLastOption": true
+      },
+      "id": "1ba3fc03-ebc1-4ee3-9e74-dca0d052be5a"
+    }
+  ],
+  "startScript": [
+    {
+      "command": "EVENT_ACTOR_HIDE",
+      "args": {
+        "actorId": "$self$"
+      },
+      "id": "7b1ddb0c-4a69-4d44-8f9e-4608c6a09751"
+    }
+  ],
+  "updateScript": [],
+  "hit1Script": [],
+  "hit2Script": [],
+  "hit3Script": []
+}

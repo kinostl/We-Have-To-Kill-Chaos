@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "0e398cf8-66cf-4eea-b98e-7a6a98826979",
+  "name": "headers/diving_cave",
+  "symbol": "bg_diving_cave",
+  "width": 14,
+  "height": 4,
+  "imageWidth": 112,
+  "imageHeight": 32,
+  "filename": "headers/diving_cave.png",
+  "tileColors": "",
+  "autoColor": false
+}

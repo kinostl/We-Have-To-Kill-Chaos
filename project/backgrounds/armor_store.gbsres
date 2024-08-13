@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "f5887ca7-f52f-4090-aa15-8266165e816d",
+  "name": "armor_store",
+  "symbol": "bg_armor_store",
+  "width": 20,
+  "height": 18,
+  "imageWidth": 160,
+  "imageHeight": 144,
+  "filename": "armor_store.png",
+  "tileColors": "",
+  "autoColor": true
+}

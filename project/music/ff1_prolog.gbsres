@@ -1,0 +1,11 @@
+{
+  "_resourceType": "music",
+  "id": "80565551-6fbf-4208-ae59-5e36cdc1e11e",
+  "name": "ff1_prolog",
+  "symbol": "song_ff1_prolog",
+  "filename": "ff1_prolog.mod",
+  "settings": {
+    "disableSpeedConversion": false
+  },
+  "type": "mod"
+}

@@ -1,0 +1,13 @@
+{
+  "_resourceType": "engineFieldValues",
+  "engineFieldValues": [
+    {
+      "id": "fade_style",
+      "value": 1
+    },
+    {
+      "id": "topdown_grid",
+      "value": 8
+    }
+  ]
+}

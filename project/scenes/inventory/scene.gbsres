@@ -1,0 +1,296 @@
+{
+  "_resourceType": "scene",
+  "id": "caf0e238-c183-4a3d-90a5-2f56cc1df30f",
+  "type": "TOPDOWN",
+  "name": "Inventory",
+  "symbol": "scene_8",
+  "x": 784,
+  "y": 1144,
+  "width": 20,
+  "height": 18,
+  "backgroundId": "95ce8c08-bca2-49c0-9ae6-cc4af10a7250",
+  "tilesetId": "",
+  "paletteIds": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "d8ef3f33-956f-4f96-a8a4-774608a880da"
+  ],
+  "spritePaletteIds": [
+    "7b685cdb-bcfb-4bcc-9eb2-7ffd6aec1e77",
+    "7b685cdb-bcfb-4bcc-9eb2-7ffd6aec1e77",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "7b685cdb-bcfb-4bcc-9eb2-7ffd6aec1e77"
+  ],
+  "autoFadeSpeed": 1,
+  "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
+  "script": [
+    {
+      "command": "EVENT_ACTOR_SET_POSITION",
+      "args": {
+        "actorId": "$self$",
+        "x": {
+          "type": "number",
+          "value": 1
+        },
+        "y": {
+          "type": "number",
+          "value": 3
+        }
+      },
+      "id": "01c40d29-a595-4bb7-99c3-1aacb71e5580"
+    },
+    {
+      "command": "EVENT_ACTOR_SET_ANIMATION_SPEED",
+      "args": {
+        "actorId": "$self$",
+        "speed": 255,
+        "__collapse": true
+      },
+      "id": "cd6b92a8-0c51-4df3-9f9e-e35988b308da"
+    },
+    {
+      "command": "MY_EVENT_CALL_NATIVE",
+      "args": {
+        "argCount": 0,
+        "arg0": {
+          "type": "number",
+          "value": 0
+        },
+        "arg1": {
+          "type": "number",
+          "value": 0
+        },
+        "arg2": {
+          "type": "number",
+          "value": 0
+        },
+        "arg3": {
+          "type": "number",
+          "value": 0
+        },
+        "arg4": {
+          "type": "number",
+          "value": 0
+        },
+        "arg5": {
+          "type": "number",
+          "value": 0
+        },
+        "arg6": {
+          "type": "number",
+          "value": 0
+        },
+        "arg7": {
+          "type": "number",
+          "value": 0
+        },
+        "funName": "loadFontIntoBkg",
+        "__collapse": true
+      },
+      "id": "26ade4cb-253b-4eaa-a8ed-91c8a831d7e1"
+    },
+    {
+      "command": "MY_EVENT_CALL_NATIVE",
+      "args": {
+        "argCount": 0,
+        "arg0": {
+          "type": "number",
+          "value": 0
+        },
+        "arg1": {
+          "type": "number",
+          "value": 0
+        },
+        "arg2": {
+          "type": "number",
+          "value": 0
+        },
+        "arg3": {
+          "type": "number",
+          "value": 0
+        },
+        "arg4": {
+          "type": "number",
+          "value": 0
+        },
+        "arg5": {
+          "type": "number",
+          "value": 0
+        },
+        "arg6": {
+          "type": "number",
+          "value": 0
+        },
+        "arg7": {
+          "type": "number",
+          "value": 0
+        },
+        "funName": "drawMenu",
+        "__collapse": true
+      },
+      "id": "574367d6-6f46-4c3a-8916-210363b92d18"
+    },
+    {
+      "command": "MY_EVENT_CALL_NATIVE",
+      "args": {
+        "argCount": 0,
+        "arg0": {
+          "type": "number",
+          "value": 0
+        },
+        "arg1": {
+          "type": "number",
+          "value": 0
+        },
+        "arg2": {
+          "type": "number",
+          "value": 0
+        },
+        "arg3": {
+          "type": "number",
+          "value": 0
+        },
+        "arg4": {
+          "type": "number",
+          "value": 0
+        },
+        "arg5": {
+          "type": "number",
+          "value": 0
+        },
+        "arg6": {
+          "type": "number",
+          "value": 0
+        },
+        "arg7": {
+          "type": "number",
+          "value": 0
+        },
+        "funName": "drawItemInfoBox",
+        "__collapse": false
+      },
+      "id": "88e4c9c5-3815-4645-b92e-cbbb56eac30e"
+    },
+    {
+      "command": "EVENT_SET_INPUT_SCRIPT",
+      "args": {
+        "input": [
+          "left",
+          "right",
+          "up",
+          "down"
+        ],
+        "override": true,
+        "__scriptTabs": "press",
+        "__comment": false,
+        "__collapse": true
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_IF",
+            "args": {
+              "condition": {
+                "type": "eq",
+                "valueA": {
+                  "type": "variable",
+                  "value": "78"
+                },
+                "valueB": {
+                  "type": "number",
+                  "value": 0
+                }
+              },
+              "__collapseElse": false,
+              "__collapse": true,
+              "__comment": true
+            },
+            "children": {
+              "true": [
+                {
+                  "command": "EVENT_SET_VALUE",
+                  "args": {
+                    "variable": "78",
+                    "value": {
+                      "type": "number",
+                      "value": 1
+                    }
+                  },
+                  "id": "86ab3413-274a-4913-b9bd-ff162b52e0f7"
+                }
+              ],
+              "false": [
+                {
+                  "command": "EVENT_SET_VALUE",
+                  "args": {
+                    "variable": "78",
+                    "value": {
+                      "type": "number",
+                      "value": 0
+                    }
+                  },
+                  "id": "4fd2ddef-8161-4023-9e73-fe3a2593cbb7"
+                }
+              ]
+            },
+            "id": "20ac1c13-070e-4e44-ace9-99b5c9b55c82"
+          }
+        ]
+      },
+      "id": "d4bab6a4-313e-4e99-9032-65de3cb25ba6"
+    },
+    {
+      "command": "EVENT_GBVM_SCRIPT",
+      "args": {
+        "script": "VM_SET_CONST_UINT8 _show_actors_on_overlay, 1\nVM_SET_CONST_UINT8 _overlay_priority, 0",
+        "__comment": true,
+        "__collapse": false
+      },
+      "id": "9420c3a2-1649-4e20-988d-149628602024"
+    },
+    {
+      "command": "EVENT_SET_INPUT_SCRIPT",
+      "args": {
+        "input": [
+          "b"
+        ],
+        "override": true,
+        "__scriptTabs": "press"
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_ACTOR_SET_STATE",
+            "args": {
+              "actorId": "$self$",
+              "spriteStateId": "Flashing",
+              "loopAnim": true
+            },
+            "id": "4a066ac1-7e0d-452a-b601-b2c24d91d3ac"
+          },
+          {
+            "command": "EVENT_ACTOR_SET_ANIMATION_SPEED",
+            "args": {
+              "actorId": "$self$",
+              "speed": 1
+            },
+            "id": "c7ba1d57-9337-4732-889f-ef8235854d9e"
+          }
+        ]
+      },
+      "id": "6d2cbd14-273c-4cba-b8ed-49e88fbbda5d"
+    }
+  ],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": [],
+  "collisions": "00168+"
+}

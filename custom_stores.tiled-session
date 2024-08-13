@@ -29,6 +29,14 @@
                 "y": 38.16035415641909
             }
         },
+        "maps/clinic.tmx": {
+            "scale": 3,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 91.83333333333331,
+                "y": 22.499999999999986
+            }
+        },
         "maps/frame.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 32

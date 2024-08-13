@@ -1,0 +1,11 @@
+{
+  "_resourceType": "palette",
+  "id": "48a57591-4530-4f70-90bf-ca3518a0d451",
+  "name": "Enemy Type 1",
+  "colors": [
+    "ffeb97",
+    "ffe300",
+    "ff6f00",
+    "000000"
+  ]
+}

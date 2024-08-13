@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "53bd525c-eaaf-4ffa-a941-10e97df3da0c",
+  "name": "clinic",
+  "symbol": "bg_clinic",
+  "width": 20,
+  "height": 18,
+  "imageWidth": 160,
+  "imageHeight": 144,
+  "filename": "clinic.png",
+  "tileColors": "",
+  "autoColor": true
+}

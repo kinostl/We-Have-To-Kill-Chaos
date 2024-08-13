@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "b08eda4f-a051-4dc5-93cd-19cc379a55e7",
+  "name": "headers/fields",
+  "symbol": "bg_fields",
+  "width": 14,
+  "height": 4,
+  "imageWidth": 112,
+  "imageHeight": 32,
+  "filename": "headers/fields.png",
+  "tileColors": "",
+  "autoColor": false
+}

@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "ec6d381d-8523-4398-a35c-7b5ba9174db1",
+  "name": "inn",
+  "symbol": "bg_inn",
+  "width": 20,
+  "height": 38,
+  "imageWidth": 160,
+  "imageHeight": 304,
+  "filename": "inn.png",
+  "tileColors": "",
+  "autoColor": true
+}

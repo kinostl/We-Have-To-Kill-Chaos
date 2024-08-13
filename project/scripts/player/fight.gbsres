@@ -1,0 +1,158 @@
+{
+  "_resourceType": "script",
+  "id": "c2c40df3-9781-4502-8c4d-5d2d619b1bf0",
+  "name": "Player/Fight",
+  "symbol": "script_5",
+  "description": "",
+  "variables": {
+    "V0": {
+      "id": "V0",
+      "name": "Damage",
+      "passByReference": true
+    },
+    "V1": {
+      "id": "V1",
+      "name": "Hit Chance",
+      "passByReference": true
+    },
+    "V2": {
+      "id": "V2",
+      "name": "Crit Chance",
+      "passByReference": true
+    },
+    "V3": {
+      "id": "V3",
+      "name": "ID",
+      "passByReference": true
+    }
+  },
+  "actors": {},
+  "script": [
+    {
+      "command": "EVENT_COMMENT",
+      "args": {
+        "text": "Unarmed = STR / 2 (Fighter starts with 20)\n9 from Rapier + STR / 2 = 19\n",
+        "__collapse": true
+      },
+      "id": "16e6d910-2513-441f-b2cb-dcc7f7a0665c"
+    },
+    {
+      "command": "EVENT_SET_VALUE",
+      "args": {
+        "variable": "3",
+        "value": {
+          "type": "variable",
+          "value": "V0"
+        },
+        "__collapse": false
+      },
+      "id": "59d7b587-c4f8-42bd-bc95-33a88d74e980"
+    },
+    {
+      "command": "EVENT_COMMENT",
+      "args": {
+        "text": "Base 168 + 10 From Innate //\n\n5 from Sword\n\n\n\nC) ACCURACY FORMULAS                                                    [AFRM]\n\n1. Base Chance to Hit (BC) \n\nBase Chance to Hit = 168\n--If the Attacker is blind, subtract -40\n--If the Target is blind, add +40\n--If the Target is weak to an attack, add +40*\n*This occurs if a Weapon Attribute matches an Elemental Weakness or Enemy Type\ncharacteristic on the enemy. This property is bugged and does not work on the\nNES version.\n\n\n2. Chance to Hit \n\nChance to Hit = (BC + H)* - E\n--If the Target is Asleep or Paralyzed, Chance to Hit = BC\n\n*The value in parenthesis is capped at 255 _before_ Evasion is subtracted\n\nA Hit Roll is done and a random number is selected from 0 to 200. If that\nnumber is less than or equal to the Chance to Hit, the Hit connects. 0 is an\nautomatic hit, and 200 is an automatic miss. The % chance of hitting may be\nexpressed by:\n\nPercentage Chance to Hit = [Chance to Hit + 1]/201\n\n\nNOTE: The _proper_ Chance to Hit Formula _should_ be:\n\nBC + H - E\n--If the Target is Asleep or Paralyzed, Chance to Hit = BC + H\n\nHowever, a bug in the NES version clamps Base Chance to Hit and Hit% at 255\nbefore Evasion can be subtracted (and ignores Hit% when asleep or paralyzed).\nThis means that as a practical matter, Hit% greater than 87 is irrelevant for\nAccuracy. This is also what allows a character to become virtually un-hittable\nby repeatedly using RUSE or INVS to reach max evasion. I believe this bug is\nfixed on Origins.",
+        "__collapse": true
+      },
+      "id": "47a05108-8ac9-4e3b-8034-73ed47ef0d65"
+    },
+    {
+      "command": "EVENT_SET_VALUE",
+      "args": {
+        "variable": "4",
+        "value": {
+          "type": "add",
+          "valueA": {
+            "type": "variable",
+            "value": "V1"
+          },
+          "valueB": {
+            "type": "variable",
+            "value": "73"
+          }
+        },
+        "__collapse": false
+      },
+      "id": "ebf72394-b4ec-4177-a00a-6f6a0e450fb4"
+    },
+    {
+      "command": "EVENT_COMMENT",
+      "args": {
+        "text": "Crit % comes from Weapons. Unarmed is 0.",
+        "__collapse": true
+      },
+      "id": "952b9597-bf06-433e-a55b-044c9ad57ef5"
+    },
+    {
+      "command": "EVENT_SET_VALUE",
+      "args": {
+        "variable": "7",
+        "value": {
+          "type": "variable",
+          "value": "V2"
+        },
+        "__collapse": false
+      },
+      "id": "890a6e0e-7df8-4a59-89d0-2b2f72931bda"
+    },
+    {
+      "command": "EVENT_SET_VALUE",
+      "args": {
+        "variable": "56",
+        "value": {
+          "type": "variable",
+          "value": "V3"
+        },
+        "__collapse": false
+      },
+      "id": "452dfbac-91aa-4a7d-8001-707c5b4c5590"
+    },
+    {
+      "command": "EVENT_SET_VALUE",
+      "args": {
+        "variable": "57",
+        "value": {
+          "type": "add",
+          "valueA": {
+            "type": "variable",
+            "value": "69"
+          },
+          "valueB": {
+            "type": "number",
+            "value": 3
+          }
+        }
+      },
+      "id": "bcb71a74-5651-4277-8cae-8a3ce0c40d1f"
+    },
+    {
+      "command": "EVENT_DEC_VALUE",
+      "args": {
+        "variable": "63",
+        "__collapse": true,
+        "__comment": true
+      },
+      "id": "50ee2da0-e264-4b2b-ab37-1e719760a626"
+    },
+    {
+      "command": "EVENT_SET_VALUE",
+      "args": {
+        "variable": "65",
+        "value": {
+          "type": "gt",
+          "valueA": {
+            "type": "variable",
+            "value": "63"
+          },
+          "valueB": {
+            "type": "number",
+            "value": 0
+          }
+        },
+        "__collapse": true,
+        "__comment": true
+      },
+      "id": "f669b5c3-5d82-49a8-8ff1-9c0909f73253"
+    }
+  ]
+}

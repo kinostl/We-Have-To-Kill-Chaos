@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "dd22812e-1eb4-4407-b10b-22af50537220",
+  "name": "sunset",
+  "symbol": "bg_sunset",
+  "width": 39,
+  "height": 18,
+  "imageWidth": 319,
+  "imageHeight": 144,
+  "filename": "sunset.png",
+  "tileColors": "",
+  "autoColor": false
+}

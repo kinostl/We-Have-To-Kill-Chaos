@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "9b845908-a4a0-4e9b-b94e-c550f1ba680e",
+  "name": "blue_bg_frame",
+  "symbol": "tileset_blue_bg_frame",
+  "width": 3,
+  "height": 3,
+  "imageWidth": 24,
+  "imageHeight": 24,
+  "filename": "blue_bg_frame.png"
+}

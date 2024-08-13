@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "72015676-5f8d-4e93-ba7e-5df73b5718ca",
+  "name": "headers/diving_castle",
+  "symbol": "bg_diving_castle",
+  "width": 14,
+  "height": 4,
+  "imageWidth": 112,
+  "imageHeight": 32,
+  "filename": "headers/diving_castle.png",
+  "tileColors": "",
+  "autoColor": true
+}

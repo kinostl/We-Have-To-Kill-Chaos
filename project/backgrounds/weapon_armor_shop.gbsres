@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "e663525e-f813-4d58-a898-7bbdffdb6440",
+  "name": "weapon_armor_shop",
+  "symbol": "bg_weapon_armor_shop",
+  "width": 40,
+  "height": 18,
+  "imageWidth": 320,
+  "imageHeight": 144,
+  "filename": "weapon_armor_shop.png",
+  "tileColors": "",
+  "autoColor": true
+}

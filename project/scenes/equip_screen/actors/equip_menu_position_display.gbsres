@@ -1,0 +1,94 @@
+{
+  "_resourceType": "actor",
+  "id": "3d1adaaf-3552-4956-92ee-a8335338af48",
+  "_index": 3,
+  "symbol": "actor_25",
+  "name": "Equip Menu Position Display",
+  "x": 18,
+  "y": 4,
+  "frame": 0,
+  "animate": false,
+  "spriteSheetId": "2ef651de-48d3-493a-9f45-607ca2b67081",
+  "paletteId": "",
+  "direction": "down",
+  "moveSpeed": 1,
+  "animSpeed": 15,
+  "isPinned": false,
+  "persistent": false,
+  "collisionGroup": "",
+  "script": [],
+  "startScript": [
+    {
+      "command": "EVENT_SET_VALUE",
+      "args": {
+        "variable": "L0",
+        "value": {
+          "type": "number",
+          "value": -1
+        }
+      },
+      "id": "e398d406-69cc-4917-b3d5-c1d75cc987bc"
+    }
+  ],
+  "updateScript": [
+    {
+      "command": "EVENT_IF",
+      "args": {
+        "condition": {
+          "type": "ne",
+          "valueA": {
+            "type": "variable",
+            "value": "L0"
+          },
+          "valueB": {
+            "type": "variable",
+            "value": "79"
+          }
+        },
+        "__collapseElse": true
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_SET_VALUE",
+            "args": {
+              "variable": "L0",
+              "value": {
+                "type": "variable",
+                "value": "79"
+              }
+            },
+            "id": "188254e1-44b0-4a29-97e4-a2bc64fe94cb"
+          },
+          {
+            "command": "EVENT_ACTOR_SET_POSITION",
+            "args": {
+              "actorId": "player",
+              "x": {
+                "type": "number",
+                "value": 6
+              },
+              "y": {
+                "type": "add",
+                "valueA": {
+                  "type": "variable",
+                  "value": "79"
+                },
+                "valueB": {
+                  "type": "number",
+                  "value": 4
+                }
+              }
+            },
+            "id": "9b7f99ba-fbfd-41e4-a6ff-306141a97a94"
+          }
+        ],
+        "false": []
+      },
+      "id": "bd2e2378-92e7-4a7a-8b37-f97d47a21e53"
+    }
+  ],
+  "hit1Script": [],
+  "hit2Script": [],
+  "hit3Script": []
+}

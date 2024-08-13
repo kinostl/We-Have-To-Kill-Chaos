@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "7c40c2a2-f95e-4c8f-8cf5-a8021f1e2ebd",
+  "name": "headers/dead_forest",
+  "symbol": "bg_dead_forest",
+  "width": 14,
+  "height": 4,
+  "imageWidth": 112,
+  "imageHeight": 32,
+  "filename": "headers/dead_forest.png",
+  "tileColors": "",
+  "autoColor": false
+}

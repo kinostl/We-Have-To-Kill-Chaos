@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "73c55f34-fdc7-41d8-bc52-04883a9ecab2",
+  "name": "battle_sprites_2",
+  "symbol": "bg_battle_sprites_2",
+  "width": 17,
+  "height": 30,
+  "imageWidth": 142,
+  "imageHeight": 243,
+  "filename": "battle_sprites_2.png",
+  "tileColors": "",
+  "autoColor": false
+}

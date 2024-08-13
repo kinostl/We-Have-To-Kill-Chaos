@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "da6efba5-daa4-4516-9386-e86671a3a6c4",
+  "name": "tavern",
+  "symbol": "bg_tavern",
+  "width": 20,
+  "height": 18,
+  "imageWidth": 160,
+  "imageHeight": 144,
+  "filename": "tavern.png",
+  "tileColors": "",
+  "autoColor": true
+}

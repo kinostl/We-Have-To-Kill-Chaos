@@ -1,0 +1,54 @@
+{
+  "_resourceType": "actor",
+  "id": "edd40c2b-632a-4a2e-989b-171f27b2a571",
+  "_index": 1,
+  "symbol": "actor_43",
+  "name": "",
+  "x": 9,
+  "y": 11,
+  "frame": 0,
+  "animate": false,
+  "spriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
+  "paletteId": "",
+  "direction": "down",
+  "moveSpeed": 1,
+  "animSpeed": 15,
+  "isPinned": false,
+  "persistent": false,
+  "collisionGroup": "",
+  "script": [
+    {
+      "command": "FF_EVENT_MY_MENU",
+      "args": {
+        "actor": "$self$",
+        "setvar": "L0",
+        "items": 5,
+        "option1": "Heal Pot \\003\\021\\00260G",
+        "option2": "Pure Pot \\003\\021\\00375G",
+        "option3": "Tent \\003\\021\\00475G",
+        "option4": "Small Talk",
+        "option5": "Leave",
+        "option6": "",
+        "option7": "",
+        "option8": "",
+        "cancelOnB": true,
+        "layout": "dialogue",
+        "cancelOnLastOption": true
+      },
+      "id": "03d8d643-014b-4613-887d-4612ad08153b"
+    }
+  ],
+  "startScript": [
+    {
+      "command": "EVENT_ACTOR_HIDE",
+      "args": {
+        "actorId": "$self$"
+      },
+      "id": "f5b64336-6415-4249-8ab9-f8ff0e74bc42"
+    }
+  ],
+  "updateScript": [],
+  "hit1Script": [],
+  "hit2Script": [],
+  "hit3Script": []
+}

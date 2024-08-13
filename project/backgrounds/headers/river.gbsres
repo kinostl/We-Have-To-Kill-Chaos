@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "61fe7c0b-c16a-4dd4-93e6-60ec3e0c5837",
+  "name": "headers/river",
+  "symbol": "bg_river",
+  "width": 14,
+  "height": 4,
+  "imageWidth": 112,
+  "imageHeight": 32,
+  "filename": "headers/river.png",
+  "tileColors": "",
+  "autoColor": false
+}

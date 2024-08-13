@@ -1,0 +1,256 @@
+{
+  "_resourceType": "scene",
+  "id": "f1cf7e1f-1c86-4679-b076-dc3ee8711bff",
+  "type": "TOPDOWN",
+  "name": "Select Name",
+  "symbol": "scene_6",
+  "x": 1017.1038575667656,
+  "y": 850.3382789317507,
+  "width": 60,
+  "height": 54,
+  "backgroundId": "1bcbecfd-2801-4d02-8de7-c0f9937f1ca9",
+  "tilesetId": "",
+  "paletteIds": [],
+  "spritePaletteIds": [
+    "default-sprite",
+    "4b5c94c3-d95b-4802-9f92-3d6266692d3c",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "7b685cdb-bcfb-4bcc-9eb2-7ffd6aec1e77"
+  ],
+  "autoFadeSpeed": 1,
+  "script": [
+    {
+      "command": "EVENT_OVERLAY_SHOW",
+      "args": {
+        "color": "black",
+        "x": 0,
+        "y": 0
+      },
+      "id": "03fc9dbc-ad35-4ff5-8234-10a9dfdbd408"
+    },
+    {
+      "command": "EVENT_SET_VALUE",
+      "args": {
+        "variable": "L0",
+        "value": {
+          "type": "number",
+          "value": 1
+        }
+      },
+      "id": "5e5c756f-d43c-4b10-b347-2424c233d3f9"
+    },
+    {
+      "command": "EVENT_CAMERA_SET_POSITION",
+      "args": {
+        "x": {
+          "type": "number",
+          "value": 0
+        },
+        "y": {
+          "type": "number",
+          "value": 0
+        },
+        "__comment": false
+      },
+      "id": "b504355a-b1f4-4a61-b70d-6343da6511b1"
+    },
+    {
+      "command": "FO_EVENT_SUBMAP1",
+      "args": {
+        "keyX": 0,
+        "keyY": 0,
+        "keyW": 20,
+        "keyH": 18,
+        "keySX": 40,
+        "keySY": 0
+      },
+      "id": "8f7b91e2-d20d-4dfa-b666-20840249c183"
+    },
+    {
+      "command": "EVENT_SET_INPUT_SCRIPT",
+      "args": {
+        "input": [
+          "b"
+        ],
+        "override": true,
+        "__scriptTabs": "press"
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_TEXT",
+            "args": {
+              "text": [
+                "Choose a class and\npress any button \nto continue on the\nnext screen"
+              ],
+              "avatarId": "",
+              "__collapse": true,
+              "__comment": true
+            },
+            "id": "1ecfebf0-38cf-4def-ae75-a55216bbbdcb"
+          },
+          {
+            "command": "EVENT_MENU",
+            "args": {
+              "variable": "L0",
+              "items": 8,
+              "option1": "FIGHTER",
+              "option2": "MONK",
+              "option3": "THIEF",
+              "option4": "RED MAGE",
+              "option5": "WHITE",
+              "option6": " MAGE",
+              "option7": "BLACK",
+              "option8": " MAGE",
+              "cancelOnB": true,
+              "layout": "dialogue",
+              "__collapse": true,
+              "__comment": true
+            },
+            "id": "467b94eb-2bbd-45f4-a1bf-617684ea9990"
+          },
+          {
+            "command": "EVENT_INC_VALUE",
+            "args": {
+              "variable": "L0"
+            },
+            "id": "853f3063-63ff-4bfc-9941-0b0ef21df0bf"
+          },
+          {
+            "command": "EVENT_GBVM_SCRIPT",
+            "args": {
+              "script": "VM_OVERLAY_SETPOS 20 18"
+            },
+            "id": "2708c570-0d24-4976-ae17-35ca5d0eb854"
+          },
+          {
+            "command": "EVENT_SWITCH",
+            "args": {
+              "variable": "L0",
+              "choices": 3,
+              "__collapseCase0": false,
+              "value0": 1,
+              "__collapseCase1": false,
+              "value1": 2,
+              "__collapseCase2": false,
+              "value2": 3,
+              "__collapseCase3": false,
+              "value3": 4,
+              "__collapseCase4": false,
+              "value4": 5,
+              "__collapseCase5": false,
+              "value5": 6,
+              "__collapseCase6": false,
+              "value6": 7,
+              "__collapseCase7": false,
+              "value7": 8,
+              "__collapseCase8": false,
+              "value8": 9,
+              "__collapseCase9": false,
+              "value9": 10,
+              "__collapseCase10": false,
+              "value10": 11,
+              "__collapseCase11": false,
+              "value11": 12,
+              "__collapseCase12": false,
+              "value12": 13,
+              "__collapseCase13": false,
+              "value13": 14,
+              "__collapseCase14": false,
+              "value14": 15,
+              "__collapseCase15": false,
+              "value15": 16,
+              "__collapseElse": false
+            },
+            "children": {
+              "true0": [
+                {
+                  "command": "FO_EVENT_SUBMAP1",
+                  "args": {
+                    "keyX": 0,
+                    "keyY": 0,
+                    "keyW": 20,
+                    "keyH": 18,
+                    "keySX": 40,
+                    "keySY": 0
+                  },
+                  "id": "82767aea-dadd-4ec1-ba38-efd59333e588"
+                }
+              ],
+              "true1": [
+                {
+                  "command": "FO_EVENT_SUBMAP1",
+                  "args": {
+                    "keyX": 0,
+                    "keyY": 0,
+                    "keyW": 20,
+                    "keyH": 18,
+                    "keySX": 0,
+                    "keySY": 18
+                  },
+                  "id": "c075b120-d177-4098-a7ea-b272b76e7bf8"
+                }
+              ],
+              "true2": [
+                {
+                  "command": "FO_EVENT_SUBMAP1",
+                  "args": {
+                    "keyX": 0,
+                    "keyY": 0,
+                    "keyW": 20,
+                    "keyH": 18,
+                    "keySX": 20,
+                    "keySY": 18
+                  },
+                  "id": "c9caa42c-071c-4a1f-8f72-375a9d3d3cd9"
+                },
+                {
+                  "command": "EVENT_SET_VALUE",
+                  "args": {
+                    "variable": "L0",
+                    "value": {
+                      "type": "number",
+                      "value": 0
+                    }
+                  },
+                  "id": "83dc14a8-5d7b-4f6e-9250-5f8e355ee2b4"
+                }
+              ],
+              "true3": [],
+              "true4": [],
+              "true5": [],
+              "true6": [],
+              "true7": [],
+              "true8": [],
+              "true9": [],
+              "true10": [],
+              "true11": [],
+              "true12": [],
+              "true13": [],
+              "true14": [],
+              "true15": [],
+              "false": []
+            },
+            "id": "d087fd3a-e79d-4731-bf19-3cb7e8e26a64"
+          },
+          {
+            "command": "EVENT_GBVM_SCRIPT",
+            "args": {
+              "script": "VM_OVERLAY_SETPOS 0 0"
+            },
+            "id": "abb05332-9b01-47b5-8a2a-3db581620213"
+          }
+        ]
+      },
+      "id": "29550aa1-7703-4c01-bbe9-36859e739646"
+    }
+  ],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": [],
+  "collisions": ""
+}

@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "9afbe1bb-cf1d-4527-b3c5-9bdcc37b66b5",
+  "name": "black_magic",
+  "symbol": "bg_black_magic",
+  "width": 20,
+  "height": 18,
+  "imageWidth": 160,
+  "imageHeight": 144,
+  "filename": "black_magic.png",
+  "tileColors": "",
+  "autoColor": false
+}

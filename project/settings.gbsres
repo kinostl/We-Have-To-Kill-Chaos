@@ -1,0 +1,137 @@
+{
+  "_resourceType": "settings",
+  "startSceneId": "f80aab2e-8d43-49cf-a30b-bee760555e05",
+  "startX": 9,
+  "startY": 14,
+  "startMoveSpeed": 1,
+  "startAnimSpeed": 15,
+  "startDirection": "up",
+  "showCollisions": true,
+  "showConnections": true,
+  "showCollisionSlopeTiles": true,
+  "showCollisionExtraTiles": true,
+  "sgbEnabled": false,
+  "customHead": "",
+  "defaultBackgroundPaletteIds": [
+    "default-bg-1",
+    "default-bg-2",
+    "default-bg-3",
+    "default-bg-4",
+    "default-bg-5",
+    "default-bg-6",
+    "dmg",
+    "default-ui"
+  ],
+  "defaultSpritePaletteIds": [
+    "18e70aa9-2868-47cc-8571-6f0d8947b774",
+    "default-sprite",
+    "default-sprite",
+    "default-sprite",
+    "default-sprite",
+    "default-sprite",
+    "default-sprite",
+    "7b685cdb-bcfb-4bcc-9eb2-7ffd6aec1e77"
+  ],
+  "defaultSpritePaletteId": "default-sprite",
+  "defaultUIPaletteId": "default-ui",
+  "playerPaletteId": "",
+  "navigatorSplitSizes": [
+    147,
+    205,
+    579
+  ],
+  "showNavigator": true,
+  "defaultFontId": "4bd653f0-e08d-424e-9e5b-c1f3aaa21e47",
+  "defaultCharacterEncoding": "",
+  "defaultPlayerSprites": {
+    "TOPDOWN": "3b1fd25e-4a32-4c35-bbb0-8a98183d524b",
+    "PLATFORM": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
+    "ADVENTURE": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
+    "SHMUP": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
+    "POINTNCLICK": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
+    "LOGO": "581d34d0-9591-4e6e-a609-1d94f203b0cd"
+  },
+  "musicDriver": "huge",
+  "cartType": "mbc5",
+  "batterylessEnabled": false,
+  "favoriteEvents": [
+    "EVENT_TEXT",
+    "EVENT_SWITCH_SCENE"
+  ],
+  "customColorsWhite": "E8F8E0",
+  "customColorsLight": "B0F088",
+  "customColorsDark": "509878",
+  "customColorsBlack": "202850",
+  "customControlsUp": [
+    "ArrowUp",
+    "w"
+  ],
+  "customControlsDown": [
+    "ArrowDown",
+    "s"
+  ],
+  "customControlsLeft": [
+    "ArrowLeft",
+    "a"
+  ],
+  "customControlsRight": [
+    "ArrowRight",
+    "d"
+  ],
+  "customControlsA": [
+    "Alt",
+    "z",
+    "j"
+  ],
+  "customControlsB": [
+    "Control",
+    "k",
+    "x"
+  ],
+  "customControlsStart": [
+    "Enter"
+  ],
+  "customControlsSelect": [
+    "Shift"
+  ],
+  "debuggerEnabled": true,
+  "debuggerScriptType": "gbvm",
+  "debuggerVariablesFilter": "all",
+  "debuggerCollapsedPanes": [],
+  "debuggerPauseOnScriptChanged": false,
+  "debuggerPauseOnWatchedVariableChanged": false,
+  "debuggerBreakpoints": [
+    {
+      "scriptEventId": "998c4e6f-ce39-42fc-a5da-d328fb821bd5",
+      "context": {
+        "type": "entity",
+        "entityType": "scene",
+        "entityId": "801098d7-d77b-41df-98b1-aa40bce310ea",
+        "sceneId": "801098d7-d77b-41df-98b1-aa40bce310ea",
+        "scriptKey": "script"
+      }
+    },
+    {
+      "scriptEventId": "b615c908-4b39-4063-bee3-410cfd99d4e5",
+      "context": {
+        "type": "entity",
+        "entityType": "scene",
+        "entityId": "801098d7-d77b-41df-98b1-aa40bce310ea",
+        "sceneId": "801098d7-d77b-41df-98b1-aa40bce310ea",
+        "scriptKey": "script"
+      }
+    }
+  ],
+  "debuggerWatchedVariables": [
+    "437",
+    "0",
+    "78",
+    "79"
+  ],
+  "colorMode": "color",
+  "previewAsMono": false,
+  "openBuildLogOnWarnings": true,
+  "generateDebugFilesEnabled": true,
+  "defaultFadeStyle": "white",
+  "playerSpriteSheetId": "581d34d0-9591-4e6e-a609-1d94f203b0cd"
+}

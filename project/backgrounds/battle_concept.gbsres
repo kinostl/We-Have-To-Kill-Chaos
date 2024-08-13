@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "054f3bc8-84f5-4fcd-b590-cfff88fa2a15",
+  "name": "battle_concept",
+  "symbol": "bg_battle_concept",
+  "width": 32,
+  "height": 32,
+  "imageWidth": 256,
+  "imageHeight": 256,
+  "filename": "battle_concept.png",
+  "tileColors": "07400+",
+  "autoColor": false
+}

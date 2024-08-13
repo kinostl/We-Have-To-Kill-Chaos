@@ -1,0 +1,197 @@
+{
+  "_resourceType": "actor",
+  "id": "ff423321-46c6-4209-9441-e3210bebb29d",
+  "_index": 2,
+  "symbol": "actor_39",
+  "name": "",
+  "x": 29,
+  "y": 9,
+  "frame": 0,
+  "animate": false,
+  "spriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
+  "paletteId": "",
+  "direction": "down",
+  "moveSpeed": 1,
+  "animSpeed": 15,
+  "isPinned": false,
+  "persistent": false,
+  "collisionGroup": "",
+  "script": [
+    {
+      "command": "FF_EVENT_MY_MENU",
+      "args": {
+        "actor": "$self$",
+        "setvar": "L0",
+        "items": 6,
+        "option1": "Wood Staff\\003\\021\\0025 G",
+        "option2": "Small Dagger\\003\\021\\0035 G",
+        "option3": "Wood Nunchucks\\003\\021\\00410G",
+        "option4": "Rapier\\003\\021\\00510G",
+        "option5": "Iron Hammer\\003\\021\\00610G",
+        "option6": "Cancel",
+        "option7": "",
+        "option8": "",
+        "cancelOnLastOption": true,
+        "cancelOnB": true
+      },
+      "id": "3cf1f3bb-48af-438e-9d7b-bdfcfb6c7c31"
+    },
+    {
+      "command": "EVENT_IF",
+      "args": {
+        "condition": {
+          "type": "eq",
+          "valueA": {
+            "type": "variable",
+            "value": "L0"
+          },
+          "valueB": {
+            "type": "number",
+            "value": 0
+          }
+        },
+        "__collapseElse": true
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_STOP",
+            "args": {},
+            "id": "ad949fcb-004c-4f3f-b3f9-01bddc661d6b"
+          }
+        ],
+        "false": []
+      },
+      "id": "21c1a051-c9e6-44eb-b23c-d79f01a97be4"
+    },
+    {
+      "command": "EVENT_IF",
+      "args": {
+        "condition": {
+          "type": "gt",
+          "valueA": {
+            "type": "variable",
+            "value": "L0"
+          },
+          "valueB": {
+            "type": "number",
+            "value": 2
+          }
+        },
+        "__collapseElse": false
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_SET_VALUE",
+            "args": {
+              "variable": "L1",
+              "value": {
+                "type": "number",
+                "value": 10
+              }
+            },
+            "id": "f887f40b-a994-4489-9da2-f4e08d2c8bc7"
+          }
+        ],
+        "false": [
+          {
+            "command": "EVENT_SET_VALUE",
+            "args": {
+              "variable": "L1",
+              "value": {
+                "type": "number",
+                "value": 5
+              }
+            },
+            "id": "b8f0b10f-b3b5-4a48-85a9-92e56b1cc8a2"
+          }
+        ]
+      },
+      "id": "0a8a9677-05cf-4ed8-8867-d0b24c53880d"
+    },
+    {
+      "command": "EVENT_TEXT",
+      "args": {
+        "text": [
+          "Pay $L1$ G?"
+        ],
+        "avatarId": ""
+      },
+      "id": "06e6a979-6d17-424d-b324-cfc9f03873b4"
+    },
+    {
+      "command": "FF_EVENT_MY_MENU",
+      "args": {
+        "actor": "$self$",
+        "setvar": "L0",
+        "items": 2,
+        "option1": "Yes",
+        "option2": "No",
+        "option3": "",
+        "option4": "",
+        "option5": "",
+        "option6": "",
+        "option7": "",
+        "option8": "",
+        "__collapse": false,
+        "cancelOnLastOption": true,
+        "variable": "L0",
+        "cancelOnB": false
+      },
+      "id": "f05959c8-ec4c-4e55-8068-9cba33774b69"
+    },
+    {
+      "command": "EVENT_IF",
+      "args": {
+        "condition": {
+          "type": "eq",
+          "valueA": {
+            "type": "variable",
+            "value": "L0"
+          },
+          "valueB": {
+            "type": "number",
+            "value": 0
+          }
+        },
+        "__collapseElse": false
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_STOP",
+            "args": {},
+            "id": "44f38084-b7de-4524-a0ff-565e7753953d"
+          }
+        ],
+        "false": [
+          {
+            "command": "EVENT_TEXT",
+            "args": {
+              "text": [
+                "You pay $L1$ G"
+              ],
+              "avatarId": ""
+            },
+            "id": "cb0fb678-0c3c-407e-ac4f-a3ea89a19686"
+          }
+        ]
+      },
+      "id": "67b69032-43a0-432c-8853-04bd806e38f4"
+    }
+  ],
+  "startScript": [
+    {
+      "command": "EVENT_ACTOR_HIDE",
+      "args": {
+        "actorId": "$self$"
+      },
+      "id": "02530dd2-d782-4283-bcef-b53806279ac5"
+    }
+  ],
+  "updateScript": [],
+  "hit1Script": [],
+  "hit2Script": [],
+  "hit3Script": []
+}

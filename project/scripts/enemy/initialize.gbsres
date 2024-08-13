@@ -1,0 +1,120 @@
+{
+  "_resourceType": "script",
+  "id": "0b1f83f2-62b4-489f-a31e-6f790c70710e",
+  "name": "Enemy/Initialize",
+  "symbol": "script_3",
+  "description": "",
+  "variables": {
+    "V0": {
+      "id": "V0",
+      "name": "Health Points",
+      "passByReference": true
+    },
+    "V1": {
+      "id": "V1",
+      "name": "Damage",
+      "passByReference": true
+    },
+    "V2": {
+      "id": "V2",
+      "name": "Hit Chance",
+      "passByReference": true
+    },
+    "V3": {
+      "id": "V3",
+      "name": "Evade",
+      "passByReference": true
+    },
+    "V4": {
+      "id": "V4",
+      "name": "Absorb",
+      "passByReference": true
+    },
+    "V5": {
+      "id": "V5",
+      "name": "Alive",
+      "passByReference": true
+    }
+  },
+  "actors": {},
+  "script": [
+    {
+      "command": "EVENT_SET_VALUE",
+      "args": {
+        "variable": "V0",
+        "value": {
+          "type": "number",
+          "value": 8
+        },
+        "__collapse": false
+      },
+      "id": "fb218bd1-3171-4b81-b933-d19c8801269e"
+    },
+    {
+      "command": "EVENT_SET_VALUE",
+      "args": {
+        "variable": "V1",
+        "value": {
+          "type": "number",
+          "value": 4
+        },
+        "__collapse": true
+      },
+      "id": "075806aa-eb9d-4b10-a721-793729c4da17"
+    },
+    {
+      "command": "EVENT_SET_VALUE",
+      "args": {
+        "variable": "V2",
+        "value": {
+          "type": "number",
+          "value": 85
+        },
+        "__collapse": true
+      },
+      "id": "5ea6a118-6637-4614-8f59-22dd5a4246ba"
+    },
+    {
+      "command": "EVENT_SET_VALUE",
+      "args": {
+        "variable": "V3",
+        "value": {
+          "type": "number",
+          "value": 3
+        },
+        "__collapse": true
+      },
+      "id": "26d8da46-d46d-4890-b9f3-f65cb139642b"
+    },
+    {
+      "command": "EVENT_SET_VALUE",
+      "args": {
+        "variable": "V4",
+        "value": {
+          "type": "number",
+          "value": 4
+        },
+        "__collapse": true
+      },
+      "id": "e076ef37-f3e0-4e5e-92db-290a5ce90e66"
+    },
+    {
+      "command": "EVENT_SET_VALUE",
+      "args": {
+        "variable": "V5",
+        "value": {
+          "type": "true"
+        },
+        "__collapse": true
+      },
+      "id": "2e4be80a-e75c-42e7-a8d3-82cf3c1adbc1"
+    },
+    {
+      "command": "EVENT_INC_VALUE",
+      "args": {
+        "variable": "69"
+      },
+      "id": "f1fcabeb-bb3c-4e1a-bcf1-4ce415aa9cda"
+    }
+  ]
+}

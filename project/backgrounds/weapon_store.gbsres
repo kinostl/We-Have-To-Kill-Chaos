@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "9d7b8c14-353b-4adc-8d32-7983232e025e",
+  "name": "weapon_store",
+  "symbol": "bg_weapon_store",
+  "width": 20,
+  "height": 18,
+  "imageWidth": 160,
+  "imageHeight": 144,
+  "filename": "weapon_store.png",
+  "tileColors": "",
+  "autoColor": true
+}

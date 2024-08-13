@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "d78d8a4e-bdc6-4508-962c-87c23611d793",
+  "name": "corneria",
+  "symbol": "bg_corneria",
+  "width": 64,
+  "height": 48,
+  "imageWidth": 512,
+  "imageHeight": 384,
+  "filename": "corneria.png",
+  "tileColors": "",
+  "autoColor": true
+}

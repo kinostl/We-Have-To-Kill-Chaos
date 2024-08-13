@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "0959aa2e-b40e-4700-87b7-703110a775db",
+  "name": "headers/castle",
+  "symbol": "bg_castle",
+  "width": 14,
+  "height": 4,
+  "imageWidth": 112,
+  "imageHeight": 32,
+  "filename": "headers/castle.png",
+  "tileColors": "",
+  "autoColor": true
+}

@@ -1,0 +1,11 @@
+{
+  "_resourceType": "palette",
+  "id": "38a412cd-6ab3-494f-aa86-81ed589e0d45",
+  "name": "Enemy Flashing",
+  "colors": [
+    "ffffff",
+    "ffffff",
+    "ffffff",
+    "000000"
+  ]
+}

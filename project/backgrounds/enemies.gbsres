@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "224b0ac7-0eab-4960-8c8c-4ddaf0f98c57",
+  "name": "enemies",
+  "symbol": "sprite_enemies",
+  "width": 20,
+  "height": 18,
+  "imageWidth": 160,
+  "imageHeight": 144,
+  "filename": "enemies.png",
+  "tileColors": "",
+  "autoColor": true
+}

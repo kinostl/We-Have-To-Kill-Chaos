@@ -1,0 +1,25 @@
+{
+  "_resourceType": "scene",
+  "id": "6f7e4321-1ab7-484e-990e-b238288863ce",
+  "type": "TOPDOWN",
+  "name": "Clinic",
+  "symbol": "scene_17",
+  "x": 1888,
+  "y": 440,
+  "width": 20,
+  "height": 18,
+  "backgroundId": "53bd525c-eaaf-4ffa-a941-10e97df3da0c",
+  "tilesetId": "",
+  "paletteIds": [],
+  "spritePaletteIds": [
+    "",
+    "0718c95e-961b-4e87-a5ed-4f00b8b7c91e",
+    "b7d0eb5b-19e5-4a67-b9b3-2750a57719bc"
+  ],
+  "autoFadeSpeed": 1,
+  "script": [],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": [],
+  "collisions": "0fe0+00c+0f8+00c+0f8+00c+0f8+00c+0f8+00c+0fd+002+0f12+002+0f9+"
+}

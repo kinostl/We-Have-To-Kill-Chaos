@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "4a789de3-cf8d-443b-846b-5f140f0ca6ed",
+  "name": "headers/cave_fire",
+  "symbol": "bg_cave_fire",
+  "width": 14,
+  "height": 4,
+  "imageWidth": 112,
+  "imageHeight": 32,
+  "filename": "headers/cave_fire.png",
+  "tileColors": "",
+  "autoColor": false
+}

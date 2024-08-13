@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "c8ad31c3-8cba-42f1-8b08-64458985970e",
+  "name": "headers/ancient_castle",
+  "symbol": "bg_ancient_castle",
+  "width": 14,
+  "height": 4,
+  "imageWidth": 112,
+  "imageHeight": 32,
+  "filename": "headers/ancient_castle.png",
+  "tileColors": "",
+  "autoColor": false
+}

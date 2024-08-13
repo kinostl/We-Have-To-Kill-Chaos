@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "9b523fe9-e876-4a56-9c79-f032ab0cbdf3",
+  "name": "equip_screen",
+  "symbol": "bg_equip_screen",
+  "width": 20,
+  "height": 18,
+  "imageWidth": 160,
+  "imageHeight": 144,
+  "filename": "equip_screen.png",
+  "tileColors": "013c+0064+018c+0014+0128+",
+  "autoColor": false
+}

@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "6f8fd736-f508-41fc-9d51-f9eadde93198",
+  "name": "tileset_for_stores",
+  "symbol": "bg_tileset_for_stores",
+  "width": 68,
+  "height": 50,
+  "imageWidth": 544,
+  "imageHeight": 400,
+  "filename": "tileset_for_stores.png",
+  "tileColors": "",
+  "autoColor": true
+}
