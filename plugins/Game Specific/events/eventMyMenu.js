@@ -64,7 +64,9 @@ const compile = (input, helpers) => {
         getActorIndex,
         actorHide,
         scene,
-        sprites
+        sprites,
+        _stackPushReference,
+        getVariableAlias
     } = helpers;
 
     const actor = scene.actors[getActorIndex(input.actor) - 1]
@@ -91,7 +93,7 @@ const compile = (input, helpers) => {
     _stackPushConst(a_width / 8)
     _stackPushConst(input.items)
     _stackPushConst(getActorIndex(input.actor))
-    _stackPushConst(input.setvar)
+    _stackPushReference(getVariableAlias(input.setvar))
 
     const text = options.map((i, idx) => `\\003\\${decOct((a_width / 8) + 1)}\\${decOct(2 + idx)}${i}`).join('\r')
 

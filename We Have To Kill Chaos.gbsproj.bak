@@ -37654,7 +37654,7 @@
                     "name": "",
                     "frame": 0,
                     "animate": false,
-                    "spriteSheetId": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
+                    "spriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
                     "direction": "down",
                     "moveSpeed": 1,
                     "animSpeed": 15,
@@ -37667,15 +37667,15 @@
                         {
                             "command": "FF_EVENT_MY_MENU",
                             "args": {
-                                "actor": "25eb6d74-ad4e-4ddd-9dd2-62106a7db229",
+                                "actor": "$self$",
                                 "setvar": "0",
-                                "items": 5,
+                                "items": 6,
                                 "option1": "Wood Staff\\003\\021\\0025 G",
                                 "option2": "Small Dagger\\003\\021\\0035 G",
                                 "option3": "Wood Nunchucks\\003\\021\\00410G",
                                 "option4": "Rapier\\003\\021\\00510G",
                                 "option5": "Iron Hammer\\003\\021\\00610G",
-                                "option6": "",
+                                "option6": "Cancel",
                                 "option7": "",
                                 "option8": ""
                             },
@@ -37712,23 +37712,41 @@
                     "persistent": false,
                     "collisionGroup": "",
                     "symbol": "actor_41",
-                    "script": [],
+                    "script": [
+                        {
+                            "command": "FF_EVENT_MY_MENU",
+                            "args": {
+                                "actor": "$self$",
+                                "setvar": "0",
+                                "items": 4,
+                                "option1": "Cloth Robe \\003\\021\\00210G",
+                                "option2": "Wood Armor \\003\\021\\00350G",
+                                "option3": "Chain Armor \\003\\021\\00480G",
+                                "option4": "Cancel",
+                                "option5": "",
+                                "option6": "",
+                                "option7": "",
+                                "option8": ""
+                            },
+                            "id": "1ba3fc03-ebc1-4ee3-9e74-dca0d052be5a"
+                        }
+                    ],
                     "startScript": [
                         {
                             "command": "EVENT_ACTOR_HIDE",
                             "args": {
                                 "actorId": "$self$"
                             },
-                            "id": "c85e698f-6d99-4819-a284-3c314c1004b3"
+                            "id": "7b1ddb0c-4a69-4d44-8f9e-4608c6a09751"
                         }
                     ],
                     "updateScript": [],
                     "hit1Script": [],
                     "hit2Script": [],
                     "hit3Script": [],
-                    "id": "25eb6d74-ad4e-4ddd-9dd2-62106a7db229",
-                    "x": 20,
-                    "y": 4
+                    "id": "3b906fda-1996-45c5-a469-d7e78c0398db",
+                    "x": 8,
+                    "y": 9
                 }
             ],
             "triggers": [
@@ -38676,6 +38694,7 @@
             "imageWidth": 160,
             "imageHeight": 144,
             "filename": "armor_store.png",
+            "tileColors": [],
             "autoColor": true
         },
         {
@@ -40518,6 +40537,7 @@
             "imageWidth": 160,
             "imageHeight": 144,
             "filename": "clinic.png",
+            "tileColors": [],
             "autoColor": true
         },
         {
@@ -41912,6 +41932,7 @@
             "imageWidth": 160,
             "imageHeight": 144,
             "filename": "item_shop.png",
+            "tileColors": [],
             "autoColor": true
         },
         {
@@ -42007,6 +42028,7 @@
             "imageWidth": 320,
             "imageHeight": 144,
             "filename": "weapon_armor_shop.png",
+            "tileColors": [],
             "autoColor": true
         },
         {
@@ -42018,6 +42040,7 @@
             "imageWidth": 160,
             "imageHeight": 144,
             "filename": "weapon_store.png",
+            "tileColors": [],
             "autoColor": true
         },
         {
@@ -56788,8 +56811,8 @@
         "showConnections": true,
         "showCollisionSlopeTiles": true,
         "showCollisionExtraTiles": true,
-        "worldScrollX": 5504,
-        "worldScrollY": 2480,
+        "worldScrollX": 5951,
+        "worldScrollY": 2322,
         "zoom": 337,
         "sgbEnabled": false,
         "customHead": "",
