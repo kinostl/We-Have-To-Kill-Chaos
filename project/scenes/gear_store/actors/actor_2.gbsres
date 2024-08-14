@@ -22,7 +22,7 @@
       "args": {
         "actor": "$self$",
         "setvar": "L0",
-        "items": 6,
+        "items": 7,
         "option1": "Wood Staff",
         "option1_cost": 5,
         "option2": "Small Knife",
@@ -33,11 +33,11 @@
         "option4_cost": 10,
         "option5": "Iron Hammer",
         "option5_cost": 10,
-        "option6": "Leave",
+        "option6": "Small Talk",
         "option6_cost": 0,
-        "option7": "",
+        "option7": "Leave",
         "option7_cost": 0,
-        "option8": "",
+        "option8": "Leave",
         "option8_cost": 0,
         "cancelOnB": true,
         "cancelOnLastOption": true

@@ -25,9 +25,17 @@
             "scale": 5.647222222222222,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 79.77373339891786,
-                "y": 38.16035415641909
+                "x": 79.86227250368913,
+                "y": 38.248893261190354
             }
+        },
+        "maps/castle1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "maps/castle2.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 1
         },
         "maps/clinic.tmx": {
             "scale": 3,
@@ -35,6 +43,14 @@
             "viewCenter": {
                 "x": 91.83333333333331,
                 "y": 22.499999999999986
+            }
+        },
+        "maps/cornelia_castle_2.tmx": {
+            "scale": 1.5,
+            "selectedLayer": -1,
+            "viewCenter": {
+                "x": 262.6666666666667,
+                "y": 230.33333333333337
             }
         },
         "maps/frame.tsx": {
@@ -45,8 +61,8 @@
             "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 81.45454545454545,
-                "y": 242.27272727272728
+                "x": 125.0909090909091,
+                "y": 247.36363636363637
             }
         },
         "maps/item_shop.tmx": {
@@ -74,8 +90,8 @@
             "scale": 5.634027777777777,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 49.165536792801696,
-                "y": 76.9431776161716
+                "x": 91.76383581905586,
+                "y": 81.91297916923457
             }
         },
         "maps/tileset_for_stores.tsx": {
@@ -103,8 +119,8 @@
             "scale": 4,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 241.75,
-                "y": 159.125
+                "x": 314,
+                "y": 199.875
             }
         },
         "tilesets/store_tiles.tsx": {
@@ -119,11 +135,11 @@
         "/home/deck/Documents/We Have To Kill Chaos/maps/weapon_armor_shop.world"
     ],
     "map.fixedSize": true,
-    "map.height": 18,
+    "map.height": 64,
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 8,
     "map.tileWidth": 8,
-    "map.width": 20,
+    "map.width": 64,
     "openFiles": [
         "maps/white_magic_shop.tmx",
         "tilesets/store_tiles.tsx",
@@ -137,6 +153,9 @@
     ],
     "project": "custom_stores.tiled-project",
     "recentFiles": [
+        "maps/cornelia_castle_2.tmx",
+        "maps/castle2.tsx",
+        "maps/castle1.tsx",
         "maps/weapon_armor_shop.tmx",
         "maps/white_magic_shop.tmx",
         "tilesets/store_tiles.tsx",
@@ -145,8 +164,7 @@
         "maps/black_magic.tmx",
         "maps/random_menu.tmx",
         "maps/frame.tsx",
-        "maps/tavern.tmx",
-        "maps/inn.tmx"
+        "maps/tavern.tmx"
     ],
     "resizeMap.removeObjects": false,
     "tileset.lastUsedFormat": "tsx",
