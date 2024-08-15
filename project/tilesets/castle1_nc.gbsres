@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "d9b56dbb-b5c2-4f73-bb49-96907041848d",
+  "name": "castle1_nc",
+  "symbol": "tileset_castle1_nc",
+  "width": 10,
+  "height": 10,
+  "imageWidth": 80,
+  "imageHeight": 80,
+  "filename": "castle1_nc.png"
+}

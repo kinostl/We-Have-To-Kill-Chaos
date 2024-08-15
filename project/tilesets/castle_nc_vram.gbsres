@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "f0c839a5-4c17-4c68-8a9b-7dcae5c99ae5",
+  "name": "castle_nc_vram",
+  "symbol": "tileset_castle_nc_vram",
+  "width": 16,
+  "height": 7,
+  "imageWidth": 128,
+  "imageHeight": 56,
+  "filename": "castle_nc_vram.png"
+}

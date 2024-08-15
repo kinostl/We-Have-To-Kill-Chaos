@@ -57,11 +57,11 @@
             }
         },
         "maps/cornelia_castle_2.tmx": {
-            "scale": 0.75,
-            "selectedLayer": 1,
+            "scale": 1.5,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 37.33333333333337,
-                "y": 216.66666666666663
+                "x": 295.33333333333326,
+                "y": 166.99999999999997
             }
         },
         "maps/cornelia_castle_2_inside.tmx": {
@@ -173,6 +173,7 @@
     ],
     "project": "custom_stores.tiled-project",
     "recentFiles": [
+        "maps/cornelia_castle_2_inside.tmx",
         "maps/castle_combined.tmx",
         "maps/castle_inside.tsx",
         "maps/cornelia_castle_2.tmx",
@@ -183,8 +184,7 @@
         "tilesets/store_tiles.tsx",
         "maps/store_tiles.tsx",
         "maps/tileset_for_stores.tsx",
-        "maps/black_magic.tmx",
-        "maps/random_menu.tmx"
+        "maps/black_magic.tmx"
     ],
     "resizeMap.removeObjects": false,
     "tileset.lastUsedFormat": "tsx",

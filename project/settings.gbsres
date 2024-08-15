@@ -1,8 +1,8 @@
 {
   "_resourceType": "settings",
-  "startSceneId": "a7c6c8d4-7e27-4930-a885-9a9b325d9d56",
+  "startSceneId": "3fa5bc66-280d-48f3-9969-a66108a14642",
   "startX": 46,
-  "startY": 21,
+  "startY": 22,
   "startMoveSpeed": 1,
   "startAnimSpeed": 15,
   "startDirection": "up",
@@ -101,6 +101,16 @@
   "debuggerPauseOnScriptChanged": false,
   "debuggerPauseOnWatchedVariableChanged": false,
   "debuggerBreakpoints": [
+    {
+      "scriptEventId": "e80c402a-34c2-4352-ad55-a367e27cb631",
+      "context": {
+        "type": "entity",
+        "entityType": "trigger",
+        "entityId": "e8558c2f-14ea-4be2-8a55-f5ba6a9e7097",
+        "sceneId": "3fa5bc66-280d-48f3-9969-a66108a14642",
+        "scriptKey": "script"
+      }
+    },
     {
       "scriptEventId": "e9ca0317-a83b-402a-bcad-33929d327e45",
       "context": {
