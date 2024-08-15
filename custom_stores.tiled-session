@@ -37,6 +37,17 @@
             "scaleInDock": 4,
             "scaleInEditor": 1
         },
+        "maps/castle_combined.tmx": {
+            "scale": 2,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1066.5,
+                "y": 103.75
+            }
+        },
+        "maps/castle_inside.tsx": {
+            "scaleInEditor": 1
+        },
         "maps/clinic.tmx": {
             "scale": 3,
             "selectedLayer": 0,
@@ -46,11 +57,19 @@
             }
         },
         "maps/cornelia_castle_2.tmx": {
-            "scale": 1.5,
-            "selectedLayer": -1,
+            "scale": 0.75,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 262.6666666666667,
-                "y": 230.33333333333337
+                "x": 37.33333333333337,
+                "y": 216.66666666666663
+            }
+        },
+        "maps/cornelia_castle_2_inside.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 1149.3333333333333,
+                "y": 216.66666666666663
             }
         },
         "maps/frame.tsx": {
@@ -132,14 +151,15 @@
     "last.imagePath": "/home/deck/Documents/We Have To Kill Chaos/maps",
     "last.worldFilePath": "/home/deck/Documents/We Have To Kill Chaos/maps",
     "loadedWorlds": [
+        "/home/deck/Documents/We Have To Kill Chaos/maps/castle_world.world",
         "/home/deck/Documents/We Have To Kill Chaos/maps/weapon_armor_shop.world"
     ],
     "map.fixedSize": true,
-    "map.height": 64,
+    "map.height": 62,
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 8,
     "map.tileWidth": 8,
-    "map.width": 64,
+    "map.width": 210,
     "openFiles": [
         "maps/white_magic_shop.tmx",
         "tilesets/store_tiles.tsx",
@@ -153,6 +173,8 @@
     ],
     "project": "custom_stores.tiled-project",
     "recentFiles": [
+        "maps/castle_combined.tmx",
+        "maps/castle_inside.tsx",
         "maps/cornelia_castle_2.tmx",
         "maps/castle2.tsx",
         "maps/castle1.tsx",
@@ -162,9 +184,7 @@
         "maps/store_tiles.tsx",
         "maps/tileset_for_stores.tsx",
         "maps/black_magic.tmx",
-        "maps/random_menu.tmx",
-        "maps/frame.tsx",
-        "maps/tavern.tmx"
+        "maps/random_menu.tmx"
     ],
     "resizeMap.removeObjects": false,
     "tileset.lastUsedFormat": "tsx",

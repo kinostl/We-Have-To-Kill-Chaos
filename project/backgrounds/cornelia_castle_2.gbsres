@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "4b32b7ed-834b-4841-9cf0-2f350506c3ec",
+  "name": "cornelia_castle_2",
+  "symbol": "bg_cornelia_castle_2",
+  "width": 70,
+  "height": 62,
+  "imageWidth": 560,
+  "imageHeight": 496,
+  "filename": "cornelia_castle_2.png",
+  "tileColors": "",
+  "autoColor": true
+}
