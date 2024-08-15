@@ -9,6 +9,11 @@
   "height": 1,
   "script": [
     {
+      "command": "EVENT_HIDE_SPRITES",
+      "args": {},
+      "id": "8246a595-62fb-475e-b9e2-532f064b52bc"
+    },
+    {
       "command": "EVENT_SWITCH_SCENE",
       "args": {
         "sceneId": "72879bfc-7d02-459d-8d2c-51ce404b1d66",
