@@ -8,6 +8,6 @@
   "imageWidth": 560,
   "imageHeight": 496,
   "filename": "cornelia_castle_2_inside.png",
-  "tileColors": "",
-  "autoColor": true
+  "autoColor": true,
+  "tileColors": ""
 }

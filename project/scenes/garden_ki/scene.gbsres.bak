@@ -1,0 +1,21 @@
+{
+  "_resourceType": "scene",
+  "id": "dede7084-89fe-453c-8524-557b1feff27e",
+  "name": "Garden Ki",
+  "backgroundId": "32c2649a-c30d-4e3e-a6f9-3a1016ba28c2",
+  "tilesetId": "",
+  "width": 20,
+  "height": 18,
+  "type": "TOPDOWN",
+  "paletteIds": [],
+  "spritePaletteIds": [],
+  "collisions": "",
+  "autoFadeSpeed": 1,
+  "symbol": "scene_4",
+  "x": 3016,
+  "y": 360,
+  "script": [],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": []
+}

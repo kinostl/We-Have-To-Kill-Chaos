@@ -25,8 +25,8 @@
             "scale": 5.647222222222222,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 79.86227250368913,
-                "y": 38.248893261190354
+                "x": 130.59517953762912,
+                "y": 43.11854402361043
             }
         },
         "maps/castle1.tsx": {
@@ -57,11 +57,11 @@
             }
         },
         "maps/cornelia_castle_2.tmx": {
-            "scale": 1.5,
-            "selectedLayer": 2,
+            "scale": 3,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 295.33333333333326,
-                "y": 166.99999999999997
+                "x": 457.16666666666663,
+                "y": 270.16666666666663
             }
         },
         "maps/cornelia_castle_2_inside.tmx": {
@@ -80,7 +80,7 @@
             "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 125.0909090909091,
+                "x": 133.54545454545456,
                 "y": 247.36363636363637
             }
         },
@@ -92,12 +92,24 @@
                 "y": 72.06121029445862
             }
         },
+        "maps/kings_garden.tmx": {
+            "scale": 4,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 47.375,
+                "y": 85.125
+            }
+        },
+        "maps/kings_garden.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 4
+        },
         "maps/random_menu.tmx": {
             "scale": 5.634027777777777,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 76.49944533464812,
-                "y": 59.992604461974636
+                "x": 127.35116479723902,
+                "y": 64.87365955873291
             }
         },
         "maps/store_tiles.tsx": {
@@ -109,7 +121,7 @@
             "scale": 5.634027777777777,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 91.76383581905586,
+                "x": 100.01725625539261,
                 "y": 81.91297916923457
             }
         },
@@ -138,7 +150,7 @@
             "scale": 4,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 314,
+                "x": 325.625,
                 "y": 199.875
             }
         },
@@ -148,18 +160,18 @@
             "scaleInEditor": 1
         }
     },
-    "last.imagePath": "/home/deck/Documents/We Have To Kill Chaos/maps",
+    "last.imagePath": "/home/deck/Documents/We Have To Kill Chaos/assets/backgrounds",
     "last.worldFilePath": "/home/deck/Documents/We Have To Kill Chaos/maps",
     "loadedWorlds": [
         "/home/deck/Documents/We Have To Kill Chaos/maps/castle_world.world",
         "/home/deck/Documents/We Have To Kill Chaos/maps/weapon_armor_shop.world"
     ],
     "map.fixedSize": true,
-    "map.height": 62,
+    "map.height": 18,
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 8,
     "map.tileWidth": 8,
-    "map.width": 210,
+    "map.width": 20,
     "openFiles": [
         "maps/white_magic_shop.tmx",
         "tilesets/store_tiles.tsx",
@@ -173,6 +185,7 @@
     ],
     "project": "custom_stores.tiled-project",
     "recentFiles": [
+        "maps/kings_garden.tsx",
         "maps/cornelia_castle_2_inside.tmx",
         "maps/castle_combined.tmx",
         "maps/castle_inside.tsx",
@@ -183,8 +196,7 @@
         "maps/white_magic_shop.tmx",
         "tilesets/store_tiles.tsx",
         "maps/store_tiles.tsx",
-        "maps/tileset_for_stores.tsx",
-        "maps/black_magic.tmx"
+        "maps/tileset_for_stores.tsx"
     ],
     "resizeMap.removeObjects": false,
     "tileset.lastUsedFormat": "tsx",

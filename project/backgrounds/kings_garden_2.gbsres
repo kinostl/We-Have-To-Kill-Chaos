@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "32c2649a-c30d-4e3e-a6f9-3a1016ba28c2",
+  "name": "kings_garden_2",
+  "symbol": "bg_kings_garden_2",
+  "width": 20,
+  "height": 18,
+  "imageWidth": 160,
+  "imageHeight": 144,
+  "filename": "kings_garden_2.png",
+  "tileColors": "",
+  "autoColor": true
+}
