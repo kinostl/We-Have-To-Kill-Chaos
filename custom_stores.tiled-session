@@ -49,11 +49,11 @@
             "scaleInEditor": 1
         },
         "maps/clinic.tmx": {
-            "scale": 3,
+            "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 91.83333333333331,
-                "y": 22.499999999999986
+                "x": 36.272727272727266,
+                "y": 85.18181818181817
             }
         },
         "maps/cornelia_castle_2.tmx": {
@@ -111,6 +111,9 @@
                 "x": 127.35116479723902,
                 "y": 64.87365955873291
             }
+        },
+        "maps/shed_tileset.tsx": {
+            "scaleInEditor": 11
         },
         "maps/store_tiles.tsx": {
             "dynamicWrapping": true,
@@ -185,6 +188,7 @@
     ],
     "project": "custom_stores.tiled-project",
     "recentFiles": [
+        "maps/shed_tileset.tsx",
         "maps/kings_garden.tsx",
         "maps/cornelia_castle_2_inside.tmx",
         "maps/castle_combined.tmx",
@@ -195,8 +199,7 @@
         "maps/weapon_armor_shop.tmx",
         "maps/white_magic_shop.tmx",
         "tilesets/store_tiles.tsx",
-        "maps/store_tiles.tsx",
-        "maps/tileset_for_stores.tsx"
+        "maps/store_tiles.tsx"
     ],
     "resizeMap.removeObjects": false,
     "tileset.lastUsedFormat": "tsx",

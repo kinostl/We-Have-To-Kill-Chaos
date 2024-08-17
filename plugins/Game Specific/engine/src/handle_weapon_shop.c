@@ -58,7 +58,7 @@ void handleWeaponShop(SCRIPT_CTX * THIS) OLDCALL BANKED {
     strcat(d, "G?");
 }
 
-void purchaseItemToInventory(SCRIPT_CTX * THIS) OLDCALL BANKED {
+void purchaseWeaponToInventory(SCRIPT_CTX * THIS) OLDCALL BANKED {
     UBYTE weapon_choice = *(UBYTE *) VM_REF_TO_PTR(FN_ARG0);
 
     struct weapon_data wepon;

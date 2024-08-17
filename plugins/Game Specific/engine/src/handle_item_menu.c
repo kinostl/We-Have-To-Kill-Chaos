@@ -83,7 +83,7 @@ void drawMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
       break;
     }
     progress_blanks(menu, 3);
-    write_weapon_name(item_slots[i].type, menu);
+    write_weapon_name(item_slots[i].id, menu);
     draw_amt(menu, item_slots[i].count);
   }
   for (UBYTE i = 0; i<(20*10); i++) {
@@ -103,22 +103,21 @@ void drawItemInfoBox(SCRIPT_CTX * THIS) OLDCALL BANKED {
 
 void loadWeaponInfo(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  UBYTE menu[18 * 8] = "";
+  if(item_slots[0].type == NULL){
+    strcpy(ui_text_data, "You have no items.");
+    write_bg_font(1, 13, 18, 4);
+    return;
+  }
   UWORD item_idx = VM_GLOBAL(VAR_TEMP_Y);
+  strcpy(ui_text_data, "");
+
 
   struct item_slot i_slot;
   i_slot = item_slots[item_idx];
 
   struct weapon_data w_data;
-  set_weapon(i_slot.type, &w_data);
+  set_weapon(i_slot.id, &w_data);
 
-  load_weapon_info_text(w_data, menu, 18, 5);
-
-  for (UBYTE i = 0; i<(20*8); i++) {
-    UBYTE j = menu[i];
-    menu[i] = ReadBankedUBYTE(bg_font.recode_table + j, bg_font_bank);
-    menu[i] += start_of_bkg_vram;
-  }
-
-  set_bkg_tiles(1, 13, 18, 4, menu);
+  load_weapon_info_text(w_data, ui_text_data, 18, 5);
+  write_bg_font(1, 13, 18, 4);
 }

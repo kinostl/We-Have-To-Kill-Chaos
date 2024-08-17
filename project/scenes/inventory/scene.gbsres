@@ -8,7 +8,7 @@
   "y": 1144,
   "width": 20,
   "height": 18,
-  "backgroundId": "95ce8c08-bca2-49c0-9ae6-cc4af10a7250",
+  "backgroundId": "56c4b6e9-1ddc-4d2c-86a2-40042d262ca2",
   "tilesetId": "",
   "paletteIds": [
     "",
@@ -139,47 +139,6 @@
       "id": "574367d6-6f46-4c3a-8916-210363b92d18"
     },
     {
-      "command": "MY_EVENT_CALL_NATIVE",
-      "args": {
-        "argCount": 0,
-        "arg0": {
-          "type": "number",
-          "value": 0
-        },
-        "arg1": {
-          "type": "number",
-          "value": 0
-        },
-        "arg2": {
-          "type": "number",
-          "value": 0
-        },
-        "arg3": {
-          "type": "number",
-          "value": 0
-        },
-        "arg4": {
-          "type": "number",
-          "value": 0
-        },
-        "arg5": {
-          "type": "number",
-          "value": 0
-        },
-        "arg6": {
-          "type": "number",
-          "value": 0
-        },
-        "arg7": {
-          "type": "number",
-          "value": 0
-        },
-        "funName": "drawItemInfoBox",
-        "__collapse": false
-      },
-      "id": "88e4c9c5-3815-4645-b92e-cbbb56eac30e"
-    },
-    {
       "command": "EVENT_SET_INPUT_SCRIPT",
       "args": {
         "input": [
@@ -263,7 +222,8 @@
           "b"
         ],
         "override": true,
-        "__scriptTabs": "press"
+        "__scriptTabs": "press",
+        "__collapse": true
       },
       "children": {
         "true": [

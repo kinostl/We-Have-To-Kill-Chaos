@@ -213,16 +213,6 @@
         ],
         "false": [
           {
-            "command": "EVENT_TEXT",
-            "args": {
-              "text": [
-                "You pay $L1$ G"
-              ],
-              "avatarId": ""
-            },
-            "id": "cb0fb678-0c3c-407e-ac4f-a3ea89a19686"
-          },
-          {
             "command": "MY_EVENT_CALL_NATIVE",
             "args": {
               "argCount": 1,
@@ -233,6 +223,13 @@
               "funName": "purchaseItemToInventory"
             },
             "id": "abc17572-22a3-4861-bfc4-7aeb2e849d77"
+          },
+          {
+            "command": "FF_EVENT_DISPLAY_TEXT",
+            "args": {
+              "h": 2
+            },
+            "id": "d93e5edb-f7e4-4f9f-95e2-0128bd5a93dd"
           }
         ]
       },

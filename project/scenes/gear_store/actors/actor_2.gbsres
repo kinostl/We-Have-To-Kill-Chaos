@@ -220,7 +220,7 @@
                 "type": "variable",
                 "value": "L0"
               },
-              "funName": "purchaseItemToInventory"
+              "funName": "purchaseWeaponToInventory"
             },
             "id": "abc17572-22a3-4861-bfc4-7aeb2e849d77"
           },

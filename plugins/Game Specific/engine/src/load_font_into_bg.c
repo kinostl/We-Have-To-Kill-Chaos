@@ -1,5 +1,5 @@
 #include <asm/types.h>
-#include <string.h>
+#include <ui.h>
 #pragma bank 255
 #include "load_font_into_bg.h"
 #include "data/font_gbs_mono.h"
@@ -30,4 +30,46 @@ void loadFontIntoBkg(SCRIPT_CTX *THIS) OLDCALL BANKED {
   start_of_bkg_vram = c_tiles.n_tiles;
   MemcpyBanked(&bg_font, font_gbs_mono, sizeof(font_desc_t), bg_font_bank);
   SetBankedBkgData(start_of_bkg_vram,16*14, bg_font.bitmaps, bg_font_bank);
+}
+
+void write_bg_font(UBYTE x, UBYTE y, UBYTE w, UBYTE h) OLDCALL BANKED {
+  UBYTE menu[TEXT_MAX_LENGTH] = "";
+  BYTE ui_i=-1;
+  BYTE nl_count=w;
+  BOOLEAN end_of_arr = FALSE;
+  for (UBYTE i = 0; i<(w*h); i++) {
+    if (end_of_arr) {
+      menu[i] =
+          ReadBankedUBYTE(bg_font.recode_table + (UBYTE)' ', bg_font_bank);
+        menu[i] += start_of_bkg_vram;
+      continue;
+    }
+
+    ui_i++;
+    if(ui_text_data[ui_i] == '\0'){
+      menu[i] =
+          ReadBankedUBYTE(bg_font.recode_table + (UBYTE)' ', bg_font_bank);
+        menu[i] += start_of_bkg_vram;
+      end_of_arr = TRUE;
+      continue;
+    }
+
+    if(ui_text_data[ui_i] == '\n'){
+      for (BYTE n_count = 0; n_count < nl_count; n_count++) {
+        menu[i+n_count] = ReadBankedUBYTE(bg_font.recode_table + (UBYTE) ' ',
+                                  bg_font_bank);
+        menu[i+n_count] += start_of_bkg_vram;
+      }
+      i+=nl_count - 1;
+      nl_count=w;
+      continue;
+    }
+    
+    menu[i] = ReadBankedUBYTE(bg_font.recode_table + ui_text_data[ui_i], bg_font_bank);
+    menu[i] += start_of_bkg_vram;
+    nl_count--;
+    if(nl_count<0) nl_count = w;
+  }
+
+  set_bkg_tiles(x, y, w, h, menu);
 }

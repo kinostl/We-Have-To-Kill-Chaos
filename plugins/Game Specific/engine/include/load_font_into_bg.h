@@ -8,6 +8,7 @@ extern font_desc_t bg_font;
 extern UBYTE bg_font_bank;
 
 
+void write_bg_font(UBYTE x, UBYTE y, UBYTE w, UBYTE h) OLDCALL BANKED;
 
 
 #endif

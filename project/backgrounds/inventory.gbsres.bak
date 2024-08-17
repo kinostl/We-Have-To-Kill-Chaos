@@ -8,6 +8,6 @@
   "imageWidth": 160,
   "imageHeight": 144,
   "filename": "inventory.png",
-  "tileColors": "07168+",
+  "tileColors": "0628+07140+",
   "autoColor": false
 }

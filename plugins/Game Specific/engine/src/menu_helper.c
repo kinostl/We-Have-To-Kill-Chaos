@@ -1,3 +1,5 @@
+#include <asm/types.h>
+#include <ui.h>
 #pragma bank 255
 #include "armor_data.h"
 #include "weapon_data.h"
