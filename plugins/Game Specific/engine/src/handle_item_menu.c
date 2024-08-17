@@ -84,7 +84,7 @@ void drawMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
     }
     progress_blanks(menu, 3);
     write_weapon_name(item_slots[i].id, menu);
-    draw_amt(menu, item_slots[i].count);
+    draw_amt(menu, i);
   }
   for (UBYTE i = 0; i<(20*10); i++) {
     UBYTE t = menu[i];
