@@ -16,7 +16,18 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
-  "script": [],
+  "script": [
+    {
+      "command": "EVENT_TEXT",
+      "args": {
+        "text": [
+          "Easter Egg 1"
+        ],
+        "avatarId": ""
+      },
+      "id": "668b8bf7-de4b-408f-bd13-bebe6c97317e"
+    }
+  ],
   "startScript": [],
   "updateScript": [],
   "hit1Script": [],

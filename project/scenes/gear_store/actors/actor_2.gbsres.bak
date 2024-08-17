@@ -22,7 +22,7 @@
       "args": {
         "actor": "$self$",
         "setvar": "L0",
-        "items": 6,
+        "items": 7,
         "option1": "Wood Staff",
         "option1_cost": 5,
         "option2": "Small Knife",
@@ -33,11 +33,11 @@
         "option4_cost": 10,
         "option5": "Iron Hammer",
         "option5_cost": 10,
-        "option6": "Leave",
+        "option6": "Small Talk",
         "option6_cost": 0,
-        "option7": "",
+        "option7": "Leave",
         "option7_cost": 0,
-        "option8": "",
+        "option8": "Leave",
         "option8_cost": 0,
         "cancelOnB": true,
         "cancelOnLastOption": true
@@ -45,94 +45,132 @@
       "id": "d3831b97-f353-46a9-9b19-4b5e48c8e6ff"
     },
     {
-      "command": "EVENT_IF",
+      "command": "EVENT_SWITCH",
       "args": {
-        "condition": {
-          "type": "eq",
-          "valueA": {
-            "type": "variable",
-            "value": "L0"
-          },
-          "valueB": {
-            "type": "number",
-            "value": 0
-          }
-        },
-        "__collapseElse": true
+        "variable": "L0",
+        "choices": 2,
+        "__collapseCase0": false,
+        "value0": 0,
+        "__collapseCase1": false,
+        "value1": 6,
+        "__collapseCase2": false,
+        "value2": 3,
+        "__collapseCase3": false,
+        "value3": 4,
+        "__collapseCase4": false,
+        "value4": 5,
+        "__collapseCase5": false,
+        "value5": 6,
+        "__collapseCase6": false,
+        "value6": 7,
+        "__collapseCase7": false,
+        "value7": 8,
+        "__collapseCase8": false,
+        "value8": 9,
+        "__collapseCase9": false,
+        "value9": 10,
+        "__collapseCase10": false,
+        "value10": 11,
+        "__collapseCase11": false,
+        "value11": 12,
+        "__collapseCase12": false,
+        "value12": 13,
+        "__collapseCase13": false,
+        "value13": 14,
+        "__collapseCase14": false,
+        "value14": 15,
+        "__collapseCase15": false,
+        "value15": 16,
+        "__collapseElse": false,
+        "__disableElse": true
       },
       "children": {
-        "true": [
+        "true0": [
           {
             "command": "EVENT_STOP",
             "args": {},
             "id": "ad949fcb-004c-4f3f-b3f9-01bddc661d6b"
           }
         ],
+        "true1": [
+          {
+            "command": "EVENT_TEXT",
+            "args": {
+              "text": [
+                "I heard that the\nTemple of Fiends\nhas some powerful \nswords in it!"
+              ],
+              "avatarId": ""
+            },
+            "id": "9afe8946-487d-4d46-8071-9dd69daf881d"
+          },
+          {
+            "command": "EVENT_STOP",
+            "args": {},
+            "id": "72019e3b-8716-419b-8734-b34976d34565"
+          }
+        ],
+        "true2": [],
+        "true3": [],
+        "true4": [],
+        "true5": [],
+        "true6": [],
+        "true7": [],
+        "true8": [],
+        "true9": [],
+        "true10": [],
+        "true11": [],
+        "true12": [],
+        "true13": [],
+        "true14": [],
+        "true15": [],
         "false": []
       },
-      "id": "21c1a051-c9e6-44eb-b23c-d79f01a97be4"
+      "id": "5cfc7269-48f8-4983-ab3b-29acfebf640f"
     },
     {
-      "command": "EVENT_IF",
+      "command": "MY_EVENT_CALL_NATIVE",
       "args": {
-        "condition": {
-          "type": "gt",
-          "valueA": {
-            "type": "variable",
-            "value": "L0"
-          },
-          "valueB": {
-            "type": "number",
-            "value": 2
-          }
+        "argCount": 1,
+        "arg0": {
+          "type": "variable",
+          "value": "L0"
         },
-        "__collapseElse": false
+        "arg1": {
+          "type": "variable",
+          "value": "L1"
+        },
+        "funName": "handleWeaponShop"
       },
-      "children": {
-        "true": [
-          {
-            "command": "EVENT_SET_VALUE",
-            "args": {
-              "variable": "L1",
-              "value": {
-                "type": "number",
-                "value": 10
-              }
-            },
-            "id": "f887f40b-a994-4489-9da2-f4e08d2c8bc7"
-          }
-        ],
-        "false": [
-          {
-            "command": "EVENT_SET_VALUE",
-            "args": {
-              "variable": "L1",
-              "value": {
-                "type": "number",
-                "value": 5
-              }
-            },
-            "id": "b8f0b10f-b3b5-4a48-85a9-92e56b1cc8a2"
-          }
-        ]
-      },
-      "id": "0a8a9677-05cf-4ed8-8867-d0b24c53880d"
+      "id": "a6c131e7-0447-4643-9e26-3237e8078c74"
     },
     {
-      "command": "EVENT_TEXT",
+      "command": "EVENT_CALL_CUSTOM_EVENT",
       "args": {
-        "text": [
-          "Pay $L1$ G?"
-        ],
-        "avatarId": ""
+        "customEventId": "14789182-c86e-40a0-b290-d27337b748f4",
+        "$actor[0]$": "c2b81b1c-3837-4a59-b123-090b43e32d20"
       },
-      "id": "06e6a979-6d17-424d-b324-cfc9f03873b4"
+      "id": "2ce44d0c-d26e-49bb-aa08-b152c7494ffa"
+    },
+    {
+      "command": "FF_EVENT_DISPLAY_TEXT",
+      "args": {
+        "h": 5
+      },
+      "id": "3aad346b-89ee-401d-98e9-890e49ba8393"
+    },
+    {
+      "command": "EVENT_GBVM_SCRIPT",
+      "args": {
+        "script": "VM_OVERLAY_CLEAR 0, 0, 20, 7, .UI_COLOR_BLACK, .UI_DRAW_FRAME\nVM_OVERLAY_MOVE_TO 0, 11, .OVERLAY_IN_SPEED\nVM_DISPLAY_TEXT\nVM_OVERLAY_WAIT .UI_NONMODAL, (.UI_WAIT_WINDOW|.UI_WAIT_TEXT|.UI_WAIT_BTN_A)\nVM_OVERLAY_MOVE_TO 0, 17, .OVERLAY_OUT_SPEED\nVM_OVERLAY_WAIT .UI_NONMODAL, (.UI_WAIT_WINDOW)",
+        "__comment": true
+      },
+      "id": "3147b5d8-80bc-4bd3-bb2d-89b94065ccf9"
     },
     {
       "command": "FF_EVENT_MY_MENU",
       "args": {
         "actor": "$self$",
-        "setvar": "L0",
+        "setvar": "L1",
         "items": 2,
         "option1": "Yes",
         "option2": "No",
@@ -156,7 +194,7 @@
           "type": "eq",
           "valueA": {
             "type": "variable",
-            "value": "L0"
+            "value": "L1"
           },
           "valueB": {
             "type": "number",
@@ -183,6 +221,18 @@
               "avatarId": ""
             },
             "id": "cb0fb678-0c3c-407e-ac4f-a3ea89a19686"
+          },
+          {
+            "command": "MY_EVENT_CALL_NATIVE",
+            "args": {
+              "argCount": 1,
+              "arg0": {
+                "type": "variable",
+                "value": "L0"
+              },
+              "funName": "purchaseItemToInventory"
+            },
+            "id": "abc17572-22a3-4861-bfc4-7aeb2e849d77"
           }
         ]
       },

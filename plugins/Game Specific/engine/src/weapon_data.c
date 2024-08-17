@@ -8,7 +8,11 @@
 #include "weapon_data/wood_staff.h"
 #include "weapon_data/unarmed.h"
 #include <asm/types.h>
+#include <string.h>
+#include "menu_helper.h"
+
 #pragma bank 255
+
 
 void set_weapon(BYTE weapon_id, struct weapon_data *weapon) OLDCALL BANKED {
   unarmed(weapon);
@@ -45,4 +49,53 @@ void set_weapon(BYTE weapon_id, struct weapon_data *weapon) OLDCALL BANKED {
     rune_sword(weapon);
     break;
   }
+}
+
+inline void writeItemDesc(BYTE item_id, unsigned char *item_s){
+
+  switch (item_id) {
+  default:
+  case 0:
+    strcat(item_s, "");
+    break;
+  case 1:
+    strcat(item_s, "Wooden Nunchucks");
+    break;
+  case 2:
+    strcat(item_s, "Small Dagger");
+    break;
+  case 3:
+    strcat(item_s, "Wood Rod");
+    break;
+  case 4:
+    strcat(item_s, "Rapier");
+    break;
+  }
+}
+
+void load_weapon_info_text(struct weapon_data w_data, unsigned char * item_s, UBYTE width, UBYTE offset) OLDCALL BANKED {
+  unsigned char t[4];
+
+  writeItemDesc(w_data.id, item_s);
+  strcat(item_s, "\n");
+  progress_blanks(item_s, offset);
+  strcat(item_s, "Atk : ");
+
+  itoa_format(w_data.attack, t, 3);
+  strcat(item_s, t);
+
+  strcat(item_s, "\n");
+  progress_blanks(item_s, offset);
+  strcat(item_s, "Hit : ");
+  itoa_format(w_data.hit_chance, t, 3);
+  strcat(item_s, t);
+  strcat(item_s, "%");
+
+  strcat(item_s, "\n");
+  progress_blanks(item_s, offset);
+  strcat(item_s, "Crit: ");
+  itoa_format(w_data.crit_chance, t, 3);
+  strcat(item_s, t);
+  strcat(item_s, "%");
+
 }

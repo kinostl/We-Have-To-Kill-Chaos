@@ -1,39 +1,36 @@
 {
   "_resourceType": "actor",
-  "id": "3b906fda-1996-45c5-a469-d7e78c0398db",
-  "_index": 3,
-  "symbol": "actor_41",
+  "id": "6d705b54-7eb7-477b-ae97-38a4d70ed38c",
   "name": "",
-  "x": 8,
-  "y": 9,
   "frame": 0,
   "animate": false,
   "spriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
-  "paletteId": "",
   "direction": "down",
   "moveSpeed": 1,
   "animSpeed": 15,
+  "paletteId": "",
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "symbol": "actor_46",
   "script": [
     {
       "command": "FF_EVENT_MY_SHOP_MENU",
       "args": {
         "actor": "$self$",
         "setvar": "L0",
-        "items": 4,
-        "option1": "Cloth Robe",
-        "option1_cost": 10,
-        "option2": "Wood Armor",
-        "option2_cost": 50,
-        "option3": "Chain Armor",
-        "option3_cost": 80,
-        "option4": "Leave",
-        "option4_cost": 0,
-        "option5": "",
+        "items": 6,
+        "option1": "Fire",
+        "option1_cost": 100,
+        "option2": "Sleep",
+        "option2_cost": 100,
+        "option3": "Lock",
+        "option3_cost": 100,
+        "option4": "Zap",
+        "option4_cost": 100,
+        "option5": "Small Talk",
         "option5_cost": 0,
-        "option6": "",
+        "option6": "Leave",
         "option6_cost": 0,
         "option7": "",
         "option7_cost": 0,
@@ -42,7 +39,7 @@
         "cancelOnB": true,
         "cancelOnLastOption": true
       },
-      "id": "2bad2a70-b0e5-4378-9485-7820db22c815"
+      "id": "c02dc6c1-e9f9-4108-8138-600efc6ef0d9"
     }
   ],
   "startScript": [
@@ -51,11 +48,14 @@
       "args": {
         "actorId": "$self$"
       },
-      "id": "7b1ddb0c-4a69-4d44-8f9e-4608c6a09751"
+      "id": "3b89d487-1592-4099-92cd-4ed670516ac5"
     }
   ],
   "updateScript": [],
   "hit1Script": [],
   "hit2Script": [],
-  "hit3Script": []
+  "hit3Script": [],
+  "x": 9,
+  "y": 9,
+  "_index": 1
 }

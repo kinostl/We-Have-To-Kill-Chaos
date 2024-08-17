@@ -55,15 +55,6 @@ inline void write_weapon_name(BYTE weapon_id, unsigned char *weapon_s) {
 void drawMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
   UBYTE header[18] = "";
-  // Staged data
-  item_slots[0].count=1;
-  item_slots[0].type=1;
-  item_slots[1].count=1;
-  item_slots[1].type=2;
-  item_slots[2].count=1;
-  item_slots[2].type=3;
-  item_slots[3].count=1;
-  item_slots[3].type=4;
 
   // Item Header
   strcpy(header, "Items 1/1");
@@ -103,32 +94,12 @@ void drawMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   set_bkg_tiles(0, 2, 20, 10, menu);
 }
 
-inline void writeItemDesc(BYTE item_id, unsigned char *item_s){
-
-  switch (item_id) {
-  default:
-  case 0:
-    strcat(item_s, "");
-    break;
-  case 1:
-    strcat(item_s, "Wooden Nunchucks");
-    break;
-  case 2:
-    strcat(item_s, "Small Dagger");
-    break;
-  case 3:
-    strcat(item_s, "Wood Rod");
-    break;
-  case 4:
-    strcat(item_s, "Rapier");
-    break;
-  }
-}
 
 void drawItemInfoBox(SCRIPT_CTX * THIS) OLDCALL BANKED {
   THIS;
   make_box(0, 12, 20,6);
 }
+
 
 void loadWeaponInfo(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
@@ -137,29 +108,11 @@ void loadWeaponInfo(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
   struct item_slot i_slot;
   i_slot = item_slots[item_idx];
+
   struct weapon_data w_data;
   set_weapon(i_slot.type, &w_data);
-  writeItemDesc(w_data.id, menu);
-  add_new_line(menu, 18);
-  progress_blanks(menu, 5);
-  strcat(menu, "Atk : ");
-  unsigned char t[4];
-  itoa_format(w_data.attack, t, 3);
-  strcat(menu, t);
 
-  add_new_line(menu, 18);
-  progress_blanks(menu, 5);
-  strcat(menu, "Hit : ");
-  itoa_format(w_data.hit_chance, t, 3);
-  strcat(menu, t);
-  strcat(menu, "%");
-
-  add_new_line(menu, 18);
-  progress_blanks(menu, 5);
-  strcat(menu, "Crit: ");
-  itoa_format(w_data.crit_chance, t, 3);
-  strcat(menu, t);
-  strcat(menu, "%");
+  load_weapon_info_text(w_data, menu, 18, 5);
 
   for (UBYTE i = 0; i<(20*8); i++) {
     UBYTE j = menu[i];

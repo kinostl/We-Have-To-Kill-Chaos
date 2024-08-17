@@ -41,6 +41,7 @@ const compile = (input, helpers) => {
   const {
     _addComment,
     variableSetToScriptValue,
+    variableCopy,
     _stackPush,
     _stackPop,
     _callNative,

@@ -1,8 +1,8 @@
 {
   "_resourceType": "settings",
-  "startSceneId": "3fa5bc66-280d-48f3-9969-a66108a14642",
-  "startX": 46,
-  "startY": 22,
+  "startSceneId": "2c0e6f2e-0ea4-41e1-a9bd-91c275a8e510",
+  "startX": 29,
+  "startY": 12,
   "startMoveSpeed": 1,
   "startAnimSpeed": 15,
   "startDirection": "up",
@@ -101,6 +101,16 @@
   "debuggerPauseOnScriptChanged": false,
   "debuggerPauseOnWatchedVariableChanged": false,
   "debuggerBreakpoints": [
+    {
+      "scriptEventId": "f05959c8-ec4c-4e55-8068-9cba33774b69",
+      "context": {
+        "type": "entity",
+        "entityType": "actor",
+        "entityId": "ff423321-46c6-4209-9441-e3210bebb29d",
+        "sceneId": "2c0e6f2e-0ea4-41e1-a9bd-91c275a8e510",
+        "scriptKey": "script"
+      }
+    },
     {
       "scriptEventId": "e9ca0317-a83b-402a-bcad-33929d327e45",
       "context": {

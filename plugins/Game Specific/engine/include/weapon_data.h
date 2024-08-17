@@ -29,4 +29,5 @@ struct weapon_data {
 };
 
 void set_weapon(BYTE weapon_id, struct weapon_data *weapon) OLDCALL BANKED;
+void load_weapon_info_text(struct weapon_data w_data, unsigned char * item_s, UBYTE width, UBYTE offset) OLDCALL BANKED;
 #endif

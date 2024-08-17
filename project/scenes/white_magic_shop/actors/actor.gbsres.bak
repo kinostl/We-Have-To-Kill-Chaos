@@ -1,14 +1,14 @@
 {
   "_resourceType": "actor",
-  "id": "24631166-e91e-4395-9d12-1feab980c038",
+  "id": "98218223-2d73-4461-9582-75c8b9ec3f66",
   "_index": 0,
-  "symbol": "actor_35",
+  "symbol": "actor_23",
   "name": "",
   "x": 9,
-  "y": 8,
+  "y": 7,
   "frame": 0,
   "animate": false,
-  "spriteSheetId": "7d5c3eb5-ff78-42a2-a396-d32518496733",
+  "spriteSheetId": "3b1fd25e-4a32-4c35-bbb0-8a98183d524b",
   "paletteId": "",
   "direction": "down",
   "moveSpeed": 1,
@@ -16,19 +16,18 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
-  "script": [
+  "script": [],
+  "startScript": [
     {
-      "command": "EVENT_TEXT",
+      "command": "EVENT_ACTOR_SET_STATE",
       "args": {
-        "text": [
-          "Easter Egg 1"
-        ],
-        "avatarId": ""
+        "actorId": "$self$",
+        "spriteStateId": "White Mage",
+        "loopAnim": true
       },
-      "id": "f9b390ed-ab5c-4524-bf7b-16e35df71a76"
+      "id": "9205b899-7804-4c61-8207-d5e02c924c91"
     }
   ],
-  "startScript": [],
   "updateScript": [],
   "hit1Script": [],
   "hit2Script": [],
