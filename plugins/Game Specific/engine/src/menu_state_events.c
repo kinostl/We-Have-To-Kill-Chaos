@@ -10,10 +10,8 @@ unsigned char get_rendered_char(unsigned char d) {
   return d;
 }
 
-unsigned char *fs_menu_render_char(UBYTE *d, UBYTE *menu_ptr,
-                                   UBYTE w, BYTE nl_count, UBYTE *menu, UBYTE x) OLDCALL BANKED {
-  UBYTE dx, dy;
-
+unsigned char *fs_menu_render_char(UBYTE *d, UBYTE *menu_ptr, UBYTE w,
+                                   BYTE nl_count) OLDCALL BANKED {
   switch (*d) {
   case 0x00:
   case 0x01:
@@ -71,10 +69,16 @@ void fs_menu_write_bg_font(UBYTE x, UBYTE y, UBYTE w, UBYTE h) OLDCALL BANKED {
       continue;
     }
 
-    menu_ptr = fs_menu_render_char(&ui_text_data[ui_i], menu_ptr, w, nl_count, &menu[0], x);
+    menu_ptr = fs_menu_render_char(&ui_text_data[ui_i], menu_ptr, w, nl_count);
 
     if (ui_text_data[ui_i] == 0x03 || ui_text_data[ui_i] == 0x04) {
       ui_i += 2;
+    }
+
+    if (ui_text_data[ui_i] == 0x02 || ui_text_data[ui_i] == 0x02 ||
+        ui_text_data[ui_i] == 0x06 || ui_text_data[ui_i] == 0x07 ||
+        ui_text_data[ui_i] == 0x0a || ui_text_data[ui_i] == 0x0d) {
+      ui_i++;
     }
 
     nl_count--;
