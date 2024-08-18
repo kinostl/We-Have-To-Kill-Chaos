@@ -1,6 +1,6 @@
 const id = "FS_FULL_MENU_WRITE_BG_TEXT";
 const groups = ["Full Screen Menu"];
-const name = "Write BG Text";
+const name = "Write FS Menu Text";
 
 const fields = (
     [

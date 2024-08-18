@@ -1,7 +1,7 @@
 {
   "_resourceType": "scene",
   "id": "76586ae3-b5db-4079-8b7b-71f9205f6373",
-  "type": "TOPDOWN",
+  "type": "MENU",
   "name": "Equip Shop",
   "symbol": "scene_21",
   "x": 1968,
@@ -28,52 +28,84 @@
   "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
   "script": [
     {
-      "command": "MY_EVENT_CALL_NATIVE",
+      "command": "EVENT_SET_VALUE",
       "args": {
-        "argCount": 0,
-        "funName": "loadFontIntoBkg"
+        "variable": "L0",
+        "value": {
+          "type": "number",
+          "value": 65
+        }
       },
-      "id": "c1320b14-39bc-4290-92ca-85143276af9a"
+      "id": "f44ed521-34dc-4c00-bfbb-a67a1bdda2e5"
     },
     {
-      "command": "MY_EVENT_CALL_NATIVE",
+      "command": "FS_FULL_MENU_WRITE_BG_TEXT",
       "args": {
-        "argCount": 0,
-        "funName": "loadWeaponShopName"
+        "bg_text": "Weapon Shop",
+        "x": {
+          "type": "number",
+          "value": 1
+        },
+        "y": {
+          "type": "number",
+          "value": 1
+        },
+        "w": {
+          "type": "number",
+          "value": 11
+        },
+        "h": {
+          "type": "number",
+          "value": 1
+        }
       },
-      "id": "7a7d3002-5ba5-4d3c-9cda-93afbafabfff"
+      "id": "e758393b-27a1-4aae-9843-14e7e427ff08"
     },
     {
-      "command": "MY_EVENT_CALL_NATIVE",
+      "command": "FS_FULL_MENU_WRITE_BG_TEXT",
       "args": {
-        "argCount": 0,
-        "funName": "loadWeaponGilCount"
+        "bg_text": "$L0$\\003\\023\\002G",
+        "x": {
+          "type": "number",
+          "value": 14
+        },
+        "y": {
+          "type": "number",
+          "value": 1
+        },
+        "w": {
+          "type": "number",
+          "value": 5
+        },
+        "h": {
+          "type": "number",
+          "value": 1
+        }
       },
-      "id": "e8092240-e10a-4ab7-8dec-459811ced0de"
+      "id": "49e101c5-1a13-49ac-b6d6-39b77a45e9ef"
     },
     {
-      "command": "MY_EVENT_CALL_NATIVE",
+      "command": "FS_FULL_MENU_WRITE_BG_TEXT",
       "args": {
-        "argCount": 0,
-        "funName": "loadWeaponShopOptions"
+        "bg_text": "BUY\nSELL\nEXIT",
+        "x": {
+          "type": "number",
+          "value": 2
+        },
+        "y": {
+          "type": "number",
+          "value": 4
+        },
+        "w": {
+          "type": "number",
+          "value": 4
+        },
+        "h": {
+          "type": "number",
+          "value": 3
+        }
       },
-      "id": "95cc471d-9ac5-4b4e-a6b1-52c1eb71435b"
-    },
-    {
-      "command": "MY_EVENT_CALL_NATIVE",
-      "args": {
-        "argCount": 0,
-        "funName": "loadWeaponShopWeapons"
-      },
-      "id": "e17da18e-e22c-44ee-80cc-6dde2541cf52"
-    },
-    {
-      "command": "MY_EVENT_CALL_NATIVE",
-      "args": {
-        "argCount": 0,
-        "funName": "loadWeaponShopArea"
-      },
-      "id": "fef01710-ee9a-423b-814e-924e2b07d267"
+      "id": "67c50d05-d8ab-4158-8ff2-c2a6371ec2b1"
     }
   ],
   "playerHit1Script": [],

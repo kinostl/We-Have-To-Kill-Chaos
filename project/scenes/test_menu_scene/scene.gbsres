@@ -14,32 +14,7 @@
   "symbol": "scene_22",
   "x": 1554.1705426356589,
   "y": 1059.596899224806,
-  "script": [
-    {
-      "command": "FS_FULL_MENU_WRITE_BG_TEXT",
-      "args": {
-        "bg_text": "Inventory\\003\\016\\001End",
-        "__collapse": false,
-        "w": {
-          "type": "number",
-          "value": 18
-        },
-        "h": {
-          "type": "number",
-          "value": 1
-        },
-        "x": {
-          "type": "number",
-          "value": 1
-        },
-        "y": {
-          "type": "number",
-          "value": 0
-        }
-      },
-      "id": "464e6d77-547a-40bb-9681-022ec279275b"
-    }
-  ],
+  "script": [],
   "playerHit1Script": [],
   "playerHit2Script": [],
   "playerHit3Script": []

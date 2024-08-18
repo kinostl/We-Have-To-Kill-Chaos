@@ -1,0 +1,46 @@
+{
+  "_resourceType": "scene",
+  "id": "21cdcd1a-49f3-46f7-9a70-71743535966b",
+  "name": "Test Menu Scene",
+  "backgroundId": "56c4b6e9-1ddc-4d2c-86a2-40042d262ca2",
+  "tilesetId": "",
+  "width": 20,
+  "height": 18,
+  "type": "MENU",
+  "paletteIds": [],
+  "spritePaletteIds": [],
+  "collisions": "00168+",
+  "autoFadeSpeed": 1,
+  "symbol": "scene_22",
+  "x": 1554.1705426356589,
+  "y": 1059.596899224806,
+  "script": [
+    {
+      "command": "FS_FULL_MENU_WRITE_COMPLEX_SHOP_MENU",
+      "args": {
+        "bg_text": "",
+        "x": {
+          "number": 0,
+          "variable": "LAST_VARIABLE"
+        },
+        "y": {
+          "number": 0,
+          "variable": "LAST_VARIABLE"
+        },
+        "w": {
+          "number": 0,
+          "variable": "LAST_VARIABLE"
+        },
+        "h": {
+          "number": 0,
+          "variable": "LAST_VARIABLE"
+        },
+        "__collapse": false
+      },
+      "id": "148c40e1-b65c-455a-a13e-ec06e5675782"
+    }
+  ],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": []
+}
