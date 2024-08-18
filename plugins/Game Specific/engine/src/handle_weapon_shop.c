@@ -1,4 +1,5 @@
 #include "item_slot.h"
+#include "load_font_into_bg.h"
 #include "menu_helper.h"
 #include "weapon_data.h"
 #include "weapon_data/iron_hammer.h"
@@ -6,6 +7,7 @@
 #include "weapon_data/wood_staff.h"
 #include "weapon_data/small_knife.h"
 #include "weapon_data/wood_nunchucks.h"
+#include "extra_data.h"
 #include <asm/types.h>
 #include <data/game_globals.h>
 #include <string.h>
@@ -73,4 +75,59 @@ void purchaseWeaponToInventory(SCRIPT_CTX * THIS) OLDCALL BANKED {
     itoa_format(wepon.price, price_str, 0);
     strcat(ui_text_data, price_str);
     strcat(ui_text_data, "G.");
+}
+
+void addShopStat(UBYTE a) OLDCALL BANKED {
+  unsigned char a_str[4];
+  itoa_format(a, a_str, 3);
+
+  strcat(ui_text_data, "  ");
+  strcat(ui_text_data, a_str);
+  strcat(ui_text_data, "\n");
+}
+
+void loadWeaponShopArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  BYTE strength = 10;
+  BYTE luck = 8;
+  BYTE base_hit_chance = 5;
+
+  THIS;
+  UBYTE check_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
+  struct weapon_data w_data;
+
+//   set_weapon(menu_slots[check_id].id, &check_w);
+  set_weapon(1, &w_data);
+
+  strcpy(ui_text_data, "ATK\n");
+  addShopStat(w_data.attack);
+
+  strcat(ui_text_data, "\nACC\n");
+  addShopStat(w_data.hit_chance);
+
+  strcat(ui_text_data, "\nCRT\n");
+  addShopStat(w_data.crit_chance);
+
+  write_bg_font(1, 9, 5, 8);
+}
+
+void loadWeaponShopName(void) OLDCALL BANKED {
+  strcpy(ui_text_data, "Weapons");
+  write_bg_font(1, 1, 10, 1);
+}
+
+void loadWeaponGilCount(void) OLDCALL BANKED {
+  strcpy(ui_text_data, "400 G");
+  write_bg_font(14, 1, 5, 1);
+}
+
+void loadWeaponShopOptions(void) OLDCALL BANKED {
+  strcpy(ui_text_data, "BUY\nSELL\nEXIT");
+  write_bg_font(2, 4, 4, 3);
+}
+
+void loadWeaponShopWeapons(void) OLDCALL BANKED {
+  strcpy(ui_text_data, "");
+  add_weapon_sym(ui_text_data, NUNCHUCKS);
+  strcat(ui_text_data, "WOOD   10");
+  write_bg_font(8, 4, 10, 5);
 }

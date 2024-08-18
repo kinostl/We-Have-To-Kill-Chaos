@@ -30,4 +30,18 @@ struct weapon_data {
 
 void set_weapon(BYTE weapon_id, struct weapon_data *weapon) OLDCALL BANKED;
 void load_weapon_info_text(struct weapon_data w_data, unsigned char * item_s, UBYTE width, UBYTE offset) OLDCALL BANKED;
+
+inline BYTE calculateAttack(BYTE attack, BYTE strength){
+  return attack + (strength / 2);
+}
+
+inline BYTE calculateAccuracy(BYTE weapon_hit_chance, BYTE hit_chance){
+  return weapon_hit_chance + hit_chance;
+}
+
+inline BYTE calculateCritChance(BYTE weapon_crit_chance, BYTE luck){
+  return weapon_crit_chance + (luck /2);
+
+}
+
 #endif

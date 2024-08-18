@@ -45,19 +45,6 @@ inline void addStatToString(unsigned char string[9], UBYTE stat) {
 
 #define calculateEvasion(weight, agility) 48 + agility - weight
 
-inline BYTE calculateAttack(BYTE attack, BYTE strength){
-  return attack + (strength / 2);
-}
-
-inline BYTE calculateAccuracy(BYTE weapon_hit_chance, BYTE hit_chance){
-  return weapon_hit_chance + hit_chance;
-}
-
-inline BYTE calculateCritChance(BYTE weapon_crit_chance, BYTE luck){
-  return weapon_crit_chance + (luck /2);
-
-}
-
 void loadStatsArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
   clearAttrsSection(0, 8, 10, 7);

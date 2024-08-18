@@ -1,21 +1,21 @@
 {
   "_resourceType": "actor",
-  "id": "ff423321-46c6-4209-9441-e3210bebb29d",
-  "_index": 2,
-  "symbol": "actor_39",
+  "id": "f0c3b76e-3921-4725-a586-22fa17fe02fd",
   "name": "",
-  "x": 29,
-  "y": 9,
   "frame": 0,
   "animate": false,
   "spriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
-  "paletteId": "",
   "direction": "down",
   "moveSpeed": 1,
   "animSpeed": 15,
+  "paletteId": "",
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "_index": 1,
+  "symbol": "actor_54",
+  "x": 5,
+  "y": 9,
   "script": [
     {
       "command": "FF_EVENT_MY_SHOP_MENU",
@@ -42,7 +42,7 @@
         "cancelOnB": true,
         "cancelOnLastOption": true
       },
-      "id": "d3831b97-f353-46a9-9b19-4b5e48c8e6ff"
+      "id": "91bd24fb-fcef-4134-a96f-de1be627f774"
     },
     {
       "command": "EVENT_SWITCH",
@@ -89,7 +89,7 @@
           {
             "command": "EVENT_STOP",
             "args": {},
-            "id": "ad949fcb-004c-4f3f-b3f9-01bddc661d6b"
+            "id": "07b3b277-ce97-44ab-a5c7-1a1d6b449ceb"
           }
         ],
         "true1": [
@@ -101,12 +101,12 @@
               ],
               "avatarId": ""
             },
-            "id": "9afe8946-487d-4d46-8071-9dd69daf881d"
+            "id": "6afc01ff-4bd9-456a-aea1-6b7a69059c03"
           },
           {
             "command": "EVENT_STOP",
             "args": {},
-            "id": "72019e3b-8716-419b-8734-b34976d34565"
+            "id": "96996273-8863-4909-8ebc-5f9f599163bc"
           }
         ],
         "true2": [],
@@ -125,7 +125,7 @@
         "true15": [],
         "false": []
       },
-      "id": "5cfc7269-48f8-4983-ab3b-29acfebf640f"
+      "id": "8a1da9d3-139c-4cd1-9c3f-217e260b603f"
     },
     {
       "command": "MY_EVENT_CALL_NATIVE",
@@ -141,7 +141,7 @@
         },
         "funName": "handleWeaponShop"
       },
-      "id": "a6c131e7-0447-4643-9e26-3237e8078c74"
+      "id": "28fb6589-edb2-4b84-a2b9-6c6419d787a9"
     },
     {
       "command": "EVENT_CALL_CUSTOM_EVENT",
@@ -149,14 +149,14 @@
         "customEventId": "14789182-c86e-40a0-b290-d27337b748f4",
         "$actor[0]$": "c2b81b1c-3837-4a59-b123-090b43e32d20"
       },
-      "id": "2ce44d0c-d26e-49bb-aa08-b152c7494ffa"
+      "id": "b631f1d2-d740-4b8b-b1ee-dedec46b55c8"
     },
     {
       "command": "FF_EVENT_DISPLAY_TEXT",
       "args": {
         "h": 5
       },
-      "id": "3aad346b-89ee-401d-98e9-890e49ba8393"
+      "id": "3d515bbb-541d-428e-b1d8-e68e01ecd5d8"
     },
     {
       "command": "EVENT_GBVM_SCRIPT",
@@ -164,7 +164,7 @@
         "script": "VM_OVERLAY_CLEAR 0, 0, 20, 7, .UI_COLOR_BLACK, .UI_DRAW_FRAME\nVM_OVERLAY_MOVE_TO 0, 11, .OVERLAY_IN_SPEED\nVM_DISPLAY_TEXT\nVM_OVERLAY_WAIT .UI_NONMODAL, (.UI_WAIT_WINDOW|.UI_WAIT_TEXT|.UI_WAIT_BTN_A)\nVM_OVERLAY_MOVE_TO 0, 17, .OVERLAY_OUT_SPEED\nVM_OVERLAY_WAIT .UI_NONMODAL, (.UI_WAIT_WINDOW)",
         "__comment": true
       },
-      "id": "3147b5d8-80bc-4bd3-bb2d-89b94065ccf9"
+      "id": "1b6b0171-2548-4988-b0c9-bfca68fee39b"
     },
     {
       "command": "FF_EVENT_MY_MENU",
@@ -185,7 +185,7 @@
         "variable": "L0",
         "cancelOnB": false
       },
-      "id": "f05959c8-ec4c-4e55-8068-9cba33774b69"
+      "id": "9b3110c9-49f9-4fa4-b7ed-c7e41fb1cc87"
     },
     {
       "command": "EVENT_IF",
@@ -208,7 +208,7 @@
           {
             "command": "EVENT_STOP",
             "args": {},
-            "id": "44f38084-b7de-4524-a0ff-565e7753953d"
+            "id": "e4b7b4e5-6b2b-4d54-b751-277afd6f5cd1"
           }
         ],
         "false": [
@@ -222,18 +222,18 @@
               },
               "funName": "purchaseWeaponToInventory"
             },
-            "id": "abc17572-22a3-4861-bfc4-7aeb2e849d77"
+            "id": "cfcf8e57-4ea4-4cd8-9798-1652bc02309d"
           },
           {
             "command": "FF_EVENT_DISPLAY_TEXT",
             "args": {
               "h": 2
             },
-            "id": "d93e5edb-f7e4-4f9f-95e2-0128bd5a93dd"
+            "id": "7d43d61e-90f4-4142-a751-0a34065a47f0"
           }
         ]
       },
-      "id": "67b69032-43a0-432c-8853-04bd806e38f4"
+      "id": "76c1b565-b074-49e4-ba9a-04411da04b2a"
     }
   ],
   "startScript": [
@@ -242,7 +242,7 @@
       "args": {
         "actorId": "$self$"
       },
-      "id": "02530dd2-d782-4283-bcef-b53806279ac5"
+      "id": "93373c9a-1f8a-4582-b784-4ba2abccb790"
     }
   ],
   "updateScript": [],

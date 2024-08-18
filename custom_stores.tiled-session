@@ -84,6 +84,14 @@
                 "y": 247.36363636363637
             }
         },
+        "maps/item_menu.tmx": {
+            "scale": 4,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 97.125,
+                "y": 66.375
+            }
+        },
         "maps/item_shop.tmx": {
             "scale": 5.391249999999999,
             "selectedLayer": 0,
@@ -188,6 +196,7 @@
     ],
     "project": "custom_stores.tiled-project",
     "recentFiles": [
+        "maps/item_shop.tmx",
         "maps/shed_tileset.tsx",
         "maps/kings_garden.tsx",
         "maps/cornelia_castle_2_inside.tmx",
@@ -198,8 +207,7 @@
         "maps/castle1.tsx",
         "maps/weapon_armor_shop.tmx",
         "maps/white_magic_shop.tmx",
-        "tilesets/store_tiles.tsx",
-        "maps/store_tiles.tsx"
+        "tilesets/store_tiles.tsx"
     ],
     "resizeMap.removeObjects": false,
     "tileset.lastUsedFormat": "tsx",

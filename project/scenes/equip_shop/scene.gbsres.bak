@@ -1,0 +1,59 @@
+{
+  "_resourceType": "scene",
+  "id": "76586ae3-b5db-4079-8b7b-71f9205f6373",
+  "name": "Equip Shop",
+  "backgroundId": "952aa64a-dcf9-46e1-a0f9-996fbd57379a",
+  "tilesetId": "",
+  "width": 20,
+  "height": 18,
+  "type": "TOPDOWN",
+  "paletteIds": [
+    null,
+    null,
+    null,
+    null,
+    "68e7c7ff-c6d4-4f1d-9c3d-f52ab724e96b",
+    "6194c784-ee75-4022-a703-7a92d16af548",
+    "default-ui",
+    "d8ef3f33-956f-4f96-a8a4-774608a880da"
+  ],
+  "spritePaletteIds": [
+    "349ce35e-4c36-4e07-bf6a-12c2105e2e6f",
+    "4b5c94c3-d95b-4802-9f92-3d6266692d3c"
+  ],
+  "collisions": "",
+  "autoFadeSpeed": 1,
+  "symbol": "scene_21",
+  "x": 1968,
+  "y": 864,
+  "script": [
+    {
+      "command": "MY_EVENT_CALL_NATIVE",
+      "args": {
+        "argCount": 0,
+        "funName": "loadFontIntoBkg"
+      },
+      "id": "c1320b14-39bc-4290-92ca-85143276af9a"
+    },
+    {
+      "command": "MY_EVENT_CALL_NATIVE",
+      "args": {
+        "argCount": 0,
+        "funName": "loadWeaponShopName"
+      },
+      "id": "7a7d3002-5ba5-4d3c-9cda-93afbafabfff"
+    },
+    {
+      "command": "MY_EVENT_CALL_NATIVE",
+      "args": {
+        "argCount": 0,
+        "funName": "loadWeaponShopArea"
+      },
+      "id": "fef01710-ee9a-423b-814e-924e2b07d267"
+    }
+  ],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": [],
+  "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5"
+}

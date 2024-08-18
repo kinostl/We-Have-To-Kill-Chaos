@@ -1,131 +1,40 @@
 {
   "_resourceType": "actor",
-  "id": "3b906fda-1996-45c5-a469-d7e78c0398db",
-  "_index": 3,
-  "symbol": "actor_41",
+  "id": "22e1e835-c8d7-4cc2-8fdb-2c534522bd35",
   "name": "",
-  "x": 8,
-  "y": 9,
   "frame": 0,
   "animate": false,
-  "spriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
-  "paletteId": "",
+  "spriteSheetId": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
   "direction": "down",
   "moveSpeed": 1,
   "animSpeed": 15,
+  "paletteId": "",
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "symbol": "actor_39",
   "script": [
     {
-      "command": "FF_EVENT_MY_SHOP_MENU",
-      "args": {
-        "actor": "$self$",
-        "setvar": "L0",
-        "items": 5,
-        "option1": "Cloth Robe",
-        "option1_cost": 10,
-        "option2": "Wood Armor",
-        "option2_cost": 50,
-        "option3": "Chain Armor",
-        "option3_cost": 80,
-        "option4": "Small Talk",
-        "option4_cost": 0,
-        "option5": "Leave",
-        "option5_cost": 0,
-        "option6": "",
-        "option6_cost": 0,
-        "option7": "",
-        "option7_cost": 0,
-        "option8": "",
-        "option8_cost": 0,
-        "cancelOnB": true,
-        "cancelOnLastOption": true
-      },
-      "id": "2bad2a70-b0e5-4378-9485-7820db22c815"
+      "command": "EVENT_SCENE_PUSH_STATE",
+      "args": {},
+      "id": "e011c9e4-641b-429d-aeb0-1f450e9788ab"
     },
     {
-      "command": "EVENT_SWITCH",
+      "command": "EVENT_SWITCH_SCENE",
       "args": {
-        "variable": "L0",
-        "choices": 2,
-        "__collapseCase0": false,
-        "value0": 0,
-        "__collapseCase1": false,
-        "value1": 2,
-        "__collapseCase2": false,
-        "value2": 3,
-        "__collapseCase3": false,
-        "value3": 4,
-        "__collapseCase4": false,
-        "value4": 5,
-        "__collapseCase5": false,
-        "value5": 6,
-        "__collapseCase6": false,
-        "value6": 7,
-        "__collapseCase7": false,
-        "value7": 8,
-        "__collapseCase8": false,
-        "value8": 9,
-        "__collapseCase9": false,
-        "value9": 10,
-        "__collapseCase10": false,
-        "value10": 11,
-        "__collapseCase11": false,
-        "value11": 12,
-        "__collapseCase12": false,
-        "value12": 13,
-        "__collapseCase13": false,
-        "value13": 14,
-        "__collapseCase14": false,
-        "value14": 15,
-        "__collapseCase15": false,
-        "value15": 16,
-        "__collapseElse": false,
-        "__disableElse": true
+        "sceneId": "76586ae3-b5db-4079-8b7b-71f9205f6373",
+        "x": {
+          "type": "number",
+          "value": 0
+        },
+        "y": {
+          "type": "number",
+          "value": 5
+        },
+        "direction": "right",
+        "fadeSpeed": "2"
       },
-      "children": {
-        "true0": [
-          {
-            "command": "EVENT_STOP",
-            "args": {},
-            "id": "1cbd9e89-abde-4f52-a2e2-9280517739ed"
-          }
-        ],
-        "true1": [
-          {
-            "command": "EVENT_TEXT",
-            "args": {
-              "text": [
-                "A Goblin stole my\nfavorite hat..."
-              ],
-              "avatarId": ""
-            },
-            "id": "1458c2a5-b70c-49f4-bb54-0522af021c49"
-          },
-          {
-            "command": "EVENT_STOP",
-            "args": {},
-            "id": "5005e5a1-7221-4c9c-9687-82d2fd04239f"
-          }
-        ],
-        "true2": [],
-        "true3": [],
-        "true4": [],
-        "true5": [],
-        "true6": [],
-        "true7": [],
-        "true8": [],
-        "true9": [],
-        "true10": [],
-        "true11": [],
-        "true12": [],
-        "true13": [],
-        "true14": [],
-        "true15": [],
-        "false": []
-      },
-      "id": "5ebb92a3-69f4-47bc-a75f-1004b34161ff"
+      "id": "2b4fabfa-8e00-4e61-9d97-6335d3181bb7"
     }
   ],
   "startScript": [
@@ -134,11 +43,14 @@
       "args": {
         "actorId": "$self$"
       },
-      "id": "7b1ddb0c-4a69-4d44-8f9e-4608c6a09751"
+      "id": "4106a427-8137-46b8-a071-594ab2d4c404"
     }
   ],
   "updateScript": [],
   "hit1Script": [],
   "hit2Script": [],
-  "hit3Script": []
+  "hit3Script": [],
+  "x": 29,
+  "y": 9,
+  "_index": 3
 }

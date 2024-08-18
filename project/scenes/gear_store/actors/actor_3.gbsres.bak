@@ -22,16 +22,16 @@
       "args": {
         "actor": "$self$",
         "setvar": "L0",
-        "items": 4,
+        "items": 5,
         "option1": "Cloth Robe",
         "option1_cost": 10,
         "option2": "Wood Armor",
         "option2_cost": 50,
         "option3": "Chain Armor",
         "option3_cost": 80,
-        "option4": "Leave",
+        "option4": "Small Talk",
         "option4_cost": 0,
-        "option5": "",
+        "option5": "Leave",
         "option5_cost": 0,
         "option6": "",
         "option6_cost": 0,
@@ -43,6 +43,89 @@
         "cancelOnLastOption": true
       },
       "id": "2bad2a70-b0e5-4378-9485-7820db22c815"
+    },
+    {
+      "command": "EVENT_SWITCH",
+      "args": {
+        "variable": "L0",
+        "choices": 2,
+        "__collapseCase0": false,
+        "value0": 0,
+        "__collapseCase1": false,
+        "value1": 2,
+        "__collapseCase2": false,
+        "value2": 3,
+        "__collapseCase3": false,
+        "value3": 4,
+        "__collapseCase4": false,
+        "value4": 5,
+        "__collapseCase5": false,
+        "value5": 6,
+        "__collapseCase6": false,
+        "value6": 7,
+        "__collapseCase7": false,
+        "value7": 8,
+        "__collapseCase8": false,
+        "value8": 9,
+        "__collapseCase9": false,
+        "value9": 10,
+        "__collapseCase10": false,
+        "value10": 11,
+        "__collapseCase11": false,
+        "value11": 12,
+        "__collapseCase12": false,
+        "value12": 13,
+        "__collapseCase13": false,
+        "value13": 14,
+        "__collapseCase14": false,
+        "value14": 15,
+        "__collapseCase15": false,
+        "value15": 16,
+        "__collapseElse": false,
+        "__disableElse": true
+      },
+      "children": {
+        "true0": [
+          {
+            "command": "EVENT_STOP",
+            "args": {},
+            "id": "1cbd9e89-abde-4f52-a2e2-9280517739ed"
+          }
+        ],
+        "true1": [
+          {
+            "command": "EVENT_TEXT",
+            "args": {
+              "text": [
+                "A Goblin stole my\nfavorite hat..."
+              ],
+              "avatarId": ""
+            },
+            "id": "1458c2a5-b70c-49f4-bb54-0522af021c49"
+          },
+          {
+            "command": "EVENT_STOP",
+            "args": {},
+            "id": "5005e5a1-7221-4c9c-9687-82d2fd04239f"
+          }
+        ],
+        "true2": [],
+        "true3": [],
+        "true4": [],
+        "true5": [],
+        "true6": [],
+        "true7": [],
+        "true8": [],
+        "true9": [],
+        "true10": [],
+        "true11": [],
+        "true12": [],
+        "true13": [],
+        "true14": [],
+        "true15": [],
+        "false": []
+      },
+      "id": "5ebb92a3-69f4-47bc-a75f-1004b34161ff"
     }
   ],
   "startScript": [

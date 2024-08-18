@@ -1243,8 +1243,8 @@
     },
     {
       "id": "ff423321-46c6-4209-9441-e3210bebb29d__L1",
-      "name": "Weapon Value",
-      "symbol": "var_weapon_value"
+      "name": "Purchase Choice",
+      "symbol": "var_purchase_choice"
     },
     {
       "id": "edd40c2b-632a-4a2e-989b-171f27b2a571__L0",
