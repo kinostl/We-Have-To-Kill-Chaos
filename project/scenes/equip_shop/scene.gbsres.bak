@@ -47,6 +47,30 @@
       "command": "MY_EVENT_CALL_NATIVE",
       "args": {
         "argCount": 0,
+        "funName": "loadWeaponGilCount"
+      },
+      "id": "e8092240-e10a-4ab7-8dec-459811ced0de"
+    },
+    {
+      "command": "MY_EVENT_CALL_NATIVE",
+      "args": {
+        "argCount": 0,
+        "funName": "loadWeaponShopOptions"
+      },
+      "id": "95cc471d-9ac5-4b4e-a6b1-52c1eb71435b"
+    },
+    {
+      "command": "MY_EVENT_CALL_NATIVE",
+      "args": {
+        "argCount": 0,
+        "funName": "loadWeaponShopWeapons"
+      },
+      "id": "e17da18e-e22c-44ee-80cc-6dde2541cf52"
+    },
+    {
+      "command": "MY_EVENT_CALL_NATIVE",
+      "args": {
+        "argCount": 0,
         "funName": "loadWeaponShopArea"
       },
       "id": "fef01710-ee9a-423b-814e-924e2b07d267"

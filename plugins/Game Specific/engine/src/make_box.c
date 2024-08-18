@@ -2,6 +2,8 @@
 #include "vm.h"
 #include "vm_ui.h"
 
+#pragma bank 255
+
 void makeBox(SCRIPT_CTX * THIS) OLDCALL BANKED{
     UBYTE x = *(UBYTE *) VM_REF_TO_PTR(FN_ARG0);
     UBYTE y = *(UBYTE *) VM_REF_TO_PTR(FN_ARG1);

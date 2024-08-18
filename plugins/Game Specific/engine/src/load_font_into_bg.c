@@ -4,7 +4,6 @@
 #include "load_font_into_bg.h"
 #include "data/font_gbs_mono.h"
 #include "data_manager.h"
-#include "vm.h"
 #include <bankdata.h>
 #include <gbs_types.h>
 
@@ -12,8 +11,7 @@ UBYTE start_of_bkg_vram;
 font_desc_t bg_font;
 UBYTE bg_font_bank;
 
-void loadFontIntoBkg(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  THIS;
+void loadFontIntoBkg(void) OLDCALL BANKED {
   bg_font_bank = BANK(font_gbs_mono);
   scene_t c_scene;
   MemcpyBanked(&c_scene, current_scene.ptr, sizeof(scene_t),

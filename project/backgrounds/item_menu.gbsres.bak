@@ -8,6 +8,5 @@
   "imageWidth": 160,
   "imageHeight": 144,
   "filename": "item_menu.png",
-  "tileColors": "0728+01d+07!01ba+0778+",
-  "autoColor": false
+  "tileColors": "0728+06c8+0778+"
 }

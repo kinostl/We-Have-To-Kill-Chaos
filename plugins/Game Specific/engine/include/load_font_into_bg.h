@@ -9,6 +9,7 @@ extern UBYTE bg_font_bank;
 
 
 void write_bg_font(UBYTE x, UBYTE y, UBYTE w, UBYTE h) OLDCALL BANKED;
+void loadFontIntoBkg(void) OLDCALL BANKED;
 
 
 #endif

@@ -1,17 +1,20 @@
 {
   "_resourceType": "scene",
   "id": "76586ae3-b5db-4079-8b7b-71f9205f6373",
+  "type": "TOPDOWN",
   "name": "Equip Shop",
-  "backgroundId": "952aa64a-dcf9-46e1-a0f9-996fbd57379a",
-  "tilesetId": "",
+  "symbol": "scene_21",
+  "x": 1968,
+  "y": 864,
   "width": 20,
   "height": 18,
-  "type": "TOPDOWN",
+  "backgroundId": "952aa64a-dcf9-46e1-a0f9-996fbd57379a",
+  "tilesetId": "",
   "paletteIds": [
-    null,
-    null,
-    null,
-    null,
+    "",
+    "",
+    "",
+    "",
     "68e7c7ff-c6d4-4f1d-9c3d-f52ab724e96b",
     "6194c784-ee75-4022-a703-7a92d16af548",
     "default-ui",
@@ -21,11 +24,8 @@
     "349ce35e-4c36-4e07-bf6a-12c2105e2e6f",
     "4b5c94c3-d95b-4802-9f92-3d6266692d3c"
   ],
-  "collisions": "",
   "autoFadeSpeed": 1,
-  "symbol": "scene_21",
-  "x": 1968,
-  "y": 864,
+  "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
   "script": [
     {
       "command": "MY_EVENT_CALL_NATIVE",
@@ -79,5 +79,5 @@
   "playerHit1Script": [],
   "playerHit2Script": [],
   "playerHit3Script": [],
-  "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5"
+  "collisions": ""
 }
