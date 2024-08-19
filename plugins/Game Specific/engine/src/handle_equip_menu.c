@@ -108,79 +108,20 @@ void loadSubStatsArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
 
 
-void write_weapon_name(BYTE item_id, unsigned char *item_s) OLDCALL BANKED{
-  // TODO should display item type symbol then name
-  // Also should make so and so wide
-  // Max Count is 99 I guess
-  switch (item_id) {
-  default:
-  case 0:
-    add_weapon_sym(item_s, SWORD_1);
-    strcat(item_s, " ");
-    break;
-  case 1:
-    add_weapon_sym(item_s, NUNCHUCKS);
-    strcat(item_s, "WOOD");
-    break;
-  case 2:
-    add_weapon_sym(item_s, DAGGER);
-    strcat(item_s, "SMALL");
-    break;
-  case 3:
-    add_weapon_sym(item_s, STAFF);
-    strcat(item_s, "WOOD");
-    break;
-  case 4:
-    add_weapon_sym(item_s, SWORD_1);
-    strcat(item_s, "RAPIER");
-    break;
-  case 5:
-    add_weapon_sym(item_s, HAMMER);
-    strcat(item_s, "IRON");
-    break;
-  }
-}
 
-void write_armor_name(BYTE item_id, enum A_TYPE type,unsigned char *item_s) OLDCALL BANKED{
-  // TODO should display item type symbol then name
-  // Also should make so and so wide
-  // Max Count is 99 I guess
-  switch (item_id) {
-  default:
-    add_armor_sym(item_s, type);
-    strcat(item_s, " ");
-    break;
-  case 1:
-    add_armor_sym(item_s, ROBE);
-    strcat(item_s, "CLOTH");
-    break;
-  case 2:
-    add_armor_sym(item_s, ARMOR);
-    strcat(item_s, "WOOD");
-    break;
-  case 3:
-    add_armor_sym(item_s, ARMOR);
-    strcat(item_s, "CHAIN");
-    break;
-  case 26:
-    add_armor_sym(item_s, HELMET);
-    strcat(item_s, "CAP");
-    break;
-  }
-}
 
 void load_equip_area(UBYTE character_id) OLDCALL BANKED {
   unsigned char weapon[9] = "";
-  write_weapon_name(weapon_slots[character_id].id, weapon);
+  weapon_name_short_cat(weapon_slots[character_id].id, weapon);
   screenfw(weapon, 8, 3, 8);
   unsigned char armor[9] = "";
-  write_armor_name(armor_slots[character_id].id, ARMOR, armor);
+  armor_name_short_cat(armor_slots[character_id].id, ARMOR, armor);
   screenfw(armor, 8, 4, 8);
   unsigned char shield[9] = "";
   add_armor_sym(shield, SHIELD);
   screenfw(shield, 8, 5, 8);
   unsigned char helmet[9] = "";
-  write_armor_name(helmet_slots[character_id].id, HELMET, helmet);
+  armor_name_short_cat(helmet_slots[character_id].id, HELMET, helmet);
   screenfw(helmet, 8, 6, 8);
   unsigned char gloves[9] = "";
   add_armor_sym(gloves, GAUNTLET);
@@ -272,9 +213,9 @@ void loadEquipList(SCRIPT_CTX *THIS) OLDCALL BANKED {
     if(menu_slots[i].type == NULL_I) break;
     unsigned char line[8] = "";
     if (i_type == WEAPON_I) {
-      write_weapon_name(i_slot.id, line);
+      weapon_name_short_cat(i_slot.id, line);
     } else {
-      write_armor_name(i_slot.id, NULL, line);
+      armor_name_short_cat(i_slot.id, NULL, line);
     }
     if (i_slot.id == 0) {
       strcpy(line, "Remove");

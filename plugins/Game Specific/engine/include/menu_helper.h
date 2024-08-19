@@ -37,34 +37,6 @@ inline void add_new_line(unsigned char *d, UBYTE i) {
   progress_blanks(d, i - (strlen(d) % i));
 }
 
-#define make_box(x, y, w, h)                                                   \
-  UBYTE menu[w * h] = "";                                                      \
-  unsigned char border_char = 128;                                             \
-  fill_space(menu, 1, border_char);                                            \
-  border_char++;                                                               \
-  fill_space(menu, 18, border_char);                                           \
-  border_char++;                                                               \
-  fill_space(menu, 1, border_char);                                            \
-  border_char++;                                                               \
-  for (BYTE i = 0; i < (h - 2); i++) {                                         \
-    fill_space(menu, 1, border_char);                                          \
-    border_char++;                                                             \
-    fill_space(menu, 18, border_char);                                         \
-    border_char++;                                                             \
-    fill_space(menu, 1, border_char);                                          \
-    border_char -= 2;                                                          \
-  }                                                                            \
-  border_char += 3;                                                            \
-  fill_space(menu, 1, border_char);                                            \
-  border_char++;                                                               \
-  fill_space(menu, 18, border_char);                                           \
-  border_char++;                                                               \
-  fill_space(menu, 1, border_char);                                            \
-  for (UBYTE i = 0; i < (w * h); i++) {                                        \
-    UBYTE j = menu[i];                                                         \
-    menu[i] = ReadBankedUBYTE(bg_font.recode_table + j, bg_font_bank);         \
-    menu[i] += start_of_bkg_vram;                                              \
-  }                                                                            \
-  set_bkg_tiles(x, y, w, h, menu);
-
+void armor_name_short_cat(BYTE item_id, enum A_TYPE type,unsigned char *item_s) OLDCALL BANKED;
+void weapon_name_short_cat(BYTE item_id, unsigned char *item_s) OLDCALL BANKED;
 #endif

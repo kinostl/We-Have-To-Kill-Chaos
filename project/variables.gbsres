@@ -1260,6 +1260,21 @@
       "id": "f0c3b76e-3921-4725-a586-22fa17fe02fd__L1",
       "name": "Purchase Choice",
       "symbol": "var_purchase_choice_0"
+    },
+    {
+      "id": "76586ae3-b5db-4079-8b7b-71f9205f6373__L0",
+      "name": "Current Menu Type Selection",
+      "symbol": "var_current_menu_type_selec"
+    },
+    {
+      "id": "76586ae3-b5db-4079-8b7b-71f9205f6373__L1",
+      "name": "Current Weapon Purchase Selection",
+      "symbol": "var_current_weapon_purchase"
+    },
+    {
+      "id": "76586ae3-b5db-4079-8b7b-71f9205f6373__L2",
+      "name": "Menu State",
+      "symbol": "var_menu_state"
     }
   ]
 }

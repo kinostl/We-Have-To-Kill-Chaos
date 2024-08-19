@@ -1250,6 +1250,26 @@
       "id": "edd40c2b-632a-4a2e-989b-171f27b2a571__L0",
       "name": "Menu Choice",
       "symbol": "var_menu_choice"
+    },
+    {
+      "id": "f0c3b76e-3921-4725-a586-22fa17fe02fd__L0",
+      "name": "Weapon Choice",
+      "symbol": "var_weapon_choice_0"
+    },
+    {
+      "id": "f0c3b76e-3921-4725-a586-22fa17fe02fd__L1",
+      "name": "Purchase Choice",
+      "symbol": "var_purchase_choice_0"
+    },
+    {
+      "id": "76586ae3-b5db-4079-8b7b-71f9205f6373__L0",
+      "name": "Current Menu Type Selection",
+      "symbol": "var_current_menu_type_selec"
+    },
+    {
+      "id": "76586ae3-b5db-4079-8b7b-71f9205f6373__L1",
+      "name": "Current Weapon Purchase Selection",
+      "symbol": "var_current_weapon_purchase"
     }
   ]
 }

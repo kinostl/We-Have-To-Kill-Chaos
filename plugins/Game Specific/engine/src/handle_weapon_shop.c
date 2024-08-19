@@ -13,6 +13,7 @@
 #include <string.h>
 #include <ui.h>
 #include <vm.h>
+#include "states/menu.h"
 #pragma bank 255
 
 void setWeaponData(struct weapon_data * wepon, UBYTE weapon_choice) OLDCALL BANKED{
@@ -87,16 +88,12 @@ void addShopStat(UBYTE a) OLDCALL BANKED {
 }
 
 void loadWeaponShopArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  BYTE strength = 10;
-  BYTE luck = 8;
-  BYTE base_hit_chance = 5;
-
   THIS;
   UBYTE check_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
   struct weapon_data w_data;
 
 //   set_weapon(menu_slots[check_id].id, &check_w);
-  set_weapon(1, &w_data);
+  set_weapon(check_id, &w_data);
 
   strcpy(ui_text_data, "ATK\n");
   addShopStat(w_data.attack);
@@ -110,24 +107,21 @@ void loadWeaponShopArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   write_bg_font(1, 9, 5, 8);
 }
 
-void loadWeaponShopName(void) OLDCALL BANKED {
-  strcpy(ui_text_data, "Weapons");
-  write_bg_font(1, 1, 10, 1);
-}
-
-void loadWeaponGilCount(void) OLDCALL BANKED {
-  strcpy(ui_text_data, "400 G");
-  write_bg_font(14, 1, 5, 1);
-}
-
-void loadWeaponShopOptions(void) OLDCALL BANKED {
-  strcpy(ui_text_data, "BUY\nSELL\nEXIT");
-  write_bg_font(2, 4, 4, 3);
-}
-
 void loadWeaponShopWeapons(void) OLDCALL BANKED {
   strcpy(ui_text_data, "");
-  add_weapon_sym(ui_text_data, NUNCHUCKS);
-  strcat(ui_text_data, "WOOD   10");
-  write_bg_font(8, 4, 10, 5);
+  unsigned char location[4] = {0x03, 18, 4, '\0'};
+  unsigned char *price_str[4];
+  struct weapon_data w_data;
+
+  for (int i = 0; i < 5; i++) {
+    weapon_name_short_cat(i + 1, ui_text_data);
+    location[2]++;
+    strcat(ui_text_data, location);
+    set_weapon(i + 1, &w_data);
+    itoa_format(w_data.price, price_str, 0);
+    strcat(ui_text_data, price_str);
+    strcat(ui_text_data, "\n");
+  }
+
+  fs_menu_write_bg_font(8, 4, 11, 5);
 }

@@ -94,13 +94,6 @@ void drawMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   set_bkg_tiles(0, 2, 20, 10, menu);
 }
 
-
-void drawItemInfoBox(SCRIPT_CTX * THIS) OLDCALL BANKED {
-  THIS;
-  make_box(0, 12, 20,6);
-}
-
-
 void loadWeaponInfo(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
   if(item_slots[0].type == NULL){

@@ -1,4 +1,20 @@
 {
+    "maps": [
+        {
+            "fileName": "castle_combined.tmx",
+            "height": 496,
+            "width": 1680,
+            "x": -496,
+            "y": 232
+        },
+        {
+            "fileName": "cornelia_castle_2_inside.tmx",
+            "height": 496,
+            "width": 560,
+            "x": -496,
+            "y": 232
+        }
+    ],
     "onlyShowAdjacentMaps": false,
     "type": "world"
 }

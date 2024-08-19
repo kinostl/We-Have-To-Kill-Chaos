@@ -17,8 +17,8 @@
     "",
     "68e7c7ff-c6d4-4f1d-9c3d-f52ab724e96b",
     "6194c784-ee75-4022-a703-7a92d16af548",
-    "default-ui",
-    "d8ef3f33-956f-4f96-a8a4-774608a880da"
+    "d8ef3f33-956f-4f96-a8a4-774608a880da",
+    ""
   ],
   "spritePaletteIds": [
     "349ce35e-4c36-4e07-bf6a-12c2105e2e6f",
@@ -40,7 +40,8 @@
         "load_val": {
           "type": "number",
           "value": 0
-        }
+        },
+        "__collapse": true
       },
       "id": "0953dc3e-f386-479d-9658-fd9bd68105ad"
     },
@@ -63,14 +64,27 @@
         "h": {
           "type": "number",
           "value": 1
-        }
+        },
+        "__collapse": true
       },
       "id": "e758393b-27a1-4aae-9843-14e7e427ff08"
     },
     {
+      "command": "EVENT_SET_VALUE",
+      "args": {
+        "variable": "T0",
+        "value": {
+          "type": "number",
+          "value": 400
+        },
+        "__collapse": true
+      },
+      "id": "d11715de-ddd8-44c7-b4fc-e921b032a7de"
+    },
+    {
       "command": "FS_FULL_MENU_WRITE_BG_TEXT",
       "args": {
-        "bg_text": "$L0$\\003\\023\\002G",
+        "bg_text": "$T0$\\003\\023\\002G",
         "x": {
           "type": "number",
           "value": 14
@@ -86,7 +100,8 @@
         "h": {
           "type": "number",
           "value": 1
-        }
+        },
+        "__collapse": true
       },
       "id": "49e101c5-1a13-49ac-b6d6-39b77a45e9ef"
     },
@@ -109,9 +124,19 @@
         "h": {
           "type": "number",
           "value": 3
-        }
+        },
+        "__collapse": true
       },
       "id": "67c50d05-d8ab-4158-8ff2-c2a6371ec2b1"
+    },
+    {
+      "command": "MY_EVENT_CALL_NATIVE",
+      "args": {
+        "argCount": 0,
+        "funName": "loadWeaponShopWeapons",
+        "__collapse": true
+      },
+      "id": "31d50346-7594-432c-a3f9-b42f3bb78de1"
     },
     {
       "command": "EVENT_SET_INPUT_SCRIPT",
@@ -120,16 +145,51 @@
           "b"
         ],
         "override": true,
-        "__scriptTabs": "press"
+        "__scriptTabs": "press",
+        "__collapse": false
       },
       "children": {
         "true": [
           {
-            "command": "FS_FULL_MENU_COPY_SELECTION",
+            "command": "EVENT_IF",
             "args": {
-              "setvar": "L1"
+              "condition": {
+                "type": "eq",
+                "valueA": {
+                  "type": "variable",
+                  "value": "L2"
+                },
+                "valueB": {
+                  "type": "number",
+                  "value": 1
+                }
+              },
+              "__collapseElse": true
             },
-            "id": "9c741cdb-6bdc-4a87-8efd-a1ff1fb9c53a"
+            "children": {
+              "true": [
+                {
+                  "command": "FS_FULL_MENU_COPY_SELECTION",
+                  "args": {
+                    "setvar": "L1"
+                  },
+                  "id": "4a5b5715-880a-4895-b77b-9aa74d77cb84"
+                }
+              ],
+              "false": []
+            },
+            "id": "903fcfa7-44eb-4bc2-9341-927d5cf6474a"
+          },
+          {
+            "command": "EVENT_SET_VALUE",
+            "args": {
+              "variable": "L2",
+              "value": {
+                "type": "number",
+                "value": 0
+              }
+            },
+            "id": "814cb999-922a-47e6-abc7-35e9372aff79"
           },
           {
             "command": "FS_FULL_MENU_SET_AREA",
@@ -147,6 +207,16 @@
               }
             },
             "id": "2f6a6057-ff77-4be2-8dee-8d366746f608"
+          },
+          {
+            "command": "EVENT_REMOVE_INPUT_SCRIPT",
+            "args": {
+              "input": [
+                "up",
+                "down"
+              ]
+            },
+            "id": "221d3c3d-ec41-43cb-9187-e4ec5f7923ae"
           }
         ]
       },
@@ -159,7 +229,8 @@
           "a"
         ],
         "override": true,
-        "__scriptTabs": "press"
+        "__scriptTabs": "press",
+        "__collapse": false
       },
       "children": {
         "true": [
@@ -171,21 +242,227 @@
             "id": "e969b138-9229-4774-ab67-a9c4dae0f37a"
           },
           {
-            "command": "FS_FULL_MENU_SET_AREA",
+            "command": "EVENT_SET_VALUE",
             "args": {
-              "x": 8,
-              "y": 5,
-              "max": 5,
-              "load": {
-                "type": "number",
-                "value": 0
-              },
-              "load_val": {
+              "variable": "L2",
+              "value": {
                 "type": "variable",
-                "value": "L1"
+                "value": "L0"
               }
             },
-            "id": "4e500afc-ff4b-4dfa-a2c9-291ccb6b66bf"
+            "id": "e3d81c42-9df4-48a3-ab2a-57db5b76c0c7"
+          },
+          {
+            "command": "EVENT_SWITCH",
+            "args": {
+              "variable": "L0",
+              "choices": 3,
+              "__collapseCase0": false,
+              "value0": 1,
+              "__collapseCase1": false,
+              "value1": 2,
+              "__collapseCase2": false,
+              "value2": 3,
+              "__collapseCase3": false,
+              "value3": 4,
+              "__collapseCase4": false,
+              "value4": 5,
+              "__collapseCase5": false,
+              "value5": 6,
+              "__collapseCase6": false,
+              "value6": 7,
+              "__collapseCase7": false,
+              "value7": 8,
+              "__collapseCase8": false,
+              "value8": 9,
+              "__collapseCase9": false,
+              "value9": 10,
+              "__collapseCase10": false,
+              "value10": 11,
+              "__collapseCase11": false,
+              "value11": 12,
+              "__collapseCase12": false,
+              "value12": 13,
+              "__collapseCase13": false,
+              "value13": 14,
+              "__collapseCase14": false,
+              "value14": 15,
+              "__collapseCase15": false,
+              "value15": 16,
+              "__collapseElse": false
+            },
+            "children": {
+              "true0": [
+                {
+                  "command": "EVENT_IF",
+                  "args": {
+                    "condition": {
+                      "type": "eq",
+                      "valueA": {
+                        "type": "variable",
+                        "value": "L1"
+                      },
+                      "valueB": {
+                        "type": "number",
+                        "value": 0
+                      }
+                    },
+                    "__collapseElse": true,
+                    "__collapse": false,
+                    "__disableElse": true
+                  },
+                  "children": {
+                    "true": [
+                      {
+                        "command": "EVENT_SET_VALUE",
+                        "args": {
+                          "variable": "L1",
+                          "value": {
+                            "type": "number",
+                            "value": 1
+                          }
+                        },
+                        "id": "585b4894-4632-449e-a1d5-e90130f2bb01"
+                      }
+                    ],
+                    "false": []
+                  },
+                  "id": "202e7de8-bf3d-4bc4-ba14-2c0595976869"
+                },
+                {
+                  "command": "MY_EVENT_CALL_NATIVE",
+                  "args": {
+                    "argCount": 1,
+                    "arg0": {
+                      "type": "variable",
+                      "value": "L1"
+                    },
+                    "funName": "loadWeaponShopArea"
+                  },
+                  "id": "42037a0a-337e-44e3-a56a-41c270c71e7b"
+                },
+                {
+                  "command": "MY_EVENT_CALL_NATIVE",
+                  "args": {
+                    "argCount": 0,
+                    "funName": "loadWeaponShopWeapons",
+                    "__collapse": false
+                  },
+                  "id": "b81d1b1a-5caa-4129-a07e-f4b83eabb50e"
+                },
+                {
+                  "command": "FS_FULL_MENU_SET_AREA",
+                  "args": {
+                    "x": 6,
+                    "y": 5,
+                    "max": 5,
+                    "load": {
+                      "type": "number",
+                      "value": 0
+                    },
+                    "load_val": {
+                      "type": "variable",
+                      "value": "L1"
+                    }
+                  },
+                  "id": "4e500afc-ff4b-4dfa-a2c9-291ccb6b66bf"
+                },
+                {
+                  "command": "EVENT_SET_INPUT_SCRIPT",
+                  "args": {
+                    "input": [
+                      "up",
+                      "down"
+                    ],
+                    "override": false,
+                    "__scriptTabs": "press",
+                    "__collapse": false
+                  },
+                  "children": {
+                    "true": [
+                      {
+                        "command": "FS_FULL_MENU_COPY_SELECTION",
+                        "args": {
+                          "setvar": "L1"
+                        },
+                        "id": "a188d0fa-368f-4c4a-ae7a-4cd49302dcf5"
+                      },
+                      {
+                        "command": "MY_EVENT_CALL_NATIVE",
+                        "args": {
+                          "argCount": 1,
+                          "arg0": {
+                            "type": "variable",
+                            "value": "L1"
+                          },
+                          "funName": "loadWeaponShopArea"
+                        },
+                        "id": "8adfb4d5-60f3-4858-8cc5-6100254dc997"
+                      }
+                    ]
+                  },
+                  "id": "014aefde-09c9-4da7-a99c-d09810414ead"
+                }
+              ],
+              "true1": [],
+              "true2": [
+                {
+                  "command": "EVENT_SET_VALUE",
+                  "args": {
+                    "variable": "L0",
+                    "value": {
+                      "type": "number",
+                      "value": 0
+                    }
+                  },
+                  "id": "f775975d-c9fa-4db3-a3c6-3c8ac2c16fcb"
+                },
+                {
+                  "command": "EVENT_SET_VALUE",
+                  "args": {
+                    "variable": "L1",
+                    "value": {
+                      "type": "number",
+                      "value": 0
+                    }
+                  },
+                  "id": "032817c2-a585-4039-9ca4-4a5a93c9b76f"
+                },
+                {
+                  "command": "EVENT_SET_VALUE",
+                  "args": {
+                    "variable": "L2",
+                    "value": {
+                      "type": "number",
+                      "value": 0
+                    }
+                  },
+                  "id": "5bdab8c7-5213-48aa-bd87-5c5f55e3d3f1"
+                },
+                {
+                  "command": "EVENT_SCENE_POP_STATE",
+                  "args": {
+                    "fadeSpeed": "2"
+                  },
+                  "id": "5f9e5ff2-e270-4023-946c-71746eecf553"
+                }
+              ],
+              "true3": [],
+              "true4": [],
+              "true5": [],
+              "true6": [],
+              "true7": [],
+              "true8": [],
+              "true9": [],
+              "true10": [],
+              "true11": [],
+              "true12": [],
+              "true13": [],
+              "true14": [],
+              "true15": [],
+              "false": []
+            },
+            "id": "bc041a3a-a0fa-4d25-9ab8-19d168096647"
           }
         ]
       },

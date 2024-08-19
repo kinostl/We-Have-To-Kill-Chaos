@@ -170,9 +170,9 @@ const compile = (input, helpers) => {
     const a_sprite = sprites.find((s) => s.id === actor.spriteSheetId)
     const a_width = a_sprite.boundsWidth
 
-    if (input.actor == "player") {
-        throw "Do not use the player actor as a menu cursor"
-    }
+    // if (input.actor == "player") {
+    //     throw "Do not use the player actor as a menu cursor"
+    // }
 
     actorHide(input.actor)
 

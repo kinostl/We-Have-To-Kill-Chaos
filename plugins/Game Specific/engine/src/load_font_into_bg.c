@@ -27,7 +27,7 @@ void loadFontIntoBkg(void) OLDCALL BANKED {
 
   start_of_bkg_vram = c_tiles.n_tiles;
   MemcpyBanked(&bg_font, font_gbs_mono, sizeof(font_desc_t), bg_font_bank);
-  SetBankedBkgData(start_of_bkg_vram,16*14, bg_font.bitmaps, bg_font_bank);
+  SetBankedBkgData(start_of_bkg_vram,16*12 - start_of_bkg_vram, bg_font.bitmaps, bg_font_bank);
 }
 
 void write_bg_font(UBYTE x, UBYTE y, UBYTE w, UBYTE h) OLDCALL BANKED {

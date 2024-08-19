@@ -1,0 +1,109 @@
+{
+  "_resourceType": "actor",
+  "id": "88af4006-8c8f-40af-9447-ee67756e0fc0",
+  "name": "",
+  "frame": 0,
+  "animate": false,
+  "spriteSheetId": "9aba3d2a-99b2-4273-a573-51f54fa169ac",
+  "direction": "down",
+  "moveSpeed": 1,
+  "animSpeed": 15,
+  "paletteId": "",
+  "isPinned": false,
+  "persistent": false,
+  "collisionGroup": "",
+  "symbol": "actor_50",
+  "script": [],
+  "startScript": [
+    {
+      "command": "FS_FULL_MENU_COPY_SELECTION",
+      "args": {
+        "setvar": "L0"
+      },
+      "id": "5dddb54d-4ffc-4650-9b10-f4540aee93d4"
+    },
+    {
+      "command": "FS_FULL_MENU_COPY_SELECTION",
+      "args": {
+        "setvar": "L1"
+      },
+      "id": "a61163b0-ec09-4f15-8afd-51730ce5a262"
+    }
+  ],
+  "updateScript": [
+    {
+      "command": "EVENT_WAIT",
+      "args": {
+        "time": 0.1,
+        "frames": 30
+      },
+      "id": "07f9c7d1-e4eb-4afb-9d97-37100372acd4"
+    },
+    {
+      "command": "FS_FULL_MENU_COPY_SELECTION",
+      "args": {
+        "setvar": "L1"
+      },
+      "id": "1044f563-ab4f-413f-b19d-1430a11e7722"
+    },
+    {
+      "command": "EVENT_IF",
+      "args": {
+        "condition": {
+          "type": "ne",
+          "valueA": {
+            "type": "variable",
+            "value": "L0"
+          },
+          "valueB": {
+            "type": "variable",
+            "value": "L1"
+          }
+        },
+        "__collapseElse": false
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_SET_VALUE",
+            "args": {
+              "variable": "L0",
+              "value": {
+                "type": "variable",
+                "value": "L1"
+              }
+            },
+            "id": "d64ecd9c-6aa9-49d8-9012-54aeaa8746d2"
+          },
+          {
+            "command": "EVENT_ACTOR_SET_STATE",
+            "args": {
+              "actorId": "$self$",
+              "spriteStateId": "Attack",
+              "loopAnim": true
+            },
+            "id": "b710ce8e-9487-4418-b705-e73505a957e0"
+          }
+        ],
+        "false": [
+          {
+            "command": "EVENT_ACTOR_SET_STATE",
+            "args": {
+              "actorId": "$self$",
+              "spriteStateId": "",
+              "loopAnim": true
+            },
+            "id": "29929c7a-4171-49b8-96ed-a557f0e8ddbf"
+          }
+        ]
+      },
+      "id": "2b09ae07-bbcc-4898-a2f2-3b82bff5b8bd"
+    }
+  ],
+  "hit1Script": [],
+  "hit2Script": [],
+  "hit3Script": [],
+  "x": 9,
+  "y": 13,
+  "_index": 0
+}

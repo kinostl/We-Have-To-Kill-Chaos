@@ -3,12 +3,12 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "maps/inn.tmx",
+    "activeFile": "maps/equip_shop_menu.tmx",
     "automapping.whileDrawing": true,
     "expandedProjectPaths": [
-        ".",
+        "maps",
         "tilesets",
-        "maps"
+        "."
     ],
     "exportAsImage.includeBackgroundColor": true,
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -30,7 +30,7 @@
             }
         },
         "maps/castle1.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 3,
             "scaleInEditor": 1
         },
         "maps/castle2.tsx": {
@@ -46,6 +46,7 @@
             }
         },
         "maps/castle_inside.tsx": {
+            "scaleInDock": 1,
             "scaleInEditor": 1
         },
         "maps/clinic.tmx": {
@@ -72,9 +73,21 @@
                 "y": 216.66666666666663
             }
         },
-        "maps/frame.tsx": {
+        "maps/corneria.tsx": {
             "scaleInDock": 1,
-            "scaleInEditor": 32
+            "scaleInEditor": 1
+        },
+        "maps/equip_shop_menu.tmx": {
+            "scale": 5.634027777777777,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 79.96055713053126,
+                "y": 71.9733760631086
+            }
+        },
+        "maps/frame.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 11
         },
         "maps/inn.tmx": {
             "scale": 5.5,
@@ -112,6 +125,10 @@
             "scaleInDock": 1,
             "scaleInEditor": 4
         },
+        "maps/kings_garden_tiles.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
         "maps/random_menu.tmx": {
             "scale": 5.634027777777777,
             "selectedLayer": 1,
@@ -121,6 +138,7 @@
             }
         },
         "maps/shed_tileset.tsx": {
+            "scaleInDock": 5.5,
             "scaleInEditor": 11
         },
         "maps/store_tiles.tsx": {
@@ -138,7 +156,7 @@
         },
         "maps/tileset_for_stores.tsx": {
             "dynamicWrapping": false,
-            "scaleInDock": 1,
+            "scaleInDock": 3,
             "scaleInEditor": 1
         },
         "maps/weapon_armor_shop.tmx": {
@@ -192,22 +210,29 @@
         "maps/random_menu.tmx",
         "maps/frame.tsx",
         "maps/inn.tmx",
-        "maps/tavern.tmx"
+        "maps/tavern.tmx",
+        "maps/cornelia_castle_2.tmx",
+        "maps/kings_garden.tmx",
+        "maps/corneria.tsx",
+        "maps/kings_garden_tiles.tsx",
+        "maps/clinic.tmx",
+        "maps/item_menu.tmx",
+        "maps/equip_shop_menu.tmx"
     ],
     "project": "custom_stores.tiled-project",
     "recentFiles": [
-        "maps/item_shop.tmx",
-        "maps/shed_tileset.tsx",
-        "maps/kings_garden.tsx",
-        "maps/cornelia_castle_2_inside.tmx",
-        "maps/castle_combined.tmx",
-        "maps/castle_inside.tsx",
-        "maps/cornelia_castle_2.tmx",
-        "maps/castle2.tsx",
-        "maps/castle1.tsx",
-        "maps/weapon_armor_shop.tmx",
         "maps/white_magic_shop.tmx",
-        "tilesets/store_tiles.tsx"
+        "tilesets/store_tiles.tsx",
+        "maps/store_tiles.tsx",
+        "maps/tileset_for_stores.tsx",
+        "maps/black_magic.tmx",
+        "maps/random_menu.tmx",
+        "maps/frame.tsx",
+        "maps/inn.tmx",
+        "maps/tavern.tmx",
+        "maps/cornelia_castle_2.tmx",
+        "maps/kings_garden.tmx",
+        "maps/corneria.tsx"
     ],
     "resizeMap.removeObjects": false,
     "tileset.lastUsedFormat": "tsx",
