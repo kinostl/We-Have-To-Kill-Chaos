@@ -32,20 +32,17 @@
       "args": {
         "x": "0",
         "y": 5,
-        "max": 3
-      },
-      "id": "0953dc3e-f386-479d-9658-fd9bd68105ad"
-    },
-    {
-      "command": "EVENT_SET_VALUE",
-      "args": {
-        "variable": "L0",
-        "value": {
+        "max": 3,
+        "load": {
           "type": "number",
-          "value": 65
+          "value": 0
+        },
+        "load_val": {
+          "type": "number",
+          "value": 0
         }
       },
-      "id": "f44ed521-34dc-4c00-bfbb-a67a1bdda2e5"
+      "id": "0953dc3e-f386-479d-9658-fd9bd68105ad"
     },
     {
       "command": "FS_FULL_MENU_WRITE_BG_TEXT",
@@ -128,11 +125,26 @@
       "children": {
         "true": [
           {
+            "command": "FS_FULL_MENU_COPY_SELECTION",
+            "args": {
+              "setvar": "L1"
+            },
+            "id": "9c741cdb-6bdc-4a87-8efd-a1ff1fb9c53a"
+          },
+          {
             "command": "FS_FULL_MENU_SET_AREA",
             "args": {
               "x": "0",
               "y": 5,
-              "max": 3
+              "max": 3,
+              "load": {
+                "type": "number",
+                "value": 0
+              },
+              "load_val": {
+                "type": "variable",
+                "value": "L0"
+              }
             },
             "id": "2f6a6057-ff77-4be2-8dee-8d366746f608"
           }
@@ -152,20 +164,28 @@
       "children": {
         "true": [
           {
-            "command": "FS_FULL_MENU_SET_AREA",
-            "args": {
-              "x": 8,
-              "y": 5,
-              "max": 5
-            },
-            "id": "4e500afc-ff4b-4dfa-a2c9-291ccb6b66bf"
-          },
-          {
             "command": "FS_FULL_MENU_COPY_SELECTION",
             "args": {
               "setvar": "L0"
             },
             "id": "e969b138-9229-4774-ab67-a9c4dae0f37a"
+          },
+          {
+            "command": "FS_FULL_MENU_SET_AREA",
+            "args": {
+              "x": 8,
+              "y": 5,
+              "max": 5,
+              "load": {
+                "type": "number",
+                "value": 0
+              },
+              "load_val": {
+                "type": "variable",
+                "value": "L1"
+              }
+            },
+            "id": "4e500afc-ff4b-4dfa-a2c9-291ccb6b66bf"
           }
         ]
       },
