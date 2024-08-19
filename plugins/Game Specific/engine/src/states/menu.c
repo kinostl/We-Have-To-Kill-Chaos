@@ -13,14 +13,17 @@
 #include "load_font_into_bg.h"
 
 UBYTE menu_selection;
+UBYTE max_menu_selection;
 
 UWORD cursor_base_pos;
 UBYTE c_timer;
 
 void menu_init(void) BANKED {
     menu_selection=1;
+    max_menu_selection=18;
     c_timer = 7;
     cursor_base_pos = PLAYER.pos.y;
+  VM_GLOBAL(VAR_1_C) = cursor_base_pos;
 
     PLAYER.pos.x = ((PLAYER.pos.x >> 7) << 7);
     PLAYER.pos.y = ((PLAYER.pos.y >> 7) << 7);
@@ -43,11 +46,12 @@ void menu_update(void) BANKED {
     c_timer = 0;
   } else if (INPUT_RECENT_DOWN) {
     menu_selection++;
-    if (menu_selection > 18) {
-      menu_selection = 18;
+    if (menu_selection > max_menu_selection) {
+      menu_selection = max_menu_selection;
     }
     c_timer = 0;
   }
 
   PLAYER.pos.y = ((cursor_base_pos + ((menu_selection - 1) * 128)) >> 7) << 7;
+  VM_GLOBAL(VAR_2_C) = cursor_base_pos;
 }

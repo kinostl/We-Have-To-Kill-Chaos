@@ -28,6 +28,15 @@
   "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
   "script": [
     {
+      "command": "FS_FULL_MENU_SET_AREA",
+      "args": {
+        "X": 0,
+        "y": 1,
+        "Max": 3
+      },
+      "id": "b6d20441-2614-480b-98f3-cd1b01a1261f"
+    },
+    {
       "command": "EVENT_SET_VALUE",
       "args": {
         "variable": "L0",
@@ -41,7 +50,7 @@
     {
       "command": "FS_FULL_MENU_WRITE_BG_TEXT",
       "args": {
-        "bg_text": "Clinic",
+        "bg_text": "Weapon Shop",
         "x": {
           "type": "number",
           "value": 1
@@ -106,10 +115,71 @@
         }
       },
       "id": "67c50d05-d8ab-4158-8ff2-c2a6371ec2b1"
+    },
+    {
+      "command": "EVENT_SET_INPUT_SCRIPT",
+      "args": {
+        "input": [
+          "b"
+        ],
+        "override": true,
+        "__scriptTabs": "press"
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_ACTOR_SET_POSITION",
+            "args": {
+              "actorId": "$self$",
+              "x": {
+                "type": "number",
+                "value": 0
+              },
+              "y": {
+                "type": "number",
+                "value": 4
+              }
+            },
+            "id": "7c316620-67b8-45d8-8232-887abf44871d"
+          }
+        ]
+      },
+      "id": "d782c465-c8c2-4c08-b9bf-ab8d3fb9c772"
+    },
+    {
+      "command": "EVENT_SET_INPUT_SCRIPT",
+      "args": {
+        "input": [
+          "a"
+        ],
+        "override": true,
+        "__scriptTabs": "press"
+      },
+      "children": {
+        "true": [
+          {
+            "command": "FS_FULL_MENU_SET_AREA",
+            "args": {
+              "X": 8,
+              "y": 5,
+              "Max": 5
+            },
+            "id": "2b7d7e2c-cc31-4bb7-accb-2a04bb5eafb6"
+          },
+          {
+            "command": "FS_FULL_MENU_COPY_SELECTION",
+            "args": {
+              "setvar": "L0"
+            },
+            "id": "e969b138-9229-4774-ab67-a9c4dae0f37a"
+          }
+        ]
+      },
+      "id": "c70e6cf6-06ad-4e6a-af23-8b823aac92ac"
     }
   ],
   "playerHit1Script": [],
   "playerHit2Script": [],
   "playerHit3Script": [],
-  "collisions": ""
+  "collisions": "00168+"
 }

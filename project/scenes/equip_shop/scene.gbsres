@@ -28,6 +28,15 @@
   "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
   "script": [
     {
+      "command": "FS_FULL_MENU_SET_AREA",
+      "args": {
+        "x": "0",
+        "y": 5,
+        "max": 3
+      },
+      "id": "0953dc3e-f386-479d-9658-fd9bd68105ad"
+    },
+    {
       "command": "EVENT_SET_VALUE",
       "args": {
         "variable": "L0",
@@ -106,10 +115,65 @@
         }
       },
       "id": "67c50d05-d8ab-4158-8ff2-c2a6371ec2b1"
+    },
+    {
+      "command": "EVENT_SET_INPUT_SCRIPT",
+      "args": {
+        "input": [
+          "b"
+        ],
+        "override": true,
+        "__scriptTabs": "press"
+      },
+      "children": {
+        "true": [
+          {
+            "command": "FS_FULL_MENU_SET_AREA",
+            "args": {
+              "x": "0",
+              "y": 5,
+              "max": 3
+            },
+            "id": "2f6a6057-ff77-4be2-8dee-8d366746f608"
+          }
+        ]
+      },
+      "id": "d782c465-c8c2-4c08-b9bf-ab8d3fb9c772"
+    },
+    {
+      "command": "EVENT_SET_INPUT_SCRIPT",
+      "args": {
+        "input": [
+          "a"
+        ],
+        "override": true,
+        "__scriptTabs": "press"
+      },
+      "children": {
+        "true": [
+          {
+            "command": "FS_FULL_MENU_SET_AREA",
+            "args": {
+              "x": 8,
+              "y": 5,
+              "max": 5
+            },
+            "id": "4e500afc-ff4b-4dfa-a2c9-291ccb6b66bf"
+          },
+          {
+            "command": "FS_FULL_MENU_COPY_SELECTION",
+            "args": {
+              "setvar": "L0"
+            },
+            "id": "e969b138-9229-4774-ab67-a9c4dae0f37a"
+          }
+        ]
+      },
+      "id": "c70e6cf6-06ad-4e6a-af23-8b823aac92ac"
     }
   ],
   "playerHit1Script": [],
   "playerHit2Script": [],
   "playerHit3Script": [],
-  "collisions": ""
+  "collisions": "00168+"
 }
