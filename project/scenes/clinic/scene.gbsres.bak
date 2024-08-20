@@ -17,13 +17,7 @@
     "b7d0eb5b-19e5-4a67-b9b3-2750a57719bc"
   ],
   "autoFadeSpeed": 1,
-  "script": [
-    {
-      "command": "EVENT_OVERLAY_HIDE",
-      "args": {},
-      "id": "6d247bf9-ba08-427a-9abc-2c0fa5580e05"
-    }
-  ],
+  "script": [],
   "playerHit1Script": [],
   "playerHit2Script": [],
   "playerHit3Script": [],
