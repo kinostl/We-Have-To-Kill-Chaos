@@ -52,7 +52,24 @@ const fields = (
                     }
                 }
             ]
+        },
+        {
+            type: "group", key: "args", fields: [
+                {
+                    key: "instant",
+                    type: "checkbox",
+                    label: "Display Instantly",
+                    defaultValue: false
+                },
+                {
+                    key: "clear_area",
+                    type: "checkbox",
+                    label: "Clear Area",
+                    defaultValue: true
+                }
+            ]
         }
+        
     ]
 );
 
@@ -61,6 +78,7 @@ const compile = (input, helpers) => {
         _loadStructuredText,
         _declareLocal,
         _stackPush,
+        _stackPushConst,
         variableSetToScriptValue,
         _stackPop,
         _callNative
@@ -69,6 +87,16 @@ const compile = (input, helpers) => {
     _loadStructuredText(input.bg_text);
 
     const valHolder = _declareLocal(`fs_menu_call_native_val`, 1, true);
+    if(input.clear_area){
+        _stackPushConst(1)
+    }else{
+        _stackPushConst(0)
+    }
+    if(input.instant){
+        _stackPushConst(1)
+    }else{
+        _stackPushConst(0)
+    }
     variableSetToScriptValue(valHolder, input.x);
     _stackPush(valHolder)
     variableSetToScriptValue(valHolder, input.y);
@@ -79,7 +107,7 @@ const compile = (input, helpers) => {
     _stackPush(valHolder)
 
     _callNative("writeTextToBg");
-    _stackPop(4);
+    _stackPop(6);
 };
 
 module.exports = {

@@ -90,6 +90,8 @@ void addShopStat(UBYTE a) OLDCALL BANKED {
 void loadWeaponShopArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
   UBYTE check_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
+  BOOLEAN instant = *(BOOLEAN *)VM_REF_TO_PTR(FN_ARG1);
+  BOOLEAN clear_area = *(BOOLEAN *)VM_REF_TO_PTR(FN_ARG2);
   struct weapon_data w_data;
 
 //   set_weapon(menu_slots[check_id].id, &check_w);
@@ -104,10 +106,12 @@ void loadWeaponShopArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   strcat(ui_text_data, "\nCRT\n");
   addShopStat(w_data.crit_chance);
 
-  write_bg_font(1, 9, 5, 8);
+  fs_menu_write_bg_font(1, 9, 5, 8, instant, clear_area);
 }
 
-void loadWeaponShopWeapons(void) OLDCALL BANKED {
+void loadWeaponShopWeapons(SCRIPT_CTX * THIS) OLDCALL BANKED {
+  BOOLEAN instant = *(BOOLEAN *)VM_REF_TO_PTR(FN_ARG0);
+  BOOLEAN clear_area = *(BOOLEAN *)VM_REF_TO_PTR(FN_ARG1);
   strcpy(ui_text_data, "");
   unsigned char location[4] = {0x03, 18, 4, '\0'};
   unsigned char *price_str[4];
@@ -123,5 +127,5 @@ void loadWeaponShopWeapons(void) OLDCALL BANKED {
     strcat(ui_text_data, "\n");
   }
 
-  fs_menu_write_bg_font(8, 4, 11, 5);
+  fs_menu_write_bg_font(8, 4, 11, 5, instant, clear_area);
 }
