@@ -1,4 +1,3 @@
-#include "handle_submapping.h"
 #include "load_font_into_bg.h"
 #include <asm/types.h>
 #include <gb/gb.h>
@@ -12,16 +11,21 @@ unsigned char get_rendered_char(unsigned char d) {
   return d;
 }
 
+void fs_write_bg_char(UBYTE x, UBYTE y, unsigned char c) OLDCALL BANKED{
+  set_bkg_tile_xy(x, y, get_rendered_char(c));
+}
+
 void fs_clear_section(UBYTE x, UBYTE y, UBYTE w, UBYTE h, BOOLEAN instant) OLDCALL BANKED {
   for (int dy = y; dy < y + h; dy++) {
     for (int dx = x; dx < x + w; dx++) {
       if (!instant) {
         vsync();
       }
-      set_bkg_tile_xy(dx, dy, get_rendered_char(' '));
+      fs_write_bg_char(dx, dy, ' ');
     }
   }
 }
+
 
 void fs_menu_write_bg_font(UBYTE x, UBYTE y, UBYTE w, UBYTE h, BOOLEAN instant, BOOLEAN clear_area) OLDCALL BANKED {
   if (clear_area) {
@@ -52,7 +56,7 @@ void fs_menu_write_bg_font(UBYTE x, UBYTE y, UBYTE w, UBYTE h, BOOLEAN instant, 
     }
 
     if (*d == 0x05) {
-      set_bkg_tile_xy(dx, dy, get_rendered_char('%'));
+      fs_write_bg_char(dx, dy, '%');
       d++;
       continue;
     }
@@ -65,7 +69,7 @@ void fs_menu_write_bg_font(UBYTE x, UBYTE y, UBYTE w, UBYTE h, BOOLEAN instant, 
     }
 
     if ((dy - y) < h && (dx - x) < w) {
-      set_bkg_tile_xy(dx, dy, get_rendered_char(*d));
+      fs_write_bg_char(dx, dy, *d);
       dx++;
     }
     d++;
