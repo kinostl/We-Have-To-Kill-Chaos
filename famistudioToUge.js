@@ -7,7 +7,7 @@ import { noteStringsForClipboard } from "shared/lib/music/constants";
 import { readFileSync, writeFileSync } from "fs-extra";
 
 const data = readFileSync(`./song_template_v6.uge`);
-const nsf = readFileSync(`./ff1_prolog_raw_famistudio.txt`, 'utf-8');
+const nsf = readFileSync(`./ff1_cornelia_famistudio.txt`, 'utf-8');
 
 const dataArray = new Uint8Array(data).buffer;
 const song = loadUGESong(dataArray);
@@ -81,7 +81,16 @@ function convertToCell(cell, octave_offset){
   }
   
   if(out.note < 0) out.note = null
-    return out
+  if(cell["FinePitch"] == 0){
+    out.effectcode=1
+    out.effectparam=1
+  }
+  if(cell["FinePitch"] == 1){
+    out.effectcode=2
+    out.effectparam=1
+  }
+  
+  return out
 }
 
 function prepareChannel(channel){
@@ -89,7 +98,7 @@ function prepareChannel(channel){
   
   return channel.map(convertToCellsObject).map((x)=>{
       if(x.Duration){
-        x.repeat = Math.floor(x.Duration / 4)
+        x.repeat = Math.ceil(x.Duration / 4)
         x.repeat--
       }
       return x
@@ -98,7 +107,7 @@ function prepareChannel(channel){
 
 function padChannel(channel, octave_offset){
   const first_note = channel.find((x)=>x.Value)
-  const startArr = first_note ? Array(Math.floor(first_note["Note Time"]/4)).fill(nullCell) : []
+  const startArr = first_note ? Array(Math.ceil(first_note["Note Time"]/4)).fill(nullCell) : []
   return channel.reduce((arr, x)=>{
       if(!x.Value || !x.Instrument){
         return arr
@@ -175,4 +184,4 @@ song.patterns = convertNsfToUgePattern(nsf)
 song.sequence = Array(song.patterns.length).fill(0).map((x,i)=>i)
 song.ticks_per_row = 4 // This should actually pull from the BeatLength value
 const buff = saveUGESong(song)
-writeFileSync("prolog_gb.uge", new Uint8Array(buff), "utf8")
+writeFileSync("cornelia_gb.uge", new Uint8Array(buff), "utf8")

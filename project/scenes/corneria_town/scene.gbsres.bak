@@ -16,7 +16,15 @@
   ],
   "autoFadeSpeed": 1,
   "playerSpriteSheetId": "3b1fd25e-4a32-4c35-bbb0-8a98183d524b",
-  "script": [],
+  "script": [
+    {
+      "command": "EVENT_MUSIC_PLAY",
+      "args": {
+        "musicId": "734ec5de-95dd-4644-a6b3-db6bd0845cae"
+      },
+      "id": "97739bcd-0159-4b78-b24c-ba2ef589e9ff"
+    }
+  ],
   "playerHit1Script": [],
   "playerHit2Script": [],
   "playerHit3Script": [],
