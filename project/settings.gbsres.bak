@@ -1,6 +1,6 @@
 {
   "_resourceType": "settings",
-  "startSceneId": "4e72a14e-425e-4fd6-973c-1f3513e963a1",
+  "startSceneId": "76586ae3-b5db-4079-8b7b-71f9205f6373",
   "startX": 29,
   "startY": 15,
   "startMoveSpeed": 1,
@@ -20,7 +20,7 @@
     "default-bg-5",
     "default-bg-6",
     "dmg",
-    "4c0e4576-ad36-4697-b472-134653901c11"
+    "default-ui"
   ],
   "defaultSpritePaletteIds": [
     "18e70aa9-2868-47cc-8571-6f0d8947b774",

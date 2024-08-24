@@ -44,5 +44,5 @@ function convertNsfToUgePattern(nsf_file){
         }))
     })
 
-    return patterns
+    return patterns[0]
 }
