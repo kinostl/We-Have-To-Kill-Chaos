@@ -1,0 +1,276 @@
+{
+  "_resourceType": "scene",
+  "id": "e6712fc5-277c-4cbf-a030-f10048d92132",
+  "name": "Scene 23",
+  "backgroundId": "1e5f9d6a-bdbc-43e6-8c34-22f5bb5dea05",
+  "tilesetId": "",
+  "width": 20,
+  "height": 18,
+  "type": "MENU",
+  "paletteIds": [
+    "d8ef3f33-956f-4f96-a8a4-774608a880da"
+  ],
+  "spritePaletteIds": [],
+  "collisions": "00168+",
+  "autoFadeSpeed": null,
+  "symbol": "scene_23",
+  "x": 2072,
+  "y": 1144,
+  "script": [
+    {
+      "command": "EVENT_ACTOR_HIDE",
+      "args": {
+        "actorId": "$self$"
+      },
+      "id": "2d2835a6-0882-49fd-a5ec-55f86c289086"
+    },
+    {
+      "command": "FS_FULL_MENU_WRITE_BG_TEXT",
+      "args": {
+        "bg_text": "\n    +SOUND TEST+",
+        "x": {
+          "type": "number",
+          "value": 0
+        },
+        "y": {
+          "type": "number",
+          "value": 0
+        },
+        "w": {
+          "type": "number",
+          "value": 20
+        },
+        "h": {
+          "type": "number",
+          "value": 18
+        },
+        "instant": true,
+        "clear_area": true
+      },
+      "id": "1c974d59-d8c7-471b-b494-e51e273b86bb"
+    },
+    {
+      "command": "EVENT_FADE_IN",
+      "args": {
+        "speed": "2"
+      },
+      "id": "e41a679b-d08c-44fd-8e7c-57bb91922666"
+    },
+    {
+      "command": "FS_FULL_MENU_WRITE_BG_TEXT",
+      "args": {
+        "bg_text": "\n\n\nBattle\nShop\nTemple of Chaos\nVictory\nDead\nMenu\nMain Theme\nCornelia Castle\nTown\nPrelude",
+        "x": {
+          "type": "number",
+          "value": 2
+        },
+        "y": {
+          "type": "number",
+          "value": 0
+        },
+        "w": {
+          "type": "number",
+          "value": 18
+        },
+        "h": {
+          "type": "number",
+          "value": 18
+        },
+        "instant": false,
+        "clear_area": false
+      },
+      "id": "dc7ca8bf-e715-4a76-ae68-49eff9a423ab"
+    },
+    {
+      "command": "FS_FULL_MENU_SET_AREA",
+      "args": {
+        "x": "0",
+        "y": 4,
+        "max": 10,
+        "load_val": {
+          "type": "number",
+          "value": 1
+        }
+      },
+      "id": "40d29ffd-d956-4e54-99b0-9ef89077f0a0"
+    },
+    {
+      "command": "EVENT_ACTOR_SHOW",
+      "args": {
+        "actorId": "$self$"
+      },
+      "id": "050ec77a-0061-4a84-9298-1d8181e3f323"
+    },
+    {
+      "command": "EVENT_SET_INPUT_SCRIPT",
+      "args": {
+        "input": [
+          "b",
+          "a"
+        ],
+        "override": true,
+        "__scriptTabs": "press"
+      },
+      "children": {
+        "true": [
+          {
+            "command": "FS_FULL_MENU_COPY_SELECTION",
+            "args": {
+              "setvar": "L0"
+            },
+            "id": "a6274261-587b-402d-a838-f137b770146e"
+          },
+          {
+            "command": "EVENT_MUSIC_STOP",
+            "args": {},
+            "id": "00d9d684-f2ba-4a2b-aff4-7c2ef3b3b68e"
+          },
+          {
+            "command": "EVENT_SWITCH",
+            "args": {
+              "variable": "L0",
+              "choices": 10,
+              "__collapseCase0": false,
+              "value0": 1,
+              "__collapseCase1": false,
+              "value1": 2,
+              "__collapseCase2": false,
+              "value2": 3,
+              "__collapseCase3": false,
+              "value3": 4,
+              "__collapseCase4": false,
+              "value4": 5,
+              "__collapseCase5": false,
+              "value5": 6,
+              "__collapseCase6": false,
+              "value6": 7,
+              "__collapseCase7": false,
+              "value7": 8,
+              "__collapseCase8": false,
+              "value8": 9,
+              "__collapseCase9": false,
+              "value9": 10,
+              "__collapseCase10": false,
+              "value10": 11,
+              "__collapseCase11": false,
+              "value11": 12,
+              "__collapseCase12": false,
+              "value12": 13,
+              "__collapseCase13": false,
+              "value13": 14,
+              "__collapseCase14": false,
+              "value14": 15,
+              "__collapseCase15": false,
+              "value15": 16,
+              "__collapseElse": false
+            },
+            "children": {
+              "true0": [
+                {
+                  "command": "EVENT_MUSIC_PLAY",
+                  "args": {
+                    "musicId": "0f9dc2d7-2c9b-41c3-b101-d2cf046917ab"
+                  },
+                  "id": "11268bba-ed23-4425-a5f9-fe4bd5f17e9b"
+                }
+              ],
+              "true1": [
+                {
+                  "command": "EVENT_MUSIC_PLAY",
+                  "args": {
+                    "musicId": "63d770e4-27e9-411f-9765-08b4c967e4e1"
+                  },
+                  "id": "7a419108-2cfa-4983-83b9-b46dd78256b8"
+                }
+              ],
+              "true2": [
+                {
+                  "command": "EVENT_MUSIC_PLAY",
+                  "args": {
+                    "musicId": "06e83fdf-e77f-4fc1-8373-204ea5bdfe7e"
+                  },
+                  "id": "0c123d37-b3e6-4af8-80c9-5e516da267f9"
+                }
+              ],
+              "true3": [
+                {
+                  "command": "EVENT_MUSIC_PLAY",
+                  "args": {
+                    "musicId": "ef9a3293-d37e-4e39-9e59-c4ca01d61e9e"
+                  },
+                  "id": "b939e77f-51c7-43ca-af5a-d901ca38b2e7"
+                }
+              ],
+              "true4": [
+                {
+                  "command": "EVENT_MUSIC_PLAY",
+                  "args": {
+                    "musicId": "a326d845-a8bc-42a5-854b-4bb5271cf283"
+                  },
+                  "id": "dfd51ead-4738-405b-a4c0-545e8833a1e3"
+                }
+              ],
+              "true5": [
+                {
+                  "command": "EVENT_MUSIC_PLAY",
+                  "args": {
+                    "musicId": "59ecdf1f-d46c-4e10-93bc-805f662e6ea1"
+                  },
+                  "id": "c541147a-6401-4bf5-8440-11342f3b329d"
+                }
+              ],
+              "true6": [
+                {
+                  "command": "EVENT_MUSIC_PLAY",
+                  "args": {
+                    "musicId": "26a2e456-302a-4367-a704-1d90d901e441"
+                  },
+                  "id": "b0adebf8-b755-4d67-80c1-cc8964330de2"
+                }
+              ],
+              "true7": [
+                {
+                  "command": "EVENT_MUSIC_PLAY",
+                  "args": {
+                    "musicId": "6a32886f-caf5-477a-a2ee-51506b5cc701"
+                  },
+                  "id": "1f5bf298-0929-4e6e-9500-1f7eac9808ed"
+                }
+              ],
+              "true8": [
+                {
+                  "command": "EVENT_MUSIC_PLAY",
+                  "args": {
+                    "musicId": "5f110bb5-fb01-4fda-83aa-0bfdbfbfdb1d"
+                  },
+                  "id": "273c7f65-5f9a-48de-9e4c-6ec1e058594b"
+                }
+              ],
+              "true9": [
+                {
+                  "command": "EVENT_MUSIC_PLAY",
+                  "args": {
+                    "musicId": "980f20e4-ea21-4b59-ae7e-f8075ea4bde5"
+                  },
+                  "id": "b87a7d89-910c-48ef-bd9c-d9b71c1f6a5f"
+                }
+              ],
+              "true10": [],
+              "true11": [],
+              "true12": [],
+              "true13": [],
+              "true14": [],
+              "true15": [],
+              "false": []
+            },
+            "id": "2bf045da-418f-40ea-b2e9-2e5a39212205"
+          }
+        ]
+      },
+      "id": "2d5859fe-ec7f-4e64-8c46-902412865700"
+    }
+  ],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": []
+}

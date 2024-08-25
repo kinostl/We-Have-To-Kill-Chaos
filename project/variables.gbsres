@@ -1275,6 +1275,11 @@
       "id": "76586ae3-b5db-4079-8b7b-71f9205f6373__L2",
       "name": "Menu State",
       "symbol": "var_menu_state"
+    },
+    {
+      "id": "e6712fc5-277c-4cbf-a030-f10048d92132__L0",
+      "name": "Song Choice",
+      "symbol": "var_song_choice"
     }
   ]
 }
