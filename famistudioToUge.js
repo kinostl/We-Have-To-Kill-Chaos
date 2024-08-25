@@ -166,7 +166,7 @@ function convertNsfToUgePattern(nsf_file){
     let p_temp=[]
     
     let p_max = Math.max(c_0_r.length, c_1_r.length, c_2_r.length)
-    p_max = Math.ceil(p_max/256) * 256
+    // p_max = Math.ceil(p_max/256) * 256
     
     for(let i=0;i<p_max;i++){
       if(i%64==0 && i>0){
