@@ -1,0 +1,9 @@
+{
+  "_resourceType": "music",
+  "id": "5f110bb5-fb01-4fda-83aa-0bfdbfbfdb1d",
+  "name": "town_gb",
+  "symbol": "song_town_gb",
+  "filename": "town_gb.uge",
+  "settings": {},
+  "type": "uge"
+}

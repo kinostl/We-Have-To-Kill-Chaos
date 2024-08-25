@@ -7,7 +7,7 @@ import { noteStringsForClipboard } from "shared/lib/music/constants";
 import { readFileSync, writeFileSync } from "fs-extra";
 
 const data = readFileSync(`./song_template_v6.uge`);
-const nsf = readFileSync(`./ff1_cornelia_famistudio.txt`, 'utf-8');
+const nsf = readFileSync(`./ff1_town_famistudio.txt`, 'utf-8');
 
 const dataArray = new Uint8Array(data).buffer;
 const song = loadUGESong(dataArray);
@@ -36,12 +36,12 @@ function convertToCellsObject(row){
   }, {})
 }
 
-const nullCell = {
+const nullCell = () => ({
   instrument: null,
   note: null,
   effectcode: null,
   effectparam: null
-}
+})
 
 function getOffset(channel){
   return channel.reduce((offset, cell)=>{
@@ -65,7 +65,7 @@ function getOffset(channel){
 }
 
 function convertToCell(cell, octave_offset){
-  if(!cell || !cell.Value) return nullCell
+  if(!cell || !cell.Value) return nullCell()
     if(cell.Value.length == 2){
       cell.Value = `${cell.Value[0]}-${cell.Value[1]}`
     }
@@ -83,45 +83,48 @@ function convertToCell(cell, octave_offset){
   if(out.note < 0) out.note = null
   if(cell["FinePitch"] == 0){
     out.effectcode=1
-    out.effectparam=1
+    out.effectparam=2
   }
   if(cell["FinePitch"] == 1){
     out.effectcode=2
-    out.effectparam=1
+    out.effectparam=2
   }
   
   return out
 }
 
 function prepareChannel(channel){
-  let n_i=0;
+  let pattern_index=0;
+  let previous_note=0;
   
-  return channel.map(convertToCellsObject).map((x)=>{
-      if(x.Duration){
-        x.repeat = Math.ceil(x.Duration / 4)
-        x.repeat--
-      }
-      return x
-    })
+  return channel.map(convertToCellsObject).map((x) => {
+    const note_value = parseInt(x["Note Time"]) / 4
+    if(note_value < previous_note){
+      pattern_index++
+    }
+    x.note_index = note_value + (pattern_index * 64)
+    previous_note = note_value
+    return x
+  })
 }
 
 function padChannel(channel, octave_offset){
-  const first_note = channel.find((x)=>x.Value)
-  const startArr = first_note ? Array(Math.ceil(first_note["Note Time"]/4)).fill(nullCell) : []
-  return channel.reduce((arr, x)=>{
+  const output =  channel.reduce((arr, x)=>{
       if(!x.Value || !x.Instrument){
         return arr
       }
       const cell = convertToCell(x, octave_offset)
       
-      while(x.repeat && x.repeat > 0){
-        arr.push(nullCell)
-        x.repeat--
+      while(arr.length < x.note_index){
+        const buffCell = nullCell()
+        arr.push(buffCell)
       }
-      if(x.repeat){delete x.repeat}
+
       arr.push(cell)
       return arr
-    },startArr)
+    },[])
+  
+  return output
 }
 
 function convertNsfToUgePattern(nsf_file){
@@ -162,20 +165,21 @@ function convertNsfToUgePattern(nsf_file){
     const p_bucket=[]
     let p_temp=[]
     
-    const p_max = Math.max(c_0_r.length, c_1_r.length, c_2_r.length)
+    let p_max = Math.max(c_0_r.length, c_1_r.length, c_2_r.length)
+    p_max = Math.ceil(p_max/256) * 256
     
     for(let i=0;i<p_max;i++){
       if(i%64==0 && i>0){
         p_bucket.push(p_temp)
         p_temp=[]
       }
-      const p1 = c_0_r[i] || nullCell
-      const p2 = c_1_r[i] || nullCell
-      const p3 = c_2_r[i] || nullCell
+      const p1 = c_0_r[i] || nullCell()
+      const p2 = c_1_r[i] || nullCell()
+      const p3 = c_2_r[i] || nullCell()
       
       if(p3 && p3.instrument) p3.instrument=10
         
-      p_temp.push([p1, p2, p3, nullCell])
+      p_temp.push([p1, p2, p3, nullCell()])
     }
     
     return p_bucket
@@ -184,4 +188,4 @@ song.patterns = convertNsfToUgePattern(nsf)
 song.sequence = Array(song.patterns.length).fill(0).map((x,i)=>i)
 song.ticks_per_row = 4 // This should actually pull from the BeatLength value
 const buff = saveUGESong(song)
-writeFileSync("cornelia_gb.uge", new Uint8Array(buff), "utf8")
+writeFileSync("town_gb.uge", new Uint8Array(buff), "utf8")
