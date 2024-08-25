@@ -7,7 +7,7 @@ import { noteStringsForClipboard } from "shared/lib/music/constants";
 import { readFileSync, writeFileSync } from "fs-extra";
 
 const data = readFileSync(`./song_template_v6.uge`);
-const nsf = readFileSync(`./ff1_town_famistudio.txt`, 'utf-8');
+const nsf = readFileSync(`./ff1_prolog_raw_famistudio.txt`, 'utf-8');
 
 const dataArray = new Uint8Array(data).buffer;
 const song = loadUGESong(dataArray);
@@ -98,29 +98,41 @@ function prepareChannel(channel){
   let previous_note=0;
   
   return channel.map(convertToCellsObject).map((x) => {
-    const note_value = parseInt(x["Note Time"]) / 4
+    const note_value = Math.ceil(parseInt(x["Note Time"]) / 4)
     if(note_value < previous_note){
       pattern_index++
     }
     x.note_index = note_value + (pattern_index * 64)
+    x.duration = Math.ceil(parseInt(x["Duration"]) / 4)
     previous_note = note_value
     return x
   })
 }
 
 function padChannel(channel, octave_offset){
+  let prev_duration = -1
   const output =  channel.reduce((arr, x)=>{
       if(!x.Value || !x.Instrument){
         return arr
       }
       const cell = convertToCell(x, octave_offset)
+      let null_index=0
       
       while(arr.length < x.note_index){
         const buffCell = nullCell()
+        if(null_index == prev_duration){
+          buffCell.instrument = 14
+          buffCell.note = cell.note
+        }
         arr.push(buffCell)
+        null_index++
       }
 
       arr.push(cell)
+
+      if(x.duration > 0){
+        prev_duration = x.duration
+      }
       return arr
     },[])
   
@@ -188,4 +200,4 @@ song.patterns = convertNsfToUgePattern(nsf)
 song.sequence = Array(song.patterns.length).fill(0).map((x,i)=>i)
 song.ticks_per_row = 4 // This should actually pull from the BeatLength value
 const buff = saveUGESong(song)
-writeFileSync("town_gb.uge", new Uint8Array(buff), "utf8")
+writeFileSync("prolog_gb.uge", new Uint8Array(buff), "utf8")
