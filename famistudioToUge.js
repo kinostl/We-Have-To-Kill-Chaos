@@ -7,7 +7,7 @@ import { noteStringsForClipboard } from "shared/lib/music/constants";
 import { readFileSync, writeFileSync } from "fs-extra";
 
 const data = readFileSync(`./song_template_v6.uge`);
-const nsf = readFileSync(`./ff1_victory_famistudio.txt`, 'utf-8');
+const nsf = readFileSync(`./castlevania_town.txt`, 'utf-8');
 
 const dataArray = new Uint8Array(data).buffer;
 const song = loadUGESong(dataArray);
@@ -16,8 +16,10 @@ const song = loadUGESong(dataArray);
 
 // patterns contains an array of arrays. those arrays represent the 4 slots in the song - Duty 1, Duty 2, Wave, Noise
 const instrumentMap = {
+  "DPCM Instrument": 6,
   "Duty 0": 6,
-  "Duty 1": 7
+  "Duty 1": 7,
+  "Duty 2": 8
 }
 
 // Need to seperate into channels, then patterns, then subpatterns
@@ -160,9 +162,14 @@ function convertNsfToUgePattern(nsf_file){
     const c_0=prepareChannel(channels[0])
     const c_1=prepareChannel(channels[1])
     const c_2=prepareChannel(channels[2])
+    const c_3=prepareChannel(channels[3])
+    const c_4=prepareChannel(channels[4])
     
     const octave_offset = Math.max(
-      getOffset(c_0),getOffset(c_1),getOffset(c_2),
+      getOffset(c_0),
+getOffset(c_1),
+getOffset(c_2),
+getOffset(c_3),
     )
     if(octave_offset > 0){
       console.warn(`Octave Offset: ${octave_offset}`)
@@ -173,11 +180,13 @@ function convertNsfToUgePattern(nsf_file){
     const c_0_r = padChannel(c_0, octave_offset)
     const c_1_r = padChannel(c_1, octave_offset)
     const c_2_r = padChannel(c_2, octave_offset)
+    const c_3_r = padChannel(c_3, octave_offset)
+    const c_4_r = padChannel(c_4, octave_offset)
     
     const p_bucket=[]
     let p_temp=[]
     
-    let p_max = Math.max(c_0_r.length, c_1_r.length, c_2_r.length)
+    let p_max = Math.max(c_0_r.length, c_1_r.length, c_2_r.length, c_3_r.length, c_4_r.length)
     // p_max = Math.ceil(p_max/256) * 256
     
     for(let i=0;i<p_max;i++){
@@ -188,10 +197,17 @@ function convertNsfToUgePattern(nsf_file){
       const p1 = c_0_r[i] || nullCell()
       const p2 = c_1_r[i] || nullCell()
       const p3 = c_2_r[i] || nullCell()
+      const p4 = c_3_r[i] || nullCell()
+      const p5 = c_4_r[i] || nullCell()
       
       if(p3 && p3.instrument) p3.instrument=10
+
+      let lastNote = p5
+      if(lastNote === nullCell()){
+        lastNote = p4
+      }
         
-      p_temp.push([p1, p2, p3, nullCell()])
+      p_temp.push([p1, p2, p3, lastNote])
     }
     
     return p_bucket
@@ -200,4 +216,4 @@ song.patterns = convertNsfToUgePattern(nsf)
 song.sequence = Array(song.patterns.length).fill(0).map((x,i)=>i)
 song.ticks_per_row = 4 // This should actually pull from the BeatLength value
 const buff = saveUGESong(song)
-writeFileSync("victory_gb.uge", new Uint8Array(buff), "utf8")
+writeFileSync("castlevania_town.uge", new Uint8Array(buff), "utf8")
