@@ -1,0 +1,9 @@
+{
+  "_resourceType": "music",
+  "id": "59ecdf1f-d46c-4e10-93bc-805f662e6ea1",
+  "name": "menu_gb",
+  "symbol": "song_menu_gb",
+  "filename": "menu_gb.uge",
+  "settings": {},
+  "type": "uge"
+}
