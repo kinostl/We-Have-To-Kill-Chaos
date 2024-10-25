@@ -1,14 +1,11 @@
 {
   "_resourceType": "settings",
-  "startSceneId": "16ab15f9-e634-46f8-877c-bd32dca7c8bb",
-  "startX": 15,
-  "startY": 15,
+  "startSceneId": "f9bca12a-296d-4f65-aea4-3d8f113fe104",
+  "startX": 9,
+  "startY": 26,
   "startMoveSpeed": 1,
   "startAnimSpeed": 15,
   "startDirection": "up",
-  "showCollisions": true,
-  "showConnections": true,
-  "showCollisionSlopeTiles": true,
   "showCollisionExtraTiles": true,
   "sgbEnabled": false,
   "customHead": "",
@@ -35,12 +32,6 @@
   "defaultSpritePaletteId": "default-sprite",
   "defaultUIPaletteId": "default-ui",
   "playerPaletteId": "",
-  "navigatorSplitSizes": [
-    147,
-    205,
-    579
-  ],
-  "showNavigator": true,
   "defaultFontId": "4bd653f0-e08d-424e-9e5b-c1f3aaa21e47",
   "defaultCharacterEncoding": "",
   "defaultPlayerSprites": {
@@ -55,10 +46,6 @@
   "musicDriver": "huge",
   "cartType": "mbc5",
   "batterylessEnabled": false,
-  "favoriteEvents": [
-    "EVENT_TEXT",
-    "EVENT_SWITCH_SCENE"
-  ],
   "customColorsWhite": "E8F8E0",
   "customColorsLight": "B0F088",
   "customColorsDark": "509878",
@@ -95,44 +82,10 @@
   "customControlsSelect": [
     "Shift"
   ],
-  "debuggerEnabled": true,
-  "debuggerScriptType": "gbvm",
-  "debuggerVariablesFilter": "all",
-  "debuggerCollapsedPanes": [],
-  "debuggerPauseOnScriptChanged": false,
-  "debuggerPauseOnWatchedVariableChanged": false,
-  "debuggerBreakpoints": [
-    {
-      "scriptEventId": "e9ca0317-a83b-402a-bcad-33929d327e45",
-      "context": {
-        "type": "entity",
-        "entityType": "trigger",
-        "entityId": "248a5e0f-7ab2-4f3c-a2db-bd5d3af0834a",
-        "sceneId": "a7c6c8d4-7e27-4930-a885-9a9b325d9d56",
-        "scriptKey": "script"
-      }
-    },
-    {
-      "scriptEventId": "7cd9bb45-dea6-4f22-91cb-c7a55c67e1f6",
-      "context": {
-        "type": "entity",
-        "entityType": "trigger",
-        "entityId": "2b8f7382-ca11-4f2b-b01c-5e5de406f4c3",
-        "sceneId": "5fb38780-fbe9-4d07-bc86-da01a4465a11",
-        "scriptKey": "script"
-      }
-    }
-  ],
-  "debuggerWatchedVariables": [
-    "437",
-    "0",
-    "78",
-    "79"
-  ],
   "colorMode": "color",
-  "previewAsMono": false,
-  "openBuildLogOnWarnings": true,
   "generateDebugFilesEnabled": true,
-  "defaultFadeStyle": "white",
-  "playerSpriteSheetId": "581d34d0-9591-4e6e-a609-1d94f203b0cd"
+  "compilerOptimisation": "none",
+  "compilerPreset": 3000,
+  "scriptEventPresets": {},
+  "scriptEventDefaultPresets": {}
 }

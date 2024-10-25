@@ -3,6 +3,7 @@
   "id": "dbd1a756-5593-474d-91e0-e20fe0bfd525",
   "_index": 0,
   "symbol": "actor_34",
+  "prefabId": "",
   "name": "",
   "x": 15,
   "y": 29,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [
     {
       "command": "EVENT_TEXT",

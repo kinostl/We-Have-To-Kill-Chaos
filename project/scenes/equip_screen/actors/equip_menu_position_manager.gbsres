@@ -3,6 +3,7 @@
   "id": "a4a34b96-2d28-43d7-8403-4a2b327a4502",
   "_index": 2,
   "symbol": "actor_24",
+  "prefabId": "",
   "name": "Equip Menu Position Manager",
   "x": 18,
   "y": 3,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [],
   "startScript": [],
   "updateScript": [

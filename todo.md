@@ -42,7 +42,7 @@
 - [ ] Has NPCs and Dialogs implemented
 - [ ] Has White Magic Shop implemented
 - [ ] Has Black Magic Shop implemented
-- [ ] Has Weapons Shop implemented
+- [/] Has Weapons Shop implemented
 - [ ] Has Armor Shop implemented
 - [ ] Has Item Shop implemented
 - [ ] Has INN implemented

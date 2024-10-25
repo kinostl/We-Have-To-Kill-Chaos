@@ -3,6 +3,7 @@
   "id": "23e80358-5a3e-445a-9acf-6602af1e62ec",
   "_index": 1,
   "symbol": "actor_37",
+  "prefabId": "",
   "name": "Weapons Guy",
   "x": 29,
   "y": 6,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [
     {
       "command": "EVENT_TEXT",

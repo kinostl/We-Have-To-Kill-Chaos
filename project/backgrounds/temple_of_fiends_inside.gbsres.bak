@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "331b4f78-d085-4ac0-9b63-45a1e9e26aba",
+  "name": "temple_of_fiends_inside",
+  "symbol": "bg_temple_of_fiends_inside",
+  "width": 84,
+  "height": 74,
+  "imageWidth": 672,
+  "imageHeight": 592,
+  "filename": "temple_of_fiends_inside.png",
+  "autoColor": true,
+  "tileColors": ""
+}

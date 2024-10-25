@@ -74,6 +74,7 @@ inline void writeItemDesc(BYTE item_id, unsigned char *item_s){
 }
 
 void load_weapon_info_text(struct weapon_data w_data, unsigned char * item_s, UBYTE width, UBYTE offset) OLDCALL BANKED {
+  width;
   unsigned char t[4];
 
   writeItemDesc(w_data.id, item_s);

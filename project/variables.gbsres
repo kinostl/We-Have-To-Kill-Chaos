@@ -527,6 +527,21 @@
       "symbol": "var_explosion_h"
     },
     {
+      "id": "105",
+      "name": "CC/Current C",
+      "symbol": "var_cc_current_c"
+    },
+    {
+      "id": "106",
+      "name": "CC/Class Choice",
+      "symbol": "var_cc_class_choice"
+    },
+    {
+      "id": "107",
+      "name": "CC/Current Letter",
+      "symbol": "var_cc_current_letter"
+    },
+    {
       "id": "b543e5af-0a59-46a2-afa4-a8749b768159__L0",
       "name": "HP",
       "symbol": "var_hp"
@@ -583,8 +598,8 @@
     },
     {
       "id": "f1cf7e1f-1c86-4679-b076-dc3ee8711bff__L0",
-      "name": "class",
-      "symbol": "var_class"
+      "name": "Character",
+      "symbol": "var_character"
     },
     {
       "id": "9c7813d8-1d8c-4eab-aaaa-6b885a213232__L0",

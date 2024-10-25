@@ -1,6 +1,7 @@
 {
   "_resourceType": "scene",
   "id": "89885cd0-f535-418e-a4ef-8ca95c21182e",
+  "_index": 23,
   "type": "LOGO",
   "name": "Title Screen",
   "symbol": "scene_0",

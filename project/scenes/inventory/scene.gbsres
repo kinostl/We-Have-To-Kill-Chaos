@@ -1,6 +1,7 @@
 {
   "_resourceType": "scene",
   "id": "caf0e238-c183-4a3d-90a5-2f56cc1df30f",
+  "_index": 11,
   "type": "TOPDOWN",
   "name": "Inventory",
   "symbol": "scene_8",
@@ -32,6 +33,13 @@
   "autoFadeSpeed": 1,
   "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
   "script": [
+    {
+      "command": "EVENT_MUSIC_PLAY",
+      "args": {
+        "musicId": "59ecdf1f-d46c-4e10-93bc-805f662e6ea1"
+      },
+      "id": "5e55e351-a900-4ade-ba7a-3fbe88708c60"
+    },
     {
       "command": "EVENT_ACTOR_SET_POSITION",
       "args": {

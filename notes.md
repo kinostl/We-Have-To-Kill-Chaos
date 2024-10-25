@@ -531,3 +531,42 @@ Lets drop Item stuff for now and work on the equip screen.
 Equip screen can probably take inspiration from GBA. Drop the idea of seperating armor and weapon screens and weapon inventory
 
 Equip screen, stats show on the left side, and sub-stats on the right. During equip, replace stats with choices?
+
+## Idea for moving more of the Combat scene into C
+
+I don't really need all that much of whats in the scene to be handled by the GBS side of things, so I should probably start moving the dispatcher and etc stuff into C since it can probably do things a bit more managbly in that. Then that means I can have the actors in the scene *only* care about animation. This can be accomplished with the current method of having a set of transfer variables, to handle animation settings only.
+
+### Reasoning
+
+The current implementation is cumbersome and difficult to manage now that it has scaled up. Its elegant at the start, but the number of skills I want to introduce necessitates a more comprehensive solution to organization and my options there are to either fork GBS entirely and add whole new pages for data management or to start using C even more. The C Solution seems more entertaining to me, and it lets me make use of the built-in scene system, which makes menu style scenes a *lot* easier since I don't need to work around the built in collisions. 
+
+
+### Explosions
+
+Explosion animations already act similarly to what I'm imagining, so they can be used as a reference.
+
+### Damage Numbers
+
+I have no idea how these numbers are being changed. Is this happening in the C Code or in the Dispatcher?
+
+### Characters
+
+These can likely be easier to manage as well since I'd be able to make use of the scene initializer function instead of the initial script.
+That might be overkill and ignore the seperation of concerns I'm looking for.
+
+### Dispatcher
+
+Removing this would be best, as cute as it is, its a hacked solution. Any logic in it should be in C. Any view logic should be getting handled by the actors displaying that. I shouldn't need a camera manager, so that shouldn't be a concern yet.
+
+### Menu System
+
+This part may or may not be tricky, I want to remove the current Trigger based solution as it won't be necessary with the Menu Scene based implementation I'm looking at now. Which should also hopefully allow for the flexibility in the menu'ing that it looks like I need. (Having the cursor move to different spots dynamically).
+
+#### Menu Item
+
+I probably need to look into a Menu Item structure to assist with this, and some functions to help with it. Something that can keep track of the line height and enforce the width of the characters. That kinda stuff. I can probably move the plugin that has the Abilities & Cost into C as well here.
+
+### Background Stuff
+
+This is mostly in the C code but I'll need to move more of it into the scene type instead of the area it currently is.
+

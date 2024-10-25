@@ -3,6 +3,7 @@
   "id": "9c19db58-2e7a-44d7-861f-c4544041ec00",
   "_index": 0,
   "symbol": "actor_0",
+  "prefabId": "",
   "name": "Current Attacking Hero",
   "x": 14,
   "y": 4,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [
     {
       "command": "EVENT_GROUP",

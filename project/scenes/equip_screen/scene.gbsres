@@ -1,6 +1,7 @@
 {
   "_resourceType": "scene",
   "id": "072be6ca-1a97-4258-b235-8529b3dd23a0",
+  "_index": 6,
   "type": "TOPDOWN",
   "name": "Equip Screen",
   "symbol": "scene_10",

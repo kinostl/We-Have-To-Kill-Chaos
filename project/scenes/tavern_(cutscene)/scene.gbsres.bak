@@ -1,0 +1,42 @@
+{
+  "_resourceType": "scene",
+  "id": "842db49a-56d4-41cf-b012-eece75847041",
+  "type": "TOPDOWN",
+  "name": "Tavern (Cutscene)",
+  "symbol": "scene_15",
+  "x": 1720,
+  "y": 440,
+  "width": 20,
+  "height": 18,
+  "backgroundId": "da6efba5-daa4-4516-9386-e86671a3a6c4",
+  "tilesetId": "",
+  "paletteIds": [],
+  "spritePaletteIds": [
+    "",
+    "1f547334-5907-4c60-8f0b-cf76de3e4d49",
+    "b7d0eb5b-19e5-4a67-b9b3-2750a57719bc"
+  ],
+  "autoFadeSpeed": 1,
+  "playerSpriteSheetId": "3b1fd25e-4a32-4c35-bbb0-8a98183d524b",
+  "script": [
+    {
+      "command": "EVENT_ACTOR_SET_POSITION",
+      "args": {
+        "actorId": "$self$",
+        "x": {
+          "type": "number",
+          "value": 7
+        },
+        "y": {
+          "type": "number",
+          "value": 15
+        }
+      },
+      "id": "847223a5-23f8-4b9b-9c93-c80f9ab1ef86"
+    }
+  ],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": [],
+  "collisions": "0f7b+004+0f2+004+0f4+002+0f4+004+0f2+004+0f4+002+0fa+00a+0fa+00a+0fa+006+0f2+002+0f2+00e+0f2+002+0f2+0010+0f4+0010+0f4+002+0f2+006+0f2+002+0f6+002+0f2+006+0f2+002+0fc+002+0f12+002+0fb+"
+}

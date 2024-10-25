@@ -3,6 +3,7 @@
   "id": "a1835591-b594-4736-ae1b-6ad064cf9438",
   "_index": 3,
   "symbol": "actor_19",
+  "prefabId": "",
   "name": "Button Controller",
   "x": 8,
   "y": 16,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [],
   "startScript": [],
   "updateScript": [

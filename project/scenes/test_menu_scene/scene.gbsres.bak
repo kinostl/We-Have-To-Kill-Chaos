@@ -14,32 +14,7 @@
   "symbol": "scene_22",
   "x": 1554.1705426356589,
   "y": 1059.596899224806,
-  "script": [
-    {
-      "command": "FS_FULL_MENU_WRITE_COMPLEX_SHOP_MENU",
-      "args": {
-        "bg_text": "",
-        "x": {
-          "number": 0,
-          "variable": "LAST_VARIABLE"
-        },
-        "y": {
-          "number": 0,
-          "variable": "LAST_VARIABLE"
-        },
-        "w": {
-          "number": 0,
-          "variable": "LAST_VARIABLE"
-        },
-        "h": {
-          "number": 0,
-          "variable": "LAST_VARIABLE"
-        },
-        "__collapse": false
-      },
-      "id": "148c40e1-b65c-455a-a13e-ec06e5675782"
-    }
-  ],
+  "script": [],
   "playerHit1Script": [],
   "playerHit2Script": [],
   "playerHit3Script": []

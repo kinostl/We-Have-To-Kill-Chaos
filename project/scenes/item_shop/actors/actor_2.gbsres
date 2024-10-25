@@ -3,6 +3,7 @@
   "id": "edd40c2b-632a-4a2e-989b-171f27b2a571",
   "_index": 1,
   "symbol": "actor_43",
+  "prefabId": "",
   "name": "",
   "x": 9,
   "y": 11,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [
     {
       "command": "FF_EVENT_MY_SHOP_MENU",

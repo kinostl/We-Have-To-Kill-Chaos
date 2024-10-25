@@ -3,6 +3,7 @@
   "id": "a00f7549-8982-494f-95e9-b66e1a1919db",
   "_index": 11,
   "symbol": "actor_10",
+  "prefabId": "",
   "name": "Explosion 1",
   "x": 9,
   "y": 4,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [],
   "startScript": [
     {
@@ -28,6 +30,19 @@
     }
   ],
   "updateScript": [
+    {
+      "command": "EVENT_SOUND_PLAY_EFFECT",
+      "args": {
+        "type": "crash",
+        "priority": "medium",
+        "pitch": 4,
+        "frequency": 200,
+        "duration": 0.1,
+        "wait": false,
+        "effect": 0
+      },
+      "id": "c7c6ab35-0a99-49d5-9351-e10992025e42"
+    },
     {
       "command": "EVENT_ACTOR_SET_POSITION",
       "args": {

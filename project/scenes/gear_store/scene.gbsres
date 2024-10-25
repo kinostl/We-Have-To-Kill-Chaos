@@ -1,6 +1,7 @@
 {
   "_resourceType": "scene",
   "id": "2c0e6f2e-0ea4-41e1-a9bd-91c275a8e510",
+  "_index": 9,
   "type": "TOPDOWN",
   "name": "Gear Store",
   "symbol": "scene_16",
@@ -23,6 +24,13 @@
   ],
   "autoFadeSpeed": 1,
   "script": [
+    {
+      "command": "EVENT_MUSIC_PLAY",
+      "args": {
+        "musicId": "63d770e4-27e9-411f-9765-08b4c967e4e1"
+      },
+      "id": "eb54b30a-9e88-4f80-9445-f11106c59d79"
+    },
     {
       "command": "EVENT_SET_INPUT_SCRIPT",
       "args": {

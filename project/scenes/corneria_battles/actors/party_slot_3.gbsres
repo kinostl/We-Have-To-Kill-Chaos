@@ -3,6 +3,7 @@
   "id": "50666575-24b3-4404-a755-906e6a587041",
   "_index": 5,
   "symbol": "actor_9",
+  "prefabId": "",
   "name": "Party Slot 3",
   "x": 14,
   "y": 12,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [],
   "startScript": [],
   "updateScript": [

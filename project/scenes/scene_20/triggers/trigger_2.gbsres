@@ -1,12 +1,15 @@
 {
   "_resourceType": "trigger",
   "id": "2633320b-9ad4-4314-a62d-0acfba23de29",
+  "_index": 1,
+  "symbol": "trigger_23",
+  "prefabId": "",
   "name": "",
   "x": 22,
   "y": 20,
-  "symbol": "trigger_23",
   "width": 2,
   "height": 1,
+  "prefabScriptOverrides": {},
   "script": [
     {
       "command": "EVENT_SWITCH_SCENE",
@@ -28,6 +31,5 @@
       "id": "dbde0a5d-4f20-4b3d-a823-3b894c3249d9"
     }
   ],
-  "leaveScript": [],
-  "_index": 1
+  "leaveScript": []
 }

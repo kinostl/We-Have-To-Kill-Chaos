@@ -3,6 +3,7 @@
   "id": "3e381b33-1cae-4723-9418-83d3d2345a6b",
   "_index": 5,
   "symbol": "actor_27",
+  "prefabId": "",
   "name": "Equipment List Position Manager",
   "x": 8,
   "y": 8,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [],
   "startScript": [
     {

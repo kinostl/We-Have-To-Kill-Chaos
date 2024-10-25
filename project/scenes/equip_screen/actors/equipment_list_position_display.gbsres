@@ -3,6 +3,7 @@
   "id": "b8eed5ed-41f7-423f-ba71-437c00421c76",
   "_index": 6,
   "symbol": "actor_28",
+  "prefabId": "",
   "name": "Equipment List Position Display",
   "x": 8,
   "y": 9,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [],
   "startScript": [
     {

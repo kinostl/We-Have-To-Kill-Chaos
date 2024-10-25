@@ -27,7 +27,7 @@
     {
       "command": "FS_FULL_MENU_WRITE_BG_TEXT",
       "args": {
-        "bg_text": "    +SOUND TEST+",
+        "bg_text": "\n    +SOUND TEST+",
         "x": {
           "type": "number",
           "value": 0
@@ -59,7 +59,7 @@
     {
       "command": "FS_FULL_MENU_WRITE_BG_TEXT",
       "args": {
-        "bg_text": "\n\nBattle\nShop\nTemple of Chaos\nVictory\nDead\nMenu\nMain Theme\nCornelia Castle\nTown\nPrelude",
+        "bg_text": "\n\n\nBattle\nShop\nTemple of Chaos\nVictory\nDead\nMenu\nMain Theme\nCornelia Castle\nTown\nPrelude",
         "x": {
           "type": "number",
           "value": 2
@@ -85,7 +85,7 @@
       "command": "FS_FULL_MENU_SET_AREA",
       "args": {
         "x": "0",
-        "y": 3,
+        "y": 4,
         "max": 10,
         "load_val": {
           "type": "number",

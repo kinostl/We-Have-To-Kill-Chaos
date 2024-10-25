@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "8e852d14-8a26-43aa-bb5e-9fe4ea1e0f69",
+  "name": "triple_triad",
+  "symbol": "bg_triple_triad",
+  "width": 32,
+  "height": 32,
+  "imageWidth": 256,
+  "imageHeight": 256,
+  "filename": "triple_triad.png",
+  "tileColors": ""
+}

@@ -444,6 +444,18 @@
                   "id": "42037a0a-337e-44e3-a56a-41c270c71e7b"
                 },
                 {
+                  "command": "MY_EVENT_CALL_NATIVE",
+                  "args": {
+                    "argCount": 1,
+                    "arg0": {
+                      "type": "variable",
+                      "value": "L1"
+                    },
+                    "funName": "loadWeaponShopUsages"
+                  },
+                  "id": "f9e64891-b9db-421a-a022-dafc92c00ad5"
+                },
+                {
                   "command": "FS_FULL_MENU_SET_AREA",
                   "args": {
                     "x": 6,
@@ -499,6 +511,18 @@
                           "funName": "loadWeaponShopArea"
                         },
                         "id": "8adfb4d5-60f3-4858-8cc5-6100254dc997"
+                      },
+                      {
+                        "command": "MY_EVENT_CALL_NATIVE",
+                        "args": {
+                          "argCount": 1,
+                          "arg0": {
+                            "type": "variable",
+                            "value": "L1"
+                          },
+                          "funName": "loadWeaponShopUsages"
+                        },
+                        "id": "e14f08d1-48f8-4315-aac5-04666f7eeda2"
                       }
                     ]
                   },

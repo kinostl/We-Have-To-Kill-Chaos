@@ -36,7 +36,8 @@
         "option7_cost": 0,
         "option8": "",
         "option8_cost": 0,
-        "cancelOnB": true
+        "cancelOnB": true,
+        "cancelOnLastOption": true
       },
       "id": "c02dc6c1-e9f9-4108-8138-600efc6ef0d9"
     }

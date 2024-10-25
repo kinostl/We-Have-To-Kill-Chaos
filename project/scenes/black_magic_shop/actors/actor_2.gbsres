@@ -1,18 +1,23 @@
 {
   "_resourceType": "actor",
   "id": "6d705b54-7eb7-477b-ae97-38a4d70ed38c",
+  "_index": 1,
+  "symbol": "actor_46",
+  "prefabId": "",
   "name": "",
+  "x": 9,
+  "y": 9,
   "frame": 0,
   "animate": false,
   "spriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
+  "paletteId": "",
   "direction": "down",
   "moveSpeed": 1,
   "animSpeed": 15,
-  "paletteId": "",
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
-  "symbol": "actor_46",
+  "prefabScriptOverrides": {},
   "script": [
     {
       "command": "FF_EVENT_MY_SHOP_MENU",
@@ -54,8 +59,5 @@
   "updateScript": [],
   "hit1Script": [],
   "hit2Script": [],
-  "hit3Script": [],
-  "x": 9,
-  "y": 9,
-  "_index": 1
+  "hit3Script": []
 }

@@ -1,0 +1,42 @@
+{
+  "_resourceType": "actor",
+  "id": "728471e3-2287-455d-a1eb-27c52be5a973",
+  "_index": 4,
+  "symbol": "actor_26",
+  "name": "Flasher",
+  "x": 6,
+  "y": 4,
+  "frame": 0,
+  "animate": false,
+  "spriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
+  "paletteId": "",
+  "direction": "down",
+  "moveSpeed": 1,
+  "animSpeed": 1,
+  "isPinned": false,
+  "persistent": false,
+  "collisionGroup": "",
+  "script": [],
+  "startScript": [
+    {
+      "command": "EVENT_ACTOR_SET_STATE",
+      "args": {
+        "actorId": "$self$",
+        "spriteStateId": "Flashing",
+        "loopAnim": true
+      },
+      "id": "d41d746d-7de6-4152-a9af-7f6e1313fe06"
+    },
+    {
+      "command": "EVENT_ACTOR_HIDE",
+      "args": {
+        "actorId": "$self$"
+      },
+      "id": "161103fd-f1d9-434b-98a9-69dc1cab41bc"
+    }
+  ],
+  "updateScript": [],
+  "hit1Script": [],
+  "hit2Script": [],
+  "hit3Script": []
+}

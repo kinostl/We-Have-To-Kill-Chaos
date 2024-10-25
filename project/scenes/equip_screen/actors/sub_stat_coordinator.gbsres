@@ -3,6 +3,7 @@
   "id": "0b754db9-4064-4163-ab06-4e4a064be67c",
   "_index": 7,
   "symbol": "actor_29",
+  "prefabId": "",
   "name": "Sub Stat Coordinator",
   "x": 18,
   "y": 8,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [],
   "startScript": [
     {

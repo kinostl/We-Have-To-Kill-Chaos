@@ -3,11 +3,13 @@
   "id": "090825c5-a70c-4746-b02c-ac86466c5b51",
   "_index": 0,
   "symbol": "trigger_0",
+  "prefabId": "",
   "name": "",
   "x": 11,
   "y": 17,
   "width": 2,
   "height": 1,
+  "prefabScriptOverrides": {},
   "script": [
     {
       "command": "EVENT_SET_VALUE",

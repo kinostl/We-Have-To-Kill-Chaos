@@ -1,6 +1,7 @@
 {
   "_resourceType": "scene",
   "id": "be5b0473-3fb7-451f-919f-f84236825b34",
+  "_index": 10,
   "type": "TOPDOWN",
   "name": "Inn",
   "symbol": "scene_14",

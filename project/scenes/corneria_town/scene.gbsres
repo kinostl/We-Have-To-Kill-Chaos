@@ -1,6 +1,7 @@
 {
   "_resourceType": "scene",
   "id": "16ab15f9-e634-46f8-877c-bd32dca7c8bb",
+  "_index": 5,
   "type": "TOPDOWN",
   "name": "Corneria Town",
   "symbol": "scene_5",
@@ -20,7 +21,7 @@
     {
       "command": "EVENT_MUSIC_PLAY",
       "args": {
-        "musicId": "e47ab5eb-1dee-488b-a135-af65ca8cf98b"
+        "musicId": "5f110bb5-fb01-4fda-83aa-0bfdbfbfdb1d"
       },
       "id": "97739bcd-0159-4b78-b24c-ba2ef589e9ff"
     }

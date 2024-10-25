@@ -1,0 +1,74 @@
+{
+  "_resourceType": "scene",
+  "id": "f1cf7e1f-1c86-4679-b076-dc3ee8711bff",
+  "_index": 1,
+  "type": "TOPDOWN",
+  "name": "Character Select",
+  "symbol": "scene_6",
+  "x": 1016,
+  "y": 872,
+  "width": 20,
+  "height": 18,
+  "backgroundId": "803bce22-c1e3-43c3-a583-a3a8772fb6c6",
+  "tilesetId": "",
+  "paletteIds": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "default-ui",
+    "d8ef3f33-956f-4f96-a8a4-774608a880da"
+  ],
+  "spritePaletteIds": [
+    "default-sprite",
+    "4b5c94c3-d95b-4802-9f92-3d6266692d3c",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "7b685cdb-bcfb-4bcc-9eb2-7ffd6aec1e77"
+  ],
+  "autoFadeSpeed": 1,
+  "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
+  "script": [
+    {
+      "command": "EVENT_SET_INPUT_SCRIPT",
+      "args": {
+        "input": [
+          "a"
+        ],
+        "override": true,
+        "__scriptTabs": "press"
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_SWITCH_SCENE",
+            "args": {
+              "sceneId": "fd6033b8-b4e7-41a0-a9ce-4fe077b226f1",
+              "x": {
+                "type": "number",
+                "value": 0
+              },
+              "y": {
+                "type": "number",
+                "value": 0
+              },
+              "direction": "",
+              "fadeSpeed": 1
+            },
+            "id": "e9395c17-c6fd-496a-b0c7-0e0dec5ead1b"
+          }
+        ]
+      },
+      "id": "b801dcdb-e50e-41a3-ade1-cfcddd36e6dc"
+    }
+  ],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": [],
+  "collisions": "00168+"
+}

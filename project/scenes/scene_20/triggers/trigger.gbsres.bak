@@ -21,7 +21,7 @@
           "value": 17
         },
         "direction": "up",
-        "fadeSpeed": "2"
+        "fadeSpeed": 2
       },
       "id": "e684fa1f-4855-4ab4-a250-b16f5319e209"
     }

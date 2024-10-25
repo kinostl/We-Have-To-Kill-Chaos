@@ -984,6 +984,28 @@
         ]
       },
       "id": "2ffd615f-332a-46ee-8323-a4f6c7d79d69"
+    },
+    {
+      "command": "EVENT_SET_INPUT_SCRIPT",
+      "args": {
+        "input": [
+          "start"
+        ],
+        "override": true,
+        "__scriptTabs": "press"
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_SCENE_POP_STATE",
+            "args": {
+              "fadeSpeed": "2"
+            },
+            "id": "751e9068-f818-4b2d-810e-bd27cfd1aa81"
+          }
+        ]
+      },
+      "id": "ea30d2a3-ff56-48a8-9b5f-0eb64868758a"
     }
   ],
   "playerHit1Script": [],

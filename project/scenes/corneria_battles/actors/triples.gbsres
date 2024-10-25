@@ -3,6 +3,7 @@
   "id": "e5ba9932-e5c5-4728-bfbc-0aad330673b9",
   "_index": 10,
   "symbol": "actor_15",
+  "prefabId": "",
   "name": "triples",
   "x": 1,
   "y": 4,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [],
   "startScript": [
     {

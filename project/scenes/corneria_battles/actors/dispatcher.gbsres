@@ -3,6 +3,7 @@
   "id": "5b07b77a-3792-4fae-a9cf-0868e3eaf12c",
   "_index": 3,
   "symbol": "actor_7",
+  "prefabId": "",
   "name": "Dispatcher",
   "x": 0,
   "y": 1,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": true,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [],
   "startScript": [
     {
@@ -73,14 +75,14 @@
       "args": {
         "variable": "0",
         "__collapseCase1": true,
-        "__collapseCase14": false,
-        "__collapseCase8": false,
+        "__collapseCase14": true,
+        "__collapseCase8": true,
         "__collapseCase9": true,
         "__collapseCase15": true,
         "__collapseCase12": true,
         "__collapseCase11": true,
-        "__collapseCase10": false,
-        "__collapseCase21": false,
+        "__collapseCase10": true,
+        "__collapseCase21": true,
         "__collapseCase4": true,
         "__collapseCase5": true,
         "__collapseCase7": true,
@@ -99,11 +101,11 @@
         "__collapse": false,
         "__collapseCase23": true,
         "__collapseCase25": true,
-        "__collapseCase24": false,
+        "__collapseCase24": true,
         "__collapseCase26": true,
         "__collapseCase27": true,
         "__collapseCase28": true,
-        "__collapseCase29": false
+        "__collapseCase29": true
       },
       "children": {
         "true1": [
@@ -386,6 +388,36 @@
             },
             "children": {
               "true": [
+                {
+                  "command": "EVENT_OVERLAY_SHOW",
+                  "args": {
+                    "color": "black",
+                    "x": 0,
+                    "y": 18
+                  },
+                  "id": "5aae83e7-4b53-4bd0-8ea3-2847a793d6e1"
+                },
+                {
+                  "command": "EVENT_PALETTE_SET_BACKGROUND",
+                  "args": {
+                    "palette0": "keep",
+                    "palette1": "keep",
+                    "palette2": "keep",
+                    "palette3": "keep",
+                    "palette4": "keep",
+                    "palette5": "keep",
+                    "palette6": "keep",
+                    "palette7": ""
+                  },
+                  "id": "22bf8f70-3c38-42d4-a0af-16e8fa9eabbf"
+                },
+                {
+                  "command": "EVENT_MUSIC_PLAY",
+                  "args": {
+                    "musicId": "ef9a3293-d37e-4e39-9e59-c4ca01d61e9e"
+                  },
+                  "id": "ab9d5089-4005-4c4d-81e4-f83b52cbb1b1"
+                },
                 {
                   "command": "EVENT_TEXT",
                   "args": {
@@ -4659,7 +4691,7 @@
     {
       "command": "EVENT_GROUP",
       "args": {
-        "__collapse": false,
+        "__collapse": true,
         "__label": "Dequeue Action"
       },
       "children": {

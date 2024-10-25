@@ -3,6 +3,7 @@
   "id": "5278e4fb-df01-43ad-929c-6a2e2456428e",
   "_index": 1,
   "symbol": "actor_20",
+  "prefabId": "",
   "name": "Weapon Display",
   "x": 2,
   "y": 5,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [],
   "startScript": [
     {

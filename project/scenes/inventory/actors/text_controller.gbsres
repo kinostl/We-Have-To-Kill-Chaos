@@ -3,6 +3,7 @@
   "id": "08d61018-6ee8-47e7-956a-320d36676cf1",
   "_index": 1,
   "symbol": "actor_17",
+  "prefabId": "",
   "name": "Text Controller",
   "x": 4,
   "y": 16,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [],
   "startScript": [
     {

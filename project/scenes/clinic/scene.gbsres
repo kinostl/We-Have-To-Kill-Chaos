@@ -1,6 +1,7 @@
 {
   "_resourceType": "scene",
   "id": "6f7e4321-1ab7-484e-990e-b238288863ce",
+  "_index": 3,
   "type": "TOPDOWN",
   "name": "Clinic",
   "symbol": "scene_17",
@@ -18,6 +19,13 @@
   ],
   "autoFadeSpeed": 1,
   "script": [
+    {
+      "command": "EVENT_MUSIC_PLAY",
+      "args": {
+        "musicId": "a326d845-a8bc-42a5-854b-4bb5271cf283"
+      },
+      "id": "fdfd1818-82cc-437c-8626-d454b62e98fd"
+    },
     {
       "command": "EVENT_OVERLAY_HIDE",
       "args": {},

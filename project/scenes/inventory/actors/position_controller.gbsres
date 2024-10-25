@@ -3,6 +3,7 @@
   "id": "74efcad2-a047-45f8-8170-9c6cc97c6785",
   "_index": 2,
   "symbol": "actor_18",
+  "prefabId": "",
   "name": "Position Controller",
   "x": 6,
   "y": 16,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [],
   "startScript": [
     {

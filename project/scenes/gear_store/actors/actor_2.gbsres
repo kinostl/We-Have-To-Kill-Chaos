@@ -3,6 +3,7 @@
   "id": "3b906fda-1996-45c5-a469-d7e78c0398db",
   "_index": 2,
   "symbol": "actor_41",
+  "prefabId": "",
   "name": "",
   "x": 8,
   "y": 9,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [
     {
       "command": "FF_EVENT_MY_SHOP_MENU",
@@ -99,7 +101,8 @@
               "text": [
                 "A Goblin stole my\nfavorite hat..."
               ],
-              "avatarId": ""
+              "avatarId": "",
+              "__section": "text"
             },
             "id": "1458c2a5-b70c-49f4-bb54-0522af021c49"
           },

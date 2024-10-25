@@ -1,7 +1,8 @@
 {
   "_resourceType": "scene",
   "id": "54274c5f-f51d-420e-b717-bd0d155bcef3",
-  "type": "TOPDOWN",
+  "_index": 4,
+  "type": "RPG_COMBAT",
   "name": "Corneria Battles",
   "symbol": "scene_3",
   "x": 1016,
@@ -17,7 +18,8 @@
     "a8f30788-b6cf-4d18-a38a-558ba6bfa8a8",
     "b2270eb2-f0e1-4c80-a5a6-82a0a13c4b5d",
     "",
-    "38a412cd-6ab3-494f-aa86-81ed589e0d45"
+    "38a412cd-6ab3-494f-aa86-81ed589e0d45",
+    "c44a3db8-0ae3-4795-b66f-ce83151927a9"
   ],
   "spritePaletteIds": [
     "349ce35e-4c36-4e07-bf6a-12c2105e2e6f",
@@ -33,6 +35,13 @@
   "autoFadeEventCollapse": true,
   "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
   "script": [
+    {
+      "command": "EVENT_MUSIC_PLAY",
+      "args": {
+        "musicId": "0f9dc2d7-2c9b-41c3-b101-d2cf046917ab"
+      },
+      "id": "2b63d63d-6f69-4933-baff-60169ca7fabb"
+    },
     {
       "command": "EVENT_GBVM_SCRIPT",
       "args": {

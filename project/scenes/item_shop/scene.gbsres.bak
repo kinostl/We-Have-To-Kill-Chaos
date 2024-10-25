@@ -1,0 +1,25 @@
+{
+  "_resourceType": "scene",
+  "id": "f80aab2e-8d43-49cf-a30b-bee760555e05",
+  "type": "TOPDOWN",
+  "name": "Item Shop",
+  "symbol": "scene_2",
+  "x": 1744,
+  "y": 864,
+  "width": 20,
+  "height": 18,
+  "backgroundId": "98062260-4574-47a8-ac3f-a36530694b52",
+  "tilesetId": "",
+  "paletteIds": [],
+  "spritePaletteIds": [
+    "",
+    "0718c95e-961b-4e87-a5ed-4f00b8b7c91e",
+    "b7d0eb5b-19e5-4a67-b9b3-2750a57719bc"
+  ],
+  "autoFadeSpeed": 1,
+  "script": [],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": [],
+  "collisions": "0f6b+004+0f10+004+0fa+0012+0f2+0012+0f3e+0012+0f2+0012+0f2+0012+0f2+0012+0fa+002+0f12+002+0f9+"
+}

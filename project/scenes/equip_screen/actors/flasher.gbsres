@@ -3,6 +3,7 @@
   "id": "728471e3-2287-455d-a1eb-27c52be5a973",
   "_index": 4,
   "symbol": "actor_26",
+  "prefabId": "",
   "name": "Flasher",
   "x": 6,
   "y": 4,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [],
   "startScript": [
     {

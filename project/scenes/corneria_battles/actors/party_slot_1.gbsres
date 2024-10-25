@@ -3,6 +3,7 @@
   "id": "d656824d-1c2d-47dd-84ba-0396e71f5a22",
   "_index": 7,
   "symbol": "actor_12",
+  "prefabId": "",
   "name": "Party Slot 1",
   "x": 14,
   "y": 4,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [],
   "startScript": [],
   "updateScript": [

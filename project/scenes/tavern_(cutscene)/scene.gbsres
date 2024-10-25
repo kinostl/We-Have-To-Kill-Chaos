@@ -1,6 +1,7 @@
 {
   "_resourceType": "scene",
   "id": "842db49a-56d4-41cf-b012-eece75847041",
+  "_index": 20,
   "type": "TOPDOWN",
   "name": "Tavern (Cutscene)",
   "symbol": "scene_15",

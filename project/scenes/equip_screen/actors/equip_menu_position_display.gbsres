@@ -3,6 +3,7 @@
   "id": "3d1adaaf-3552-4956-92ee-a8335338af48",
   "_index": 3,
   "symbol": "actor_25",
+  "prefabId": "",
   "name": "Equip Menu Position Display",
   "x": 18,
   "y": 4,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [],
   "startScript": [
     {

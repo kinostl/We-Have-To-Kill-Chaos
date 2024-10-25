@@ -3,6 +3,7 @@
   "id": "3731a6c3-4471-4dba-ba2d-ad085cd1e6d3",
   "_index": 1,
   "symbol": "actor_42",
+  "prefabId": "",
   "name": "Inn Menu",
   "x": 15,
   "y": 31,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [
     {
       "command": "FF_EVENT_MY_MENU",

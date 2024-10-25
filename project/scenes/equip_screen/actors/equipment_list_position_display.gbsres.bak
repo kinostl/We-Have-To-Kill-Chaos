@@ -1,0 +1,90 @@
+{
+  "_resourceType": "actor",
+  "id": "b8eed5ed-41f7-423f-ba71-437c00421c76",
+  "_index": 6,
+  "symbol": "actor_28",
+  "name": "Equipment List Position Display",
+  "x": 8,
+  "y": 9,
+  "frame": 0,
+  "animate": false,
+  "spriteSheetId": "2ef651de-48d3-493a-9f45-607ca2b67081",
+  "paletteId": "",
+  "direction": "down",
+  "moveSpeed": 1,
+  "animSpeed": 15,
+  "isPinned": false,
+  "persistent": false,
+  "collisionGroup": "",
+  "script": [],
+  "startScript": [
+    {
+      "command": "EVENT_ACTOR_STOP_UPDATE",
+      "args": {
+        "actorId": "$self$"
+      },
+      "id": "80968e57-9f58-4c90-a185-eb76d44932e0"
+    }
+  ],
+  "updateScript": [
+    {
+      "command": "EVENT_IF",
+      "args": {
+        "condition": {
+          "type": "ne",
+          "valueA": {
+            "type": "variable",
+            "value": "L0"
+          },
+          "valueB": {
+            "type": "variable",
+            "value": "78"
+          }
+        },
+        "__collapseElse": true
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_SET_VALUE",
+            "args": {
+              "variable": "L0",
+              "value": {
+                "type": "variable",
+                "value": "78"
+              }
+            },
+            "id": "51ff39e6-63a0-462f-97cc-18e7b021b66f"
+          },
+          {
+            "command": "EVENT_ACTOR_SET_POSITION",
+            "args": {
+              "actorId": "player",
+              "x": {
+                "type": "number",
+                "value": 0
+              },
+              "y": {
+                "type": "add",
+                "valueA": {
+                  "type": "number",
+                  "value": 10
+                },
+                "valueB": {
+                  "type": "variable",
+                  "value": "L0"
+                }
+              }
+            },
+            "id": "dd226b46-f74c-4dce-9309-175ceae2dd0e"
+          }
+        ],
+        "false": []
+      },
+      "id": "b01de103-6322-4ab6-8b70-b51765b4a382"
+    }
+  ],
+  "hit1Script": [],
+  "hit2Script": [],
+  "hit3Script": []
+}

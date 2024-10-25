@@ -583,8 +583,8 @@
     },
     {
       "id": "f1cf7e1f-1c86-4679-b076-dc3ee8711bff__L0",
-      "name": "class",
-      "symbol": "var_class"
+      "name": "Character",
+      "symbol": "var_character"
     },
     {
       "id": "9c7813d8-1d8c-4eab-aaaa-6b885a213232__L0",
@@ -1275,6 +1275,26 @@
       "id": "76586ae3-b5db-4079-8b7b-71f9205f6373__L2",
       "name": "Menu State",
       "symbol": "var_menu_state"
+    },
+    {
+      "id": "e6712fc5-277c-4cbf-a030-f10048d92132__L0",
+      "name": "Song Choice",
+      "symbol": "var_song_choice"
+    },
+    {
+      "id": "105",
+      "name": "CC/Current C",
+      "symbol": "var_cc_current_c"
+    },
+    {
+      "id": "106",
+      "name": "CC/Class Choice",
+      "symbol": "var_cc_class_choice"
+    },
+    {
+      "id": "107",
+      "name": "CC/Current Letter",
+      "symbol": "var_cc_current_letter"
     }
   ]
 }

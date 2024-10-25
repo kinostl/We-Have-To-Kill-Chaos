@@ -1,19 +1,19 @@
 {
   "_resourceType": "scene",
   "id": "4e72a14e-425e-4fd6-973c-1f3513e963a1",
-  "name": "Test Custom Transition",
-  "backgroundId": "32c2649a-c30d-4e3e-a6f9-3a1016ba28c2",
-  "tilesetId": "",
-  "width": 20,
-  "height": 18,
+  "_index": 21,
   "type": "TOPDOWN",
-  "paletteIds": [],
-  "spritePaletteIds": [],
-  "collisions": "0f3c+00!0f!003+0f3+004+0f!004+0f!008+0f!0021+0f!0012+0f5+00c+0f5+00!0f3+00a+0f!00!0f4+00!0f!00!0f4+003+0f3+00!0f3+00!0f4+00!0f!00!0f2+003+0fe+00!0f3+003+0f2+00!0f2+00!0f4+00!0f6+003+0f2+00!0f7+00!0f2+00!0f2+004+0f2+00!0f!00!0f!00!0f6+00!0f2+003+0f5+00!0f!00!0f4+00!0f!00!0f2+003+0f3+00!0f6+00!0f6+004+0f2+00!0f2+00!0f7+00!0f3+003+0f5+00!0f2+",
-  "autoFadeSpeed": null,
+  "name": "Test Custom Transition",
   "symbol": "scene_9",
   "x": 240,
   "y": 1056,
+  "width": 20,
+  "height": 18,
+  "backgroundId": "32c2649a-c30d-4e3e-a6f9-3a1016ba28c2",
+  "tilesetId": "",
+  "paletteIds": [],
+  "spritePaletteIds": [],
+  "autoFadeSpeed": null,
   "script": [
     {
       "command": "EVENT_OVERLAY_SHOW",
@@ -75,5 +75,6 @@
   ],
   "playerHit1Script": [],
   "playerHit2Script": [],
-  "playerHit3Script": []
+  "playerHit3Script": [],
+  "collisions": "0f3c+00!0f!003+0f3+004+0f!004+0f!008+0f!0021+0f!0012+0f5+00c+0f5+00!0f3+00a+0f!00!0f4+00!0f!00!0f4+003+0f3+00!0f3+00!0f4+00!0f!00!0f2+003+0fe+00!0f3+003+0f2+00!0f2+00!0f4+00!0f6+003+0f2+00!0f7+00!0f2+00!0f2+004+0f2+00!0f!00!0f!00!0f6+00!0f2+003+0f5+00!0f!00!0f4+00!0f!00!0f2+003+0f3+00!0f6+00!0f6+004+0f2+00!0f2+00!0f7+00!0f3+003+0f5+00!0f2+"
 }

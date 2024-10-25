@@ -1,6 +1,7 @@
 {
   "_resourceType": "scene",
   "id": "f80aab2e-8d43-49cf-a30b-bee760555e05",
+  "_index": 12,
   "type": "TOPDOWN",
   "name": "Item Shop",
   "symbol": "scene_2",

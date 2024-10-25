@@ -1,0 +1,22 @@
+{
+  "_resourceType": "scene",
+  "id": "a67f2e40-e789-4fed-8316-dd9c7439d675",
+  "_index": 26,
+  "name": "Temple of Fiends Inside",
+  "backgroundId": "331b4f78-d085-4ac0-9b63-45a1e9e26aba",
+  "tilesetId": "",
+  "width": 84,
+  "height": 74,
+  "type": "TOPDOWN",
+  "paletteIds": [],
+  "spritePaletteIds": [],
+  "collisions": "001848+",
+  "autoFadeSpeed": 1,
+  "symbol": "scene_27",
+  "x": 3152,
+  "y": 1320,
+  "script": [],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": []
+}

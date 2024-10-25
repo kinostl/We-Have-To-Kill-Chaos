@@ -1,10 +1,10 @@
 {
   "_resourceType": "actor",
-  "id": "ff423321-46c6-4209-9441-e3210bebb29d",
+  "id": "3b906fda-1996-45c5-a469-d7e78c0398db",
   "_index": 2,
-  "symbol": "actor_39",
+  "symbol": "actor_41",
   "name": "",
-  "x": 29,
+  "x": 8,
   "y": 9,
   "frame": 0,
   "animate": false,
@@ -22,27 +22,27 @@
       "args": {
         "actor": "$self$",
         "setvar": "L0",
-        "items": 7,
-        "option1": "Wood Staff",
-        "option1_cost": 5,
-        "option2": "Small Knife",
-        "option2_cost": 5,
-        "option3": "Wood Nunchuku",
-        "option3_cost": 10,
-        "option4": "Rapier",
-        "option4_cost": 10,
-        "option5": "Iron Hammer",
-        "option5_cost": 10,
-        "option6": "Small Talk",
+        "items": 5,
+        "option1": "Cloth Robe",
+        "option1_cost": 10,
+        "option2": "Wood Armor",
+        "option2_cost": 50,
+        "option3": "Chain Armor",
+        "option3_cost": 80,
+        "option4": "Small Talk",
+        "option4_cost": 0,
+        "option5": "Leave",
+        "option5_cost": 0,
+        "option6": "",
         "option6_cost": 0,
-        "option7": "Leave",
+        "option7": "",
         "option7_cost": 0,
-        "option8": "Leave",
+        "option8": "",
         "option8_cost": 0,
         "cancelOnB": true,
         "cancelOnLastOption": true
       },
-      "id": "d3831b97-f353-46a9-9b19-4b5e48c8e6ff"
+      "id": "2bad2a70-b0e5-4378-9485-7820db22c815"
     },
     {
       "command": "EVENT_SWITCH",
@@ -52,7 +52,7 @@
         "__collapseCase0": false,
         "value0": 0,
         "__collapseCase1": false,
-        "value1": 6,
+        "value1": 2,
         "__collapseCase2": false,
         "value2": 3,
         "__collapseCase3": false,
@@ -89,7 +89,7 @@
           {
             "command": "EVENT_STOP",
             "args": {},
-            "id": "ad949fcb-004c-4f3f-b3f9-01bddc661d6b"
+            "id": "1cbd9e89-abde-4f52-a2e2-9280517739ed"
           }
         ],
         "true1": [
@@ -97,16 +97,16 @@
             "command": "EVENT_TEXT",
             "args": {
               "text": [
-                "I heard that the\nTemple of Fiends\nhas some powerful \nswords in it!"
+                "A Goblin stole my\nfavorite hat..."
               ],
               "avatarId": ""
             },
-            "id": "9afe8946-487d-4d46-8071-9dd69daf881d"
+            "id": "1458c2a5-b70c-49f4-bb54-0522af021c49"
           },
           {
             "command": "EVENT_STOP",
             "args": {},
-            "id": "72019e3b-8716-419b-8734-b34976d34565"
+            "id": "5005e5a1-7221-4c9c-9687-82d2fd04239f"
           }
         ],
         "true2": [],
@@ -125,115 +125,7 @@
         "true15": [],
         "false": []
       },
-      "id": "5cfc7269-48f8-4983-ab3b-29acfebf640f"
-    },
-    {
-      "command": "MY_EVENT_CALL_NATIVE",
-      "args": {
-        "argCount": 1,
-        "arg0": {
-          "type": "variable",
-          "value": "L0"
-        },
-        "arg1": {
-          "type": "variable",
-          "value": "L1"
-        },
-        "funName": "handleWeaponShop"
-      },
-      "id": "a6c131e7-0447-4643-9e26-3237e8078c74"
-    },
-    {
-      "command": "EVENT_CALL_CUSTOM_EVENT",
-      "args": {
-        "customEventId": "14789182-c86e-40a0-b290-d27337b748f4",
-        "$actor[0]$": "c2b81b1c-3837-4a59-b123-090b43e32d20"
-      },
-      "id": "2ce44d0c-d26e-49bb-aa08-b152c7494ffa"
-    },
-    {
-      "command": "FF_EVENT_DISPLAY_TEXT",
-      "args": {
-        "h": 5
-      },
-      "id": "3aad346b-89ee-401d-98e9-890e49ba8393"
-    },
-    {
-      "command": "EVENT_GBVM_SCRIPT",
-      "args": {
-        "script": "VM_OVERLAY_CLEAR 0, 0, 20, 7, .UI_COLOR_BLACK, .UI_DRAW_FRAME\nVM_OVERLAY_MOVE_TO 0, 11, .OVERLAY_IN_SPEED\nVM_DISPLAY_TEXT\nVM_OVERLAY_WAIT .UI_NONMODAL, (.UI_WAIT_WINDOW|.UI_WAIT_TEXT|.UI_WAIT_BTN_A)\nVM_OVERLAY_MOVE_TO 0, 17, .OVERLAY_OUT_SPEED\nVM_OVERLAY_WAIT .UI_NONMODAL, (.UI_WAIT_WINDOW)",
-        "__comment": true
-      },
-      "id": "3147b5d8-80bc-4bd3-bb2d-89b94065ccf9"
-    },
-    {
-      "command": "FF_EVENT_MY_MENU",
-      "args": {
-        "actor": "$self$",
-        "setvar": "L1",
-        "items": 2,
-        "option1": "Yes",
-        "option2": "No",
-        "option3": "",
-        "option4": "",
-        "option5": "",
-        "option6": "",
-        "option7": "",
-        "option8": "",
-        "__collapse": false,
-        "cancelOnLastOption": true,
-        "variable": "L0",
-        "cancelOnB": false
-      },
-      "id": "f05959c8-ec4c-4e55-8068-9cba33774b69"
-    },
-    {
-      "command": "EVENT_IF",
-      "args": {
-        "condition": {
-          "type": "eq",
-          "valueA": {
-            "type": "variable",
-            "value": "L1"
-          },
-          "valueB": {
-            "type": "number",
-            "value": 0
-          }
-        },
-        "__collapseElse": false
-      },
-      "children": {
-        "true": [
-          {
-            "command": "EVENT_STOP",
-            "args": {},
-            "id": "44f38084-b7de-4524-a0ff-565e7753953d"
-          }
-        ],
-        "false": [
-          {
-            "command": "MY_EVENT_CALL_NATIVE",
-            "args": {
-              "argCount": 1,
-              "arg0": {
-                "type": "variable",
-                "value": "L0"
-              },
-              "funName": "purchaseWeaponToInventory"
-            },
-            "id": "abc17572-22a3-4861-bfc4-7aeb2e849d77"
-          },
-          {
-            "command": "FF_EVENT_DISPLAY_TEXT",
-            "args": {
-              "h": 2
-            },
-            "id": "d93e5edb-f7e4-4f9f-95e2-0128bd5a93dd"
-          }
-        ]
-      },
-      "id": "67b69032-43a0-432c-8853-04bd806e38f4"
+      "id": "5ebb92a3-69f4-47bc-a75f-1004b34161ff"
     }
   ],
   "startScript": [
@@ -242,7 +134,7 @@
       "args": {
         "actorId": "$self$"
       },
-      "id": "02530dd2-d782-4283-bcef-b53806279ac5"
+      "id": "7b1ddb0c-4a69-4d44-8f9e-4608c6a09751"
     }
   ],
   "updateScript": [],

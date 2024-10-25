@@ -3,6 +3,7 @@
   "id": "12b92964-1724-452d-b4f9-3c198fa26912",
   "_index": 9,
   "symbol": "actor_14",
+  "prefabId": "",
   "name": "doubles",
   "x": 2,
   "y": 4,
@@ -16,6 +17,7 @@
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
+  "prefabScriptOverrides": {},
   "script": [],
   "startScript": [
     {

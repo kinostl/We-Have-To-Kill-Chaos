@@ -1,5 +1,6 @@
 #include "extra_data.h"
 #include "entity_data.h"
+#include "hero_data.h"
 #include "item_slot.h"
 #include "weapon_data.h"
 #include "armor_data.h"
@@ -14,6 +15,7 @@
 #define armor_size (sizeof(struct armor_data) * 4) / sizeof(WORD)
 #define item_size (sizeof(struct item_slot) * MAX_ITEM_SLOTS) / sizeof(WORD)
 #define menu_size (sizeof(struct item_slot) * MAX_ITEM_SLOTS) / sizeof(WORD)
+#define hero_size (sizeof(struct hero_data) * 4) / sizeof(WORD)
 
 #define weapon_start MAX_GLOBAL_VARS + entity_size
 #define armor_start weapon_start + weapon_size
@@ -22,6 +24,7 @@
 #define glove_start helmet_start + armor_size
 #define item_start glove_start + armor_size
 #define menu_start item_start + item_size
+#define hero_start menu_start + hero_size
 
 struct entity_data *turn_slots = (struct entity_data *)&VM_GLOBAL(MAX_GLOBAL_VARS);
 struct weapon_data *weapon_slots = (struct weapon_data *)&VM_GLOBAL(weapon_start);
@@ -31,3 +34,4 @@ struct armor_data *helmet_slots = (struct armor_data *)&VM_GLOBAL(helmet_start);
 struct armor_data *glove_slots = (struct armor_data *)&VM_GLOBAL(glove_start);
 struct item_slot *item_slots = (struct item_slot *)&VM_GLOBAL(item_start);
 struct item_slot *menu_slots = (struct item_slot *)&VM_GLOBAL(menu_start);
+struct hero_data * hero_slots = (struct hero_data *)&VM_GLOBAL(hero_start);

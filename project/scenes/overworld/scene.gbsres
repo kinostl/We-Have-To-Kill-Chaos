@@ -1,6 +1,7 @@
 {
   "_resourceType": "scene",
   "id": "97ae8775-3b76-4b99-88ae-364931c1f441",
+  "_index": 13,
   "type": "TOPDOWN",
   "name": "Overworld",
   "symbol": "scene_1",
@@ -37,6 +38,13 @@
         "__collapse": true
       },
       "id": "d978e2fa-0442-4385-b858-c9961565bcaf"
+    },
+    {
+      "command": "EVENT_MUSIC_PLAY",
+      "args": {
+        "musicId": "26a2e456-302a-4367-a704-1d90d901e441"
+      },
+      "id": "daa3a624-a0c4-4f74-b302-83aaa8c7690e"
     }
   ],
   "playerHit1Script": [],
