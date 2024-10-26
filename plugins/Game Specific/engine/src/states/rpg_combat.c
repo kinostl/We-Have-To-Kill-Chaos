@@ -1,3 +1,4 @@
+#include "action_handler.h"
 #include <asm/sm83/types.h>
 #include <asm/types.h>
 #include <data/game_globals.h>
@@ -21,6 +22,7 @@ UBYTE rpg_c_timer;
 #define RPG_SELECT_ENEMY_MODE 1
 #define RPG_SELECT_ALLY_MODE 2
 #define RPG_ENEMY_MODE 3
+#define RPG_LOOP_MODE 4
 
 void rpg_select_menu_item(void) BANKED;
 void rpg_select_enemy(void) BANKED;
@@ -37,10 +39,14 @@ void rpg_combat_init(void) BANKED {
   PLAYER.pos.y = ((PLAYER.pos.y >> 7) << 7);
 
   loadFontIntoBkg();
+  handle_action(TURN_BuildInitiative);
 }
 
+#define m_type VM_GLOBAL(VAR_3_C)
 void rpg_combat_update(void) BANKED {
-  const UINT16 m_type = VM_GLOBAL(VAR_3_C);
+  if(m_type == RPG_LOOP_MODE) {
+    return;
+  }
 
   // Skip waiting for frames if its handling logic
   if (m_type == RPG_ENEMY_MODE) {

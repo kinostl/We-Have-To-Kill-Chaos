@@ -3,11 +3,15 @@
 #include <types.h>
 #include <vm.h>
 #pragma bank 255
-#include "action_data.h"
-#include <gb/crash_handler.h>
+#include "action_definitions.h"
+#include "action_handler.h"
 
 BYTE action_cursor;
+BYTE turn_cursor;
 #define action_ptr action_slots[action_cursor]
+#define current_actor turn_order[turn_cursor]
+
+void take_action(void) BANKED;
 
 void init_actions(void) BANKED {
   action_cursor = 0;
@@ -28,8 +32,21 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case ATTACKER_Fight:
     break;
   case ATTACKER_StartNextTurn:
+    turn_cursor--;
+    if(turn_cursor < 0){
+      dispatch_action(TURN_BuildInitiative);
+    }else{
+      dispatch_action(ATTACKER_TakeNextTurn);
+    }
     break;
   case ATTACKER_TakeNextTurn:
+    if (current_actor < 4 && current_actor > -1) {
+      attacker_prepareNextTurn_Hero();
+      //Panel Management
+      //m_type = RPG_SELECT_MENU_ITEM_MODE
+    } else if (current_actor > 3) {
+      attacker_prepareNextTurn_Enemy();
+    }
     break;
   case DEFENDER_TakeDamage:
     break;
@@ -72,17 +89,22 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case SCENE_FadeIn:
     break;
   case TURN_BuildInitiative:
+    dispatch_action(TURN_RollInitiative);
+    dispatch_action(TURN_SortInitiative);
+    dispatch_action(ATTACKER_StartNextTurn);
     break;
   case TURN_RollInitiative:
+    turn_rollInitiative();
     break;
   case TURN_SortInitiative:
+    turn_cursor = turn_sortInitiative();
     break;
   }
+
+  take_action();
 }
+
 void take_action(void) BANKED {
   handle_action(action_ptr);
   action_cursor--;
-  if (action_cursor < 0) {
-    action_cursor = 0;
-  }
 }

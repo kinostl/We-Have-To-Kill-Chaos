@@ -2,7 +2,7 @@
   "_resourceType": "scene",
   "id": "54274c5f-f51d-420e-b717-bd0d155bcef3",
   "_index": 4,
-  "type": "TOPDOWN",
+  "type": "RPG_COMBAT",
   "name": "Corneria Battles",
   "symbol": "scene_3",
   "x": 1016,

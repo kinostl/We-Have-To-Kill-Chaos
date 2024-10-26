@@ -1706,7 +1706,7 @@
       "command": "FF_EVENT_DISPATCH_ACTION",
       "args": {
         "action": 16,
-        "__collapse": true,
+        "__collapse": false,
         "__comment": false
       },
       "id": "758236a3-ba92-43be-a4e3-9cfcb0baa4df"

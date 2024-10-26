@@ -75,8 +75,8 @@
       "args": {
         "variable": "0",
         "__collapseCase1": true,
-        "__collapseCase14": true,
-        "__collapseCase8": true,
+        "__collapseCase14": false,
+        "__collapseCase8": false,
         "__collapseCase9": true,
         "__collapseCase15": true,
         "__collapseCase12": true,
@@ -95,8 +95,8 @@
         "__collapseCase13": true,
         "__collapseCase0": true,
         "__collapseCase16": false,
-        "__collapseCase19": true,
-        "__collapseCase22": true,
+        "__collapseCase19": false,
+        "__collapseCase22": false,
         "__collapseCaseGetNextAction": true,
         "__collapse": false,
         "__collapseCase23": true,
@@ -584,7 +584,7 @@
                   "command": "FF_EVENT_START_HERO_TURN",
                   "args": {
                     "heroActor": "9c19db58-2e7a-44d7-861f-c4544041ec00",
-                    "__collapse": true
+                    "__collapse": false
                   },
                   "id": "155b1b96-d09a-44f7-8370-4d4e1a822c3c"
                 },
@@ -965,7 +965,7 @@
               },
               "__collapseElse": true,
               "__disableElse": true,
-              "__collapse": true
+              "__collapse": false
             },
             "children": {
               "true": [
@@ -1027,7 +1027,7 @@
                         "command": "FF_EVENT_DISPATCH_ACTION",
                         "args": {
                           "action": 1,
-                          "__collapse": true
+                          "__collapse": false
                         },
                         "id": "0ce60644-8bcc-4532-911c-27ce08bc2a86"
                       }
@@ -1037,7 +1037,7 @@
                         "command": "FF_EVENT_DISPATCH_ACTION",
                         "args": {
                           "action": 14,
-                          "__collapse": true
+                          "__collapse": false
                         },
                         "id": "eefbe3c4-0843-4e0d-9976-75cd52e7d7e0"
                       }
@@ -4691,7 +4691,7 @@
     {
       "command": "EVENT_GROUP",
       "args": {
-        "__collapse": true,
+        "__collapse": false,
         "__label": "Dequeue Action"
       },
       "children": {

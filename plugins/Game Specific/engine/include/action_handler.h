@@ -1,5 +1,5 @@
-#ifndef FF_ACTION_DATA
-#define FF_ACTION_DATA
+#ifndef FF_ACTION_HANDLER
+#define FF_ACTION_HANDLER
 #include <asm/types.h>
 
 typedef enum {
@@ -33,4 +33,8 @@ typedef enum {
 
 extern BYTE action_cursor;
 
+void handle_action(ACTION_TYPE action_type) BANKED;
+void take_action(void) BANKED;
+void attacker_prepareNextTurn_Hero() BANKED;
+void attacker_prepareNextTurn_Enemy() BANKED;
 #endif

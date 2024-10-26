@@ -1,6 +1,6 @@
 #ifndef FF_WEAPON_DATA
 #define FF_WEAPON_DATA
-#include "class_data.h"
+#include "class_data.h" // IWYU pragma: export
 #include <asm/types.h>
 
 enum W_TYPE {

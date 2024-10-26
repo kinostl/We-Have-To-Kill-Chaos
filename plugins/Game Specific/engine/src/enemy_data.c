@@ -1,6 +1,6 @@
 #include <bankdata.h>
 #include <gb/gb.h>
-#include "enemy_data.h" // IWYU pragma: keep
+#include "enemy_data.h"
 #include "encounter_table.h"
 
 #include "enemy_data/imp.h"

@@ -1,7 +1,7 @@
 #ifndef FF_EXTRA_DATA
 #define FF_EXTRA_DATA
 
-#include "action_data.h"
+#include "action_handler.h"
 #include "armor_data.h"
 #include "entity_data.h"
 #include "hero_data.h"
@@ -21,5 +21,6 @@ extern armor_data * glove_slots;
 extern armor_data * helmet_slots;
 extern hero_data * hero_slots;
 extern ACTION_TYPE * action_slots;
+extern BYTE * turn_order;
 
 #endif
