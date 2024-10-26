@@ -9,7 +9,7 @@
 #include "menu_helper.h"
 #pragma bank 255
 
-BYTE create_hero_data(struct entity_data *player, unsigned char *d, BYTE row) OLDCALL BANKED {
+BYTE create_hero_data(entity_data *player, unsigned char *d, BYTE row) OLDCALL BANKED {
   unsigned char *f = d;
 
   // Fast Text Speed
@@ -134,7 +134,7 @@ BYTE load_menu_item(BYTE skill_id, unsigned char *d) OLDCALL BANKED {
 
 void loadHeroMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  struct entity_data *player = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
+  entity_data *player = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
   unsigned char *d = ui_text_data;
   d+=create_hero_data(player, d, 0);
   *d-- = '\n';

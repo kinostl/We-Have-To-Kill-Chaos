@@ -12,11 +12,11 @@ enum I_TYPE{
     GLOVE_I,
 };
 
-struct item_slot{
+typedef struct {
     BYTE id;
     enum I_TYPE type; //Armor, Weapon, Potion, etc
     BYTE count;
-};
+} item_slot;
 
 BYTE getItemSlotIndex(BYTE item_id, enum I_TYPE type) OLDCALL BANKED;
 BYTE getNextItemSlotIndex(void) OLDCALL BANKED;

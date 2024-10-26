@@ -7,7 +7,7 @@
 
 #pragma bank 255
 
-void set_to_wolf(struct entity_data *entity) OLDCALL BANKED{
+void set_to_wolf(entity_data *entity) OLDCALL BANKED{
   strcpy(entity->name, "WOLF");
   entity->max_hp = 20;
   entity->gold = 6;

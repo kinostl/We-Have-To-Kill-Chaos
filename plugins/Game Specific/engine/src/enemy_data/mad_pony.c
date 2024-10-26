@@ -6,7 +6,7 @@
 #include "entity_data.h"
 #include "enemy_data/mad_pony.h"
 
-void set_to_mad_pony(struct entity_data *entity) OLDCALL BANKED{
+void set_to_mad_pony(entity_data *entity) OLDCALL BANKED{
   strcpy(entity->name, "MADPONY");
   entity->max_hp = 64;
   entity->gold = 15;

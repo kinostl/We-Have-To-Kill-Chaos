@@ -2,7 +2,7 @@
 #include "weapon_data.h"
 #include "weapon_data/wood_nunchucks.h"
 
-void wood_nunchucks(struct weapon_data *weapon) OLDCALL BANKED {
+void wood_nunchucks(weapon_data *weapon) OLDCALL BANKED {
   weapon->id = 1;
   weapon->attack = 12;
   weapon->hit_chance = 0;

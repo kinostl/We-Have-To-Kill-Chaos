@@ -75,14 +75,14 @@
       "args": {
         "variable": "0",
         "__collapseCase1": true,
-        "__collapseCase14": false,
-        "__collapseCase8": false,
+        "__collapseCase14": true,
+        "__collapseCase8": true,
         "__collapseCase9": true,
         "__collapseCase15": true,
         "__collapseCase12": true,
         "__collapseCase11": true,
-        "__collapseCase10": false,
-        "__collapseCase21": false,
+        "__collapseCase10": true,
+        "__collapseCase21": true,
         "__collapseCase4": true,
         "__collapseCase5": true,
         "__collapseCase7": true,
@@ -101,11 +101,11 @@
         "__collapse": false,
         "__collapseCase23": true,
         "__collapseCase25": true,
-        "__collapseCase24": false,
+        "__collapseCase24": true,
         "__collapseCase26": true,
         "__collapseCase27": true,
         "__collapseCase28": true,
-        "__collapseCase29": false
+        "__collapseCase29": true
       },
       "children": {
         "true1": [
@@ -4691,7 +4691,7 @@
     {
       "command": "EVENT_GROUP",
       "args": {
-        "__collapse": false,
+        "__collapse": true,
         "__label": "Dequeue Action"
       },
       "children": {

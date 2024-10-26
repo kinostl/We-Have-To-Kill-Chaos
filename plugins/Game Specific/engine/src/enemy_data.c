@@ -10,7 +10,7 @@
 
 #pragma bank 255
 
-void set_enemy_data(struct entity_data * entity, BYTE enemy_id) OLDCALL BANKED {
+void set_enemy_data(entity_data * entity, BYTE enemy_id) OLDCALL BANKED {
   switch (enemy_id) {
   default:
   case IMP:

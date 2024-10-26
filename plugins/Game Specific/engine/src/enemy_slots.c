@@ -103,7 +103,7 @@ void setupTileBuffer(UBYTE *buffer, UBYTE w, UBYTE h, UBYTE x, UBYTE y,
   }
 }
 
-void initialize_entity_data(struct entity_data * slot) OLDCALL BANKED {
+void initialize_entity_data(entity_data * slot) OLDCALL BANKED {
   slot->hp = 0;
   slot->skill_idx = 0;
   slot->alive = FALSE;
@@ -312,7 +312,7 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   BYTE next_y = 5;
   BYTE entity_data_i = 4;
   BYTE enemies_alive = 0;
-  struct entity_data * current_enemy;
+  entity_data * current_enemy;
   for (BYTE i = 0; i < lg_i; i++) {
     current_enemy = &turn_slots[entity_data_i];
     BYTE idx = large_enemies[i];
@@ -384,9 +384,9 @@ void checkEnemyAlive(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
 void handleEnemyTakeDamage(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  struct entity_data *defender;
+  entity_data *defender;
   defender = &turn_slots[VM_GLOBAL(VAR_DEFENDER_ID)];
-  struct entity_data *attacker;
+  entity_data *attacker;
   attacker = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
 
   UWORD * name = &VM_GLOBAL(VAR_1_C);
@@ -447,7 +447,7 @@ void handleEnemyTakeDamage(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
 void enemyFlashBKG(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  struct entity_data *enemy =
+  entity_data *enemy =
       &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
   WORD color_1 = 1;
   WORD color_2 = 6;
@@ -460,7 +460,7 @@ void enemyFlashBKG(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
 void enemyRollInitiative(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  struct entity_data *entity;
+  entity_data *entity;
   UWORD *initiative_slot;
   for (int i = 0; i < 10; i++) {
     entity = &turn_slots[i];

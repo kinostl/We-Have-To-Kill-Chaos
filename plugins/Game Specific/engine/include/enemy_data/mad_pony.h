@@ -5,6 +5,6 @@
 #include <asm/types.h>
 #include <gb/gb.h>
 
-void set_to_mad_pony(struct entity_data *entity) OLDCALL BANKED;
+void set_to_mad_pony(entity_data *entity) OLDCALL BANKED;
 
 #endif

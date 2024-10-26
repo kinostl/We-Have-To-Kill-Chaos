@@ -14,7 +14,7 @@
 #pragma bank 255
 
 
-void set_weapon(BYTE weapon_id, struct weapon_data *weapon) OLDCALL BANKED {
+void set_weapon(BYTE weapon_id, weapon_data *weapon) OLDCALL BANKED {
   unarmed(weapon);
   weapon->classes=0;
 
@@ -73,7 +73,7 @@ inline void writeItemDesc(BYTE item_id, unsigned char *item_s){
   }
 }
 
-void load_weapon_info_text(struct weapon_data w_data, unsigned char * item_s, UBYTE width, UBYTE offset) OLDCALL BANKED {
+void load_weapon_info_text(weapon_data w_data, unsigned char * item_s, UBYTE width, UBYTE offset) OLDCALL BANKED {
   width;
   unsigned char t[4];
 

@@ -10,7 +10,7 @@
 void load_attacker(SCRIPT_CTX * THIS) OLDCALL BANKED {
   THIS;
   BYTE slot_idx = VM_GLOBAL(VAR_ATTACKER_ID);
-  struct entity_data *slot = &turn_slots[slot_idx];
+  entity_data *slot = &turn_slots[slot_idx];
   switch (slot_idx) {
   case 0:
   case 1:
@@ -34,7 +34,7 @@ void load_attacker(SCRIPT_CTX * THIS) OLDCALL BANKED {
 void load_defender(SCRIPT_CTX * THIS) OLDCALL BANKED {
   THIS;
   BYTE slot_idx = VM_GLOBAL(VAR_DEFENDER_ID);
-  struct entity_data *slot = &turn_slots[slot_idx];
+  entity_data *slot = &turn_slots[slot_idx];
   switch (slot_idx) {
   case 0:
   case 1:
@@ -55,7 +55,7 @@ void load_defender(SCRIPT_CTX * THIS) OLDCALL BANKED {
   }
 }
 
-void load_name(struct entity_data * entity) OLDCALL BANKED{
+void load_name(entity_data * entity) OLDCALL BANKED{
   UWORD *name = &VM_GLOBAL(VAR_1_C);
   UWORD name_l = strlen(entity->name);
   for (int i = 0; i < name_l; i++) {
@@ -66,7 +66,7 @@ void load_name(struct entity_data * entity) OLDCALL BANKED{
   }
 }
 
-void load_player_atk(struct entity_data *player) OLDCALL BANKED {
+void load_player_atk(entity_data *player) OLDCALL BANKED {
   VM_GLOBAL(VAR_ATTACKER_DAMAGE) = player->damage;
   VM_GLOBAL(VAR_ATTACKER_AP) = player->ap;
   VM_GLOBAL(VAR_ATTACKER_HP) = player->hp;
@@ -80,13 +80,13 @@ void load_player_atk(struct entity_data *player) OLDCALL BANKED {
   VM_GLOBAL(VAR_ATTACKER_TYPE) = player->type;
 }
 
-void load_player_def(struct entity_data *player) OLDCALL BANKED {
+void load_player_def(entity_data *player) OLDCALL BANKED {
   VM_GLOBAL(VAR_DEFENDER_ENDING_HP) = player->hp;
   VM_GLOBAL(VAR_DEFENDER_ID) = player->slot_id;
   VM_GLOBAL(VAR_DEFENDER_STARTING_HP) = player->hp;
 }
 
-void load_enemy_atk(struct entity_data *enemy) OLDCALL BANKED {
+void load_enemy_atk(entity_data *enemy) OLDCALL BANKED {
   VM_GLOBAL(VAR_ATTACKER_DAMAGE) = enemy->damage;
   VM_GLOBAL(VAR_ATTACKER_AP) = 0;
   VM_GLOBAL(VAR_ATTACKER_CRIT_CHANCE) = enemy->crit_chance;
@@ -99,7 +99,7 @@ void load_enemy_atk(struct entity_data *enemy) OLDCALL BANKED {
   VM_GLOBAL(VAR_ATTACKER_TYPE) = enemy->type;
 }
 
-void load_enemy_def(struct entity_data *enemy) OLDCALL BANKED {
+void load_enemy_def(entity_data *enemy) OLDCALL BANKED {
   VM_GLOBAL(VAR_DEFENDER_ENDING_HP) = enemy->hp;
   VM_GLOBAL(VAR_DEFENDER_ID) = 0;
   VM_GLOBAL(VAR_DEFENDER_STARTING_HP) = enemy->hp;

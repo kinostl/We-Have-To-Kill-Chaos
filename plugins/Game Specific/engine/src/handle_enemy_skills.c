@@ -20,8 +20,8 @@ Normal Attack
 Short name: GobPun
 */
 void goblinPunch(SCRIPT_CTX *THIS) OLDCALL BANKED{
-  struct entity_data * attacker = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
-  struct entity_data * defender = &turn_slots[VM_GLOBAL(VAR_DEFENDER_ID)];
+  entity_data * attacker = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
+  entity_data * defender = &turn_slots[VM_GLOBAL(VAR_DEFENDER_ID)];
   WORD *attacker_damage = VM_REF_TO_PTR(VAR_ATTACKER_DAMAGE);
 
   WORD distance = DISTANCE(attacker->max_hp, defender->max_hp);
@@ -40,7 +40,7 @@ void chooseEnemySkill(SCRIPT_CTX * THIS) OLDCALL BANKED {
   }
 
   BYTE slot_id = VM_GLOBAL(VAR_ATTACKER_ID);
-  struct entity_data *entity_data = &turn_slots[slot_id];
+  entity_data *entity_data = &turn_slots[slot_id];
 
   entity_data->skill_idx++;
   if (entity_data->skill_idx > 4) {

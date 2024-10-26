@@ -105,10 +105,10 @@ void loadWeaponInfo(SCRIPT_CTX *THIS) OLDCALL BANKED {
   strcpy(ui_text_data, "");
 
 
-  struct item_slot i_slot;
+  item_slot i_slot;
   i_slot = item_slots[item_idx];
 
-  struct weapon_data w_data;
+  weapon_data w_data;
   set_weapon(i_slot.id, &w_data);
 
   load_weapon_info_text(w_data, ui_text_data, 18, 5);

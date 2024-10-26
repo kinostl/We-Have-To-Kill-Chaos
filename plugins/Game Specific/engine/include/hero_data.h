@@ -2,11 +2,11 @@
 #define FF_HERO_DATA
 #include <asm/types.h>
 
-struct hero_data {
+typedef struct {
   // shared data
   BYTE slot_id;
   char name[7];
   BYTE job;
-};
+} hero_data;
 
 #endif

@@ -2,7 +2,7 @@
 #define FF_ENTITY_DATA
 #include <asm/types.h>
 
-struct entity_data {
+typedef struct {
   // shared data
   BYTE slot_id;
   BYTE hp;
@@ -37,6 +37,6 @@ struct entity_data {
   BYTE skills[4];
   BYTE skill_costs[4];
   char name[8];
-};
+} entity_data;
 
 #endif

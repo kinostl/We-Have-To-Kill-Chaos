@@ -3,5 +3,5 @@
 
 #include "armor_data.h"
 #include <asm/types.h>
-void wood_armor(struct armor_data *armor) OLDCALL BANKED;
+void wood_armor(armor_data *armor) OLDCALL BANKED;
 #endif

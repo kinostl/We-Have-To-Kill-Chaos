@@ -2,7 +2,7 @@
 #include "weapon_data.h"
 #include "weapon_data/unarmed.h"
 
-void unarmed(struct weapon_data *weapon) OLDCALL BANKED {
+void unarmed(weapon_data *weapon) OLDCALL BANKED {
   weapon->id = 0;
   weapon->attack = 0;
   weapon->hit_chance = 0;

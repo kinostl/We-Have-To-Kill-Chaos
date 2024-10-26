@@ -3,5 +3,5 @@
 
 #include "armor_data.h"
 #include <asm/types.h>
-void naked(struct armor_data *armor) OLDCALL BANKED;
+void naked(armor_data *armor) OLDCALL BANKED;
 #endif

@@ -3,5 +3,5 @@
 
 #include "weapon_data.h"
 #include <asm/types.h>
-void rapier(struct weapon_data *weapon) OLDCALL BANKED;
+void rapier(weapon_data *weapon) OLDCALL BANKED;
 #endif

@@ -3,5 +3,5 @@
 
 #include "weapon_data.h"
 #include <asm/types.h>
-void small_knife(struct weapon_data *weapon) OLDCALL BANKED;
+void small_knife(weapon_data *weapon) OLDCALL BANKED;
 #endif

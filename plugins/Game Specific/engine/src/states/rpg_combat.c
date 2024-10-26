@@ -15,6 +15,8 @@ UWORD rpg_cursor_base_pos;
 UWORD rpg_menu_selection;
 UWORD rpg_max_menu_selection;
 
+UBYTE rpg_c_timer;
+
 #define RPG_SELECT_MENU_ITEM_MODE 0
 #define RPG_SELECT_ENEMY_MODE 1
 #define RPG_SELECT_ALLY_MODE 2
@@ -46,7 +48,8 @@ void rpg_combat_update(void) BANKED {
   }
 
   // Skip continuing logic if its not the right frame
-  if (!IS_FRAME_8) {
+  if (rpg_c_timer < 6) {
+    rpg_c_timer++;
     return;
   }
 
@@ -62,6 +65,10 @@ void rpg_combat_update(void) BANKED {
     break;
   default:
     break;
+  }
+
+  if (INPUT_RECENT_UP || INPUT_RECENT_DOWN) {
+    rpg_c_timer = 0;
   }
 }
 
@@ -82,3 +89,7 @@ void rpg_select_menu_item(void) BANKED {
                  << 7;
   VM_GLOBAL(VAR_2_C) = rpg_cursor_base_pos;
 }
+
+void rpg_select_enemy(void) BANKED{}
+void rpg_select_ally(void) BANKED{}
+void rpg_enemy_turn(void) BANKED{}

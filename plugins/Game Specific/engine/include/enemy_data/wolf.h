@@ -5,6 +5,6 @@
 #include <asm/types.h>
 #include <gb/gb.h>
 
-void set_to_wolf(struct entity_data *entity) OLDCALL BANKED;
+void set_to_wolf(entity_data *entity) OLDCALL BANKED;
 
 #endif

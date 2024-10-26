@@ -5,14 +5,14 @@
 
 enum A_TYPE { UNARMORED, ARMOR, ROBE, BRACELET, SHIELD, HELMET, GAUNTLET };
 
-struct armor_data {
+typedef struct {
   BYTE id;
   enum A_TYPE type;
   UBYTE defense;
   UBYTE weight;
   UWORD price;
   UWORD classes; // Flag
-};
+} armor_data;
 
-void set_armor(BYTE armor_id, struct armor_data *armor) OLDCALL BANKED;
+void set_armor(BYTE armor_id, armor_data *armor) OLDCALL BANKED;
 #endif

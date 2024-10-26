@@ -2,7 +2,7 @@
 #include "weapon_data.h"
 #include "weapon_data/rapier.h"
 
-void rapier (struct weapon_data *weapon) OLDCALL BANKED {
+void rapier (weapon_data *weapon) OLDCALL BANKED {
   weapon->id = 4;
   weapon->attack = 9;
   weapon->hit_chance = 5;

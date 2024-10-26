@@ -3,7 +3,7 @@
 #pragma bank 255
 #include "armor_data/naked.h"
 
-void naked(struct armor_data *armor) OLDCALL BANKED {
+void naked(armor_data *armor) OLDCALL BANKED {
   armor->id = 0;
   armor->type = UNARMORED;
   armor->defense = 0;

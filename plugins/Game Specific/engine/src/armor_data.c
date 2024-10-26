@@ -7,7 +7,7 @@
 #include <asm/types.h>
 #pragma bank 255
 
-void set_armor(BYTE armor_id, struct armor_data *armor) OLDCALL BANKED {
+void set_armor(BYTE armor_id, armor_data *armor) OLDCALL BANKED {
   naked(armor);
   armor->classes = 0;
   switch (armor_id) {

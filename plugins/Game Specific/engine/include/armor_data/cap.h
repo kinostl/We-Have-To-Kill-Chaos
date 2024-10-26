@@ -3,5 +3,5 @@
 
 #include "armor_data.h"
 #include <asm/types.h>
-void cap(struct armor_data *armor) OLDCALL BANKED;
+void cap(armor_data *armor) OLDCALL BANKED;
 #endif

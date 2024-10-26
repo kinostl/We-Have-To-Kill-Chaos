@@ -18,7 +18,7 @@
 #include "states/menu.h"
 #pragma bank 255
 
-void setWeaponData(struct weapon_data * wepon, UBYTE weapon_choice) OLDCALL BANKED{
+void setWeaponData(weapon_data * wepon, UBYTE weapon_choice) OLDCALL BANKED{
     switch (weapon_choice) {
     case 1:
       wood_staff(wepon);
@@ -43,7 +43,7 @@ void setWeaponData(struct weapon_data * wepon, UBYTE weapon_choice) OLDCALL BANK
 void handleWeaponShop(SCRIPT_CTX * THIS) OLDCALL BANKED {
     UBYTE weapon_choice = *(UBYTE *) VM_REF_TO_PTR(FN_ARG0);
 
-    struct weapon_data wepon;
+    weapon_data wepon;
     setWeaponData(&wepon, weapon_choice);
 
     // Set Weapon Data
@@ -66,7 +66,7 @@ void handleWeaponShop(SCRIPT_CTX * THIS) OLDCALL BANKED {
 void purchaseWeaponToInventory(SCRIPT_CTX * THIS) OLDCALL BANKED {
     UBYTE weapon_choice = *(UBYTE *) VM_REF_TO_PTR(FN_ARG0);
 
-    struct weapon_data wepon;
+    weapon_data wepon;
     setWeaponData(&wepon, weapon_choice);
     addWeaponItem(wepon.id);
     VM_GLOBAL(VAR_1_C) = weapon_choice;
@@ -94,7 +94,7 @@ void loadWeaponShopArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   UBYTE check_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
   BOOLEAN instant = *(BOOLEAN *)VM_REF_TO_PTR(FN_ARG1);
   BOOLEAN clear_area = *(BOOLEAN *)VM_REF_TO_PTR(FN_ARG2);
-  struct weapon_data w_data;
+  weapon_data w_data;
 
 //   set_weapon(menu_slots[check_id].id, &check_w);
   set_weapon(check_id, &w_data);
@@ -117,7 +117,7 @@ void loadWeaponShopWeapons(SCRIPT_CTX * THIS) OLDCALL BANKED {
   strcpy(ui_text_data, "");
   unsigned char location[4] = {0x03, 18, 4, '\0'};
   unsigned char *price_str[4];
-  struct weapon_data w_data;
+  weapon_data w_data;
 
   for (int i = 0; i < 5; i++) {
     weapon_name_short_cat(i + 1, ui_text_data);
@@ -135,7 +135,7 @@ void loadWeaponShopWeapons(SCRIPT_CTX * THIS) OLDCALL BANKED {
 void loadWeaponShopUsages(SCRIPT_CTX * THIS) OLDCALL BANKED {
   THIS;
   UBYTE check_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
-  struct weapon_data w_data;
+  weapon_data w_data;
   set_weapon(check_id, &w_data);
   BYTE w_total = w_data.attack + w_data.crit_chance + w_data.hit_chance;
 

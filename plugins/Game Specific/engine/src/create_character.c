@@ -16,11 +16,11 @@ void cc_add_letter_to_name(SCRIPT_CTX * THIS) OLDCALL BANKED {
         {'.', '-', '.', '!', '.', '.', '.', '\0'},
     };
 
-    struct hero_data * hero = &hero_slots[VM_GLOBAL(VAR_CC_CURRENT_C)];
+    hero_data * hero = &hero_slots[VM_GLOBAL(VAR_CC_CURRENT_C)];
     hero -> name[VM_GLOBAL(VAR_CC_CURRENT_LETTER)] = alpha[VM_GLOBAL(VAR_TEMP_Y)][VM_GLOBAL(VAR_TEMP_X)];
 }
 
 void cc_set_job(SCRIPT_CTX * THIS) OLDCALL BANKED {
-    struct hero_data * hero = &hero_slots[VM_GLOBAL(VAR_CC_CURRENT_C)];
+    hero_data * hero = &hero_slots[VM_GLOBAL(VAR_CC_CURRENT_C)];
     hero -> job = VM_GLOBAL(VAR_CC_CLASS_CHOICE);
 }

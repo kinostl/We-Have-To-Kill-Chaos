@@ -1,0 +1,48 @@
+{
+  "_resourceType": "scene",
+  "id": "7f69b524-b5c7-485d-8809-18efbc48c619",
+  "_index": 28,
+  "name": "Boot Strapper",
+  "backgroundId": "1e5f9d6a-bdbc-43e6-8c34-22f5bb5dea05",
+  "tilesetId": "",
+  "width": 20,
+  "height": 18,
+  "type": "TOPDOWN",
+  "paletteIds": [],
+  "spritePaletteIds": [],
+  "collisions": "00168+",
+  "autoFadeSpeed": null,
+  "symbol": "scene_29",
+  "x": 1760,
+  "y": 60,
+  "script": [
+    {
+      "command": "MY_EVENT_CALL_NATIVE",
+      "args": {
+        "argCount": 0,
+        "funName": "init_extra_data"
+      },
+      "id": "54904d8a-adc0-4ce5-8d00-0bd7a1d63555"
+    },
+    {
+      "command": "EVENT_SWITCH_SCENE",
+      "args": {
+        "sceneId": "2c0e6f2e-0ea4-41e1-a9bd-91c275a8e510",
+        "x": {
+          "type": "number",
+          "value": 29
+        },
+        "y": {
+          "type": "number",
+          "value": 13
+        },
+        "direction": "",
+        "fadeSpeed": 0
+      },
+      "id": "878b0982-e1a2-4a02-be43-c549c87b1a71"
+    }
+  ],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": []
+}

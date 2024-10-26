@@ -175,9 +175,9 @@ void loadEquipList(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
   int i = 0;
   int inv_i = 0;
-  struct item_slot i_slot;
-  struct weapon_data w_data;
-  struct armor_data a_data;
+  item_slot i_slot;
+  weapon_data w_data;
+  armor_data a_data;
   enum I_TYPE i_type = WEAPON_I + entityType;
 
   while (i < 5) {
@@ -246,7 +246,7 @@ void loadSubStatsCompareWeaponArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   // UBYTE character_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
   UBYTE character_id = 0;
   UBYTE check_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
-  struct weapon_data equip_w, check_w;
+  weapon_data equip_w, check_w;
 
   set_weapon(weapon_slots[character_id].id, &equip_w);
   set_weapon(menu_slots[check_id].id, &check_w);
@@ -284,7 +284,7 @@ void loadSubStatsCompareArmorArea(SCRIPT_CTX *THIS) OLDCALL BANKED {
   // UBYTE character_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG0);
   UBYTE character_id = 0;
   UBYTE check_id = *(UBYTE *)VM_REF_TO_PTR(FN_ARG1);
-  struct armor_data check_t;
+  armor_data check_t;
   UBYTE check_d, equip_d;
   UBYTE check_w, equip_w;
 

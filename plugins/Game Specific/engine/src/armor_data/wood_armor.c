@@ -3,7 +3,7 @@
 #pragma bank 255
 #include "armor_data/wood_armor.h"
 
-void wood_armor(struct armor_data *armor) OLDCALL BANKED {
+void wood_armor(armor_data *armor) OLDCALL BANKED {
   armor->id = 2;
   armor->type = ARMOR;
   armor->defense = 4;

@@ -3,7 +3,7 @@
 #pragma bank 255
 #include "armor_data/cap.h"
 
-void cap(struct armor_data *armor) OLDCALL BANKED {
+void cap(armor_data *armor) OLDCALL BANKED {
   armor->id = 26;
   armor->type = HELMET;
   armor->defense = 1;

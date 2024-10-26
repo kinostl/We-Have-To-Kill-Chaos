@@ -9,8 +9,8 @@ void prepareHeroTurn(SCRIPT_CTX * THIS) OLDCALL BANKED {
     THIS;
     VM_GLOBAL(VAR_ATTACKER_ID) = VM_GLOBAL(VAR_TURN_ORDER_CURRENT_ACTO);
 
-    struct entity_data *player = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
-    struct weapon_data *weapon = &weapon_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
+    entity_data *player = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
+    weapon_data *weapon = &weapon_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
     player->ap++;
     VM_GLOBAL(VAR_ATTACKER_AP) = player->ap;
     VM_GLOBAL(VAR_ATTACKER_TYPE) = VM_GLOBAL(VAR_ATTACKER_ID) + 1;

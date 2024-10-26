@@ -6,7 +6,7 @@
 
 #pragma bank 255
 
-void set_to_imp(struct entity_data *entity) OLDCALL BANKED{
+void set_to_imp(entity_data *entity) OLDCALL BANKED{
   strcpy(entity->name, "IMP");
   entity->max_hp = 8;
   entity->gold = 6;

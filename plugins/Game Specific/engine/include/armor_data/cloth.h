@@ -3,5 +3,5 @@
 
 #include "armor_data.h"
 #include <asm/types.h>
-void cloth(struct armor_data *armor) OLDCALL BANKED;
+void cloth(armor_data *armor) OLDCALL BANKED;
 #endif

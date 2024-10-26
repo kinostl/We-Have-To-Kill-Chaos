@@ -2,7 +2,7 @@
 #include "weapon_data.h"
 #include "weapon_data/small_knife.h"
 
-void small_knife (struct weapon_data *weapon) OLDCALL BANKED {
+void small_knife (weapon_data *weapon) OLDCALL BANKED {
   weapon->id = 2;
   weapon->attack = 5;
   weapon->hit_chance = 10;

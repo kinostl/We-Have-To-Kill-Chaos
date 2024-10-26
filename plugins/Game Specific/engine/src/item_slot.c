@@ -5,7 +5,7 @@
 #include "extra_data.h"
 #include "item_slot.h"
 
-BYTE get_item_slot_index(BYTE item_id, enum I_TYPE type, struct item_slot * slots) OLDCALL BANKED{
+BYTE get_item_slot_index(BYTE item_id, enum I_TYPE type, item_slot * slots) OLDCALL BANKED{
     for(int i=0;i<MAX_ITEM_SLOTS;i++){
         if(slots[i].id == item_id && slots[i].type == type){
             return i;
@@ -18,7 +18,7 @@ BYTE getItemSlotIndex(BYTE item_id, enum I_TYPE type) OLDCALL BANKED {
     return get_item_slot_index(item_id, type, item_slots);
 }
 
-BYTE get_next_item_slot_index(struct item_slot * slots){
+BYTE get_next_item_slot_index(item_slot * slots){
     for(int i=0;i<MAX_ITEM_SLOTS;i++){
         if(slots[i].type == NULL_I){
             return i;
@@ -30,7 +30,7 @@ BYTE get_next_item_slot_index(struct item_slot * slots){
 BYTE getNextItemSlotIndex(void) OLDCALL BANKED {
     return get_next_item_slot_index(item_slots);
 }
-BYTE add_items(BYTE item_id, enum I_TYPE type, BYTE count, struct item_slot * slots) OLDCALL BANKED{
+BYTE add_items(BYTE item_id, enum I_TYPE type, BYTE count, item_slot * slots) OLDCALL BANKED{
     UBYTE slot_i = get_item_slot_index(item_id, type, slots);
     if (slot_i >= ITEM_NOT_FOUND) {
       slot_i = get_next_item_slot_index(slots);
@@ -141,7 +141,7 @@ void clearMenu(void) OLDCALL BANKED{
 }
 
 void sortMenu(void) OLDCALL BANKED {
-  struct item_slot temp;
+  item_slot temp;
   UBYTE largest;
   for (int i = 0; i < MAX_ITEM_SLOTS - 1; i++) {
     largest = i;

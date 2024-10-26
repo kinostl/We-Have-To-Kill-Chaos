@@ -2,7 +2,7 @@
 #include "weapon_data.h"
 #include "weapon_data/rune_sword.h"
 
-void rune_sword (struct weapon_data *weapon) OLDCALL BANKED {
+void rune_sword (weapon_data *weapon) OLDCALL BANKED {
   weapon->id = 27;
   //TODO WRONG STATS ONLY ID AND NAME UPDATED
   weapon->attack = 18;
