@@ -45,6 +45,30 @@
       "command": "FO_EVENT_EXPORT_FLAGS",
       "args": {},
       "id": "f51462f5-f8e4-4372-b33f-0a3b86ae93ad"
+    },
+    {
+      "command": "EVENT_SET_FLAGS",
+      "args": {
+        "variable": "0",
+        "flag1": true,
+        "flag2": false,
+        "flag3": false,
+        "flag4": false,
+        "flag5": true,
+        "flag6": false,
+        "flag7": false,
+        "flag8": false,
+        "flag9": false,
+        "flag10": false,
+        "flag11": false,
+        "flag12": false,
+        "flag13": false,
+        "flag14": false,
+        "flag15": false,
+        "flag16": false,
+        "__collapse": false
+      },
+      "id": "e9a204c3-262d-4fcb-bc9e-46ac3de4306f"
     }
   ],
   "playerHit1Script": [],

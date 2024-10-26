@@ -4,7 +4,8 @@
     {
       "id": "0",
       "name": "Action",
-      "symbol": "var_action"
+      "symbol": "var_action",
+      "flags": {}
     },
     {
       "id": "1",

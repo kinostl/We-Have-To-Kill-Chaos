@@ -570,3 +570,6 @@ I probably need to look into a Menu Item structure to assist with this, and some
 
 This is mostly in the C code but I'll need to move more of it into the scene type instead of the area it currently is.
 
+## Animation Mode and other Modes
+
+By the looks of it, I'm gonna need to add an animation mode to make the new attempt at the dispatch action thingy work, so that it can handle waiting for animations to complete. I'll probably need some kinda glue var to handle locking. Yay mutexes.

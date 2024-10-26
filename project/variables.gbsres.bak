@@ -4,7 +4,11 @@
     {
       "id": "0",
       "name": "Action",
-      "symbol": "var_action"
+      "symbol": "var_action",
+      "flags": {
+        "flag1": "Named Flag",
+        "flag4": "Another Named Flag"
+      }
     },
     {
       "id": "1",
@@ -525,6 +529,21 @@
       "id": "104",
       "name": "Explosion/h",
       "symbol": "var_explosion_h"
+    },
+    {
+      "id": "105",
+      "name": "CC/Current C",
+      "symbol": "var_cc_current_c"
+    },
+    {
+      "id": "106",
+      "name": "CC/Class Choice",
+      "symbol": "var_cc_class_choice"
+    },
+    {
+      "id": "107",
+      "name": "CC/Current Letter",
+      "symbol": "var_cc_current_letter"
     },
     {
       "id": "b543e5af-0a59-46a2-afa4-a8749b768159__L0",
@@ -1280,21 +1299,6 @@
       "id": "e6712fc5-277c-4cbf-a030-f10048d92132__L0",
       "name": "Song Choice",
       "symbol": "var_song_choice"
-    },
-    {
-      "id": "105",
-      "name": "CC/Current C",
-      "symbol": "var_cc_current_c"
-    },
-    {
-      "id": "106",
-      "name": "CC/Class Choice",
-      "symbol": "var_cc_class_choice"
-    },
-    {
-      "id": "107",
-      "name": "CC/Current Letter",
-      "symbol": "var_cc_current_letter"
     }
   ]
 }

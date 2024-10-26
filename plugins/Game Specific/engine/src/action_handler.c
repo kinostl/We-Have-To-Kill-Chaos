@@ -1,10 +1,14 @@
 #include "extra_data.h"
+#include "states/rpg_combat.h"
+#include <data/game_globals.h>
+#include <macro.h>
 #include <string.h>
 #include <types.h>
 #include <vm.h>
 #pragma bank 255
 #include "action_definitions.h"
 #include "action_handler.h"
+#include "data/action_flags.h"
 
 BYTE action_cursor;
 BYTE turn_cursor;
@@ -43,7 +47,14 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     if (current_actor < 4 && current_actor > -1) {
       attacker_prepareNextTurn_Hero();
       //Panel Management
-      //m_type = RPG_SELECT_MENU_ITEM_MODE
+      SET_FLAG(VM_GLOBAL(VAR_ACTION), ACTION_NAMED_FLAG);
+      dispatch_action(PANEL_HidePartyActors);
+      dispatch_action(PANEL_ClosePanel);
+      dispatch_action(PANEL_DisplayMenu);
+      dispatch_action(PANEL_OpenPanel);
+      dispatch_action(PANEL_DisplayCurrentActor);
+      
+      dispatch_action(PICK_EnablePlayer);
     } else if (current_actor > 3) {
       attacker_prepareNextTurn_Enemy();
     }
@@ -71,6 +82,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case PICK_ChoiceMade:
     break;
   case PICK_EnablePlayer:
+    rpg_menu_mode = RPG_SELECT_MENU_ITEM_MODE;
     break;
   case PICK_HandleChoice:
     break;

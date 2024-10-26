@@ -11,18 +11,14 @@
 #include "input.h"
 #include "load_font_into_bg.h"
 #include "math.h"
+#include "states/rpg_combat.h"
 
 UWORD rpg_cursor_base_pos;
 UWORD rpg_menu_selection;
 UWORD rpg_max_menu_selection;
 
 UBYTE rpg_c_timer;
-
-#define RPG_SELECT_MENU_ITEM_MODE 0
-#define RPG_SELECT_ENEMY_MODE 1
-#define RPG_SELECT_ALLY_MODE 2
-#define RPG_ENEMY_MODE 3
-#define RPG_LOOP_MODE 4
+RPG_MENU_MODE rpg_menu_mode;
 
 void rpg_select_menu_item(void) BANKED;
 void rpg_select_enemy(void) BANKED;
@@ -42,14 +38,14 @@ void rpg_combat_init(void) BANKED {
   handle_action(TURN_BuildInitiative);
 }
 
-#define m_type VM_GLOBAL(VAR_3_C)
 void rpg_combat_update(void) BANKED {
-  if(m_type == RPG_LOOP_MODE) {
+  if(rpg_menu_mode == RPG_LOOP_MODE) {
+    // Animations, etc
     return;
   }
 
   // Skip waiting for frames if its handling logic
-  if (m_type == RPG_ENEMY_MODE) {
+  if (rpg_menu_mode == RPG_ENEMY_MODE) {
     return rpg_enemy_turn();
   }
 
@@ -59,7 +55,7 @@ void rpg_combat_update(void) BANKED {
     return;
   }
 
-  switch (m_type) {
+  switch (rpg_menu_mode) {
   case RPG_SELECT_MENU_ITEM_MODE:
     rpg_select_menu_item();
     break;

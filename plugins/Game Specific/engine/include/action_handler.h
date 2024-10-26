@@ -35,6 +35,6 @@ extern BYTE action_cursor;
 
 void handle_action(ACTION_TYPE action_type) BANKED;
 void take_action(void) BANKED;
-void attacker_prepareNextTurn_Hero() BANKED;
-void attacker_prepareNextTurn_Enemy() BANKED;
+void attacker_prepareNextTurn_Hero(void) BANKED;
+void attacker_prepareNextTurn_Enemy(void) BANKED;
 #endif
