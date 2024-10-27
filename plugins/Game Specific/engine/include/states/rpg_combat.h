@@ -8,6 +8,7 @@ typedef enum {
   RPG_SELECT_ALLY_MODE,
   RPG_ENEMY_MODE,
   RPG_LOOP_MODE,
+  RPG_HAS_UPDATE
 } RPG_MENU_MODE;
 
 extern RPG_MENU_MODE rpg_menu_mode;

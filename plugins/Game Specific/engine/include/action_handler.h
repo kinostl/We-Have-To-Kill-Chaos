@@ -31,10 +31,10 @@ typedef enum {
   TURN_SortInitiative,
 } ACTION_TYPE ;
 
-extern BYTE action_cursor;
-
 void handle_action(ACTION_TYPE action_type) BANKED;
 void take_action(void) BANKED;
+void dispatch_action(ACTION_TYPE action_type) BANKED;
+void init_actions(void) BANKED;
 void attacker_prepareNextTurn_Hero(void) BANKED;
 void attacker_prepareNextTurn_Enemy(void) BANKED;
 #endif

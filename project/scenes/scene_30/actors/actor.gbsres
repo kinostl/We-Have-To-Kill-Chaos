@@ -1,0 +1,142 @@
+{
+  "_resourceType": "actor",
+  "id": "d393000e-4e4f-472c-ae4a-39f1350efad6",
+  "name": "",
+  "frame": 0,
+  "animate": false,
+  "spriteSheetId": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
+  "prefabId": "",
+  "direction": "down",
+  "moveSpeed": 1,
+  "animSpeed": 15,
+  "paletteId": "",
+  "isPinned": false,
+  "persistent": false,
+  "collisionGroup": "",
+  "prefabScriptOverrides": {},
+  "symbol": "actor_55",
+  "script": [],
+  "startScript": [
+    {
+      "command": "EVENT_SET_FLAGS",
+      "args": {
+        "variable": "108",
+        "flag1": false,
+        "flag2": false,
+        "flag3": false,
+        "flag4": false,
+        "flag5": false,
+        "flag6": false,
+        "flag7": false,
+        "flag8": false,
+        "flag9": false,
+        "flag10": false,
+        "flag11": false,
+        "flag12": false,
+        "flag13": false,
+        "flag14": false,
+        "flag15": false,
+        "flag16": false,
+        "__collapse": false
+      },
+      "id": "a48bc476-c17d-4d75-8e10-db130519f17b"
+    }
+  ],
+  "updateScript": [
+    {
+      "command": "EVENT_SCRIPT_LOCK",
+      "args": {
+        "__comment": false,
+        "__collapse": true
+      },
+      "id": "fb0962b7-51d0-4c25-8835-c90416d43738"
+    },
+    {
+      "command": "EVENT_IF_FLAGS_COMPARE",
+      "args": {
+        "variable": "108",
+        "flag": 0,
+        "__collapseElse": false,
+        "__collapse": false
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_OVERLAY_SHOW",
+            "args": {
+              "color": "white",
+              "x": 20,
+              "y": 0,
+              "__collapse": true,
+              "__comment": false
+            },
+            "id": "a7c4df22-850d-4374-afa5-715f951e4e3a"
+          },
+          {
+            "command": "EVENT_GBVM_SCRIPT",
+            "args": {
+              "script": "VM_SET_CONST_UINT8 _overlay_priority, 0\nVM_OVERLAY_CLEAR 0, 0, 8, 18, .UI_COLOR_WHITE, .UI_DRAW_FRAME\nVM_DISPLAY_TEXT\nVM_OVERLAY_WAIT .UI_NONMODAL, .UI_WAIT_TEXT",
+              "__collapse": false,
+              "__label": "Draw Frame (GBVM)",
+              "references": [],
+              "__comment": false
+            },
+            "id": "4cd367f5-5fe6-4d12-8a72-325378c5eca0"
+          },
+          {
+            "command": "EVENT_OVERLAY_MOVE_TO",
+            "args": {
+              "x": 12,
+              "y": 0,
+              "speed": 1,
+              "__collapse": false,
+              "__comment": false
+            },
+            "id": "0506004b-502b-450d-b870-6a1d1ccaf2c9"
+          }
+        ],
+        "false": []
+      },
+      "id": "0a00db53-df73-48ba-ad6b-98933e1f8fff"
+    },
+    {
+      "command": "EVENT_IF_FLAGS_COMPARE",
+      "args": {
+        "variable": "108",
+        "flag": 1,
+        "__collapseElse": true,
+        "__collapse": false
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_OVERLAY_MOVE_TO",
+            "args": {
+              "x": 20,
+              "y": 0,
+              "speed": 1,
+              "__collapse": false
+            },
+            "id": "b1b3c6b2-d520-4289-8e58-b87c6db13cc9"
+          }
+        ],
+        "false": []
+      },
+      "id": "87c65e30-371e-4efc-97d9-4b4f416fa962"
+    },
+    {
+      "command": "EVENT_SCRIPT_UNLOCK",
+      "args": {
+        "__comment": false,
+        "__collapse": true
+      },
+      "id": "9165be51-1206-44f9-94a1-b0e7f7a812d2"
+    }
+  ],
+  "hit1Script": [],
+  "hit2Script": [],
+  "hit3Script": [],
+  "x": 3,
+  "y": 12,
+  "_index": 0
+}

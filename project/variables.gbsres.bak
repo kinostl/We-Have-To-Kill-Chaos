@@ -5,10 +5,7 @@
       "id": "0",
       "name": "Action",
       "symbol": "var_action",
-      "flags": {
-        "flag1": "Named Flag",
-        "flag4": "Another Named Flag"
-      }
+      "flags": {}
     },
     {
       "id": "1",
@@ -544,6 +541,18 @@
       "id": "107",
       "name": "CC/Current Letter",
       "symbol": "var_cc_current_letter"
+    },
+    {
+      "id": "108",
+      "name": "Panel",
+      "symbol": "var_panel",
+      "flags": {
+        "flag1": "Is Open",
+        "flag2": "Is Closed",
+        "flag3": "Display Menu",
+        "flag4": "Display Current Actor",
+        "flag16": "Has Update"
+      }
     },
     {
       "id": "b543e5af-0a59-46a2-afa4-a8749b768159__L0",
@@ -1299,6 +1308,16 @@
       "id": "e6712fc5-277c-4cbf-a030-f10048d92132__L0",
       "name": "Song Choice",
       "symbol": "var_song_choice"
+    },
+    {
+      "id": "05ad1587-aa25-44a1-9f31-363aa9800df3__L0",
+      "name": "Can Update",
+      "symbol": "var_can_update"
+    },
+    {
+      "id": "06416438-2370-4f5f-a068-5c215b0495bd__L0",
+      "name": "Can Update",
+      "symbol": "var_can_update_0"
     }
   ]
 }

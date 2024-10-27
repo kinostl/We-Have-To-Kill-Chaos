@@ -1,0 +1,22 @@
+{
+  "_resourceType": "scene",
+  "id": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64",
+  "_index": 29,
+  "name": "Scene 30",
+  "backgroundId": "054f3bc8-84f5-4fcd-b590-cfff88fa2a15",
+  "tilesetId": "",
+  "width": 32,
+  "height": 32,
+  "type": "RPG_COMBAT",
+  "paletteIds": [],
+  "spritePaletteIds": [],
+  "collisions": "00aa+0f4+001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f4+001b2+",
+  "autoFadeSpeed": 1,
+  "symbol": "scene_30",
+  "x": 1936,
+  "y": 56,
+  "script": [],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": []
+}

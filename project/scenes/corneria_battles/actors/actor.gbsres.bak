@@ -1,0 +1,165 @@
+{
+  "_resourceType": "actor",
+  "id": "05ad1587-aa25-44a1-9f31-363aa9800df3",
+  "name": "",
+  "frame": 0,
+  "animate": false,
+  "spriteSheetId": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
+  "prefabId": "",
+  "direction": "down",
+  "moveSpeed": 1,
+  "animSpeed": 15,
+  "paletteId": "",
+  "isPinned": false,
+  "persistent": false,
+  "collisionGroup": "",
+  "prefabScriptOverrides": {},
+  "symbol": "actor_49",
+  "script": [],
+  "startScript": [],
+  "updateScript": [
+    {
+      "command": "EVENT_IF_FLAGS_COMPARE",
+      "args": {
+        "variable": "108",
+        "flag": 15,
+        "__collapseElse": false,
+        "__disableElse": true,
+        "__comment": false
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_IF_FLAGS_COMPARE",
+            "args": {
+              "variable": "108",
+              "flag": 0,
+              "__collapseElse": true,
+              "__disableElse": true
+            },
+            "children": {
+              "true": [
+                {
+                  "command": "EVENT_OVERLAY_SHOW",
+                  "args": {
+                    "color": "white",
+                    "x": 20,
+                    "y": 0,
+                    "__collapse": true,
+                    "__comment": false
+                  },
+                  "id": "66c937d6-2be7-4e83-8726-74ccb9152ec9"
+                },
+                {
+                  "command": "EVENT_GBVM_SCRIPT",
+                  "args": {
+                    "script": "VM_SET_CONST_UINT8 _overlay_priority, 0\nVM_OVERLAY_CLEAR 0, 0, 8, 18, .UI_COLOR_WHITE, .UI_DRAW_FRAME\nVM_DISPLAY_TEXT\nVM_OVERLAY_WAIT .UI_NONMODAL, .UI_WAIT_TEXT",
+                    "__collapse": true,
+                    "__label": "Draw Frame (GBVM)",
+                    "references": [],
+                    "__comment": false
+                  },
+                  "id": "587e6014-ba2e-43c8-92c8-d2ba03b9f8db"
+                },
+                {
+                  "command": "EVENT_OVERLAY_MOVE_TO",
+                  "args": {
+                    "x": 12,
+                    "y": 0,
+                    "speed": "0",
+                    "__collapse": true,
+                    "__comment": false
+                  },
+                  "id": "9e131dba-f71d-4bcd-84c0-a06d5caa3df1"
+                }
+              ],
+              "false": []
+            },
+            "id": "abca9b1b-8f7a-4df0-b315-b8171f66b5a8"
+          },
+          {
+            "command": "EVENT_IF_FLAGS_COMPARE",
+            "args": {
+              "variable": "108",
+              "flag": 1,
+              "__collapseElse": true
+            },
+            "children": {
+              "true": [
+                {
+                  "command": "EVENT_ACTOR_HIDE",
+                  "args": {
+                    "actorId": "9c19db58-2e7a-44d7-861f-c4544041ec00",
+                    "__collapse": true,
+                    "__comment": false
+                  },
+                  "id": "4666c530-ebeb-4329-8a8c-6cd4906f9213"
+                },
+                {
+                  "command": "EVENT_ACTOR_HIDE",
+                  "args": {
+                    "actorId": "a9b0bbff-2512-44d2-a480-cc6e9282afe3",
+                    "__collapse": true,
+                    "__comment": false
+                  },
+                  "id": "4437e145-c5c6-4bd6-9927-cdca7a4dab32"
+                },
+                {
+                  "command": "EVENT_OVERLAY_MOVE_TO",
+                  "args": {
+                    "x": 20,
+                    "y": 0,
+                    "speed": "0",
+                    "__collapse": true
+                  },
+                  "id": "42505130-d417-4d07-a809-6fa8a3065ff4"
+                }
+              ],
+              "false": []
+            },
+            "id": "70533ff3-366a-46f8-9201-4e17ef923803"
+          },
+          {
+            "command": "EVENT_CLEAR_FLAGS",
+            "args": {
+              "variable": "108",
+              "flag1": false,
+              "flag2": false,
+              "flag3": false,
+              "flag4": false,
+              "flag5": false,
+              "flag6": false,
+              "flag7": false,
+              "flag8": false,
+              "flag9": false,
+              "flag10": false,
+              "flag11": false,
+              "flag12": false,
+              "flag13": false,
+              "flag14": false,
+              "flag15": false,
+              "flag16": true
+            },
+            "id": "d22dfd79-4fbe-43a7-a041-2e4018f5817f"
+          },
+          {
+            "command": "MY_EVENT_CALL_NATIVE",
+            "args": {
+              "argCount": 0,
+              "funName": "unlock_actions"
+            },
+            "id": "b2b320a8-84a7-48d1-94b5-1480dece78f7"
+          }
+        ],
+        "false": []
+      },
+      "id": "47f70877-7f65-4cdd-8b09-8b6673f60cf3"
+    }
+  ],
+  "hit1Script": [],
+  "hit2Script": [],
+  "hit3Script": [],
+  "x": 1,
+  "y": 10,
+  "_index": 12
+}

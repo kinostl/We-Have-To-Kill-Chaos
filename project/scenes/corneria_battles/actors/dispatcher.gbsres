@@ -78,8 +78,8 @@
         "__collapseCase14": true,
         "__collapseCase8": true,
         "__collapseCase9": true,
-        "__collapseCase15": false,
-        "__collapseCase12": false,
+        "__collapseCase15": true,
+        "__collapseCase12": true,
         "__collapseCase11": true,
         "__collapseCase10": true,
         "__collapseCase21": true,
@@ -94,18 +94,19 @@
         "__collapseCase20": true,
         "__collapseCase13": true,
         "__collapseCase0": true,
-        "__collapseCase16": false,
-        "__collapseCase19": false,
-        "__collapseCase22": false,
+        "__collapseCase16": true,
+        "__collapseCase19": true,
+        "__collapseCase22": true,
         "__collapseCaseGetNextAction": true,
-        "__collapse": false,
-        "__collapseCase23": false,
-        "__collapseCase25": false,
+        "__collapse": true,
+        "__collapseCase23": true,
+        "__collapseCase25": true,
         "__collapseCase24": true,
         "__collapseCase26": true,
         "__collapseCase27": true,
         "__collapseCase28": true,
-        "__collapseCase29": true
+        "__collapseCase29": true,
+        "__comment": false
       },
       "children": {
         "true1": [
@@ -2165,7 +2166,7 @@
               ],
               "override": true,
               "__scriptTabs": "press",
-              "__collapse": true
+              "__collapse": false
             },
             "children": {
               "true": [
@@ -2455,7 +2456,7 @@
               ],
               "override": true,
               "__scriptTabs": "press",
-              "__collapse": false
+              "__collapse": true
             },
             "children": {
               "true": [
@@ -4692,7 +4693,8 @@
       "command": "EVENT_GROUP",
       "args": {
         "__collapse": false,
-        "__label": "Dequeue Action"
+        "__label": "Dequeue Action",
+        "__comment": false
       },
       "children": {
         "true": [

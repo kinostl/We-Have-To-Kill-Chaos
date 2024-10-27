@@ -15,7 +15,7 @@ const compile = (input, helpers) => {
   for (const vFlag of vFlags) {
     const vEnumName = vFlag.name.replaceAll(whiteSpace, '_').toUpperCase();
     const vEnum = new Array(16).fill(0).map((curr, idx) => {
-      let vFlagName = vFlag.flags[`flag${idx}`];
+      let vFlagName = vFlag.flags[`flag${idx+1}`];
       if (!vFlagName) {
         vFlagName = `FLAG_${idx}`;
       }

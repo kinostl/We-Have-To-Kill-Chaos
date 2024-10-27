@@ -543,6 +543,18 @@
       "symbol": "var_cc_current_letter"
     },
     {
+      "id": "108",
+      "name": "Panel",
+      "symbol": "var_panel",
+      "flags": {
+        "flag1": "Is Open",
+        "flag2": "Is Closed",
+        "flag3": "Display Menu",
+        "flag4": "Display Current Actor",
+        "flag16": "Has Update"
+      }
+    },
+    {
       "id": "b543e5af-0a59-46a2-afa4-a8749b768159__L0",
       "name": "HP",
       "symbol": "var_hp"
@@ -1296,6 +1308,26 @@
       "id": "e6712fc5-277c-4cbf-a030-f10048d92132__L0",
       "name": "Song Choice",
       "symbol": "var_song_choice"
+    },
+    {
+      "id": "05ad1587-aa25-44a1-9f31-363aa9800df3__L0",
+      "name": "Can Update",
+      "symbol": "var_can_update"
+    },
+    {
+      "id": "06416438-2370-4f5f-a068-5c215b0495bd__L0",
+      "name": "Can Update",
+      "symbol": "var_can_update_0"
+    },
+    {
+      "id": "32fe98dc-f30e-493f-9d6c-b13f8bf122ef__L0",
+      "name": "Can Update",
+      "symbol": "var_can_update_1"
+    },
+    {
+      "id": "d393000e-4e4f-472c-ae4a-39f1350efad6__L0",
+      "name": "Can Update",
+      "symbol": "var_can_update_2"
     }
   ]
 }

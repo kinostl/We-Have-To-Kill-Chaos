@@ -8,17 +8,21 @@
 #pragma bank 255
 #include "action_definitions.h"
 #include "action_handler.h"
-#include "data/action_flags.h"
+#include "data/panel_flags.h"
 
-BYTE action_cursor;
+BYTE action_head_cursor;
+BYTE action_tail_cursor;
 BYTE turn_cursor;
-#define action_ptr action_slots[action_cursor]
+
+#define action_tail action_slots[action_tail_cursor]
+#define action_head action_slots[action_head_cursor]
 #define current_actor turn_order[turn_cursor]
 
 void take_action(void) BANKED;
 
 void init_actions(void) BANKED {
-  action_cursor = 0;
+  action_tail_cursor = 0;
+  action_head_cursor = 0;
   ACTION_TYPE clean_action;
 
   for(int i=0;i<16;i++){
@@ -27,8 +31,8 @@ void init_actions(void) BANKED {
 }
 
 void dispatch_action(ACTION_TYPE action_data) BANKED {
-  action_cursor++;
-  action_ptr = action_data;
+  action_tail = action_data;
+  action_tail_cursor++;
 }
 
 void handle_action(ACTION_TYPE action_type) BANKED {
@@ -47,7 +51,6 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     if (current_actor < 4 && current_actor > -1) {
       attacker_prepareNextTurn_Hero();
       //Panel Management
-      SET_FLAG(VM_GLOBAL(VAR_ACTION), ACTION_NAMED_FLAG);
       dispatch_action(PANEL_HidePartyActors);
       dispatch_action(PANEL_ClosePanel);
       dispatch_action(PANEL_DisplayMenu);
@@ -62,6 +65,9 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case DEFENDER_TakeDamage:
     break;
   case PANEL_ClosePanel:
+    CLR_FLAG(VM_GLOBAL(VAR_PANEL), PANEL_IS_OPEN);
+    SET_FLAG(VM_GLOBAL(VAR_PANEL), PANEL_IS_CLOSED);
+    dispatch_action(PANEL_OpenPanel);
     break;
   case PANEL_DisplayCurrentActor:
     break;
@@ -78,6 +84,9 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case PANEL_LoadItems:
     break;
   case PANEL_OpenPanel:
+    CLR_FLAG(VM_GLOBAL(VAR_PANEL), PANEL_IS_CLOSED);
+    SET_FLAG(VM_GLOBAL(VAR_PANEL), PANEL_IS_OPEN);
+    dispatch_action(PANEL_ClosePanel);
     break;
   case PICK_ChoiceMade:
     break;
@@ -112,11 +121,14 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     turn_cursor = turn_sortInitiative();
     break;
   }
-
-  take_action();
 }
 
 void take_action(void) BANKED {
-  handle_action(action_ptr);
-  action_cursor--;
+  handle_action(action_head);
+  action_head_cursor++;
+
+  if(action_head_cursor>action_tail_cursor){
+    action_head_cursor=0;
+    action_tail_cursor=0;
+  }
 }

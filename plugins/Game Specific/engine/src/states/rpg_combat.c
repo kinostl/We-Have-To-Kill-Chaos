@@ -35,12 +35,16 @@ void rpg_combat_init(void) BANKED {
   PLAYER.pos.y = ((PLAYER.pos.y >> 7) << 7);
 
   loadFontIntoBkg();
-  handle_action(TURN_BuildInitiative);
+  // handle_action(TURN_BuildInitiative);
+  // init_actions();
+  dispatch_action(PANEL_OpenPanel);
+  rpg_menu_mode = RPG_HAS_UPDATE;
 }
 
 void rpg_combat_update(void) BANKED {
-  if(rpg_menu_mode == RPG_LOOP_MODE) {
-    // Animations, etc
+
+  if (rpg_menu_mode == RPG_HAS_UPDATE) {
+    take_action();
     return;
   }
 
