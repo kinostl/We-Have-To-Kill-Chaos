@@ -132,8 +132,7 @@ BYTE load_menu_item(BYTE skill_id, unsigned char *d) OLDCALL BANKED {
   return str_len;
 }
 
-void loadHeroMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  THIS;
+void loadHeroMenu(void) OLDCALL BANKED {
   entity_data *player = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
   unsigned char *d = ui_text_data;
   d+=create_hero_data(player, d, 0);

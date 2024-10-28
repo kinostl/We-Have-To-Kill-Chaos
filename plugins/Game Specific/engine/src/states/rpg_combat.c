@@ -5,6 +5,7 @@
 #include <data/rpg_combat_animation_states.h>
 #include <game_time.h>
 #include <gb/gb.h>
+#include <ui.h>
 #include <vm.h>
 #pragma bank 255
 
@@ -17,7 +18,8 @@ script_state_t state_events[RPG_ANIMATION_STATE_LENGTH];
 
 void rpg_combat_init(void) BANKED {
   loadFontIntoBkg();
-  dispatch_action(PANEL_OpenPanel);
+  ui_set_pos(20 << 3, 0);
+  dispatch_action(ATTACKER_TakeNextTurn);
 }
 
 void rpg_combat_update(void) BANKED {

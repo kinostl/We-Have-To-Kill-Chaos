@@ -2,6 +2,7 @@
 #include "states/rpg_combat.h"
 #include <data/game_globals.h>
 #include <macro.h>
+#include <stdbool.h>
 #include <string.h>
 #include <types.h>
 #include <ui.h>
@@ -10,6 +11,9 @@
 #include "action_definitions.h"
 #include "action_handler.h"
 #include <data/rpg_combat_animation_states.h>
+#include "handle_menu.h"
+#include <vm_ui.h>
+#include "menu_state_events.h"
 
 BYTE action_head_cursor;
 BYTE action_tail_cursor;
@@ -50,9 +54,8 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     }
     break;
   case ATTACKER_TakeNextTurn:
+    current_actor = 0;
     if (current_actor < 4 && current_actor > -1) {
-      attacker_prepareNextTurn_Hero();
-      //Panel Management
       dispatch_action(PANEL_HidePartyActors);
       dispatch_action(PANEL_ClosePanel);
       dispatch_action(PANEL_DisplayMenu);
@@ -67,13 +70,14 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case DEFENDER_TakeDamage:
     break;
   case PANEL_ClosePanel:
-    dispatch_action(PANEL_OpenPanel);
-    ui_move_to(20 << 3, 0 << 3, 1);
+    ui_move_to(20 << 3, 0 << 3, text_out_speed);
     ui_run_modal(UI_WAIT_WINDOW);
     break;
   case PANEL_DisplayCurrentActor:
     break;
   case PANEL_DisplayMenu:
+    loadHeroMenu();
+    fs_menu_write_win_font(0, 0, 8, 18, true, true);
     break;
   case PANEL_DisplayParty:
     break;
@@ -86,10 +90,8 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case PANEL_LoadItems:
     break;
   case PANEL_OpenPanel:
-    dispatch_action(PANEL_ClosePanel);
-    dispatch_action(PICK_GetPlayerChoice);
     ui_set_pos(20 << 3 , 0);
-    ui_move_to(12 << 3, 0 << 3, 1);
+    ui_move_to(12 << 3, 0 << 3, text_in_speed);
     ui_run_modal(UI_WAIT_WINDOW);
     break;
   case PICK_GetPlayerChoice:
@@ -124,6 +126,10 @@ void handle_action(ACTION_TYPE action_type) BANKED {
 }
 
 void take_action(void) BANKED {
+  if(action_tail_cursor == 0){
+    return;
+  }
+
   handle_action(action_head);
   action_head_cursor++;
 
