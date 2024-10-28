@@ -1318,6 +1318,16 @@
       "id": "06416438-2370-4f5f-a068-5c215b0495bd__L0",
       "name": "Can Update",
       "symbol": "var_can_update_0"
+    },
+    {
+      "id": "32fe98dc-f30e-493f-9d6c-b13f8bf122ef__L0",
+      "name": "Can Update",
+      "symbol": "var_can_update_1"
+    },
+    {
+      "id": "d393000e-4e4f-472c-ae4a-39f1350efad6__L0",
+      "name": "Can Update",
+      "symbol": "var_can_update_2"
     }
   ]
 }

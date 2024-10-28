@@ -4,11 +4,12 @@
 #include <macro.h>
 #include <string.h>
 #include <types.h>
+#include <ui.h>
 #include <vm.h>
 #pragma bank 255
 #include "action_definitions.h"
 #include "action_handler.h"
-#include "data/panel_flags.h"
+#include <data/rpg_combat_animation_states.h>
 
 BYTE action_head_cursor;
 BYTE action_tail_cursor;
@@ -19,6 +20,7 @@ BYTE turn_cursor;
 #define current_actor turn_order[turn_cursor]
 
 void take_action(void) BANKED;
+void animate(RPG_ANIMATION_STATE rpg_animation_state) BANKED;
 
 void init_actions(void) BANKED {
   action_tail_cursor = 0;
@@ -57,7 +59,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       dispatch_action(PANEL_OpenPanel);
       dispatch_action(PANEL_DisplayCurrentActor);
       
-      dispatch_action(PICK_EnablePlayer);
+      dispatch_action(PICK_GetPlayerChoice);
     } else if (current_actor > 3) {
       attacker_prepareNextTurn_Enemy();
     }
@@ -65,9 +67,9 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case DEFENDER_TakeDamage:
     break;
   case PANEL_ClosePanel:
-    CLR_FLAG(VM_GLOBAL(VAR_PANEL), PANEL_IS_OPEN);
-    SET_FLAG(VM_GLOBAL(VAR_PANEL), PANEL_IS_CLOSED);
     dispatch_action(PANEL_OpenPanel);
+    ui_move_to(20 << 3, 0 << 3, 1);
+    ui_run_modal(UI_WAIT_WINDOW);
     break;
   case PANEL_DisplayCurrentActor:
     break;
@@ -84,16 +86,14 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case PANEL_LoadItems:
     break;
   case PANEL_OpenPanel:
-    CLR_FLAG(VM_GLOBAL(VAR_PANEL), PANEL_IS_CLOSED);
-    SET_FLAG(VM_GLOBAL(VAR_PANEL), PANEL_IS_OPEN);
     dispatch_action(PANEL_ClosePanel);
+    dispatch_action(PICK_GetPlayerChoice);
+    ui_set_pos(20 << 3 , 0);
+    ui_move_to(12 << 3, 0 << 3, 1);
+    ui_run_modal(UI_WAIT_WINDOW);
     break;
-  case PICK_ChoiceMade:
-    break;
-  case PICK_EnablePlayer:
-    rpg_menu_mode = RPG_SELECT_MENU_ITEM_MODE;
-    break;
-  case PICK_HandleChoice:
+  case PICK_GetPlayerChoice:
+    animate(ANIMATE_PLAYER_ATTACKING);
     break;
   case PICK_Item:
     break;
@@ -130,5 +130,12 @@ void take_action(void) BANKED {
   if(action_head_cursor>action_tail_cursor){
     action_head_cursor=0;
     action_tail_cursor=0;
+  }
+}
+
+void animate(RPG_ANIMATION_STATE rpg_animation_state) BANKED {
+  if (state_events[rpg_animation_state].script_addr != 0) {
+    script_execute(state_events[rpg_animation_state].script_bank,
+                   state_events[rpg_animation_state].script_addr, 0, 0);
   }
 }

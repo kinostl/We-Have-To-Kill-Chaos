@@ -106,7 +106,7 @@
         "__collapseCase27": true,
         "__collapseCase28": true,
         "__collapseCase29": true,
-        "__comment": true
+        "__comment": false
       },
       "children": {
         "true1": [
@@ -4694,7 +4694,7 @@
       "args": {
         "__collapse": false,
         "__label": "Dequeue Action",
-        "__comment": true
+        "__comment": false
       },
       "children": {
         "true": [
@@ -4803,27 +4803,6 @@
         ]
       },
       "id": "59567500-fece-4789-9879-6ecb1458ef48"
-    },
-    {
-      "command": "EVENT_GBVM_SCRIPT",
-      "args": {
-        "references": [
-          {
-            "type": "variable",
-            "id": "56"
-          },
-          {
-            "type": "variable",
-            "id": "57"
-          },
-          {
-            "type": "variable",
-            "id": "74"
-          }
-        ],
-        "__collapse": true
-      },
-      "id": "ce3a0c97-7815-4327-87c8-f70bc2c1d39d"
     }
   ],
   "hit1Script": [],

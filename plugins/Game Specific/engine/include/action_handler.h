@@ -16,9 +16,7 @@ typedef enum {
   PANEL_HidePartyActors,
   PANEL_LoadItems,
   PANEL_OpenPanel,
-  PICK_ChoiceMade,
-  PICK_EnablePlayer,
-  PICK_HandleChoice,
+  PICK_GetPlayerChoice,
   PICK_Item,
   PICK_Magic,
   PICK_Run,
@@ -29,7 +27,7 @@ typedef enum {
   TURN_BuildInitiative,
   TURN_RollInitiative,
   TURN_SortInitiative,
-} ACTION_TYPE ;
+} ACTION_TYPE;
 
 void handle_action(ACTION_TYPE action_type) BANKED;
 void take_action(void) BANKED;

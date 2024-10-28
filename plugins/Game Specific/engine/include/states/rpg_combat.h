@@ -1,16 +1,14 @@
 #ifndef STATE_RPG_COMBAT
 #define STATE_RPG_COMBAT
 #include <asm/types.h>
+#include <data/rpg_combat_animation_states.h>
 
-typedef enum {
-  RPG_SELECT_MENU_ITEM_MODE,
-  RPG_SELECT_ENEMY_MODE,
-  RPG_SELECT_ALLY_MODE,
-  RPG_ENEMY_MODE,
-  RPG_LOOP_MODE,
-  RPG_HAS_UPDATE
-} RPG_MENU_MODE;
+typedef struct script_state_t {
+    UBYTE script_bank;
+    UBYTE *script_addr;
+} script_state_t;
 
-extern RPG_MENU_MODE rpg_menu_mode;
+extern RPG_ANIMATION_STATE rpg_animation_state;
+extern script_state_t state_events[RPG_ANIMATION_STATE_LENGTH];
 
 #endif
