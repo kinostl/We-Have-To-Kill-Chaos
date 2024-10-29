@@ -36,34 +36,19 @@
   "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
   "script": [
     {
-      "command": "EVENT_SET_FLAGS",
-      "args": {
-        "variable": "108",
-        "flag1": false,
-        "flag2": false,
-        "flag3": false,
-        "flag4": false,
-        "flag5": false,
-        "flag6": false,
-        "flag7": false,
-        "flag8": false,
-        "flag9": false,
-        "flag10": false,
-        "flag11": false,
-        "flag12": false,
-        "flag13": false,
-        "flag14": false,
-        "flag15": false,
-        "flag16": false
-      },
-      "id": "c7c0d6e6-25df-4a02-88e0-94cd8748f4f0"
-    },
-    {
       "command": "EVENT_MUSIC_PLAY",
       "args": {
-        "musicId": "0f9dc2d7-2c9b-41c3-b101-d2cf046917ab"
+        "musicId": "0f9dc2d7-2c9b-41c3-b101-d2cf046917ab",
+        "__comment": true
       },
       "id": "2b63d63d-6f69-4933-baff-60169ca7fabb"
+    },
+    {
+      "command": "EVENT_FADE_IN",
+      "args": {
+        "speed": "2"
+      },
+      "id": "62f03abd-4686-4ce5-b2ea-7dd9540f2645"
     },
     {
       "command": "EVENT_GBVM_SCRIPT",
@@ -1746,7 +1731,8 @@
       "command": "EVENT_ACTOR_START_UPDATE",
       "args": {
         "actorId": "5b07b77a-3792-4fae-a9cf-0868e3eaf12c",
-        "__collapse": true
+        "__collapse": true,
+        "__comment": false
       },
       "id": "7d436b46-4b01-4bef-844c-5abecab6eba2"
     },

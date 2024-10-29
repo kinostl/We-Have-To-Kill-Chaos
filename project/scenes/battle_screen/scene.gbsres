@@ -2,36 +2,51 @@
   "_resourceType": "scene",
   "id": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64",
   "_index": 29,
-  "name": "Scene 30",
-  "backgroundId": "054f3bc8-84f5-4fcd-b590-cfff88fa2a15",
-  "tilesetId": "",
+  "type": "RPG_COMBAT",
+  "name": "Battle Screen",
+  "symbol": "scene_30",
+  "x": 1016,
+  "y": 80,
   "width": 32,
   "height": 32,
-  "type": "RPG_COMBAT",
+  "backgroundId": "054f3bc8-84f5-4fcd-b590-cfff88fa2a15",
+  "tilesetId": "",
   "paletteIds": [
     "",
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    "c44a3db8-0ae3-4795-b66f-ce83151927a9"
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
   ],
   "spritePaletteIds": [
     "349ce35e-4c36-4e07-bf6a-12c2105e2e6f"
   ],
-  "collisions": "00aa+0f4+001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f!002+0f!001c+0f4+001b2+",
   "autoFadeSpeed": 1,
-  "symbol": "scene_30",
-  "x": 1936,
-  "y": 56,
   "script": [
+    {
+      "command": "EVENT_CAMERA_SET_POSITION",
+      "args": {
+        "x": {
+          "type": "number",
+          "value": 0
+        },
+        "y": {
+          "type": "number",
+          "value": 0
+        },
+        "__collapse": true
+      },
+      "id": "ec9ae436-c5fa-468b-b915-06c28c9b1b7b"
+    },
     {
       "command": "EVENT_GROUP",
       "args": {
         "__comment": false,
-        "__label": "Fix Priority"
+        "__label": "Fix Priority",
+        "__collapse": true
       },
       "children": {
         "true": [
@@ -252,5 +267,6 @@
   ],
   "playerHit1Script": [],
   "playerHit2Script": [],
-  "playerHit3Script": []
+  "playerHit3Script": [],
+  "collisions": "00400+"
 }

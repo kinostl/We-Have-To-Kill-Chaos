@@ -1,8 +1,8 @@
 {
   "_resourceType": "settings",
-  "worldScrollX": 3422,
-  "worldScrollY": 158,
-  "zoom": 262,
+  "worldScrollX": 4040,
+  "worldScrollY": 118,
+  "zoom": 222.5,
   "navigatorSplitSizes": [
     30,
     30,
@@ -23,7 +23,7 @@
   "debuggerVariablesFilter": "watched",
   "debuggerCollapsedPanes": [],
   "debuggerPauseOnScriptChanged": false,
-  "debuggerPauseOnWatchedVariableChanged": true,
+  "debuggerPauseOnWatchedVariableChanged": false,
   "debuggerBreakpoints": [],
   "debuggerWatchedVariables": [
     "437",

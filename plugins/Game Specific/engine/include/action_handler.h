@@ -25,8 +25,6 @@ typedef enum {
   REPORT_RejectMenuChoice,
   SCENE_FadeIn,
   TURN_BuildInitiative,
-  TURN_RollInitiative,
-  TURN_SortInitiative,
 } ACTION_TYPE;
 
 void handle_action(ACTION_TYPE action_type) BANKED;

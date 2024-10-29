@@ -1,3 +1,4 @@
+#include "enemy_data.h"
 #include "extra_data.h"
 #include "states/rpg_combat.h"
 #include <data/game_globals.h>
@@ -25,6 +26,35 @@ BYTE turn_cursor;
 
 void take_action(void) BANKED;
 void animate(RPG_ANIMATION_STATE rpg_animation_state) BANKED;
+void ui_draw_frame(UBYTE x, UBYTE y, UBYTE width, UBYTE height) BANKED;
+
+void loadFauxHero(void) BANKED {
+  turn_slots[0].max_hp = 35;
+  turn_slots[0].hp = 35;
+  turn_slots[0].hit_chance = 10;
+  turn_slots[0].crit_chance = 0;
+  turn_slots[0].damage = 10;
+  turn_slots[0].alive = TRUE;
+  turn_slots[0].ap = 0;
+  strcpy(turn_slots[0].name, "ONCLER");
+
+  turn_slots[0].x = 13;
+  turn_slots[0].y = 2;
+  turn_slots[0].w = 3;
+  turn_slots[0].h = 3;
+
+  turn_slots[0].skills[0] = FIGHT;
+  turn_slots[0].skill_costs[0] = 1;
+
+  turn_slots[0].skills[1] = SHIELD_SKILL;
+  turn_slots[0].skill_costs[1] = 1;
+
+  turn_slots[0].skills[2] = RUNE_SWORD;
+  turn_slots[0].skill_costs[2] = 2;
+
+  turn_slots[0].skills[3] = LUSTER;
+  turn_slots[0].skill_costs[3] = 3;
+}
 
 void init_actions(void) BANKED {
   action_tail_cursor = 0;
@@ -76,8 +106,10 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case PANEL_DisplayCurrentActor:
     break;
   case PANEL_DisplayMenu:
+    loadFauxHero();
     loadHeroMenu();
-    fs_menu_write_win_font(0, 0, 8, 18, true, true);
+    ui_draw_frame(0,0,8,18);
+    fs_menu_write_win_font(1, 1, 6, 16, true, true);
     break;
   case PANEL_DisplayParty:
     break;
@@ -95,6 +127,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     ui_run_modal(UI_WAIT_WINDOW);
     break;
   case PICK_GetPlayerChoice:
+    rpg_run_menu();
     animate(ANIMATE_PLAYER_ATTACKING);
     break;
   case PICK_Item:
@@ -112,15 +145,9 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case SCENE_FadeIn:
     break;
   case TURN_BuildInitiative:
-    dispatch_action(TURN_RollInitiative);
-    dispatch_action(TURN_SortInitiative);
-    dispatch_action(ATTACKER_StartNextTurn);
-    break;
-  case TURN_RollInitiative:
     turn_rollInitiative();
-    break;
-  case TURN_SortInitiative:
     turn_cursor = turn_sortInitiative();
+    dispatch_action(ATTACKER_StartNextTurn);
     break;
   }
 }

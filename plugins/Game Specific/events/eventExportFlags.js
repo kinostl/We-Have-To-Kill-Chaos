@@ -9,7 +9,6 @@ const fields = (
 
 const compile = (input, helpers) => {
   const whiteSpace = /\s/g;
-  const notDigit = /\D/g;
   const { variablesLookup, writeAsset } = helpers;
   const vFlags = Object.values(variablesLookup).filter((variable) => variable.flags);
   for (const vFlag of vFlags) {
