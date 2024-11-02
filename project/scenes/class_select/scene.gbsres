@@ -46,7 +46,7 @@
         ],
         "override": true,
         "__scriptTabs": "press",
-        "__collapse": true
+        "__collapse": false
       },
       "children": {
         "true": [
@@ -143,7 +143,7 @@
         ],
         "override": true,
         "__scriptTabs": "press",
-        "__collapse": true
+        "__collapse": false
       },
       "children": {
         "true": [
@@ -239,7 +239,7 @@
         ],
         "override": true,
         "__scriptTabs": "press",
-        "__collapse": true
+        "__collapse": false
       },
       "children": {
         "true": [
@@ -294,7 +294,7 @@
               },
               "y": {
                 "type": "number",
-                "value": 0
+                "value": 7
               },
               "direction": "",
               "fadeSpeed": "2"

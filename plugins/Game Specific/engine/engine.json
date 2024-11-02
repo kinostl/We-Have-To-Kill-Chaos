@@ -1,4 +1,17 @@
-{"version": "4.2.0-e1", "sceneTypes": [
-    {"key": "MENU", "label": "Full Screen Menu"},
-    {"key": "RPG_COMBAT", "label": "RPG Combat Menu"}
-    ]} 
+{
+    "version": "4.2.0-e1",
+    "sceneTypes": [
+        {
+            "key": "MENU",
+            "label": "Full Screen Menu"
+        },
+        {
+            "key": "RPG_COMBAT",
+            "label": "RPG Combat Menu"
+        },
+        {
+            "key": "STRING_INPUT",
+            "label": "String Input"
+        }
+    ]
+}

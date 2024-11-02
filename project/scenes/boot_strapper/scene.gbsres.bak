@@ -27,7 +27,7 @@
     {
       "command": "EVENT_SWITCH_SCENE",
       "args": {
-        "sceneId": "54274c5f-f51d-420e-b717-bd0d155bcef3",
+        "sceneId": "f1d1af28-6219-479d-b102-6b6e530864c9",
         "x": {
           "type": "number",
           "value": 0

@@ -5,8 +5,8 @@
   "symbol": "actor_57",
   "prefabId": "",
   "name": "Name Menu",
-  "x": 0,
-  "y": 7,
+  "x": 38,
+  "y": 17,
   "frame": 0,
   "animate": false,
   "spriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
@@ -14,7 +14,7 @@
   "direction": "down",
   "moveSpeed": 1,
   "animSpeed": 15,
-  "isPinned": true,
+  "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
   "prefabScriptOverrides": {},
@@ -53,7 +53,8 @@
             "type": "number",
             "value": 7
           }
-        }
+        },
+        "__comment": true
       },
       "id": "4a05e2cd-f720-4816-bc0c-03477f7d64cf"
     }

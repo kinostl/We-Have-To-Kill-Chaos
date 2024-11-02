@@ -27,14 +27,14 @@
     {
       "command": "EVENT_SWITCH_SCENE",
       "args": {
-        "sceneId": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64",
+        "sceneId": "f1d1af28-6219-479d-b102-6b6e530864c9",
         "x": {
           "type": "number",
           "value": 0
         },
         "y": {
           "type": "number",
-          "value": 0
+          "value": 7
         },
         "direction": "",
         "fadeSpeed": 0
@@ -49,5 +49,6 @@
   ],
   "playerHit1Script": [],
   "playerHit2Script": [],
-  "playerHit3Script": []
+  "playerHit3Script": [],
+  "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5"
 }

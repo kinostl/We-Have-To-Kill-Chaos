@@ -1,28 +1,28 @@
 {
   "_resourceType": "scene",
   "id": "fd6033b8-b4e7-41a0-a9ce-4fe077b226f1",
-  "name": "Class Select",
-  "backgroundId": "4075727f-a940-480a-a238-43eed7641bd3",
-  "tilesetId": "",
-  "width": 60,
-  "height": 18,
+  "_index": 2,
   "type": "TOPDOWN",
-  "paletteIds": [
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    "d8ef3f33-956f-4f96-a8a4-774608a880da"
-  ],
-  "spritePaletteIds": [],
-  "collisions": "",
-  "autoFadeSpeed": 1,
+  "name": "Class Select",
   "symbol": "scene_25",
   "x": 1016,
   "y": 1048,
+  "width": 60,
+  "height": 18,
+  "backgroundId": "4075727f-a940-480a-a238-43eed7641bd3",
+  "tilesetId": "",
+  "paletteIds": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "d8ef3f33-956f-4f96-a8a4-774608a880da"
+  ],
+  "spritePaletteIds": [],
+  "autoFadeSpeed": 1,
   "script": [
     {
       "command": "EVENT_CAMERA_SET_POSITION",
@@ -46,7 +46,7 @@
         ],
         "override": true,
         "__scriptTabs": "press",
-        "__collapse": true
+        "__collapse": false
       },
       "children": {
         "true": [
@@ -143,7 +143,7 @@
         ],
         "override": true,
         "__scriptTabs": "press",
-        "__collapse": true
+        "__collapse": false
       },
       "children": {
         "true": [
@@ -239,7 +239,7 @@
         ],
         "override": true,
         "__scriptTabs": "press",
-        "__collapse": true
+        "__collapse": false
       },
       "children": {
         "true": [
@@ -308,5 +308,6 @@
   ],
   "playerHit1Script": [],
   "playerHit2Script": [],
-  "playerHit3Script": []
+  "playerHit3Script": [],
+  "collisions": ""
 }

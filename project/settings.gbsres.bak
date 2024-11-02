@@ -41,7 +41,9 @@
     "SHMUP": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
     "POINTNCLICK": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
     "LOGO": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
-    "MENU": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5"
+    "MENU": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
+    "RPG_COMBAT": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
+    "SET_NAME": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5"
   },
   "musicDriver": "huge",
   "cartType": "mbc5",
