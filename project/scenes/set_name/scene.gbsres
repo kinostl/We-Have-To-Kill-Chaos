@@ -12,7 +12,7 @@
   "backgroundId": "82d2cfb0-05c2-4d9b-9785-f16f5eaf376f",
   "tilesetId": "",
   "paletteIds": [
-    "",
+    "afbb71e6-af17-4547-a69e-0bb7540e289f",
     "",
     "",
     "",
@@ -256,6 +256,14 @@
       "id": "d40754a4-ac60-4242-aac9-30f4e8eaba1c"
     },
     {
+      "command": "MY_EVENT_CALL_NATIVE",
+      "args": {
+        "argCount": 0,
+        "funName": "cc_clear_name"
+      },
+      "id": "d658edac-0f5a-44d0-8207-ebd0cea15652"
+    },
+    {
       "command": "EVENT_SET_INPUT_SCRIPT",
       "args": {
         "input": [
@@ -278,7 +286,7 @@
                 },
                 "valueB": {
                   "type": "number",
-                  "value": 6
+                  "value": 5
                 }
               },
               "__collapseElse": true
@@ -294,13 +302,6 @@
               "false": []
             },
             "id": "2db19c51-5fb9-4af5-a446-41189e215439"
-          },
-          {
-            "command": "EVENT_INC_VALUE",
-            "args": {
-              "variable": "107"
-            },
-            "id": "03b257a2-ac53-4fad-b0fa-5753e04e4870"
           },
           {
             "command": "MY_EVENT_CALL_NATIVE",
@@ -338,7 +339,7 @@
                 },
                 "valueB": {
                   "type": "number",
-                  "value": 0
+                  "value": 1
                 }
               },
               "__collapseElse": false
@@ -365,11 +366,12 @@
               ],
               "false": [
                 {
-                  "command": "EVENT_DEC_VALUE",
+                  "command": "MY_EVENT_CALL_NATIVE",
                   "args": {
-                    "variable": "107"
+                    "argCount": 0,
+                    "funName": "cc_backspace"
                   },
-                  "id": "116624d0-132a-4b67-8d95-f5c304c8ae75"
+                  "id": "c2897f72-094d-44e0-9a4d-b900dea7296a"
                 }
               ]
             },

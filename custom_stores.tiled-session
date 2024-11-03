@@ -53,7 +53,7 @@
             "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 5.545454545454546,
+                "x": -9.90909090909091,
                 "y": 85.09090909090908
             }
         },
@@ -61,7 +61,7 @@
             "scale": 3,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 404,
+                "x": 377.3333333333333,
                 "y": 270
             }
         },
@@ -81,8 +81,8 @@
             "scale": 3,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 105.83333333333334,
-                "y": 85.16666666666669
+                "x": 103.5,
+                "y": 94.49999999999999
             }
         },
         "maps/frame.tsx": {
@@ -117,7 +117,7 @@
             "scale": 4,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 23,
+                "x": 10.75,
                 "y": 85
             }
         },
@@ -133,7 +133,7 @@
             "scale": 5.634027777777777,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 113.24047824479234,
+                "x": 106.14076174041665,
                 "y": 64.78491310242822
             }
         },
@@ -180,7 +180,7 @@
             "selectedLayer": 1,
             "viewCenter": {
                 "x": 325.625,
-                "y": 199.5
+                "y": 199.25
             }
         },
         "tilesets/store_tiles.tsx": {
@@ -200,7 +200,7 @@
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 8,
     "map.tileWidth": 8,
-    "map.width": 20,
+    "map.width": 40,
     "openFiles": [
         "maps/white_magic_shop.tmx",
         "tilesets/store_tiles.tsx",

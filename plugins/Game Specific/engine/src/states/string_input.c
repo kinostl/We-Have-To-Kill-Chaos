@@ -36,8 +36,6 @@ void string_input_init(void) BANKED {
 
   PLAYER.pos.x = ((PLAYER.pos.x >> 7) << 7);
   PLAYER.pos.y = ((PLAYER.pos.y >> 7) << 7);
-
-  loadFontIntoBkg();
 }
 
 void string_input_update(void) BANKED {
