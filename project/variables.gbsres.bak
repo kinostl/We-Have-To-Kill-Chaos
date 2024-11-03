@@ -1328,6 +1328,11 @@
       "id": "d393000e-4e4f-472c-ae4a-39f1350efad6__L0",
       "name": "Can Update",
       "symbol": "var_can_update_2"
+    },
+    {
+      "id": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64__L0",
+      "name": "Choice Made",
+      "symbol": "var_choice_made"
     }
   ]
 }

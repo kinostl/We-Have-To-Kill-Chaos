@@ -294,6 +294,53 @@
             "children": {
               "true": [
                 {
+                  "command": "EVENT_IF_ACTOR_AT_POSITION",
+                  "args": {
+                    "actorId": "$self$",
+                    "x": {
+                      "type": "number",
+                      "value": 14
+                    },
+                    "y": {
+                      "type": "number",
+                      "value": 17
+                    },
+                    "__collapseElse": true,
+                    "__disableElse": true
+                  },
+                  "children": {
+                    "true": [
+                      {
+                        "command": "EVENT_SWITCH_SCENE",
+                        "args": {
+                          "sceneId": "fd6033b8-b4e7-41a0-a9ce-4fe077b226f1",
+                          "x": {
+                            "type": "number",
+                            "value": 0
+                          },
+                          "y": {
+                            "type": "number",
+                            "value": 0
+                          },
+                          "direction": "",
+                          "fadeSpeed": "2"
+                        },
+                        "id": "014519e5-ac82-4094-98ba-d05fcdc23911"
+                      }
+                    ],
+                    "false": []
+                  },
+                  "id": "105b28a7-adef-4f5d-b6fb-bf64a7ecdcb8"
+                },
+                {
+                  "command": "MY_EVENT_CALL_NATIVE",
+                  "args": {
+                    "argCount": 0,
+                    "funName": "cc_end_input"
+                  },
+                  "id": "ef6e08b4-5437-4c04-9d22-887391814b6e"
+                },
+                {
                   "command": "EVENT_STOP",
                   "args": {},
                   "id": "b63786c6-7fbc-4c8a-89cf-3dbe4ff73bcf"

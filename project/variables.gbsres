@@ -1333,6 +1333,11 @@
       "id": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64__L0",
       "name": "Choice Made",
       "symbol": "var_choice_made"
+    },
+    {
+      "id": "f1d1af28-6219-479d-b102-6b6e530864c9__L0",
+      "name": "Is Ed",
+      "symbol": "var_is_ed"
     }
   ]
 }

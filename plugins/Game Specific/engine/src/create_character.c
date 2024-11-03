@@ -45,3 +45,8 @@ void cc_set_job(SCRIPT_CTX *THIS) OLDCALL BANKED {
   hero_data *hero = &hero_slots[VM_GLOBAL(VAR_CC_CURRENT_C)];
   hero->job = VM_GLOBAL(VAR_CC_CLASS_CHOICE);
 }
+
+void cc_end_input(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  string_input_curr_pos.y = 5;
+  string_input_curr_pos.x = 7;
+}
