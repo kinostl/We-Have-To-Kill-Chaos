@@ -53,6 +53,8 @@ void cc_end_input(SCRIPT_CTX *THIS) OLDCALL BANKED {
 }
 
 void cc_display_class(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  UWORD * class = (UWORD *)VM_REF_TO_PTR(FN_ARG0);
+  *class = hero_slots[*class].job;
 }
 
 void cc_display_names(SCRIPT_CTX *THIS) OLDCALL BANKED {

@@ -1,36 +1,25 @@
 {
   "_resourceType": "actor",
-  "id": "371a62e7-429f-43ed-97bb-5f0e436f4196",
-  "_index": 0,
-  "symbol": "actor_2",
-  "prefabId": "",
-  "name": "Character Slot 1",
-  "x": 4,
-  "y": 4,
+  "id": "ba8c7d41-1c8b-4206-a2b9-a16f844c60e4",
+  "name": "Character Slot 2",
   "frame": 0,
   "animate": false,
   "spriteSheetId": "9aba3d2a-99b2-4273-a573-51f54fa169ac",
-  "paletteId": "",
+  "prefabId": "",
   "direction": "down",
   "moveSpeed": 1,
   "animSpeed": 255,
+  "paletteId": "",
   "isPinned": false,
   "persistent": false,
   "collisionGroup": "",
   "prefabScriptOverrides": {},
+  "_index": 1,
+  "symbol": "actor_57",
+  "x": 14,
+  "y": 4,
   "script": [],
   "startScript": [
-    {
-      "command": "EVENT_SET_VALUE",
-      "args": {
-        "variable": "L0",
-        "value": {
-          "type": "number",
-          "value": 0
-        }
-      },
-      "id": "62ae00a3-f088-489d-8db9-6c419db746fb"
-    },
     {
       "command": "MY_EVENT_CALL_NATIVE",
       "args": {
@@ -41,7 +30,7 @@
         },
         "funName": "cc_display_class"
       },
-      "id": "d357a41a-2e7a-4f95-b313-9fb7de05195f"
+      "id": "b8db7134-a3d5-40a3-84ec-94ecc4617c9b"
     },
     {
       "command": "EVENT_CALL_CUSTOM_EVENT",
@@ -52,7 +41,7 @@
           "value": "L0"
         }
       },
-      "id": "d050af39-1e26-4417-87ac-278323137ca4"
+      "id": "bd97d7b4-7f2b-4023-9faa-9b3f1a7d8bff"
     }
   ],
   "updateScript": [],

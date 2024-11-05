@@ -41,7 +41,8 @@ const compile = (input, helpers) => {
   const {
     _addComment,
     variableSetToScriptValue,
-    variableCopy,
+    getVariableAlias,
+    _set,
     _stackPush,
     _stackPop,
     _callNative,
@@ -50,20 +51,27 @@ const compile = (input, helpers) => {
   } = helpers
 
   _addComment(`Call Native: ${input['funName']}`)
-  const valHolder = _declareLocal(`my_event_call_native_val`, 1, true);
+  const valHolders = Array(input.argCount).fill(0).map((x,idx)=>{
+    return _declareLocal(`my_event_call_native_val_${idx}`, 1, false);
+  })
+
   if (input.argCount > 0) {
     for (let i = input.argCount - 1; i >= 0; i--) {
-      variableSetToScriptValue(valHolder, input[`arg${i}`]);
-      _stackPush(valHolder)
+      variableSetToScriptValue(valHolders[i], input[`arg${i}`]);
+      _stackPush(valHolders[i])
     }
   }
 
   _callNative(input.funName)
 
-  if (input.argCount > 0) {
-    _stackPop(input.argCount)
+  for(let i=0;i<input.argCount;i++){
+    if(input[`arg${i}`].type == "variable"){
+      const vRef = getVariableAlias(input[`arg${i}`].value)
+      _set(vRef, ".ARG0");
+    }
+    _stackPop(1)
+    _markLocalUse(valHolders[i])
   }
-  _markLocalUse(valHolder)
 }
 
 module.exports = {
