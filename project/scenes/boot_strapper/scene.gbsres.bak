@@ -34,7 +34,7 @@
         },
         "y": {
           "type": "number",
-          "value": 0
+          "value": 7
         },
         "direction": "",
         "fadeSpeed": 0
@@ -49,5 +49,6 @@
   ],
   "playerHit1Script": [],
   "playerHit2Script": [],
-  "playerHit3Script": []
+  "playerHit3Script": [],
+  "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5"
 }

@@ -3,12 +3,12 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "maps/equip_shop_menu.tmx",
+    "activeFile": "maps/name_entry.tmx",
     "automapping.whileDrawing": true,
     "expandedProjectPaths": [
-        ".",
+        "maps",
         "tilesets",
-        "maps"
+        "."
     ],
     "exportAsImage.includeBackgroundColor": true,
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -53,7 +53,7 @@
             "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": -9.90909090909091,
+                "x": -25.363636363636367,
                 "y": 85.09090909090908
             }
         },
@@ -61,7 +61,7 @@
             "scale": 3,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 377.3333333333333,
+                "x": 350.66666666666663,
                 "y": 270
             }
         },
@@ -82,7 +82,7 @@
             "selectedLayer": 0,
             "viewCenter": {
                 "x": 103.5,
-                "y": 94.49999999999999
+                "y": 94.33333333333333
             }
         },
         "maps/frame.tsx": {
@@ -117,7 +117,7 @@
             "scale": 4,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 10.75,
+                "x": -1.5,
                 "y": 85
             }
         },
@@ -129,11 +129,19 @@
             "scaleInDock": 2,
             "scaleInEditor": 1
         },
+        "maps/name_entry.tmx": {
+            "scale": 3.6159375,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 312.92023161351653,
+                "y": 79.50911762164031
+            }
+        },
         "maps/random_menu.tmx": {
             "scale": 5.634027777777777,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 106.14076174041665,
+                "x": 99.04104523604096,
                 "y": 64.78491310242822
             }
         },
@@ -180,7 +188,7 @@
             "selectedLayer": 1,
             "viewCenter": {
                 "x": 325.625,
-                "y": 199.25
+                "y": 199
             }
         },
         "tilesets/store_tiles.tsx": {
@@ -200,7 +208,7 @@
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 8,
     "map.tileWidth": 8,
-    "map.width": 40,
+    "map.width": 20,
     "openFiles": [
         "maps/white_magic_shop.tmx",
         "tilesets/store_tiles.tsx",
@@ -217,7 +225,8 @@
         "maps/kings_garden_tiles.tsx",
         "maps/clinic.tmx",
         "maps/item_menu.tmx",
-        "maps/equip_shop_menu.tmx"
+        "maps/equip_shop_menu.tmx",
+        "maps/name_entry.tmx"
     ],
     "project": "custom_stores.tiled-project",
     "recentFiles": [

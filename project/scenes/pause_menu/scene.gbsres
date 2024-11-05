@@ -1,0 +1,31 @@
+{
+  "_resourceType": "scene",
+  "id": "aeecfbd3-1725-4866-8b6c-2683dc5472e5",
+  "_index": 30,
+  "name": "Pause Menu",
+  "backgroundId": "3ef1a2b1-2f69-48e8-8641-8d910fef471a",
+  "tilesetId": "",
+  "width": 20,
+  "height": 18,
+  "type": "TOPDOWN",
+  "paletteIds": [
+    "d8ef3f33-956f-4f96-a8a4-774608a880da",
+    "",
+    "",
+    "",
+    ""
+  ],
+  "spritePaletteIds": [
+    "4b5c94c3-d95b-4802-9f92-3d6266692d3c",
+    "4b5c94c3-d95b-4802-9f92-3d6266692d3c"
+  ],
+  "collisions": "",
+  "autoFadeSpeed": 1,
+  "symbol": "scene_31",
+  "x": 1752,
+  "y": 1056,
+  "script": [],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": []
+}

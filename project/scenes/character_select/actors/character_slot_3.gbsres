@@ -1,0 +1,51 @@
+{
+  "_resourceType": "actor",
+  "id": "0c342177-e088-4f70-8d7d-f30818cb61e7",
+  "name": "Character Slot 3",
+  "frame": 0,
+  "animate": false,
+  "spriteSheetId": "9aba3d2a-99b2-4273-a573-51f54fa169ac",
+  "prefabId": "",
+  "direction": "down",
+  "moveSpeed": 1,
+  "animSpeed": 255,
+  "paletteId": "",
+  "isPinned": false,
+  "persistent": false,
+  "collisionGroup": "",
+  "prefabScriptOverrides": {},
+  "_index": 2,
+  "symbol": "actor_3",
+  "x": 4,
+  "y": 13,
+  "script": [],
+  "startScript": [
+    {
+      "command": "MY_EVENT_CALL_NATIVE",
+      "args": {
+        "argCount": 1,
+        "arg0": {
+          "type": "variable",
+          "value": "L0"
+        },
+        "funName": "cc_display_class"
+      },
+      "id": "70c33957-35f4-452e-bf76-81f5d886b750"
+    },
+    {
+      "command": "EVENT_CALL_CUSTOM_EVENT",
+      "args": {
+        "customEventId": "18c95038-7066-4edd-991d-856988fa0379",
+        "$variable[V0]$": {
+          "type": "variable",
+          "value": "L0"
+        }
+      },
+      "id": "7834aba6-0934-441f-9bb6-15c78572d631"
+    }
+  ],
+  "updateScript": [],
+  "hit1Script": [],
+  "hit2Script": [],
+  "hit3Script": []
+}

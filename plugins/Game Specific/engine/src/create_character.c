@@ -5,6 +5,7 @@
 #include <asm/types.h>
 #include <data/game_globals.h>
 #include <gb/gb.h>
+#include <input.h>
 #include <string.h>
 #pragma bank 255
 
@@ -49,4 +50,10 @@ void cc_set_job(SCRIPT_CTX *THIS) OLDCALL BANKED {
 void cc_end_input(SCRIPT_CTX *THIS) OLDCALL BANKED {
   string_input_curr_pos.y = 5;
   string_input_curr_pos.x = 7;
+}
+
+void cc_display_class(SCRIPT_CTX *THIS) OLDCALL BANKED {
+}
+
+void cc_display_names(SCRIPT_CTX *THIS) OLDCALL BANKED {
 }

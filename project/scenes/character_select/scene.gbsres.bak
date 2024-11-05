@@ -1,7 +1,8 @@
 {
   "_resourceType": "scene",
   "id": "f1cf7e1f-1c86-4679-b076-dc3ee8711bff",
-  "type": "TOPDOWN",
+  "_index": 1,
+  "type": "MENU",
   "name": "Character Select",
   "symbol": "scene_6",
   "x": 1016,
@@ -11,12 +12,12 @@
   "backgroundId": "803bce22-c1e3-43c3-a583-a3a8772fb6c6",
   "tilesetId": "",
   "paletteIds": [
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
     "default-ui",
     "d8ef3f33-956f-4f96-a8a4-774608a880da"
   ],
@@ -31,6 +32,7 @@
     "7b685cdb-bcfb-4bcc-9eb2-7ffd6aec1e77"
   ],
   "autoFadeSpeed": 1,
+  "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
   "script": [
     {
       "command": "EVENT_SET_INPUT_SCRIPT",
@@ -63,11 +65,30 @@
         ]
       },
       "id": "b801dcdb-e50e-41a3-ade1-cfcddd36e6dc"
+    },
+    {
+      "command": "EVENT_GBVM_SCRIPT",
+      "args": {
+        "references": [
+          {
+            "type": "variable",
+            "id": "105"
+          }
+        ]
+      },
+      "id": "2f9ab53c-948d-4ce1-ac6a-ea4a4d2654d8"
+    },
+    {
+      "command": "MY_EVENT_CALL_NATIVE",
+      "args": {
+        "argCount": 0,
+        "funName": "cc_display_names"
+      },
+      "id": "99eee9ba-2b42-4a1f-bb54-e77485941d8b"
     }
   ],
   "playerHit1Script": [],
   "playerHit2Script": [],
   "playerHit3Script": [],
-  "collisions": "00168+",
-  "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5"
+  "collisions": "00168+"
 }

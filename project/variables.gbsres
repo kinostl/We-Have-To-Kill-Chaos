@@ -1338,6 +1338,26 @@
       "id": "f1d1af28-6219-479d-b102-6b6e530864c9__L0",
       "name": "Is Ed",
       "symbol": "var_is_ed"
+    },
+    {
+      "id": "371a62e7-429f-43ed-97bb-5f0e436f4196__L0",
+      "name": "Character Class",
+      "symbol": "var_character_class"
+    },
+    {
+      "id": "ba8c7d41-1c8b-4206-a2b9-a16f844c60e4__L0",
+      "name": "Character Class",
+      "symbol": "var_character_class_0"
+    },
+    {
+      "id": "0c342177-e088-4f70-8d7d-f30818cb61e7__L0",
+      "name": "Character Class",
+      "symbol": "var_character_class_1"
+    },
+    {
+      "id": "4dd7f9b0-f3a6-4623-acb1-38c9b1281ed5__L0",
+      "name": "Character Class",
+      "symbol": "var_character_class_2"
     }
   ]
 }
