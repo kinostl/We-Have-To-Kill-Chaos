@@ -1,12 +1,15 @@
 #include "extra_data.h"
 #include "hero_data.h"
+#include "load_font_into_bg.h"
 #include "states/string_input.h"
+#include "states/menu.h"
 #include "vm.h"
 #include <asm/types.h>
 #include <data/game_globals.h>
 #include <gb/gb.h>
 #include <input.h>
 #include <string.h>
+#include <ui.h>
 #pragma bank 255
 
 #define CC_NAME_X 7
@@ -57,7 +60,26 @@ void cc_display_class(SCRIPT_CTX *THIS) OLDCALL BANKED {
   *class = hero_slots[*class].job;
 }
 
+UBYTE load_centered_text(char name[7]) BANKED {
+  strcpy(ui_text_data, name);
+
+  switch (strlen(name)) {
+  case 6:
+  case 5:
+  default:
+    return 0;
+  case 4:
+  case 3:
+    return 1;
+  case 2:
+  case 1:
+    return 2;
+  }
+}
+
 void cc_display_names(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  UBYTE offset;
+
   hero_slots[0].job = 4;
   hero_slots[1].job = 3;
   hero_slots[2].job = 2;
@@ -67,4 +89,17 @@ void cc_display_names(SCRIPT_CTX *THIS) OLDCALL BANKED {
   strcpy(hero_slots[1].name, "two");
   strcpy(hero_slots[2].name, "three");
   strcpy(hero_slots[3].name, "four");
+  loadFontIntoBkg();
+
+  offset = load_centered_text(hero_slots[0].name);
+  write_bg_font(2+offset, 6, 6-offset, 1);
+
+  offset = load_centered_text(hero_slots[1].name);
+  write_bg_font(12+offset, 6, 6-offset, 1);
+
+  offset = load_centered_text(hero_slots[2].name);
+  write_bg_font(2+offset, 15, 6-offset, 1);
+
+  offset = load_centered_text(hero_slots[3].name);
+  write_bg_font(12+offset, 15, 6-offset, 1);
 }
