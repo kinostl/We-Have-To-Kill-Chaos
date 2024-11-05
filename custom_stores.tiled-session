@@ -3,12 +3,12 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "maps/name_entry.tmx",
+    "activeFile": "maps/pause_menu.tmx",
     "automapping.whileDrawing": true,
     "expandedProjectPaths": [
+        ".",
         "maps",
-        "tilesets",
-        "."
+        "tilesets"
     ],
     "exportAsImage.includeBackgroundColor": true,
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -137,6 +137,14 @@
                 "y": 79.50911762164031
             }
         },
+        "maps/pause_menu.tmx": {
+            "scale": 5.634027777777777,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 79.96055713053126,
+                "y": 71.9733760631086
+            }
+        },
         "maps/random_menu.tmx": {
             "scale": 5.634027777777777,
             "selectedLayer": 1,
@@ -226,7 +234,8 @@
         "maps/clinic.tmx",
         "maps/item_menu.tmx",
         "maps/equip_shop_menu.tmx",
-        "maps/name_entry.tmx"
+        "maps/name_entry.tmx",
+        "maps/pause_menu.tmx"
     ],
     "project": "custom_stores.tiled-project",
     "recentFiles": [

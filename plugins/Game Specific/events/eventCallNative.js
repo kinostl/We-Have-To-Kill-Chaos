@@ -52,7 +52,7 @@ const compile = (input, helpers) => {
 
   _addComment(`Call Native: ${input['funName']}`)
   const valHolders = Array(input.argCount).fill(0).map((x,idx)=>{
-    return _declareLocal(`my_event_call_native_val_${idx}`, 1, false);
+    return _declareLocal(`my_event_call_native_val_${idx}`, 1, true);
   })
 
   if (input.argCount > 0) {

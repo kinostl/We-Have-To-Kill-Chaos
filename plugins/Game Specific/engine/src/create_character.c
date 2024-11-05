@@ -58,4 +58,13 @@ void cc_display_class(SCRIPT_CTX *THIS) OLDCALL BANKED {
 }
 
 void cc_display_names(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  hero_slots[0].job = 4;
+  hero_slots[1].job = 3;
+  hero_slots[2].job = 2;
+  hero_slots[3].job = 1;
+
+  strcpy(hero_slots[0].name, "one");
+  strcpy(hero_slots[1].name, "two");
+  strcpy(hero_slots[2].name, "three");
+  strcpy(hero_slots[3].name, "four");
 }

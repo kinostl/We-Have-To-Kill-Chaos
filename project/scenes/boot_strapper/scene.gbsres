@@ -17,12 +17,25 @@
   "y": 60,
   "script": [
     {
+      "command": "FO_EVENT_EXPORT_FLAGS",
+      "args": {},
+      "id": "f51462f5-f8e4-4372-b33f-0a3b86ae93ad"
+    },
+    {
       "command": "MY_EVENT_CALL_NATIVE",
       "args": {
         "argCount": 0,
         "funName": "init_extra_data"
       },
       "id": "54904d8a-adc0-4ce5-8d00-0bd7a1d63555"
+    },
+    {
+      "command": "MY_EVENT_CALL_NATIVE",
+      "args": {
+        "argCount": 0,
+        "funName": "cc_display_names"
+      },
+      "id": "923ed794-6d9d-461a-b0d0-2f8fcd7ae17a"
     },
     {
       "command": "EVENT_SWITCH_SCENE",
@@ -40,11 +53,6 @@
         "fadeSpeed": 0
       },
       "id": "878b0982-e1a2-4a02-be43-c549c87b1a71"
-    },
-    {
-      "command": "FO_EVENT_EXPORT_FLAGS",
-      "args": {},
-      "id": "f51462f5-f8e4-4372-b33f-0a3b86ae93ad"
     }
   ],
   "playerHit1Script": [],
