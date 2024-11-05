@@ -529,8 +529,8 @@
     },
     {
       "id": "105",
-      "name": "CC/Current C",
-      "symbol": "var_cc_current_c"
+      "name": "CC/Character C",
+      "symbol": "var_cc_character_c"
     },
     {
       "id": "106",
@@ -1358,6 +1358,21 @@
       "id": "4dd7f9b0-f3a6-4623-acb1-38c9b1281ed5__L0",
       "name": "Character Class",
       "symbol": "var_character_class_2"
+    },
+    {
+      "id": "4ee1ff55-e702-463f-abb9-77f841d10811__L0",
+      "name": "Previous Character Choice",
+      "symbol": "var_previous_character_choi"
+    },
+    {
+      "id": "4ee1ff55-e702-463f-abb9-77f841d10811__L1",
+      "name": "Previous Choice Type",
+      "symbol": "var_previous_choice_type"
+    },
+    {
+      "id": "109",
+      "name": "CC/Choice Type",
+      "symbol": "var_cc_choice_type"
     }
   ]
 }
