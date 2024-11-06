@@ -5,23 +5,13 @@
 #include <vm.h>
 #pragma bank 255
 
-unsigned char get_rendered_char(unsigned char d) {
-  d = ReadBankedUBYTE(bg_font.recode_table + d, bg_font_bank);
-  d += start_of_bkg_vram;
-  return d;
-}
-
-void fs_write_bg_char(UBYTE x, UBYTE y, unsigned char c) OLDCALL BANKED{
-  set_bkg_tile_xy(x, y, get_rendered_char(c));
-}
-
 void fs_clear_section(UBYTE x, UBYTE y, UBYTE w, UBYTE h, BOOLEAN instant) OLDCALL BANKED {
   for (int dy = y; dy < y + h; dy++) {
     for (int dx = x; dx < x + w; dx++) {
       if (!instant) {
         vsync();
       }
-      fs_write_bg_char(dx, dy, ' ');
+      write_bg_char(dx, dy, ' ');
     }
   }
 }
@@ -56,7 +46,7 @@ void fs_menu_write_bg_font(UBYTE x, UBYTE y, UBYTE w, UBYTE h, BOOLEAN instant, 
     }
 
     if (*d == 0x05) {
-      fs_write_bg_char(dx, dy, '%');
+      write_bg_char(dx, dy, '%');
       d++;
       continue;
     }
@@ -69,7 +59,7 @@ void fs_menu_write_bg_font(UBYTE x, UBYTE y, UBYTE w, UBYTE h, BOOLEAN instant, 
     }
 
     if ((dy - y) < h && (dx - x) < w) {
-      fs_write_bg_char(dx, dy, *d);
+      write_bg_char(dx, dy, *d);
       dx++;
     }
     d++;

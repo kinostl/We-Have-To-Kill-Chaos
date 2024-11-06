@@ -555,6 +555,11 @@
       }
     },
     {
+      "id": "109",
+      "name": "CC/Choice Type",
+      "symbol": "var_cc_choice_type"
+    },
+    {
       "id": "b543e5af-0a59-46a2-afa4-a8749b768159__L0",
       "name": "HP",
       "symbol": "var_hp"
@@ -1353,11 +1358,6 @@
       "id": "4ee1ff55-e702-463f-abb9-77f841d10811__L1",
       "name": "Previous Choice Type",
       "symbol": "var_previous_choice_type"
-    },
-    {
-      "id": "109",
-      "name": "CC/Choice Type",
-      "symbol": "var_cc_choice_type"
     },
     {
       "id": "ba8c7d41-1c8b-4206-a2b9-a16f844c60e4__L0",

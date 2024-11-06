@@ -30,14 +30,6 @@
       "id": "54904d8a-adc0-4ce5-8d00-0bd7a1d63555"
     },
     {
-      "command": "MY_EVENT_CALL_NATIVE",
-      "args": {
-        "argCount": 0,
-        "funName": "cc_display_names"
-      },
-      "id": "923ed794-6d9d-461a-b0d0-2f8fcd7ae17a"
-    },
-    {
       "command": "EVENT_SWITCH_SCENE",
       "args": {
         "sceneId": "f1cf7e1f-1c86-4679-b076-dc3ee8711bff",

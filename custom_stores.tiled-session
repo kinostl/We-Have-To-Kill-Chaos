@@ -53,7 +53,7 @@
             "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": -25.363636363636367,
+                "x": -40.81818181818182,
                 "y": 85.09090909090908
             }
         },
@@ -61,7 +61,7 @@
             "scale": 3,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 350.66666666666663,
+                "x": 324,
                 "y": 270
             }
         },
@@ -117,7 +117,7 @@
             "scale": 4,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": -1.5,
+                "x": -13.75,
                 "y": 85
             }
         },
@@ -130,26 +130,26 @@
             "scaleInEditor": 1
         },
         "maps/name_entry.tmx": {
-            "scale": 3.6159375,
+            "scale": 4,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 312.92023161351653,
-                "y": 79.50911762164031
+                "x": 97.875,
+                "y": 56.125
             }
         },
         "maps/pause_menu.tmx": {
             "scale": 5.634027777777777,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 79.96055713053126,
-                "y": 71.9733760631086
+                "x": 178.11413780352524,
+                "y": 76.9431776161716
             }
         },
         "maps/random_menu.tmx": {
             "scale": 5.634027777777777,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 99.04104523604096,
+                "x": 91.94132873166527,
                 "y": 64.78491310242822
             }
         },
@@ -196,7 +196,7 @@
             "selectedLayer": 1,
             "viewCenter": {
                 "x": 325.625,
-                "y": 199
+                "y": 198.75
             }
         },
         "tilesets/store_tiles.tsx": {
@@ -205,7 +205,7 @@
             "scaleInEditor": 1
         }
     },
-    "last.imagePath": "/home/deck/Documents/We Have To Kill Chaos/assets/backgrounds",
+    "last.imagePath": "/home/deck/Documents/We Have To Kill Chaos/maps",
     "last.worldFilePath": "/home/deck/Documents/We Have To Kill Chaos/maps",
     "loadedWorlds": [
         "/home/deck/Documents/We Have To Kill Chaos/maps/castle_world.world",
@@ -252,7 +252,7 @@
         "maps/kings_garden.tmx",
         "maps/corneria.tsx"
     ],
-    "resizeMap.removeObjects": false,
+    "resizeMap.removeObjects": true,
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
         "height": 8,

@@ -10,6 +10,7 @@ extern UBYTE bg_font_bank;
 
 void write_bg_font(UBYTE x, UBYTE y, UBYTE w, UBYTE h) OLDCALL BANKED;
 void loadFontIntoBkg(void) OLDCALL BANKED;
-
+unsigned char get_rendered_char(unsigned char d);
+void write_bg_char(UBYTE x, UBYTE y, unsigned char c) OLDCALL BANKED;
 
 #endif

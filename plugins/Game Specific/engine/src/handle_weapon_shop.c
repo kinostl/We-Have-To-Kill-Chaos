@@ -140,67 +140,67 @@ void loadWeaponShopUsages(SCRIPT_CTX * THIS) OLDCALL BANKED {
   BYTE w_total = w_data.attack + w_data.crit_chance + w_data.hit_chance;
 
   if(CHK_FLAG(w_data.classes, BLACK_MAGE)){
-    fs_write_bg_char(8, 12, '+');
+    write_bg_char(8, 12, '+');
 
     if (w_total > 20) {
-      fs_write_bg_char(9, 12, '>');
+      write_bg_char(9, 12, '>');
     } else if (w_total < 20) {
-      fs_write_bg_char(9, 12, '<');
+      write_bg_char(9, 12, '<');
     } else {
-      fs_write_bg_char(9, 12, '=');
+      write_bg_char(9, 12, '=');
     }
 
   }else{
-    fs_write_bg_char(8, 12, '-');
-    fs_write_bg_char(9, 12, ' ');
+    write_bg_char(8, 12, '-');
+    write_bg_char(9, 12, ' ');
   }
 
   if (CHK_FLAG(w_data.classes, FIGHTER)) {
-    fs_write_bg_char(13, 12, '+');
+    write_bg_char(13, 12, '+');
 
     if (w_total > 24) {
-      fs_write_bg_char(14, 12, '>');
+      write_bg_char(14, 12, '>');
     } else if (w_total < 24) {
-      fs_write_bg_char(14, 12, '<');
+      write_bg_char(14, 12, '<');
     } else {
-      fs_write_bg_char(14, 12, '=');
+      write_bg_char(14, 12, '=');
     }
 
   } else {
-    fs_write_bg_char(13, 12, '-');
-    fs_write_bg_char(14, 12, ' ');
+    write_bg_char(13, 12, '-');
+    write_bg_char(14, 12, ' ');
   }
 
   if (CHK_FLAG(w_data.classes, MONK)) {
-    fs_write_bg_char(8, 15, '+');
+    write_bg_char(8, 15, '+');
 
     if (w_total > 22) {
-      fs_write_bg_char(9, 15, '>');
+      write_bg_char(9, 15, '>');
     } else if (w_total < 22) {
-      fs_write_bg_char(9, 15, '<');
+      write_bg_char(9, 15, '<');
     } else {
-      fs_write_bg_char(9, 15, '=');
+      write_bg_char(9, 15, '=');
     }
 
   } else {
-    fs_write_bg_char(8, 15, '-');
-    fs_write_bg_char(9, 15, ' ');
+    write_bg_char(8, 15, '-');
+    write_bg_char(9, 15, ' ');
   }
 
   if(CHK_FLAG(w_data.classes, RED_MAGE)){
-    fs_write_bg_char(13, 15, '+');
+    write_bg_char(13, 15, '+');
 
     if (w_total > 7) {
-      fs_write_bg_char(14, 15, '>');
+      write_bg_char(14, 15, '>');
     } else if (w_total < 7) {
-      fs_write_bg_char(14, 15, '<');
+      write_bg_char(14, 15, '<');
     } else {
-      fs_write_bg_char(14, 15, '=');
+      write_bg_char(14, 15, '=');
     }
 
   }else{
-    fs_write_bg_char(13, 15, '-');
-    fs_write_bg_char(14, 15, ' ');
+    write_bg_char(13, 15, '-');
+    write_bg_char(14, 15, ' ');
   }
 
 }

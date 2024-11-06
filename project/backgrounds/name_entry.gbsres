@@ -3,11 +3,11 @@
   "id": "82d2cfb0-05c2-4d9b-9785-f16f5eaf376f",
   "name": "name_entry",
   "symbol": "bg_name_entry",
-  "width": 40,
+  "width": 20,
   "height": 18,
-  "imageWidth": 320,
+  "imageWidth": 160,
   "imageHeight": 144,
   "filename": "name_entry.png",
-  "tileColors": "072e+008+07c+008+07c+008+07c+008+07c+008+07c+008+07c+008+07c+008+0720e+",
+  "tileColors": "071a+008+07c+008+07c+008+07c+008+0710a+",
   "autoColor": false
 }
