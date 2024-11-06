@@ -41,7 +41,8 @@
           "a"
         ],
         "override": true,
-        "__scriptTabs": "press"
+        "__scriptTabs": "press",
+        "__collapse": true
       },
       "children": {
         "true": [
@@ -71,7 +72,8 @@
       "args": {
         "argCount": 0,
         "funName": "cc_display_names",
-        "__comment": false
+        "__comment": false,
+        "__collapse": true
       },
       "id": "99eee9ba-2b42-4a1f-bb54-e77485941d8b"
     },
@@ -112,7 +114,8 @@
         "value14": 15,
         "__collapseCase15": false,
         "value15": 16,
-        "__collapseElse": false
+        "__collapseElse": false,
+        "__collapse": true
       },
       "children": {
         "true0": [

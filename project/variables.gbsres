@@ -1373,6 +1373,11 @@
       "id": "4dd7f9b0-f3a6-4623-acb1-38c9b1281ed5__L0",
       "name": "Character Class",
       "symbol": "var_character_class_2"
+    },
+    {
+      "id": "f1cf7e1f-1c86-4679-b076-dc3ee8711bff__L1",
+      "name": "Confirmed",
+      "symbol": "var_confirmed"
     }
   ]
 }

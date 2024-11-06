@@ -25,8 +25,8 @@
             "scale": 5.647222222222222,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 130.68371864240038,
-                "y": 43.20708312838171
+                "x": 183.7186424003935,
+                "y": 48.076733890801776
             }
         },
         "maps/castle1.tsx": {
@@ -53,16 +53,16 @@
             "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": -40.81818181818182,
-                "y": 85.09090909090908
+                "x": 59.727272727272734,
+                "y": 90.09090909090908
             }
         },
         "maps/cornelia_castle_2.tmx": {
             "scale": 3,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 324,
-                "y": 270
+                "x": 463.83333333333326,
+                "y": 279.16666666666663
             }
         },
         "maps/cornelia_castle_2_inside.tmx": {
@@ -81,8 +81,8 @@
             "scale": 3,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 103.5,
-                "y": 94.33333333333333
+                "x": 287.8333333333333,
+                "y": 103.49999999999999
             }
         },
         "maps/frame.tsx": {
@@ -93,16 +93,16 @@
             "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 133.63636363636363,
-                "y": 247.45454545454544
+                "x": 195.36363636363637,
+                "y": 252.45454545454544
             }
         },
         "maps/item_menu.tmx": {
             "scale": 4,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 97.125,
-                "y": 66.25
+                "x": 235.375,
+                "y": 73.125
             }
         },
         "maps/item_shop.tmx": {
@@ -117,8 +117,8 @@
             "scale": 4,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": -13.75,
-                "y": 85
+                "x": 103.375,
+                "y": 91.875
             }
         },
         "maps/kings_garden.tsx": {
@@ -130,8 +130,11 @@
             "scaleInEditor": 1
         },
         "maps/name_entry.tmx": {
+            "expandedObjectLayers": [
+                3
+            ],
             "scale": 4,
-            "selectedLayer": 1,
+            "selectedLayer": 0,
             "viewCenter": {
                 "x": 97.875,
                 "y": 56.125
@@ -149,8 +152,8 @@
             "scale": 5.634027777777777,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 91.94132873166527,
-                "y": 64.78491310242822
+                "x": 152.20017256255397,
+                "y": 69.66596819918651
             }
         },
         "maps/shed_tileset.tsx": {
@@ -166,8 +169,8 @@
             "scale": 5.634027777777777,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 100.1060027116973,
-                "y": 82.00172562553928
+                "x": 160.364846542586,
+                "y": 86.88278072229758
             }
         },
         "maps/tileset_for_stores.tsx": {
