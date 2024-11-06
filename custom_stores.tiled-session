@@ -3,16 +3,24 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "maps/pause_menu.tmx",
+    "activeFile": "maps/Confirm Party.tmx",
     "automapping.whileDrawing": true,
     "expandedProjectPaths": [
-        ".",
+        "tilesets",
         "maps",
-        "tilesets"
+        "."
     ],
     "exportAsImage.includeBackgroundColor": true,
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "maps/Confirm Party.tmx": {
+            "scale": 5.634027777777777,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 79.96055713053126,
+                "y": 71.9733760631086
+            }
+        },
         "maps/armor_store.tmx": {
             "scale": 5.634027777777777,
             "selectedLayer": 0,
@@ -25,8 +33,8 @@
             "scale": 5.647222222222222,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 183.7186424003935,
-                "y": 48.076733890801776
+                "x": 183.8071815051648,
+                "y": 47.98819478603049
             }
         },
         "maps/castle1.tsx": {
@@ -53,16 +61,16 @@
             "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 59.727272727272734,
-                "y": 90.09090909090908
+                "x": 44.45454545454545,
+                "y": 90
             }
         },
         "maps/cornelia_castle_2.tmx": {
             "scale": 3,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 463.83333333333326,
-                "y": 279.16666666666663
+                "x": 437,
+                "y": 279
             }
         },
         "maps/cornelia_castle_2_inside.tmx": {
@@ -77,12 +85,20 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "maps/create_characters.tmx": {
+            "scale": 5.634027777777777,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 180.77653149266615,
+                "y": 76.9431776161716
+            }
+        },
         "maps/equip_shop_menu.tmx": {
             "scale": 3,
             "selectedLayer": 0,
             "viewCenter": {
                 "x": 287.8333333333333,
-                "y": 103.49999999999999
+                "y": 103.33333333333333
             }
         },
         "maps/frame.tsx": {
@@ -93,8 +109,8 @@
             "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 195.36363636363637,
-                "y": 252.45454545454544
+                "x": 195.45454545454547,
+                "y": 252.54545454545456
             }
         },
         "maps/item_menu.tmx": {
@@ -102,7 +118,7 @@
             "selectedLayer": 0,
             "viewCenter": {
                 "x": 235.375,
-                "y": 73.125
+                "y": 73
             }
         },
         "maps/item_shop.tmx": {
@@ -117,8 +133,8 @@
             "scale": 4,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 103.375,
-                "y": 91.875
+                "x": 91.25,
+                "y": 91.75
             }
         },
         "maps/kings_garden.tsx": {
@@ -136,24 +152,28 @@
             "scale": 4,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 97.875,
-                "y": 56.125
+                "x": 94.25,
+                "y": 56
             }
+        },
+        "maps/name_entry.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "maps/pause_menu.tmx": {
             "scale": 5.634027777777777,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 178.11413780352524,
-                "y": 76.9431776161716
+                "x": 178.20288425982994,
+                "y": 77.03192407247629
             }
         },
         "maps/random_menu.tmx": {
             "scale": 5.634027777777777,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 152.20017256255397,
-                "y": 69.66596819918651
+                "x": 145.18920251448296,
+                "y": 69.7547146554912
             }
         },
         "maps/shed_tileset.tsx": {
@@ -169,8 +189,8 @@
             "scale": 5.634027777777777,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 160.364846542586,
-                "y": 86.88278072229758
+                "x": 160.4535929988907,
+                "y": 86.97152717860226
             }
         },
         "maps/tileset_for_stores.tsx": {
@@ -199,7 +219,7 @@
             "selectedLayer": 1,
             "viewCenter": {
                 "x": 325.625,
-                "y": 198.75
+                "y": 198.5
             }
         },
         "tilesets/store_tiles.tsx": {
@@ -238,7 +258,10 @@
         "maps/item_menu.tmx",
         "maps/equip_shop_menu.tmx",
         "maps/name_entry.tmx",
-        "maps/pause_menu.tmx"
+        "maps/pause_menu.tmx",
+        "maps/name_entry.tsx",
+        "maps/create_characters.tmx",
+        "maps/Confirm Party.tmx"
     ],
     "project": "custom_stores.tiled-project",
     "recentFiles": [

@@ -1,0 +1,25 @@
+{
+  "_resourceType": "scene",
+  "id": "51959c65-5ada-4b08-8fc4-364aeecb39ef",
+  "_index": 31,
+  "name": "Confirm Party",
+  "backgroundId": "ec861a67-ee38-41f7-b0aa-95036c9a6bce",
+  "tilesetId": "",
+  "width": 20,
+  "height": 18,
+  "type": "TOPDOWN",
+  "paletteIds": [],
+  "spritePaletteIds": [
+    null,
+    "4b5c94c3-d95b-4802-9f92-3d6266692d3c"
+  ],
+  "collisions": "",
+  "autoFadeSpeed": 1,
+  "symbol": "scene_32",
+  "x": 1184,
+  "y": 1040,
+  "script": [],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": []
+}

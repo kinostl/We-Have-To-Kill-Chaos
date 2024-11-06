@@ -93,7 +93,8 @@
                     "color": "white",
                     "x": 0,
                     "y": 0,
-                    "__comment": false
+                    "__comment": false,
+                    "__collapse": false
                   },
                   "id": "acf9d4ee-efb2-4d3a-81e5-0f8aaf994d12"
                 },
