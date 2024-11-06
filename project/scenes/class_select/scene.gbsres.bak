@@ -130,16 +130,6 @@
                   "id": "b76e8d7a-c546-465a-a460-74eed5b4396f"
                 },
                 {
-                  "command": "EVENT_OVERLAY_SHOW",
-                  "args": {
-                    "color": "white",
-                    "x": 0,
-                    "y": 18,
-                    "__comment": false
-                  },
-                  "id": "ed8beac6-95bc-4b9b-aeb0-45ad111a1b63"
-                },
-                {
                   "command": "EVENT_OVERLAY_MOVE_TO",
                   "args": {
                     "x": 0,
