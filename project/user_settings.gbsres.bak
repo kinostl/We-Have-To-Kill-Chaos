@@ -1,13 +1,13 @@
 {
   "_resourceType": "settings",
   "worldScrollX": 2105,
-  "worldScrollY": 1580,
+  "worldScrollY": 1975,
   "zoom": 200,
   "navigatorSplitSizes": [
     30,
     30,
-    205,
-    667
+    842,
+    30
   ],
   "showNavigator": true,
   "showCollisions": true,
@@ -21,9 +21,7 @@
   "debuggerEnabled": true,
   "debuggerScriptType": "gbvm",
   "debuggerVariablesFilter": "all",
-  "debuggerCollapsedPanes": [
-    "vram"
-  ],
+  "debuggerCollapsedPanes": [],
   "debuggerPauseOnScriptChanged": false,
   "debuggerPauseOnWatchedVariableChanged": false,
   "debuggerBreakpoints": [],

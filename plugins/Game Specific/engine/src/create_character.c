@@ -29,9 +29,7 @@ void cc_init_set_name(SCRIPT_CTX * THIS) OLDCALL BANKED{
 
 void cc_add_letter_to_name(SCRIPT_CTX *THIS) OLDCALL BANKED {
   hero_data *hero = &hero_slots[VM_GLOBAL(VAR_CC_CURRENT_C)];
-  char next_letter = string_input_char();
-
-  hero->name[VM_GLOBAL(VAR_CC_CURRENT_LETTER)] = next_letter;
+  hero->name[VM_GLOBAL(VAR_CC_CURRENT_LETTER)] = string_input_char();
   VM_GLOBAL(VAR_CC_CURRENT_LETTER)++;
 
   strcpy(ui_text_data, hero->name);
@@ -81,11 +79,6 @@ UBYTE load_centered_text(char name[7]) BANKED {
 
 void cc_display_names(SCRIPT_CTX *THIS) OLDCALL BANKED {
   UBYTE offset;
-
-  hero_slots[0].job = 4;
-  hero_slots[1].job = 3;
-  hero_slots[2].job = 2;
-  hero_slots[3].job = 1;
   loadFontIntoBkg();
 
   offset = load_centered_text(hero_slots[0].name);

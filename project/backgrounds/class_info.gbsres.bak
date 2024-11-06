@@ -8,5 +8,6 @@
   "imageWidth": 480,
   "imageHeight": 144,
   "filename": "class_info.png",
-  "tileColors": "07870+"
+  "tileColors": "07870+",
+  "autoColor": false
 }
