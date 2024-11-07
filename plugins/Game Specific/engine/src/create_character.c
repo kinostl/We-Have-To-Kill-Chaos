@@ -18,6 +18,23 @@
 #define CC_ALPH_X 2
 #define CC_ALPH_Y 6
 
+UBYTE load_centered_text(char name[7]) BANKED {
+  strcpy(ui_text_data, name);
+
+  switch (strlen(name)) {
+  case 6:
+  case 5:
+  default:
+    return 0;
+  case 4:
+  case 3:
+    return 1;
+  case 2:
+  case 1:
+    return 2;
+  }
+}
+
 
 void cc_init_set_name(SCRIPT_CTX * THIS) OLDCALL BANKED{
   loadFontIntoBkg();
@@ -25,6 +42,33 @@ void cc_init_set_name(SCRIPT_CTX * THIS) OLDCALL BANKED{
   strcpy(ui_text_data, hero->name);
   write_bg_font(7, 3, 6, 1);
   VM_GLOBAL(VAR_CC_CURRENT_LETTER) = strlen(hero->name);
+}
+
+void cc_init_confirm_party(SCRIPT_CTX * THIS) OLDCALL BANKED{
+  UBYTE offset;
+  strcpy(hero_slots[0].name, "ONCLER");
+  strcpy(hero_slots[1].name, "TWOFER");
+  strcpy(hero_slots[2].name, "THREEF");
+  strcpy(hero_slots[3].name, "FOURNA");
+
+  hero_slots[0].job = 0;
+  hero_slots[1].job = 1;
+  hero_slots[2].job = 5;
+  hero_slots[3].job = 3;
+
+  loadFontIntoBkg();
+
+  offset = load_centered_text(hero_slots[0].name);
+  write_bg_font(3+offset, 5, 6-offset, 1);
+
+  offset = load_centered_text(hero_slots[1].name);
+  write_bg_font(11+offset, 5, 6-offset, 1);
+
+  offset = load_centered_text(hero_slots[2].name);
+  write_bg_font(3+offset, 10, 6-offset, 1);
+
+  offset = load_centered_text(hero_slots[3].name);
+  write_bg_font(11+offset, 10, 6-offset, 1);
 }
 
 void cc_add_letter_to_name(SCRIPT_CTX *THIS) OLDCALL BANKED {
@@ -58,23 +102,6 @@ void cc_end_input(SCRIPT_CTX *THIS) OLDCALL BANKED {
 void cc_display_class(SCRIPT_CTX *THIS) OLDCALL BANKED {
   UWORD * class = (UWORD *)VM_REF_TO_PTR(FN_ARG0);
   *class = hero_slots[*class].job;
-}
-
-UBYTE load_centered_text(char name[7]) BANKED {
-  strcpy(ui_text_data, name);
-
-  switch (strlen(name)) {
-  case 6:
-  case 5:
-  default:
-    return 0;
-  case 4:
-  case 3:
-    return 1;
-  case 2:
-  case 1:
-    return 2;
-  }
 }
 
 void cc_display_names(SCRIPT_CTX *THIS) OLDCALL BANKED {

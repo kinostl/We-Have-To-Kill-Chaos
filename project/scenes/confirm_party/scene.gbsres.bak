@@ -1,0 +1,44 @@
+{
+  "_resourceType": "scene",
+  "id": "51959c65-5ada-4b08-8fc4-364aeecb39ef",
+  "_index": 31,
+  "type": "TOPDOWN",
+  "name": "Confirm Party",
+  "symbol": "scene_32",
+  "x": 1184,
+  "y": 1040,
+  "width": 20,
+  "height": 18,
+  "backgroundId": "ec861a67-ee38-41f7-b0aa-95036c9a6bce",
+  "tilesetId": "",
+  "paletteIds": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    "d8ef3f33-956f-4f96-a8a4-774608a880da"
+  ],
+  "spritePaletteIds": [
+    "349ce35e-4c36-4e07-bf6a-12c2105e2e6f",
+    "4b5c94c3-d95b-4802-9f92-3d6266692d3c"
+  ],
+  "autoFadeSpeed": 1,
+  "script": [
+    {
+      "command": "MY_EVENT_CALL_NATIVE",
+      "args": {
+        "argCount": 0,
+        "funName": "cc_init_confirm_party"
+      },
+      "id": "8243e97e-88f2-450a-99ae-2cb245c32abb"
+    }
+  ],
+  "playerHit1Script": [],
+  "playerHit2Script": [],
+  "playerHit3Script": [],
+  "collisions": "",
+  "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5"
+}
