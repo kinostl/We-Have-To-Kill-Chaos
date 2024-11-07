@@ -68,7 +68,7 @@
 </data>
  </layer>
  <objectgroup id="2" name="Object Layer 1">
-  <object id="1" x="17" y="104" width="128" height="40">
+  <object id="1" x="17" y="105" width="128" height="40">
    <text fontfamily="Final Fantasy 3" pixelsize="8" wrap="1" color="#286850" kerning="0">Use this party?
 
   Yes
