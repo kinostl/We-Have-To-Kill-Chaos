@@ -2,7 +2,6 @@
 #include "hero_data.h"
 #include "load_font_into_bg.h"
 #include "states/string_input.h"
-#include "states/menu.h"
 #include "vm.h"
 #include <asm/types.h>
 #include <data/game_globals.h>
@@ -21,9 +20,7 @@
 UBYTE load_centered_text(char name[7]) BANKED {
   strcpy(ui_text_data, name);
 
-  switch (strlen(name)) {
-  case 6:
-  case 5:
+  switch (strlen(ui_text_data)) {
   default:
     return 0;
   case 4:
@@ -36,26 +33,26 @@ UBYTE load_centered_text(char name[7]) BANKED {
 }
 
 
-void cc_init_set_name(SCRIPT_CTX * THIS) OLDCALL BANKED{
+void cc_init_set_name(void) OLDCALL BANKED{
   loadFontIntoBkg();
-  hero_data *hero = &hero_slots[VM_GLOBAL(VAR_CC_CURRENT_C)];
-  strcpy(ui_text_data, hero->name);
+  const UBYTE c = VM_GLOBAL(VAR_CC_CURRENT_C);
+  strcpy(ui_text_data, hero_slots[c].name);
   write_bg_font(7, 3, 6, 1);
-  VM_GLOBAL(VAR_CC_CURRENT_LETTER) = strlen(hero->name);
+  VM_GLOBAL(VAR_CC_CURRENT_LETTER) = strlen(hero_slots[c].name);
 }
 
-void cc_init_confirm_party(SCRIPT_CTX * THIS) OLDCALL BANKED{
+void cc_check_finished(SCRIPT_CTX * THIS) OLDCALL BANKED{
+  UWORD * isFinished = (UWORD *)VM_REF_TO_PTR(FN_ARG0);
+  *isFinished = 0;
+  for(UBYTE i=0;i<4;i++){
+    if(strlen(hero_slots[i].name) > 0){
+      *isFinished += 1;
+    }
+  }
+}
+
+void cc_init_confirm_party(void) OLDCALL BANKED{
   UBYTE offset;
-  strcpy(hero_slots[0].name, "ONCLER");
-  strcpy(hero_slots[1].name, "TWOFER");
-  strcpy(hero_slots[2].name, "THREEF");
-  strcpy(hero_slots[3].name, "FOURNA");
-
-  hero_slots[0].job = 0;
-  hero_slots[1].job = 1;
-  hero_slots[2].job = 5;
-  hero_slots[3].job = 3;
-
   loadFontIntoBkg();
 
   offset = load_centered_text(hero_slots[0].name);
@@ -71,30 +68,31 @@ void cc_init_confirm_party(SCRIPT_CTX * THIS) OLDCALL BANKED{
   write_bg_font(11+offset, 10, 6-offset, 1);
 }
 
-void cc_add_letter_to_name(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  hero_data *hero = &hero_slots[VM_GLOBAL(VAR_CC_CURRENT_C)];
-  hero->name[VM_GLOBAL(VAR_CC_CURRENT_LETTER)] = string_input_char();
+void cc_add_letter_to_name(void) OLDCALL BANKED {
+  const UBYTE c = VM_GLOBAL(VAR_CC_CURRENT_C);
+  hero_slots[c].name[VM_GLOBAL(VAR_CC_CURRENT_LETTER)] = string_input_char();
   VM_GLOBAL(VAR_CC_CURRENT_LETTER)++;
+  hero_slots[c].name[VM_GLOBAL(VAR_CC_CURRENT_LETTER)] = '\0';
 
-  strcpy(ui_text_data, hero->name);
+  strcpy(ui_text_data, hero_slots[c].name);
   write_bg_font(7, 3, 6, 1);
 }
 
-void cc_backspace(SCRIPT_CTX * THIS) OLDCALL BANKED {
-  hero_data *hero = &hero_slots[VM_GLOBAL(VAR_CC_CURRENT_C)];
+void cc_backspace(void) OLDCALL BANKED {
+  const UBYTE c = VM_GLOBAL(VAR_CC_CURRENT_C);
   VM_GLOBAL(VAR_CC_CURRENT_LETTER)--;
 
-  hero->name[VM_GLOBAL(VAR_CC_CURRENT_LETTER)] = '\0';
-  set_bkg_tile_xy(CC_NAME_X + VM_GLOBAL(VAR_CC_CURRENT_LETTER), CC_NAME_Y, 0);
+  hero_slots[c].name[VM_GLOBAL(VAR_CC_CURRENT_LETTER)] = '\0';
+  strcpy(ui_text_data, hero_slots[c].name);
 
+  write_bg_font(7, 3, 6, 1);
 }
 
-void cc_set_job(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  hero_data *hero = &hero_slots[VM_GLOBAL(VAR_CC_CURRENT_C)];
-  hero->job = VM_GLOBAL(VAR_CC_CLASS_CHOICE);
+void cc_set_job(void) OLDCALL BANKED {
+  hero_slots[VM_GLOBAL(VAR_CC_CURRENT_C)].job = VM_GLOBAL(VAR_CC_CLASS_CHOICE);
 }
 
-void cc_end_input(SCRIPT_CTX *THIS) OLDCALL BANKED {
+void cc_end_input(void) OLDCALL BANKED {
   string_input_curr_pos.y = 5;
   string_input_curr_pos.x = 8;
 }
@@ -104,7 +102,7 @@ void cc_display_class(SCRIPT_CTX *THIS) OLDCALL BANKED {
   *class = hero_slots[*class].job;
 }
 
-void cc_display_names(SCRIPT_CTX *THIS) OLDCALL BANKED {
+void cc_display_names(void) OLDCALL BANKED {
   UBYTE offset;
   loadFontIntoBkg();
 

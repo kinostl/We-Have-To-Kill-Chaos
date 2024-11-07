@@ -21,6 +21,17 @@
   "script": [],
   "startScript": [
     {
+      "command": "EVENT_SET_VALUE",
+      "args": {
+        "variable": "L0",
+        "value": {
+          "type": "number",
+          "value": 1
+        }
+      },
+      "id": "fa1450f4-bdaf-48c1-9b4d-e8a30befcb85"
+    },
+    {
       "command": "MY_EVENT_CALL_NATIVE",
       "args": {
         "argCount": 1,

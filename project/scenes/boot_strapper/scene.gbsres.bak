@@ -45,14 +45,6 @@
         "fadeSpeed": 0
       },
       "id": "878b0982-e1a2-4a02-be43-c549c87b1a71"
-    },
-    {
-      "command": "MY_EVENT_CALL_NATIVE",
-      "args": {
-        "argCount": 0,
-        "funName": "cc_init_confirm_party"
-      },
-      "id": "0c2987ce-3195-4472-aefb-11efa05f9a62"
     }
   ],
   "playerHit1Script": [],

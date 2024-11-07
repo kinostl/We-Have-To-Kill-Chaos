@@ -19,42 +19,7 @@
   "x": 4,
   "y": 13,
   "script": [],
-  "startScript": [
-    {
-      "command": "EVENT_SET_VALUE",
-      "args": {
-        "variable": "L0",
-        "value": {
-          "type": "number",
-          "value": 2
-        }
-      },
-      "id": "53d16379-9aab-4613-97c8-a11754783767"
-    },
-    {
-      "command": "MY_EVENT_CALL_NATIVE",
-      "args": {
-        "argCount": 1,
-        "arg0": {
-          "type": "variable",
-          "value": "L0"
-        },
-        "funName": "cc_display_class"
-      },
-      "id": "70c33957-35f4-452e-bf76-81f5d886b750"
-    },
-    {
-      "command": "EVENT_CALL_CUSTOM_EVENT",
-      "args": {
-        "customEventId": "18c95038-7066-4edd-991d-856988fa0379",
-        "$variable[V0]$": {
-          "type": "variable",
-          "value": "L0"
-        }
-      },
-      "id": "7834aba6-0934-441f-9bb6-15c78572d631"
-    }
-  ],
+  "startScript": [],
   "updateScript": [],
   "hit1Script": [],
   "hit2Script": [],

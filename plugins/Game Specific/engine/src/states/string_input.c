@@ -16,7 +16,6 @@ point16_t string_input_max_pos;
 point16_t string_input_curr_pos;
 
 UBYTE string_input_timer;
-BOOLEAN string_input_capital=TRUE;
 const char string_input_alphabet[6][9]={
     {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'},
     {'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'},
@@ -74,4 +73,8 @@ void string_input_update(void) BANKED {
 
   PLAYER.pos.y = ((string_input_base_pos.y + (string_input_curr_pos.y * 256)) >> 7) << 7;
   PLAYER.pos.x = ((string_input_base_pos.x + (string_input_curr_pos.x * 256)) >> 7) << 7;
+}
+
+char string_input_char(void) OLDCALL BANKED{
+    return string_input_alphabet[string_input_curr_pos.y][string_input_curr_pos.x];
 }

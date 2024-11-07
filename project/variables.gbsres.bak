@@ -616,8 +616,8 @@
     },
     {
       "id": "f1cf7e1f-1c86-4679-b076-dc3ee8711bff__L0",
-      "name": "Character",
-      "symbol": "var_character"
+      "name": "Character Job",
+      "symbol": "var_character_job_0"
     },
     {
       "id": "9c7813d8-1d8c-4eab-aaaa-6b885a213232__L0",
@@ -1375,11 +1375,6 @@
       "symbol": "var_character_class_2"
     },
     {
-      "id": "f1cf7e1f-1c86-4679-b076-dc3ee8711bff__L1",
-      "name": "Confirmed",
-      "symbol": "var_confirmed"
-    },
-    {
       "id": "37a2b4fa-d860-493f-9266-b3c96bac9007__L0",
       "name": "Character Class",
       "symbol": "var_character_class_3"
@@ -1398,6 +1393,11 @@
       "id": "c6403220-6aba-4466-a84e-a5bdcf612ac1__L0",
       "name": "Character Class",
       "symbol": "var_character_class_6"
+    },
+    {
+      "id": "51959c65-5ada-4b08-8fc4-364aeecb39ef__L0",
+      "name": "Character Job",
+      "symbol": "var_character_job"
     }
   ]
 }

@@ -7,6 +7,7 @@
 #include "weapon_data.h"
 #include <asm/types.h>
 #include <data/game_globals.h>
+#include <string.h>
 #include <vm.h>
 #pragma bank 255
 
@@ -43,4 +44,10 @@ void init_extra_data(void) OLDCALL BANKED {
 
   item_slots = valloc(item_slot, MAX_ITEM_SLOTS);
   menu_slots = valloc(item_slot, MAX_ITEM_SLOTS);
+
+  for(UBYTE i=0;i<4;i++){
+    hero_slots[i].job = i;
+    strcpy(hero_slots[i].name, "");
+    hero_slots[i].slot_id = i;
+  }
 }
