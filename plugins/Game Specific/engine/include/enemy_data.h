@@ -1,31 +1,19 @@
 #ifndef FF_ENEMY_DATA
 #define FF_ENEMY_DATA
 
-enum enemy_family {
-    NONE,
-    GIANT
-};
+#include "entity_data.h"
 
-enum enemy_name {
-    IMP,
-    GrIMP,
-    WOLF,
-    MADPONY
-};
+typedef struct {
+  BYTE skill_idx;
+  BYTE x;
+  BYTE y;
+  BYTE w;
+  BYTE h;
 
-enum battle_skills {
-  BLANK,
-  FIGHT,
-  SHIELD_SKILL,
-  LUSTER,
-  FIRE,
-  ICE,
-  HARM,
-  HEAL,
-  GOBLIN_PUNCH,
-  HOWL,
-  THRASH,
-  RUNE_SWORD
-};
+  char name[8];
+  entity_data ext;
+
+  BYTE idx;
+} enemy_data;
 
 #endif

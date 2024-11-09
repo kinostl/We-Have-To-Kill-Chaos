@@ -19,6 +19,7 @@
 BYTE action_head_cursor;
 BYTE action_tail_cursor;
 BYTE turn_cursor;
+UBYTE rpg_player_choice;
 
 #define action_tail action_slots[action_tail_cursor]
 #define action_head action_slots[action_head_cursor]
@@ -27,6 +28,7 @@ BYTE turn_cursor;
 void take_action(void) BANKED;
 void animate(RPG_ANIMATION_STATE rpg_animation_state) BANKED;
 void ui_draw_frame(UBYTE x, UBYTE y, UBYTE width, UBYTE height) BANKED;
+void handle_skill(UBYTE skill_id) BANKED;
 
 void loadFauxHero(void) BANKED {
   turn_slots[0].max_hp = 35;
@@ -127,12 +129,31 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     ui_run_modal(UI_WAIT_WINDOW);
     break;
   case PICK_GetPlayerChoice:
-    rpg_run_menu();
+    rpg_player_choice = rpg_run_menu();
+    switch (rpg_player_choice) {
+    case 5:
+      dispatch_action(PICK_Item);
+      break;
+    case 6:
+      dispatch_action(PICK_Magic);
+      break;
+    case 7:
+      dispatch_action(PICK_Block);
+      break;
+    case 8:
+      dispatch_action(PICK_Run);
+      break;
+    default:
+      handle_skill(rpg_player_choice);
+      break;
+    }
     animate(ANIMATE_PLAYER_ATTACKING);
     break;
   case PICK_Item:
     break;
   case PICK_Magic:
+    break;
+  case PICK_Block:
     break;
   case PICK_Run:
     break;
@@ -171,4 +192,8 @@ void animate(RPG_ANIMATION_STATE rpg_animation_state) BANKED {
     script_execute(state_events[rpg_animation_state].script_bank,
                    state_events[rpg_animation_state].script_addr, 0, 0);
   }
+}
+
+void handle_skill(UBYTE menu_id) BANKED {
+  UBYTE skill_id = hero_slots[0].ext.skills[menu_id];
 }

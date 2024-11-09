@@ -19,6 +19,7 @@ typedef enum {
   PICK_GetPlayerChoice,
   PICK_Item,
   PICK_Magic,
+  PICK_Block,
   PICK_Run,
   REPORT_AttackResults,
   REPORT_Prepare,

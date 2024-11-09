@@ -1398,6 +1398,16 @@
       "id": "51959c65-5ada-4b08-8fc4-364aeecb39ef__L0",
       "name": "Character Job",
       "symbol": "var_character_job"
+    },
+    {
+      "id": "aeecfbd3-1725-4866-8b6c-2683dc5472e5__L0",
+      "name": "Character Job",
+      "symbol": "var_character_job_1"
+    },
+    {
+      "id": "76586ae3-b5db-4079-8b7b-71f9205f6373__L3",
+      "name": "Character Job",
+      "symbol": "var_character_job_2"
     }
   ]
 }

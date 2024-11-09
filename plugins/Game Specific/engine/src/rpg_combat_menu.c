@@ -14,12 +14,10 @@
 
 UBYTE rpg_run_menu(void) BANKED {
   UBYTE current_index = 0;
-  UBYTE max_index = 5;
-  UBYTE rpg_menu_timer = 0;
-  UWORD cursor_base_pos = pos(6);
+  UBYTE max_index = 8;
 
   PLAYER.pos.x = pos(11);
-  PLAYER.pos.y = cursor_base_pos;
+  PLAYER.pos.y = pos(6);
 
   while (TRUE) {
     input_update();
@@ -46,7 +44,32 @@ UBYTE rpg_run_menu(void) BANKED {
     } else if (INPUT_A_PRESSED) {
       return current_index;
     } else {
-      PLAYER.pos.y = cursor_base_pos + pos(current_index);
+      switch (current_index) {
+      case 0:
+        PLAYER.pos.y = pos(6);
+        break;
+      case 1:
+        PLAYER.pos.y = pos(8);
+        break;
+      case 2:
+        PLAYER.pos.y = pos(10);
+        break;
+      case 3:
+        PLAYER.pos.y = pos(12);
+        break;
+      case 4:
+        PLAYER.pos.y = pos(14);
+        break;
+      case 5:
+        PLAYER.pos.y = pos(15);
+        break;
+      case 6:
+        PLAYER.pos.y = pos(16);
+        break;
+      case 7:
+        PLAYER.pos.y = pos(17);
+        break;
+      }
       continue;
     }
   };

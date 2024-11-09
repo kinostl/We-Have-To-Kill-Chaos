@@ -1341,8 +1341,8 @@
     },
     {
       "id": "f1d1af28-6219-479d-b102-6b6e530864c9__L0",
-      "name": "Capitalization Toggled",
-      "symbol": "var_capitalization_toggled"
+      "name": "Is Finished",
+      "symbol": "var_is_finished"
     },
     {
       "id": "371a62e7-429f-43ed-97bb-5f0e436f4196__L0",

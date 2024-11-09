@@ -1,7 +1,7 @@
 {
   "_resourceType": "scene",
   "id": "7f69b524-b5c7-485d-8809-18efbc48c619",
-  "_index": 28,
+  "_index": 26,
   "name": "Boot Strapper",
   "backgroundId": "1e5f9d6a-bdbc-43e6-8c34-22f5bb5dea05",
   "tilesetId": "",
@@ -32,14 +32,14 @@
     {
       "command": "EVENT_SWITCH_SCENE",
       "args": {
-        "sceneId": "fec17fda-d577-4bb0-92f0-f59cd7c8c93a",
+        "sceneId": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64",
         "x": {
           "type": "number",
-          "value": 39
+          "value": 0
         },
         "y": {
           "type": "number",
-          "value": 70
+          "value": 0
         },
         "direction": "",
         "fadeSpeed": 0

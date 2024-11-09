@@ -4,20 +4,12 @@
 
 typedef struct {
   // shared data
-  BYTE slot_id;
+
   BYTE hp;
   BOOLEAN alive;
-  // enemy only data
-  BYTE skill_idx;
-  BYTE x;
-  BYTE y;
-  BYTE w;
-  BYTE h;
-  // player only data
-  BYTE ap;
-  // static data
-  BYTE type;
   BYTE max_hp;
+
+  BYTE type;
   BYTE gold;
   BYTE exp;
   BYTE damage;
@@ -36,7 +28,6 @@ typedef struct {
   BYTE resists;
   BYTE skills[4];
   BYTE skill_costs[4];
-  char name[8];
 } entity_data;
 
 #endif
