@@ -12,13 +12,13 @@
   "backgroundId": "ec861a67-ee38-41f7-b0aa-95036c9a6bce",
   "tilesetId": "",
   "paletteIds": [
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
     "d8ef3f33-956f-4f96-a8a4-774608a880da"
   ],
   "spritePaletteIds": [
@@ -26,6 +26,7 @@
     "4b5c94c3-d95b-4802-9f92-3d6266692d3c"
   ],
   "autoFadeSpeed": 1,
+  "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
   "script": [
     {
       "command": "MY_EVENT_CALL_NATIVE",
@@ -210,6 +211,5 @@
   "playerHit1Script": [],
   "playerHit2Script": [],
   "playerHit3Script": [],
-  "collisions": "",
-  "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5"
+  "collisions": ""
 }

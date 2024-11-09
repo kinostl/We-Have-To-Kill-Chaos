@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "e2fc7171-ae3b-4df3-a1df-050af0eb585f",
+  "name": "new_template_of_fiends_inside",
+  "symbol": "bg_new_template_of_fiends_i",
+  "width": 80,
+  "height": 80,
+  "imageWidth": 640,
+  "imageHeight": 640,
+  "filename": "new_template_of_fiends_inside.png",
+  "autoColor": true,
+  "tileColors": ""
+}
