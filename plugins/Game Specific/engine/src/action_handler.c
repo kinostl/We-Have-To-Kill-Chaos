@@ -1,5 +1,5 @@
-#include "enemy_data.h"
 #include "extra_data.h"
+#include "skill_data.h"
 #include "states/rpg_combat.h"
 #include <data/game_globals.h>
 #include <macro.h>
@@ -30,34 +30,6 @@ void animate(RPG_ANIMATION_STATE rpg_animation_state) BANKED;
 void ui_draw_frame(UBYTE x, UBYTE y, UBYTE width, UBYTE height) BANKED;
 void handle_skill(UBYTE skill_id) BANKED;
 
-void loadFauxHero(void) BANKED {
-  turn_slots[0].max_hp = 35;
-  turn_slots[0].hp = 35;
-  turn_slots[0].hit_chance = 10;
-  turn_slots[0].crit_chance = 0;
-  turn_slots[0].damage = 10;
-  turn_slots[0].alive = TRUE;
-  turn_slots[0].ap = 0;
-  strcpy(turn_slots[0].name, "ONCLER");
-
-  turn_slots[0].x = 13;
-  turn_slots[0].y = 2;
-  turn_slots[0].w = 3;
-  turn_slots[0].h = 3;
-
-  turn_slots[0].skills[0] = FIGHT;
-  turn_slots[0].skill_costs[0] = 1;
-
-  turn_slots[0].skills[1] = SHIELD_SKILL;
-  turn_slots[0].skill_costs[1] = 1;
-
-  turn_slots[0].skills[2] = RUNE_SWORD;
-  turn_slots[0].skill_costs[2] = 2;
-
-  turn_slots[0].skills[3] = LUSTER;
-  turn_slots[0].skill_costs[3] = 3;
-}
-
 void init_actions(void) BANKED {
   action_tail_cursor = 0;
   action_head_cursor = 0;
@@ -76,6 +48,7 @@ void dispatch_action(ACTION_TYPE action_data) BANKED {
 void handle_action(ACTION_TYPE action_type) BANKED {
   switch (action_type) {
   case ATTACKER_Fight:
+    animate(ANIMATE_ENEMY_DAMAGED);
     break;
   case ATTACKER_StartNextTurn:
     turn_cursor--;
@@ -94,12 +67,14 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       dispatch_action(PANEL_OpenPanel);
       dispatch_action(PANEL_DisplayCurrentActor);
       
-      dispatch_action(PICK_GetPlayerChoice);
+      dispatch_action(PICK_GetPlayerActionChoice);
     } else if (current_actor > 3) {
       attacker_prepareNextTurn_Enemy();
     }
     break;
   case DEFENDER_TakeDamage:
+    defender_TakeDamage(&hero_slots[current_actor].ext,
+                        &enemy_slots[rpg_player_choice].ext);
     break;
   case PANEL_ClosePanel:
     ui_move_to(20 << 3, 0 << 3, text_out_speed);
@@ -108,7 +83,6 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case PANEL_DisplayCurrentActor:
     break;
   case PANEL_DisplayMenu:
-    loadFauxHero();
     loadHeroMenu();
     ui_draw_frame(0,0,8,18);
     fs_menu_write_win_font(1, 1, 6, 16, true, true);
@@ -128,7 +102,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     ui_move_to(12 << 3, 0 << 3, text_in_speed);
     ui_run_modal(UI_WAIT_WINDOW);
     break;
-  case PICK_GetPlayerChoice:
+  case PICK_GetPlayerActionChoice:
     rpg_player_choice = rpg_run_menu();
     switch (rpg_player_choice) {
     case 5:
@@ -147,6 +121,12 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       handle_skill(rpg_player_choice);
       break;
     }
+    break;
+  case PICK_GetPlayerTargetAlly:
+    rpg_player_choice = rpg_get_target_ally();
+    break;
+  case PICK_GetPlayerTargetEnemy:
+    rpg_player_choice = rpg_get_target_enemy();
     animate(ANIMATE_PLAYER_ATTACKING);
     break;
   case PICK_Item:
@@ -195,5 +175,25 @@ void animate(RPG_ANIMATION_STATE rpg_animation_state) BANKED {
 }
 
 void handle_skill(UBYTE menu_id) BANKED {
-  UBYTE skill_id = hero_slots[0].ext.skills[menu_id];
+  skill_data skill = hero_slots[0].ext.skills[menu_id];
+  switch (skill.id) {
+
+  case BLANK:
+    break;
+  case FIGHT:
+    dispatch_action(DEFENDER_TakeDamage);
+    dispatch_action(ATTACKER_Fight);
+    break;
+  case SHIELD_SKILL:
+  case LUSTER:
+  case FIRE:
+  case ICE:
+  case HARM:
+  case HEAL:
+  case GOBLIN_PUNCH:
+  case HOWL:
+  case THRASH:
+  case RUNE_SWORD:
+    break;
+  }
 }

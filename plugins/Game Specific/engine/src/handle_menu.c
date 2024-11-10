@@ -6,10 +6,11 @@
 #include <string.h>
 #include <ui.h>
 #include <vm.h>
+#include "hero_data.h"
 #include "menu_helper.h"
 #pragma bank 255
 
-BYTE create_hero_data(entity_data *player, unsigned char *d, BYTE row) OLDCALL BANKED {
+BYTE create_hero_data(hero_data *player, unsigned char *d, BYTE row) OLDCALL BANKED {
   unsigned char *f = d;
 
   // Fast Text Speed
@@ -33,13 +34,13 @@ BYTE create_hero_data(entity_data *player, unsigned char *d, BYTE row) OLDCALL B
   *d++ = 5;
   *d++ = 4+(row*4);
   // HP Here
-  if (player->hp < 100) {
+  if (player->ext.hp < 100) {
     *d++ = ' ';
   }
-  if (player->hp < 10) {
+  if (player->ext.hp < 10) {
     *d++ = ' ';
   }
-  d += itoa_format(player->hp, d, 0);
+  d += itoa_format(player->ext.hp, d, 0);
 
   // Set to AP Location
   *d++ = 0x03;
@@ -62,52 +63,11 @@ void loadPartyMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
   unsigned char *d = ui_text_data;
   for (int i = 0; i < 4; i++) {
-    d += create_hero_data(&turn_slots[i], d, i);
+    d += create_hero_data(&hero_slots[i], d, i);
     *d-- = '\n';
   }
 }
 
-void load_skill_name(BYTE skill_id, char *d) OLDCALL BANKED {
-  switch (skill_id) {
-  case FIGHT:
-    strcpy(d, "Fight");
-    break;
-  case SHIELD_SKILL:
-    strcpy(d, "Shield");
-    break;
-  case RUNE_SWORD:
-    strcpy(d, "Runic");
-    break;
-  case LUSTER:
-    strcpy(d, "Luster");
-    break;
-  case GOBLIN_PUNCH:
-    strcpy(d, "GobPun");
-    break;
-  case HOWL:
-    strcpy(d, "Howl");
-    break;
-  case THRASH:
-    strcpy(d, "Thrash");
-    break;
-  case FIRE:
-    strcpy(d, "Fire");
-    break;
-  case ICE:
-    strcpy(d, "Ice");
-    break;
-  case HARM:
-    strcpy(d, "Harm");
-    break;
-  case HEAL:
-    strcpy(d, "Heal");
-    break;
-  default:
-  case BLANK:
-    strcpy(d, "");
-    break;
-  }
-}
 
 BYTE load_stars(BYTE star_length, unsigned char *d)OLDCALL BANKED{
     if(star_length == 0) return 0;
@@ -122,18 +82,16 @@ BYTE load_stars(BYTE star_length, unsigned char *d)OLDCALL BANKED{
     return star_length;
 }
 
-BYTE load_menu_item(BYTE skill_id, unsigned char *d) OLDCALL BANKED {
-  char skill_str[7];
-  load_skill_name(skill_id, skill_str);
-  BYTE str_len = strlen(skill_str);
+BYTE load_menu_item(unsigned char * skill_name, unsigned char *d) OLDCALL BANKED {
+  BYTE str_len = strlen(skill_name);
   for (int i = 0; i < str_len; i++) {
-    *d++ = skill_str[i];
+    *d++ = skill_name[i];
   }
   return str_len;
 }
 
 void loadHeroMenu(void) OLDCALL BANKED {
-  entity_data *player = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
+  hero_data *player = &hero_slots[0];
   unsigned char *d = ui_text_data;
   d+=create_hero_data(player, d, 0);
   *d-- = '\n';
@@ -143,9 +101,9 @@ void loadHeroMenu(void) OLDCALL BANKED {
   *d++ = 2;
   *d++ = 6;
   for (int i = 0; i < 4; i++) {
-    d += load_menu_item(player->skills[i], d);
+    d += load_menu_item(player->ext.skills[i].name, d);
     *d++ = '\n';
-    d += load_stars(player->skill_costs[i], d);
+    d += load_stars(player->ext.skills[i].cost, d);
     *d++ = '\n';
   }
   const char r_menu[25] = "Item >\nMagic>\nBlock-\nRun";

@@ -74,3 +74,11 @@ UBYTE rpg_run_menu(void) BANKED {
     }
   };
 }
+
+UBYTE rpg_get_target_ally (void) BANKED {
+
+}
+
+UBYTE rpg_get_target_enemy (void) BANKED {
+
+}

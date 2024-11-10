@@ -77,12 +77,12 @@
         "__collapseCase1": false,
         "__collapseCase14": true,
         "__collapseCase8": true,
-        "__collapseCase9": false,
+        "__collapseCase9": true,
         "__collapseCase15": true,
         "__collapseCase12": true,
-        "__collapseCase11": true,
+        "__collapseCase11": false,
         "__collapseCase10": true,
-        "__collapseCase21": true,
+        "__collapseCase21": false,
         "__collapseCase4": true,
         "__collapseCase5": true,
         "__collapseCase7": true,
@@ -93,7 +93,7 @@
         "__collapseCase17": true,
         "__collapseCase20": true,
         "__collapseCase13": true,
-        "__collapseCase0": true,
+        "__collapseCase0": false,
         "__collapseCase16": true,
         "__collapseCase19": true,
         "__collapseCase22": true,
@@ -101,7 +101,7 @@
         "__collapse": false,
         "__collapseCase23": true,
         "__collapseCase25": true,
-        "__collapseCase24": true,
+        "__collapseCase24": false,
         "__collapseCase26": true,
         "__collapseCase27": true,
         "__collapseCase28": true,
@@ -137,7 +137,7 @@
                 }
               },
               "__collapseElse": false,
-              "__collapse": true,
+              "__collapse": false,
               "__disableElse": false
             },
             "children": {
@@ -194,7 +194,7 @@
                 {
                   "command": "FF_EVENT_CHOOSE_SKILL",
                   "args": {
-                    "__collapse": false
+                    "__collapse": true
                   },
                   "id": "e61d5082-8e9b-44c1-b05b-d0e5526138af"
                 }

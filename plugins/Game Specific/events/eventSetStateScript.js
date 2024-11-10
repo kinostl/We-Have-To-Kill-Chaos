@@ -2,7 +2,8 @@ const id = "FF_EVENT_SET_SCRIPT_TO_STATE";
 const groups = ["Game Specific"];
 const stateNames = [
     "Animate Player Attacking",
-    "Animate Enemy Attacking"
+    "Animate Enemy Attacking",
+    "Animate Enemy Damaged"
 ]
 const name = "Attach Script to Animation State";
 const autoLabel = (fetchArg) => {

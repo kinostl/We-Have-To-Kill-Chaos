@@ -7,6 +7,7 @@
 
 typedef struct {
   char name[7];
+  BYTE ap;
 
   BYTE job;
 

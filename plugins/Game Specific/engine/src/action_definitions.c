@@ -1,6 +1,8 @@
 #include "entity_data.h"
 #include "extra_data.h"
+#include <asm/types.h>
 #include <data/game_globals.h>
+#include <math.h>
 #pragma bank 255
 #include "rand.h" // IWYU pragma: keep
 #include "action_definitions.h"
@@ -77,3 +79,26 @@ void attacker_prepareNextTurn_Hero() BANKED {
 }
 
 void attacker_prepareNextTurn_Enemy() BANKED{}
+
+void defender_TakeDamage(entity_data *attacker, entity_data *defender) BANKED {
+  const UWORD hit_roll = rand() % 201;
+  const UWORD target_number = (168 + attacker->hit_chance) - defender->evade;
+
+  if (hit_roll == 200 || (target_number < hit_roll)) {
+    return;
+  }
+
+  const UWORD atk_dmg = attacker->damage;
+  UWORD damage_calc = (rand() % atk_dmg) + (atk_dmg + 1);
+
+  if (attacker->crit_chance > hit_roll) {
+    defender->hp -= damage_calc;
+  }
+
+  damage_calc = MAX(damage_calc - defender->absorb, 1);
+  defender->hp -= damage_calc;
+
+  if (defender->hp <= 0) {
+    defender->alive = FALSE;
+  }
+}

@@ -1,5 +1,6 @@
 #ifndef FF_ACTION_HANDLER
 #define FF_ACTION_HANDLER
+#include "entity_data.h"
 #include <asm/types.h>
 
 typedef enum {
@@ -16,7 +17,9 @@ typedef enum {
   PANEL_HidePartyActors,
   PANEL_LoadItems,
   PANEL_OpenPanel,
-  PICK_GetPlayerChoice,
+  PICK_GetPlayerActionChoice,
+  PICK_GetPlayerTargetAlly,
+  PICK_GetPlayerTargetEnemy,
   PICK_Item,
   PICK_Magic,
   PICK_Block,
@@ -34,4 +37,5 @@ void dispatch_action(ACTION_TYPE action_type) BANKED;
 void init_actions(void) BANKED;
 void attacker_prepareNextTurn_Hero(void) BANKED;
 void attacker_prepareNextTurn_Enemy(void) BANKED;
+void defender_TakeDamage(entity_data *attacker, entity_data *defender) BANKED;
 #endif

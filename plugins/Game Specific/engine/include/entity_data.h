@@ -1,14 +1,12 @@
 #ifndef FF_ENTITY_DATA
 #define FF_ENTITY_DATA
+#include "skill_data.h"
 #include <asm/types.h>
 
 typedef struct {
-  // shared data
-
   BYTE hp;
   BOOLEAN alive;
   BYTE max_hp;
-
   BYTE type;
   BYTE gold;
   BYTE exp;
@@ -26,8 +24,7 @@ typedef struct {
   BYTE family;
   BYTE weakness;
   BYTE resists;
-  BYTE skills[4];
-  BYTE skill_costs[4];
+  skill_data skills[4];
 } entity_data;
 
 #endif

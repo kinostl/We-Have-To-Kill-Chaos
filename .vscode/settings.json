@@ -10,5 +10,8 @@
     },
     "C_Cpp.errorSquiggles": "enabled",
     "C_Cpp.exclusionPolicy": "checkFolders",
-    "C_Cpp.clang_format_fallbackStyle": "WebKit"
+    "C_Cpp.clang_format_fallbackStyle": "WebKit",
+    "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.autocomplete": "disabled",
+    "C_Cpp.clang_format_style": "file:./clang-format"
 }

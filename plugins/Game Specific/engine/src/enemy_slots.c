@@ -383,66 +383,6 @@ void checkEnemyAlive(SCRIPT_CTX *THIS) OLDCALL BANKED {
 }
 
 void handleEnemyTakeDamage(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  THIS;
-  entity_data *defender;
-  defender = &turn_slots[VM_GLOBAL(VAR_DEFENDER_ID)];
-  entity_data *attacker;
-  attacker = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
-
-  UWORD * name = &VM_GLOBAL(VAR_1_C);
-  UWORD name_l = strlen(defender->name);
-  for(int i=0;i<name_l;i++){
-    name[i] = defender->name[i];
-  }
-  for(int i=name_l;i<8;i++){
-    name[i]=127;
-  }
-
-  VM_GLOBAL(VAR_EXPLOSION_X) = defender->x;
-  VM_GLOBAL(VAR_EXPLOSION_Y) = defender->y;
-  VM_GLOBAL(VAR_EXPLOSION_W) = defender->w;
-  VM_GLOBAL(VAR_EXPLOSION_H) = defender->h;
-
-  VM_GLOBAL(VAR_DEFENDER_STARTING_HP) = defender->hp;
-
-  UWORD hit_roll;
-  UWORD damage_calc;
-
-  if (VM_GLOBAL(VAR_META_DEBUG) > 1) {
-    hit_roll = 0;
-  } else {
-    hit_roll = rand() % 201;
-  }
-
-  UWORD target_number = (168 + attacker->hit_chance) - defender->evade;
-
-  VM_GLOBAL(VAR_ATTACKER_MISSED) = target_number < hit_roll;
-  if(hit_roll == 0){
-    VM_GLOBAL(VAR_ATTACKER_MISSED) = FALSE;
-  }
-  if(hit_roll == 200){
-    VM_GLOBAL(VAR_ATTACKER_MISSED) = TRUE;
-  }
-
-  if (VM_GLOBAL(VAR_ATTACKER_MISSED))
-    return;
-
-  const UWORD atk_dmg = attacker->damage;
-  damage_calc = (rand() % atk_dmg) + (atk_dmg + 1);
-  if (attacker->crit_chance > hit_roll) {
-    defender->hp -= damage_calc;
-    VM_GLOBAL(VAR_ATTACKER_CRIT_DAMAGE) = damage_calc;
-  }
-  damage_calc = MAX(damage_calc - defender->absorb, 1);
-  defender->hp -= damage_calc;
-  VM_GLOBAL(VAR_DEFENDER_ENDING_HP) = defender->hp;
-
-  if(defender->hp <= 0){
-    defender->alive = FALSE;
-    if (VM_GLOBAL(VAR_DEFENDER_ID) >= 4) {
-      VM_GLOBAL(VAR_SCENE_ENEMIES_ALIVE)--;
-    }
-  }
 }
 
 void enemyFlashBKG(SCRIPT_CTX *THIS) OLDCALL BANKED {
