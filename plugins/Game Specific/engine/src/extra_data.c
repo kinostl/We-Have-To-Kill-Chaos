@@ -1,11 +1,9 @@
 #include "extra_data.h"
 #include "action_handler.h"
-#include "armor_data.h"
 #include "enemy_data.h"
 #include "entity_data.h"
 #include "hero_data.h"
 #include "item_slot.h"
-#include "weapon_data.h"
 #include <asm/types.h>
 #include <data/game_globals.h>
 #include <string.h>
@@ -18,6 +16,7 @@ hero_data *hero_slots;
 enemy_data *enemy_slots;
 ACTION_TYPE *action_slots;
 BYTE *turn_order;
+entity_data ** turn_slots;
 
 #define valloc(struct_name, count) (struct_name *) &VM_GLOBAL(MAX_GLOBAL_VARS+v_cursor);\
 v_cursor+=((sizeof(struct_name) * count) / sizeof(UWORD))
@@ -38,5 +37,9 @@ void init_extra_data(void) OLDCALL BANKED {
     hero_slots[i].job = i;
     strcpy(hero_slots[i].name, "");
     hero_slots[i].idx = i;
+    turn_slots[i] = &hero_slots[i].ext;
+  }
+  for(UBYTE i=0;i<6;i++){
+    turn_slots[i+4] = &enemy_slots[i].ext;
   }
 }

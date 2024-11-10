@@ -1,5 +1,7 @@
 #include "entity_data.h"
 #include "extra_data.h"
+#include "hero_data.h"
+#include "weapon_data.h"
 #include <asm/types.h>
 #include <data/game_globals.h>
 #include <math.h>
@@ -16,7 +18,7 @@ void turn_rollInitiative(void) BANKED{
     }
 
     for (int i = 0; i < 10; i++) {
-      entity_data * entity = &turn_slots[i];
+      entity_data * entity = turn_slots[i];
       if (!entity->alive)
         continue;
       BYTE *initiative_slot = &turn_order[i];
@@ -65,20 +67,13 @@ BYTE turn_sortInitiative(void) BANKED{
 }
 #undef initiative_rolls
 
-void attacker_prepareNextTurn_Hero() BANKED {
-    VM_GLOBAL(VAR_ATTACKER_ID) = VM_GLOBAL(VAR_TURN_ORDER_CURRENT_ACTO);
-
-    entity_data *player = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
-    weapon_data *weapon = &weapon_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
+void attacker_prepareNextTurn_Hero(void) BANKED {
+    hero_data *player = &hero_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
+    weapon_data *weapon = &player->weapon;
     player->ap++;
-    VM_GLOBAL(VAR_ATTACKER_AP) = player->ap;
-    VM_GLOBAL(VAR_ATTACKER_TYPE) = VM_GLOBAL(VAR_ATTACKER_ID) + 1;
-
-    VM_GLOBAL(VAR_1WEAPON_TYPE) = weapon->type;
-    VM_GLOBAL(VAR_1WEAPON_COLORS) = weapon->color;
 }
 
-void attacker_prepareNextTurn_Enemy() BANKED{}
+void attacker_prepareNextTurn_Enemy(void) BANKED{}
 
 void defender_TakeDamage(entity_data *attacker, entity_data *defender) BANKED {
   const UWORD hit_roll = rand() % 201;

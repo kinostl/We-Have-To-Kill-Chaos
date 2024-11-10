@@ -175,8 +175,8 @@ void animate(RPG_ANIMATION_STATE rpg_animation_state) BANKED {
 }
 
 void handle_skill(UBYTE menu_id) BANKED {
-  skill_data skill = hero_slots[0].ext.skills[menu_id];
-  switch (skill.id) {
+  const skill_data * skill = hero_slots[0].ext.skills[menu_id];
+  switch (skill->id) {
 
   case BLANK:
     break;

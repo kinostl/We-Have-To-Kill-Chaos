@@ -20,32 +20,32 @@ Normal Attack
 Short name: GobPun
 */
 void goblinPunch(SCRIPT_CTX *THIS) OLDCALL BANKED{
-  entity_data * attacker = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
-  entity_data * defender = &turn_slots[VM_GLOBAL(VAR_DEFENDER_ID)];
-  WORD *attacker_damage = VM_REF_TO_PTR(VAR_ATTACKER_DAMAGE);
+  // entity_data * attacker = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
+  // entity_data * defender = &turn_slots[VM_GLOBAL(VAR_DEFENDER_ID)];
+  // WORD *attacker_damage = VM_REF_TO_PTR(VAR_ATTACKER_DAMAGE);
 
-  WORD distance = DISTANCE(attacker->max_hp, defender->max_hp);
-  WORD modifier = 8 - CLAMP(distance, 0, 7);
+  // WORD distance = DISTANCE(attacker->max_hp, defender->max_hp);
+  // WORD modifier = 8 - CLAMP(distance, 0, 7);
 
-  *attacker_damage -= DIV_4(*attacker_damage);
-  *attacker_damage *= modifier;
+  // *attacker_damage -= DIV_4(*attacker_damage);
+  // *attacker_damage *= modifier;
 }
 
 void chooseEnemySkill(SCRIPT_CTX * THIS) OLDCALL BANKED {
   THIS;
-  UWORD *skill_id = &VM_GLOBAL(VAR_ATTACKER_SKILL);
-  if (rand() % 2 > 0) {
-    *skill_id = FIGHT;
-    return;
-  }
+  // UWORD *skill_id = &VM_GLOBAL(VAR_ATTACKER_SKILL);
+  // if (rand() % 2 > 0) {
+  //   *skill_id = FIGHT;
+  //   return;
+  // }
 
-  BYTE slot_id = VM_GLOBAL(VAR_ATTACKER_ID);
-  entity_data *entity_data = &turn_slots[slot_id];
+  // BYTE slot_id = VM_GLOBAL(VAR_ATTACKER_ID);
+  // entity_data *entity_data = &turn_slots[slot_id];
 
-  entity_data->skill_idx++;
-  if (entity_data->skill_idx > 4) {
-    entity_data->skill_idx = 1;
-  }
+  // entity_data->skill_idx++;
+  // if (entity_data->skill_idx > 4) {
+  //   entity_data->skill_idx = 1;
+  // }
 
-  *skill_id = entity_data->skills[entity_data->skill_idx];
+  // *skill_id = entity_data->skills[entity_data->skill_idx];
 }

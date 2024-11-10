@@ -1,31 +1,19 @@
 #include <bankdata.h>
 #include <gb/gb.h>
+#include <string.h>
 #include "enemy_data.h"
+#include "db/enemy.h"
 #include "encounter_table.h"
-
-#include "enemy_data/imp.h"
-#include "enemy_data/wolf.h"
-#include "enemy_data/mad_pony.h"
-#include "entity_data.h"
+#include "enums.h"
 
 #pragma bank 255
 
-void set_enemy_data(entity_data * entity, BYTE enemy_id) OLDCALL BANKED {
-  switch (enemy_id) {
-  default:
-  case IMP:
-    set_to_imp(entity);
-    break;
-  case WOLF:
-    set_to_wolf(entity);
-    break;
-  case MADPONY:
-    set_to_mad_pony(entity);
-    break;
-  }
+
+void set_enemy_data(enemy_data * entity, ENEMY_TYPE enemy_id) OLDCALL BANKED {
+  memcpy(&entity, enemy_db[enemy_id], sizeof(enemy_data));
 }
 
-void set_encounter_table(BYTE encounter_table[4], BYTE encounter_table_id)
+void set_encounter_table(ENEMY_TYPE encounter_table[4], BYTE encounter_table_id)
                         OLDCALL BANKED{
   switch (encounter_table_id) {
   case 0:

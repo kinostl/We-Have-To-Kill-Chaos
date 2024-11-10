@@ -3,7 +3,6 @@
 
 #include "entity_data.h"
 
-
 typedef struct {
   BYTE skill_idx;
   BYTE x;

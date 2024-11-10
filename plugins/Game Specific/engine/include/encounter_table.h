@@ -3,8 +3,9 @@
 
 #include <asm/types.h>
 #include <bankdata.h>
-#include "entity_data.h"
+#include "enemy_data.h"
+#include "enums.h"
 
-void set_enemy_data(entity_data * entity, BYTE enemy_id) OLDCALL BANKED;
-void set_encounter_table(BYTE encounter_table[4], BYTE encounter_table_id) OLDCALL BANKED;
+void set_enemy_data(enemy_data * entity, ENEMY_TYPE enemy_id) OLDCALL BANKED;
+void set_encounter_table(ENEMY_TYPE encounter_table[4], BYTE encounter_table_id) OLDCALL BANKED;
 #endif

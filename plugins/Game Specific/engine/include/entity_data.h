@@ -1,5 +1,6 @@
 #ifndef FF_ENTITY_DATA
 #define FF_ENTITY_DATA
+#include "enums.h"
 #include "skill_data.h"
 #include <asm/types.h>
 
@@ -21,10 +22,10 @@ typedef struct {
   BYTE morale;
   BYTE magic;
   BYTE spatk;
-  BYTE family;
-  BYTE weakness;
+  ENEMY_FAMILY family;
+  ENEMY_TYPE weakness;
   BYTE resists;
-  skill_data skills[4];
+  const skill_data * skills[4];
 } entity_data;
 
 #endif

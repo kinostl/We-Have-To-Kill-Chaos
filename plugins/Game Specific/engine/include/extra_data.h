@@ -3,6 +3,7 @@
 
 #include "action_handler.h"
 #include "enemy_data.h"
+#include "entity_data.h"
 #include "hero_data.h"
 #include "item_slot.h"
 
@@ -15,5 +16,6 @@ extern hero_data * hero_slots;
 extern enemy_data * enemy_slots;
 extern ACTION_TYPE * action_slots;
 extern BYTE * turn_order;
+extern entity_data ** turn_slots;
 
 #endif
