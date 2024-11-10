@@ -4,10 +4,13 @@
 #include "entity_data.h"
 #include "hero_data.h"
 #include "item_slot.h"
+#include "skill_data.h"
 #include <asm/types.h>
+#include <bankdata.h>
 #include <data/game_globals.h>
 #include <string.h>
 #include <vm.h>
+
 #pragma bank 255
 
 item_slot *item_slots;
@@ -16,13 +19,15 @@ hero_data *hero_slots;
 enemy_data *enemy_slots;
 ACTION_TYPE *action_slots;
 BYTE *turn_order;
-entity_data ** turn_slots;
+entity_data **turn_slots;
 
-#define valloc(struct_name, count) (struct_name *) &VM_GLOBAL(MAX_GLOBAL_VARS+v_cursor);\
-v_cursor+=((sizeof(struct_name) * count) / sizeof(UWORD))
+#define vtotal (VM_HEAP_SIZE + (VM_MAX_CONTEXTS * VM_CONTEXT_STACK_SIZE))
+#define valloc(struct_name, count)                                             \
+  (struct_name *)&VM_GLOBAL(MAX_GLOBAL_VARS + v_cursor);                       \
+  v_cursor += ((sizeof(struct_name) * count) / sizeof(UWORD))
 
 void init_extra_data(void) OLDCALL BANKED {
-  BYTE v_cursor = MAX_GLOBAL_VARS;
+  UWORD v_cursor = 0;
   action_slots = valloc(ACTION_TYPE, 16);
 
   hero_slots = valloc(hero_data, 4);
@@ -32,14 +37,31 @@ void init_extra_data(void) OLDCALL BANKED {
 
   item_slots = valloc(item_slot, MAX_ITEM_SLOTS);
   menu_slots = valloc(item_slot, MAX_ITEM_SLOTS);
+  turn_slots = valloc(entity_data *, 10);
 
-  for(UBYTE i=0;i<4;i++){
+#ifdef STRICT
+#include <gb/crash_handler.h>
+#include <gb/emu_debug.h>
+
+  if (MAX_GLOBAL_VARS + v_cursor >= 512) {
+    EMU_MESSAGE("Ran out of Script Memory due to Valloc");
+    __HandleCrash();
+  }
+#endif
+
+  for (UBYTE i = 0; i < 4; i++) {
     hero_slots[i].job = i;
-    strcpy(hero_slots[i].name, "");
+    strcpy(hero_slots[i].name, "      ");
     hero_slots[i].idx = i;
     turn_slots[i] = &hero_slots[i].ext;
+    hero_slots[i].ext.skills[0] = &skill_db[FIGHT];
+    hero_slots[i].ext.skills[1] = &skill_db[SHIELD_SKILL];
+    hero_slots[i].ext.skills[2] = &skill_db[RUNE_SWORD];
+    hero_slots[i].ext.skills[3] = &skill_db[LUSTER];
   }
-  for(UBYTE i=0;i<6;i++){
-    turn_slots[i+4] = &enemy_slots[i].ext;
+  for (UBYTE i = 0; i < 6; i++) {
+    enemy_slots[i].idx = 4 + i;
+    strcpy(enemy_slots[i].name, "       ");
+    turn_slots[i + 4] = &enemy_slots[0].ext;
   }
 }

@@ -2,12 +2,14 @@
 #include "entity_data.h"
 #include "extra_data.h"
 #include <asm/types.h>
+#include <bankdata.h>
 #include <data/game_globals.h>
 #include <string.h>
 #include <ui.h>
 #include <vm.h>
 #include "hero_data.h"
 #include "menu_helper.h"
+#include "skill_data.h"
 #pragma bank 255
 
 BYTE create_hero_data(hero_data *player, unsigned char *d, BYTE row) OLDCALL BANKED {
@@ -82,7 +84,7 @@ BYTE load_stars(BYTE star_length, unsigned char *d)OLDCALL BANKED{
     return star_length;
 }
 
-BYTE load_menu_item(unsigned char * skill_name, unsigned char *d) OLDCALL BANKED {
+BYTE load_menu_item(const unsigned char * skill_name, unsigned char *d) OLDCALL BANKED {
   BYTE str_len = strlen(skill_name);
   for (int i = 0; i < str_len; i++) {
     *d++ = skill_name[i];
@@ -91,24 +93,27 @@ BYTE load_menu_item(unsigned char * skill_name, unsigned char *d) OLDCALL BANKED
 }
 
 void loadHeroMenu(void) OLDCALL BANKED {
-  // hero_data *player = &hero_slots[0];
-  // unsigned char *d = ui_text_data;
-  // d+=create_hero_data(player, d, 0);
-  // *d-- = '\n';
-  // *d++ = 0x01;
-  // *d++ = 1;
-  // *d++ = 0x03;
-  // *d++ = 2;
-  // *d++ = 6;
-  // for (int i = 0; i < 4; i++) {
-  //   d += load_menu_item(player->ext.skills[i].name, d);
-  //   *d++ = '\n';
-  //   d += load_stars(player->ext.skills[i].cost, d);
-  //   *d++ = '\n';
-  // }
-  // const char r_menu[25] = "Item >\nMagic>\nBlock-\nRun";
-  // for (int i = 0; i < strlen(r_menu); i++) {
-  //   *d++ = r_menu[i];
-  // }
-  // *d++='\0';
+  hero_data *player = &hero_slots[0];
+  unsigned char *d = ui_text_data;
+  d+=create_hero_data(player, d, 0);
+  *d-- = '\n';
+  *d++ = 0x01;
+  *d++ = 1;
+  *d++ = 0x03;
+  *d++ = 2;
+  *d++ = 6;
+  skill_data skill;
+
+  for (int i = 0; i < 4; i++) {
+    load_skill(skill, player->ext.skills[i]);
+    d += load_menu_item(skill.name, d);
+    *d++ = '\n';
+    d += load_stars(skill.cost, d);
+    *d++ = '\n';
+  }
+  const char r_menu[25] = "Item >\nMagic>\nBlock-\nRun";
+  for (int i = 0; i < strlen(r_menu); i++) {
+    *d++ = r_menu[i];
+  }
+  *d++='\0';
 }

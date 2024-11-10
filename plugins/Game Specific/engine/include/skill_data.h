@@ -1,6 +1,7 @@
 #ifndef FF_SKILLS
 #define FF_SKILLS
 #include <asm/types.h>
+#include <gb/gb.h>
 typedef enum {
   BLANK,
   FIGHT,
@@ -27,11 +28,14 @@ typedef enum {
 
 typedef struct {
   BATTLE_SKILL id;
-  UBYTE name[8];
+  const unsigned char name[8];
   BYTE cost;
   SKILL_TARGET target;
 } skill_data;
 
 extern const skill_data skill_db[];
+#define load_skill(skill, skill_src)                                            \
+  MemcpyBanked(&skill, skill_src, sizeof(skill_data), BANK(FF_SKILLS));
 
+BANKREF_EXTERN(FF_SKILLS)
 #endif
