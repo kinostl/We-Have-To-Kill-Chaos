@@ -324,7 +324,7 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
       break;
     }
 
-    set_enemy_data(current_enemy, encounter_table[idx]);
+    load_enemy(current_enemy, encounter_table[idx]);
     current_enemy->ext.hp = current_enemy->ext.max_hp;
     current_enemy->ext.alive = TRUE;
     current_enemy->x = next_x;
@@ -352,7 +352,7 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
       break;
     }
 
-    set_enemy_data(current_enemy, encounter_table[idx]);
+    load_enemy(current_enemy, encounter_table[idx]);
     current_enemy->ext.hp = current_enemy->ext.max_hp;
     current_enemy->ext.alive = TRUE;
     current_enemy->x = next_x;

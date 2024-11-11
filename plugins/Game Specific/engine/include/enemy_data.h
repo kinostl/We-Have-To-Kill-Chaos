@@ -15,5 +15,8 @@ typedef struct {
 
   BYTE idx;
 } enemy_data;
+extern const enemy_data enemy_db[];
+
+void load_enemy(enemy_data *enemy, ENEMY_TYPE enemy_type) BANKED;
 
 #endif
