@@ -1,0 +1,61 @@
+{
+  "_resourceType": "actor",
+  "id": "40d6ad82-b098-466e-bbaf-7c61193a3950",
+  "name": "",
+  "frame": 0,
+  "animate": false,
+  "spriteSheetId": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
+  "prefabId": "",
+  "direction": "down",
+  "moveSpeed": 1,
+  "animSpeed": 15,
+  "paletteId": "",
+  "isPinned": false,
+  "persistent": false,
+  "collisionGroup": "",
+  "prefabScriptOverrides": {},
+  "symbol": "actor_72",
+  "script": [
+    {
+      "command": "EVENT_TEXT",
+      "args": {
+        "text": [
+          "See your face upon\nthe clean water.\nHow Dirty! Come!\nWash your face!"
+        ],
+        "__section": "text",
+        "avatarId": "",
+        "minHeight": 4,
+        "maxHeight": 7,
+        "textX": 1,
+        "textY": 1,
+        "textHeight": 5,
+        "position": "bottom",
+        "clearPrevious": true,
+        "showFrame": "true",
+        "speedIn": -1,
+        "speedOut": -1,
+        "closeWhen": "key",
+        "closeButton": "a",
+        "closeDelayTime": 0.5,
+        "closeDelayFrames": 30
+      },
+      "id": "7bfcb68a-6d87-4a45-aaba-a11bf7f9f086"
+    }
+  ],
+  "startScript": [
+    {
+      "command": "EVENT_ACTOR_HIDE",
+      "args": {
+        "actorId": "$self$"
+      },
+      "id": "63aca132-e435-456c-86e1-5b932aa97768"
+    }
+  ],
+  "updateScript": [],
+  "hit1Script": [],
+  "hit2Script": [],
+  "hit3Script": [],
+  "x": 32,
+  "y": 25,
+  "_index": 1
+}
