@@ -246,10 +246,10 @@ void setupEnemySlots(void) BANKED {
 #define place_bg_tiles                                                         \
   setupTileBuffer(enemy_buffer, 5, 4, 0, 0, start_of_enemy_vram, import_bkg);  \
   set_bkg_tiles(1, 1, 5, 4, enemy_buffer);                                     \
-  handle_bkg_set_color(1, 1, 1, 5, 4);                                         \
+  handle_bkg_set_color(0, 1, 1, 5, 4);                                         \
   setupTileBuffer(enemy_buffer, 5, 4, 5, 0, start_of_enemy_vram, import_bkg);  \
   set_bkg_tiles(6, 1, 5, 4, enemy_buffer);                                     \
-  handle_bkg_set_color(1, 6, 1, 5, 4)
+  handle_bkg_set_color(0, 6, 1, 5, 4)
 
 #define place_sm_enemy_1(x, y, color)                                          \
   setupTileBuffer(enemy_buffer, 5, 4, 0, 4, start_of_enemy_vram, import_bkg);  \
@@ -270,109 +270,105 @@ void setupEnemySlots(void) BANKED {
   set_bkg_tiles(x, y, 6, 6, enemy_buffer);                                     \
   handle_bkg_set_color(color, x, y, 6, 6)
 
-  // BYTE idx;
-  // BYTE small_enemies[6] = {-1, -1, -1, -1, -1, -1};
-  // BYTE sm_i = 0;
-  // BYTE large_enemies[2] = {-1, -1};
-  // BYTE lg_i = 0;
-  // BYTE enemy_count = (rand() % 6) + 1;
-  // for (BYTE i = 0; i < enemy_count; i++) {
-  //   if (lg_i > 0 && sm_i > 0) {
-  //     idx = get_small_enemy_idx();
-  //   } else {
-  //     idx = get_enemy_idx();
-  //   }
+  BYTE idx;
+  BYTE small_enemies[6] = {-1, -1, -1, -1, -1, -1};
+  BYTE sm_i = 0;
+  BYTE large_enemies[2] = {-1, -1};
+  BYTE lg_i = 0;
+  BYTE enemy_count = (rand() % 6) + 1;
+  for (BYTE i = 0; i < enemy_count; i++) {
+    if (lg_i > 0 && sm_i > 0) {
+      idx = get_small_enemy_idx();
+    } else {
+      idx = get_enemy_idx();
+    }
 
-  //   switch (idx) {
-  //   case 0:
-  //   case 1:
-  //     small_enemies[sm_i] = idx;
-  //     sm_i++;
-  //     break;
-  //   case 2:
-  //   case 3:
-  //     large_enemies[lg_i] = idx;
-  //     lg_i++;
-  //     break;
-  //   }
-  // }
+    switch (idx) {
+    case 0:
+    case 1:
+      small_enemies[sm_i] = idx;
+      sm_i++;
+      break;
+    case 2:
+    case 3:
+      large_enemies[lg_i] = idx;
+      lg_i++;
+      break;
+    }
+  }
 
-  // // idk why but breaks don't like me so doing my gates in this inefficient way
-  // if (lg_i == 2) {
-  //   sm_i = 0;
-  // }
-  // if (lg_i == 1 && sm_i > 2) {
-  //   sm_i = 2;
-  // }
+  // idk why but breaks don't like me so doing my gates in this inefficient way
+  if (lg_i == 2) {
+    sm_i = 0;
+  }
+  if (lg_i == 1 && sm_i > 2) {
+    sm_i = 2;
+  }
 
-  // BYTE next_x = 1;
-  // BYTE next_y = 5;
-  // BYTE entity_data_i = 0;
-  // BYTE enemies_alive = 0;
-  // enemy_data * current_enemy;
-  // for (BYTE i = 0; i < lg_i; i++) {
-  //   current_enemy = &enemy_slots[entity_data_i];
-  //   BYTE idx = large_enemies[i];
+  BYTE next_x = 1;
+  BYTE next_y = 5;
+  BYTE entity_data_i = 0;
+  BYTE enemies_alive = 0;
+  enemy_data * current_enemy;
+  for (BYTE i = 0; i < lg_i; i++) {
+    current_enemy = &enemy_slots[entity_data_i];
+    BYTE idx = large_enemies[i];
 
-  //   switch (idx) {
-  //   case 2:
-  //     place_lg_enemy_1(next_x, next_y, 1);
-  //     break;
-  //   case 3:
-  //     place_lg_enemy_2(next_x, next_y, 1);
-  //     break;
-  //   }
+    switch (idx) {
+    case 2:
+      place_lg_enemy_1(next_x, next_y, 1);
+      break;
+    case 3:
+      place_lg_enemy_2(next_x, next_y, 1);
+      break;
+    }
 
-  //   load_enemy(current_enemy, encounter_table[idx]);
-  //   current_enemy->ext.hp = current_enemy->ext.max_hp;
-  //   current_enemy->ext.alive = TRUE;
-  //   current_enemy->x = next_x;
-  //   current_enemy->y = next_y;
-  //   current_enemy->w = 6;
-  //   current_enemy->h = 6;
+    load_enemy(current_enemy, encounter_table[idx]);
+    current_enemy->ext.hp = current_enemy->ext.max_hp;
+    current_enemy->ext.alive = TRUE;
+    current_enemy->x = next_x;
+    current_enemy->y = next_y;
+    current_enemy->w = 6;
+    current_enemy->h = 6;
 
-  //   entity_data_i++;
-  //   enemies_alive++;
+    entity_data_i++;
+    enemies_alive++;
 
-  //   next_x = 1;
-  //   next_y += 6;
-  // }
+    next_x = 1;
+    next_y += 6;
+  }
 
-  // for (BYTE i = 0; i < sm_i; i++) {
-  //   current_enemy = &enemy_slots[entity_data_i];
-  //   BYTE idx = small_enemies[i];
+  for (BYTE i = 0; i < sm_i; i++) {
+    current_enemy = &enemy_slots[entity_data_i];
+    BYTE idx = small_enemies[i];
 
-  //   switch (idx) {
-  //   case 0:
-  //     place_sm_enemy_1(next_x, next_y, 1);
-  //     break;
-  //   case 1:
-  //     place_sm_enemy_2(next_x, next_y, 1);
-  //     break;
-  //   }
+    switch (idx) {
+    case 0:
+      place_sm_enemy_1(next_x, next_y, 1);
+      break;
+    case 1:
+      place_sm_enemy_2(next_x, next_y, 1);
+      break;
+    }
 
-  //   load_enemy(current_enemy, encounter_table[idx]);
-  //   current_enemy->ext.hp = current_enemy->ext.max_hp;
-  //   current_enemy->ext.alive = TRUE;
-  //   current_enemy->x = next_x;
-  //   current_enemy->y = next_y;
-  //   current_enemy->w = 5;
-  //   current_enemy->h = 4;
+    load_enemy(current_enemy, encounter_table[idx]);
+    current_enemy->ext.hp = current_enemy->ext.max_hp;
+    current_enemy->ext.alive = TRUE;
+    current_enemy->x = next_x;
+    current_enemy->y = next_y;
+    current_enemy->w = 5;
+    current_enemy->h = 4;
 
 
-  //   entity_data_i++;
-  //   enemies_alive++;
-  //   next_x += 5;
-  //   if (next_x > 10) {
-  //     next_x = 1;
-  //     next_y += 4;
-  //   }
-  // }
-  // VM_GLOBAL(VAR_SCENE_ENEMIES_ALIVE) = enemies_alive;
-
-  load_enemy(&enemy_slots[0], MADPONY);
-  place_lg_enemy_1(1, 5, 1);
-  place_lg_enemy_2(1, 11, 1);
+    entity_data_i++;
+    enemies_alive++;
+    next_x += 5;
+    if (next_x > 10) {
+      next_x = 1;
+      next_y += 4;
+    }
+  }
+  VM_GLOBAL(VAR_SCENE_ENEMIES_ALIVE) = enemies_alive;
   place_bg_tiles;
 }
 
