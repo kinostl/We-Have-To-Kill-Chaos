@@ -7,7 +7,7 @@
   "tilesetId": "",
   "width": 20,
   "height": 18,
-  "type": "TOPDOWN",
+  "type": "MENU",
   "paletteIds": [
     "d8ef3f33-956f-4f96-a8a4-774608a880da",
     "",
@@ -16,7 +16,7 @@
     ""
   ],
   "spritePaletteIds": [
-    "4b5c94c3-d95b-4802-9f92-3d6266692d3c",
+    "349ce35e-4c36-4e07-bf6a-12c2105e2e6f",
     "4b5c94c3-d95b-4802-9f92-3d6266692d3c"
   ],
   "collisions": "00168+",
@@ -25,6 +25,15 @@
   "x": 320,
   "y": 1144,
   "script": [
+    {
+      "command": "FO_EVENT_EXPORT_SCENE_POINTER",
+      "args": {
+        "__collapse": false,
+        "": "aeecfbd3-1725-4866-8b6c-2683dc5472e5",
+        "sceneId": "aeecfbd3-1725-4866-8b6c-2683dc5472e5"
+      },
+      "id": "2c347768-739d-4422-b3f7-c844db8046e0"
+    },
     {
       "command": "EVENT_GROUP",
       "args": {
@@ -231,6 +240,41 @@
         ]
       },
       "id": "a19244c7-e337-4ee2-9d89-5f516951e13b"
+    },
+    {
+      "command": "EVENT_SET_INPUT_SCRIPT",
+      "args": {
+        "input": [
+          "start"
+        ],
+        "override": true,
+        "__scriptTabs": "press"
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_SCENE_POP_STATE",
+            "args": {
+              "fadeSpeed": "2"
+            },
+            "id": "8fc9b1bd-6efd-4193-a6fa-ac0a7e8ca791"
+          }
+        ]
+      },
+      "id": "e9dc6572-fea0-406d-a3f8-5d2a61207d7e"
+    },
+    {
+      "command": "FS_FULL_MENU_SET_AREA",
+      "args": {
+        "x": 11,
+        "y": 2,
+        "max": 5,
+        "load_val": {
+          "type": "number",
+          "value": 0
+        }
+      },
+      "id": "b06733b8-6d46-403e-959b-7490d6e9805e"
     }
   ],
   "playerHit1Script": [],

@@ -1,4 +1,6 @@
 #include <asm/types.h>
+#include <interrupts.h>
+#include <types.h>
 #pragma bank 255
 
 #include "data/states_defines.h"
@@ -13,6 +15,15 @@
 #include "trigger.h"
 #include "math.h"
 #include "vm.h"
+
+#include "bankdata.h"
+#include "data_manager.h"
+#include "fade_manager.h"
+
+
+#include "vm.h"
+
+#include "data/bank_by_name_pause_menu.h"
 
 #ifndef INPUT_TOPDOWN_INTERACT
 #define INPUT_TOPDOWN_INTERACT INPUT_A
@@ -171,6 +182,26 @@ void topdown_update(void) BANKED {
                     script_execute(hit_actor->script.bank, hit_actor->script.ptr, 0, 1, 0);
                 }
             }
+        }
+
+        if (INPUT_START_PRESSED) {
+          UBYTE fade_in;
+          scene_stack_ptr->scene = current_scene;
+          scene_stack_ptr->pos = PLAYER.pos;
+          scene_stack_ptr->dir = PLAYER.dir;
+          scene_stack_ptr++;
+
+          // kill all threads, but don't clear VM memory
+          script_runner_init(FALSE);
+          // load start scene
+          fade_out_modal();
+          fade_in = !load_scene(&ff_pause_menu, ff_pause_menu_bank, TRUE);
+          // load initial player
+          load_player();
+
+          if (fade_in) {
+            fade_in_modal();
+          }
         }
     }
 

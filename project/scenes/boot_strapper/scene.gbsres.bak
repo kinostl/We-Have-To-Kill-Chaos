@@ -22,6 +22,11 @@
       "id": "f51462f5-f8e4-4372-b33f-0a3b86ae93ad"
     },
     {
+      "command": "EVENT_RNG_SEED",
+      "args": {},
+      "id": "f4813b66-2157-4f7b-985b-a4828ad06df3"
+    },
+    {
       "command": "MY_EVENT_CALL_NATIVE",
       "args": {
         "argCount": 0,

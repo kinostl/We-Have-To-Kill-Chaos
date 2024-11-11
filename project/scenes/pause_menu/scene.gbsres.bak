@@ -3,7 +3,7 @@
   "id": "aeecfbd3-1725-4866-8b6c-2683dc5472e5",
   "_index": 28,
   "name": "Pause Menu",
-  "backgroundId": "3ef1a2b1-2f69-48e8-8641-8d910fef471a",
+  "backgroundId": "aa21f5c8-e37e-4cdb-91d0-4d2def81fc9f",
   "tilesetId": "",
   "width": 20,
   "height": 18,
@@ -19,11 +19,11 @@
     "4b5c94c3-d95b-4802-9f92-3d6266692d3c",
     "4b5c94c3-d95b-4802-9f92-3d6266692d3c"
   ],
-  "collisions": "",
+  "collisions": "00168+",
   "autoFadeSpeed": 1,
   "symbol": "scene_31",
-  "x": 1752,
-  "y": 1056,
+  "x": 320,
+  "y": 1144,
   "script": [
     {
       "command": "EVENT_GROUP",
