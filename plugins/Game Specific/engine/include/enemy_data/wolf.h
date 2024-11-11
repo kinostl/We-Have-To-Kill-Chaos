@@ -32,10 +32,10 @@ const enemy_data wolf = {
             .resists = -1,
             .skills =
                 {
-                    &skill_db[HOWL],
-                    &skill_db[FIGHT],
-                    &skill_db[FIGHT],
-                    &skill_db[FIGHT],
+                    HOWL,
+                    FIGHT,
+                    FIGHT,
+                    FIGHT,
                 },
 
         },

@@ -31,10 +31,10 @@ const enemy_data imp = {
             .type = IMP,
             .skills =
                 {
-                    &skill_db[GOBLIN_PUNCH],
-                    &skill_db[FIGHT],
-                    &skill_db[FIGHT],
-                    &skill_db[FIGHT],
+                    GOBLIN_PUNCH,
+                    FIGHT,
+                    FIGHT,
+                    FIGHT,
                 },
         },
 };

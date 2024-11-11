@@ -32,10 +32,10 @@ const enemy_data mad_pony = {
             .resists = -1,
             .skills =
                 {
-                    &skill_db[THRASH],
-                    &skill_db[FIGHT],
-                    &skill_db[FIGHT],
-                    &skill_db[FIGHT],
+                    THRASH,
+                    FIGHT,
+                    FIGHT,
+                    FIGHT,
                 },
         },
 };

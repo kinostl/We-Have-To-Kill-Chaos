@@ -34,8 +34,5 @@ typedef struct {
 } skill_data;
 
 extern const skill_data skill_db[];
-#define load_skill(skill, skill_src)                                            \
-  MemcpyBanked(&skill, skill_src, sizeof(skill_data), BANK(FF_SKILLS));
-
-BANKREF_EXTERN(FF_SKILLS)
+void load_skill(skill_data * skill, BATTLE_SKILL skill_id) BANKED;
 #endif

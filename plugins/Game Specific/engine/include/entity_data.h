@@ -25,7 +25,7 @@ typedef struct {
   ENEMY_FAMILY family;
   ENEMY_TYPE weakness;
   BYTE resists;
-  const skill_data * skills[4];
+  BATTLE_SKILL skills[4];
 } entity_data;
 
 #endif

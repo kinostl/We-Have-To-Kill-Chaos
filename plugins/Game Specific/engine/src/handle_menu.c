@@ -94,7 +94,9 @@ BYTE load_menu_item(const unsigned char * skill_name, unsigned char *d) OLDCALL 
 
 void loadHeroMenu(void) OLDCALL BANKED {
   hero_data *player = &hero_slots[0];
+  skill_data skill;
   unsigned char *d = ui_text_data;
+
   d+=create_hero_data(player, d, 0);
   *d-- = '\n';
   *d++ = 0x01;
@@ -102,10 +104,9 @@ void loadHeroMenu(void) OLDCALL BANKED {
   *d++ = 0x03;
   *d++ = 2;
   *d++ = 6;
-  skill_data skill;
 
   for (int i = 0; i < 4; i++) {
-    load_skill(skill, player->ext.skills[i]);
+    load_skill(&skill, player->ext.skills[i]);
     d += load_menu_item(skill.name, d);
     *d++ = '\n';
     d += load_stars(skill.cost, d);

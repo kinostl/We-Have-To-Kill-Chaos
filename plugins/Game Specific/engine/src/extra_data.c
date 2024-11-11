@@ -54,10 +54,12 @@ void init_extra_data(void) OLDCALL BANKED {
     strcpy(hero_slots[i].name, "      ");
     hero_slots[i].idx = i;
     turn_slots[i] = &hero_slots[i].ext;
-    hero_slots[i].ext.skills[0] = &skill_db[FIGHT];
-    hero_slots[i].ext.skills[1] = &skill_db[SHIELD_SKILL];
-    hero_slots[i].ext.skills[2] = &skill_db[RUNE_SWORD];
-    hero_slots[i].ext.skills[3] = &skill_db[LUSTER];
+    hero_slots[i].ext.skills[0] = FIGHT;
+    hero_slots[i].ext.skills[1] = SHIELD_SKILL;
+    hero_slots[i].ext.skills[2] = RUNE_SWORD;
+    hero_slots[i].ext.skills[3] = LUSTER;
+    strcpy(hero_slots[i].name, "ONCLER");
+    hero_slots[i].ap = 1;
   }
   for (UBYTE i = 0; i < 6; i++) {
     enemy_slots[i].idx = 4 + i;

@@ -1,4 +1,5 @@
 #include <bankdata.h>
+#include <string.h>
 #pragma bank 255
 #include "skill_data.h"
 #include <gb/gb.h>
@@ -21,4 +22,6 @@ const skill_data skill_db[] = {
 
 #undef db_row
 
-BANKREF(FF_SKILLS)
+void load_skill(skill_data *skill, BATTLE_SKILL skill_id) BANKED {
+  memcpy(skill, &skill_db[skill_id], sizeof(skill_data));
+}
