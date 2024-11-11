@@ -1,5 +1,7 @@
 #include "enemy_data.h"
 #include "enums.h"
+#include <bankdata.h>
+#include <gb/gb.h>
 #include <string.h>
 
 #pragma bank 255
@@ -110,6 +112,4 @@ const enemy_data enemy_db[] = {
         },
 };
 
-void load_enemy(enemy_data *enemy, ENEMY_TYPE enemy_id) BANKED {
-  memcpy(&enemy, &enemy_db[enemy_id], sizeof(enemy_data));
-}
+BANKREF(FF_ENEMY_DATA)

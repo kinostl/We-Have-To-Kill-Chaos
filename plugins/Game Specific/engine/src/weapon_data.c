@@ -100,10 +100,6 @@ const weapon_data weapon_db[] = {
         },
 };
 
-void load_weapon(weapon_data *weapon, WEAPON_TYPE weapon_id) OLDCALL BANKED {
-  memcpy(weapon, &weapon_db[weapon_id], sizeof(weapon_data));
-}
-
 inline void writeItemDesc(BYTE item_id, unsigned char *item_s) {
 
   switch (item_id) {
@@ -153,3 +149,5 @@ void load_weapon_info_text(weapon_data w_data, unsigned char *item_s,
   strcat(item_s, t);
   strcat(item_s, "%");
 }
+
+BANKREF(FF_WEAPON_DATA)

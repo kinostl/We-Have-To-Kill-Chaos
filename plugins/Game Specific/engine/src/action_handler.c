@@ -14,7 +14,6 @@
 #include <data/rpg_combat_animation_states.h>
 #include "handle_menu.h"
 #include <vm_ui.h>
-#include "menu_state_events.h"
 
 BYTE action_head_cursor;
 BYTE action_tail_cursor;
@@ -29,6 +28,14 @@ void take_action(void) BANKED;
 void animate(RPG_ANIMATION_STATE rpg_animation_state) BANKED;
 void ui_draw_frame(UBYTE x, UBYTE y, UBYTE width, UBYTE height) BANKED;
 void handle_skill(UBYTE skill_id) BANKED;
+
+inline void ui_display_text() {
+  // Could technically call vm_display_text but vm calls are bad practice
+  ui_draw_frame(0, 0, 8, 18);
+  text_drawn = text_ff = FALSE;
+  ui_set_start_tile(TEXT_BUFFER_START, 0);
+  ui_run_modal(UI_WAIT_TEXT);
+}
 
 void init_actions(void) BANKED {
   action_tail_cursor = 0;
@@ -84,8 +91,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     break;
   case PANEL_DisplayMenu:
     loadHeroMenu();
-    ui_draw_frame(0,0,8,18);
-    fs_menu_write_win_font(1, 1, 6, 16, true, true);
+    ui_display_text();
     break;
   case PANEL_DisplayParty:
     break;

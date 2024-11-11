@@ -2,6 +2,9 @@
 #define FF_ENEMY_DATA
 
 #include "entity_data.h"
+#include "enums.h"
+#include <bankdata.h>
+#include <gb/gb.h>
 
 typedef struct {
   BYTE skill_idx;
@@ -15,8 +18,14 @@ typedef struct {
 
   BYTE idx;
 } enemy_data;
+
 extern const enemy_data enemy_db[];
 
-void load_enemy(enemy_data *enemy, ENEMY_TYPE enemy_id) BANKED;
+BANKREF_EXTERN(FF_ENEMY_DATA)
+
+inline void load_enemy(enemy_data *enemy, ENEMY_TYPE enemy_id) {
+  MemcpyBanked(enemy, &enemy_db[enemy_id], sizeof(enemy_data),
+               BANK(FF_ENEMY_DATA));
+}
 
 #endif

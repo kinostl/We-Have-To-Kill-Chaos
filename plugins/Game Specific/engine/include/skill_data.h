@@ -2,6 +2,7 @@
 #define FF_SKILLS
 #include "enums.h"
 #include <asm/types.h>
+#include <bankdata.h>
 #include <gb/gb.h>
 
 typedef struct {
@@ -12,5 +13,10 @@ typedef struct {
 } skill_data;
 
 extern const skill_data skill_db[];
-void load_skill(skill_data * skill, BATTLE_SKILL skill_id) BANKED;
+
+BANKREF_EXTERN(FF_SKILLS)
+
+inline void load_skill(skill_data *skill, BATTLE_SKILL skill_id) {
+  MemcpyBanked(skill, &skill_db[skill_id], sizeof(skill_data), BANK(FF_SKILLS));
+}
 #endif

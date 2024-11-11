@@ -1,15 +1,8 @@
 #include "action_handler.h"
-#include <asm/sm83/types.h>
-#include <asm/types.h>
-#include <data/game_globals.h>
-#include <data/rpg_combat_animation_states.h>
-#include <game_time.h>
-#include <gb/gb.h>
 #include <ui.h>
 #include <vm.h>
 #pragma bank 255
 
-#include "load_font_into_bg.h"
 #include "states/rpg_combat.h"
 
 RPG_ANIMATION_STATE rpg_animation_state;
@@ -18,7 +11,6 @@ script_state_t state_events[RPG_ANIMATION_STATE_LENGTH];
 
 void rpg_combat_init(void) BANKED {
   overlay_priority = 0;
-  loadFontIntoBkg();
   ui_set_pos(20 << 3, 0 << 3);
   dispatch_action(ATTACKER_TakeNextTurn);
 }

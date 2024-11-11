@@ -23,6 +23,4 @@ const skill_data skill_db[] = {
 
 #undef db_row
 
-void load_skill(skill_data *skill, BATTLE_SKILL skill_id) BANKED {
-  memcpy(skill, &skill_db[skill_id], sizeof(skill_data));
-}
+BANKREF(FF_SKILLS)
