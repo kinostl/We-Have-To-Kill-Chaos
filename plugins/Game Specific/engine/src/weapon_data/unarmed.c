@@ -3,22 +3,13 @@
 #include "weapon_data/unarmed.h"
 
 void unarmed(weapon_data *weapon) OLDCALL BANKED {
-  weapon->id = 0;
-  weapon->attack = 0;
-  weapon->hit_chance = 0;
-  weapon->crit_chance = 0;
-  weapon->price = 0;
-  weapon->classes = 0;
-  weapon->color = DMG;
-  weapon->type = UNARMED;
-
-  add_fighter(weapon->classes);
-  add_thief(weapon->classes);
-  add_monk(weapon->classes);
-
-  add_red_mage(weapon->classes);
-  add_white_mage(weapon->classes);
-  add_black_mage(weapon->classes);
-
-  add_blue_mage(weapon->classes);
+  // .id = 0,
+  // .attack = 0,
+  // .hit_chance = 0,
+  // .crit_chance = 0,
+  // .price = 0,
+  // .classes = 0,
+  // .color = DMG,
+  // .type = UNARMED,
+  // .classes = FIGHTER | THIEF | MONK | RED_MAGE | WHITE_MAGE | BLACK_MAGE | BLUE_MAGE,
 }
