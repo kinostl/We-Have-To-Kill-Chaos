@@ -1,7 +1,7 @@
 {
   "_resourceType": "actor",
-  "id": "2927f653-09b8-4dba-967c-4d5629452d4c",
-  "name": "Explosion 1",
+  "id": "dde30483-a3dd-452f-b736-bd522ae56dd2",
+  "name": "Explosion 2",
   "frame": 0,
   "animate": false,
   "spriteSheetId": "a28021b4-4237-4de4-ab4a-432efb88c8f4",
@@ -14,9 +14,9 @@
   "persistent": false,
   "collisionGroup": "",
   "prefabScriptOverrides": {},
-  "_index": 5,
-  "symbol": "actor_59",
-  "x": 1,
+  "_index": 2,
+  "symbol": "actor_58",
+  "x": 6,
   "y": 4,
   "script": [],
   "startScript": [
@@ -26,7 +26,7 @@
         "actorId": "$self$",
         "__comment": false
       },
-      "id": "dc8ade6e-d622-4adb-8999-f1c7593d7525"
+      "id": "efcd9d94-3e86-4b4c-9871-59ecb542d28a"
     }
   ],
   "updateScript": [
@@ -41,7 +41,7 @@
         "wait": false,
         "effect": 0
       },
-      "id": "ee0f1c6e-2992-4360-9f93-56e9c4f5efa5"
+      "id": "6ad73046-958b-42df-b511-ea476b6e0b56"
     },
     {
       "command": "EVENT_ACTOR_SET_POSITION",
@@ -97,7 +97,7 @@
           }
         }
       },
-      "id": "21962f8c-609d-43fb-9bbc-32e9a119c95d"
+      "id": "30bacbb7-e00c-4f99-a2fb-1eb13d7f4de4"
     },
     {
       "command": "EVENT_ACTOR_SET_FRAME",
@@ -111,7 +111,7 @@
           }
         }
       },
-      "id": "d68b3e45-f964-4c4f-aa93-211d384712a3"
+      "id": "8c068e61-2925-40f9-a379-f9e894496b3c"
     }
   ],
   "hit1Script": [],

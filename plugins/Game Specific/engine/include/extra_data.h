@@ -15,7 +15,7 @@ extern item_slot * menu_slots;
 extern hero_data * hero_slots;
 extern enemy_data * enemy_slots;
 extern ACTION_TYPE * action_slots;
-extern BYTE * turn_order;
+extern UBYTE * turn_order;
 extern entity_data ** turn_slots;
 
 #endif

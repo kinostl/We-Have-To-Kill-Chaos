@@ -4,6 +4,7 @@
 #include "entity_data.h"
 #include "weapon_data.h"
 #include <asm/types.h>
+#include <gbs_types.h>
 
 typedef struct {
   char name[7];
@@ -21,6 +22,8 @@ typedef struct {
   armor_data gloves;
 
   BYTE idx;
+
+  actor_t * actor;
 } hero_data;
 
 #endif

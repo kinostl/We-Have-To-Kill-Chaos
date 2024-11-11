@@ -1,13 +1,12 @@
 {
   "_resourceType": "background",
-  "id": "533f2d8c-0867-4a99-b388-6c06d1d8115d",
+  "id": "90532912-bcf4-46f5-9c67-cb6c8a92dc98",
   "name": "Confirm Party",
-  "symbol": "bg_confirm_party_0",
+  "symbol": "bg_confirm_party",
   "width": 20,
   "height": 18,
   "imageWidth": 160,
   "imageHeight": 144,
   "filename": "Confirm Party.png",
-  "tileColors": "",
-  "autoColor": false
+  "tileColors": ""
 }

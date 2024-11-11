@@ -74,10 +74,10 @@
       "command": "FF_EVENT_DEFINE_ACTIONS",
       "args": {
         "variable": "0",
-        "__collapseCase1": false,
+        "__collapseCase1": true,
         "__collapseCase14": false,
         "__collapseCase8": false,
-        "__collapseCase9": false,
+        "__collapseCase9": true,
         "__collapseCase15": true,
         "__collapseCase12": true,
         "__collapseCase11": true,

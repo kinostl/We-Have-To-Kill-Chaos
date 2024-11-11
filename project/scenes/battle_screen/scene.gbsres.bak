@@ -5,15 +5,15 @@
   "type": "RPG_COMBAT",
   "name": "Battle Screen",
   "symbol": "scene_30",
-  "x": 1016,
-  "y": 80,
+  "x": 808,
+  "y": 512,
   "width": 32,
   "height": 32,
   "backgroundId": "054f3bc8-84f5-4fcd-b590-cfff88fa2a15",
   "tilesetId": "",
   "paletteIds": [
-    "",
-    "",
+    "a8f30788-b6cf-4d18-a38a-558ba6bfa8a8",
+    "48a57591-4530-4f70-90bf-ca3518a0d451",
     "",
     "",
     "",
@@ -26,6 +26,11 @@
   ],
   "autoFadeSpeed": 1,
   "script": [
+    {
+      "command": "FF_EVENT_SET_ENEMY_DATA",
+      "args": {},
+      "id": "551d464e-25db-4571-a93a-6d6f771ff942"
+    },
     {
       "command": "EVENT_CAMERA_SET_POSITION",
       "args": {

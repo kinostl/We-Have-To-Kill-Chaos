@@ -5,7 +5,6 @@
 #include "enums.h"
 #include "hero_data.h"
 #include "item_slot.h"
-#include "skill_data.h"
 #include <asm/types.h>
 #include <bankdata.h>
 #include <data/game_globals.h>
@@ -19,7 +18,7 @@ item_slot *menu_slots;
 hero_data *hero_slots;
 enemy_data *enemy_slots;
 ACTION_TYPE *action_slots;
-BYTE *turn_order;
+UBYTE *turn_order;
 entity_data **turn_slots;
 
 #define vtotal (VM_HEAP_SIZE + (VM_MAX_CONTEXTS * VM_CONTEXT_STACK_SIZE))
@@ -34,7 +33,7 @@ void init_extra_data(void) OLDCALL BANKED {
   hero_slots = valloc(hero_data, 4);
   enemy_slots = valloc(enemy_data, 6);
 
-  turn_order = valloc(BYTE, 10);
+  turn_order = valloc(UBYTE, 10);
 
   item_slots = valloc(item_slot, MAX_ITEM_SLOTS);
   menu_slots = valloc(item_slot, MAX_ITEM_SLOTS);
@@ -61,6 +60,7 @@ void init_extra_data(void) OLDCALL BANKED {
     hero_slots[i].ext.skills[3] = LUSTER;
     strcpy(hero_slots[i].name, "ONCLER");
     hero_slots[i].ap = 1;
+    hero_slots[i].ext.alive = TRUE;
   }
   for (UBYTE i = 0; i < 6; i++) {
     enemy_slots[i].idx = 4 + i;

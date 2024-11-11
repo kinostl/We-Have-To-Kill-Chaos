@@ -1,0 +1,35 @@
+{
+  "_resourceType": "actor",
+  "id": "52f72f8b-8ca7-4eea-a7ee-5f8989180db8",
+  "name": "Hero Slot 2",
+  "frame": 0,
+  "animate": false,
+  "spriteSheetId": "75e5bb7d-28eb-4b45-b835-8f4931adab2b",
+  "prefabId": "",
+  "direction": "down",
+  "moveSpeed": 1,
+  "animSpeed": 15,
+  "paletteId": "",
+  "isPinned": false,
+  "persistent": false,
+  "collisionGroup": "",
+  "prefabScriptOverrides": {},
+  "_index": 1,
+  "symbol": "actor_73",
+  "x": 3,
+  "y": 16,
+  "script": [],
+  "startScript": [
+    {
+      "command": "EVENT_ACTOR_HIDE",
+      "args": {
+        "actorId": "$self$"
+      },
+      "id": "1211fbb6-adc8-4131-968d-fb6dcd73a998"
+    }
+  ],
+  "updateScript": [],
+  "hit1Script": [],
+  "hit2Script": [],
+  "hit3Script": []
+}

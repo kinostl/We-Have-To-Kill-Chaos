@@ -23,7 +23,7 @@ void turn_rollInitiative(void) BANKED{
       entity_data * entity = turn_slots[i];
       if (!entity->alive)
         continue;
-      BYTE *initiative_slot = &turn_order[i];
+      UBYTE *initiative_slot = &turn_order[i];
       *initiative_slot = rand() % entity->max_hp;
       *initiative_slot += entity->evade;
       if (i < 4) {

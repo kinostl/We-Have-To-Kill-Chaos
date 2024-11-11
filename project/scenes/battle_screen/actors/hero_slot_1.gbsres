@@ -1,7 +1,7 @@
 {
   "_resourceType": "actor",
   "id": "10f9d056-008a-419e-9ba2-9a867c71c23e",
-  "name": "Hero Attacking",
+  "name": "Hero Slot 1",
   "frame": 0,
   "animate": false,
   "spriteSheetId": "75e5bb7d-28eb-4b45-b835-8f4931adab2b",
@@ -14,12 +14,20 @@
   "persistent": false,
   "collisionGroup": "",
   "prefabScriptOverrides": {},
-  "_index": 1,
+  "_index": 0,
   "symbol": "actor_55",
-  "x": 14,
-  "y": 4,
+  "x": 1,
+  "y": 16,
   "script": [],
-  "startScript": [],
+  "startScript": [
+    {
+      "command": "EVENT_ACTOR_HIDE",
+      "args": {
+        "actorId": "$self$"
+      },
+      "id": "ddd2378a-f4b3-4a34-943c-ad5a9818f7c4"
+    }
+  ],
   "updateScript": [],
   "hit1Script": [],
   "hit2Script": [],

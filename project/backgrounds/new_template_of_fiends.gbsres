@@ -8,6 +8,6 @@
   "imageWidth": 640,
   "imageHeight": 640,
   "filename": "new_template_of_fiends.png",
-  "autoColor": true,
-  "tileColors": ""
+  "tileColors": "",
+  "autoColor": true
 }

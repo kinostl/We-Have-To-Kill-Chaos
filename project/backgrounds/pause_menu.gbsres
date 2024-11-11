@@ -8,5 +8,6 @@
   "imageWidth": 160,
   "imageHeight": 144,
   "filename": "pause_menu.png",
-  "tileColors": ""
+  "tileColors": "",
+  "autoColor": false
 }

@@ -14,9 +14,9 @@
   "persistent": false,
   "collisionGroup": "",
   "prefabScriptOverrides": {},
-  "_index": 5,
+  "_index": 3,
   "symbol": "actor_59",
-  "x": 1,
+  "x": 8,
   "y": 4,
   "script": [],
   "startScript": [

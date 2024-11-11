@@ -8,5 +8,6 @@
   "imageWidth": 160,
   "imageHeight": 144,
   "filename": "confirm_party.png",
-  "tileColors": "07168+"
+  "tileColors": "07168+",
+  "autoColor": false
 }

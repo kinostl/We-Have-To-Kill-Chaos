@@ -8,5 +8,6 @@
   "imageWidth": 160,
   "imageHeight": 144,
   "filename": "create_characters.png",
-  "tileColors": ""
+  "tileColors": "",
+  "autoColor": false
 }

@@ -11,8 +11,8 @@
 #pragma bank 255
 #include "action_definitions.h"
 #include "action_handler.h"
-#include <data/rpg_combat_animation_states.h>
 #include "handle_menu.h"
+#include <data/rpg_combat_animation_states.h>
 #include <vm_ui.h>
 
 BYTE action_head_cursor;
@@ -41,7 +41,7 @@ void init_actions(void) BANKED {
   action_head_cursor = 0;
   ACTION_TYPE clean_action;
 
-  for(int i=0;i<16;i++){
+  for (int i = 0; i < 16; i++) {
     memcpy(&action_slots[i], &clean_action, sizeof(ACTION_TYPE));
   }
 }
@@ -53,7 +53,7 @@ void dispatch_action(ACTION_TYPE action_data) BANKED {
 
 void handle_action(ACTION_TYPE action_type) BANKED {
   switch (action_type) {
-  case ATTACKER_Fight:{
+  case ATTACKER_Fight: {
     UBYTE target_enemy = rpg_get_target_enemy();
     ATTACK_RESULTS attack_results = defender_TakeDamage(
         &hero_slots[current_actor].ext, &enemy_slots[target_enemy].ext);
@@ -74,33 +74,73 @@ void handle_action(ACTION_TYPE action_type) BANKED {
 
     break;
   }
-  case ATTACKER_StartNextTurn:
+  case ATTACKER_StartNextTurn: {
+    BOOLEAN enemies_still_alive = FALSE;
+    for (UBYTE i = 0; i < 6; i++) {
+      if (enemy_slots[i].ext.alive) {
+        enemies_still_alive = TRUE;
+        break;
+      }
+    }
+
+    if (!enemies_still_alive) {
+      // handle winning
+      break;
+    }
+
+    BOOLEAN heros_still_alive = FALSE;
+    for (UBYTE i = 0; i < 6; i++) {
+      if (hero_slots[i].ext.alive) {
+        heros_still_alive = TRUE;
+        break;
+      }
+    }
+
+    if (!heros_still_alive) {
+      // handle losing
+      break;
+    }
+
     turn_cursor--;
-    if(turn_cursor < 0){
+    if (turn_cursor < 0) {
       dispatch_action(TURN_BuildInitiative);
-    }else{
+    } else {
       dispatch_action(ATTACKER_TakeNextTurn);
     }
     break;
+  }
   case ATTACKER_TakeNextTurn:
-    current_actor = 0;
-    if (current_actor < 4 && current_actor > -1) {
+
+    if (!turn_slots[current_actor]->alive) {
+      dispatch_action(ATTACKER_StartNextTurn);
+      break;
+    }
+
+    if (current_actor < 4) {
       dispatch_action(PANEL_HidePartyActors);
       dispatch_action(PANEL_ClosePanel);
       dispatch_action(PANEL_DisplayMenu);
       dispatch_action(PANEL_OpenPanel);
       dispatch_action(PANEL_DisplayCurrentActor);
-      
+
       dispatch_action(PICK_GetPlayerActionChoice);
     } else if (current_actor > 3) {
-      attacker_prepareNextTurn_Enemy();
+      dispatch_action(PANEL_HidePartyActors);
+      dispatch_action(PANEL_ClosePanel);
+      dispatch_action(PANEL_DisplayParty);
+      dispatch_action(PANEL_OpenPanel);
+      dispatch_action(PANEL_DisplayPartyActors);
     }
     break;
+
   case PANEL_ClosePanel:
     ui_move_to(20 << 3, 0 << 3, text_out_speed);
     ui_run_modal(UI_WAIT_WINDOW);
     break;
   case PANEL_DisplayCurrentActor:
+    if (current_actor < 4) {
+      hero_slots[current_actor].actor->hidden = FALSE;
+    }
     break;
   case PANEL_DisplayMenu:
     loadHeroMenu();
@@ -109,15 +149,21 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case PANEL_DisplayParty:
     break;
   case PANEL_DisplayPartyActors:
+    for(BYTE i=0;i<4;i++){
+      hero_slots[i].actor->hidden = FALSE;
+    }
     break;
   case PANEL_HideCurrentActor:
     break;
   case PANEL_HidePartyActors:
+    for(BYTE i=0;i<4;i++){
+      hero_slots[i].actor->hidden = TRUE;
+    }
     break;
   case PANEL_LoadItems:
     break;
   case PANEL_OpenPanel:
-    ui_set_pos(20 << 3 , 0);
+    ui_set_pos(20 << 3, 0);
     ui_move_to(12 << 3, 0 << 3, text_in_speed);
     ui_run_modal(UI_WAIT_WINDOW);
     break;
@@ -168,16 +214,16 @@ void handle_action(ACTION_TYPE action_type) BANKED {
 }
 
 void take_action(void) BANKED {
-  if(action_tail_cursor == 0){
+  if (action_tail_cursor == 0) {
     return;
   }
 
   handle_action(action_head);
   action_head_cursor++;
 
-  if(action_head_cursor>action_tail_cursor){
-    action_head_cursor=0;
-    action_tail_cursor=0;
+  if (action_head_cursor > action_tail_cursor) {
+    action_head_cursor = 0;
+    action_tail_cursor = 0;
   }
 }
 

@@ -1,4 +1,7 @@
 #include "action_handler.h"
+#include "extra_data.h"
+#include <actor.h>
+#include <asm/types.h>
 #include <ui.h>
 #include <vm.h>
 #pragma bank 255
@@ -25,4 +28,17 @@ void assign_state_script(SCRIPT_CTX * THIS) OLDCALL BANKED {
     UBYTE **ptr = VM_REF_TO_PTR(FN_ARG0);
     state_events[*slot].script_bank = *bank;
     state_events[*slot].script_addr = *ptr;
+}
+
+void assign_hero_actors(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  UBYTE actor_ids[4] = {
+      *(UBYTE *)VM_REF_TO_PTR(FN_ARG0),
+      *(UBYTE *)VM_REF_TO_PTR(FN_ARG1),
+      *(UBYTE *)VM_REF_TO_PTR(FN_ARG2),
+      *(UBYTE *)VM_REF_TO_PTR(FN_ARG3),
+  };
+
+  for (UBYTE i = 0; i < 4; i++) {
+    hero_slots[i].actor = &actors[actor_ids[i]];
+  }
 }
