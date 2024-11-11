@@ -2,6 +2,7 @@
 #include "action_handler.h"
 #include "enemy_data.h"
 #include "entity_data.h"
+#include "enums.h"
 #include "hero_data.h"
 #include "item_slot.h"
 #include "skill_data.h"
@@ -56,7 +57,7 @@ void init_extra_data(void) OLDCALL BANKED {
     turn_slots[i] = &hero_slots[i].ext;
     hero_slots[i].ext.skills[0] = FIGHT;
     hero_slots[i].ext.skills[1] = SHIELD_SKILL;
-    hero_slots[i].ext.skills[2] = RUNE_SWORD;
+    hero_slots[i].ext.skills[2] = RUNE_SWORD_SKILL;
     hero_slots[i].ext.skills[3] = LUSTER;
     strcpy(hero_slots[i].name, "ONCLER");
     hero_slots[i].ap = 1;

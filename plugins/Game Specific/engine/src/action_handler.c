@@ -74,6 +74,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case DEFENDER_TakeDamage:
     defender_TakeDamage(&hero_slots[current_actor].ext,
                         &enemy_slots[rpg_player_choice].ext);
+    animate(ANIMATE_PLAYER_ATTACKING);
     break;
   case PANEL_ClosePanel:
     ui_move_to(20 << 3, 0 << 3, text_out_speed);
@@ -120,6 +121,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       handle_skill(rpg_player_choice);
       break;
     }
+    dispatch_action(ATTACKER_StartNextTurn);
     break;
   case PICK_GetPlayerTargetAlly:
     rpg_player_choice = rpg_get_target_ally();
@@ -175,9 +177,6 @@ void animate(RPG_ANIMATION_STATE rpg_animation_state) BANKED {
 void handle_skill(UBYTE menu_id) BANKED {
   const BATTLE_SKILL skill = hero_slots[0].ext.skills[menu_id];
   switch (skill) {
-
-  case BLANK:
-    break;
   case FIGHT:
     dispatch_action(PICK_GetPlayerTargetEnemy);
     dispatch_action(DEFENDER_TakeDamage);
@@ -193,6 +192,8 @@ void handle_skill(UBYTE menu_id) BANKED {
   case HOWL:
   case THRASH:
   case RUNE_SWORD_SKILL:
+  case BLANK:
+    dispatch_action(PICK_GetPlayerActionChoice);
     break;
   }
 }

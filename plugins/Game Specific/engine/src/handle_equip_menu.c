@@ -1,10 +1,5 @@
-#include "armor_data/naked.h"
-#include "extra_data.h"
 #include "handle_submapping.h"
-#include "item_slot.h"
 #include "load_font_into_bg.h"
-#include "weapon_data.h"
-#include "armor_data.h"
 #include <asm/types.h>
 #include <data/game_globals.h>
 #include <gb/gb.h>
