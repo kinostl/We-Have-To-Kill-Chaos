@@ -12,14 +12,7 @@
 
 #define pos(coord) (((coord * 128) >> 7) << 7);
 
-UBYTE rpg_run_menu(void) BANKED {
-  UBYTE current_index = 0;
-  UBYTE max_index = 8;
-
-  PLAYER.pos.x = pos(11);
-  PLAYER.pos.y = pos(6);
-
-  while (TRUE) {
+inline void menu_loop_preamble(){
     input_update();
     ui_update();
 
@@ -32,6 +25,17 @@ UBYTE rpg_run_menu(void) BANKED {
 
     game_time++;
     wait_vbl_done();
+}
+
+UBYTE rpg_run_menu(void) BANKED {
+  UBYTE current_index = 0;
+  UBYTE max_index = 8;
+
+  PLAYER.pos.x = pos(11);
+  PLAYER.pos.y = pos(6);
+
+  while (TRUE) {
+    menu_loop_preamble();
 
     if (INPUT_UP_PRESSED) {
       if (current_index - 1 > -1) {

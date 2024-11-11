@@ -1,5 +1,5 @@
+#include "enums.h"
 #include "extra_data.h"
-#include "skill_data.h"
 #include "states/rpg_combat.h"
 #include <data/game_globals.h>
 #include <macro.h>
@@ -48,7 +48,6 @@ void dispatch_action(ACTION_TYPE action_data) BANKED {
 void handle_action(ACTION_TYPE action_type) BANKED {
   switch (action_type) {
   case ATTACKER_Fight:
-    animate(ANIMATE_ENEMY_DAMAGED);
     break;
   case ATTACKER_StartNextTurn:
     turn_cursor--;
@@ -127,7 +126,6 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     break;
   case PICK_GetPlayerTargetEnemy:
     rpg_player_choice = rpg_get_target_enemy();
-    animate(ANIMATE_PLAYER_ATTACKING);
     break;
   case PICK_Item:
     break;
@@ -181,6 +179,7 @@ void handle_skill(UBYTE menu_id) BANKED {
   case BLANK:
     break;
   case FIGHT:
+    dispatch_action(PICK_GetPlayerTargetEnemy);
     dispatch_action(DEFENDER_TakeDamage);
     dispatch_action(ATTACKER_Fight);
     break;
@@ -193,7 +192,7 @@ void handle_skill(UBYTE menu_id) BANKED {
   case GOBLIN_PUNCH:
   case HOWL:
   case THRASH:
-  case RUNE_SWORD:
+  case RUNE_SWORD_SKILL:
     break;
   }
 }
