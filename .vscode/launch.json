@@ -7,7 +7,7 @@
             "program": "/home/deck/.cache/gbstudio-v4/_gbsbuild/build/rom/game.gbc",
             "port": 58870,
             "stopOnEntry": true,
-            "additionalSrcFolders": "/home/deck/.cache/gbstudio-v4/_gbsbuild/src",
+            "additionalSrcFolders": "/home/deck/.cache/gbstudio-v4/_gbsbuild/src;/home/deck/Documents/We Have To Kill Chaos/plugins/Game Specific/engine/src",
             "emuliciousPath": "/home/deck/Emulicious/Emulicious.jar",
             "javaPath": "/home/deck/.sdkman/candidates/java/current/bin/java"
         },
@@ -16,7 +16,7 @@
             "name": "Attach to Emulicious",
             "request": "attach",
             "port": 58870,
-            "additionalSrcFolders": "/home/deck/.cache/gbstudio-v4/_gbsbuild/src"
+            "additionalSrcFolders": "/home/deck/.cache/gbstudio-v4/_gbsbuild/src;/home/deck/Documents/We Have To Kill Chaos/plugins/Game Specific/engine/src"
         }
     ]
 }

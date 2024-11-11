@@ -1,18 +1,19 @@
 #ifndef FF_ARMOR_DATA
 #define FF_ARMOR_DATA
 #include "class_data.h"
+#include "enums.h"
 #include <asm/types.h>
 
-enum A_TYPE { UNARMORED, ARMOR, ROBE, BRACELET, SHIELD, HELMET, GAUNTLET };
-
 typedef struct {
-  BYTE id;
-  enum A_TYPE type;
+  ARMOR_TYPE id;
+  ARMOR_FAMILY type;
   UBYTE defense;
   UBYTE weight;
   UWORD price;
-  UWORD classes; // Flag
+  JOB classes; // Flag
 } armor_data;
 
-void set_armor(BYTE armor_id, armor_data *armor) OLDCALL BANKED;
+extern const armor_data armor_db[];
+
+void load_armor(armor_data *armor, ARMOR_TYPE armor_type) BANKED;
 #endif

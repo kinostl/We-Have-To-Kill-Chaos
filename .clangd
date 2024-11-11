@@ -1,2 +1,4 @@
 Diagnostics:
-  Suppress: expected_fn_body
+  Suppress: 
+  - expected_fn_body
+  - asm_qualifier_ignored

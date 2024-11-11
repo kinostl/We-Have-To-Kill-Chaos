@@ -3,11 +3,11 @@
   "id": "4075727f-a940-480a-a238-43eed7641bd3",
   "name": "class_info",
   "symbol": "bg_class_info",
-  "width": 60,
+  "width": 140,
   "height": 18,
-  "imageWidth": 480,
+  "imageWidth": 1120,
   "imageHeight": 144,
   "filename": "class_info.png",
-  "tileColors": "07870+",
+  "tileColors": "079d8+",
   "autoColor": false
 }

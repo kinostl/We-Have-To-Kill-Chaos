@@ -13,9 +13,16 @@
   "collisions": "00400+",
   "autoFadeSpeed": 1,
   "symbol": "scene_28",
-  "x": 1760.3720930232557,
-  "y": 1453.3953488372092,
+  "x": 984,
+  "y": 1424,
   "script": [
+    {
+      "command": "EVENT_ACTOR_DEACTIVATE",
+      "args": {
+        "actorId": "$self$"
+      },
+      "id": "93f48a42-5f42-4723-ab28-5b559b01fcc4"
+    },
     {
       "command": "EVENT_CAMERA_SET_POSITION",
       "args": {

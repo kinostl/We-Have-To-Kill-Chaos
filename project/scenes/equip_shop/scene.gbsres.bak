@@ -1,6 +1,7 @@
 {
   "_resourceType": "scene",
   "id": "76586ae3-b5db-4079-8b7b-71f9205f6373",
+  "_index": 7,
   "type": "MENU",
   "name": "Equip Shop",
   "symbol": "scene_21",
@@ -27,6 +28,21 @@
   "autoFadeSpeed": 1,
   "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
   "script": [
+    {
+      "command": "EVENT_CALL_CUSTOM_EVENT",
+      "args": {
+        "customEventId": "ac0ce815-fc01-4ec3-a323-b0fe93908eda",
+        "$variable[V0]$": {
+          "type": "variable",
+          "value": "T0"
+        },
+        "$actor[0]$": "88af4006-8c8f-40af-9447-ee67756e0fc0",
+        "$actor[1]$": "a899e328-b3ca-4825-b409-c03d0d3539db",
+        "$actor[2]$": "846722a2-4eaa-482f-a72f-226c06f4c966",
+        "$actor[3]$": "2c08c26b-7283-4517-9509-06071f3d8955"
+      },
+      "id": "37b8d6a2-b1f0-47f3-99ba-cf62d5d5bfbb"
+    },
     {
       "command": "FS_FULL_MENU_SET_AREA",
       "args": {

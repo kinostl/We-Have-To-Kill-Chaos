@@ -11,7 +11,8 @@
             "defines": [
                 "__PORT_gbz80",
                 "__TARGET_gb",
-                "HUGE_TRACKER"
+                "HUGE_TRACKER",
+                "CGB"
             ],
             "compilerPath": "/home/deck/.cache/gbstudio-v4/_gbstools/gbdk/bin/sdcc",
             "cStandard": "c11",

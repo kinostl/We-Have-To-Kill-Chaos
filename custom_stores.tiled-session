@@ -3,16 +3,27 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "maps/equip_shop_menu.tmx",
+    "activeFile": "maps/new_template_of_fiends.tmx",
     "automapping.whileDrawing": true,
     "expandedProjectPaths": [
-        ".",
         "tilesets",
+        ".",
         "maps"
     ],
     "exportAsImage.includeBackgroundColor": true,
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "maps/Confirm Party.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 5.634027777777777,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 194.26599285097996,
+                "y": 81.91297916923457
+            }
+        },
         "maps/armor_store.tmx": {
             "scale": 5.634027777777777,
             "selectedLayer": 0,
@@ -25,12 +36,12 @@
             "scale": 5.647222222222222,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 130.68371864240038,
-                "y": 43.20708312838171
+                "x": 183.8071815051648,
+                "y": 47.98819478603049
             }
         },
         "maps/castle1.tsx": {
-            "scaleInDock": 3,
+            "scaleInDock": 1.5,
             "scaleInEditor": 1
         },
         "maps/castle2.tsx": {
@@ -46,23 +57,23 @@
             }
         },
         "maps/castle_inside.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 1.5,
             "scaleInEditor": 1
         },
         "maps/clinic.tmx": {
             "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 5.545454545454546,
-                "y": 85.09090909090908
+                "x": 114.45454545454547,
+                "y": 95
             }
         },
         "maps/cornelia_castle_2.tmx": {
             "scale": 3,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 404,
-                "y": 270
+                "x": 593.1666666666666,
+                "y": 288.16666666666663
             }
         },
         "maps/cornelia_castle_2_inside.tmx": {
@@ -77,12 +88,20 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "maps/create_characters.tmx": {
+            "scale": 5.63,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 281.6163410301954,
+                "y": 81.97158081705152
+            }
+        },
         "maps/equip_shop_menu.tmx": {
             "scale": 3,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 105.83333333333334,
-                "y": 85.16666666666669
+                "x": 472.16666666666663,
+                "y": 112.49999999999999
             }
         },
         "maps/frame.tsx": {
@@ -93,16 +112,16 @@
             "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 133.63636363636363,
-                "y": 247.45454545454544
+                "x": 195.45454545454547,
+                "y": 252.54545454545456
             }
         },
         "maps/item_menu.tmx": {
             "scale": 4,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 97.125,
-                "y": 66.25
+                "x": 373.625,
+                "y": 79.875
             }
         },
         "maps/item_shop.tmx": {
@@ -117,8 +136,8 @@
             "scale": 4,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 23,
-                "y": 85
+                "x": 301.125,
+                "y": 105.625
             }
         },
         "maps/kings_garden.tsx": {
@@ -129,16 +148,47 @@
             "scaleInDock": 2,
             "scaleInEditor": 1
         },
+        "maps/name_entry.tmx": {
+            "expandedObjectLayers": [
+                3
+            ],
+            "scale": 4,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 229.125,
+                "y": 62.875
+            }
+        },
+        "maps/name_entry.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "maps/new_template_of_fiends.tmx": {
+            "scale": 3,
+            "selectedLayer": 11,
+            "viewCenter": {
+                "x": 440.5,
+                "y": 367.8333333333333
+            }
+        },
+        "maps/pause_menu.tmx": {
+            "scale": 5.63,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 278.9520426287744,
+                "y": 81.97158081705152
+            }
+        },
         "maps/random_menu.tmx": {
             "scale": 5.634027777777777,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 113.24047824479234,
-                "y": 64.78491310242822
+                "x": 130.98976950573157,
+                "y": 69.7547146554912
             }
         },
         "maps/shed_tileset.tsx": {
-            "scaleInDock": 5.5,
+            "scaleInDock": 1.5,
             "scaleInEditor": 11
         },
         "maps/store_tiles.tsx": {
@@ -150,13 +200,18 @@
             "scale": 5.634027777777777,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 100.1060027116973,
-                "y": 82.00172562553928
+                "x": 160.4535929988907,
+                "y": 86.97152717860226
             }
+        },
+        "maps/temple_of_fiends.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 4,
+            "scaleInEditor": 1
         },
         "maps/tileset_for_stores.tsx": {
             "dynamicWrapping": false,
-            "scaleInDock": 3,
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "maps/weapon_armor_shop.tmx": {
@@ -180,7 +235,7 @@
             "selectedLayer": 1,
             "viewCenter": {
                 "x": 325.625,
-                "y": 199.5
+                "y": 198
             }
         },
         "tilesets/store_tiles.tsx": {
@@ -189,7 +244,7 @@
             "scaleInEditor": 1
         }
     },
-    "last.imagePath": "/home/deck/Documents/We Have To Kill Chaos/assets/backgrounds",
+    "last.imagePath": "/home/deck/Documents/We Have To Kill Chaos/tilesets2",
     "last.worldFilePath": "/home/deck/Documents/We Have To Kill Chaos/maps",
     "loadedWorlds": [
         "/home/deck/Documents/We Have To Kill Chaos/maps/castle_world.world",
@@ -217,7 +272,14 @@
         "maps/kings_garden_tiles.tsx",
         "maps/clinic.tmx",
         "maps/item_menu.tmx",
-        "maps/equip_shop_menu.tmx"
+        "maps/equip_shop_menu.tmx",
+        "maps/name_entry.tmx",
+        "maps/pause_menu.tmx",
+        "maps/name_entry.tsx",
+        "maps/create_characters.tmx",
+        "maps/Confirm Party.tmx",
+        "maps/new_template_of_fiends.tmx",
+        "maps/temple_of_fiends.tsx"
     ],
     "project": "custom_stores.tiled-project",
     "recentFiles": [
@@ -234,7 +296,7 @@
         "maps/kings_garden.tmx",
         "maps/corneria.tsx"
     ],
-    "resizeMap.removeObjects": false,
+    "resizeMap.removeObjects": true,
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
         "height": 8,

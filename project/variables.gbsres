@@ -4,7 +4,8 @@
     {
       "id": "0",
       "name": "Action",
-      "symbol": "var_action"
+      "symbol": "var_action",
+      "flags": {}
     },
     {
       "id": "1",
@@ -542,6 +543,23 @@
       "symbol": "var_cc_current_letter"
     },
     {
+      "id": "108",
+      "name": "Panel",
+      "symbol": "var_panel",
+      "flags": {
+        "flag1": "Is Open",
+        "flag2": "Is Closed",
+        "flag3": "Display Menu",
+        "flag4": "Display Current Actor",
+        "flag16": "Has Update"
+      }
+    },
+    {
+      "id": "109",
+      "name": "CC/Choice Type",
+      "symbol": "var_cc_choice_type"
+    },
+    {
       "id": "b543e5af-0a59-46a2-afa4-a8749b768159__L0",
       "name": "HP",
       "symbol": "var_hp"
@@ -598,8 +616,8 @@
     },
     {
       "id": "f1cf7e1f-1c86-4679-b076-dc3ee8711bff__L0",
-      "name": "Character",
-      "symbol": "var_character"
+      "name": "Character Job",
+      "symbol": "var_character_job_0"
     },
     {
       "id": "9c7813d8-1d8c-4eab-aaaa-6b885a213232__L0",
@@ -1295,6 +1313,101 @@
       "id": "e6712fc5-277c-4cbf-a030-f10048d92132__L0",
       "name": "Song Choice",
       "symbol": "var_song_choice"
+    },
+    {
+      "id": "05ad1587-aa25-44a1-9f31-363aa9800df3__L0",
+      "name": "Can Update",
+      "symbol": "var_can_update"
+    },
+    {
+      "id": "06416438-2370-4f5f-a068-5c215b0495bd__L0",
+      "name": "Can Update",
+      "symbol": "var_can_update_0"
+    },
+    {
+      "id": "32fe98dc-f30e-493f-9d6c-b13f8bf122ef__L0",
+      "name": "Can Update",
+      "symbol": "var_can_update_1"
+    },
+    {
+      "id": "d393000e-4e4f-472c-ae4a-39f1350efad6__L0",
+      "name": "Can Update",
+      "symbol": "var_can_update_2"
+    },
+    {
+      "id": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64__L0",
+      "name": "Choice Made",
+      "symbol": "var_choice_made"
+    },
+    {
+      "id": "f1d1af28-6219-479d-b102-6b6e530864c9__L0",
+      "name": "Is Finished",
+      "symbol": "var_is_finished"
+    },
+    {
+      "id": "371a62e7-429f-43ed-97bb-5f0e436f4196__L0",
+      "name": "Character Class",
+      "symbol": "var_character_class"
+    },
+    {
+      "id": "4ee1ff55-e702-463f-abb9-77f841d10811__L0",
+      "name": "Previous Character Choice",
+      "symbol": "var_previous_character_choi"
+    },
+    {
+      "id": "4ee1ff55-e702-463f-abb9-77f841d10811__L1",
+      "name": "Previous Choice Type",
+      "symbol": "var_previous_choice_type"
+    },
+    {
+      "id": "ba8c7d41-1c8b-4206-a2b9-a16f844c60e4__L0",
+      "name": "Character Class",
+      "symbol": "var_character_class_0"
+    },
+    {
+      "id": "0c342177-e088-4f70-8d7d-f30818cb61e7__L0",
+      "name": "Character Class",
+      "symbol": "var_character_class_1"
+    },
+    {
+      "id": "4dd7f9b0-f3a6-4623-acb1-38c9b1281ed5__L0",
+      "name": "Character Class",
+      "symbol": "var_character_class_2"
+    },
+    {
+      "id": "37a2b4fa-d860-493f-9266-b3c96bac9007__L0",
+      "name": "Character Class",
+      "symbol": "var_character_class_3"
+    },
+    {
+      "id": "b5709480-8945-41f9-bc0b-330979df5fc6__L0",
+      "name": "Character Class",
+      "symbol": "var_character_class_4"
+    },
+    {
+      "id": "8f1585ce-c451-4358-b6cd-fe14ac62b594__L0",
+      "name": "Character Class",
+      "symbol": "var_character_class_5"
+    },
+    {
+      "id": "c6403220-6aba-4466-a84e-a5bdcf612ac1__L0",
+      "name": "Character Class",
+      "symbol": "var_character_class_6"
+    },
+    {
+      "id": "51959c65-5ada-4b08-8fc4-364aeecb39ef__L0",
+      "name": "Character Job",
+      "symbol": "var_character_job"
+    },
+    {
+      "id": "aeecfbd3-1725-4866-8b6c-2683dc5472e5__L0",
+      "name": "Character Job",
+      "symbol": "var_character_job_1"
+    },
+    {
+      "id": "76586ae3-b5db-4079-8b7b-71f9205f6373__L3",
+      "name": "Character Job",
+      "symbol": "var_character_job_2"
     }
   ]
 }

@@ -1,18 +1,23 @@
 {
   "_resourceType": "actor",
   "id": "f0c33342-c99b-4a7a-9af9-f264c4c4e4fa",
+  "_index": 0,
+  "symbol": "actor_57",
+  "prefabId": "",
   "name": "Name Menu",
+  "x": 0,
+  "y": 7,
   "frame": 0,
   "animate": false,
   "spriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
+  "paletteId": "",
   "direction": "down",
   "moveSpeed": 1,
   "animSpeed": 15,
-  "paletteId": "",
   "isPinned": true,
   "persistent": false,
   "collisionGroup": "",
-  "symbol": "actor_57",
+  "prefabScriptOverrides": {},
   "script": [],
   "startScript": [],
   "updateScript": [
@@ -55,8 +60,5 @@
   ],
   "hit1Script": [],
   "hit2Script": [],
-  "hit3Script": [],
-  "x": 0,
-  "y": 7,
-  "_index": 0
+  "hit3Script": []
 }

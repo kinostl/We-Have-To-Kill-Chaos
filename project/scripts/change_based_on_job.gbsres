@@ -1,0 +1,225 @@
+{
+  "_resourceType": "script",
+  "id": "ac0ce815-fc01-4ec3-a323-b0fe93908eda",
+  "name": "Change Based On Job",
+  "description": "",
+  "variables": {
+    "V0": {
+      "id": "V0",
+      "name": "Job Selection",
+      "passByReference": true
+    }
+  },
+  "actors": {
+    "0": {
+      "id": "0",
+      "name": "Actor A"
+    },
+    "1": {
+      "id": "1",
+      "name": "Actor B"
+    },
+    "2": {
+      "id": "2",
+      "name": "Actor C"
+    },
+    "3": {
+      "id": "3",
+      "name": "Actor D"
+    }
+  },
+  "symbol": "script_9",
+  "script": [
+    {
+      "command": "EVENT_GROUP",
+      "args": {
+        "__collapse": false
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_SET_VALUE",
+            "args": {
+              "variable": "V0",
+              "value": {
+                "type": "number",
+                "value": 0
+              },
+              "__collapse": true
+            },
+            "id": "be6fe177-7052-4a04-94e3-54f9b4671ba6"
+          },
+          {
+            "command": "MY_EVENT_CALL_NATIVE",
+            "args": {
+              "argCount": 1,
+              "arg0": {
+                "type": "variable",
+                "value": "V0"
+              },
+              "funName": "cc_display_class"
+            },
+            "id": "229cc9a9-c180-4648-9b1b-99928e2b2c95"
+          },
+          {
+            "command": "EVENT_CALL_CUSTOM_EVENT",
+            "args": {
+              "customEventId": "18c95038-7066-4edd-991d-856988fa0379",
+              "$actor[0]$": "0",
+              "$variable[V0]$": {
+                "type": "variable",
+                "value": "V0"
+              },
+              "__collapse": false
+            },
+            "id": "7e7285c0-066e-428c-ba4c-1b0e32aba6a1"
+          }
+        ]
+      },
+      "id": "eb44ca6a-8fd9-4a48-b82f-c1c0a09f532d"
+    },
+    {
+      "command": "EVENT_GROUP",
+      "args": {
+        "__collapse": false
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_SET_VALUE",
+            "args": {
+              "variable": "V0",
+              "value": {
+                "type": "number",
+                "value": 1
+              },
+              "__collapse": true
+            },
+            "id": "316b15dd-a1a4-45ad-9f21-35f0f37f4895"
+          },
+          {
+            "command": "MY_EVENT_CALL_NATIVE",
+            "args": {
+              "argCount": 1,
+              "arg0": {
+                "type": "variable",
+                "value": "V0"
+              },
+              "funName": "cc_display_class"
+            },
+            "id": "1b0c0bba-8e36-450e-b8f2-a624b4728de2"
+          },
+          {
+            "command": "EVENT_CALL_CUSTOM_EVENT",
+            "args": {
+              "customEventId": "18c95038-7066-4edd-991d-856988fa0379",
+              "$actor[0]$": "1",
+              "$variable[V0]$": {
+                "type": "variable",
+                "value": "V0"
+              }
+            },
+            "id": "533338d7-64f5-420d-a2d2-cc37475dd16c"
+          }
+        ]
+      },
+      "id": "566efe77-c454-4435-8028-e2c38b0bc1d2"
+    },
+    {
+      "command": "EVENT_GROUP",
+      "args": {
+        "__collapse": false
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_SET_VALUE",
+            "args": {
+              "variable": "V0",
+              "value": {
+                "type": "number",
+                "value": 2
+              },
+              "__collapse": true
+            },
+            "id": "f7bb4d8b-aa55-40cb-b715-92098cfe8297"
+          },
+          {
+            "command": "MY_EVENT_CALL_NATIVE",
+            "args": {
+              "argCount": 1,
+              "arg0": {
+                "type": "variable",
+                "value": "V0"
+              },
+              "funName": "cc_display_class"
+            },
+            "id": "c4b98f26-fc76-44a8-9fe0-3242d452e90f"
+          },
+          {
+            "command": "EVENT_CALL_CUSTOM_EVENT",
+            "args": {
+              "customEventId": "18c95038-7066-4edd-991d-856988fa0379",
+              "$actor[0]$": "2",
+              "$variable[V0]$": {
+                "type": "variable",
+                "value": "V0"
+              }
+            },
+            "id": "620246c2-7fb1-45ff-9598-7e19423141d1"
+          }
+        ]
+      },
+      "id": "4b5d1626-6305-4a9b-b3b4-b39de30d1e45"
+    },
+    {
+      "command": "EVENT_GROUP",
+      "args": {
+        "__collapse": false
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_SET_VALUE",
+            "args": {
+              "variable": "V0",
+              "value": {
+                "type": "number",
+                "value": 3
+              },
+              "__collapse": true
+            },
+            "id": "43a014c4-8ed5-4846-a0ca-556e878b8c47"
+          },
+          {
+            "command": "MY_EVENT_CALL_NATIVE",
+            "args": {
+              "argCount": 1,
+              "arg0": {
+                "type": "variable",
+                "value": "V0"
+              },
+              "funName": "cc_display_class",
+              "__collapse": false
+            },
+            "id": "496a226e-7fd8-44f3-8224-32b7d63ed32a"
+          },
+          {
+            "command": "EVENT_CALL_CUSTOM_EVENT",
+            "args": {
+              "customEventId": "18c95038-7066-4edd-991d-856988fa0379",
+              "$actor[0]$": "3",
+              "$variable[V0]$": {
+                "type": "variable",
+                "value": "V0"
+              },
+              "__collapse": false
+            },
+            "id": "c08e10f2-a472-4729-9130-30ca5ec416a4"
+          }
+        ]
+      },
+      "id": "1c7358c6-cbd3-434f-9ad2-3fa61978754c"
+    }
+  ]
+}

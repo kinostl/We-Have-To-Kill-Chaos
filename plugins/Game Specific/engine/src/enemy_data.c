@@ -1,44 +1,115 @@
+#include "enemy_data.h"
+#include "enums.h"
 #include <bankdata.h>
 #include <gb/gb.h>
-#include "enemy_data.h" // IWYU pragma: keep
-#include "encounter_table.h"
-
-#include "enemy_data/imp.h"
-#include "enemy_data/wolf.h"
-#include "enemy_data/mad_pony.h"
-#include "entity_data.h"
+#include <string.h>
 
 #pragma bank 255
 
-void set_enemy_data(entity_data * entity, BYTE enemy_id) OLDCALL BANKED {
-  switch (enemy_id) {
-  default:
-  case IMP:
-    set_to_imp(entity);
-    break;
-  case WOLF:
-    set_to_wolf(entity);
-    break;
-  case MADPONY:
-    set_to_mad_pony(entity);
-    break;
-  }
-}
+const enemy_data enemy_db[] = {
+    [IMP] =
+        {
+            .name = "IMP",
+            .w = 5,
+            .h = 4,
+            .ext =
+                {
+                    .max_hp = 8,
+                    .gold = 6,
+                    .exp = 6,
+                    .damage = 4,
+                    .hits = 1,
+                    .hit_chance = 85,
+                    .status = -1,
+                    .crit_chance = 1,
+                    .absorb = 4,
+                    .evade = 3,
+                    .mdef = 8,
+                    .morale = 13,
+                    .magic = 0,
+                    .spatk = 0,
+                    .weakness = -1,
+                    .resists = -1,
+                    .family = GIANT,
+                    .type = IMP,
+                    .skills =
+                        {
+                            GOBLIN_PUNCH,
+                            FIGHT,
+                            FIGHT,
+                            FIGHT,
+                        },
+                },
+        },
+    [MADPONY] =
+        {
+            .name = "MADPONY",
+            .w = 6,
+            .h = 6,
+            .ext =
+                {
+                    .max_hp = 64,
+                    .gold = 15,
+                    .exp = 63,
+                    .damage = 10,
+                    .hits = 2,
+                    .hit_chance = 92,
+                    .status = -1,
+                    .crit_chance = 1,
+                    .absorb = 2,
+                    .evade = 11,
+                    .mdef = 20,
+                    .morale = 13,
+                    .magic = 0,
+                    .spatk = 0,
+                    .family = NO_ENEMY_FAMILY,
+                    .type = MADPONY,
+                    .weakness = -1,
+                    .resists = -1,
+                    .skills =
+                        {
+                            THRASH,
+                            FIGHT,
+                            FIGHT,
+                            FIGHT,
+                        },
+                },
+        },
+    [WOLF] =
+        {
+            .name = "WOLF",
+            .w = 5,
+            .h = 4,
+            .ext =
+                {
+                    .max_hp = 20,
+                    .gold = 6,
+                    .exp = 24,
+                    .damage = 8,
+                    .hits = 1,
+                    .hit_chance = 86,
+                    .status = -1,
+                    .crit_chance = 1,
+                    .absorb = 0,
+                    .evade = 18,
+                    .mdef = 14,
+                    .morale = 13,
+                    .magic = 0,
+                    .spatk = 0,
+                    .family = NO_ENEMY_FAMILY,
+                    .type = WOLF,
+                    .weakness = -1,
+                    .resists = -1,
+                    .skills =
+                        {
+                            HOWL,
+                            FIGHT,
+                            FIGHT,
+                            FIGHT,
+                        },
 
-void set_encounter_table(BYTE encounter_table[4], BYTE encounter_table_id)
-                        OLDCALL BANKED{
-  switch (encounter_table_id) {
-  case 0:
-    encounter_table[0] = IMP;
-    encounter_table[1] = WOLF;
-    encounter_table[2] = MADPONY;
-    encounter_table[3] = MADPONY;
-    return;
-  default:
-    encounter_table[0] = IMP;
-    encounter_table[1] = IMP;
-    encounter_table[2] = MADPONY;
-    encounter_table[3] = MADPONY;
-    return;
-  }
-}
+                },
+        },
+};
+
+BANKREF(FF_ENEMY_DATA)

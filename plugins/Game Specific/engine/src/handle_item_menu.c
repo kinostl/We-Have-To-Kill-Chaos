@@ -109,7 +109,7 @@ void loadWeaponInfo(SCRIPT_CTX *THIS) OLDCALL BANKED {
   i_slot = item_slots[item_idx];
 
   weapon_data w_data;
-  set_weapon(i_slot.id, &w_data);
+  // set_weapon(i_slot.id, &w_data);
 
   load_weapon_info_text(w_data, ui_text_data, 18, 5);
   write_bg_font(1, 13, 18, 4);

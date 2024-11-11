@@ -1,7 +1,7 @@
 {
   "_resourceType": "scene",
   "id": "f9bca12a-296d-4f65-aea4-3d8f113fe104",
-  "_index": 27,
+  "_index": 25,
   "name": "Triple My Triads",
   "backgroundId": "8e852d14-8a26-43aa-bb5e-9fe4ea1e0f69",
   "tilesetId": "",
@@ -13,8 +13,8 @@
   "collisions": "00400+",
   "autoFadeSpeed": 1,
   "symbol": "scene_28",
-  "x": 1760.3720930232557,
-  "y": 1453.3953488372092,
+  "x": 984,
+  "y": 1424,
   "script": [
     {
       "command": "EVENT_ACTOR_DEACTIVATE",

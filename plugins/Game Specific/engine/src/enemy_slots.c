@@ -4,6 +4,7 @@
 #include "encounter_table.h"
 #include "enemy_data.h"
 #include "entity_data.h"
+#include "enums.h"
 #include "handle_flashing.h"
 #include "item_slot.h"
 #include "rand.h" // IWYU pragma: keep
@@ -14,10 +15,7 @@
 #include <data/game_globals.h>
 #include <gb/gb.h>
 #include <gbs_types.h>
-#include <math.h>
 #include <string.h>
-#include "weapon_data.h"
-#include "weapon_data/iron_hammer.h"
 
 #pragma bank 255
 
@@ -103,111 +101,110 @@ void setupTileBuffer(UBYTE *buffer, UBYTE w, UBYTE h, UBYTE x, UBYTE y,
   }
 }
 
-void initialize_entity_data(entity_data * slot) OLDCALL BANKED {
-  slot->hp = 0;
+void initialize_entity_data(enemy_data * slot) OLDCALL BANKED {
+  slot->ext.hp = 0;
   slot->skill_idx = 0;
-  slot->alive = FALSE;
+  slot->ext.alive = FALSE;
 }
 void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  //
-  turn_slots[0].max_hp = 35;
-  turn_slots[0].hp = 35;
-  turn_slots[0].hit_chance = 10;
-  turn_slots[0].crit_chance = 0;
-  turn_slots[0].damage = 10;
-  turn_slots[0].alive = TRUE;
-  turn_slots[0].ap = 0;
-  strcpy(turn_slots[0].name, "ONCLER");
-  turn_slots[0].skills[0] = FIGHT;
-  turn_slots[0].skill_costs[0] = 1;
-  turn_slots[0].x = 13;
-  turn_slots[0].y = 2;
-  turn_slots[0].w = 3;
-  turn_slots[0].h = 3;
+//   //
+//   turn_slots[0].max_hp = 35;
+//   turn_slots[0].hp = 35;
+//   turn_slots[0].hit_chance = 10;
+//   turn_slots[0].crit_chance = 0;
+//   turn_slots[0].damage = 10;
+//   turn_slots[0].alive = TRUE;
+//   turn_slots[0].ap = 0;
+//   strcpy(turn_slots[0].name, "ONCLER");
+//   turn_slots[0].skills[0] = FIGHT;
+//   turn_slots[0].skill_costs[0] = 1;
+//   turn_slots[0].x = 13;
+//   turn_slots[0].y = 2;
+//   turn_slots[0].w = 3;
+//   turn_slots[0].h = 3;
 
-  turn_slots[0].skills[1] = SHIELD_SKILL;
-  turn_slots[0].skill_costs[1] = 1;
+//   turn_slots[0].skills[1] = SHIELD_SKILL;
+//   turn_slots[0].skill_costs[1] = 1;
 
-  turn_slots[0].skills[2] = RUNE_SWORD;
-  turn_slots[0].skill_costs[2] = 2;
+//   turn_slots[0].skills[2] = RUNE_SWORD;
+//   turn_slots[0].skill_costs[2] = 2;
 
-  turn_slots[0].skills[3] = LUSTER;
-  turn_slots[0].skill_costs[3] = 3;
+//   turn_slots[0].skills[3] = LUSTER;
+//   turn_slots[0].skill_costs[3] = 3;
 
-  item_slots[0].count=42;
-  item_slots[0].type=42;
-  //
-  turn_slots[1].max_hp = 20;
-  turn_slots[1].hp = 20;
-  turn_slots[1].hit_chance = 10;
-  turn_slots[1].crit_chance = 0;
-  turn_slots[1].damage = 10;
-  turn_slots[1].alive = TRUE;
-  turn_slots[1].ap = 0;
-  strcpy(turn_slots[1].name, "TWOFER");
-  turn_slots[1].skills[0] = FIGHT;
-  turn_slots[1].skill_costs[0] = 1;
-  turn_slots[1].skills[1] = GOBLIN_PUNCH;
-  turn_slots[1].skill_costs[1] = 1;
-  turn_slots[1].x = 13;
-  turn_slots[1].y = 2;
-  turn_slots[1].w = 3;
-  turn_slots[1].h = 3;
-  //
-  turn_slots[2].max_hp = 25;
-  turn_slots[2].hp = 25;
-  turn_slots[2].hit_chance = 10;
-  turn_slots[2].crit_chance = 0;
-  turn_slots[2].damage = 10;
-  turn_slots[2].alive = TRUE;
-  turn_slots[2].ap = 0;
-  strcpy(turn_slots[2].name, "THREEF");
-  turn_slots[2].skills[0] = FIRE;
-  turn_slots[2].skill_costs[0] = 1;
-  turn_slots[2].skills[1] = ICE;
-  turn_slots[2].skill_costs[1] = 1;
-  turn_slots[2].x = 13;
-  turn_slots[2].y = 10;
-  turn_slots[2].w = 3;
-  turn_slots[2].h = 3;
-  //
-  turn_slots[3].max_hp = 10;
-  turn_slots[3].hp = 10;
-  turn_slots[3].hit_chance = 10;
-  turn_slots[3].crit_chance = 0;
-  turn_slots[3].damage = 10;
-  turn_slots[3].alive = TRUE;
-  turn_slots[3].ap = 0;
-  strcpy(turn_slots[3].name, "FOURNA");
-  turn_slots[3].skills[0] = HARM;
-  turn_slots[3].skill_costs[0] = 1;
-  turn_slots[3].skills[1] = HEAL;
-  turn_slots[3].skill_costs[1] = 1;
-  turn_slots[3].x = 13;
-  turn_slots[3].y = 14;
-  turn_slots[3].w = 3;
-  turn_slots[3].h = 3;
+//   item_slots[0].count=42;
+//   item_slots[0].type=42;
+//   //
+//   turn_slots[1].max_hp = 20;
+//   turn_slots[1].hp = 20;
+//   turn_slots[1].hit_chance = 10;
+//   turn_slots[1].crit_chance = 0;
+//   turn_slots[1].damage = 10;
+//   turn_slots[1].alive = TRUE;
+//   turn_slots[1].ap = 0;
+//   strcpy(turn_slots[1].name, "TWOFER");
+//   turn_slots[1].skills[0] = FIGHT;
+//   turn_slots[1].skill_costs[0] = 1;
+//   turn_slots[1].skills[1] = GOBLIN_PUNCH;
+//   turn_slots[1].skill_costs[1] = 1;
+//   turn_slots[1].x = 13;
+//   turn_slots[1].y = 2;
+//   turn_slots[1].w = 3;
+//   turn_slots[1].h = 3;
+//   //
+//   turn_slots[2].max_hp = 25;
+//   turn_slots[2].hp = 25;
+//   turn_slots[2].hit_chance = 10;
+//   turn_slots[2].crit_chance = 0;
+//   turn_slots[2].damage = 10;
+//   turn_slots[2].alive = TRUE;
+//   turn_slots[2].ap = 0;
+//   strcpy(turn_slots[2].name, "THREEF");
+//   turn_slots[2].skills[0] = FIRE;
+//   turn_slots[2].skill_costs[0] = 1;
+//   turn_slots[2].skills[1] = ICE;
+//   turn_slots[2].skill_costs[1] = 1;
+//   turn_slots[2].x = 13;
+//   turn_slots[2].y = 10;
+//   turn_slots[2].w = 3;
+//   turn_slots[2].h = 3;
+//   //
+//   turn_slots[3].max_hp = 10;
+//   turn_slots[3].hp = 10;
+//   turn_slots[3].hit_chance = 10;
+//   turn_slots[3].crit_chance = 0;
+//   turn_slots[3].damage = 10;
+//   turn_slots[3].alive = TRUE;
+//   turn_slots[3].ap = 0;
+//   strcpy(turn_slots[3].name, "FOURNA");
+//   turn_slots[3].skills[0] = HARM;
+//   turn_slots[3].skill_costs[0] = 1;
+//   turn_slots[3].skills[1] = HEAL;
+//   turn_slots[3].skill_costs[1] = 1;
+//   turn_slots[3].x = 13;
+//   turn_slots[3].y = 14;
+//   turn_slots[3].w = 3;
+//   turn_slots[3].h = 3;
 
 
-  item_slots[0].count=1;
-  item_slots[0].type=1;
-  item_slots[1].count=1;
-  item_slots[1].type=2;
-  item_slots[2].count=1;
-  item_slots[2].type=3;
-  item_slots[3].count=1;
-  item_slots[3].type=4;
+//   item_slots[0].count=1;
+//   item_slots[0].type=1;
+//   item_slots[1].count=1;
+//   item_slots[1].type=2;
+//   item_slots[2].count=1;
+//   item_slots[2].type=3;
+//   item_slots[3].count=1;
+//   item_slots[3].type=4;
 }
 
-void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  THIS;
-  BYTE encounter_table[4];
+void setupEnemySlots(void) BANKED {
+  ENEMY_TYPE encounter_table[4];
 
   set_encounter_table(encounter_table, 0);
   // Default to null
-  for (int i = 4; i < 10; i++) {
-    initialize_entity_data(&turn_slots[i]);
+  for (int i = 0; i < 6; i++) {
+    initialize_entity_data(&enemy_slots[i]);
   }
 
   // Now load up the enemy VRAM
@@ -249,10 +246,10 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
 #define place_bg_tiles                                                         \
   setupTileBuffer(enemy_buffer, 5, 4, 0, 0, start_of_enemy_vram, import_bkg);  \
   set_bkg_tiles(1, 1, 5, 4, enemy_buffer);                                     \
-  handle_bkg_set_color(1, 1, 1, 5, 4);                                         \
+  handle_bkg_set_color(0, 1, 1, 5, 4);                                         \
   setupTileBuffer(enemy_buffer, 5, 4, 5, 0, start_of_enemy_vram, import_bkg);  \
   set_bkg_tiles(6, 1, 5, 4, enemy_buffer);                                     \
-  handle_bkg_set_color(1, 6, 1, 5, 4)
+  handle_bkg_set_color(0, 6, 1, 5, 4)
 
 #define place_sm_enemy_1(x, y, color)                                          \
   setupTileBuffer(enemy_buffer, 5, 4, 0, 4, start_of_enemy_vram, import_bkg);  \
@@ -310,11 +307,11 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
   BYTE next_x = 1;
   BYTE next_y = 5;
-  BYTE entity_data_i = 4;
+  BYTE entity_data_i = 0;
   BYTE enemies_alive = 0;
-  entity_data * current_enemy;
+  enemy_data * current_enemy;
   for (BYTE i = 0; i < lg_i; i++) {
-    current_enemy = &turn_slots[entity_data_i];
+    current_enemy = &enemy_slots[entity_data_i];
     BYTE idx = large_enemies[i];
 
     switch (idx) {
@@ -326,9 +323,9 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
       break;
     }
 
-    set_enemy_data(current_enemy, encounter_table[idx]);
-    current_enemy->hp = current_enemy->max_hp;
-    current_enemy->alive = TRUE;
+    load_enemy(current_enemy, encounter_table[idx]);
+    current_enemy->ext.hp = current_enemy->ext.max_hp;
+    current_enemy->ext.alive = TRUE;
     current_enemy->x = next_x;
     current_enemy->y = next_y;
     current_enemy->w = 6;
@@ -342,7 +339,7 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   }
 
   for (BYTE i = 0; i < sm_i; i++) {
-    current_enemy = &turn_slots[entity_data_i];
+    current_enemy = &enemy_slots[entity_data_i];
     BYTE idx = small_enemies[i];
 
     switch (idx) {
@@ -354,9 +351,9 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
       break;
     }
 
-    set_enemy_data(current_enemy, encounter_table[idx]);
-    current_enemy->hp = current_enemy->max_hp;
-    current_enemy->alive = TRUE;
+    load_enemy(current_enemy, encounter_table[idx]);
+    current_enemy->ext.hp = current_enemy->ext.max_hp;
+    current_enemy->ext.alive = TRUE;
     current_enemy->x = next_x;
     current_enemy->y = next_y;
     current_enemy->w = 5;
@@ -372,83 +369,22 @@ void setupEnemySlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
     }
   }
   VM_GLOBAL(VAR_SCENE_ENEMIES_ALIVE) = enemies_alive;
-
   place_bg_tiles;
 }
 
 void checkEnemyAlive(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  VM_GLOBAL(VAR_ATTACKER_ALIVE) =
-      turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)].alive;
+  // VM_GLOBAL(VAR_ATTACKER_ALIVE) =
+  //     turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)].alive;
 }
 
 void handleEnemyTakeDamage(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  THIS;
-  entity_data *defender;
-  defender = &turn_slots[VM_GLOBAL(VAR_DEFENDER_ID)];
-  entity_data *attacker;
-  attacker = &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
-
-  UWORD * name = &VM_GLOBAL(VAR_1_C);
-  UWORD name_l = strlen(defender->name);
-  for(int i=0;i<name_l;i++){
-    name[i] = defender->name[i];
-  }
-  for(int i=name_l;i<8;i++){
-    name[i]=127;
-  }
-
-  VM_GLOBAL(VAR_EXPLOSION_X) = defender->x;
-  VM_GLOBAL(VAR_EXPLOSION_Y) = defender->y;
-  VM_GLOBAL(VAR_EXPLOSION_W) = defender->w;
-  VM_GLOBAL(VAR_EXPLOSION_H) = defender->h;
-
-  VM_GLOBAL(VAR_DEFENDER_STARTING_HP) = defender->hp;
-
-  UWORD hit_roll;
-  UWORD damage_calc;
-
-  if (VM_GLOBAL(VAR_META_DEBUG) > 1) {
-    hit_roll = 0;
-  } else {
-    hit_roll = rand() % 201;
-  }
-
-  UWORD target_number = (168 + attacker->hit_chance) - defender->evade;
-
-  VM_GLOBAL(VAR_ATTACKER_MISSED) = target_number < hit_roll;
-  if(hit_roll == 0){
-    VM_GLOBAL(VAR_ATTACKER_MISSED) = FALSE;
-  }
-  if(hit_roll == 200){
-    VM_GLOBAL(VAR_ATTACKER_MISSED) = TRUE;
-  }
-
-  if (VM_GLOBAL(VAR_ATTACKER_MISSED))
-    return;
-
-  const UWORD atk_dmg = attacker->damage;
-  damage_calc = (rand() % atk_dmg) + (atk_dmg + 1);
-  if (attacker->crit_chance > hit_roll) {
-    defender->hp -= damage_calc;
-    VM_GLOBAL(VAR_ATTACKER_CRIT_DAMAGE) = damage_calc;
-  }
-  damage_calc = MAX(damage_calc - defender->absorb, 1);
-  defender->hp -= damage_calc;
-  VM_GLOBAL(VAR_DEFENDER_ENDING_HP) = defender->hp;
-
-  if(defender->hp <= 0){
-    defender->alive = FALSE;
-    if (VM_GLOBAL(VAR_DEFENDER_ID) >= 4) {
-      VM_GLOBAL(VAR_SCENE_ENEMIES_ALIVE)--;
-    }
-  }
 }
 
 void enemyFlashBKG(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
-  entity_data *enemy =
-      &turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
+  enemy_data *enemy =
+      &enemy_slots[0];
   WORD color_1 = 1;
   WORD color_2 = 6;
   WORD x = enemy->x;
@@ -463,7 +399,7 @@ void enemyRollInitiative(SCRIPT_CTX *THIS) OLDCALL BANKED {
   entity_data *entity;
   UWORD *initiative_slot;
   for (int i = 0; i < 10; i++) {
-    entity = &turn_slots[i];
+    entity = turn_slots[i];
     if (!entity->alive)
       continue;
     initiative_slot = &VM_GLOBAL(VAR_TURN_ORDER_SLOT_1_P1) + i;

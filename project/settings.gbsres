@@ -1,8 +1,8 @@
 {
   "_resourceType": "settings",
   "startSceneId": "7f69b524-b5c7-485d-8809-18efbc48c619",
-  "startX": 9,
-  "startY": 26,
+  "startX": 2,
+  "startY": 16,
   "startMoveSpeed": 1,
   "startAnimSpeed": 15,
   "startDirection": "up",
@@ -41,7 +41,10 @@
     "SHMUP": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
     "POINTNCLICK": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
     "LOGO": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
-    "MENU": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5"
+    "MENU": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
+    "RPG_COMBAT": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
+    "SET_NAME": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5",
+    "STRING_INPUT": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5"
   },
   "musicDriver": "huge",
   "cartType": "mbc5",

@@ -1,34 +1,25 @@
 #ifndef FF_WEAPON_DATA
 #define FF_WEAPON_DATA
-#include "class_data.h"
+#include "class_data.h" // IWYU pragma: export
+#include "enums.h"
 #include <asm/types.h>
+#include <bankdata.h>
+#include <gb/gb.h>
 
-enum W_TYPE {
-  UNARMED,
-  FISTS,
-  DAGGER,
-  HAMMER,
-  NUNCHUCKS,
-  STAFF,
-  SWORD_1,
-  SWORD_2,
-  SWORD_3
-};
-
-enum W_COLOR { DMG, BROWN, GREY, PURPLE, PINK };
 
 typedef struct {
-  BYTE id;
-  enum W_TYPE type;
-  enum W_COLOR color;
+  WEAPON_TYPE id;
+  WEAPON_FAMILY type;
+  WEAPON_COLOR color;
   BYTE attack;
   BYTE hit_chance;
   BYTE crit_chance;
   UWORD price;
-  UWORD classes; // Flag
+  JOB classes; // Flag
 } weapon_data ;
 
-void set_weapon(BYTE weapon_id, weapon_data *weapon) OLDCALL BANKED;
+extern const weapon_data weapon_db[];
+
 void load_weapon_info_text(weapon_data w_data, unsigned char * item_s, UBYTE width, UBYTE offset) OLDCALL BANKED;
 
 inline BYTE calculateAttack(BYTE attack, BYTE strength){
@@ -41,7 +32,12 @@ inline BYTE calculateAccuracy(BYTE weapon_hit_chance, BYTE hit_chance){
 
 inline BYTE calculateCritChance(BYTE weapon_crit_chance, BYTE luck){
   return weapon_crit_chance + (luck /2);
+}
 
+BANKREF_EXTERN(FF_WEAPON_DATA)
+
+inline void load_weapon(weapon_data *weapon, WEAPON_TYPE weapon_id){
+  MemcpyBanked(&weapon, &weapon_db[weapon_id], sizeof(weapon_data), BANK(FF_WEAPON_DATA));
 }
 
 #endif

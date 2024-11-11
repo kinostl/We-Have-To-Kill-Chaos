@@ -2,7 +2,7 @@
   "_resourceType": "scene",
   "id": "54274c5f-f51d-420e-b717-bd0d155bcef3",
   "_index": 4,
-  "type": "TOPDOWN",
+  "type": "RPG_COMBAT",
   "name": "Corneria Battles",
   "symbol": "scene_3",
   "x": 1016,
@@ -38,9 +38,17 @@
     {
       "command": "EVENT_MUSIC_PLAY",
       "args": {
-        "musicId": "0f9dc2d7-2c9b-41c3-b101-d2cf046917ab"
+        "musicId": "0f9dc2d7-2c9b-41c3-b101-d2cf046917ab",
+        "__comment": true
       },
       "id": "2b63d63d-6f69-4933-baff-60169ca7fabb"
+    },
+    {
+      "command": "EVENT_FADE_IN",
+      "args": {
+        "speed": "2"
+      },
+      "id": "62f03abd-4686-4ce5-b2ea-7dd9540f2645"
     },
     {
       "command": "EVENT_GBVM_SCRIPT",
@@ -1706,7 +1714,7 @@
       "command": "FF_EVENT_DISPATCH_ACTION",
       "args": {
         "action": 16,
-        "__collapse": true,
+        "__collapse": false,
         "__comment": false
       },
       "id": "758236a3-ba92-43be-a4e3-9cfcb0baa4df"
@@ -1723,7 +1731,8 @@
       "command": "EVENT_ACTOR_START_UPDATE",
       "args": {
         "actorId": "5b07b77a-3792-4fae-a9cf-0868e3eaf12c",
-        "__collapse": true
+        "__collapse": true,
+        "__comment": false
       },
       "id": "7d436b46-4b01-4bef-844c-5abecab6eba2"
     },

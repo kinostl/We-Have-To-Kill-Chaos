@@ -74,15 +74,15 @@
       "command": "FF_EVENT_DEFINE_ACTIONS",
       "args": {
         "variable": "0",
-        "__collapseCase1": true,
+        "__collapseCase1": false,
         "__collapseCase14": true,
         "__collapseCase8": true,
         "__collapseCase9": true,
         "__collapseCase15": true,
         "__collapseCase12": true,
-        "__collapseCase11": true,
+        "__collapseCase11": false,
         "__collapseCase10": true,
-        "__collapseCase21": true,
+        "__collapseCase21": false,
         "__collapseCase4": true,
         "__collapseCase5": true,
         "__collapseCase7": true,
@@ -101,11 +101,12 @@
         "__collapse": false,
         "__collapseCase23": true,
         "__collapseCase25": true,
-        "__collapseCase24": true,
+        "__collapseCase24": false,
         "__collapseCase26": true,
         "__collapseCase27": true,
         "__collapseCase28": true,
-        "__collapseCase29": true
+        "__collapseCase29": true,
+        "__comment": false
       },
       "children": {
         "true1": [
@@ -584,7 +585,7 @@
                   "command": "FF_EVENT_START_HERO_TURN",
                   "args": {
                     "heroActor": "9c19db58-2e7a-44d7-861f-c4544041ec00",
-                    "__collapse": true
+                    "__collapse": false
                   },
                   "id": "155b1b96-d09a-44f7-8370-4d4e1a822c3c"
                 },
@@ -965,7 +966,7 @@
               },
               "__collapseElse": true,
               "__disableElse": true,
-              "__collapse": true
+              "__collapse": false
             },
             "children": {
               "true": [
@@ -1027,7 +1028,7 @@
                         "command": "FF_EVENT_DISPATCH_ACTION",
                         "args": {
                           "action": 1,
-                          "__collapse": true
+                          "__collapse": false
                         },
                         "id": "0ce60644-8bcc-4532-911c-27ce08bc2a86"
                       }
@@ -1037,7 +1038,7 @@
                         "command": "FF_EVENT_DISPATCH_ACTION",
                         "args": {
                           "action": 14,
-                          "__collapse": true
+                          "__collapse": false
                         },
                         "id": "eefbe3c4-0843-4e0d-9976-75cd52e7d7e0"
                       }
@@ -2165,7 +2166,7 @@
               ],
               "override": true,
               "__scriptTabs": "press",
-              "__collapse": true
+              "__collapse": false
             },
             "children": {
               "true": [
@@ -2455,7 +2456,7 @@
               ],
               "override": true,
               "__scriptTabs": "press",
-              "__collapse": false
+              "__collapse": true
             },
             "children": {
               "true": [
@@ -4691,8 +4692,9 @@
     {
       "command": "EVENT_GROUP",
       "args": {
-        "__collapse": true,
-        "__label": "Dequeue Action"
+        "__collapse": false,
+        "__label": "Dequeue Action",
+        "__comment": false
       },
       "children": {
         "true": [

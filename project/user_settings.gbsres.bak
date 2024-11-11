@@ -1,8 +1,8 @@
 {
   "_resourceType": "settings",
-  "worldScrollX": 2383,
-  "worldScrollY": 296,
-  "zoom": 279,
+  "worldScrollX": 2067,
+  "worldScrollY": 167,
+  "zoom": 222.5,
   "navigatorSplitSizes": [
     30,
     30,
@@ -24,33 +24,11 @@
   "debuggerCollapsedPanes": [],
   "debuggerPauseOnScriptChanged": false,
   "debuggerPauseOnWatchedVariableChanged": false,
-  "debuggerBreakpoints": [
-    {
-      "scriptEventId": "e9ca0317-a83b-402a-bcad-33929d327e45",
-      "context": {
-        "type": "entity",
-        "entityType": "trigger",
-        "entityId": "248a5e0f-7ab2-4f3c-a2db-bd5d3af0834a",
-        "sceneId": "a7c6c8d4-7e27-4930-a885-9a9b325d9d56",
-        "scriptKey": "script"
-      }
-    },
-    {
-      "scriptEventId": "7cd9bb45-dea6-4f22-91cb-c7a55c67e1f6",
-      "context": {
-        "type": "entity",
-        "entityType": "trigger",
-        "entityId": "2b8f7382-ca11-4f2b-b01c-5e5de406f4c3",
-        "sceneId": "5fb38780-fbe9-4d07-bc86-da01a4465a11",
-        "scriptKey": "script"
-      }
-    }
-  ],
+  "debuggerBreakpoints": [],
   "debuggerWatchedVariables": [
     "437",
-    "0",
-    "78",
-    "79"
+    "108",
+    "48"
   ],
   "openBuildLogOnWarnings": true
 }

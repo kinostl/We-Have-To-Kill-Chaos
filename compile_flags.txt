@@ -2,6 +2,8 @@
 __TARGET_gb
 -D
 __PORT_sm83
+-D
+CGB
 -I
 /home/deck/Documents/We Have To Kill Chaos/plugins/Game Specific/engine/include
 -I
