@@ -17,6 +17,6 @@ typedef struct {
 } enemy_data;
 extern const enemy_data enemy_db[];
 
-void load_enemy(enemy_data *enemy, ENEMY_TYPE enemy_type) BANKED;
+void load_enemy(enemy_data *enemy, ENEMY_TYPE enemy_id) BANKED;
 
 #endif

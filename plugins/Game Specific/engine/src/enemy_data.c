@@ -60,7 +60,7 @@ const enemy_data enemy_db[] = {
                     .morale = 13,
                     .magic = 0,
                     .spatk = 0,
-                    .family = NONE,
+                    .family = NO_ENEMY_FAMILY,
                     .type = MADPONY,
                     .weakness = -1,
                     .resists = -1,
@@ -94,7 +94,7 @@ const enemy_data enemy_db[] = {
                     .morale = 13,
                     .magic = 0,
                     .spatk = 0,
-                    .family = NONE,
+                    .family = NO_ENEMY_FAMILY,
                     .type = WOLF,
                     .weakness = -1,
                     .resists = -1,
@@ -110,6 +110,6 @@ const enemy_data enemy_db[] = {
         },
 };
 
-void load_enemy(enemy_data *enemy, ENEMY_TYPE enemy_type) BANKED {
-  memcpy(&enemy, &enemy_db[enemy_type], sizeof(enemy_data));
+void load_enemy(enemy_data *enemy, ENEMY_TYPE enemy_id) BANKED {
+  memcpy(&enemy, &enemy_db[enemy_id], sizeof(enemy_data));
 }

@@ -1,30 +1,8 @@
 #ifndef FF_SKILLS
 #define FF_SKILLS
+#include "enums.h"
 #include <asm/types.h>
 #include <gb/gb.h>
-typedef enum {
-  BLANK,
-  FIGHT,
-  SHIELD_SKILL,
-  LUSTER,
-  FIRE,
-  ICE,
-  HARM,
-  HEAL,
-  GOBLIN_PUNCH,
-  HOWL,
-  THRASH,
-  RUNE_SWORD
-} BATTLE_SKILL;
-
-typedef enum {
-  TARGET_SELF,
-  TARGET_ALLY,
-  TARGET_ALL_ALLY,
-  TARGET_ENEMY,
-  TARGET_ALL_ENEMY,
-  TARGET_ALL
-} SKILL_TARGET;
 
 typedef struct {
   BATTLE_SKILL id;

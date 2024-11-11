@@ -1,57 +1,110 @@
 #include "weapon_data.h"
-#include "weapon_data/iron_hammer.h"
-#include "weapon_data/rapier.h"
-#include "weapon_data/rune_sword.h"
-#include "weapon_data/small_knife.h"
-#include "weapon_data/were_sword.h"
-#include "weapon_data/wood_nunchucks.h"
-#include "weapon_data/wood_staff.h"
-#include "weapon_data/unarmed.h"
+#include "class_data.h"
+#include "enums.h"
+#include "menu_helper.h"
 #include <asm/types.h>
 #include <string.h>
-#include "menu_helper.h"
 
 #pragma bank 255
 
+const weapon_data weapon_db[] = {
+    [UNARMED] =
+        {
+            .id = UNARMED,
+            .type = NO_WEAPON_FAMILY,
+            .color = DMG,
+            .attack = 0,
+            .hit_chance = 0,
+            .crit_chance = 0,
+            .price = 0,
+            .classes = ALL_JOBS,
+        },
+    [WOOD_NUNCHUCKS] =
+        {
+            .id = WOOD_NUNCHUCKS,
+            .type = NUNCHUCKS,
+            .color = BROWN,
+            .attack = 12,
+            .hit_chance = 0,
+            .crit_chance = 10,
+            .price = 10,
+            .classes = MONK,
+        },
+    [SMALL_KNIFE] =
+        {
+            .id = SMALL_KNIFE,
+            .attack = 5,
+            .hit_chance = 10,
+            .crit_chance = 5,
+            .price = 5,
+            .color = GREY,
+            .type = DAGGER,
+            .classes = FIGHTER | THIEF | RED_MAGE | BLACK_MAGE,
+        },
+    [WOOD_STAFF] =
+        {
 
-void set_weapon(BYTE weapon_id, weapon_data *weapon) OLDCALL BANKED {
-  unarmed(weapon);
-  weapon->classes=0;
+            .id = WOOD_STAFF,
+            .attack = 6,
+            .hit_chance = 0,
+            .crit_chance = 1,
+            .price = 5,
+            .color = BROWN,
+            .type = STAFF,
+            .classes = ALL_JOBS & ~THIEF,
+        },
+    [RAPIER] =
+        {
+            .id = WOOD_STAFF,
+            .attack = 9,
+            .hit_chance = 5,
+            .crit_chance = 10,
+            .price = 10,
+            .color = GREY,
+            .type = SWORD_1,
+            .classes = FIGHTER | THIEF | RED_MAGE,
+        },
+    [IRON_HAMMER] =
+        {
+            .id = IRON_HAMMER,
+            .attack = 9,
+            .hit_chance = 0,
+            .crit_chance = 1,
+            .price = 10,
+            .color = BROWN,
+            .type = HAMMER,
+            .classes = FIGHTER | WHITE_MAGE,
+        },
+    [WERE_SWORD] =
+        {
+            .id = WERE_SWORD,
+            // TODO WRONG STATS ONLY ID AND NAME UPDATED
+            .attack = 18,
+            .hit_chance = 15,
+            .crit_chance = 5,
+            .price = 5000,
+            .color = PURPLE,
+            .type = SWORD_2,
+            .classes = FIGHTER | THIEF | RED_MAGE,
+        },
+    [RUNE_SWORD] =
+        {
+            .id = RUNE_SWORD,
+            .attack = 18,
+            .hit_chance = 15,
+            .crit_chance = 5,
+            .price = 6000,
+            .color = PINK,
+            .type = SWORD_3,
+            .classes = FIGHTER | RED_MAGE,
+        },
+};
 
-  switch (weapon_id) {
-  default:
-  case 0:
-    // If not monk
-    // Unarmed
-    // else
-    // Fists
-    unarmed(weapon);
-    break;
-  case 1:
-    wood_nunchucks(weapon);
-    break;
-  case 2:
-    small_knife(weapon);
-    break;
-  case 3:
-    wood_staff(weapon);
-    break;
-  case 4:
-    rapier(weapon);
-    break;
-  case 5:
-    iron_hammer(weapon);
-    break;
-  case 26:
-    were_sword(weapon);
-    break;
-  case 27:
-    rune_sword(weapon);
-    break;
-  }
+void load_weapon(weapon_data *weapon, WEAPON_TYPE weapon_id) OLDCALL BANKED {
+  memcpy(weapon, &weapon_db[weapon_id], sizeof(weapon_data));
 }
 
-inline void writeItemDesc(BYTE item_id, unsigned char *item_s){
+inline void writeItemDesc(BYTE item_id, unsigned char *item_s) {
 
   switch (item_id) {
   default:
@@ -73,7 +126,8 @@ inline void writeItemDesc(BYTE item_id, unsigned char *item_s){
   }
 }
 
-void load_weapon_info_text(weapon_data w_data, unsigned char * item_s, UBYTE width, UBYTE offset) OLDCALL BANKED {
+void load_weapon_info_text(weapon_data w_data, unsigned char *item_s,
+                           UBYTE width, UBYTE offset) OLDCALL BANKED {
   width;
   unsigned char t[4];
 
@@ -98,5 +152,4 @@ void load_weapon_info_text(weapon_data w_data, unsigned char * item_s, UBYTE wid
   itoa_format(w_data.crit_chance, t, 3);
   strcat(item_s, t);
   strcat(item_s, "%");
-
 }
