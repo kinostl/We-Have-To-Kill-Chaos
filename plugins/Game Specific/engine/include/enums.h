@@ -89,4 +89,12 @@ typedef enum {
   TARGET_ALL
 } SKILL_TARGET;
 
+typedef enum {
+  CRITICAL_MISS,
+  ATTACK_MISSED,
+  ATTACK_HIT,
+  CRITICAL_HIT,
+  TARGET_DEFEATED
+} ATTACK_RESULTS;
+
 #endif

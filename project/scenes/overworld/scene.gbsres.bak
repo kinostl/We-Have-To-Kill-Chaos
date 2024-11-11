@@ -1,6 +1,7 @@
 {
   "_resourceType": "scene",
   "id": "97ae8775-3b76-4b99-88ae-364931c1f441",
+  "_index": 13,
   "type": "TOPDOWN",
   "name": "Overworld",
   "symbol": "scene_1",

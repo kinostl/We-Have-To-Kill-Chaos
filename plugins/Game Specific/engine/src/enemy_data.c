@@ -2,7 +2,6 @@
 #include "enums.h"
 #include <bankdata.h>
 #include <gb/gb.h>
-#include <string.h>
 
 #pragma bank 255
 

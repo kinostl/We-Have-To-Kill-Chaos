@@ -135,14 +135,6 @@
         ]
       },
       "id": "9afeeec5-0b69-4955-9208-a498f3161909"
-    },
-    {
-      "command": "MY_EVENT_CALL_NATIVE",
-      "args": {
-        "argCount": 0,
-        "funName": "init_extra_data"
-      },
-      "id": "2b922b7b-38bf-4e06-b262-b6d455fa1388"
     }
   ],
   "playerHit1Script": [],

@@ -1,4 +1,6 @@
+#include "action_handler.h"
 #include "entity_data.h"
+#include "enums.h"
 #include "extra_data.h"
 #include "hero_data.h"
 #include "weapon_data.h"
@@ -75,19 +77,23 @@ void attacker_prepareNextTurn_Hero(void) BANKED {
 
 void attacker_prepareNextTurn_Enemy(void) BANKED{}
 
-void defender_TakeDamage(entity_data *attacker, entity_data *defender) BANKED {
+ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,
+                                   entity_data *defender) BANKED {
   const UWORD hit_roll = rand() % 201;
   const UWORD target_number = (168 + attacker->hit_chance) - defender->evade;
 
-  if (hit_roll == 200 || (target_number < hit_roll)) {
-    return;
-  }
+  if (hit_roll == 200)
+    return ATTACK_MISSED | CRITICAL_MISS;
+  if (target_number < hit_roll)
+    return ATTACK_MISSED;
 
+  ATTACK_RESULTS results = ATTACK_HIT;
   const UWORD atk_dmg = attacker->damage;
   UWORD damage_calc = (rand() % atk_dmg) + (atk_dmg + 1);
 
   if (attacker->crit_chance > hit_roll) {
     defender->hp -= damage_calc;
+    results |= CRITICAL_HIT;
   }
 
   damage_calc = MAX(damage_calc - defender->absorb, 1);
@@ -95,5 +101,8 @@ void defender_TakeDamage(entity_data *attacker, entity_data *defender) BANKED {
 
   if (defender->hp <= 0) {
     defender->alive = FALSE;
+    results |= TARGET_DEFEATED;
   }
+
+  return results;
 }

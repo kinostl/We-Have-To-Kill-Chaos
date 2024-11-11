@@ -309,14 +309,14 @@
                   "command": "EVENT_IF",
                   "args": {
                     "condition": {
-                      "type": "eq",
+                      "type": "gt",
                       "valueA": {
                         "type": "variable",
                         "value": "L0"
                       },
                       "valueB": {
                         "type": "number",
-                        "value": 0
+                        "value": 3
                       }
                     },
                     "__collapseElse": false

@@ -5,11 +5,11 @@
   "type": "MENU",
   "name": "Confirm Party",
   "symbol": "scene_32",
-  "x": 1184,
-  "y": 1040,
+  "x": 392,
+  "y": 528,
   "width": 20,
   "height": 18,
-  "backgroundId": "ec861a67-ee38-41f7-b0aa-95036c9a6bce",
+  "backgroundId": "62ec46bc-b649-476c-ac4b-a793312dba53",
   "tilesetId": "",
   "paletteIds": [
     "",
@@ -296,7 +296,7 @@
                 {
                   "command": "EVENT_SWITCH_SCENE",
                   "args": {
-                    "sceneId": "5bdb6efd-b136-4718-8947-3a56baf459a5",
+                    "sceneId": "842db49a-56d4-41cf-b012-eece75847041",
                     "x": {
                       "type": "number",
                       "value": 1
@@ -341,5 +341,5 @@
   "playerHit1Script": [],
   "playerHit2Script": [],
   "playerHit3Script": [],
-  "collisions": ""
+  "collisions": "00168+"
 }

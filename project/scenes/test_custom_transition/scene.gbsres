@@ -5,8 +5,8 @@
   "type": "TOPDOWN",
   "name": "Test Custom Transition",
   "symbol": "scene_9",
-  "x": 240,
-  "y": 1056,
+  "x": 3416,
+  "y": 1816,
   "width": 20,
   "height": 18,
   "backgroundId": "32c2649a-c30d-4e3e-a6f9-3a1016ba28c2",
@@ -20,21 +20,24 @@
       "args": {
         "color": "black",
         "x": 0,
-        "y": 0
+        "y": 0,
+        "__collapse": true
       },
       "id": "e0c2e31d-0d51-4898-91fa-08e2a820967e"
     },
     {
       "command": "EVENT_GBVM_SCRIPT",
       "args": {
-        "script": "VM_PUSH_CONST 0\nVM_PUSH_CONST 0\nVM_GET_INT16  .ARG1, _scroll_x\nVM_GET_INT16  .ARG0, _scroll_y      \n\nVM_RPN\n  .R_INT8 0\n  .R_INT8 0\n  .R_INT8 20\n  .R_INT8 18\n\n  .R_INT8 0\n  .R_REF  .ARG1\n  .R_INT16 8\n  .R_OPERATOR  .DIV\n  .R_OPERATOR .MAX\n\n  .R_INT8 0\n  .R_REF  .ARG0\n  .R_INT16 8\n  .R_OPERATOR  .DIV\n  .R_OPERATOR .MAX\n\n  .R_STOP\n\nVM_OVERLAY_SET_SUBMAP_EX  .ARG5\n\nVM_POP  8"
+        "script": "VM_PUSH_CONST 0\nVM_PUSH_CONST 0\nVM_GET_INT16  .ARG1, _scroll_x\nVM_GET_INT16  .ARG0, _scroll_y      \n\nVM_RPN\n  .R_INT8 0\n  .R_INT8 0\n  .R_INT8 20\n  .R_INT8 18\n\n  .R_INT8 0\n  .R_REF  .ARG1\n  .R_INT16 8\n  .R_OPERATOR  .DIV\n  .R_OPERATOR .MAX\n\n  .R_INT8 0\n  .R_REF  .ARG0\n  .R_INT16 8\n  .R_OPERATOR  .DIV\n  .R_OPERATOR .MAX\n\n  .R_STOP\n\nVM_OVERLAY_SET_SUBMAP_EX  .ARG5\n\nVM_POP  8",
+        "__collapse": true
       },
       "id": "b1d9a983-6f20-48cd-805a-8d7605522e12"
     },
     {
       "command": "EVENT_FADE_IN",
       "args": {
-        "speed": "2"
+        "speed": "2",
+        "__collapse": true
       },
       "id": "3c41719a-9d85-4a73-840f-1c19c7a3585c"
     },
@@ -42,7 +45,8 @@
       "command": "EVENT_WAIT",
       "args": {
         "time": 0.5,
-        "frames": 30
+        "frames": 30,
+        "__collapse": true
       },
       "id": "310678cb-0f6d-466e-a90f-55241a80b9f6"
     },
@@ -51,7 +55,8 @@
       "args": {
         "argCount": 0,
         "funName": "pepperScreen",
-        "__comment": false
+        "__comment": false,
+        "__collapse": true
       },
       "id": "39ab8d22-31fe-4722-bc01-ebfaf8ecb7d4"
     },
@@ -68,7 +73,8 @@
           "value": 14
         },
         "direction": "",
-        "fadeSpeed": "2"
+        "fadeSpeed": "2",
+        "__collapse": true
       },
       "id": "3af56774-9d4d-4478-a6b3-9936336bca44"
     }

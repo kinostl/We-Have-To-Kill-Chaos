@@ -1,6 +1,6 @@
 {
   "_resourceType": "background",
-  "id": "c8f7e628-5f95-43b6-ab3f-673d4c508ab7",
+  "id": "9ee40681-689d-4547-8ed2-4cf83965796e",
   "name": "create_characters",
   "symbol": "bg_create_characters",
   "width": 20,
@@ -8,6 +8,5 @@
   "imageWidth": 160,
   "imageHeight": 144,
   "filename": "create_characters.png",
-  "tileColors": "",
-  "autoColor": false
+  "tileColors": ""
 }

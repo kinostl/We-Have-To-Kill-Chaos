@@ -18,7 +18,6 @@
 BYTE action_head_cursor;
 BYTE action_tail_cursor;
 BYTE turn_cursor;
-UBYTE rpg_player_choice;
 
 #define action_tail action_slots[action_tail_cursor]
 #define action_head action_slots[action_head_cursor]
@@ -54,8 +53,27 @@ void dispatch_action(ACTION_TYPE action_data) BANKED {
 
 void handle_action(ACTION_TYPE action_type) BANKED {
   switch (action_type) {
-  case ATTACKER_Fight:
+  case ATTACKER_Fight:{
+    UBYTE target_enemy = rpg_get_target_enemy();
+    ATTACK_RESULTS attack_results = defender_TakeDamage(
+        &hero_slots[current_actor].ext, &enemy_slots[target_enemy].ext);
+
+    if (attack_results & CRITICAL_HIT) {
+      // animate critical hit
+    } else if (attack_results & ATTACK_HIT) {
+      animate(ANIMATE_PLAYER_ATTACKING);
+    } else if (attack_results & CRITICAL_MISS) {
+      // animate critical miss
+    } else if (attack_results & ATTACK_MISSED) {
+      // animate miss
+    }
+
+    if (attack_results & TARGET_DEFEATED) {
+      // animate target defeateated
+    }
+
     break;
+  }
   case ATTACKER_StartNextTurn:
     turn_cursor--;
     if(turn_cursor < 0){
@@ -77,11 +95,6 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     } else if (current_actor > 3) {
       attacker_prepareNextTurn_Enemy();
     }
-    break;
-  case DEFENDER_TakeDamage:
-    defender_TakeDamage(&hero_slots[current_actor].ext,
-                        &enemy_slots[rpg_player_choice].ext);
-    animate(ANIMATE_PLAYER_ATTACKING);
     break;
   case PANEL_ClosePanel:
     ui_move_to(20 << 3, 0 << 3, text_out_speed);
@@ -108,9 +121,9 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     ui_move_to(12 << 3, 0 << 3, text_in_speed);
     ui_run_modal(UI_WAIT_WINDOW);
     break;
-  case PICK_GetPlayerActionChoice:
-    rpg_player_choice = rpg_run_menu();
-    switch (rpg_player_choice) {
+  case PICK_GetPlayerActionChoice: {
+    UBYTE player_choice = rpg_run_menu();
+    switch (player_choice) {
     case 5:
       dispatch_action(PICK_Item);
       break;
@@ -124,17 +137,12 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       dispatch_action(PICK_Run);
       break;
     default:
-      handle_skill(rpg_player_choice);
+      handle_skill(player_choice);
       break;
     }
     dispatch_action(ATTACKER_StartNextTurn);
     break;
-  case PICK_GetPlayerTargetAlly:
-    rpg_player_choice = rpg_get_target_ally();
-    break;
-  case PICK_GetPlayerTargetEnemy:
-    rpg_player_choice = rpg_get_target_enemy();
-    break;
+  }
   case PICK_Item:
     break;
   case PICK_Magic:
@@ -184,8 +192,6 @@ void handle_skill(UBYTE menu_id) BANKED {
   const BATTLE_SKILL skill = hero_slots[0].ext.skills[menu_id];
   switch (skill) {
   case FIGHT:
-    dispatch_action(PICK_GetPlayerTargetEnemy);
-    dispatch_action(DEFENDER_TakeDamage);
     dispatch_action(ATTACKER_Fight);
     break;
   case SHIELD_SKILL:

@@ -193,30 +193,9 @@
                     "color": "white",
                     "x": 0,
                     "y": 0,
-                    "__comment": true
+                    "__comment": false
                   },
                   "id": "d3c21b62-4a5e-4e73-a7d5-543cd0aeebbb"
-                },
-                {
-                  "command": "EVENT_ACTOR_HIDE",
-                  "args": {
-                    "actorId": "4d0f4aba-e2bb-4572-aaae-72d94063ca51"
-                  },
-                  "id": "97c2bb9b-3d98-4703-9adc-e013592b6c05"
-                },
-                {
-                  "command": "EVENT_PALETTE_SET_BACKGROUND",
-                  "args": {
-                    "palette0": "keep",
-                    "palette1": "keep",
-                    "palette2": "keep",
-                    "palette3": "keep",
-                    "palette4": "keep",
-                    "palette5": "keep",
-                    "palette6": "keep",
-                    "palette7": "8e7473c8-2816-4cf1-9326-ffdd286025c4"
-                  },
-                  "id": "aad44bc8-7f66-4fd1-a57e-9bef78a0d42d"
                 },
                 {
                   "command": "EVENT_CAMERA_SET_POSITION",
@@ -252,33 +231,12 @@
                   "id": "615b9844-046c-4809-84a5-88b40aba6884"
                 },
                 {
-                  "command": "EVENT_PALETTE_SET_BACKGROUND",
-                  "args": {
-                    "palette0": "keep",
-                    "palette1": "keep",
-                    "palette2": "keep",
-                    "palette3": "keep",
-                    "palette4": "keep",
-                    "palette5": "keep",
-                    "palette6": "keep",
-                    "palette7": "restore"
-                  },
-                  "id": "40fcb8c2-fc30-4fb4-a31d-0eb764cbe3e5"
-                },
-                {
-                  "command": "EVENT_ACTOR_SHOW",
-                  "args": {
-                    "actorId": "4d0f4aba-e2bb-4572-aaae-72d94063ca51"
-                  },
-                  "id": "23dac731-5344-49ff-9eed-2dabee8cd819"
-                },
-                {
                   "command": "EVENT_OVERLAY_MOVE_TO",
                   "args": {
                     "x": 0,
                     "y": 18,
                     "speed": 1,
-                    "__comment": true
+                    "__comment": false
                   },
                   "id": "98be862a-8f67-4566-a9a8-5f4a194b92f2"
                 }

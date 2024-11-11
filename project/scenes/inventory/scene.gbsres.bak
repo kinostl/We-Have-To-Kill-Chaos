@@ -1,6 +1,7 @@
 {
   "_resourceType": "scene",
   "id": "caf0e238-c183-4a3d-90a5-2f56cc1df30f",
+  "_index": 11,
   "type": "TOPDOWN",
   "name": "Inventory",
   "symbol": "scene_8",

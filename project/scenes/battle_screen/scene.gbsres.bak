@@ -1,7 +1,7 @@
 {
   "_resourceType": "scene",
   "id": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64",
-  "_index": 29,
+  "_index": 27,
   "type": "RPG_COMBAT",
   "name": "Battle Screen",
   "symbol": "scene_30",
