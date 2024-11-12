@@ -75,8 +75,8 @@
       "args": {
         "variable": "0",
         "__collapseCase1": true,
-        "__collapseCase14": false,
-        "__collapseCase8": false,
+        "__collapseCase14": true,
+        "__collapseCase8": true,
         "__collapseCase9": true,
         "__collapseCase15": true,
         "__collapseCase12": true,
@@ -102,7 +102,7 @@
         "__collapseCase23": true,
         "__collapseCase25": true,
         "__collapseCase24": true,
-        "__collapseCase26": true,
+        "__collapseCase26": false,
         "__collapseCase27": true,
         "__collapseCase28": true,
         "__collapseCase29": true,
@@ -4545,7 +4545,7 @@
             "command": "EVENT_ACTOR_SHOW",
             "args": {
               "actorId": "d656824d-1c2d-47dd-84ba-0396e71f5a22",
-              "__collapse": true,
+              "__collapse": false,
               "__comment": false
             },
             "id": "4ffcd714-7931-4fb3-8f9e-2f8357f53dd1"

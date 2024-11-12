@@ -76,7 +76,7 @@
         "variable": "0",
         "__collapseCase1": true,
         "__collapseCase14": true,
-        "__collapseCase8": true,
+        "__collapseCase8": false,
         "__collapseCase9": true,
         "__collapseCase15": true,
         "__collapseCase12": true,
@@ -102,7 +102,7 @@
         "__collapseCase23": true,
         "__collapseCase25": true,
         "__collapseCase24": true,
-        "__collapseCase26": false,
+        "__collapseCase26": true,
         "__collapseCase27": true,
         "__collapseCase28": true,
         "__collapseCase29": true,
@@ -577,7 +577,7 @@
               },
               "__collapseElse": false,
               "__disableElse": true,
-              "__collapse": false
+              "__collapse": true
             },
             "children": {
               "true": [

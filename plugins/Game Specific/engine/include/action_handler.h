@@ -18,6 +18,7 @@ typedef enum {
   PANEL_LoadItems,
   PANEL_OpenPanel,
   PICK_GetPlayerActionChoice,
+  PICK_GetEnemyActionChoice,
   PICK_Item,
   PICK_Magic,
   PICK_Block,
@@ -28,6 +29,11 @@ typedef enum {
   SCENE_FadeIn,
   TURN_BuildInitiative,
 } ACTION_TYPE;
+
+typedef struct action_t {
+  ACTION_TYPE action;
+  struct action_t * next;
+} action_t;
 
 void handle_action(ACTION_TYPE action_type) BANKED;
 void take_action(void) BANKED;

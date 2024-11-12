@@ -268,6 +268,17 @@
         ]
       },
       "id": "3cdfa73a-cda3-4cc5-9016-988a36a5a6d2"
+    },
+    {
+      "command": "FF_EVENT_SET_ACTOR_TO_HERO",
+      "args": {
+        "actorId_1": "10f9d056-008a-419e-9ba2-9a867c71c23e",
+        "actorId_2": "52f72f8b-8ca7-4eea-a7ee-5f8989180db8",
+        "actorId_3": "cfa408c7-36f6-4901-8238-4ff47c82c35f",
+        "actorId_4": "96e1175b-3a4a-4832-8e8c-3d89cd5b32a7",
+        "__comment": false
+      },
+      "id": "596681c6-9e78-44f8-b324-e562fce44af8"
     }
   ],
   "playerHit1Script": [],

@@ -24,13 +24,8 @@
   "spritePaletteIds": [
     "349ce35e-4c36-4e07-bf6a-12c2105e2e6f"
   ],
-  "autoFadeSpeed": 1,
+  "autoFadeSpeed": null,
   "script": [
-    {
-      "command": "FF_EVENT_SET_ENEMY_DATA",
-      "args": {},
-      "id": "551d464e-25db-4571-a93a-6d6f771ff942"
-    },
     {
       "command": "EVENT_CAMERA_SET_POSITION",
       "args": {
@@ -45,6 +40,26 @@
         "__collapse": true
       },
       "id": "ec9ae436-c5fa-468b-b915-06c28c9b1b7b"
+    },
+    {
+      "command": "EVENT_ACTOR_SET_POSITION",
+      "args": {
+        "actorId": "$self$",
+        "x": {
+          "type": "number",
+          "value": 0
+        },
+        "y": {
+          "type": "number",
+          "value": 0
+        }
+      },
+      "id": "4b71f694-a6a9-432f-aa3f-13da0ff3f8c9"
+    },
+    {
+      "command": "FF_EVENT_SET_ENEMY_DATA",
+      "args": {},
+      "id": "551d464e-25db-4571-a93a-6d6f771ff942"
     },
     {
       "command": "EVENT_GROUP",
@@ -106,6 +121,17 @@
         ]
       },
       "id": "30ccc47d-a6ee-4697-881d-711a2fa4f554"
+    },
+    {
+      "command": "FF_EVENT_SET_ACTOR_TO_HERO",
+      "args": {
+        "actorId_1": "10f9d056-008a-419e-9ba2-9a867c71c23e",
+        "actorId_2": "52f72f8b-8ca7-4eea-a7ee-5f8989180db8",
+        "actorId_3": "cfa408c7-36f6-4901-8238-4ff47c82c35f",
+        "actorId_4": "96e1175b-3a4a-4832-8e8c-3d89cd5b32a7",
+        "__comment": false
+      },
+      "id": "596681c6-9e78-44f8-b324-e562fce44af8"
     },
     {
       "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
@@ -270,15 +296,28 @@
       "id": "3cdfa73a-cda3-4cc5-9016-988a36a5a6d2"
     },
     {
-      "command": "FF_EVENT_SET_ACTOR_TO_HERO",
+      "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
       "args": {
-        "actorId_1": "10f9d056-008a-419e-9ba2-9a867c71c23e",
-        "actorId_2": "52f72f8b-8ca7-4eea-a7ee-5f8989180db8",
-        "actorId_3": "cfa408c7-36f6-4901-8238-4ff47c82c35f",
-        "actorId_4": "96e1175b-3a4a-4832-8e8c-3d89cd5b32a7",
-        "__comment": false
+        "state": 1,
+        "__scriptTabs": "scriptinput"
       },
-      "id": "596681c6-9e78-44f8-b324-e562fce44af8"
+      "children": {
+        "script": [
+          {
+            "command": "FF_EVENT_ENEMY_FLASH_BKG",
+            "args": {},
+            "id": "96cbbfa3-3c3a-492a-afa3-ceba3b42e7ab"
+          }
+        ]
+      },
+      "id": "a55c0f78-54b3-45e2-8e0e-91f9c9cdb3cb"
+    },
+    {
+      "command": "EVENT_FADE_IN",
+      "args": {
+        "speed": "2"
+      },
+      "id": "c271e8aa-f367-436c-958d-072f031f36d3"
     }
   ],
   "playerHit1Script": [],

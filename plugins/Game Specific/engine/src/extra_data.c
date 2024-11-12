@@ -9,6 +9,7 @@
 #include <bankdata.h>
 #include <data/game_globals.h>
 #include <string.h>
+#include <types.h>
 #include <vm.h>
 
 #pragma bank 255
@@ -17,18 +18,20 @@ item_slot *item_slots;
 item_slot *menu_slots;
 hero_data *hero_slots;
 enemy_data *enemy_slots;
-ACTION_TYPE *action_slots;
+action_t * action_slots;
+action_t * action_head;
+action_t * action_tail;
 UBYTE *turn_order;
 entity_data **turn_slots;
 
-#define vtotal (VM_HEAP_SIZE + (VM_MAX_CONTEXTS * VM_CONTEXT_STACK_SIZE))
 #define valloc(struct_name, count)                                             \
   (struct_name *)&VM_GLOBAL(MAX_GLOBAL_VARS + v_cursor);                       \
-  v_cursor += ((sizeof(struct_name) * count) / sizeof(UWORD))
+  v_cursor += ((sizeof(struct_name) * count) / sizeof(UWORD));                 \
+  v_cursor++;
 
 void init_extra_data(void) OLDCALL BANKED {
   UWORD v_cursor = 0;
-  action_slots = valloc(ACTION_TYPE, 16);
+  action_slots = valloc(action_t, 16);
 
   hero_slots = valloc(hero_data, 4);
   enemy_slots = valloc(enemy_data, 6);
@@ -48,6 +51,15 @@ void init_extra_data(void) OLDCALL BANKED {
     __HandleCrash();
   }
 #endif
+
+  for (UBYTE i = 0; i < 15; i++) {
+    action_slots[i].next = &action_slots[i + 1];
+  }
+
+  action_slots[15].next = &action_slots[0];
+
+  action_head = &action_slots[0];
+  action_tail = &action_slots[0];
 
   for (UBYTE i = 0; i < 4; i++) {
     hero_slots[i].job = i;

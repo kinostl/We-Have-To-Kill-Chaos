@@ -61,8 +61,7 @@ BYTE create_hero_data(hero_data *player, unsigned char *d, BYTE row) OLDCALL BAN
   return d - f;
 }
 
-void loadPartyMenu(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  THIS;
+void loadPartyMenu() BANKED {
   unsigned char *d = ui_text_data;
   for (int i = 0; i < 4; i++) {
     d += create_hero_data(&hero_slots[i], d, i);
@@ -92,7 +91,7 @@ BYTE load_menu_item(const unsigned char * skill_name, unsigned char *d) OLDCALL 
   return str_len;
 }
 
-void loadHeroMenu(void) OLDCALL BANKED {
+void loadHeroMenu(void) BANKED {
   hero_data *player = &hero_slots[0];
   skill_data skill;
   unsigned char *d = ui_text_data;

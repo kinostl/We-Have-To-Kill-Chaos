@@ -8,10 +8,10 @@
 #include "actor.h"
 #include "projectiles.h"
 #include "shadow.h"
+#include "position.h"
 #include <gb/gb.h>
 #pragma bank 255
 
-#define pos(coord) (((coord * 128) >> 7) << 7);
 
 inline void menu_loop_preamble(){
     input_update();
