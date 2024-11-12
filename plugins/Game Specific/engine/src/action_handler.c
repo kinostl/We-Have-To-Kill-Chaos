@@ -20,8 +20,9 @@
 #define STRICT STRICT
 
 #ifdef STRICT
-#include <gb/crash_handler.h>
-#include <gb/emu_debug.h>
+// #include <gb/crash_handler.h>
+// #include <gb/emu_debug.h>
+#include "my_crash_handler.h"
 #endif
 
 BYTE turn_cursor;
@@ -55,21 +56,20 @@ inline void ui_set_pos_to_xy(UBYTE x, UBYTE y) {
 }
 
 void init_actions(void) BANKED {
-  ACTION_TYPE clean_action;
 
   for (int i = 0; i < 16; i++) {
-    action_slots[i].action = clean_action;
+    action_slots[i].action = EMPTY_ACTION;
   }
 }
 
 void dispatch_action(ACTION_TYPE action_data) BANKED {
-  action_tail->action = action_data;
 #ifdef STRICT
-  if (action_tail->next == action_head) {
-    EMU_MESSAGE("action_tail met action_head");
-    __HandleCrash();
+  if (action_tail->next->action != EMPTY_ACTION) {
+    // EMU_MESSAGE("action_tail met action_head");
+    MyHandleCrash("Hello Word");
   }
 #endif
+  action_tail->action = action_data;
   action_tail = action_tail->next;
 }
 
@@ -270,6 +270,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
 
 void take_action(void) BANKED {
   handle_action(action_head->action);
+  action_head->action = EMPTY_ACTION;
   action_head = action_head->next;
 }
 

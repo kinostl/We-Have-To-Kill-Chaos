@@ -23,8 +23,7 @@
     {
       "command": "EVENT_ACTOR_HIDE",
       "args": {
-        "actorId": "$self$",
-        "__comment": true
+        "actorId": "$self$"
       },
       "id": "ddd2378a-f4b3-4a34-943c-ad5a9818f7c4"
     }

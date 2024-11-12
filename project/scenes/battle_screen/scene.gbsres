@@ -22,7 +22,8 @@
     ""
   ],
   "spritePaletteIds": [
-    "349ce35e-4c36-4e07-bf6a-12c2105e2e6f"
+    "349ce35e-4c36-4e07-bf6a-12c2105e2e6f",
+    "4b5c94c3-d95b-4802-9f92-3d6266692d3c"
   ],
   "autoFadeSpeed": null,
   "script": [
@@ -62,65 +63,40 @@
       "id": "551d464e-25db-4571-a93a-6d6f771ff942"
     },
     {
-      "command": "EVENT_GROUP",
+      "command": "EVENT_FADE_IN",
       "args": {
-        "__comment": false,
-        "__label": "Fix Priority",
+        "speed": "2",
         "__collapse": true
       },
-      "children": {
-        "true": [
-          {
-            "command": "EVENT_ACTOR_DEACTIVATE",
-            "args": {
-              "actorId": "10f9d056-008a-419e-9ba2-9a867c71c23e",
-              "__collapse": true
-            },
-            "id": "bac4005d-9d3a-444a-9f92-dc0612c0046c"
-          },
-          {
-            "command": "EVENT_ACTOR_DEACTIVATE",
-            "args": {
-              "actorId": "23cd9cae-9cfa-46e6-8679-a8bb79296975",
-              "__collapse": true
-            },
-            "id": "154ca7d8-c4a9-4a7a-b450-a0a5f5f422fe"
-          },
-          {
-            "command": "EVENT_ACTOR_ACTIVATE",
-            "args": {
-              "actorId": "10f9d056-008a-419e-9ba2-9a867c71c23e",
-              "__collapse": true
-            },
-            "id": "b9246d77-b379-4f01-801b-fe1fe2974712"
-          },
-          {
-            "command": "EVENT_ACTOR_ACTIVATE",
-            "args": {
-              "actorId": "23cd9cae-9cfa-46e6-8679-a8bb79296975",
-              "__collapse": true
-            },
-            "id": "0bfae7b0-36ed-4cdd-b8c4-00acbb5da78e"
-          },
-          {
-            "command": "EVENT_ACTOR_DEACTIVATE",
-            "args": {
-              "actorId": "2927f653-09b8-4dba-967c-4d5629452d4c",
-              "__collapse": true
-            },
-            "id": "d110de53-9e39-4990-b172-789f09e19d94"
-          },
-          {
-            "command": "EVENT_ACTOR_DEACTIVATE",
-            "args": {
-              "actorId": "dde30483-a3dd-452f-b736-bd522ae56dd2",
-              "__collapse": true
-            },
-            "id": "53b2d7c2-67ce-45b2-aec0-e5a233a6b33d"
-          }
-        ]
+      "id": "c271e8aa-f367-436c-958d-072f031f36d3"
+    },
+    {
+      "command": "FF_SORT_ACTORS",
+      "args": {
+        "items": 7,
+        "option1": "10f9d056-008a-419e-9ba2-9a867c71c23e",
+        "option2": "52f72f8b-8ca7-4eea-a7ee-5f8989180db8",
+        "option3": "cfa408c7-36f6-4901-8238-4ff47c82c35f",
+        "option4": "96e1175b-3a4a-4832-8e8c-3d89cd5b32a7",
+        "option5": "23cd9cae-9cfa-46e6-8679-a8bb79296975",
+        "option6": "2927f653-09b8-4dba-967c-4d5629452d4c",
+        "option7": "dde30483-a3dd-452f-b736-bd522ae56dd2",
+        "option8": "$SELF$",
+        "option9": "$SELF$",
+        "option10": "$SELF$",
+        "option11": "$SELF$",
+        "option12": "$SELF$",
+        "option13": "$SELF$",
+        "option14": "$SELF$",
+        "option15": "$SELF$",
+        "option16": "$SELF$",
+        "option17": "$SELF$",
+        "option18": "$SELF$",
+        "option19": "$SELF$",
+        "option20": "$SELF$",
+        "__collapse": false
       },
-      "id": "30ccc47d-a6ee-4697-881d-711a2fa4f554"
+      "id": "29bf2660-13e9-4183-a7a2-6e962889475d"
     },
     {
       "command": "FF_EVENT_SET_ACTOR_TO_HERO",
@@ -311,13 +287,6 @@
         ]
       },
       "id": "a55c0f78-54b3-45e2-8e0e-91f9c9cdb3cb"
-    },
-    {
-      "command": "EVENT_FADE_IN",
-      "args": {
-        "speed": "2"
-      },
-      "id": "c271e8aa-f367-436c-958d-072f031f36d3"
     }
   ],
   "playerHit1Script": [],

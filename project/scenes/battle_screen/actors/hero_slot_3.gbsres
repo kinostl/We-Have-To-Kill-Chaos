@@ -4,7 +4,7 @@
   "name": "Hero Slot 3",
   "frame": 0,
   "animate": false,
-  "spriteSheetId": "75e5bb7d-28eb-4b45-b835-8f4931adab2b",
+  "spriteSheetId": "e2e51ea5-c880-461c-852b-02f3172779c2",
   "prefabId": "",
   "direction": "down",
   "moveSpeed": 1,
@@ -23,7 +23,8 @@
     {
       "command": "EVENT_ACTOR_HIDE",
       "args": {
-        "actorId": "$self$"
+        "actorId": "$self$",
+        "__comment": true
       },
       "id": "85468bce-61f4-4b93-8a26-6637ef777261"
     }

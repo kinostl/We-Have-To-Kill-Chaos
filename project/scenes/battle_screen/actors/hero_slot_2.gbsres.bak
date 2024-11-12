@@ -1,7 +1,7 @@
 {
   "_resourceType": "actor",
-  "id": "10f9d056-008a-419e-9ba2-9a867c71c23e",
-  "name": "Hero Slot 1",
+  "id": "52f72f8b-8ca7-4eea-a7ee-5f8989180db8",
+  "name": "Hero Slot 2",
   "frame": 0,
   "animate": false,
   "spriteSheetId": "75e5bb7d-28eb-4b45-b835-8f4931adab2b",
@@ -14,19 +14,18 @@
   "persistent": false,
   "collisionGroup": "",
   "prefabScriptOverrides": {},
-  "_index": 0,
-  "symbol": "actor_55",
-  "x": 1,
+  "_index": 1,
+  "symbol": "actor_73",
+  "x": 3,
   "y": 16,
   "script": [],
   "startScript": [
     {
       "command": "EVENT_ACTOR_HIDE",
       "args": {
-        "actorId": "$self$",
-        "__comment": true
+        "actorId": "$self$"
       },
-      "id": "ddd2378a-f4b3-4a34-943c-ad5a9818f7c4"
+      "id": "1211fbb6-adc8-4131-968d-fb6dcd73a998"
     }
   ],
   "updateScript": [],

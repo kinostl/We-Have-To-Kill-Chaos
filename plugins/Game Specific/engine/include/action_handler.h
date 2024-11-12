@@ -5,6 +5,7 @@
 #include <asm/types.h>
 
 typedef enum {
+  EMPTY_ACTION,
   ATTACKER_Fight,
   ATTACKER_StartNextTurn,
   ATTACKER_TakeNextTurn,
