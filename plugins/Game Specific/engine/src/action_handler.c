@@ -17,6 +17,13 @@
 #include "input.h"
 #include "rand.h" // IWYU pragma: keep
 
+#define STRICT STRICT
+
+#ifdef STRICT
+#include <gb/crash_handler.h>
+#include <gb/emu_debug.h>
+#endif
+
 BYTE turn_cursor;
 
 #define current_actor turn_order[turn_cursor]
@@ -57,6 +64,12 @@ void init_actions(void) BANKED {
 
 void dispatch_action(ACTION_TYPE action_data) BANKED {
   action_tail->action = action_data;
+#ifdef STRICT
+  if (action_tail->next == action_head) {
+    EMU_MESSAGE("action_tail met action_head");
+    __HandleCrash();
+  }
+#endif
   action_tail = action_tail->next;
 }
 
