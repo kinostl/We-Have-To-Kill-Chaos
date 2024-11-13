@@ -18,7 +18,7 @@
     "",
     "",
     "",
-    "",
+    "38a412cd-6ab3-494f-aa86-81ed589e0d45",
     ""
   ],
   "spritePaletteIds": [
@@ -53,22 +53,17 @@
         "y": {
           "type": "number",
           "value": 0
-        }
+        },
+        "__collapse": true
       },
       "id": "4b71f694-a6a9-432f-aa3f-13da0ff3f8c9"
     },
     {
       "command": "FF_EVENT_SET_ENEMY_DATA",
-      "args": {},
-      "id": "551d464e-25db-4571-a93a-6d6f771ff942"
-    },
-    {
-      "command": "EVENT_FADE_IN",
       "args": {
-        "speed": "2",
         "__collapse": true
       },
-      "id": "c271e8aa-f367-436c-958d-072f031f36d3"
+      "id": "551d464e-25db-4571-a93a-6d6f771ff942"
     },
     {
       "command": "FF_SORT_ACTORS",
@@ -94,7 +89,7 @@
         "option18": "$SELF$",
         "option19": "$SELF$",
         "option20": "$SELF$",
-        "__collapse": false
+        "__collapse": true
       },
       "id": "29bf2660-13e9-4183-a7a2-6e962889475d"
     },
@@ -105,7 +100,8 @@
         "actorId_2": "52f72f8b-8ca7-4eea-a7ee-5f8989180db8",
         "actorId_3": "cfa408c7-36f6-4901-8238-4ff47c82c35f",
         "actorId_4": "96e1175b-3a4a-4832-8e8c-3d89cd5b32a7",
-        "__comment": false
+        "__comment": false,
+        "__collapse": true
       },
       "id": "596681c6-9e78-44f8-b324-e562fce44af8"
     },
@@ -113,7 +109,8 @@
       "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
       "args": {
         "state": 0,
-        "__scriptTabs": "scriptinput"
+        "__scriptTabs": "scriptinput",
+        "__collapse": true
       },
       "children": {
         "script": [
@@ -275,7 +272,8 @@
       "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
       "args": {
         "state": 1,
-        "__scriptTabs": "scriptinput"
+        "__scriptTabs": "scriptinput",
+        "__collapse": true
       },
       "children": {
         "script": [
@@ -287,6 +285,14 @@
         ]
       },
       "id": "a55c0f78-54b3-45e2-8e0e-91f9c9cdb3cb"
+    },
+    {
+      "command": "EVENT_FADE_IN",
+      "args": {
+        "speed": "2",
+        "__collapse": true
+      },
+      "id": "c271e8aa-f367-436c-958d-072f031f36d3"
     }
   ],
   "playerHit1Script": [],

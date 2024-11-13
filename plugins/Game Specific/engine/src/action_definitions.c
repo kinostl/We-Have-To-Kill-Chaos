@@ -3,6 +3,7 @@
 #include "enums.h"
 #include "extra_data.h"
 #include "hero_data.h"
+#include "turn_slots.h"
 #include "weapon_data.h"
 #include <asm/types.h>
 #include <data/game_globals.h>
@@ -14,60 +15,45 @@
 #define BASE_PLAYER_EVADE 48
 #define TURN_ORDER_COUNT 10
 
-void turn_rollInitiative(void) BANKED{
-    for (int i = 0; i < 10; i++) {
-      turn_order[i] = -1;
-    }
+inline UBYTE do_initiative_roll(turn_slot_t turn_slot) {
+  entity_data *entity = turn_slot.entity;
+  if (entity->status & DEAD)
+    return 0;
 
-    for (int i = 0; i < 10; i++) {
-      entity_data * entity = turn_slots[i];
-      if (!entity->alive)
-        continue;
-      UBYTE *initiative_slot = &turn_order[i];
-      *initiative_slot = rand() % entity->max_hp;
-      *initiative_slot += entity->evade;
-      if (i < 4) {
-        *initiative_slot += BASE_PLAYER_EVADE;
-      }
-    }
+  UBYTE initiative_roll = rand() % entity->max_hp;
+  initiative_roll += entity->evade;
+  if (!turn_slot.is_enemy)
+    initiative_roll += BASE_PLAYER_EVADE;
+  return initiative_roll + 1;
 }
 
-#define initiative_rolls turn_order
-BYTE turn_sortInitiative(void) BANKED{
-    BYTE initiative_order[TURN_ORDER_COUNT];
-    BYTE end_of_arr=0;
-    int16_t max_val=-1;
-    int16_t max_i=0;
+void turn_rollInitiative(void) BANKED {
+  for (int i = 0; i < 10; i++) {
+    turn_slots[i].next = NULL;
+    turn_slots[i].prev = NULL;
+    turn_slots[i].initiative_roll = NULL;
+    turn_slots[i].is_enemy = i > 4;
+  }
 
-    for(BYTE i = 0; i<TURN_ORDER_COUNT;i++){
-        initiative_order[i] = -1;
-    }
+  UBYTE initiative_roll = do_initiative_roll(turn_slots[0]);
+  turn_slots[0].initiative_roll = initiative_roll;
 
-    for(BYTE i = 0; i<TURN_ORDER_COUNT;i++){
-        if(initiative_rolls[i] < 0){
-            continue;
-        }
-        max_val = initiative_rolls[i];
-        max_i=i;
+  for (int i = 1; i < 10; i++) {
+    current_turn = &turn_slots[0];
+    initiative_roll = do_initiative_roll(turn_slots[i]);
+    turn_slots[i].initiative_roll = initiative_roll;
+    if (initiative_roll < 1)
+      continue;
 
-        for (BYTE j = i; j < TURN_ORDER_COUNT; j++) {
-          if (initiative_rolls[j] > max_val) {
-            max_val = initiative_rolls[j];
-          }
-        }
-        if (max_val > -1) {
-          initiative_order[end_of_arr] = max_i;
-          end_of_arr++;
-        }
-    }
+    while (current_turn->initiative_roll > initiative_roll)
+      current_turn = current_turn->next;
 
-    for(BYTE i = 0; i<TURN_ORDER_COUNT;i++){
-        turn_order[i] = initiative_order[i];
-    }
-
-    return end_of_arr;
+    if (current_turn->prev)
+      turn_slots[i].prev = current_turn->prev;
+    current_turn->prev = &turn_slots[i];
+    turn_slots[i].next = current_turn;
+  }
 }
-#undef initiative_rolls
 
 void attacker_prepareNextTurn_Hero(void) BANKED {
     hero_data *player = &hero_slots[VM_GLOBAL(VAR_ATTACKER_ID)];
@@ -79,8 +65,9 @@ void attacker_prepareNextTurn_Enemy(void) BANKED{}
 
 ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,
                                    entity_data *defender) BANKED {
+  const UBYTE base_hit_chance = 168;
   const UWORD hit_roll = rand() % 201;
-  const UWORD target_number = (168 + attacker->hit_chance) - defender->evade;
+  const UWORD target_number = (base_hit_chance + attacker->hit_chance) - defender->evade;
 
   if (hit_roll == 200)
     return ATTACK_MISSED | CRITICAL_MISS;
@@ -100,7 +87,7 @@ ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,
   defender->hp -= damage_calc;
 
   if (defender->hp <= 0) {
-    defender->alive = FALSE;
+    defender->status |= DEAD;
     results |= TARGET_DEFEATED;
   }
 

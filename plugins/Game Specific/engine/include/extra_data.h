@@ -3,9 +3,9 @@
 
 #include "action_handler.h"
 #include "enemy_data.h"
-#include "entity_data.h"
 #include "hero_data.h"
 #include "item_slot.h"
+#include "turn_slots.h"
 
 #define MAX_ITEM_SLOTS 20
 #define ITEM_NOT_FOUND MAX_ITEM_SLOTS + 1
@@ -17,7 +17,7 @@ extern enemy_data * enemy_slots;
 extern action_t * action_slots;
 extern action_t * action_head;
 extern action_t * action_tail;
-extern UBYTE * turn_order;
-extern entity_data ** turn_slots;
+extern turn_slot_t * turn_slots;
+extern turn_slot_t * current_turn;
 
 #endif

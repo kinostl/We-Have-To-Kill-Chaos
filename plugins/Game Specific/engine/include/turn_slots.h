@@ -14,4 +14,13 @@ void load_player_def(entity_data * player) OLDCALL BANKED;
 void load_enemy_atk(entity_data * enemy) OLDCALL BANKED;
 void load_enemy_def(entity_data * enemy) OLDCALL BANKED;
 void load_name(entity_data * entity) OLDCALL BANKED;
+
+typedef struct turn_slot_t {
+  entity_data *entity;
+  struct turn_slot_t *prev;
+  struct turn_slot_t *next;
+  UBYTE initiative_roll;
+  BOOLEAN is_enemy;
+} turn_slot_t;
+
 #endif

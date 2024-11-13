@@ -97,4 +97,15 @@ typedef enum {
   TARGET_DEFEATED
 } ATTACK_RESULTS;
 
+typedef enum {
+  DEAD = 1 << 0,
+  PETRIFIED = 1 << 1,
+  POISONED = 1 << 2,
+  BLIND = 1 << 3,
+  PARALYZED = 1 << 4,
+  ASLEEP = 1 << 5,
+  SILENCED = 1 << 6,
+  CONFUSED = 1 << 7
+} STATUS_EFFECT;
+
 #endif

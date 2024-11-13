@@ -15,7 +15,7 @@ script_state_t state_events[RPG_ANIMATION_STATE_LENGTH];
 void rpg_combat_init(void) BANKED {
   overlay_priority = 0;
   ui_set_pos(20 << 3, 0 << 3);
-  dispatch_action(ATTACKER_TakeNextTurn);
+  dispatch_action(TURN_BuildInitiative);
 }
 
 void rpg_combat_update(void) BANKED {

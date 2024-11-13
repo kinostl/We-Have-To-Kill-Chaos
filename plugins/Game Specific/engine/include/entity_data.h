@@ -1,12 +1,10 @@
 #ifndef FF_ENTITY_DATA
 #define FF_ENTITY_DATA
 #include "enums.h"
-#include "skill_data.h"
 #include <asm/types.h>
 
 typedef struct {
   BYTE hp;
-  BOOLEAN alive;
   BYTE max_hp;
   BYTE type;
   BYTE gold;
@@ -14,7 +12,7 @@ typedef struct {
   BYTE damage;
   BYTE hits;
   BYTE hit_chance;
-  BYTE status;
+  STATUS_EFFECT status;
   BYTE crit_chance;
   BYTE absorb;
   BYTE evade;

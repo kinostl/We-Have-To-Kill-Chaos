@@ -21,8 +21,8 @@ enemy_data *enemy_slots;
 action_t * action_slots;
 action_t * action_head;
 action_t * action_tail;
-UBYTE *turn_order;
-entity_data **turn_slots;
+turn_slot_t * turn_slots;
+turn_slot_t * current_turn;
 
 #define valloc(struct_name, count)                                             \
   (struct_name *)&VM_GLOBAL(MAX_GLOBAL_VARS + v_cursor);                       \
@@ -36,11 +36,9 @@ void init_extra_data(void) OLDCALL BANKED {
   hero_slots = valloc(hero_data, 4);
   enemy_slots = valloc(enemy_data, 6);
 
-  turn_order = valloc(UBYTE, 10);
-
   item_slots = valloc(item_slot, MAX_ITEM_SLOTS);
   menu_slots = valloc(item_slot, MAX_ITEM_SLOTS);
-  turn_slots = valloc(entity_data *, 10);
+  turn_slots = valloc(turn_slot_t, 10);
 
 #ifdef STRICT
 #include <gb/crash_handler.h>
@@ -65,18 +63,20 @@ void init_extra_data(void) OLDCALL BANKED {
     hero_slots[i].job = i;
     strcpy(hero_slots[i].name, "      ");
     hero_slots[i].idx = i;
-    turn_slots[i] = &hero_slots[i].ext;
     hero_slots[i].ext.skills[0] = FIGHT;
     hero_slots[i].ext.skills[1] = SHIELD_SKILL;
     hero_slots[i].ext.skills[2] = RUNE_SWORD_SKILL;
     hero_slots[i].ext.skills[3] = LUSTER;
     strcpy(hero_slots[i].name, "ONCLER");
     hero_slots[i].ap = 1;
-    hero_slots[i].ext.alive = TRUE;
+
+    turn_slots[i].entity = &hero_slots[i].ext;
   }
+
   for (UBYTE i = 0; i < 6; i++) {
-    enemy_slots[i].idx = 4 + i;
+    enemy_slots[i].idx = i;
     strcpy(enemy_slots[i].name, "       ");
-    turn_slots[i + 4] = &enemy_slots[0].ext;
+
+    turn_slots[i+4].entity = &enemy_slots[i].ext;
   }
 }

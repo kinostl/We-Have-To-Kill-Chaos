@@ -104,7 +104,7 @@ void setupTileBuffer(UBYTE *buffer, UBYTE w, UBYTE h, UBYTE x, UBYTE y,
 void initialize_entity_data(enemy_data * slot) OLDCALL BANKED {
   slot->ext.hp = 0;
   slot->skill_idx = 0;
-  slot->ext.alive = FALSE;
+  slot->ext.status = NULL;
 }
 void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
@@ -325,7 +325,7 @@ void setupEnemySlots(void) BANKED {
 
     load_enemy(current_enemy, encounter_table[idx]);
     current_enemy->ext.hp = current_enemy->ext.max_hp;
-    current_enemy->ext.alive = TRUE;
+    current_enemy->ext.status = NULL;
     current_enemy->x = next_x;
     current_enemy->y = next_y;
     current_enemy->w = 6;
@@ -353,7 +353,7 @@ void setupEnemySlots(void) BANKED {
 
     load_enemy(current_enemy, encounter_table[idx]);
     current_enemy->ext.hp = current_enemy->ext.max_hp;
-    current_enemy->ext.alive = TRUE;
+    current_enemy->ext.status = NULL;
     current_enemy->x = next_x;
     current_enemy->y = next_y;
     current_enemy->w = 5;
@@ -392,23 +392,6 @@ void enemyFlashBKG(SCRIPT_CTX *THIS) OLDCALL BANKED {
   WORD w = enemy->w;
   WORD h = enemy->h;
   handle_bkg_flash(color_1, color_2, x, y, w, h);
-}
-
-void enemyRollInitiative(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  THIS;
-  entity_data *entity;
-  UWORD *initiative_slot;
-  for (int i = 0; i < 10; i++) {
-    entity = turn_slots[i];
-    if (!entity->alive)
-      continue;
-    initiative_slot = &VM_GLOBAL(VAR_TURN_ORDER_SLOT_1_P1) + i;
-    *initiative_slot = rand() % entity->max_hp;
-    *initiative_slot += entity->evade;
-    if (i < 4) {
-      *initiative_slot += VM_GLOBAL(VAR_CONST_BASE_PLAYER_EVADE);
-    }
-  }
 }
 
 void finishBattle(SCRIPT_CTX *THIS) OLDCALL BANKED {

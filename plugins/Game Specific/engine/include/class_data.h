@@ -9,7 +9,9 @@ typedef enum {
   RED_MAGE = 1 << 3,
   WHITE_MAGE = 1 << 4,
   BLACK_MAGE = 1 << 5,
-  BLUE_MAGE = 1 << 6
+  BLUE_MAGE = 1 << 6,
+  // SECRET = 1 << 7
+  /* Lying probably */
 } JOB;
 
 #define ALL_JOBS                                                               \
