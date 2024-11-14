@@ -17,9 +17,11 @@
 
 inline UBYTE do_initiative_roll(turn_slot_t turn_slot) {
   entity_data *entity = turn_slot.entity;
-  if (entity->status & DEAD)
-    return 0;
+  // if (entity->status & DEAD)
+  //   return 0;
 
+  entity->max_hp = 20;
+  entity->evade = 5;
   UBYTE initiative_roll = rand() % entity->max_hp;
   initiative_roll += entity->evade;
   if (!turn_slot.is_enemy)
@@ -37,19 +39,25 @@ void turn_rollInitiative(void) BANKED {
 
   UBYTE initiative_roll = do_initiative_roll(turn_slots[0]);
   turn_slots[0].initiative_roll = initiative_roll;
+  
+  turn_slot_t * head_turn = &turn_slots[0];
 
   for (int i = 1; i < 10; i++) {
-    current_turn = &turn_slots[0];
+    current_turn = head_turn;
     initiative_roll = do_initiative_roll(turn_slots[i]);
     turn_slots[i].initiative_roll = initiative_roll;
     if (initiative_roll < 1)
       continue;
 
-    while (current_turn->initiative_roll > initiative_roll)
+    while (current_turn->next && (current_turn->initiative_roll > initiative_roll))
       current_turn = current_turn->next;
 
-    if (current_turn->prev)
+    if (current_turn->prev){
       turn_slots[i].prev = current_turn->prev;
+    } else {
+      head_turn = &turn_slots[i];
+    }
+
     current_turn->prev = &turn_slots[i];
     turn_slots[i].next = current_turn;
   }

@@ -17,11 +17,14 @@
 #include <data/rpg_combat_animation_states.h>
 #include <vm_ui.h>
 
-#define STRICT STRICT
+#define VERBOSE
 
-#ifdef STRICT
+#ifdef VERBOSE
 #include <gb/crash_handler.h>
 #include <gb/emu_debug.h>
+#define LOG(msg) EMU_MESSAGE(msg)
+#elif
+#define LOG(msg)
 #endif
 
 BYTE turn_cursor;
@@ -60,29 +63,35 @@ void init_actions(void) BANKED {
 }
 
 void dispatch_action(ACTION_TYPE action_data) BANKED {
-#ifdef STRICT
+#ifdef VERBOSE
+  switch (action_data) {
+  case TURN_BuildInitiative:
+    LOG("Dispatch: TURN_BuildInitiative");
+    break;
+  case ATTACKER_TakeNextTurn:
+    LOG("Dispatch: ATTACKER_TakeNextTurn");
+    break;
+  case ATTACKER_StartNextTurn:
+    LOG("Dispatch: ATTACKER_StartNextTurn");
+    break;
+  default:
+    break;
+  }
+
   if (action_tail->next->action != EMPTY_ACTION) {
-    EMU_MESSAGE("action_tail met action_head");
+    LOG("action_tail met action_head");
     __HandleCrash();
   }
 #endif
   action_tail->action = action_data;
   action_tail = action_tail->next;
-#ifdef STRICT
-  switch (action_data) {
-  case TURN_BuildInitiative:
-    EMU_MESSAGE("Dispatch: TURN_BuildInitiative");
-  default:
-    break;
-  }
-#endif
 }
 
 void handle_action(ACTION_TYPE action_type) BANKED {
   switch (action_type) {
   case EMPTY_ACTION:
-#ifdef STRICT
-    EMU_MESSAGE("Attempted to handle empty action");
+#ifdef VERBOSE
+    LOG("Attempted to handle empty action");
     __HandleCrash();
 #endif
     break;
@@ -131,47 +140,56 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     break;
   }
   case ATTACKER_StartNextTurn: {
-    BOOLEAN enemies_still_alive = FALSE;
-    for (UBYTE i = 0; i < 6; i++) {
-      if (enemy_slots[i].ext.status & ~DEAD) {
-        enemies_still_alive = TRUE;
-        break;
-      }
-    }
+    // BOOLEAN enemies_are_dead = TRUE;
+    // for (UBYTE i = 0; i < 6; i++) {
+    //   if (enemy_slots[i].ext.status & DEAD)
+    //     continue;
+    //   enemies_are_dead = FALSE;
+    //   break;
+    // }
 
-    if (!enemies_still_alive) {
-      // handle winning
-      break;
-    }
+    // if (enemies_are_dead) {
+    //   LOG("Atk Start Next Turn: enemies dead");
+    //   // handle winning
+    //   break;
+    // }
+    // LOG("Atk Start Next Turn: enemies alive");
 
-    BOOLEAN heros_still_alive = FALSE;
-    for (UBYTE i = 0; i < 6; i++) {
-      if (hero_slots[i].ext.status & ~DEAD) {
-        heros_still_alive = TRUE;
-        break;
-      }
-    }
+    // BOOLEAN heros_are_dead = TRUE;
+    // for (UBYTE i = 0; i < 4; i++) {
+    //   if (hero_slots[i].ext.status & DEAD)
+    //     continue;
+    //   heros_are_dead = FALSE;
+    //   break;
+    // }
 
-    if (!heros_still_alive) {
-      // handle losing
-      break;
-    }
+    // if (heros_are_dead) {
+    //   LOG("Atk Start Next Turn: heroes dead");
+    //   // handle losing
+    //   break;
+    // }
+    // LOG("Atk Start Next Turn: heroes alive");
 
+    LOG("handle: ATTACKER_StartNextTurn");
     if (current_turn->next == NULL) {
+      LOG("+-reset initiative");
       dispatch_action(TURN_BuildInitiative);
     } else {
+      LOG("+-take turn");
       current_turn = current_turn->next;
       dispatch_action(ATTACKER_TakeNextTurn);
     }
     break;
   }
   case ATTACKER_TakeNextTurn:
-
-    if (current_turn->entity->status & ~DEAD) {
+    LOG("handle: ATTACKER_TakeNextTurn");
+    if (current_turn->entity->status & DEAD) {
+      LOG("entity dead, skip turn");
       dispatch_action(ATTACKER_StartNextTurn);
       break;
     }
     if (current_turn->is_enemy) {
+      LOG("enemy alive, take turn");
       dispatch_action(PANEL_HidePartyActors);
       dispatch_action(PANEL_ClosePanel);
       dispatch_action(PANEL_DisplayParty);
@@ -180,6 +198,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
 
       dispatch_action(PICK_GetEnemyActionChoice);
     } else {
+      LOG("hero alive, take turn");
       dispatch_action(PANEL_HidePartyActors);
       dispatch_action(PANEL_ClosePanel);
       dispatch_action(PANEL_DisplayMenu);
@@ -271,7 +290,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case SCENE_FadeIn:
     break;
   case TURN_BuildInitiative:
-    EMU_MESSAGE("handle: TURN_BuildInitiative");
+    LOG("handle: TURN_BuildInitiative");
     turn_rollInitiative();
     dispatch_action(ATTACKER_StartNextTurn);
     break;
@@ -279,6 +298,8 @@ void handle_action(ACTION_TYPE action_type) BANKED {
 }
 
 void take_action(void) BANKED {
+  if (action_head->next == EMPTY_ACTION)
+    return;
   handle_action(action_head->action);
   action_head->action = EMPTY_ACTION;
   if (action_head->next != EMPTY_ACTION)
