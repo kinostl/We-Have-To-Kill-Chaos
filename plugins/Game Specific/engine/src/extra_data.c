@@ -67,6 +67,8 @@ void init_extra_data(void) OLDCALL BANKED {
     hero_slots[i].ext.skills[1] = SHIELD_SKILL;
     hero_slots[i].ext.skills[2] = RUNE_SWORD_SKILL;
     hero_slots[i].ext.skills[3] = LUSTER;
+    hero_slots[i].ext.hp = 10;
+    hero_slots[i].ext.max_hp = 10;
     strcpy(hero_slots[i].name, "ONCLER");
     hero_slots[i].ap = 1;
 

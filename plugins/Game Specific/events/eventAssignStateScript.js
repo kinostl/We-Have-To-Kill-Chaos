@@ -3,7 +3,9 @@ const groups = ["Game Specific"];
 const stateNames = [
     "Animate Player Attacking",
     "Animate Enemy Attacking",
-    "Animate Enemy Damaged"
+    "Animate Enemy Damaged",
+    "Animate Party Win",
+    "Animate Party Lose"
 ]
 const name = "Attach Script to Animation State";
 const autoLabel = (fetchArg) => {

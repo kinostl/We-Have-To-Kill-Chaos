@@ -3,26 +3,24 @@
         {
             "name": "gameboy",
             "includePath": [
-                "${workspaceFolder}/plugins/**/include",
-                "${workspaceFolder}/plugins/**/src",
+                "${workspaceFolder}/plugins/**/engine/include",
+                "${workspaceFolder}/plugins/**/engine/src",
                 "/home/deck/.cache/gbstudio-v4/_gbsbuild/include",
                 "/home/deck/.cache/gbstudio-v4/_gbstools/gbdk/include"
             ],
             "defines": [
-                "__PORT_gbz80",
+                "__PORT_sm83",
                 "__TARGET_gb",
                 "HUGE_TRACKER",
                 "CGB"
             ],
-            "compilerPath": "/home/deck/.cache/gbstudio-v4/_gbstools/gbdk/bin/sdcc",
-            "cStandard": "c11",
+            "compilerPath": "",
             "intelliSenseMode": "${default}",
-            "compilerArgs": [
-                "--syntax-only"
-            ],
+            "compilerArgs": [ ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true
-            }
+            },
+            "cStandard": "c11"
         }
     ],
     "version": 4

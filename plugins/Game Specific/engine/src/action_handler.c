@@ -4,6 +4,7 @@
 #include <data/game_globals.h>
 #include <macro.h>
 #include <stdbool.h>
+#include <string.h>
 #include <types.h>
 #include <ui.h>
 #include <vm.h>
@@ -16,16 +17,7 @@
 #include "rand.h" // IWYU pragma: keep
 #include <data/rpg_combat_animation_states.h>
 #include <vm_ui.h>
-
-#define VERBOSE
-
-#ifdef VERBOSE
-#include <gb/crash_handler.h>
-#include <gb/emu_debug.h>
-#define LOG(msg) EMU_MESSAGE(msg)
-#elif
-#define LOG(msg)
-#endif
+#include "ff_debug.h"
 
 BYTE turn_cursor;
 
@@ -63,7 +55,7 @@ void init_actions(void) BANKED {
 }
 
 void dispatch_action(ACTION_TYPE action_data) BANKED {
-#ifdef VERBOSE
+#if VERBOSE
   switch (action_data) {
   case TURN_BuildInitiative:
     LOG("Dispatch: TURN_BuildInitiative");
@@ -74,7 +66,68 @@ void dispatch_action(ACTION_TYPE action_data) BANKED {
   case ATTACKER_StartNextTurn:
     LOG("Dispatch: ATTACKER_StartNextTurn");
     break;
-  default:
+  case PANEL_HidePartyActors:
+    LOG("Dispatch: PANEL_HidePartyActors");
+    break;
+  case PANEL_ClosePanel:
+    LOG("Dispatch: PANEL_ClosePanel");
+    break;
+  case PANEL_DisplayMenu:
+    LOG("Dispatch: PANEL_DisplayMenu");
+    break;
+  case PANEL_OpenPanel:
+    LOG("Dispatch: PANEL_OpenPanel");
+    break;
+  case PANEL_DisplayCurrentActor:
+    LOG("Dispatch: PANEL_DisplayCurrentActor");
+    break;
+  case PICK_GetPlayerActionChoice:
+    LOG("Dispatch: PICK_GetPlayerActionChoice");
+    break;
+  case PANEL_DisplayParty:
+    LOG("Dispatch: PANEL_DisplayParty");
+    break;
+  case PANEL_DisplayPartyActors:
+    LOG("Dispatch: PANEL_DisplayPartyActors");
+    break;
+  case PICK_GetEnemyActionChoice:
+    LOG("Dispatch: PICK_GetEnemyActionChoice");
+    break;
+  case EMPTY_ACTION:
+    LOG("Dispatch: EMPTY_ACTION");
+    break;
+  case ATTACKER_Fight:
+    LOG("Dispatch: ATTACKER_Fight");
+    break;
+  case PANEL_HideCurrentActor:
+    LOG("Dispatch: PANEL_HideCurrentActor");
+    break;
+  case PANEL_LoadItems:
+    LOG("Dispatch: PANEL_LoadItems");
+    break;
+  case PICK_Item:
+    LOG("Dispatch: PICK_Item");
+    break;
+  case PICK_Magic:
+    LOG("Dispatch: PICK_Magic");
+    break;
+  case PICK_Block:
+    LOG("Dispatch: PICK_Block");
+    break;
+  case PICK_Run:
+    LOG("Dispatch: PICK_Run");
+    break;
+  case REPORT_AttackResults:
+    LOG("Dispatch: REPORT_AttackResults");
+    break;
+  case REPORT_Prepare:
+    LOG("Dispatch: REPORT_Prepare");
+    break;
+  case REPORT_RejectMenuChoice:
+    LOG("Dispatch: REPORT_RejectMenuChoice");
+    break;
+  case SCENE_FadeIn:
+    LOG("Dispatch: SCENE_FadeIn");
     break;
   }
 
@@ -88,24 +141,27 @@ void dispatch_action(ACTION_TYPE action_data) BANKED {
 }
 
 void handle_action(ACTION_TYPE action_type) BANKED {
+  EMU_BREAKPOINT;
   switch (action_type) {
   case EMPTY_ACTION:
-#ifdef VERBOSE
+#if VERBOSE
     LOG("Attempted to handle empty action");
     __HandleCrash();
 #endif
     break;
   case ATTACKER_Fight: {
+    LOG("handle: ATTACKER_Fight");
     if (!current_turn->is_enemy) {
-      const UBYTE target_enemy = rpg_get_target_enemy();
+      LOG("+> is hero");
+      const UBYTE target_enemy = 0; // rpg_get_target_enemy();
       ATTACK_RESULTS attack_results = defender_TakeDamage(
           current_turn->entity, &enemy_slots[target_enemy].ext);
 
+      animate(ANIMATE_PLAYER_ATTACKING);
       if (attack_results & CRITICAL_HIT) {
         // animate critical hit
       } else if (attack_results & ATTACK_HIT) {
-        animate(ANIMATE_PLAYER_ATTACKING);
-        // animate critical hit
+        // animate hit
       } else if (attack_results & CRITICAL_MISS) {
         // animate critical miss
       } else if (attack_results & ATTACK_MISSED) {
@@ -116,6 +172,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
         // animate target defeateated
       }
     } else {
+      LOG("+> is enemy");
       const UBYTE target_enemy = rand() % 4;
       ATTACK_RESULTS attack_results = defender_TakeDamage(
           current_turn->entity, &hero_slots[target_enemy].ext);
@@ -124,7 +181,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       if (attack_results & CRITICAL_HIT) {
         // animate critical hit
       } else if (attack_results & ATTACK_HIT) {
-        // animate attack
+        // animate hit
       } else if (attack_results & CRITICAL_MISS) {
         // animate critical miss
       } else if (attack_results & ATTACK_MISSED) {
@@ -140,37 +197,42 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     break;
   }
   case ATTACKER_StartNextTurn: {
-    // BOOLEAN enemies_are_dead = TRUE;
-    // for (UBYTE i = 0; i < 6; i++) {
-    //   if (enemy_slots[i].ext.status & DEAD)
-    //     continue;
-    //   enemies_are_dead = FALSE;
-    //   break;
-    // }
-
-    // if (enemies_are_dead) {
-    //   LOG("Atk Start Next Turn: enemies dead");
-    //   // handle winning
-    //   break;
-    // }
-    // LOG("Atk Start Next Turn: enemies alive");
-
-    // BOOLEAN heros_are_dead = TRUE;
-    // for (UBYTE i = 0; i < 4; i++) {
-    //   if (hero_slots[i].ext.status & DEAD)
-    //     continue;
-    //   heros_are_dead = FALSE;
-    //   break;
-    // }
-
-    // if (heros_are_dead) {
-    //   LOG("Atk Start Next Turn: heroes dead");
-    //   // handle losing
-    //   break;
-    // }
-    // LOG("Atk Start Next Turn: heroes alive");
-
     LOG("handle: ATTACKER_StartNextTurn");
+
+    BOOLEAN enemies_are_dead = TRUE;
+    for (UBYTE i = 0; i < 6; i++) {
+      if (enemy_slots[i].ext.status & DEAD)
+        continue;
+      enemies_are_dead = FALSE;
+      break;
+    }
+
+    if (enemies_are_dead) {
+      LOG("+> enemies dead");
+      LOG("===");
+      animate(ANIMATE_PARTY_WIN);
+      // handle winning
+      break;
+    }
+    LOG("+> enemies alive");
+
+    BOOLEAN heros_are_dead = TRUE;
+    for (UBYTE i = 0; i < 4; i++) {
+      if (hero_slots[i].ext.status & DEAD)
+        continue;
+      heros_are_dead = FALSE;
+      break;
+    }
+
+    if (heros_are_dead) {
+      LOG("+> heroes dead");
+      LOG("===");
+      animate(ANIMATE_PARTY_LOSE);
+      // handle losing
+      break;
+    }
+    LOG("+> heroes alive");
+
     if (current_turn->next == NULL) {
       LOG("+-reset initiative");
       dispatch_action(TURN_BuildInitiative);
@@ -190,11 +252,13 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     }
     if (current_turn->is_enemy) {
       LOG("enemy alive, take turn");
-      dispatch_action(PANEL_HidePartyActors);
-      dispatch_action(PANEL_ClosePanel);
-      dispatch_action(PANEL_DisplayParty);
-      dispatch_action(PANEL_OpenPanel);
-      dispatch_action(PANEL_DisplayPartyActors);
+      if (current_turn->prev && !current_turn->prev->is_enemy) {
+        dispatch_action(PANEL_HidePartyActors);
+        dispatch_action(PANEL_ClosePanel);
+        dispatch_action(PANEL_DisplayParty);
+        dispatch_action(PANEL_OpenPanel);
+        dispatch_action(PANEL_DisplayPartyActors);
+      }
 
       dispatch_action(PICK_GetEnemyActionChoice);
     } else {
@@ -210,24 +274,29 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     break;
 
   case PANEL_ClosePanel:
+    LOG("handle: PANEL_ClosePanel");
     ui_move_to_xy(20, 0, text_out_speed);
     ui_run_modal(UI_WAIT_WINDOW);
     break;
   case PANEL_DisplayCurrentActor:
+    LOG("handle: PANEL_DisplayCurrentActor");
     // TODO INCORRECT
     hero_slots[0].actor->pos.x = pos(14);
     hero_slots[0].actor->pos.y = pos(4);
     hero_slots[0].actor->hidden = FALSE;
     break;
   case PANEL_DisplayMenu:
+    LOG("handle: PANEL_DisplayMenu");
     loadHeroMenu();
     ui_display_text();
     break;
   case PANEL_DisplayParty:
+    LOG("handle: PANEL_DisplayParty");
     loadPartyMenu();
     ui_display_text();
     break;
   case PANEL_DisplayPartyActors:
+    LOG("handle: PANEL_DisplayPartyActors");
     for (BYTE i = 0; i < 4; i++) {
       hero_slots[i].actor->pos.x = pos(14);
       hero_slots[i].actor->pos.y = pos(4 + (4 * i));
@@ -237,6 +306,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case PANEL_HideCurrentActor:
     break;
   case PANEL_HidePartyActors:
+    LOG("handle: PANEL_HidePartyActors");
     for (BYTE i = 0; i < 4; i++) {
       hero_slots[i].actor->hidden = TRUE;
     }
@@ -244,11 +314,13 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case PANEL_LoadItems:
     break;
   case PANEL_OpenPanel:
+    LOG("handle: PANEL_OpenPanel");
     ui_set_pos_to_xy(20, 0);
     ui_move_to_xy(12, 0, text_in_speed);
     ui_run_modal(UI_WAIT_WINDOW);
     break;
   case PICK_GetPlayerActionChoice: {
+    LOG("handle: PICK_GetPlayerActionChoice");
     UBYTE player_choice = rpg_run_menu();
     switch (player_choice) {
     case 5:
@@ -267,10 +339,10 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       handle_skill(player_choice);
       break;
     }
-    dispatch_action(ATTACKER_StartNextTurn);
     break;
   }
   case PICK_GetEnemyActionChoice:
+    LOG("handle: PICK_GetEnemyActionChoice");
     dispatch_action(ATTACKER_Fight);
     break;
   case PICK_Item:
@@ -298,12 +370,9 @@ void handle_action(ACTION_TYPE action_type) BANKED {
 }
 
 void take_action(void) BANKED {
-  if (action_head->next == EMPTY_ACTION)
-    return;
   handle_action(action_head->action);
   action_head->action = EMPTY_ACTION;
-  if (action_head->next != EMPTY_ACTION)
-    action_head = action_head->next;
+  action_head = action_head->next;
 }
 
 void animate(RPG_ANIMATION_STATE rpg_animation_state) BANKED {

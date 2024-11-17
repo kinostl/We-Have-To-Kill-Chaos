@@ -118,7 +118,7 @@
             "command": "EVENT_GROUP",
             "args": {
               "__label": "Player Swings Weapon",
-              "__collapse": true
+              "__collapse": false
             },
             "children": {
               "true": [
@@ -215,7 +215,7 @@
             "command": "EVENT_GROUP",
             "args": {
               "__label": "Explosions Play",
-              "__collapse": true
+              "__collapse": false
             },
             "children": {
               "true": [
@@ -293,6 +293,115 @@
         "__collapse": true
       },
       "id": "c271e8aa-f367-436c-958d-072f031f36d3"
+    },
+    {
+      "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
+      "args": {
+        "state": 3,
+        "__scriptTabs": "scriptinput",
+        "__collapse": true
+      },
+      "children": {
+        "script": [
+          {
+            "command": "EVENT_TEXT",
+            "args": {
+              "text": [
+                "You Win!"
+              ],
+              "__section": "text",
+              "avatarId": "",
+              "minHeight": 4,
+              "maxHeight": 7,
+              "textX": 1,
+              "textY": 1,
+              "textHeight": 5,
+              "position": "bottom",
+              "clearPrevious": true,
+              "showFrame": "true",
+              "speedIn": -1,
+              "speedOut": -1,
+              "closeWhen": "key",
+              "closeButton": "a",
+              "closeDelayTime": 0.5,
+              "closeDelayFrames": 30
+            },
+            "id": "5add49fa-1842-4549-a6b3-52d8a13667f0"
+          },
+          {
+            "command": "EVENT_SWITCH_SCENE",
+            "args": {
+              "sceneId": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64",
+              "x": {
+                "type": "number",
+                "value": 0
+              },
+              "y": {
+                "type": "number",
+                "value": 0
+              },
+              "direction": "",
+              "fadeSpeed": "2"
+            },
+            "id": "237414a1-51bb-4733-b1fc-5236c5acea51"
+          }
+        ]
+      },
+      "id": "210f9f64-27a6-4d89-b407-ffd816ce052e"
+    },
+    {
+      "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
+      "args": {
+        "state": 3,
+        "__scriptTabs": "scriptinput"
+      },
+      "children": {
+        "script": [
+          {
+            "command": "EVENT_TEXT",
+            "args": {
+              "text": [
+                "You Lose!"
+              ],
+              "__section": "text",
+              "avatarId": "",
+              "minHeight": 4,
+              "maxHeight": 7,
+              "textX": 1,
+              "textY": 1,
+              "textHeight": 5,
+              "position": "bottom",
+              "clearPrevious": true,
+              "showFrame": "true",
+              "speedIn": -1,
+              "speedOut": -1,
+              "closeWhen": "key",
+              "closeButton": "a",
+              "closeDelayTime": 0.5,
+              "closeDelayFrames": 30
+            },
+            "id": "74be7516-3437-4b9c-92ae-bbefb74d395d"
+          },
+          {
+            "command": "EVENT_SWITCH_SCENE",
+            "args": {
+              "sceneId": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64",
+              "x": {
+                "type": "number",
+                "value": 0
+              },
+              "y": {
+                "type": "number",
+                "value": 0
+              },
+              "direction": "",
+              "fadeSpeed": "2"
+            },
+            "id": "1ecbbbbc-7dc9-4ed1-825b-65c511453737"
+          }
+        ]
+      },
+      "id": "57345b36-a599-40ea-b14b-69e7853fa52e"
     }
   ],
   "playerHit1Script": [],

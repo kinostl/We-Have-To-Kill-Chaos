@@ -8,14 +8,16 @@
 #include <asm/types.h>
 #include <data/game_globals.h>
 #include <math.h>
+#include <string.h>
 #pragma bank 255
 #include "rand.h" // IWYU pragma: keep
 #include "action_definitions.h"
+// #include "ff_debug.h"
 
 #define BASE_PLAYER_EVADE 48
 #define TURN_ORDER_COUNT 10
 
-inline UBYTE do_initiative_roll(turn_slot_t turn_slot) {
+UBYTE do_initiative_roll(turn_slot_t turn_slot) BANKED {
   entity_data *entity = turn_slot.entity;
   // if (entity->status & DEAD)
   //   return 0;
@@ -30,37 +32,23 @@ inline UBYTE do_initiative_roll(turn_slot_t turn_slot) {
 }
 
 void turn_rollInitiative(void) BANKED {
-  for (int i = 0; i < 10; i++) {
+  for (UBYTE i = 0; i < 10; i++) {
     turn_slots[i].next = NULL;
     turn_slots[i].prev = NULL;
     turn_slots[i].initiative_roll = NULL;
-    turn_slots[i].is_enemy = i > 4;
+    turn_slots[i].is_enemy = i > 3;
+    // turn_slots[i].initiative_roll = do_initiative_roll(turn_slots[i]);
   }
+  turn_slots[0].next = &turn_slots[1];
+  turn_slots[1].prev = &turn_slots[0];
+  turn_slots[1].next = &turn_slots[2];
+  turn_slots[2].prev = &turn_slots[1];
+  turn_slots[2].next = &turn_slots[3];
+  turn_slots[3].prev = &turn_slots[2];
+  turn_slots[3].next = &turn_slots[4];
+  turn_slots[4].prev = &turn_slots[3];
 
-  UBYTE initiative_roll = do_initiative_roll(turn_slots[0]);
-  turn_slots[0].initiative_roll = initiative_roll;
-  
-  turn_slot_t * head_turn = &turn_slots[0];
-
-  for (int i = 1; i < 10; i++) {
-    current_turn = head_turn;
-    initiative_roll = do_initiative_roll(turn_slots[i]);
-    turn_slots[i].initiative_roll = initiative_roll;
-    if (initiative_roll < 1)
-      continue;
-
-    while (current_turn->next && (current_turn->initiative_roll > initiative_roll))
-      current_turn = current_turn->next;
-
-    if (current_turn->prev){
-      turn_slots[i].prev = current_turn->prev;
-    } else {
-      head_turn = &turn_slots[i];
-    }
-
-    current_turn->prev = &turn_slots[i];
-    turn_slots[i].next = current_turn;
-  }
+  current_turn=&turn_slots[0];
 }
 
 void attacker_prepareNextTurn_Hero(void) BANKED {

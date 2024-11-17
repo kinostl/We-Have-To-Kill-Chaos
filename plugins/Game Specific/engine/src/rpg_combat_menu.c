@@ -10,6 +10,7 @@
 #include "shadow.h"
 #include "position.h"
 #include <gb/gb.h>
+#include <math.h>
 #pragma bank 255
 
 
