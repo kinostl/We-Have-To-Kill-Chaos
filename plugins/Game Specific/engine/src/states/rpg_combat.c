@@ -14,6 +14,7 @@ script_state_t state_events[RPG_ANIMATION_STATE_LENGTH];
 
 void rpg_combat_init(void) BANKED {
   overlay_priority = 0;
+  PLAYER.hidden = TRUE;
   ui_set_pos(20 << 3, 0 << 3);
   dispatch_action(TURN_BuildInitiative);
 }

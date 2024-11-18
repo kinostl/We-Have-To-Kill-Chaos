@@ -33,6 +33,7 @@ UBYTE rpg_run_menu(void) BANKED {
   UBYTE current_index = 0;
   UBYTE max_index = 8;
 
+  PLAYER.hidden = FALSE;
   PLAYER.pos.x = pos(11);
   PLAYER.pos.y = pos(6);
 
@@ -48,6 +49,7 @@ UBYTE rpg_run_menu(void) BANKED {
         current_index++;
       }
     } else if (INPUT_A_PRESSED) {
+      PLAYER.hidden = TRUE;
       return current_index;
     } else {
       switch (current_index) {

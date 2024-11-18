@@ -105,7 +105,7 @@
         "option18": "$SELF$",
         "option19": "$SELF$",
         "option20": "$SELF$",
-        "__collapse": false
+        "__collapse": true
       },
       "id": "29bf2660-13e9-4183-a7a2-6e962889475d"
     },
@@ -428,7 +428,10 @@
                 "value": "L1"
               },
               "$actor[2927f653-09b8-4dba-967c-4d5629452d4c]$": "2927f653-09b8-4dba-967c-4d5629452d4c",
-              "$actor[a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c]$": "a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c"
+              "$actor[a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c]$": "a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c",
+              "$actor[0]$": "2927f653-09b8-4dba-967c-4d5629452d4c",
+              "$actor[1]$": "a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c",
+              "__collapse": true
             },
             "id": "9aac8584-0dad-426b-ac08-399c87897c04"
           }
@@ -462,7 +465,9 @@
               },
               "$actor[2927f653-09b8-4dba-967c-4d5629452d4c]$": "2927f653-09b8-4dba-967c-4d5629452d4c",
               "$actor[a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c]$": "a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c",
-              "__collapse": true
+              "__collapse": true,
+              "$actor[0]$": "2927f653-09b8-4dba-967c-4d5629452d4c",
+              "$actor[1]$": "a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c"
             },
             "id": "0ccb1224-0a21-4718-9525-df572563920e"
           }

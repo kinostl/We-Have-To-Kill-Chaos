@@ -8,7 +8,8 @@
         "action_handler.h": "c",
         "stdbool.h": "c",
         "rpg_combat_animation_states.h": "c",
-        "rpg_combat.h": "c"
+        "rpg_combat.h": "c",
+        "ff_debug.h": "c"
     },
     "C_Cpp.intelliSenseEngine": "default",
     "C_Cpp.clang_format_fallbackStyle": "WebKit"
