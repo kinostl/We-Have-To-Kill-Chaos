@@ -5,16 +5,14 @@
 #include "enums.h"
 #include <bankdata.h>
 #include <gb/gb.h>
+#include "position_data.h"
 
 typedef struct {
   BYTE skill_idx;
-  BYTE x;
-  BYTE y;
-  BYTE w;
-  BYTE h;
-
   char name[8];
+
   entity_data ext;
+  ff_position_t pos;
 
   BYTE idx;
 } enemy_data;

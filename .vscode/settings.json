@@ -10,5 +10,6 @@
         "rpg_combat_animation_states.h": "c",
         "rpg_combat.h": "c"
     },
-    "C_Cpp.intelliSenseEngine": "default"
+    "C_Cpp.intelliSenseEngine": "default",
+    "C_Cpp.clang_format_fallbackStyle": "WebKit"
 }

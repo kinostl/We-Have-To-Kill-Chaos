@@ -140,6 +140,13 @@ void dispatch_action(ACTION_TYPE action_data) BANKED {
   action_tail = action_tail->next;
 }
 
+void setup_explosions(ff_position_t *position) {
+  VM_GLOBAL(VAR_EXPLOSION_X) = position->x;
+  VM_GLOBAL(VAR_EXPLOSION_Y) = position->y + 1;
+  VM_GLOBAL(VAR_EXPLOSION_W) = position->w - 1;
+  VM_GLOBAL(VAR_EXPLOSION_H) = position->h - 1;
+}
+
 void handle_action(ACTION_TYPE action_type) BANKED {
   EMU_BREAKPOINT;
   switch (action_type) {
@@ -157,10 +164,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       ATTACK_RESULTS attack_results = defender_TakeDamage(
           current_turn->entity, &enemy_slots[target_enemy].ext);
 
-      VM_GLOBAL(VAR_EXPLOSION_X) = enemy_slots[target_enemy].x;
-      VM_GLOBAL(VAR_EXPLOSION_Y) = enemy_slots[target_enemy].y + 1;
-      VM_GLOBAL(VAR_EXPLOSION_W) = enemy_slots[target_enemy].w - 1;
-      VM_GLOBAL(VAR_EXPLOSION_H) = enemy_slots[target_enemy].h - 1;
+      setup_explosions(&enemy_slots[target_enemy].pos);
 
       animate(ANIMATE_PLAYER_ATTACKING);
       if (attack_results & CRITICAL_HIT) {
@@ -182,6 +186,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       ATTACK_RESULTS attack_results = defender_TakeDamage(
           current_turn->entity, &hero_slots[target_enemy].ext);
 
+      setup_explosions(&hero_slots[target_enemy].pos);
       animate(ANIMATE_ENEMY_ATTACKING);
       if (attack_results & CRITICAL_HIT) {
         // animate critical hit

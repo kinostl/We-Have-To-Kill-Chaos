@@ -71,6 +71,10 @@ void init_extra_data(void) OLDCALL BANKED {
     hero_slots[i].ext.max_hp = 10;
     strcpy(hero_slots[i].name, "ONCLER");
     hero_slots[i].ap = 1;
+    hero_slots[i].pos.w = 3;
+    hero_slots[i].pos.h = 3;
+    hero_slots[i].pos.x = 13;
+    hero_slots[i].pos.y = 2 + (i*4);
 
     turn_slots[i].entity = &hero_slots[i].ext;
   }

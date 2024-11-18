@@ -24,6 +24,7 @@ typedef struct {
   BYTE idx;
 
   actor_t * actor;
+  ff_position_t pos;
 } hero_data;
 
 #endif

@@ -85,13 +85,13 @@
       "command": "FF_SORT_ACTORS",
       "args": {
         "items": 7,
-        "option1": "10f9d056-008a-419e-9ba2-9a867c71c23e",
-        "option2": "52f72f8b-8ca7-4eea-a7ee-5f8989180db8",
-        "option3": "cfa408c7-36f6-4901-8238-4ff47c82c35f",
-        "option4": "96e1175b-3a4a-4832-8e8c-3d89cd5b32a7",
-        "option5": "23cd9cae-9cfa-46e6-8679-a8bb79296975",
-        "option6": "2927f653-09b8-4dba-967c-4d5629452d4c",
-        "option7": "dde30483-a3dd-452f-b736-bd522ae56dd2",
+        "option1": "2927f653-09b8-4dba-967c-4d5629452d4c",
+        "option2": "a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c",
+        "option3": "10f9d056-008a-419e-9ba2-9a867c71c23e",
+        "option4": "52f72f8b-8ca7-4eea-a7ee-5f8989180db8",
+        "option5": "cfa408c7-36f6-4901-8238-4ff47c82c35f",
+        "option6": "96e1175b-3a4a-4832-8e8c-3d89cd5b32a7",
+        "option7": "23cd9cae-9cfa-46e6-8679-a8bb79296975",
         "option8": "$SELF$",
         "option9": "$SELF$",
         "option10": "$SELF$",
@@ -105,7 +105,7 @@
         "option18": "$SELF$",
         "option19": "$SELF$",
         "option20": "$SELF$",
-        "__collapse": true
+        "__collapse": false
       },
       "id": "29bf2660-13e9-4183-a7a2-6e962889475d"
     },
@@ -134,7 +134,7 @@
             "command": "EVENT_GROUP",
             "args": {
               "__label": "Player Swings Weapon",
-              "__collapse": false
+              "__collapse": true
             },
             "children": {
               "true": [
@@ -441,14 +441,30 @@
       "args": {
         "state": 1,
         "__scriptTabs": "scriptinput",
-        "__collapse": true
+        "__collapse": false
       },
       "children": {
         "script": [
           {
             "command": "FF_EVENT_ENEMY_FLASH_BKG",
-            "args": {},
+            "args": {
+              "__collapse": true
+            },
             "id": "96cbbfa3-3c3a-492a-afa3-ceba3b42e7ab"
+          },
+          {
+            "command": "EVENT_CALL_CUSTOM_EVENT",
+            "args": {
+              "customEventId": "4365ddcf-c3b3-4862-9fe5-61fc75a6d925",
+              "$variable[V0]$": {
+                "type": "variable",
+                "value": "L0"
+              },
+              "$actor[2927f653-09b8-4dba-967c-4d5629452d4c]$": "2927f653-09b8-4dba-967c-4d5629452d4c",
+              "$actor[a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c]$": "a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c",
+              "__collapse": true
+            },
+            "id": "0ccb1224-0a21-4718-9525-df572563920e"
           }
         ]
       },
