@@ -10,5 +10,5 @@
         "rpg_combat_animation_states.h": "c",
         "rpg_combat.h": "c"
     },
-    "C_Cpp.intelliSenseEngine": "disabled"
+    "C_Cpp.intelliSenseEngine": "default"
 }

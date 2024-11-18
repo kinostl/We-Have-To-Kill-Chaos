@@ -42,5 +42,4 @@ void dispatch_action(ACTION_TYPE action_type) BANKED;
 void init_actions(void) BANKED;
 void attacker_prepareNextTurn_Hero(void) BANKED;
 void attacker_prepareNextTurn_Enemy(void) BANKED;
-ATTACK_RESULTS defender_TakeDamage(entity_data *attacker, entity_data *defender) BANKED;
 #endif

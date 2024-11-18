@@ -16,8 +16,8 @@
   "prefabScriptOverrides": {},
   "_index": 3,
   "symbol": "actor_75",
-  "x": 7,
-  "y": 16,
+  "x": 10,
+  "y": 20,
   "script": [],
   "startScript": [
     {

@@ -1,6 +1,6 @@
 {
   "_resourceType": "actor",
-  "id": "dde30483-a3dd-452f-b736-bd522ae56dd2",
+  "id": "a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c",
   "name": "Explosion 2",
   "frame": 0,
   "animate": false,
@@ -16,104 +16,11 @@
   "prefabScriptOverrides": {},
   "_index": 6,
   "symbol": "actor_58",
-  "x": 3,
-  "y": 4,
+  "x": 2,
+  "y": 19,
   "script": [],
-  "startScript": [
-    {
-      "command": "EVENT_ACTOR_STOP_UPDATE",
-      "args": {
-        "actorId": "$self$",
-        "__comment": false
-      },
-      "id": "efcd9d94-3e86-4b4c-9871-59ecb542d28a"
-    }
-  ],
-  "updateScript": [
-    {
-      "command": "EVENT_SOUND_PLAY_EFFECT",
-      "args": {
-        "type": "crash",
-        "priority": "medium",
-        "pitch": 4,
-        "frequency": 200,
-        "duration": 0.1,
-        "wait": false,
-        "effect": 0
-      },
-      "id": "6ad73046-958b-42df-b511-ea476b6e0b56"
-    },
-    {
-      "command": "EVENT_ACTOR_SET_POSITION",
-      "args": {
-        "actorId": "$self$",
-        "x": {
-          "type": "add",
-          "valueA": {
-            "type": "rnd",
-            "value": {
-              "type": "sub",
-              "valueA": {
-                "type": "variable",
-                "value": "103"
-              },
-              "valueB": {
-                "type": "number",
-                "value": 1
-              }
-            }
-          },
-          "valueB": {
-            "type": "variable",
-            "value": "94"
-          }
-        },
-        "y": {
-          "type": "add",
-          "valueA": {
-            "type": "rnd",
-            "value": {
-              "type": "sub",
-              "valueA": {
-                "type": "variable",
-                "value": "104"
-              },
-              "valueB": {
-                "type": "number",
-                "value": 1
-              }
-            }
-          },
-          "valueB": {
-            "type": "add",
-            "valueA": {
-              "type": "variable",
-              "value": "95"
-            },
-            "valueB": {
-              "type": "number",
-              "value": 1
-            }
-          }
-        }
-      },
-      "id": "30bacbb7-e00c-4f99-a2fb-1eb13d7f4de4"
-    },
-    {
-      "command": "EVENT_ACTOR_SET_FRAME",
-      "args": {
-        "actorId": "$self$",
-        "frame": {
-          "type": "rnd",
-          "value": {
-            "type": "number",
-            "value": 3
-          }
-        }
-      },
-      "id": "8c068e61-2925-40f9-a379-f9e894496b3c"
-    }
-  ],
+  "startScript": [],
+  "updateScript": [],
   "hit1Script": [],
   "hit2Script": [],
   "hit3Script": []

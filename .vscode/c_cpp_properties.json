@@ -4,7 +4,6 @@
             "name": "gameboy",
             "includePath": [
                 "${workspaceFolder}/plugins/**/engine/include",
-                "${workspaceFolder}/plugins/**/engine/src",
                 "/home/deck/.cache/gbstudio-v4/_gbsbuild/include",
                 "/home/deck/.cache/gbstudio-v4/_gbstools/gbdk/include"
             ],
@@ -18,6 +17,9 @@
             "intelliSenseMode": "${default}",
             "compilerArgs": [ ],
             "browse": {
+                "path": [
+                    "${workspaceFolder}/plugins/**/engine/src"
+                ],
                 "limitSymbolsToIncludedHeaders": true
             },
             "cStandard": "c11"

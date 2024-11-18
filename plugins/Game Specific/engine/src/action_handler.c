@@ -157,6 +157,11 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       ATTACK_RESULTS attack_results = defender_TakeDamage(
           current_turn->entity, &enemy_slots[target_enemy].ext);
 
+      VM_GLOBAL(VAR_EXPLOSION_X) = enemy_slots[target_enemy].x;
+      VM_GLOBAL(VAR_EXPLOSION_Y) = enemy_slots[target_enemy].y + 1;
+      VM_GLOBAL(VAR_EXPLOSION_W) = enemy_slots[target_enemy].w - 1;
+      VM_GLOBAL(VAR_EXPLOSION_H) = enemy_slots[target_enemy].h - 1;
+
       animate(ANIMATE_PLAYER_ATTACKING);
       if (attack_results & CRITICAL_HIT) {
         // animate critical hit

@@ -4,7 +4,7 @@
   "name": "Hero Slot 4",
   "frame": 0,
   "animate": false,
-  "spriteSheetId": "75e5bb7d-28eb-4b45-b835-8f4931adab2b",
+  "spriteSheetId": "9aba3d2a-99b2-4273-a573-51f54fa169ac",
   "prefabId": "",
   "direction": "down",
   "moveSpeed": 1,
@@ -23,7 +23,8 @@
     {
       "command": "EVENT_ACTOR_HIDE",
       "args": {
-        "actorId": "$self$"
+        "actorId": "$self$",
+        "__comment": true
       },
       "id": "c5e87a76-6948-4e1e-8d12-f9101c9f0182"
     }
