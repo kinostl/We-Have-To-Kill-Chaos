@@ -9,8 +9,14 @@
         "stdbool.h": "c",
         "rpg_combat_animation_states.h": "c",
         "rpg_combat.h": "c",
-        "ff_debug.h": "c"
+        "ff_debug.h": "c",
+        "enums.h": "c",
+        "hero_data.h": "c",
+        "enemy_data.h": "c",
+        "armor_data.h": "c",
+        "entity_data.h": "c",
+        "position_data.h": "c"
     },
-    "C_Cpp.intelliSenseEngine": "default",
+    "C_Cpp.intelliSenseEngine": "disabled",
     "C_Cpp.clang_format_fallbackStyle": "WebKit"
 }

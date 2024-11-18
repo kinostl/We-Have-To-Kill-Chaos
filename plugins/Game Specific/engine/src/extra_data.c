@@ -59,18 +59,19 @@ void init_extra_data(void) OLDCALL BANKED {
   action_head = &action_slots[0];
   action_tail = &action_slots[0];
 
+  load_hero(&hero_slots[0], FIGHTER);
+  load_hero(&hero_slots[1], THIEF);
+  load_hero(&hero_slots[2], RED_MAGE);
+  load_hero(&hero_slots[3], BLACK_MAGE);
+
+  strcpy(hero_slots[0].name, "ONCLER");
+  strcpy(hero_slots[1].name, "TWOFER");
+  strcpy(hero_slots[2].name, "THREEF");
+  strcpy(hero_slots[3].name, "FOURNA");
+
   for (UBYTE i = 0; i < 4; i++) {
-    hero_slots[i].job = i;
-    strcpy(hero_slots[i].name, "      ");
-    hero_slots[i].idx = i;
-    hero_slots[i].ext.skills[0] = FIGHT;
-    hero_slots[i].ext.skills[1] = SHIELD_SKILL;
-    hero_slots[i].ext.skills[2] = RUNE_SWORD_SKILL;
-    hero_slots[i].ext.skills[3] = LUSTER;
-    hero_slots[i].ext.hp = 10;
-    hero_slots[i].ext.max_hp = 10;
-    strcpy(hero_slots[i].name, "ONCLER");
-    hero_slots[i].ap = 1;
+    hero_slots[i].ext.idx = i;
+    hero_slots[i].ext.hp = hero_slots[i].ext.max_hp;
     hero_slots[i].pos.w = 3;
     hero_slots[i].pos.h = 3;
     hero_slots[i].pos.x = 13;
@@ -80,7 +81,7 @@ void init_extra_data(void) OLDCALL BANKED {
   }
 
   for (UBYTE i = 0; i < 6; i++) {
-    enemy_slots[i].idx = i;
+    enemy_slots[i].ext.idx = i;
     strcpy(enemy_slots[i].name, "       ");
 
     turn_slots[i+4].entity = &enemy_slots[i].ext;

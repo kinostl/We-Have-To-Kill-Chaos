@@ -14,7 +14,6 @@ typedef struct {
   entity_data ext;
   ff_position_t pos;
 
-  BYTE idx;
 } enemy_data;
 
 extern const enemy_data enemy_db[];

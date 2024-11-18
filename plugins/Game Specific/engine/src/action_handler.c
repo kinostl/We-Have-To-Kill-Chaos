@@ -297,7 +297,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     break;
   case PANEL_DisplayMenu:
     LOG("handle: PANEL_DisplayMenu");
-    loadHeroMenu();
+    loadHeroMenu(&hero_slots[current_turn->entity->idx]);
     ui_display_text();
     break;
   case PANEL_DisplayParty:

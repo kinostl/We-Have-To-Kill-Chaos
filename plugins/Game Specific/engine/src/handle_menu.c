@@ -91,8 +91,7 @@ BYTE load_menu_item(const unsigned char * skill_name, unsigned char *d) OLDCALL 
   return str_len;
 }
 
-void loadHeroMenu(void) BANKED {
-  hero_data *player = &hero_slots[0];
+void loadHeroMenu(hero_data * player) BANKED {
   skill_data skill;
   unsigned char *d = ui_text_data;
 

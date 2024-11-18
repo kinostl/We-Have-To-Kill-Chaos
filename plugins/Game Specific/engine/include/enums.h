@@ -77,7 +77,14 @@ typedef enum {
   GOBLIN_PUNCH,
   HOWL,
   THRASH,
-  RUNE_SWORD_SKILL
+  RUNE_SWORD_SKILL,
+  STEAL,
+  WEAK,
+  SNEAK,
+  FOCUS,
+  WRECK,
+  PIERCE,
+  LOAD,
 } BATTLE_SKILL;
 
 typedef enum {

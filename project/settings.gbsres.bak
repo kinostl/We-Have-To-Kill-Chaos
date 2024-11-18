@@ -86,7 +86,7 @@
     "Shift"
   ],
   "colorMode": "color",
-  "generateDebugFilesEnabled": true,
+  "generateDebugFilesEnabled": false,
   "compilerPreset": 3000,
   "scriptEventPresets": {},
   "scriptEventDefaultPresets": {}

@@ -4,6 +4,7 @@
 #include <asm/types.h>
 
 typedef struct {
+  BYTE idx;
   BYTE hp;
   BYTE max_hp;
   BYTE type;
