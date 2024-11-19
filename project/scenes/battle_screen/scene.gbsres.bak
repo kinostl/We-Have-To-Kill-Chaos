@@ -130,6 +130,16 @@
       "id": "596681c6-9e78-44f8-b324-e562fce44af8"
     },
     {
+      "command": "FF_EVENT_SET_ACTOR_TO_DAMAGE",
+      "args": {
+        "actorId_1": "4e1be877-f859-4579-bf47-4938ed4fff39",
+        "actorId_2": "9106cb06-62cd-4134-8f56-3770fa475590",
+        "actorId_3": "332fdb0d-ad31-42ea-b554-8feb1a7b8a71",
+        "__collapse": false
+      },
+      "id": "ca9b237d-bd40-487f-9320-8474632bad53"
+    },
+    {
       "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
       "args": {
         "state": 5,
@@ -485,7 +495,8 @@
             "command": "EVENT_THREAD_START",
             "args": {
               "variable": "L1",
-              "__scriptTabs": "true"
+              "__scriptTabs": "true",
+              "__collapse": false
             },
             "children": {
               "true": [

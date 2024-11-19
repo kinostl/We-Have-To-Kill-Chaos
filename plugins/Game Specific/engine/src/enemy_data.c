@@ -8,11 +8,11 @@
 const enemy_data enemy_db[] = {
     [IMP] = {
              .name = "IMP",
+             .ext = {
              .pos  = {
              .w = 5,
              .h = 4,
         },
-             .ext = {
             .max_hp      = 8,
             .gold        = 6,
             .exp         = 6,
@@ -41,11 +41,11 @@ const enemy_data enemy_db[] = {
              },
     [MADPONY] = {
              .name = "MADPONY",
+             .ext = {
              .pos  = {
              .w = 6,
              .h = 6,
         },
-             .ext = {
             .max_hp      = 64,
             .gold        = 15,
             .exp         = 63,
@@ -74,11 +74,11 @@ const enemy_data enemy_db[] = {
              },
     [WOLF] = {
              .name = "WOLF",
+             .ext = {
              .pos  = {
              .w = 5,
              .h = 4,
         },
-             .ext = {
             .max_hp      = 20,
             .gold        = 6,
             .exp         = 24,

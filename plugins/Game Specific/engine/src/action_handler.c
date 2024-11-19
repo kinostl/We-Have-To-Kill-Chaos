@@ -166,7 +166,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       ATTACK_RESULTS attack_results = defender_TakeDamage(
           current_turn->entity, &enemy_slots[target_enemy].ext);
 
-      setup_explosions(&enemy_slots[target_enemy].pos);
+      setup_explosions(&enemy_slots[target_enemy].ext.pos);
 
       animate(ANIMATE_PLAYER_ATTACKING);
       animate(ANIMATE_ENEMY_DAMAGED);
@@ -189,8 +189,9 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       ATTACK_RESULTS attack_results = defender_TakeDamage(
           current_turn->entity, &hero_slots[target_enemy].ext);
 
-      setup_explosions(&hero_slots[target_enemy].pos);
+      setup_explosions(&hero_slots[target_enemy].ext.pos);
       animate(ANIMATE_ENEMY_ATTACKING);
+      animate(ANIMATE_ENEMY_DAMAGED);
       if (attack_results & CRITICAL_HIT) {
         // animate critical hit
       } else if (attack_results & ATTACK_HIT) {

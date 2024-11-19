@@ -1,6 +1,7 @@
 #ifndef FF_ENTITY_DATA
 #define FF_ENTITY_DATA
 #include "enums.h"
+#include "position_data.h"
 #include <asm/types.h>
 
 typedef struct {
@@ -25,6 +26,7 @@ typedef struct {
   ENEMY_TYPE weakness;
   BYTE resists;
   BATTLE_SKILL skills[4];
+  ff_position_t pos;
 } entity_data;
 
 #endif

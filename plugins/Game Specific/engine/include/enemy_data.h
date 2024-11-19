@@ -12,7 +12,6 @@ typedef struct {
   char name[8];
 
   entity_data ext;
-  ff_position_t pos;
 
 } enemy_data;
 

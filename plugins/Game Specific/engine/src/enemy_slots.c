@@ -326,10 +326,10 @@ void setupEnemySlots(void) BANKED {
     load_enemy(current_enemy, encounter_table[idx]);
     current_enemy->ext.hp = current_enemy->ext.max_hp;
     current_enemy->ext.status = NULL;
-    current_enemy->pos.x = next_x;
-    current_enemy->pos.y = next_y;
-    current_enemy->pos.w = 6;
-    current_enemy->pos.h = 6;
+    current_enemy->ext.pos.x = next_x;
+    current_enemy->ext.pos.y = next_y;
+    current_enemy->ext.pos.w = 6;
+    current_enemy->ext.pos.h = 6;
 
     entity_data_i++;
     enemies_alive++;
@@ -354,10 +354,10 @@ void setupEnemySlots(void) BANKED {
     load_enemy(current_enemy, encounter_table[idx]);
     current_enemy->ext.hp = current_enemy->ext.max_hp;
     current_enemy->ext.status = NULL;
-    current_enemy->pos.x = next_x;
-    current_enemy->pos.y = next_y;
-    current_enemy->pos.w = 5;
-    current_enemy->pos.h = 4;
+    current_enemy->ext.pos.x = next_x;
+    current_enemy->ext.pos.y = next_y;
+    current_enemy->ext.pos.w = 5;
+    current_enemy->ext.pos.h = 4;
 
 
     entity_data_i++;
@@ -387,10 +387,10 @@ void enemyFlashBKG(SCRIPT_CTX *THIS) OLDCALL BANKED {
       &enemy_slots[0];
   WORD color_1 = 1;
   WORD color_2 = 6;
-  WORD x = enemy->pos.x;
-  WORD y = enemy->pos.y;
-  WORD w = enemy->pos.w;
-  WORD h = enemy->pos.h;
+  WORD x = enemy->ext.pos.x;
+  WORD y = enemy->ext.pos.y;
+  WORD w = enemy->ext.pos.w;
+  WORD h = enemy->ext.pos.h;
   handle_bkg_flash(color_1, color_2, x, y, w, h);
 }
 

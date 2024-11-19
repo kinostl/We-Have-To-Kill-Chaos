@@ -24,7 +24,6 @@ typedef struct {
   armor_data gloves;
 
   actor_t * actor;
-  ff_position_t pos;
 
   BYTE strength;
   BYTE agility;

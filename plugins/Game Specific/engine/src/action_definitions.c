@@ -3,6 +3,7 @@
 #include "enums.h"
 #include "extra_data.h"
 #include "hero_data.h"
+#include "position_data.h"
 #include "turn_slots.h"
 #include "weapon_data.h"
 #include <actor.h>
@@ -12,7 +13,7 @@
 #include <string.h>
 #pragma bank 255
 #include "action_definitions.h"
-#include "menu_helper.h"
+#include "position.h"
 #include "rand.h" // IWYU pragma: keep
 // #include "ff_debug.h"
 
@@ -63,26 +64,34 @@ void attacker_prepareNextTurn_Hero(void) BANKED {
 
 void attacker_prepareNextTurn_Enemy(void) BANKED {}
 
-void setupDamageNumbers(UBYTE dmg) {
+void setupDamageNumbers(UBYTE dmg, ff_position_t *target) {
   // 0 = Ones
   // 1 = Tens
   // 2 = Hundreds
 
-  const UBYTE base_dmg = dmg;
+  UBYTE max_i = 3;
+  if (dmg < 100){
+    actor_set_frame_offset(damage_numbers[2], 10);
+    max_i--;
+  }
 
-  for (UBYTE i = 0; i < 3; i++) {
+  if (dmg < 10){
+    actor_set_frame_offset(damage_numbers[1], 10);
+    max_i--;
+  }
+
+  for (UBYTE i = 0; i < max_i; i++) {
     UBYTE digit = dmg % 10;
-    if (digit == 0 && i == 2 && base_dmg < 100)
-      digit = 10;
-    if (digit == 0 && i == 1 && base_dmg < 10)
-      digit = 10;
     actor_set_frame_offset(damage_numbers[i], digit);
+    damage_numbers[i]->pos.x = pos((target->x - i) + (target->w / 2));
+    damage_numbers[i]->pos.y = pos((target->y) + (target->h / 2));
     dmg /= 10;
   }
 }
 
 ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,
                                    entity_data *defender) BANKED {
+  setupDamageNumbers(0, &defender->pos);
   const UBYTE base_hit_chance = 168;
   const UWORD hit_roll = rand() % 201;
   const UWORD target_number =
@@ -104,7 +113,7 @@ ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,
     results |= CRITICAL_HIT;
   }
 
-  damage_calc = MAX(damage_calc - defender->absorb, 1);
+  // damage_calc = MAX(damage_calc - defender->absorb, 1);
   defender->hp -= damage_calc;
 
   if (defender->hp <= 0) {
@@ -112,7 +121,7 @@ ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,
     results |= TARGET_DEFEATED;
   }
   const UBYTE end_hp = defender->hp;
-  setupDamageNumbers(start_hp - end_hp);
+  setupDamageNumbers(start_hp - end_hp, &defender->pos);
 
   return results;
 }

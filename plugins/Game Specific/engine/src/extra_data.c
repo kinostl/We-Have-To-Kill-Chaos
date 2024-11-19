@@ -2,7 +2,6 @@
 #include "action_handler.h"
 #include "enemy_data.h"
 #include "entity_data.h"
-#include "enums.h"
 #include "hero_data.h"
 #include "item_slot.h"
 #include <asm/types.h>
@@ -72,10 +71,10 @@ void init_extra_data(void) OLDCALL BANKED {
   for (UBYTE i = 0; i < 4; i++) {
     hero_slots[i].ext.idx = i;
     hero_slots[i].ext.hp = hero_slots[i].ext.max_hp;
-    hero_slots[i].pos.w = 3;
-    hero_slots[i].pos.h = 3;
-    hero_slots[i].pos.x = 13;
-    hero_slots[i].pos.y = 2 + (i*4);
+    hero_slots[i].ext.pos.w = 3;
+    hero_slots[i].ext.pos.h = 3;
+    hero_slots[i].ext.pos.x = 13;
+    hero_slots[i].ext.pos.y = 2 + (i*4);
 
     turn_slots[i].entity = &hero_slots[i].ext;
   }
