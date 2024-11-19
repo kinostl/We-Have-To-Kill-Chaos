@@ -76,7 +76,7 @@
         "variable": "0",
         "__collapseCase1": true,
         "__collapseCase14": true,
-        "__collapseCase8": false,
+        "__collapseCase8": true,
         "__collapseCase9": true,
         "__collapseCase15": true,
         "__collapseCase12": true,
@@ -95,7 +95,7 @@
         "__collapseCase13": true,
         "__collapseCase0": true,
         "__collapseCase16": true,
-        "__collapseCase19": true,
+        "__collapseCase19": false,
         "__collapseCase22": true,
         "__collapseCaseGetNextAction": true,
         "__collapse": false,
@@ -4325,7 +4325,9 @@
           },
           {
             "command": "FF_EVENT_ENEMY_ROLL_INITIATIVE",
-            "args": {},
+            "args": {
+              "__comment": true
+            },
             "id": "4214a384-4ec9-45a8-9f2c-e090562d5a70"
           }
         ],

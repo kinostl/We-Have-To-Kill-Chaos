@@ -12,7 +12,7 @@ typedef struct {
   char name[7];
   BYTE ap;
 
-  JOB job;
+  JOB_ID job;
 
   entity_data ext;
 

@@ -3,13 +3,23 @@
 #include "macro.h"
 
 typedef enum {
-  FIGHTER = 1 << 0,
-  THIEF = 1 << 1,
-  MONK = 1 << 2,
-  RED_MAGE = 1 << 3,
-  WHITE_MAGE = 1 << 4,
-  BLACK_MAGE = 1 << 5,
-  BLUE_MAGE = 1 << 6,
+  FIGHTER_ID,
+  THIEF_ID,
+  MONK_ID,
+  RED_MAGE_ID,
+  WHITE_MAGE_ID,
+  BLACK_MAGE_ID,
+  BLUE_MAGE_ID
+} JOB_ID;
+
+typedef enum {
+  FIGHTER = 1 << FIGHTER_ID,
+  THIEF = 1 << THIEF_ID,
+  MONK = 1 << MONK_ID,
+  RED_MAGE = 1 << RED_MAGE_ID,
+  WHITE_MAGE = 1 << WHITE_MAGE_ID,
+  BLACK_MAGE = 1 << BLACK_MAGE_ID,
+  BLUE_MAGE = 1 << BLUE_MAGE_ID,
   // SECRET = 1 << 7
   /* Lying probably */
 } JOB;

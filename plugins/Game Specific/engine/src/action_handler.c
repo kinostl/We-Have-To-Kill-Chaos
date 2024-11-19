@@ -1,6 +1,8 @@
 #include "enums.h"
 #include "extra_data.h"
 #include "states/rpg_combat.h"
+#include "turn_slots.h"
+#include <actor.h>
 #include <data/game_globals.h>
 #include <macro.h>
 #include <stdbool.h>
@@ -160,13 +162,14 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     LOG("handle: ATTACKER_Fight");
     if (!current_turn->is_enemy) {
       LOG("+> is hero");
-      const UBYTE target_enemy = 0; // rpg_get_target_enemy();
+      const UBYTE target_enemy = rpg_get_target_enemy();
       ATTACK_RESULTS attack_results = defender_TakeDamage(
           current_turn->entity, &enemy_slots[target_enemy].ext);
 
       setup_explosions(&enemy_slots[target_enemy].pos);
 
       animate(ANIMATE_PLAYER_ATTACKING);
+      animate(ANIMATE_ENEMY_DAMAGED);
       if (attack_results & CRITICAL_HIT) {
         // animate critical hit
       } else if (attack_results & ATTACK_HIT) {
@@ -203,6 +206,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       }
     }
 
+      current_turn = current_turn->next;
     dispatch_action(ATTACKER_StartNextTurn);
     break;
   }
@@ -243,12 +247,11 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     }
     LOG("+> heroes alive");
 
-    if (current_turn->next == NULL) {
+    if (current_turn == NULL) {
       LOG("+-reset initiative");
       dispatch_action(TURN_BuildInitiative);
     } else {
       LOG("+-take turn");
-      current_turn = current_turn->next;
       dispatch_action(ATTACKER_TakeNextTurn);
     }
     break;
@@ -290,10 +293,8 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     break;
   case PANEL_DisplayCurrentActor:
     LOG("handle: PANEL_DisplayCurrentActor");
-    // TODO INCORRECT
-    hero_slots[0].actor->pos.x = pos(14);
-    hero_slots[0].actor->pos.y = pos(4);
-    hero_slots[0].actor->hidden = FALSE;
+    VM_GLOBAL(VAR_1_C) = hero_slots[current_turn->entity->idx].job;
+    animate(BEGIN_PLAYER_TURN);
     break;
   case PANEL_DisplayMenu:
     LOG("handle: PANEL_DisplayMenu");

@@ -4,7 +4,6 @@
 #include <gb/gb.h>
 
 #pragma bank 255
-BANKREF(FF_ENEMY_DATA)
 
 const enemy_data enemy_db[] = {
     [IMP] = {
@@ -108,3 +107,5 @@ const enemy_data enemy_db[] = {
         },
              },
 };
+
+BANKREF(FF_ENEMY_DATA)

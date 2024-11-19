@@ -91,6 +91,7 @@ UBYTE rpg_get_target_enemy(void) BANKED {
   UBYTE current_index = 0;
   UBYTE max_index = 6;
 
+  PLAYER.hidden = FALSE;
   PLAYER.pos.x = pos(1);
   PLAYER.pos.y = pos(6);
 
@@ -105,6 +106,7 @@ UBYTE rpg_get_target_enemy(void) BANKED {
         current_index++;
       }
     } else if (INPUT_A_PRESSED) {
+      PLAYER.hidden = TRUE;
       return current_index;
     } else {
       switch (current_index) {
@@ -113,20 +115,20 @@ UBYTE rpg_get_target_enemy(void) BANKED {
         PLAYER.pos.y = pos(6);
         break;
       case 1:
-        PLAYER.pos.x = pos(1);
-        PLAYER.pos.y = pos(10);
-        break;
-      case 2:
-        PLAYER.pos.x = pos(1);
-        PLAYER.pos.y = pos(14);
-        break;
-      case 3:
         PLAYER.pos.x = pos(5);
         PLAYER.pos.y = pos(6);
         break;
-      case 4:
+      case 2:
+        PLAYER.pos.x = pos(1);
+        PLAYER.pos.y = pos(10);
+        break;
+      case 3:
         PLAYER.pos.x = pos(5);
         PLAYER.pos.y = pos(10);
+        break;
+      case 4:
+        PLAYER.pos.x = pos(1);
+        PLAYER.pos.y = pos(14);
         break;
       case 5:
         PLAYER.pos.x = pos(5);

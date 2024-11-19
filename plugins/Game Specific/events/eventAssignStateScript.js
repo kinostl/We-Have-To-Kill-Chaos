@@ -5,7 +5,9 @@ const stateNames = [
     "Animate Enemy Attacking",
     "Animate Enemy Damaged",
     "Animate Party Win",
-    "Animate Party Lose"
+    "Animate Party Lose",
+    "Begin Player Turn",
+    "End Player Turn",
 ]
 const name = "Attach Script to Animation State";
 const autoLabel = (fetchArg) => {
@@ -45,25 +47,39 @@ const fields = [
   ];
   
 const compile = (input, helpers) => {
-    const { appendRaw, _compileSubScript, _addComment, additionalOutput, writeAsset, getNextLabel } = helpers;
-    input.script.unshift({"command":"EVENT_SCRIPT_LOCK","args":{},"id":`rpg_animation_lock_${getNextLabel()}`});
-    input.script.push({"command":"EVENT_SCRIPT_UNLOCK","args":{},"id":`rpg_animation_unlock_${getNextLabel()}`});
-    const ScriptRef = _compileSubScript("state", input.script, "test_symbol" + input.state);
-    const stateNumber = `${input.state}`;
-    const bank = `___bank_${ScriptRef}`;
-    const ptr = `_${ScriptRef}`
+  const { appendRaw, _compileSubScript, _addComment, additionalOutput, writeAsset, getNextLabel } = helpers;
+  input.script.unshift({
+    "command": "EVENT_GBVM_SCRIPT",
+    "args": {
+      "script": "VM_SET_CONST_INT8 _rpg_lock 1",
+    },
+    "id": `rpg_animation_lock_${getNextLabel()}`
+  })
+  input.script.unshift({ "command": "EVENT_SCRIPT_LOCK", "args": {}, "id": `rpg_animation_lock_${getNextLabel()}` });
+  input.script.push({
+    "command": "EVENT_GBVM_SCRIPT",
+    "args": {
+      "script": "VM_SET_CONST_INT8 _rpg_lock 0",
+    },
+    "id": `rpg_animation_unlock_${getNextLabel()}`
+  })
+  input.script.push({ "command": "EVENT_SCRIPT_UNLOCK", "args": {}, "id": `rpg_animation_unlock_${getNextLabel()}` });
+  const ScriptRef = _compileSubScript("state", input.script, "test_symbol" + input.state);
+  const stateNumber = `${input.state}`;
+  const bank = `___bank_${ScriptRef}`;
+  const ptr = `_${ScriptRef}`
 
-    _addComment("Set Platformer Script");
-    appendRaw(`VM_PUSH_CONST ${stateNumber}`);
-    appendRaw(`VM_PUSH_CONST ${bank}`);
-    appendRaw(`VM_PUSH_CONST ${ptr}`);
-    appendRaw(`VM_CALL_NATIVE b_assign_state_script, _assign_state_script`);
-    appendRaw(`VM_POP 3`);
+  _addComment("Attach Script to State");
+  appendRaw(`VM_PUSH_CONST ${stateNumber}`);
+  appendRaw(`VM_PUSH_CONST ${bank}`);
+  appendRaw(`VM_PUSH_CONST ${ptr}`);
+  appendRaw(`VM_CALL_NATIVE b_assign_state_script, _assign_state_script`);
+  appendRaw(`VM_POP 3`);
 
-    const header_name = "rpg_combat_animation_states.h";
-    if (!additionalOutput[header_name]) {
-        writeAsset(
-            header_name,
+  const header_name = "rpg_combat_animation_states.h";
+  if (!additionalOutput[header_name]) {
+    writeAsset(
+      header_name,
       /*h*/`
 #ifndef RPG_COMBAT_ANIMATION_STATES
 #define RPG_COMBAT_ANIMATION_STATES
@@ -73,9 +89,9 @@ typedef enum {
 #define RPG_ANIMATION_STATE_LENGTH ${stateNames.length}
 #endif
 `.trim()
-        )
+    )
 
-    }
+  }
 
 };
   

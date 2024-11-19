@@ -1336,8 +1336,8 @@
     },
     {
       "id": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64__L0",
-      "name": "Choice Made",
-      "symbol": "var_choice_made"
+      "name": "Hundreds Thread Handle",
+      "symbol": "var_hundreds_thread_handle"
     },
     {
       "id": "f1d1af28-6219-479d-b102-6b6e530864c9__L0",
@@ -1398,6 +1398,26 @@
       "id": "51959c65-5ada-4b08-8fc4-364aeecb39ef__L0",
       "name": "Character Job",
       "symbol": "var_character_job"
+    },
+    {
+      "id": "aeecfbd3-1725-4866-8b6c-2683dc5472e5__L0",
+      "name": "Character Job",
+      "symbol": "var_character_job_1"
+    },
+    {
+      "id": "76586ae3-b5db-4079-8b7b-71f9205f6373__L3",
+      "name": "Character Job",
+      "symbol": "var_character_job_2"
+    },
+    {
+      "id": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64__L1",
+      "name": "Tens Thread Handle",
+      "symbol": "var_tens_thread_handle"
+    },
+    {
+      "id": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64__L2",
+      "name": "Ones Thread Handle",
+      "symbol": "var_ones_thread_handle"
     }
   ]
 }

@@ -8,7 +8,7 @@
             "port": 58870,
             "stopOnEntry": true,
             // "additionalSrcFolders": "/home/deck/.cache/gbstudio-v4/_gbsbuild;/home/deck/Documents/We Have To Kill Chaos/plugins/Game Specific/engine",
-            "additionalSrcFolders": "/home/deck/Documents/We Have To Kill Chaos/plugins/Game Specific/engine",
+            "additionalSrcFolders": "/home/deck/Documents/We Have To Kill Chaos/plugins/Game Specific/engine;/home/deck/.cache/gbstudio-v4/_gbsbuild;",
             // "emuliciousPath": "/home/deck/Emulicious/Emulicious.jar",
             "emuliciousPath": "/home/deck/Emulicious.jar",
             "javaPath": "/home/deck/.sdkman/candidates/java/current/bin/java"

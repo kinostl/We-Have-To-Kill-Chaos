@@ -74,10 +74,10 @@
       "command": "FF_EVENT_DEFINE_ACTIONS",
       "args": {
         "variable": "0",
-        "__collapseCase1": true,
+        "__collapseCase1": false,
         "__collapseCase14": true,
         "__collapseCase8": true,
-        "__collapseCase9": true,
+        "__collapseCase9": false,
         "__collapseCase15": true,
         "__collapseCase12": true,
         "__collapseCase11": true,
@@ -89,11 +89,11 @@
         "__collapseCase6": true,
         "__collapseCase3": true,
         "__collapseCase2": true,
-        "__collapseCase18": true,
+        "__collapseCase18": false,
         "__collapseCase17": true,
         "__collapseCase20": true,
         "__collapseCase13": true,
-        "__collapseCase0": true,
+        "__collapseCase0": false,
         "__collapseCase16": true,
         "__collapseCase19": false,
         "__collapseCase22": true,
@@ -3766,7 +3766,7 @@
                 {
                   "command": "EVENT_GROUP",
                   "args": {
-                    "__collapse": true
+                    "__collapse": false
                   },
                   "children": {
                     "true": [
@@ -3980,7 +3980,7 @@
                 {
                   "command": "EVENT_GROUP",
                   "args": {
-                    "__collapse": true
+                    "__collapse": false
                   },
                   "children": {
                     "true": [

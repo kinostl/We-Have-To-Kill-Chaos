@@ -1,7 +1,9 @@
+#include "action_definitions.h"
 #include "action_handler.h"
 #include "extra_data.h"
 #include <actor.h>
 #include <asm/types.h>
+#include <gbs_types.h>
 #include <ui.h>
 #include <vm.h>
 #pragma bank 255
@@ -9,6 +11,7 @@
 #include "states/rpg_combat.h"
 
 RPG_ANIMATION_STATE rpg_animation_state;
+BYTE rpg_lock=0;
 
 script_state_t state_events[RPG_ANIMATION_STATE_LENGTH];
 
@@ -20,7 +23,9 @@ void rpg_combat_init(void) BANKED {
 }
 
 void rpg_combat_update(void) BANKED {
-  take_action();
+  if (!rpg_lock) {
+    take_action();
+  }
 }
 
 void assign_state_script(SCRIPT_CTX * THIS) OLDCALL BANKED {
@@ -41,5 +46,18 @@ void assign_hero_actors(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
   for (UBYTE i = 0; i < 4; i++) {
     hero_slots[i].actor = &actors[actor_ids[i]];
+  }
+}
+
+
+void assign_damage_actors(SCRIPT_CTX *THIS) OLDCALL BANKED {
+  UBYTE actor_ids[3] = {
+      *(UBYTE *)VM_REF_TO_PTR(FN_ARG0),
+      *(UBYTE *)VM_REF_TO_PTR(FN_ARG1),
+      *(UBYTE *)VM_REF_TO_PTR(FN_ARG2),
+  };
+
+  for (UBYTE i = 0; i < 3; i++) {
+    damage_numbers[i] = &actors[actor_ids[i]];
   }
 }

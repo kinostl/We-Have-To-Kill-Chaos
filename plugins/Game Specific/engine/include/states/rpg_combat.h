@@ -10,6 +10,7 @@ typedef struct script_state_t {
 
 extern RPG_ANIMATION_STATE rpg_animation_state;
 extern script_state_t state_events[RPG_ANIMATION_STATE_LENGTH];
+extern BYTE rpg_lock;
 
 UBYTE rpg_run_menu(void) BANKED;
 UBYTE rpg_get_target_ally(void) BANKED;
