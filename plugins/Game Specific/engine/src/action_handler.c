@@ -266,6 +266,9 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     }
     if (current_turn->is_enemy) {
       LOG("enemy alive, take turn");
+      current_enemy = &enemy_slots[current_turn->entity->idx];
+      current_hero = NULL;
+
       if (current_turn->prev && !current_turn->prev->is_enemy) {
         dispatch_action(PANEL_HidePartyActors);
         dispatch_action(PANEL_ClosePanel);
@@ -277,6 +280,8 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       dispatch_action(PICK_GetEnemyActionChoice);
     } else {
       LOG("hero alive, take turn");
+      current_hero = &hero_slots[current_turn->entity->idx];
+      current_enemy = NULL;
       dispatch_action(PANEL_HidePartyActors);
       dispatch_action(PANEL_ClosePanel);
       dispatch_action(PANEL_DisplayMenu);

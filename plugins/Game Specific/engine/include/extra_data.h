@@ -19,5 +19,7 @@ extern action_t * action_head;
 extern action_t * action_tail;
 extern turn_slot_t * turn_slots;
 extern turn_slot_t * current_turn;
+extern enemy_data * current_enemy;
+extern hero_data * current_hero;
 
 #endif

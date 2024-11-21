@@ -350,7 +350,7 @@
       "args": {
         "state": 1,
         "__scriptTabs": "scriptinput",
-        "__collapse": false
+        "__collapse": true
       },
       "children": {
         "script": [
@@ -496,7 +496,7 @@
       "args": {
         "state": 2,
         "__scriptTabs": "scriptinput",
-        "__collapse": false
+        "__collapse": true
       },
       "children": {
         "script": [
