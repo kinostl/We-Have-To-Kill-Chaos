@@ -24,7 +24,7 @@
   "spritePaletteIds": [
     "349ce35e-4c36-4e07-bf6a-12c2105e2e6f",
     "4b5c94c3-d95b-4802-9f92-3d6266692d3c",
-    null,
+    "",
     "ce0677a5-03ad-409f-9df6-defebed43c18",
     "",
     "",
@@ -55,6 +55,30 @@
         "__collapse": true
       },
       "id": "bbae8cc0-e007-4d56-acb5-3eb951c58f2e"
+    },
+    {
+      "command": "EVENT_ACTOR_HIDE",
+      "args": {
+        "actorId": "332fdb0d-ad31-42ea-b554-8feb1a7b8a71",
+        "__collapse": true
+      },
+      "id": "67d5d70a-ddf4-4f04-9526-b442cd7d5152"
+    },
+    {
+      "command": "EVENT_ACTOR_HIDE",
+      "args": {
+        "actorId": "9106cb06-62cd-4134-8f56-3770fa475590",
+        "__collapse": true
+      },
+      "id": "60a25ccf-9d42-4a59-a3e9-5e9046c25441"
+    },
+    {
+      "command": "EVENT_ACTOR_HIDE",
+      "args": {
+        "actorId": "4e1be877-f859-4579-bf47-4938ed4fff39",
+        "__collapse": true
+      },
+      "id": "559ec2aa-f9ff-4b33-bf95-a845a643fcd6"
     },
     {
       "command": "EVENT_CAMERA_SET_POSITION",

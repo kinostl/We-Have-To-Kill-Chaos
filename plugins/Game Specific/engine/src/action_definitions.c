@@ -15,7 +15,6 @@
 #include "action_definitions.h"
 #include "position.h"
 #include "rand.h" // IWYU pragma: keep
-// #include "ff_debug.h"
 
 #define BASE_PLAYER_EVADE 48
 #define TURN_ORDER_COUNT 10
@@ -23,37 +22,111 @@
 actor_t *damage_numbers[3];
 
 UBYTE do_initiative_roll(turn_slot_t turn_slot) BANKED {
-  entity_data *entity = turn_slot.entity;
+  // entity_data *entity = turn_slot.entity;
   // if (entity->status & DEAD)
   //   return 0;
 
-  entity->max_hp = 20;
-  entity->evade = 5;
-  UBYTE initiative_roll = rand() % entity->max_hp;
-  initiative_roll += entity->evade;
-  if (!turn_slot.is_enemy)
-    initiative_roll += BASE_PLAYER_EVADE;
-  return initiative_roll + 1;
+  // entity->max_hp = 20;
+  // entity->evade = 5;
+  // UBYTE initiative_roll = rand() % entity->max_hp;
+  // initiative_roll += entity->evade;
+  // if (!turn_slot.is_enemy)
+  //   initiative_roll += BASE_PLAYER_EVADE;
+  // return initiative_roll + 1;
+  return (rand() % 20) + 1;
+}
+
+turn_slot_t* sortedInsert(turn_slot_t* createTurnSlot, 
+                          turn_slot_t* sorted) {
+    
+    // Special case for the head end
+    if (sorted == NULL || 
+        sorted->initiative_roll < createTurnSlot->initiative_roll) {
+        createTurnSlot->next = sorted;
+        sorted = createTurnSlot;
+    }
+    else {
+        turn_slot_t* curr = sorted;
+        
+        // Locate the node before the point of insertion
+        while (curr->next != NULL && 
+               curr->next->initiative_roll > createTurnSlot->initiative_roll) {
+            curr = curr->next;
+        }
+        createTurnSlot->next = curr->next;
+        curr->next = createTurnSlot;
+    }
+    
+    return sorted;
+}
+
+turn_slot_t* insertionSort(turn_slot_t* head) {
+    
+    // Initialize sorted linked list
+    turn_slot_t* sorted = NULL;
+    turn_slot_t* curr = head;
+    
+    // Traverse the given linked list and insert
+    // every node to sorted
+    while (curr != NULL) {
+        
+        // Store next for next iteration
+        turn_slot_t* next = curr->next;
+        
+        // Insert current in sorted linked list
+        sorted = sortedInsert(curr, sorted);
+        
+        // Update current
+        curr = next;
+    }
+    
+    return sorted;
+}
+
+struct turn_slot_t *doubleLink(turn_slot_t *start) {
+  turn_slot_t *prev = start;
+  turn_slot_t *head = start->next;
+
+  while (head != NULL) {
+    head->prev = prev;
+    head = head->next;
+    prev = prev->next;
+  }
+
+  return start;
 }
 
 void turn_rollInitiative(void) BANKED {
+  turn_slot_t turn_slots[10];
+  turn_slot_t *tail_slot;
+  turn_slot_t *head_slot;
+  
   for (UBYTE i = 0; i < 10; i++) {
     turn_slots[i].next = NULL;
     turn_slots[i].prev = NULL;
     turn_slots[i].initiative_roll = NULL;
     turn_slots[i].is_enemy = i > 3;
-    // turn_slots[i].initiative_roll = do_initiative_roll(turn_slots[i]);
-  }
-  turn_slots[0].next = &turn_slots[1];
-  turn_slots[1].prev = &turn_slots[0];
-  turn_slots[1].next = &turn_slots[2];
-  turn_slots[2].prev = &turn_slots[1];
-  turn_slots[2].next = &turn_slots[3];
-  turn_slots[3].prev = &turn_slots[2];
-  turn_slots[3].next = &turn_slots[4];
-  turn_slots[4].prev = &turn_slots[3];
+    turn_slots[i].initiative_roll =
+        i % 3; // do_initiative_roll(turn_slots[i]);
 
-  current_turn = &turn_slots[0];
+    if (turn_slots[i].initiative_roll < 1)
+      continue;
+
+    if(tail_slot == NULL){
+      tail_slot = &turn_slots[i];
+      head_slot = tail_slot;
+      continue;
+    }
+    
+    tail_slot->next = &turn_slots[i];
+    tail_slot = &turn_slots[i];
+
+  }
+
+  head_slot = insertionSort(head_slot);
+  head_slot = doubleLink(head_slot);
+
+  current_turn = head_slot;
 }
 
 void attacker_prepareNextTurn_Hero(void) BANKED {
@@ -104,8 +177,7 @@ ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,
 
   ATTACK_RESULTS results = ATTACK_HIT;
   const UBYTE start_hp = defender->hp;
-  // const UWORD atk_dmg = attacker->damage;
-  const UWORD atk_dmg = 10;
+  const UWORD atk_dmg = attacker->damage;
   UWORD damage_calc = (rand() % atk_dmg) + atk_dmg;
 
   if (attacker->crit_chance > hit_roll) {
@@ -113,7 +185,7 @@ ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,
     results |= CRITICAL_HIT;
   }
 
-  // damage_calc = MAX(damage_calc - defender->absorb, 1);
+  damage_calc = MAX(damage_calc - defender->absorb, 1);
   defender->hp -= damage_calc;
 
   if (defender->hp <= 0) {

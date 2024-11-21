@@ -1,7 +1,7 @@
 {
   "_resourceType": "actor",
-  "id": "4e1be877-f859-4579-bf47-4938ed4fff39",
-  "name": "Ones",
+  "id": "9106cb06-62cd-4134-8f56-3770fa475590",
+  "name": "Tens",
   "frame": 0,
   "animate": false,
   "spriteSheetId": "3a68e069-208c-452d-be93-f122add8a707",
@@ -14,7 +14,7 @@
   "persistent": false,
   "collisionGroup": "",
   "prefabScriptOverrides": {},
-  "symbol": "actor_79",
+  "symbol": "actor_78",
   "script": [],
   "startScript": [],
   "updateScript": [
@@ -41,32 +41,32 @@
             "args": {
               "customEventId": "56f4236c-6e9b-48ad-8a7b-cbc98150e840"
             },
-            "id": "1ffc06a9-19ab-41fb-b6bb-4eb0cddecaaa"
+            "id": "e98a48ac-015b-472d-85d5-879c28060d1d"
           },
           {
             "command": "EVENT_DEC_VALUE",
             "args": {
               "variable": "78"
             },
-            "id": "57d1d394-e35b-4459-b7f6-9726ca7e775d"
+            "id": "bf6f66b3-cdcf-4654-a01b-3f2fb04d22a0"
           },
           {
             "command": "EVENT_ACTOR_STOP_UPDATE",
             "args": {
               "actorId": "$self$"
             },
-            "id": "78b931d9-7ec9-4f53-8dbd-04df98e251a9"
+            "id": "40274d2e-5dcc-4610-8d17-73aa3ce08200"
           }
         ],
         "false": []
       },
-      "id": "852bc220-f51c-470c-a09b-c1b08cf801e4"
+      "id": "e770dfcf-7fc0-48bb-90f5-61f7465a7f6c"
     }
   ],
   "hit1Script": [],
   "hit2Script": [],
   "hit3Script": [],
-  "x": 6,
+  "x": 5,
   "y": 10,
-  "_index": 10
+  "_index": 9
 }
