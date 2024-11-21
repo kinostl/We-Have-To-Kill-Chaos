@@ -21,19 +21,22 @@
 
 actor_t *damage_numbers[3];
 
-UBYTE do_initiative_roll(turn_slot_t turn_slot) BANKED {
-  // entity_data *entity = turn_slot.entity;
-  // if (entity->status & DEAD)
-  //   return 0;
+UBYTE do_initiative_roll(turn_slot_t * turn_slot) BANKED {
+  if (turn_slot->entity == NULL)
+    return 0;
 
-  // entity->max_hp = 20;
-  // entity->evade = 5;
-  // UBYTE initiative_roll = rand() % entity->max_hp;
-  // initiative_roll += entity->evade;
-  // if (!turn_slot.is_enemy)
-  //   initiative_roll += BASE_PLAYER_EVADE;
-  // return initiative_roll + 1;
-  return (rand() % 20) + 1;
+  entity_data *entity = turn_slot->entity;
+
+  if (entity->status & DEAD)
+    return 0;
+
+  entity->max_hp = 20;
+  entity->evade = 5;
+  UBYTE initiative_roll = rand() % entity->max_hp;
+  initiative_roll += entity->evade;
+  if (!turn_slot->is_enemy)
+    initiative_roll += BASE_PLAYER_EVADE;
+  return initiative_roll + 1;
 }
 
 turn_slot_t* sortedInsert(turn_slot_t* createTurnSlot, 
@@ -97,7 +100,6 @@ struct turn_slot_t *doubleLink(turn_slot_t *start) {
 }
 
 void turn_rollInitiative(void) BANKED {
-  turn_slot_t turn_slots[10];
   turn_slot_t *tail_slot;
   turn_slot_t *head_slot;
   
@@ -106,8 +108,11 @@ void turn_rollInitiative(void) BANKED {
     turn_slots[i].prev = NULL;
     turn_slots[i].initiative_roll = NULL;
     turn_slots[i].is_enemy = i > 3;
-    turn_slots[i].initiative_roll =
-        i % 3; // do_initiative_roll(turn_slots[i]);
+    turn_slots[i].initiative_roll = 0;
+    if (turn_slots[i].entity == NULL)
+      continue;
+
+    turn_slots[i].initiative_roll = do_initiative_roll(&turn_slots[i]);
 
     if (turn_slots[i].initiative_roll < 1)
       continue;

@@ -16,6 +16,7 @@
 #include <gb/gb.h>
 #include <gbs_types.h>
 #include <string.h>
+#include <types.h>
 
 #pragma bank 255
 
@@ -101,11 +102,12 @@ void setupTileBuffer(UBYTE *buffer, UBYTE w, UBYTE h, UBYTE x, UBYTE y,
   }
 }
 
-void initialize_entity_data(enemy_data * slot) OLDCALL BANKED {
-  slot->ext.hp = 0;
+void initialize_entity_data(enemy_data *slot) OLDCALL BANKED {
+  memcpy(&slot->ext, NULL, sizeof(entity_data));
+  strcpy(slot->name, "");
   slot->skill_idx = 0;
-  slot->ext.status = NULL;
 }
+
 void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
   THIS;
 //   //
@@ -368,8 +370,10 @@ void setupEnemySlots(void) BANKED {
       next_y += 4;
     }
   }
+
   VM_GLOBAL(VAR_SCENE_ENEMIES_ALIVE) = enemies_alive;
   place_bg_tiles;
+
 }
 
 void checkEnemyAlive(SCRIPT_CTX *THIS) OLDCALL BANKED {

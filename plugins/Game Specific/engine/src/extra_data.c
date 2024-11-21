@@ -81,8 +81,6 @@ void init_extra_data(void) OLDCALL BANKED {
 
   for (UBYTE i = 0; i < 6; i++) {
     enemy_slots[i].ext.idx = i;
-    strcpy(enemy_slots[i].name, "       ");
-
     turn_slots[i+4].entity = &enemy_slots[i].ext;
   }
 }
