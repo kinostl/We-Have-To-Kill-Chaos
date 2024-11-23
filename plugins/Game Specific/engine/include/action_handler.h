@@ -13,6 +13,7 @@ typedef enum {
   PANEL_DisplayCurrentActor,
   PANEL_DisplayMenu,
   PANEL_DisplayParty,
+  PANEL_UpdateParty,
   PANEL_DisplayPartyActors,
   PANEL_HideCurrentActor,
   PANEL_HidePartyActors,

@@ -4,6 +4,7 @@
 #include "turn_slots.h"
 #include <actor.h>
 #include <data/game_globals.h>
+#include <gb/gb.h>
 #include <macro.h>
 #include <stdbool.h>
 #include <string.h>
@@ -31,6 +32,14 @@ void handle_skill(UBYTE skill_id) BANKED;
 inline void ui_display_text(void) {
   // Could technically call vm_display_text but vm calls are bad practice
   ui_draw_frame(0, 0, 8, 18);
+  INPUT_RESET;
+  text_options = TEXT_OPT_DEFAULT;
+  text_drawn = text_ff = FALSE;
+  ui_set_start_tile(TEXT_BUFFER_START, 0);
+  ui_run_modal(UI_WAIT_TEXT);
+}
+
+inline void ui_update_text(void) {
   INPUT_RESET;
   text_options = TEXT_OPT_DEFAULT;
   text_drawn = text_ff = FALSE;
@@ -88,6 +97,9 @@ void dispatch_action(ACTION_TYPE action_data) BANKED {
     break;
   case PANEL_DisplayParty:
     LOG("Dispatch: PANEL_DisplayParty");
+    break;
+  case PANEL_UpdateParty:
+    LOG("Dispatch: PANEL_UpdateParty");
     break;
   case PANEL_DisplayPartyActors:
     LOG("Dispatch: PANEL_DisplayPartyActors");
@@ -190,8 +202,12 @@ void handle_action(ACTION_TYPE action_type) BANKED {
           current_turn->entity, &hero_slots[target_enemy].ext);
 
       setup_explosions(&hero_slots[target_enemy].ext.pos);
+
       animate(ANIMATE_ENEMY_ATTACKING);
       animate(ANIMATE_ENEMY_DAMAGED);
+
+      dispatch_action(PANEL_UpdateParty);
+
       if (attack_results & CRITICAL_HIT) {
         // animate critical hit
       } else if (attack_results & ATTACK_HIT) {
@@ -311,6 +327,11 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     LOG("handle: PANEL_DisplayParty");
     loadPartyMenu();
     ui_display_text();
+    break;
+  case PANEL_UpdateParty:
+    LOG("handle: PANEL_UpdateParty");
+    loadPartyMenu();
+    ui_update_text();
     break;
   case PANEL_DisplayPartyActors:
     LOG("handle: PANEL_DisplayPartyActors");

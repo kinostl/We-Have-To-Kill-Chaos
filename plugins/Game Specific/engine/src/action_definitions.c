@@ -159,7 +159,7 @@ void setupDamageNumbers(UBYTE dmg, ff_position_t *target) {
   for (UBYTE i = 0; i < max_i; i++) {
     UBYTE digit = dmg % 10;
     actor_set_frame_offset(damage_numbers[i], digit);
-    damage_numbers[i]->pos.x = pos((target->x - i) + (target->w / 2));
+    damage_numbers[i]->pos.x = pos(((target->x - i) + (target->w / 2)) - 1);
     damage_numbers[i]->pos.y = pos((target->y) + (target->h / 2));
     dmg /= 10;
   }
