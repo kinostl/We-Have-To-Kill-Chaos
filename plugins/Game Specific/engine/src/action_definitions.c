@@ -30,8 +30,6 @@ UBYTE do_initiative_roll(turn_slot_t * turn_slot) BANKED {
   if (entity->status & DEAD)
     return 0;
 
-  entity->max_hp = 20;
-  entity->evade = 5;
   UBYTE initiative_roll = rand() % entity->max_hp;
   initiative_roll += entity->evade;
   if (!turn_slot->is_enemy)
@@ -167,23 +165,29 @@ void setupDamageNumbers(UBYTE dmg, ff_position_t *target) {
   }
 }
 
+inline UBYTE drand(UBYTE min, UBYTE max){
+  return min + rand() / (RAND_MAX / (max - min + 1) + 1);
+}
+
 ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,
                                    entity_data *defender) BANKED {
   setupDamageNumbers(0, &defender->pos);
+
+  const UBYTE hit_roll = drand(0, 200);
+  if (hit_roll == 200)
+    return ATTACK_MISSED | CRITICAL_MISS;
+
   const UBYTE base_hit_chance = 168;
-  const UWORD hit_roll = rand() % 201;
   const UWORD target_number =
       (base_hit_chance + attacker->hit_chance) - defender->evade;
 
-  if (hit_roll == 200)
-    return ATTACK_MISSED | CRITICAL_MISS;
   if (target_number < hit_roll)
     return ATTACK_MISSED;
 
   ATTACK_RESULTS results = ATTACK_HIT;
   const UBYTE start_hp = defender->hp;
-  const UWORD atk_dmg = attacker->damage;
-  UWORD damage_calc = (rand() % atk_dmg) + atk_dmg;
+  const UBYTE atk_dmg = attacker->damage;
+  UBYTE damage_calc = MAX(drand(atk_dmg, atk_dmg * 2), 1);
 
   if (attacker->crit_chance > hit_roll) {
     defender->hp -= damage_calc;

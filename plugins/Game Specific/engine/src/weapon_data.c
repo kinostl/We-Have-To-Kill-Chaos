@@ -55,7 +55,7 @@ const weapon_data weapon_db[] = {
         },
     [RAPIER] =
         {
-            .id = WOOD_STAFF,
+            .id = RAPIER,
             .attack = 9,
             .hit_chance = 5,
             .crit_chance = 10,

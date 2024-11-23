@@ -5,26 +5,26 @@
 #include <asm/types.h>
 
 typedef struct {
-  BYTE idx;
-  BYTE hp;
-  BYTE max_hp;
-  BYTE type;
-  BYTE gold;
-  BYTE exp;
-  BYTE damage;
-  BYTE hits;
-  BYTE hit_chance;
+  UBYTE idx;
+  UBYTE hp;
+  UBYTE max_hp;
+  UBYTE type;
+  UBYTE gold;
+  UBYTE exp;
+  UBYTE damage;
+  UBYTE hits;
+  UBYTE hit_chance;
   STATUS_EFFECT status;
-  BYTE crit_chance;
-  BYTE absorb;
-  BYTE evade;
-  BYTE mdef;
-  BYTE morale;
-  BYTE magic;
-  BYTE spatk;
+  UBYTE crit_chance;
+  UBYTE absorb;
+  UBYTE evade;
+  UBYTE mdef;
+  UBYTE morale;
+  UBYTE magic;
+  UBYTE spatk;
   ENEMY_FAMILY family;
   ENEMY_TYPE weakness;
-  BYTE resists;
+  UBYTE resists;
   BATTLE_SKILL skills[4];
   ff_position_t pos;
 } entity_data;

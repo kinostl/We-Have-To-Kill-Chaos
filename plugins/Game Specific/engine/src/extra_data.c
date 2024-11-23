@@ -1,5 +1,6 @@
 #include "extra_data.h"
 #include "action_handler.h"
+#include "class_data.h"
 #include "enemy_data.h"
 #include "entity_data.h"
 #include "hero_data.h"
@@ -77,6 +78,9 @@ void init_extra_data(void) OLDCALL BANKED {
     hero_slots[i].ext.pos.h = 3;
     hero_slots[i].ext.pos.x = 13;
     hero_slots[i].ext.pos.y = 2 + (i*4);
+    hero_slots[i].ext.damage = MAX(1, hero_slots[i].strength / 2);
+    if (hero_slots[i].job == THIEF_ID)
+      hero_slots[i].ext.damage = MAX(1, hero_slots[i].agility / 2);
 
     turn_slots[i].entity = &hero_slots[i].ext;
   }

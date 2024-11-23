@@ -9,7 +9,9 @@
   "height": 18,
   "type": "TOPDOWN",
   "paletteIds": [],
-  "spritePaletteIds": [],
+  "spritePaletteIds": [
+    "0718c95e-961b-4e87-a5ed-4f00b8b7c91e"
+  ],
   "collisions": "00168+",
   "autoFadeSpeed": null,
   "symbol": "scene_29",
@@ -50,10 +52,19 @@
         "fadeSpeed": 0
       },
       "id": "878b0982-e1a2-4a02-be43-c549c87b1a71"
+    },
+    {
+      "command": "EVENT_ACTOR_SET_STATE",
+      "args": {
+        "actorId": "$self$",
+        "spriteStateId": "",
+        "loopAnim": true
+      },
+      "id": "8e258612-96f4-498a-8278-19f1b0ea7d39"
     }
   ],
   "playerHit1Script": [],
   "playerHit2Script": [],
   "playerHit3Script": [],
-  "playerSpriteSheetId": "a9211ab5-d30e-4673-8dd1-eb2900e24ac5"
+  "playerSpriteSheetId": "3b1fd25e-4a32-4c35-bbb0-8a98183d524b"
 }
