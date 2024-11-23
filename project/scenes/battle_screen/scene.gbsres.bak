@@ -33,6 +33,17 @@
   "autoFadeSpeed": null,
   "script": [
     {
+      "command": "EVENT_ACTOR_SET_DIRECTION",
+      "args": {
+        "actorId": "$self$",
+        "direction": {
+          "type": "direction",
+          "value": "right"
+        }
+      },
+      "id": "5d863911-a1fe-4dfe-b368-7d26e35d3e30"
+    },
+    {
       "command": "EVENT_ACTOR_HIDE",
       "args": {
         "actorId": "2927f653-09b8-4dba-967c-4d5629452d4c",
@@ -583,6 +594,17 @@
         ]
       },
       "id": "ac5ffaff-140e-41c4-b500-a803244e3a82"
+    },
+    {
+      "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
+      "args": {
+        "state": 3,
+        "__scriptTabs": "scriptinput"
+      },
+      "children": {
+        "script": []
+      },
+      "id": "4ef387cd-570c-41a9-a13c-5bd90acba72a"
     },
     {
       "command": "EVENT_FADE_IN",

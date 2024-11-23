@@ -21,6 +21,10 @@
 
 actor_t *damage_numbers[3];
 
+inline UBYTE drand(UBYTE min, UBYTE max){
+  return min + rand() / (RAND_MAX / (max - min + 1) + 1);
+}
+
 UBYTE do_initiative_roll(turn_slot_t * turn_slot) BANKED {
   if (turn_slot->entity == NULL)
     return 0;
@@ -30,11 +34,11 @@ UBYTE do_initiative_roll(turn_slot_t * turn_slot) BANKED {
   if (entity->status & DEAD)
     return 0;
 
-  UBYTE initiative_roll = rand() % entity->max_hp;
+  UBYTE initiative_roll = drand(1, entity->max_hp);
   initiative_roll += entity->evade;
   if (!turn_slot->is_enemy)
     initiative_roll += BASE_PLAYER_EVADE;
-  return initiative_roll + 1;
+  return initiative_roll;
 }
 
 turn_slot_t* sortedInsert(turn_slot_t* createTurnSlot, 
@@ -163,10 +167,6 @@ void setupDamageNumbers(UBYTE dmg, ff_position_t *target) {
     damage_numbers[i]->pos.y = pos((target->y) + (target->h / 2));
     dmg /= 10;
   }
-}
-
-inline UBYTE drand(UBYTE min, UBYTE max){
-  return min + rand() / (RAND_MAX / (max - min + 1) + 1);
 }
 
 ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,

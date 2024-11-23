@@ -11,7 +11,7 @@
   "animSpeed": 15,
   "paletteId": "",
   "isPinned": false,
-  "persistent": false,
+  "persistent": true,
   "collisionGroup": "",
   "prefabScriptOverrides": {},
   "_index": 2,

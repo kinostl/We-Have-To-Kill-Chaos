@@ -4,6 +4,7 @@ const stateNames = [
     "Animate Player Attacking",
     "Animate Enemy Attacking",
     "Animate Enemy Damaged",
+    "Animate Enemy Defeated",
     "Animate Party Win",
     "Animate Party Lose",
     "Begin Player Turn",
