@@ -33,6 +33,17 @@
   "autoFadeSpeed": null,
   "script": [
     {
+      "command": "EVENT_ACTOR_SET_DIRECTION",
+      "args": {
+        "actorId": "$self$",
+        "direction": {
+          "type": "direction",
+          "value": "right"
+        }
+      },
+      "id": "5d863911-a1fe-4dfe-b368-7d26e35d3e30"
+    },
+    {
       "command": "EVENT_ACTOR_HIDE",
       "args": {
         "actorId": "2927f653-09b8-4dba-967c-4d5629452d4c",
@@ -496,7 +507,7 @@
       "args": {
         "state": 2,
         "__scriptTabs": "scriptinput",
-        "__collapse": true
+        "__collapse": false
       },
       "children": {
         "script": [

@@ -1,3 +1,6 @@
+#include "enemy_data.h"
+#include "extra_data.h"
+#include "position_data.h"
 #include "states/rpg_combat.h"
 
 #include "ui.h"
@@ -27,6 +30,11 @@ inline void menu_loop_preamble(){
 
     game_time++;
     vsync();
+}
+
+inline void move_cursor(ff_position_t pos) {
+  PLAYER.pos.x = pos(pos.x + pos.w - 1);
+  PLAYER.pos.y = pos(pos.y + (pos.h / 2));
 }
 
 UBYTE rpg_run_menu(void) BANKED {
@@ -88,53 +96,49 @@ UBYTE rpg_get_target_ally (void) BANKED {
 }
 
 UBYTE rpg_get_target_enemy(void) BANKED {
-  UBYTE current_index = 0;
-  UBYTE max_index = 6;
-
+  BYTE current_index = 0;
+  BYTE previous_index = 0;
+  BYTE max_index = 6;
+  BYTE orig_dir = PLAYER.dir;
+  while ((enemy_slots[current_index].ext.status & DEAD)) {
+    current_index++;
+  }
+  move_cursor(enemy_slots[current_index].ext.pos);
   PLAYER.hidden = FALSE;
-  PLAYER.pos.x = pos(1);
-  PLAYER.pos.y = pos(6);
+  actor_set_dir(&PLAYER, DIR_LEFT, FALSE);
 
   while (TRUE) {
     menu_loop_preamble();
     if (INPUT_UP_PRESSED) {
       if (current_index - 1 > -1) {
+        previous_index = current_index;
         current_index--;
+        while ((enemy_slots[current_index].ext.status & DEAD)) {
+          current_index--;
+          if(current_index<0){
+            current_index = previous_index;
+            break;
+          }
+        }
       }
     } else if (INPUT_DOWN_PRESSED) {
       if (current_index + 1 < max_index) {
+        previous_index = current_index;
         current_index++;
+        while ((enemy_slots[current_index].ext.status & DEAD)) {
+          current_index++;
+          if(current_index>max_index){
+            current_index = previous_index;
+            break;
+          }
+        }
       }
     } else if (INPUT_A_PRESSED) {
       PLAYER.hidden = TRUE;
+      actor_set_dir(&PLAYER, orig_dir, FALSE);
       return current_index;
     } else {
-      switch (current_index) {
-      case 0:
-        PLAYER.pos.x = pos(1);
-        PLAYER.pos.y = pos(6);
-        break;
-      case 1:
-        PLAYER.pos.x = pos(5);
-        PLAYER.pos.y = pos(6);
-        break;
-      case 2:
-        PLAYER.pos.x = pos(1);
-        PLAYER.pos.y = pos(10);
-        break;
-      case 3:
-        PLAYER.pos.x = pos(5);
-        PLAYER.pos.y = pos(10);
-        break;
-      case 4:
-        PLAYER.pos.x = pos(1);
-        PLAYER.pos.y = pos(14);
-        break;
-      case 5:
-        PLAYER.pos.x = pos(5);
-        PLAYER.pos.y = pos(14);
-        break;
-      }
+      move_cursor(enemy_slots[current_index].ext.pos);
       continue;
     }
   }
