@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "581a353d-5b64-4b2b-a7bb-a924dab037e6",
+  "name": "enemies/small/sentry",
+  "symbol": "bg_enemies_small_sentry",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/sentry.png",
+  "tileColors": ""
+}

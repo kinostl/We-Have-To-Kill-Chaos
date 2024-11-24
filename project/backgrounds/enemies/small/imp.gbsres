@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "95e06d0a-51d6-4b70-93b7-9680f0be39e4",
+  "name": "enemies/small/imp",
+  "symbol": "bg_enemies_small_imp",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/imp.png",
+  "tileColors": ""
+}

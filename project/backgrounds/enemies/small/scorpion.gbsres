@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "f491880a-3d0a-48ce-97c3-1b954aadfca6",
+  "name": "enemies/small/scorpion",
+  "symbol": "bg_enemies_small_scorpion",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/scorpion.png",
+  "tileColors": ""
+}

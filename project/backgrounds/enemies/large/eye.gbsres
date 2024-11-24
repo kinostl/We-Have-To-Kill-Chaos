@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "9d6c94d7-0829-4465-9f5b-a5bd9745b350",
+  "name": "enemies/large/eye",
+  "symbol": "bg_enemies_large_eye",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/large/eye.png",
+  "tileColors": ""
+}

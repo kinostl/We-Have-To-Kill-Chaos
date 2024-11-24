@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "728d20da-ce0b-473a-b80e-ccaf5b3f6f39",
+  "name": "enemies/small/badman",
+  "symbol": "bg_enemies_small_badman",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/badman.png",
+  "tileColors": ""
+}

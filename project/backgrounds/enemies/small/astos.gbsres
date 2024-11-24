@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "8b63e3b7-270d-4d3e-b9f2-72d33f4b6805",
+  "name": "enemies/small/astos",
+  "symbol": "bg_enemies_small_astos",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/astos.png",
+  "tileColors": ""
+}

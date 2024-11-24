@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "63dfb83c-3c65-473b-8719-f61ccbe2a3f2",
+  "name": "enemies/large/centipede",
+  "symbol": "bg_enemies_large_centipede",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/large/centipede.png",
+  "tileColors": ""
+}

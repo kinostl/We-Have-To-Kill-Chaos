@@ -79,6 +79,24 @@ BYTE get_enemy_idx(void) OLDCALL BANKED {
   }
 }
 
+UBYTE load_enemy_tiles(UBYTE start_of_enemy_vram) {
+  background_t import_bkg;
+
+  MemcpyBanked(&import_bkg, &bg_enemies_plains_1, sizeof(import_bkg),
+               BANK(bg_enemies_plains_1));
+
+  MemcpyBanked(&start_of_enemy_vram, &bg_battle_concept_tileset.n_tiles,
+               sizeof(UBYTE), BANK(bg_battle_concept_tileset));
+  MemcpyBanked(&tileset_size, &bg_enemies_plains_1_tileset.n_tiles,
+               sizeof(UBYTE), BANK(bg_enemies_plains_1_tileset));
+
+  SetBankedBkgData(start_of_enemy_vram, tileset_size,
+                   bg_enemies_plains_1_tileset.tiles,
+                   BANK(bg_enemies_plains_1_tileset));
+
+  return 0; // New end of available VRAM
+}
+
 void setupTileBuffer(UBYTE *buffer, UBYTE w, UBYTE h, UBYTE x, UBYTE y,
                      UBYTE offset, background_t import_bkg) OLDCALL BANKED {
 
@@ -106,98 +124,6 @@ void initialize_entity_data(enemy_data *slot) OLDCALL BANKED {
   memcpy(&slot->ext, NULL, sizeof(entity_data));
   strcpy(slot->name, "");
   slot->skill_idx = 0;
-}
-
-void setupPlayerSlots(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  THIS;
-//   //
-//   turn_slots[0].max_hp = 35;
-//   turn_slots[0].hp = 35;
-//   turn_slots[0].hit_chance = 10;
-//   turn_slots[0].crit_chance = 0;
-//   turn_slots[0].damage = 10;
-//   turn_slots[0].alive = TRUE;
-//   turn_slots[0].ap = 0;
-//   strcpy(turn_slots[0].name, "ONCLER");
-//   turn_slots[0].skills[0] = FIGHT;
-//   turn_slots[0].skill_costs[0] = 1;
-//   turn_slots[0].x = 13;
-//   turn_slots[0].y = 2;
-//   turn_slots[0].w = 3;
-//   turn_slots[0].h = 3;
-
-//   turn_slots[0].skills[1] = SHIELD_SKILL;
-//   turn_slots[0].skill_costs[1] = 1;
-
-//   turn_slots[0].skills[2] = RUNE_SWORD;
-//   turn_slots[0].skill_costs[2] = 2;
-
-//   turn_slots[0].skills[3] = LUSTER;
-//   turn_slots[0].skill_costs[3] = 3;
-
-//   item_slots[0].count=42;
-//   item_slots[0].type=42;
-//   //
-//   turn_slots[1].max_hp = 20;
-//   turn_slots[1].hp = 20;
-//   turn_slots[1].hit_chance = 10;
-//   turn_slots[1].crit_chance = 0;
-//   turn_slots[1].damage = 10;
-//   turn_slots[1].alive = TRUE;
-//   turn_slots[1].ap = 0;
-//   strcpy(turn_slots[1].name, "TWOFER");
-//   turn_slots[1].skills[0] = FIGHT;
-//   turn_slots[1].skill_costs[0] = 1;
-//   turn_slots[1].skills[1] = GOBLIN_PUNCH;
-//   turn_slots[1].skill_costs[1] = 1;
-//   turn_slots[1].x = 13;
-//   turn_slots[1].y = 2;
-//   turn_slots[1].w = 3;
-//   turn_slots[1].h = 3;
-//   //
-//   turn_slots[2].max_hp = 25;
-//   turn_slots[2].hp = 25;
-//   turn_slots[2].hit_chance = 10;
-//   turn_slots[2].crit_chance = 0;
-//   turn_slots[2].damage = 10;
-//   turn_slots[2].alive = TRUE;
-//   turn_slots[2].ap = 0;
-//   strcpy(turn_slots[2].name, "THREEF");
-//   turn_slots[2].skills[0] = FIRE;
-//   turn_slots[2].skill_costs[0] = 1;
-//   turn_slots[2].skills[1] = ICE;
-//   turn_slots[2].skill_costs[1] = 1;
-//   turn_slots[2].x = 13;
-//   turn_slots[2].y = 10;
-//   turn_slots[2].w = 3;
-//   turn_slots[2].h = 3;
-//   //
-//   turn_slots[3].max_hp = 10;
-//   turn_slots[3].hp = 10;
-//   turn_slots[3].hit_chance = 10;
-//   turn_slots[3].crit_chance = 0;
-//   turn_slots[3].damage = 10;
-//   turn_slots[3].alive = TRUE;
-//   turn_slots[3].ap = 0;
-//   strcpy(turn_slots[3].name, "FOURNA");
-//   turn_slots[3].skills[0] = HARM;
-//   turn_slots[3].skill_costs[0] = 1;
-//   turn_slots[3].skills[1] = HEAL;
-//   turn_slots[3].skill_costs[1] = 1;
-//   turn_slots[3].x = 13;
-//   turn_slots[3].y = 14;
-//   turn_slots[3].w = 3;
-//   turn_slots[3].h = 3;
-
-
-//   item_slots[0].count=1;
-//   item_slots[0].type=1;
-//   item_slots[1].count=1;
-//   item_slots[1].type=2;
-//   item_slots[2].count=1;
-//   item_slots[2].type=3;
-//   item_slots[3].count=1;
-//   item_slots[3].type=4;
 }
 
 void setupEnemySlots(void) BANKED {
@@ -373,18 +299,8 @@ void setupEnemySlots(void) BANKED {
     }
   }
 
-  VM_GLOBAL(VAR_SCENE_ENEMIES_ALIVE) = enemies_alive;
   place_bg_tiles;
 
-}
-
-void checkEnemyAlive(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  THIS;
-  // VM_GLOBAL(VAR_ATTACKER_ALIVE) =
-  //     turn_slots[VM_GLOBAL(VAR_ATTACKER_ID)].alive;
-}
-
-void handleEnemyTakeDamage(SCRIPT_CTX *THIS) OLDCALL BANKED {
 }
 
 void enemyFlashBKG(SCRIPT_CTX *THIS) OLDCALL BANKED {

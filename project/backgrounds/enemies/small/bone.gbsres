@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "be39421e-c879-4af6-8b23-444e0890b626",
+  "name": "enemies/small/bone",
+  "symbol": "bg_enemies_small_bone",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/bone.png",
+  "tileColors": ""
+}

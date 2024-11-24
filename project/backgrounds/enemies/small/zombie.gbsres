@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "e6980400-3329-4877-9339-a7a5040af66d",
+  "name": "enemies/small/zombie",
+  "symbol": "bg_enemies_small_zombie",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/zombie.png",
+  "tileColors": ""
+}

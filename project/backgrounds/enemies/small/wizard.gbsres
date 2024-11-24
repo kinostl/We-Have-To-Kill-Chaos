@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "45422154-068d-464b-b53b-94c2d5ada94c",
+  "name": "enemies/small/wizard",
+  "symbol": "bg_enemies_small_wizard",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/wizard.png",
+  "tileColors": ""
+}

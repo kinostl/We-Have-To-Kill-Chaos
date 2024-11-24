@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "3d323fef-3fd8-4034-a30c-b44dd43afa97",
+  "name": "enemies/large/dragon_2",
+  "symbol": "bg_enemies_large_dragon_2",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/large/dragon_2.png",
+  "tileColors": ""
+}

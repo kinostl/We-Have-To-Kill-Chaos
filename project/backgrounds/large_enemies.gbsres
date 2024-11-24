@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "25302464-538e-433b-aa5a-bf266e2989e7",
+  "name": "large_enemies",
+  "symbol": "bg_large_enemies",
+  "width": 12,
+  "height": 78,
+  "imageWidth": 96,
+  "imageHeight": 624,
+  "filename": "large_enemies.png",
+  "tileColors": ""
+}

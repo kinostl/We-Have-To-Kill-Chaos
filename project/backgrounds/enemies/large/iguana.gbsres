@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "44b844ce-db21-41cc-a396-1693a1e78993",
+  "name": "enemies/large/iguana",
+  "symbol": "bg_enemies_large_iguana",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/large/iguana.png",
+  "tileColors": ""
+}

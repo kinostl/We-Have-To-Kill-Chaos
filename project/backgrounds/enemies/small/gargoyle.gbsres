@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "17f2ae59-7c93-4639-96e8-057882d745df",
+  "name": "enemies/small/gargoyle",
+  "symbol": "bg_enemies_small_gargoyle",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/gargoyle.png",
+  "tileColors": ""
+}

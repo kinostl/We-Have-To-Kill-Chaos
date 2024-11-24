@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "ebebbad8-c1e0-461e-87f5-8a7e0f52efc8",
+  "name": "enemies/large/ocho",
+  "symbol": "bg_enemies_large_ocho",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/large/ocho.png",
+  "tileColors": ""
+}

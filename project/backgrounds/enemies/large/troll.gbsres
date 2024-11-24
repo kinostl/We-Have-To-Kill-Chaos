@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "a78e13cb-ae43-4b38-8d3b-9e7ee167e8c5",
+  "name": "enemies/large/troll",
+  "symbol": "bg_enemies_large_troll",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/large/troll.png",
+  "tileColors": ""
+}

@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "966c3dd1-0d40-4840-a9dd-7a8367c690ba",
+  "name": "enemies/small/vampire",
+  "symbol": "bg_enemies_small_vampire",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/vampire.png",
+  "tileColors": ""
+}
