@@ -195,12 +195,14 @@ ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,
   }
 
   damage_calc = MAX(damage_calc - defender->absorb, 1);
-  defender->hp -= damage_calc;
-
-  if (defender->hp <= 0) {
+  if ((defender->hp - damage_calc) < 1) {
+    defender->hp = 0;
     defender->status |= DEAD;
     results |= TARGET_DEFEATED;
+  } else {
+    defender->hp -= damage_calc;
   }
+
   const UBYTE end_hp = defender->hp;
   setupDamageNumbers(start_hp - end_hp, &defender->pos);
 

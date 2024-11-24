@@ -170,13 +170,17 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     __HandleCrash();
 #endif
     break;
+  case ANIMATE_EnemyDefeated:
+    animate(ANIMATE_ENEMY_DEFEATED);
+    break;
   case ATTACKER_Fight: {
     LOG("handle: ATTACKER_Fight");
     if (!current_turn->is_enemy) {
       LOG("+> is hero");
       const UBYTE target_enemy = rpg_get_target_enemy();
-      ATTACK_RESULTS attack_results = defender_TakeDamage(
-          current_turn->entity, &enemy_slots[target_enemy].ext);
+      current_enemy = &enemy_slots[target_enemy];
+      ATTACK_RESULTS attack_results =
+          defender_TakeDamage(current_turn->entity, &current_enemy->ext);
 
       setup_explosions(&enemy_slots[target_enemy].ext.pos);
 
@@ -193,6 +197,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       }
 
       if (attack_results & TARGET_DEFEATED) {
+        dispatch_action(ANIMATE_EnemyDefeated);
         // animate target defeateated
       }
     } else {
@@ -277,6 +282,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     LOG("handle: ATTACKER_TakeNextTurn");
     if (current_turn->entity->status & DEAD) {
       LOG("entity dead, skip turn");
+      current_turn = current_turn->next;
       dispatch_action(ATTACKER_StartNextTurn);
       break;
     }
@@ -403,6 +409,8 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     LOG("handle: TURN_BuildInitiative");
     turn_rollInitiative();
     dispatch_action(ATTACKER_StartNextTurn);
+    break;
+  case TURN_EndTurn:
     break;
   }
 }

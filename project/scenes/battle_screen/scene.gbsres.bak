@@ -599,10 +599,37 @@
       "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
       "args": {
         "state": 3,
-        "__scriptTabs": "scriptinput"
+        "__scriptTabs": "scriptinput",
+        "__comment": true
       },
       "children": {
-        "script": []
+        "script": [
+          {
+            "command": "EVENT_TEXT",
+            "args": {
+              "text": [
+                "lol dead"
+              ],
+              "__section": "text",
+              "avatarId": "",
+              "minHeight": 4,
+              "maxHeight": 7,
+              "textX": 1,
+              "textY": 1,
+              "textHeight": 5,
+              "position": "bottom",
+              "clearPrevious": true,
+              "showFrame": "true",
+              "speedIn": -1,
+              "speedOut": -1,
+              "closeWhen": "key",
+              "closeButton": "a",
+              "closeDelayTime": 0.5,
+              "closeDelayFrames": 30
+            },
+            "id": "008ae14f-6dd4-413f-a0f5-221a85d07ce3"
+          }
+        ]
       },
       "id": "4ef387cd-570c-41a9-a13c-5bd90acba72a"
     },

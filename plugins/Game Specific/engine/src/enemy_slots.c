@@ -398,6 +398,15 @@ void enemyFlashBKG(SCRIPT_CTX *THIS) OLDCALL BANKED {
   handle_bkg_flash(color_1, color_2, x, y, w, h);
 }
 
+void handleEnemyDefeated(SCRIPT_CTX * THIS) OLDCALL BANKED {
+  WORD x = current_enemy->ext.pos.x;
+  WORD y = current_enemy->ext.pos.y;
+  WORD w = current_enemy->ext.pos.w;
+  WORD h = current_enemy->ext.pos.h;
+
+  handle_bkg_set_color_slow(5, x, y, w, h);
+}
+
 void finishBattle(SCRIPT_CTX *THIS) OLDCALL BANKED {
   // I can probably put EXP Gains and Gil Gains here too.
   THIS;

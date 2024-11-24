@@ -6,6 +6,7 @@
 
 typedef enum {
   EMPTY_ACTION,
+  ANIMATE_EnemyDefeated,
   ATTACKER_Fight,
   ATTACKER_StartNextTurn,
   ATTACKER_TakeNextTurn,
@@ -30,6 +31,7 @@ typedef enum {
   REPORT_RejectMenuChoice,
   SCENE_FadeIn,
   TURN_BuildInitiative,
+  TURN_EndTurn,
 } ACTION_TYPE;
 
 typedef struct action_t {

@@ -54,3 +54,24 @@ void makeBkgFlash(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
   handle_bkg_flash(COLOR_1, COLOR_2, X, Y, W, H);
 }
+
+void handle_bkg_set_color_slow(WORD color, WORD x, WORD y, WORD w,
+                          WORD h) OLDCALL BANKED {
+  union tile my_tile;
+  my_tile.attr.bank = 0;
+  my_tile.attr.nothing = 0;
+  my_tile.attr.flip_h = 0;
+  my_tile.attr.flip_v = 0;
+  my_tile.attr.draw_over_objects = 0;
+  my_tile.attr.palette = color;
+  VBK_REG = 1;
+
+  for (UBYTE dy = y; dy < y+h; dy++) {
+    for (UBYTE dx = x; dx < x+w; dx++) {
+      set_bkg_tile_xy(dx, dy, my_tile._tile);
+      vsync();
+    }
+  }
+
+  VBK_REG = 0;
+}
