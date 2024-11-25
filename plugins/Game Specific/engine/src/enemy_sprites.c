@@ -44,7 +44,7 @@ UBYTE load_enemy_tiles(UBYTE start_of_enemy_vram, ENEMY_TYPE enemy_type) BANKED 
   UBYTE * data = t_set->tiles;
 
   SetBankedBkgData(start_of_enemy_vram, n_tiles, data, sprite.bank);
-  return start_of_enemy_vram + n_tiles; // New end of available VRAM
+  return n_tiles; // New end of available VRAM
 }
 
 void draw_enemy_sm(UBYTE enemy_tiles, UBYTE x, UBYTE y) BANKED {

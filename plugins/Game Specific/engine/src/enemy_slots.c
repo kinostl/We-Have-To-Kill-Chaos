@@ -30,49 +30,6 @@ probably fine.
 After testing, this is a 1/4 chance of getting a big guy in a fight and they
 tend to be dangerous encounters. Not sure if good or bad.
 */
-void handleSetEnemyTarget(SCRIPT_CTX *THIS) OLDCALL BANKED {
-  THIS;
-  BYTE enemy_roll = rand() % 8;
-  UWORD *target = &VM_GLOBAL(VAR_DEFENDER_ID);
-  switch (enemy_roll) {
-  default:
-    *target = 0;
-    break;
-  case 4:
-  case 5:
-    *target = 1;
-    break;
-  case 6:
-    *target = 2;
-    break;
-  case 7:
-    *target = 3;
-    break;
-  }
-}
-
-BYTE get_small_enemy_idx(void) OLDCALL BANKED {
-  BYTE enemy_roll = rand() % 6;
-  switch (enemy_roll) {
-  default:
-    return 0;
-  case 4:
-  case 5:
-    return 1;
-  }
-}
-
-BYTE get_enemy_idx(void) OLDCALL BANKED {
-  BYTE enemy_roll = rand() % 8;
-  switch (enemy_roll) {
-  case 0:
-    return 2;
-  case 1:
-    return 3;
-  default:
-    return get_small_enemy_idx();
-  }
-}
 
 void initialize_entity_data(enemy_data *slot) OLDCALL BANKED {
   memcpy(&slot->ext, NULL, sizeof(entity_data));
@@ -82,7 +39,6 @@ void initialize_entity_data(enemy_data *slot) OLDCALL BANKED {
 
 void setupEnemySlots(void) BANKED {
   ENEMY_TYPE encounter_table[6];
-  set_encounter_table(encounter_table, 9, 10);
 
   // Default to null
   for (int i = 0; i < 6; i++) {
@@ -90,21 +46,42 @@ void setupEnemySlots(void) BANKED {
   }
 
   UBYTE tail_of_enemy_vram;
-
   MemcpyBanked(&tail_of_enemy_vram, &bg_battle_concept_tileset.n_tiles,
                sizeof(UBYTE), BANK(bg_battle_concept_tileset));
 
-  const UBYTE enemy_1_tiles = tail_of_enemy_vram;
-  tail_of_enemy_vram = load_enemy_tiles(tail_of_enemy_vram, encounter_table[0]);
+  load_encounter(encounter_table, 9, 10);
 
-  const UBYTE enemy_2_tiles = tail_of_enemy_vram;
-  tail_of_enemy_vram = load_enemy_tiles(tail_of_enemy_vram, encounter_table[1]);
+  ENEMY_TYPE prev_enemy = EMPTY_ENEMY_SLOT;
+  UBYTE n_tiles;
+  UBYTE x = 1;
+  UBYTE y = 5;
+  for (int i = 0; i < 6; i++) {
+    if (encounter_table[i] == EMPTY_ENEMY_SLOT)
+      break;
 
-  const UBYTE enemy_3_tiles = tail_of_enemy_vram;
-  tail_of_enemy_vram = load_enemy_tiles(tail_of_enemy_vram, encounter_table[2]);
+    if (prev_enemy != encounter_table[i]) {
+      n_tiles =
+          load_enemy_tiles(tail_of_enemy_vram, encounter_table[i]);
+      prev_enemy = encounter_table[i];
+      tail_of_enemy_vram+=n_tiles;
+    }
 
-  const UBYTE enemy_4_tiles = tail_of_enemy_vram;
-  tail_of_enemy_vram = load_enemy_tiles(tail_of_enemy_vram, encounter_table[3]);
+    if (n_tiles < (6 * 6)) {
+      draw_enemy_sm(tail_of_enemy_vram - n_tiles, x, y);
+      x+=5;
+      if(x>9){
+        x=1;
+        y+=4;
+      }
+    } else {
+      draw_enemy_lg(tail_of_enemy_vram - n_tiles, x, y);
+      x+=6;
+      if(x>9){
+        x=1;
+        y+=6;
+      }
+    }
+  }
 
   //   BYTE idx;
   //   BYTE small_enemies[6] = {-1, -1, -1, -1, -1, -1};
@@ -239,3 +216,4 @@ void checkEnemyAlive(void) BANKED {}
 void setupHeroData(void) BANKED {}
 void handleEnemyTakeDamage(void) BANKED {}
 void setupPlayerSlots(void) BANKED {}
+void handleSetEnemyTarget(SCRIPT_CTX *THIS) OLDCALL BANKED {}

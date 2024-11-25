@@ -5,6 +5,6 @@
 #include <bankdata.h>
 #include "enums.h"
 
-void set_encounter_table(ENEMY_TYPE encounter_table[6], UBYTE world_x,
+void load_encounter(ENEMY_TYPE encounter_table[6], UBYTE world_x,
                          UBYTE world_y) BANKED;
 #endif

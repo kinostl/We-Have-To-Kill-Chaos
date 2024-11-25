@@ -17,7 +17,7 @@ UBYTE load_slots(ENEMY_TYPE enemy_type, ENEMY_TYPE encounter_table[6],
   return encounter_roll;
 }
 
-void set_encounter_table(ENEMY_TYPE encounter_table[6], UBYTE world_x,
+void load_encounter(ENEMY_TYPE encounter_table[6], UBYTE world_x,
                          UBYTE world_y) BANKED {
   for (UBYTE i = 0; i < 6; i++) {
     encounter_table[i] = EMPTY_ENEMY_SLOT;
