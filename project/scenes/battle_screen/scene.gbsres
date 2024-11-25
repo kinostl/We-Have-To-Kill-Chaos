@@ -33,18 +33,6 @@
   "autoFadeSpeed": null,
   "script": [
     {
-      "command": "EVENT_GBVM_SCRIPT",
-      "args": {
-        "references": [
-          {
-            "type": "tileset",
-            "id": "d147e526-ff4f-4447-ab6f-8297d3a8a09a"
-          }
-        ]
-      },
-      "id": "7b39186c-6f79-47da-b6fd-279cb4afa2e3"
-    },
-    {
       "command": "EVENT_ACTOR_SET_DIRECTION",
       "args": {
         "actorId": "$self$",

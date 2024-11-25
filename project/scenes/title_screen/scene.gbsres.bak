@@ -5,8 +5,8 @@
   "type": "LOGO",
   "name": "Title Screen",
   "symbol": "scene_0",
-  "x": 1288,
-  "y": 80,
+  "x": 344,
+  "y": 32,
   "width": 20,
   "height": 18,
   "backgroundId": "1c3b3be9-b74b-4642-b261-7d648844ca1e",
@@ -64,7 +64,7 @@
         ],
         "override": true,
         "__scriptTabs": "press",
-        "__collapse": true
+        "__collapse": false
       },
       "children": {
         "true": [
@@ -128,9 +128,26 @@
               "direction": "",
               "fadeSpeed": "2",
               "__collapse": true,
-              "__comment": false
+              "__comment": true
             },
             "id": "091f1b22-885c-4728-b7bd-8769ef38ac80"
+          },
+          {
+            "command": "EVENT_SWITCH_SCENE",
+            "args": {
+              "sceneId": "f1cf7e1f-1c86-4679-b076-dc3ee8711bff",
+              "x": {
+                "type": "number",
+                "value": 0
+              },
+              "y": {
+                "type": "number",
+                "value": 0
+              },
+              "direction": "",
+              "fadeSpeed": "2"
+            },
+            "id": "19398563-9c31-4611-b900-4ed6c701ae3d"
           }
         ]
       },

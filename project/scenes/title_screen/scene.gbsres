@@ -18,7 +18,8 @@
     {
       "command": "EVENT_MUSIC_PLAY",
       "args": {
-        "musicId": "980f20e4-ea21-4b59-ae7e-f8075ea4bde5"
+        "musicId": "980f20e4-ea21-4b59-ae7e-f8075ea4bde5",
+        "__collapse": true
       },
       "id": "b1064d37-d01b-4a33-b673-f99fcb2c9aa2"
     },
@@ -64,7 +65,7 @@
         ],
         "override": true,
         "__scriptTabs": "press",
-        "__collapse": false
+        "__collapse": true
       },
       "children": {
         "true": [

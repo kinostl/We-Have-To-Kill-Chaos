@@ -32,7 +32,8 @@
       "command": "MY_EVENT_CALL_NATIVE",
       "args": {
         "argCount": 0,
-        "funName": "init_extra_data"
+        "funName": "init_extra_data",
+        "__collapse": true
       },
       "id": "54904d8a-adc0-4ce5-8d00-0bd7a1d63555"
     },
@@ -49,7 +50,8 @@
           "value": 20
         },
         "direction": "",
-        "fadeSpeed": 0
+        "fadeSpeed": 0,
+        "__collapse": true
       },
       "id": "878b0982-e1a2-4a02-be43-c549c87b1a71"
     },
@@ -58,7 +60,8 @@
       "args": {
         "actorId": "$self$",
         "spriteStateId": "",
-        "loopAnim": true
+        "loopAnim": true,
+        "__collapse": true
       },
       "id": "8e258612-96f4-498a-8278-19f1b0ea7d39"
     }

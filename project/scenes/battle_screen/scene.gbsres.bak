@@ -37,12 +37,12 @@
       "args": {
         "references": [
           {
-            "type": "background",
-            "id": "95e06d0a-51d6-4b70-93b7-9680f0be39e4"
+            "type": "tileset",
+            "id": "d147e526-ff4f-4447-ab6f-8297d3a8a09a"
           }
         ]
       },
-      "id": "d9757dad-781d-4f88-bf82-3967ae078496"
+      "id": "7b39186c-6f79-47da-b6fd-279cb4afa2e3"
     },
     {
       "command": "EVENT_ACTOR_SET_DIRECTION",
