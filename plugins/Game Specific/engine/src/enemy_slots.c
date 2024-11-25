@@ -56,135 +56,47 @@ void setupEnemySlots(void) BANKED {
   UBYTE x = 1;
   UBYTE y = 5;
   for (int i = 0; i < 6; i++) {
+    enemy_data *current_enemy = &enemy_slots[i];
+    load_enemy(current_enemy, encounter_table[i]);
     if (encounter_table[i] == EMPTY_ENEMY_SLOT)
       break;
 
     if (prev_enemy != encounter_table[i]) {
-      n_tiles =
-          load_enemy_tiles(tail_of_enemy_vram, encounter_table[i]);
+      n_tiles = load_enemy_tiles(tail_of_enemy_vram, encounter_table[i]);
       prev_enemy = encounter_table[i];
-      tail_of_enemy_vram+=n_tiles;
+      tail_of_enemy_vram += n_tiles;
     }
+    current_enemy->ext.hp = current_enemy->ext.max_hp;
+    current_enemy->ext.status = NULL;
+    current_enemy->ext.idx = i;
+    current_enemy->ext.pos.x = x;
+    current_enemy->ext.pos.y = y;
 
     if (n_tiles < (6 * 6)) {
       draw_enemy_sm(tail_of_enemy_vram - n_tiles, x, y);
-      x+=5;
-      if(x>9){
-        x=1;
-        y+=4;
+
+      x += 5;
+      if (x > 9) {
+        x = 1;
+        y += 4;
       }
+
+      current_enemy->ext.pos.w = 4;
+      current_enemy->ext.pos.h = 4;
     } else {
       draw_enemy_lg(tail_of_enemy_vram - n_tiles, x, y);
-      x+=6;
-      if(x>9){
-        x=1;
-        y+=6;
+
+      x += 6;
+      if (x > 9) {
+        x = 1;
+        y += 6;
       }
+
+      current_enemy->ext.pos.w = 6;
+      current_enemy->ext.pos.h = 6;
     }
   }
-
-  //   BYTE idx;
-  //   BYTE small_enemies[6] = {-1, -1, -1, -1, -1, -1};
-  //   BYTE sm_i = 0;
-  //   BYTE large_enemies[2] = {-1, -1};
-  //   BYTE lg_i = 0;
-  //   BYTE enemy_count = (rand() % 6) + 1;
-  //   for (BYTE i = 0; i < enemy_count; i++) {
-  //     if (lg_i > 0 && sm_i > 0) {
-  //       idx = get_small_enemy_idx();
-  //     } else {
-  //       idx = get_enemy_idx();
-  //     }
-
-  //     switch (idx) {
-  //     case 0:
-  //     case 1:
-  //       small_enemies[sm_i] = idx;
-  //       sm_i++;
-  //       break;
-  //     case 2:
-  //     case 3:
-  //       large_enemies[lg_i] = idx;
-  //       lg_i++;
-  //       break;
-  //     }
-  //   }
-
-  //   // idk why but breaks don't like me so doing my gates in this inefficient
-  //   way if (lg_i == 2) {
-  //     sm_i = 0;
-  //   }
-  //   if (lg_i == 1 && sm_i > 2) {
-  //     sm_i = 2;
-  //   }
-
-  //   BYTE next_x = 1;
-  //   BYTE next_y = 5;
-  //   BYTE entity_data_i = 0;
-  //   BYTE enemies_alive = 0;
-  //   enemy_data * current_enemy;
-  //   for (BYTE i = 0; i < lg_i; i++) {
-  //     current_enemy = &enemy_slots[entity_data_i];
-  //     BYTE idx = large_enemies[i];
-
-  //     switch (idx) {
-  //     case 2:
-  //       place_lg_enemy_1(next_x, next_y, 1);
-  //       break;
-  //     case 3:
-  //       place_lg_enemy_2(next_x, next_y, 1);
-  //       break;
-  //     }
-
-  //     load_enemy(current_enemy, encounter_table[idx]);
-  //     current_enemy->ext.hp = current_enemy->ext.max_hp;
-  //     current_enemy->ext.status = NULL;
-  //     current_enemy->ext.pos.x = next_x;
-  //     current_enemy->ext.pos.y = next_y;
-  //     current_enemy->ext.pos.w = 6;
-  //     current_enemy->ext.pos.h = 6;
-  //     current_enemy->ext.idx = entity_data_i;
-
-  //     entity_data_i++;
-  //     enemies_alive++;
-
-  //     next_x = 1;
-  //     next_y += 6;
-  //   }
-
-  //   for (BYTE i = 0; i < sm_i; i++) {
-  //     current_enemy = &enemy_slots[entity_data_i];
-  //     BYTE idx = small_enemies[i];
-
-  //     switch (idx) {
-  //     case 0:
-  //       place_sm_enemy_1(next_x, next_y, 1);
-  //       break;
-  //     case 1:
-  //       place_sm_enemy_2(next_x, next_y, 1);
-  //       break;
-  //     }
-
-  //     load_enemy(current_enemy, encounter_table[idx]);
-  //     current_enemy->ext.hp = current_enemy->ext.max_hp;
-  //     current_enemy->ext.status = NULL;
-  //     current_enemy->ext.pos.x = next_x;
-  //     current_enemy->ext.pos.y = next_y;
-  //     current_enemy->ext.pos.w = 5;
-  //     current_enemy->ext.pos.h = 4;
-  //     current_enemy->ext.idx = entity_data_i;
-
-  //     entity_data_i++;
-  //     enemies_alive++;
-  //     next_x += 5;
-  //     if (next_x > 10) {
-  //       next_x = 1;
-  //       next_y += 4;
-  //     }
-  //   }
-
   //   place_bg_tiles;
-
 }
 
 void enemyFlashBKG(SCRIPT_CTX *THIS) OLDCALL BANKED {
