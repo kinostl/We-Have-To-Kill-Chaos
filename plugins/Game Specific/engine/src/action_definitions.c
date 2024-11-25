@@ -2,6 +2,7 @@
 #include "entity_data.h"
 #include "enums.h"
 #include "extra_data.h"
+#include "ff_util.h"
 #include "hero_data.h"
 #include "position_data.h"
 #include "turn_slots.h"
@@ -14,16 +15,11 @@
 #pragma bank 255
 #include "action_definitions.h"
 #include "position.h"
-#include "rand.h" // IWYU pragma: keep
 
 #define BASE_PLAYER_EVADE 48
 #define TURN_ORDER_COUNT 10
 
 actor_t *damage_numbers[3];
-
-inline UBYTE drand(UBYTE min, UBYTE max){
-  return min + rand() / (RAND_MAX / (max - min + 1) + 1);
-}
 
 UBYTE do_initiative_roll(turn_slot_t * turn_slot) BANKED {
   if (turn_slot->entity == NULL)

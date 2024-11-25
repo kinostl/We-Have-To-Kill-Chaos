@@ -2,9 +2,14 @@
 #define FF_ENUMS
 
 typedef enum {
+  EMPTY_ENEMY_SLOT,
   IMP,
+  GrIMP,
   WOLF,
   MADPONY,
+  CREEP,
+  BONE,
+  SPIDER
 } ENEMY_TYPE;
 
 typedef enum {

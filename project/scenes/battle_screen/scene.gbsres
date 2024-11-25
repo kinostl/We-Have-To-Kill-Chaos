@@ -126,7 +126,8 @@
     {
       "command": "FF_EVENT_SET_ENEMY_DATA",
       "args": {
-        "__collapse": true
+        "__collapse": true,
+        "__comment": false
       },
       "id": "551d464e-25db-4571-a93a-6d6f771ff942"
     },

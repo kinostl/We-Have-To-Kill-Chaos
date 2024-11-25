@@ -236,7 +236,9 @@
             "type": "tileset",
             "id": "59cbe196-3d9f-47fc-ad00-c562e3c44612"
           }
-        ]
+        ],
+        "__collapse": true,
+        "__label": "Touch Enemy Sprites"
       },
       "id": "714044ba-5f66-470d-9ba8-271522d3bde2"
     },
