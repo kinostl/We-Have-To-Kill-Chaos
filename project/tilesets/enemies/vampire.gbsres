@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "f99f2ead-51bd-4e31-8136-1fa6969038c8",
+  "name": "enemies/vampire",
+  "symbol": "tileset_enemies_vampire",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/vampire.png"
+}

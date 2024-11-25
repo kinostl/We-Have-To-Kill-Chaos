@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "82f177ac-5579-4ec4-9a9f-3af0af3e9301",
+  "name": "enemies/tiger",
+  "symbol": "tileset_enemies_tiger",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/tiger.png"
+}

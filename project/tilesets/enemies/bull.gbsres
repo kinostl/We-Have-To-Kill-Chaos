@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "0d4188a8-49bf-469c-8bb6-9d7c750e57ae",
+  "name": "enemies/bull",
+  "symbol": "tileset_enemies_bull",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/bull.png"
+}

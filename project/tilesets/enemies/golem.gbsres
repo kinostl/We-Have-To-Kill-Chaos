@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "02923b9d-1068-4263-a9a9-e642ff76c234",
+  "name": "enemies/golem",
+  "symbol": "tileset_enemies_golem",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/golem.png"
+}

@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "382da856-16d4-4873-b385-020cbaf4dca0",
+  "name": "enemies/worm",
+  "symbol": "tileset_enemies_worm",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/worm.png"
+}

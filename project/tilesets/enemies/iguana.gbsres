@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "2deff142-fa7d-4124-ba5f-e1d0f3fee81b",
+  "name": "enemies/iguana",
+  "symbol": "tileset_enemies_iguana",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/iguana.png"
+}

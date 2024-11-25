@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "938a943f-0c16-47ca-ae33-4b8febbdcfa9",
+  "name": "enemies/warmech",
+  "symbol": "tileset_enemies_warmech",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/warmech.png"
+}

@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "b5b6e651-71d4-4f02-9093-cb1ab15b5a8c",
+  "name": "enemies/wyvern",
+  "symbol": "tileset_enemies_wyvern",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/wyvern.png"
+}

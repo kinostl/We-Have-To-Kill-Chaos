@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "84e3723d-d690-4310-a4cf-c9dea3451362",
+  "name": "enemies/tryo",
+  "symbol": "tileset_enemies_tryo",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/tryo.png"
+}

@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "0c7b0019-9f02-4de5-9902-a484722615dd",
+  "name": "enemies/sentry",
+  "symbol": "tileset_enemies_sentry",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/sentry.png"
+}

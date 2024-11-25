@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "d97f512a-1b42-4a69-b2e3-b52649162efa",
+  "name": "enemies/troll",
+  "symbol": "tileset_enemies_troll",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/troll.png"
+}

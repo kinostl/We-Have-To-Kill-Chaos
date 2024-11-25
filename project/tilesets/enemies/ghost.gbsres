@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "6fcd9bb4-5e39-4edc-a68e-1119b2f85672",
+  "name": "enemies/ghost",
+  "symbol": "tileset_enemies_ghost",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/ghost.png"
+}

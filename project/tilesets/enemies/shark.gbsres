@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "77320ab5-c060-42c6-9bcd-3c0c6a66639d",
+  "name": "enemies/shark",
+  "symbol": "tileset_enemies_shark",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/shark.png"
+}

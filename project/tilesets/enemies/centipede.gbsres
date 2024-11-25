@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "c32471be-a2f9-4590-98fa-206ff533c958",
+  "name": "enemies/centipede",
+  "symbol": "tileset_enemies_centipede",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/centipede.png"
+}

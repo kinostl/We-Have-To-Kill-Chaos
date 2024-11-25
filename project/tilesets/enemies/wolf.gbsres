@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "16c55d57-6119-4943-8935-d7878d5b43aa",
+  "name": "enemies/wolf",
+  "symbol": "tileset_enemies_wolf",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/wolf.png"
+}

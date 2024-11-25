@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "0e4878c0-9d8e-4add-b04b-c55a25b82970",
+  "name": "enemies/pirate",
+  "symbol": "tileset_enemies_pirate",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/pirate.png"
+}

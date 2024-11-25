@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "3d627193-ce2e-47d5-99ea-a5cbaf7f38f4",
+  "name": "enemies/catman",
+  "symbol": "tileset_enemies_catman",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/catman.png"
+}

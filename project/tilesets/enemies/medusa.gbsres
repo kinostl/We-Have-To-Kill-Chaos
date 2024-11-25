@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "bc9f15b0-f652-4899-9831-f1a7ca710bd9",
+  "name": "enemies/medusa",
+  "symbol": "tileset_enemies_medusa",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/medusa.png"
+}

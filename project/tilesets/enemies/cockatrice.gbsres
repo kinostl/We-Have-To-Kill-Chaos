@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "eaaf8561-54a1-4b8b-ade6-f0c20ff3e13a",
+  "name": "enemies/cockatrice",
+  "symbol": "tileset_enemies_cockatrice",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/cockatrice.png"
+}

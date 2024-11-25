@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "58282998-23b2-4663-a2c4-c4761272959e",
+  "name": "enemies/snake",
+  "symbol": "tileset_enemies_snake",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/snake.png"
+}

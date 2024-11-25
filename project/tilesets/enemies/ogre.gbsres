@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "6b49481a-7ab4-4bb6-a773-57fd9de20b38",
+  "name": "enemies/ogre",
+  "symbol": "tileset_enemies_ogre",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/ogre.png"
+}

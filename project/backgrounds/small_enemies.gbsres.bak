@@ -8,6 +8,5 @@
   "imageWidth": 64,
   "imageHeight": 416,
   "filename": "small_enemies.png",
-  "tileColors": "",
-  "autoColor": false
+  "tileColors": ""
 }

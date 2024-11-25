@@ -1,12 +1,11 @@
 #include "data/bg_battle_concept_tileset.h"
-#include "data/bg_enemies_plains_1.h"
-#include "data/bg_enemies_plains_1_tileset.h"
+#include "data_manager.h"
 #include "encounter_table.h"
 #include "enemy_data.h"
+#include "enemy_sprites.h"
 #include "entity_data.h"
 #include "enums.h"
 #include "handle_flashing.h"
-#include "item_slot.h"
 #include "rand.h" // IWYU pragma: keep
 #include "extra_data.h"
 #include "vm.h"
@@ -17,6 +16,7 @@
 #include <gbs_types.h>
 #include <string.h>
 #include <types.h>
+#include "data/tileset_enemies_imp.h"
 
 #pragma bank 255
 
@@ -79,22 +79,17 @@ BYTE get_enemy_idx(void) OLDCALL BANKED {
   }
 }
 
-UBYTE load_enemy_tiles(UBYTE start_of_enemy_vram) {
-  background_t import_bkg;
+UBYTE load_enemy_tiles(UBYTE start_of_enemy_vram, ENEMY_TYPE enemy_type) BANKED {
+  enemy_sprite sprite;
 
-  MemcpyBanked(&import_bkg, &bg_enemies_plains_1, sizeof(import_bkg),
-               BANK(bg_enemies_plains_1));
+  MemcpyBanked(&sprite, &enemy_sprite_db[enemy_type], sizeof(enemy_sprite), BANK(FF_ENEMY_SPRITES));
 
-  MemcpyBanked(&start_of_enemy_vram, &bg_battle_concept_tileset.n_tiles,
-               sizeof(UBYTE), BANK(bg_battle_concept_tileset));
-  MemcpyBanked(&tileset_size, &bg_enemies_plains_1_tileset.n_tiles,
-               sizeof(UBYTE), BANK(bg_enemies_plains_1_tileset));
+  const tileset_t * t_set = sprite.sprite;
+  UWORD n_tiles = ReadBankedUWORD(&(t_set->n_tiles), sprite.bank);
+  UBYTE * data = t_set->tiles;
 
-  SetBankedBkgData(start_of_enemy_vram, tileset_size,
-                   bg_enemies_plains_1_tileset.tiles,
-                   BANK(bg_enemies_plains_1_tileset));
-
-  return 0; // New end of available VRAM
+  SetBankedBkgData(start_of_enemy_vram, n_tiles, data, sprite.bank);
+  return start_of_enemy_vram + n_tiles; // New end of available VRAM
 }
 
 void setupTileBuffer(UBYTE *buffer, UBYTE w, UBYTE h, UBYTE x, UBYTE y,
@@ -139,8 +134,7 @@ void setupEnemySlots(void) BANKED {
   // Then draw the tiles manually, knowing that they'll be in order correctly.
   // https://github.com/chrismaltby/gb-studio/blob/9a9696decc30b7970e152919a4a4163d967c5ead/appData/src/gb/src/core/ui.c#L4
 
-  UBYTE start_of_enemy_vram;
-  UBYTE tileset_size;
+  UBYTE start_of_enemy_vram, tail_of_enemy_vram;
   background_t import_bkg;
 
   // When you're ready to make this take more than one background
@@ -152,154 +146,162 @@ void setupEnemySlots(void) BANKED {
   //  related key
   //  3. event pushes __bank_bg and _bg into stack
   //  4. bank and from are the stack vars now
-  MemcpyBanked(&import_bkg, &bg_enemies_plains_1, sizeof(import_bkg),
-               BANK(bg_enemies_plains_1));
+  // MemcpyBanked(&import_bkg, &bg_enemies_plains_1, sizeof(import_bkg),
+  //              BANK(bg_enemies_plains_1));
 
   MemcpyBanked(&start_of_enemy_vram, &bg_battle_concept_tileset.n_tiles,
                sizeof(UBYTE), BANK(bg_battle_concept_tileset));
-  MemcpyBanked(&tileset_size, &bg_enemies_plains_1_tileset.n_tiles,
-               sizeof(UBYTE), BANK(bg_enemies_plains_1_tileset));
 
-  SetBankedBkgData(start_of_enemy_vram, tileset_size,
-                   bg_enemies_plains_1_tileset.tiles,
-                   BANK(bg_enemies_plains_1_tileset));
+  tail_of_enemy_vram = start_of_enemy_vram;
+  tail_of_enemy_vram = load_enemy_tiles(tail_of_enemy_vram, IMP);
+  tail_of_enemy_vram = load_enemy_tiles(tail_of_enemy_vram, WOLF);
+  tail_of_enemy_vram = load_enemy_tiles(tail_of_enemy_vram, MADPONY);
+  // tail_of_enemy_vram = load_enemy_tiles(tail_of_enemy_vram, WOLF);
+  // tail_of_enemy_vram = load_enemy_tiles(tail_of_enemy_vram, MADPONY);
 
-  UBYTE enemy_buffer[6 * 6];
+  // MemcpyBanked(&tileset_size, &bg_enemies_plains_1_tileset.n_tiles,
+  //              sizeof(UBYTE), BANK(bg_enemies_plains_1_tileset));
 
-  // defines because we're going to be repeating this and I don't feel like
-  // looping or figuring out if inlines can do js stuff
-  // ngl getting this to be a 6*6 buffer instead of a 10*4 is me having a
-  // pissing contest with myself
+  // SetBankedBkgData(start_of_enemy_vram, tileset_size,
+  //                  bg_enemies_plains_1_tileset.tiles,
+  //                  BANK(bg_enemies_plains_1_tileset));
 
-#define place_bg_tiles                                                         \
-  setupTileBuffer(enemy_buffer, 5, 4, 0, 0, start_of_enemy_vram, import_bkg);  \
-  set_bkg_tiles(1, 1, 5, 4, enemy_buffer);                                     \
-  handle_bkg_set_color(0, 1, 1, 5, 4);                                         \
-  setupTileBuffer(enemy_buffer, 5, 4, 5, 0, start_of_enemy_vram, import_bkg);  \
-  set_bkg_tiles(6, 1, 5, 4, enemy_buffer);                                     \
-  handle_bkg_set_color(0, 6, 1, 5, 4)
+//   UBYTE enemy_buffer[6 * 6];
 
-#define place_sm_enemy_1(x, y, color)                                          \
-  setupTileBuffer(enemy_buffer, 5, 4, 0, 4, start_of_enemy_vram, import_bkg);  \
-  set_bkg_tiles(x, y, 5, 4, enemy_buffer);                                     \
-  handle_bkg_set_color(color, x, y, 5, 4)
+//   // defines because we're going to be repeating this and I don't feel like
+//   // looping or figuring out if inlines can do js stuff
+//   // ngl getting this to be a 6*6 buffer instead of a 10*4 is me having a
+//   // pissing contest with myself
 
-#define place_sm_enemy_2(x, y, color)                                          \
-  setupTileBuffer(enemy_buffer, 5, 4, 5, 4, start_of_enemy_vram, import_bkg);  \
-  set_bkg_tiles(x, y, 5, 4, enemy_buffer);                                     \
-  handle_bkg_set_color(color, x, y, 5, 4)
-#define place_lg_enemy_1(x, y, color)                                          \
-  setupTileBuffer(enemy_buffer, 6, 6, 0, 8, start_of_enemy_vram, import_bkg);  \
-  set_bkg_tiles(x, y, 6, 6, enemy_buffer);                                     \
-  handle_bkg_set_color(color, x, y, 6, 6)
+// #define place_bg_tiles                                                         \
+//   setupTileBuffer(enemy_buffer, 5, 4, 0, 0, start_of_enemy_vram, import_bkg);  \
+//   set_bkg_tiles(1, 1, 5, 4, enemy_buffer);                                     \
+//   handle_bkg_set_color(0, 1, 1, 5, 4);                                         \
+//   setupTileBuffer(enemy_buffer, 5, 4, 5, 0, start_of_enemy_vram, import_bkg);  \
+//   set_bkg_tiles(6, 1, 5, 4, enemy_buffer);                                     \
+//   handle_bkg_set_color(0, 6, 1, 5, 4)
 
-#define place_lg_enemy_2(x, y, color)                                          \
-  setupTileBuffer(enemy_buffer, 6, 6, 6, 8, start_of_enemy_vram, import_bkg);  \
-  set_bkg_tiles(x, y, 6, 6, enemy_buffer);                                     \
-  handle_bkg_set_color(color, x, y, 6, 6)
+// #define place_sm_enemy_1(x, y, color)                                          \
+//   setupTileBuffer(enemy_buffer, 5, 4, 0, 4, start_of_enemy_vram, import_bkg);  \
+//   set_bkg_tiles(x, y, 5, 4, enemy_buffer);                                     \
+//   handle_bkg_set_color(color, x, y, 5, 4)
 
-  BYTE idx;
-  BYTE small_enemies[6] = {-1, -1, -1, -1, -1, -1};
-  BYTE sm_i = 0;
-  BYTE large_enemies[2] = {-1, -1};
-  BYTE lg_i = 0;
-  BYTE enemy_count = (rand() % 6) + 1;
-  for (BYTE i = 0; i < enemy_count; i++) {
-    if (lg_i > 0 && sm_i > 0) {
-      idx = get_small_enemy_idx();
-    } else {
-      idx = get_enemy_idx();
-    }
+// #define place_sm_enemy_2(x, y, color)                                          \
+//   setupTileBuffer(enemy_buffer, 5, 4, 5, 4, start_of_enemy_vram, import_bkg);  \
+//   set_bkg_tiles(x, y, 5, 4, enemy_buffer);                                     \
+//   handle_bkg_set_color(color, x, y, 5, 4)
+// #define place_lg_enemy_1(x, y, color)                                          \
+//   setupTileBuffer(enemy_buffer, 6, 6, 0, 8, start_of_enemy_vram, import_bkg);  \
+//   set_bkg_tiles(x, y, 6, 6, enemy_buffer);                                     \
+//   handle_bkg_set_color(color, x, y, 6, 6)
 
-    switch (idx) {
-    case 0:
-    case 1:
-      small_enemies[sm_i] = idx;
-      sm_i++;
-      break;
-    case 2:
-    case 3:
-      large_enemies[lg_i] = idx;
-      lg_i++;
-      break;
-    }
-  }
+// #define place_lg_enemy_2(x, y, color)                                          \
+//   setupTileBuffer(enemy_buffer, 6, 6, 6, 8, start_of_enemy_vram, import_bkg);  \
+//   set_bkg_tiles(x, y, 6, 6, enemy_buffer);                                     \
+//   handle_bkg_set_color(color, x, y, 6, 6)
 
-  // idk why but breaks don't like me so doing my gates in this inefficient way
-  if (lg_i == 2) {
-    sm_i = 0;
-  }
-  if (lg_i == 1 && sm_i > 2) {
-    sm_i = 2;
-  }
+//   BYTE idx;
+//   BYTE small_enemies[6] = {-1, -1, -1, -1, -1, -1};
+//   BYTE sm_i = 0;
+//   BYTE large_enemies[2] = {-1, -1};
+//   BYTE lg_i = 0;
+//   BYTE enemy_count = (rand() % 6) + 1;
+//   for (BYTE i = 0; i < enemy_count; i++) {
+//     if (lg_i > 0 && sm_i > 0) {
+//       idx = get_small_enemy_idx();
+//     } else {
+//       idx = get_enemy_idx();
+//     }
 
-  BYTE next_x = 1;
-  BYTE next_y = 5;
-  BYTE entity_data_i = 0;
-  BYTE enemies_alive = 0;
-  enemy_data * current_enemy;
-  for (BYTE i = 0; i < lg_i; i++) {
-    current_enemy = &enemy_slots[entity_data_i];
-    BYTE idx = large_enemies[i];
+//     switch (idx) {
+//     case 0:
+//     case 1:
+//       small_enemies[sm_i] = idx;
+//       sm_i++;
+//       break;
+//     case 2:
+//     case 3:
+//       large_enemies[lg_i] = idx;
+//       lg_i++;
+//       break;
+//     }
+//   }
 
-    switch (idx) {
-    case 2:
-      place_lg_enemy_1(next_x, next_y, 1);
-      break;
-    case 3:
-      place_lg_enemy_2(next_x, next_y, 1);
-      break;
-    }
+//   // idk why but breaks don't like me so doing my gates in this inefficient way
+//   if (lg_i == 2) {
+//     sm_i = 0;
+//   }
+//   if (lg_i == 1 && sm_i > 2) {
+//     sm_i = 2;
+//   }
 
-    load_enemy(current_enemy, encounter_table[idx]);
-    current_enemy->ext.hp = current_enemy->ext.max_hp;
-    current_enemy->ext.status = NULL;
-    current_enemy->ext.pos.x = next_x;
-    current_enemy->ext.pos.y = next_y;
-    current_enemy->ext.pos.w = 6;
-    current_enemy->ext.pos.h = 6;
-    current_enemy->ext.idx = entity_data_i;
+//   BYTE next_x = 1;
+//   BYTE next_y = 5;
+//   BYTE entity_data_i = 0;
+//   BYTE enemies_alive = 0;
+//   enemy_data * current_enemy;
+//   for (BYTE i = 0; i < lg_i; i++) {
+//     current_enemy = &enemy_slots[entity_data_i];
+//     BYTE idx = large_enemies[i];
 
-    entity_data_i++;
-    enemies_alive++;
+//     switch (idx) {
+//     case 2:
+//       place_lg_enemy_1(next_x, next_y, 1);
+//       break;
+//     case 3:
+//       place_lg_enemy_2(next_x, next_y, 1);
+//       break;
+//     }
 
-    next_x = 1;
-    next_y += 6;
-  }
+//     load_enemy(current_enemy, encounter_table[idx]);
+//     current_enemy->ext.hp = current_enemy->ext.max_hp;
+//     current_enemy->ext.status = NULL;
+//     current_enemy->ext.pos.x = next_x;
+//     current_enemy->ext.pos.y = next_y;
+//     current_enemy->ext.pos.w = 6;
+//     current_enemy->ext.pos.h = 6;
+//     current_enemy->ext.idx = entity_data_i;
 
-  for (BYTE i = 0; i < sm_i; i++) {
-    current_enemy = &enemy_slots[entity_data_i];
-    BYTE idx = small_enemies[i];
+//     entity_data_i++;
+//     enemies_alive++;
 
-    switch (idx) {
-    case 0:
-      place_sm_enemy_1(next_x, next_y, 1);
-      break;
-    case 1:
-      place_sm_enemy_2(next_x, next_y, 1);
-      break;
-    }
+//     next_x = 1;
+//     next_y += 6;
+//   }
 
-    load_enemy(current_enemy, encounter_table[idx]);
-    current_enemy->ext.hp = current_enemy->ext.max_hp;
-    current_enemy->ext.status = NULL;
-    current_enemy->ext.pos.x = next_x;
-    current_enemy->ext.pos.y = next_y;
-    current_enemy->ext.pos.w = 5;
-    current_enemy->ext.pos.h = 4;
-    current_enemy->ext.idx = entity_data_i;
+//   for (BYTE i = 0; i < sm_i; i++) {
+//     current_enemy = &enemy_slots[entity_data_i];
+//     BYTE idx = small_enemies[i];
+
+//     switch (idx) {
+//     case 0:
+//       place_sm_enemy_1(next_x, next_y, 1);
+//       break;
+//     case 1:
+//       place_sm_enemy_2(next_x, next_y, 1);
+//       break;
+//     }
+
+//     load_enemy(current_enemy, encounter_table[idx]);
+//     current_enemy->ext.hp = current_enemy->ext.max_hp;
+//     current_enemy->ext.status = NULL;
+//     current_enemy->ext.pos.x = next_x;
+//     current_enemy->ext.pos.y = next_y;
+//     current_enemy->ext.pos.w = 5;
+//     current_enemy->ext.pos.h = 4;
+//     current_enemy->ext.idx = entity_data_i;
 
 
-    entity_data_i++;
-    enemies_alive++;
-    next_x += 5;
-    if (next_x > 10) {
-      next_x = 1;
-      next_y += 4;
-    }
-  }
+//     entity_data_i++;
+//     enemies_alive++;
+//     next_x += 5;
+//     if (next_x > 10) {
+//       next_x = 1;
+//       next_y += 4;
+//     }
+//   }
 
-  place_bg_tiles;
+//   place_bg_tiles;
 
 }
 
@@ -327,3 +329,8 @@ void finishBattle(SCRIPT_CTX *THIS) OLDCALL BANKED {
   // I can probably put EXP Gains and Gil Gains here too.
   THIS;
 }
+
+void checkEnemyAlive(void) BANKED {}
+void setupHeroData(void) BANKED {}
+void handleEnemyTakeDamage(void) BANKED {}
+void setupPlayerSlots(void) BANKED {}

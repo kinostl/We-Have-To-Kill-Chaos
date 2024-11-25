@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "3645ff37-39b5-4cea-ad14-029fde79249c",
+  "name": "enemies/spider",
+  "symbol": "tileset_enemies_spider",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/spider.png"
+}

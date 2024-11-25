@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "7c2b4574-6548-48c5-91d7-80c3e308f3c1",
+  "name": "enemies/badman",
+  "symbol": "tileset_enemies_badman",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/badman.png"
+}

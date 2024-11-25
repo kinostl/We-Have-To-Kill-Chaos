@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "dae1aab6-9856-4e1c-81eb-a7e950d772a4",
+  "name": "enemies/scorpion",
+  "symbol": "tileset_enemies_scorpion",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/scorpion.png"
+}

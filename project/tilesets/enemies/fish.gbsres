@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "6aa1d0c7-4a2b-48d0-8631-3917f3d9f162",
+  "name": "enemies/fish",
+  "symbol": "tileset_enemies_fish",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/fish.png"
+}

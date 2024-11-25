@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "4a818b25-2924-428d-a052-87783f02547d",
+  "name": "enemies/fishman",
+  "symbol": "tileset_enemies_fishman",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/fishman.png"
+}

@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "4671af9f-aa9b-4294-b9fc-c7046cd2bde8",
+  "name": "enemies/mummy",
+  "symbol": "tileset_enemies_mummy",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/mummy.png"
+}

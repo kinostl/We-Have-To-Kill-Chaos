@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "cc27b04d-c1ad-4238-a818-8e5aa3f40249",
+  "name": "enemies/imp",
+  "symbol": "tileset_enemies_imp",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/imp.png"
+}

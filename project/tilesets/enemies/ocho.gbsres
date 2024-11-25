@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "e906ca33-a7a3-4218-a193-674725f67dcb",
+  "name": "enemies/ocho",
+  "symbol": "tileset_enemies_ocho",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/ocho.png"
+}

@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "0b41bfe1-2a4e-4be4-a4d8-315d0204aa95",
+  "name": "enemies/hyena",
+  "symbol": "tileset_enemies_hyena",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/hyena.png"
+}

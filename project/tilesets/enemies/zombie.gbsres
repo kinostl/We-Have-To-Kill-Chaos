@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "59cbe196-3d9f-47fc-ad00-c562e3c44612",
+  "name": "enemies/zombie",
+  "symbol": "tileset_enemies_zombie",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/zombie.png"
+}

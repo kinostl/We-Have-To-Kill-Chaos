@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "b47973dd-827d-4717-83ac-cf1e325aae25",
+  "name": "enemies/wizard",
+  "symbol": "tileset_enemies_wizard",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/wizard.png"
+}

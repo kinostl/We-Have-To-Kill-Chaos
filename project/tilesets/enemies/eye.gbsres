@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "1b028030-3391-44a3-91ff-72b1f8861531",
+  "name": "enemies/eye",
+  "symbol": "tileset_enemies_eye",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/eye.png"
+}
