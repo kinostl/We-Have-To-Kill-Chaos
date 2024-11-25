@@ -33,13 +33,26 @@
   "autoFadeSpeed": null,
   "script": [
     {
+      "command": "EVENT_GBVM_SCRIPT",
+      "args": {
+        "references": [
+          {
+            "type": "tileset",
+            "id": "d147e526-ff4f-4447-ab6f-8297d3a8a09a"
+          }
+        ]
+      },
+      "id": "7b39186c-6f79-47da-b6fd-279cb4afa2e3"
+    },
+    {
       "command": "EVENT_ACTOR_SET_DIRECTION",
       "args": {
         "actorId": "$self$",
         "direction": {
           "type": "direction",
           "value": "right"
-        }
+        },
+        "__collapse": true
       },
       "id": "5d863911-a1fe-4dfe-b368-7d26e35d3e30"
     },
@@ -589,7 +602,8 @@
       "args": {
         "state": 3,
         "__scriptTabs": "scriptinput",
-        "__comment": false
+        "__comment": false,
+        "__collapse": true
       },
       "children": {
         "script": [
@@ -617,7 +631,8 @@
       "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
       "args": {
         "state": 6,
-        "__scriptTabs": "scriptinput"
+        "__scriptTabs": "scriptinput",
+        "__collapse": true
       },
       "children": {
         "script": [

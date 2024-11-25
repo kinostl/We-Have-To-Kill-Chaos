@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "f02fab99-b768-499a-a27d-dad6171482fb",
+  "name": "enemies/small/bone",
+  "symbol": "tileset_enemies_small_bone",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/bone.png"
+}

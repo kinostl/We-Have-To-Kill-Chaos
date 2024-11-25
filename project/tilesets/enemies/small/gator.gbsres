@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "26bbb875-4108-43ce-903c-7f180e56b65e",
+  "name": "enemies/small/gator",
+  "symbol": "tileset_enemies_small_gator",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/gator.png"
+}

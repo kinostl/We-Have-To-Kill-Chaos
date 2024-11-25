@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "0b343543-f470-423b-ac36-a3c8ff900d20",
+  "name": "enemies/large/chimera",
+  "symbol": "tileset_enemies_large_chime",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/large/chimera.png"
+}

@@ -17,7 +17,7 @@
     "",
     "",
     "",
-    "",
+    "4c0e4576-ad36-4697-b472-134653901c11",
     "38a412cd-6ab3-494f-aa86-81ed589e0d45",
     ""
   ],
@@ -33,13 +33,26 @@
   "autoFadeSpeed": null,
   "script": [
     {
+      "command": "EVENT_GBVM_SCRIPT",
+      "args": {
+        "references": [
+          {
+            "type": "background",
+            "id": "95e06d0a-51d6-4b70-93b7-9680f0be39e4"
+          }
+        ]
+      },
+      "id": "d9757dad-781d-4f88-bf82-3967ae078496"
+    },
+    {
       "command": "EVENT_ACTOR_SET_DIRECTION",
       "args": {
         "actorId": "$self$",
         "direction": {
           "type": "direction",
           "value": "right"
-        }
+        },
+        "__collapse": true
       },
       "id": "5d863911-a1fe-4dfe-b368-7d26e35d3e30"
     },
@@ -175,7 +188,7 @@
         "actorId_1": "4e1be877-f859-4579-bf47-4938ed4fff39",
         "actorId_2": "9106cb06-62cd-4134-8f56-3770fa475590",
         "actorId_3": "332fdb0d-ad31-42ea-b554-8feb1a7b8a71",
-        "__collapse": false
+        "__collapse": true
       },
       "id": "ca9b237d-bd40-487f-9320-8474632bad53"
     },
@@ -183,7 +196,8 @@
       "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
       "args": {
         "state": 5,
-        "__scriptTabs": "scriptinput"
+        "__scriptTabs": "scriptinput",
+        "__collapse": true
       },
       "children": {
         "script": [
@@ -216,7 +230,7 @@
       "args": {
         "state": 0,
         "__scriptTabs": "scriptinput",
-        "__collapse": false
+        "__collapse": true
       },
       "children": {
         "script": [
@@ -343,18 +357,6 @@
         ]
       },
       "id": "3cdfa73a-cda3-4cc5-9016-988a36a5a6d2"
-    },
-    {
-      "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
-      "args": {
-        "state": "0",
-        "__scriptTabs": "scriptinput",
-        "__comment": true
-      },
-      "children": {
-        "script": []
-      },
-      "id": "354bcdfd-7572-4cc1-b4ad-4e0a1eecbe23"
     },
     {
       "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
@@ -600,34 +602,18 @@
       "args": {
         "state": 3,
         "__scriptTabs": "scriptinput",
-        "__comment": true
+        "__comment": false,
+        "__collapse": true
       },
       "children": {
         "script": [
           {
-            "command": "EVENT_TEXT",
+            "command": "MY_EVENT_CALL_NATIVE",
             "args": {
-              "text": [
-                "lol dead"
-              ],
-              "__section": "text",
-              "avatarId": "",
-              "minHeight": 4,
-              "maxHeight": 7,
-              "textX": 1,
-              "textY": 1,
-              "textHeight": 5,
-              "position": "bottom",
-              "clearPrevious": true,
-              "showFrame": "true",
-              "speedIn": -1,
-              "speedOut": -1,
-              "closeWhen": "key",
-              "closeButton": "a",
-              "closeDelayTime": 0.5,
-              "closeDelayFrames": 30
+              "argCount": 0,
+              "funName": "handleEnemyDefeated"
             },
-            "id": "008ae14f-6dd4-413f-a0f5-221a85d07ce3"
+            "id": "35e5c458-f8ac-4bbb-aff4-d9aba937ab2f"
           }
         ]
       },
@@ -640,6 +626,38 @@
         "__collapse": true
       },
       "id": "c271e8aa-f367-436c-958d-072f031f36d3"
+    },
+    {
+      "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
+      "args": {
+        "state": 6,
+        "__scriptTabs": "scriptinput",
+        "__collapse": true
+      },
+      "children": {
+        "script": [
+          {
+            "command": "EVENT_CALL_CUSTOM_EVENT",
+            "args": {
+              "customEventId": "18c95038-7066-4edd-991d-856988fa0379",
+              "$variable[V0]$": {
+                "type": "variable",
+                "value": "48"
+              },
+              "$actor[0]$": "8ed07833-9d02-4817-acb5-d9e14d31eb95"
+            },
+            "id": "6a93f58d-62e0-4366-a58a-df7d6f249ddd"
+          },
+          {
+            "command": "EVENT_ACTOR_SHOW",
+            "args": {
+              "actorId": "8ed07833-9d02-4817-acb5-d9e14d31eb95"
+            },
+            "id": "d67307ee-a9c0-47c3-9dfd-67d2073f8348"
+          }
+        ]
+      },
+      "id": "d36cb5d6-e184-4fb6-acf4-3683b0c2003c"
     }
   ],
   "playerHit1Script": [],

@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "baa93ec7-f4d2-4f82-8027-692face6c9a9",
+  "name": "enemies/large/naga",
+  "symbol": "tileset_enemies_large_naga",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/large/naga.png"
+}

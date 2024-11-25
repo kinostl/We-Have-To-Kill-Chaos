@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "5caae741-1ad4-496f-b77c-0b77304d69c6",
+  "name": "enemies/large/big_eye",
+  "symbol": "tileset_enemies_large_big_e",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/large/big_eye.png"
+}

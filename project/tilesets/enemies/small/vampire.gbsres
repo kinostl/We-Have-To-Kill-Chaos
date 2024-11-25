@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "6be1e1a2-a3a1-4d9c-a268-49231b742a0c",
+  "name": "enemies/small/vampire",
+  "symbol": "tileset_enemies_small_vampi",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/vampire.png"
+}

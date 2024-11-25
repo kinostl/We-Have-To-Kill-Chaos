@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "dd16ed26-c351-459d-a4fb-7ce77b34ed90",
+  "name": "enemies/large/angylo",
+  "symbol": "tileset_enemies_large_angyl",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/large/angylo.png"
+}

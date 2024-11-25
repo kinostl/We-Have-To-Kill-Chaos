@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "d7a9e960-2480-459d-89e8-11a613bff609",
+  "name": "enemies/small/gargoyle",
+  "symbol": "tileset_enemies_small_gargo",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/gargoyle.png"
+}

@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "611c4ddc-a769-4f09-a175-f45ba238dbc5",
+  "name": "enemies/large/mad_pony",
+  "symbol": "tileset_enemies_large_mad_p",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/large/mad_pony.png"
+}

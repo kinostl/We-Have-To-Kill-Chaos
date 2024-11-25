@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "f07dec14-d086-46a1-b908-4e0f08ad09df",
+  "name": "enemies/small/slime",
+  "symbol": "tileset_enemies_small_slime",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/slime.png"
+}

@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "aa2bbdb0-140d-4310-aae7-12d17d60b8f0",
+  "name": "enemies/large/hydra",
+  "symbol": "tileset_enemies_large_hydra",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/large/hydra.png"
+}

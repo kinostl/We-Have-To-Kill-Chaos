@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "9b0094c1-5c9a-4fc2-a309-cd995c23b8c7",
+  "name": "enemies/small/creep",
+  "symbol": "tileset_enemies_small_creep",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/creep.png"
+}

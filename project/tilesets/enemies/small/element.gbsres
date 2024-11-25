@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "c59b733d-875a-4077-9ff4-eb5972c19161",
+  "name": "enemies/small/element",
+  "symbol": "tileset_enemies_small_eleme",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/element.png"
+}

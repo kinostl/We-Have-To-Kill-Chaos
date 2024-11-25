@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "bdcdd8e8-7d0b-4ad1-91de-b1c11e1e8c96",
+  "name": "enemies/small/garland",
+  "symbol": "tileset_enemies_small_garla",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/garland.png"
+}

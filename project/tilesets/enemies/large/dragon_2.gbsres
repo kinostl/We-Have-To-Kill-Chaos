@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "6a13ecfc-b612-4e5b-8c8f-67cb0b8ba08a",
+  "name": "enemies/large/dragon_2",
+  "symbol": "tileset_enemies_large_drago_0",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/large/dragon_2.png"
+}

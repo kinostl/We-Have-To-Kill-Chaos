@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "a5eaaa08-6177-4edd-babf-4ea0a3036290",
+  "name": "enemies/small/astos",
+  "symbol": "tileset_enemies_small_astos",
+  "width": 4,
+  "height": 4,
+  "imageWidth": 32,
+  "imageHeight": 32,
+  "filename": "enemies/small/astos.png"
+}

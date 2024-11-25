@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "b21d15d6-3e8b-47f2-ac8b-93c8f5271675",
+  "name": "enemies/large/element",
+  "symbol": "tileset_enemies_large_eleme",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/large/element.png"
+}

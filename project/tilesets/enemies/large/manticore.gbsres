@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "90981213-af18-4f21-899e-d1c518279786",
+  "name": "enemies/large/manticore",
+  "symbol": "tileset_enemies_large_manti",
+  "width": 6,
+  "height": 6,
+  "imageWidth": 48,
+  "imageHeight": 48,
+  "filename": "enemies/large/manticore.png"
+}
