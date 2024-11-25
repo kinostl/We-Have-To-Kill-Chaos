@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "efe8675e-add2-484e-b168-6b85af2f5d07",
+  "name": "headers/forests",
+  "symbol": "tileset_headers_forests",
+  "width": 10,
+  "height": 4,
+  "imageWidth": 80,
+  "imageHeight": 32,
+  "filename": "headers/forests.png"
+}

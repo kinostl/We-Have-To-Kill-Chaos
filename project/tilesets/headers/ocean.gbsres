@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "effac60b-a192-4b41-afb8-664bf5332c84",
+  "name": "headers/ocean",
+  "symbol": "tileset_headers_ocean",
+  "width": 10,
+  "height": 4,
+  "imageWidth": 80,
+  "imageHeight": 32,
+  "filename": "headers/ocean.png"
+}

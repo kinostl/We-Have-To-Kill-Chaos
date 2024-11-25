@@ -243,6 +243,76 @@
       "id": "714044ba-5f66-470d-9ba8-271522d3bde2"
     },
     {
+      "command": "EVENT_GBVM_SCRIPT",
+      "args": {
+        "references": [
+          {
+            "type": "tileset",
+            "id": "ae14833c-a79b-4ea3-bc01-5b951f85ef29"
+          },
+          {
+            "type": "tileset",
+            "id": "18fcab49-f888-4e56-9ec3-c297524889f4"
+          },
+          {
+            "type": "tileset",
+            "id": "ca60cd32-a196-4178-b8ee-f2dbb22e23d5"
+          },
+          {
+            "type": "tileset",
+            "id": "5d383375-ee65-4a52-8ce6-e97278a89bb7"
+          },
+          {
+            "type": "tileset",
+            "id": "e4bf87f6-edf2-4d42-829d-31a5bdeb3e87"
+          },
+          {
+            "type": "tileset",
+            "id": "e9b8cd00-d416-429c-bb91-0a1c988a72c2"
+          },
+          {
+            "type": "tileset",
+            "id": "e7393e97-5700-4a21-8e00-cf163b3141b8"
+          },
+          {
+            "type": "tileset",
+            "id": "04de5941-8595-4a96-a927-326aabdce246"
+          },
+          {
+            "type": "tileset",
+            "id": "66bca2e4-7339-42ec-aa4a-83f60985e221"
+          },
+          {
+            "type": "tileset",
+            "id": "74f07c4b-4508-48df-b535-ee3c242a9059"
+          },
+          {
+            "type": "tileset",
+            "id": "31a9b186-6bef-48a7-977e-80459d74ecea"
+          },
+          {
+            "type": "tileset",
+            "id": "efe8675e-add2-484e-b168-6b85af2f5d07"
+          },
+          {
+            "type": "tileset",
+            "id": "effac60b-a192-4b41-afb8-664bf5332c84"
+          },
+          {
+            "type": "tileset",
+            "id": "ad3913ed-1bf0-412a-88b8-320a1d382c7a"
+          },
+          {
+            "type": "tileset",
+            "id": "f97e39db-d129-495b-a8a9-f14a2fbc6ed0"
+          }
+        ],
+        "__label": "Touch Header Tiles",
+        "__collapse": true
+      },
+      "id": "99371357-bc18-4cab-be05-c30ad78cd19e"
+    },
+    {
       "command": "MY_EVENT_CALL_NATIVE",
       "args": {
         "argCount": 0,

@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "66bca2e4-7339-42ec-aa4a-83f60985e221",
+  "name": "headers/diving_castle",
+  "symbol": "tileset_headers_diving_cast",
+  "width": 10,
+  "height": 4,
+  "imageWidth": 80,
+  "imageHeight": 32,
+  "filename": "headers/diving_castle.png"
+}

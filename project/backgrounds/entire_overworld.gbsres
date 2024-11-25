@@ -8,6 +8,6 @@
   "imageWidth": 4096,
   "imageHeight": 4096,
   "filename": "entire_overworld.png",
-  "autoColor": true,
-  "tileColors": ""
+  "tileColors": "",
+  "autoColor": true
 }

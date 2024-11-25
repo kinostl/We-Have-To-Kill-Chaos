@@ -8,5 +8,6 @@
   "imageWidth": 256,
   "imageHeight": 256,
   "filename": "overworld/026.png",
-  "tileColors": ""
+  "tileColors": "",
+  "autoColor": false
 }

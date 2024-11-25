@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "ae14833c-a79b-4ea3-bc01-5b951f85ef29",
+  "name": "headers/castle",
+  "symbol": "tileset_headers_castle",
+  "width": 10,
+  "height": 4,
+  "imageWidth": 80,
+  "imageHeight": 32,
+  "filename": "headers/castle.png"
+}

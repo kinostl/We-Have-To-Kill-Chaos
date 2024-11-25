@@ -120,4 +120,10 @@ typedef enum {
   CONFUSED = 1 << 7
 } STATUS_EFFECT;
 
+typedef enum {
+  FIELD,
+  FOREST,
+} BATTLE_ID;
+
+
 #endif

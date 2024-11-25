@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "e9b8cd00-d416-429c-bb91-0a1c988a72c2",
+  "name": "headers/dead_forest",
+  "symbol": "tileset_headers_dead_forest",
+  "width": 10,
+  "height": 4,
+  "imageWidth": 80,
+  "imageHeight": 32,
+  "filename": "headers/dead_forest.png"
+}

@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "ad3913ed-1bf0-412a-88b8-320a1d382c7a",
+  "name": "headers/river",
+  "symbol": "tileset_headers_river",
+  "width": 10,
+  "height": 4,
+  "imageWidth": 80,
+  "imageHeight": 32,
+  "filename": "headers/river.png"
+}

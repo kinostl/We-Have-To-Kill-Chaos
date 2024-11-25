@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "f97e39db-d129-495b-a8a9-f14a2fbc6ed0",
+  "name": "headers/ruins",
+  "symbol": "tileset_headers_ruins",
+  "width": 10,
+  "height": 4,
+  "imageWidth": 80,
+  "imageHeight": 32,
+  "filename": "headers/ruins.png"
+}

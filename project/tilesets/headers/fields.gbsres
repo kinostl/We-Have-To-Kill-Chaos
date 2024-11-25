@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "31a9b186-6bef-48a7-977e-80459d74ecea",
+  "name": "headers/fields",
+  "symbol": "tileset_headers_fields",
+  "width": 10,
+  "height": 4,
+  "imageWidth": 80,
+  "imageHeight": 32,
+  "filename": "headers/fields.png"
+}

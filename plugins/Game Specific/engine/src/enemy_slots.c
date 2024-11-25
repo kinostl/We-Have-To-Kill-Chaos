@@ -1,11 +1,12 @@
+#include "battle_headers.h"
 #include "data/bg_battle_concept_tileset.h"
+#include "data_manager.h"
 #include "encounter_table.h"
 #include "enemy_data.h"
 #include "enemy_sprites.h"
 #include "entity_data.h"
 #include "enums.h"
 #include "handle_flashing.h"
-#include "rand.h" // IWYU pragma: keep
 #include "extra_data.h"
 #include "vm.h"
 #include <asm/types.h>
@@ -17,19 +18,6 @@
 #include <types.h>
 
 #pragma bank 255
-
-/*
-I can't find the real encounter values so using the attack slot logic is
-probably fine.
-
-    50% Slot 1
-    25% Slot 2
-    12.5% Slot 3
-    12.5% Slot 4
-
-After testing, this is a 1/4 chance of getting a big guy in a fight and they
-tend to be dangerous encounters. Not sure if good or bad.
-*/
 
 void initialize_entity_data(enemy_data *slot) OLDCALL BANKED {
   memcpy(&slot->ext, NULL, sizeof(entity_data));
@@ -46,13 +34,18 @@ void setupEnemySlots(void) BANKED {
   }
 
   UBYTE tail_of_enemy_vram;
+
   MemcpyBanked(&tail_of_enemy_vram, &bg_battle_concept_tileset.n_tiles,
                sizeof(UBYTE), BANK(bg_battle_concept_tileset));
 
   load_encounter(encounter_table, 9, 10);
 
+  UBYTE n_tiles = load_battle_header(tail_of_enemy_vram, FIELD);
+  draw_battle_header(tail_of_enemy_vram);
+
+  tail_of_enemy_vram+=n_tiles;
+
   ENEMY_TYPE prev_enemy = EMPTY_ENEMY_SLOT;
-  UBYTE n_tiles;
   UBYTE x = 1;
   UBYTE y = 5;
   for (int i = 0; i < 6; i++) {
@@ -75,10 +68,10 @@ void setupEnemySlots(void) BANKED {
     if (n_tiles < (6 * 6)) {
       draw_enemy_sm(tail_of_enemy_vram - n_tiles, x, y);
 
-      x += 5;
-      if (x > 9) {
-        x = 1;
-        y += 4;
+      y+=4;
+      if(y > 16){
+        y = 5;
+        x +=5;
       }
 
       current_enemy->ext.pos.w = 4;
@@ -86,11 +79,7 @@ void setupEnemySlots(void) BANKED {
     } else {
       draw_enemy_lg(tail_of_enemy_vram - n_tiles, x, y);
 
-      x += 6;
-      if (x > 9) {
-        x = 1;
-        y += 6;
-      }
+      y+=6;
 
       current_enemy->ext.pos.w = 6;
       current_enemy->ext.pos.h = 6;

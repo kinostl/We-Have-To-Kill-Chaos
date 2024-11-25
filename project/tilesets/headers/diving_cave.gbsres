@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "74f07c4b-4508-48df-b535-ee3c242a9059",
+  "name": "headers/diving_cave",
+  "symbol": "tileset_headers_diving_cave",
+  "width": 10,
+  "height": 4,
+  "imageWidth": 80,
+  "imageHeight": 32,
+  "filename": "headers/diving_cave.png"
+}

@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "e7393e97-5700-4a21-8e00-cf163b3141b8",
+  "name": "headers/dense_forest",
+  "symbol": "tileset_headers_dense_fores",
+  "width": 10,
+  "height": 4,
+  "imageWidth": 80,
+  "imageHeight": 32,
+  "filename": "headers/dense_forest.png"
+}

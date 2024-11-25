@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "04de5941-8595-4a96-a927-326aabdce246",
+  "name": "headers/desert",
+  "symbol": "tileset_headers_desert",
+  "width": 10,
+  "height": 4,
+  "imageWidth": 80,
+  "imageHeight": 32,
+  "filename": "headers/desert.png"
+}

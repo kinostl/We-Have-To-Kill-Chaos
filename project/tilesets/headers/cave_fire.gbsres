@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "5d383375-ee65-4a52-8ce6-e97278a89bb7",
+  "name": "headers/cave_fire",
+  "symbol": "tileset_headers_cave_fire",
+  "width": 10,
+  "height": 4,
+  "imageWidth": 80,
+  "imageHeight": 32,
+  "filename": "headers/cave_fire.png"
+}
