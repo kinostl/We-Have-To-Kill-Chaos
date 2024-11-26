@@ -5,11 +5,12 @@
 #include <bankdata.h>
 #include <gb/gb.h>
 #include <gbs_types.h>
+#include "data/header_palettes.h"
 
 typedef struct {
     UBYTE bank;
     const void * header;
-    UWORD colors[4];
+    HEADER_PALETTES palette;
 } battle_header ;
 
 extern const battle_header battle_header_db[];

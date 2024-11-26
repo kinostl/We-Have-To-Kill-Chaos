@@ -43,6 +43,7 @@ const compile = (input, helpers) => {
 #define ${filter}_PALETTES_DEF
 
 #include <gbs_types.h> // IWYU pragma: export
+#include <asm/types.h> // IWYU pragma: export
 
 typedef enum {
   NO_${filter}_PALETTE,
@@ -50,6 +51,7 @@ typedef enum {
 } ${filter}_PALETTES;
 
 extern const palette_entry_t ${filter.toLowerCase()}_palette_db[];
+void load_${filter.toLowerCase()}_palette(palette_entry_t * entry, ${filter}_PALETTES palette) BANKED;
 
 BANKREF_EXTERN(${filter}_PALETTES_DEF)
 
@@ -67,8 +69,8 @@ const palette_entry_t ${filter.toLowerCase()}_palette_db[]={
   ${palette_db.join(',\r  ')}
 };
 
-void load_palette(palette_entry_t * entry, ${filter}_PALETTES palette){
-  MemcpyBanked(&entry, &${filter.toLowerCase()}_palette_db[palette], sizeof(palette_entry_t), BANK(${filter}_PALETTES_DEF));
+void load_${filter.toLowerCase()}_palette(palette_entry_t * entry, ${filter}_PALETTES palette) BANKED {
+  MemcpyBanked(entry, &${filter.toLowerCase()}_palette_db[palette], sizeof(palette_entry_t), BANK(${filter}_PALETTES_DEF));
 }
 
 BANKREF(${filter}_PALETTES_DEF)

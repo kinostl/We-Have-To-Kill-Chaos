@@ -52,7 +52,7 @@ inline UBYTE get_palette_id(ENEMY_PALETTES color){
         return i+offset;
       if (assigned_colors[i] == NO_ENEMY_PALETTE){
         assigned_colors[i] = color;
-        MemcpyBanked(&BkgPalette[i+offset], &enemy_palette_db[color], sizeof(palette_entry_t), BANK(ENEMY_PALETTES_DEF));
+        load_enemy_palette(&BkgPalette[i+offset], color);
         return i+offset;
       }
       i++;
