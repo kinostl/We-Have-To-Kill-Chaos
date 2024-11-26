@@ -1,0 +1,11 @@
+{
+  "_resourceType": "palette",
+  "id": "9dbe24f8-9d3f-410e-8bcf-f2ac6d77e1c0",
+  "name": "Enemy Purple",
+  "colors": [
+    "ffeb97",
+    "6249ff",
+    "7000ff",
+    "000000"
+  ]
+}

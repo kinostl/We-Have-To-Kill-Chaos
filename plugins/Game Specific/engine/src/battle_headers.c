@@ -1,4 +1,5 @@
 #include "handle_flashing.h"
+#include <gbs_types.h>
 #pragma bank 255
 #include "enums.h"
 #include "battle_headers.h"

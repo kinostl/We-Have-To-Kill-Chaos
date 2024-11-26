@@ -24,6 +24,15 @@
       "id": "f51462f5-f8e4-4372-b33f-0a3b86ae93ad"
     },
     {
+      "command": "FO_EVENT_EXPORT_PALETTES",
+      "args": {
+        "": "Enemy",
+        "__collapse": false,
+        "filter": "Enemy"
+      },
+      "id": "501795aa-c06d-4674-90d5-e449927a466b"
+    },
+    {
       "command": "EVENT_RNG_SEED",
       "args": {},
       "id": "f4813b66-2157-4f7b-985b-a4828ad06df3"

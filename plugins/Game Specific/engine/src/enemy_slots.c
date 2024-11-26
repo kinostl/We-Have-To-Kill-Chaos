@@ -40,7 +40,7 @@ void setupEnemySlots(void) BANKED {
 
   load_encounter(encounter_table, 9, 10);
 
-  UBYTE n_tiles = load_battle_header(tail_of_enemy_vram, FIELD);
+  const UBYTE n_tiles = load_battle_header(tail_of_enemy_vram, FIELD);
   draw_battle_header(tail_of_enemy_vram);
 
   tail_of_enemy_vram+=n_tiles;
@@ -48,6 +48,7 @@ void setupEnemySlots(void) BANKED {
   ENEMY_TYPE prev_enemy = EMPTY_ENEMY_SLOT;
   UBYTE x = 1;
   UBYTE y = 5;
+  enemy_view enemy_view;
   for (int i = 0; i < 6; i++) {
     enemy_data *current_enemy = &enemy_slots[i];
     load_enemy(current_enemy, encounter_table[i]);
@@ -55,9 +56,10 @@ void setupEnemySlots(void) BANKED {
       break;
 
     if (prev_enemy != encounter_table[i]) {
-      n_tiles = load_enemy_tiles(tail_of_enemy_vram, encounter_table[i]);
+      enemy_view.vram_ptr = tail_of_enemy_vram;
+      load_enemy_tiles(&enemy_view, encounter_table[i]);
       prev_enemy = encounter_table[i];
-      tail_of_enemy_vram += n_tiles;
+      tail_of_enemy_vram += enemy_view.n_tiles;
     }
     current_enemy->ext.hp = current_enemy->ext.max_hp;
     current_enemy->ext.status = NULL;
@@ -65,8 +67,8 @@ void setupEnemySlots(void) BANKED {
     current_enemy->ext.pos.x = x;
     current_enemy->ext.pos.y = y;
 
-    if (n_tiles < (6 * 6)) {
-      draw_enemy_sm(tail_of_enemy_vram - n_tiles, x, y);
+    if (enemy_view.n_tiles < (6 * 6)) {
+      draw_enemy_sm(&enemy_view, x, y);
 
       y+=4;
       if(y > 16){
@@ -77,7 +79,7 @@ void setupEnemySlots(void) BANKED {
       current_enemy->ext.pos.w = 4;
       current_enemy->ext.pos.h = 4;
     } else {
-      draw_enemy_lg(tail_of_enemy_vram - n_tiles, x, y);
+      draw_enemy_lg(&enemy_view, x, y);
 
       y+=6;
 

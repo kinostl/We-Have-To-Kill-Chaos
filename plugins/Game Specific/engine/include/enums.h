@@ -125,5 +125,4 @@ typedef enum {
   FOREST,
 } BATTLE_ID;
 
-
 #endif
