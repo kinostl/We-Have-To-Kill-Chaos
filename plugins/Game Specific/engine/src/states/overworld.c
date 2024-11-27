@@ -4,9 +4,12 @@
 #pragma bank 255
 
 #include "states/overworld.h"
+#include "bkg_tile_info.h"
 
 void overworld_init(void) BANKED {
   topdown_init();
+  far_ptr_t number;
+  set_overworld_ptr(&number, 0, 0);
 }
 
 
