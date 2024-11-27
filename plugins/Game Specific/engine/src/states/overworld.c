@@ -1,3 +1,4 @@
+#include "ff_types.h"
 #include <asm/types.h>
 #include <interrupts.h>
 #include <types.h>
@@ -8,7 +9,7 @@
 
 void overworld_init(void) BANKED {
   topdown_init();
-  far_ptr_t number;
+  overworld_far_ptr number;
   set_overworld_ptr(&number, 0, 0);
 }
 
