@@ -1,0 +1,11 @@
+{
+  "_resourceType": "tileset",
+  "id": "3645e357-a9ab-4bb6-8645-1813c0c9b105",
+  "name": "overworld",
+  "symbol": "tileset_overworld",
+  "width": 28,
+  "height": 16,
+  "imageWidth": 224,
+  "imageHeight": 128,
+  "filename": "overworld.png"
+}

@@ -2,21 +2,21 @@
   "_resourceType": "scene",
   "id": "7f69b524-b5c7-485d-8809-18efbc48c619",
   "_index": 26,
+  "type": "TOPDOWN",
   "name": "Boot Strapper",
-  "backgroundId": "1e5f9d6a-bdbc-43e6-8c34-22f5bb5dea05",
-  "tilesetId": "",
+  "symbol": "scene_29",
+  "x": 1760,
+  "y": 60,
   "width": 20,
   "height": 18,
-  "type": "TOPDOWN",
+  "backgroundId": "1e5f9d6a-bdbc-43e6-8c34-22f5bb5dea05",
+  "tilesetId": "3645e357-a9ab-4bb6-8645-1813c0c9b105",
   "paletteIds": [],
   "spritePaletteIds": [
     "0718c95e-961b-4e87-a5ed-4f00b8b7c91e"
   ],
-  "collisions": "00168+",
   "autoFadeSpeed": null,
-  "symbol": "scene_29",
-  "x": 1760,
-  "y": 60,
+  "playerSpriteSheetId": "3b1fd25e-4a32-4c35-bbb0-8a98183d524b",
   "script": [
     {
       "command": "FO_EVENT_EXPORT_FLAGS",
@@ -40,6 +40,11 @@
         "filter": "Header"
       },
       "id": "7324166a-6539-41ec-8e9d-0da737126fea"
+    },
+    {
+      "command": "FO_EVENT_CONNECT_MAPS",
+      "args": {},
+      "id": "8e0cd042-2591-4029-b502-8a5b97a4db17"
     },
     {
       "command": "EVENT_RNG_SEED",
@@ -333,6 +338,1040 @@
       "id": "99371357-bc18-4cab-be05-c30ad78cd19e"
     },
     {
+      "command": "EVENT_GBVM_SCRIPT",
+      "args": {
+        "__label": "Touch Overworld Backgrounds",
+        "__collapse": true,
+        "references": [
+          {
+            "type": "background",
+            "id": "37060154-5f96-4aeb-bcfc-241b3397ddbf"
+          },
+          {
+            "type": "background",
+            "id": "144a2ef6-e23a-46ee-8ea5-108236851baa"
+          },
+          {
+            "type": "background",
+            "id": "e84f32ea-eee6-4e23-8dfa-566195cd39b3"
+          },
+          {
+            "type": "background",
+            "id": "ee8533af-88e3-4f7a-abf0-b5d6d22c95a1"
+          },
+          {
+            "type": "background",
+            "id": "66383795-02ad-4146-b472-0728a335ca70"
+          },
+          {
+            "type": "background",
+            "id": "e9689b07-b0f9-4aed-9590-b07768dd9deb"
+          },
+          {
+            "type": "background",
+            "id": "39295f3d-9dbb-4366-80b0-d3ce507cec79"
+          },
+          {
+            "type": "background",
+            "id": "8e22f3ef-1bf3-4c9a-a3b5-35a7b4b11efc"
+          },
+          {
+            "type": "background",
+            "id": "9bdea1d1-6c76-4a0a-a3db-c9598144254a"
+          },
+          {
+            "type": "background",
+            "id": "1e0e78bc-ff60-4905-9e47-72ea08fe4304"
+          },
+          {
+            "type": "background",
+            "id": "880d31de-afa6-48e9-9363-316d09c35c43"
+          },
+          {
+            "type": "background",
+            "id": "b8b069db-349f-4b50-9a33-dd7a4b261840"
+          },
+          {
+            "type": "background",
+            "id": "948dc7de-c1d3-4e2b-ae4d-d1cc6c562f26"
+          },
+          {
+            "type": "background",
+            "id": "372bc299-a3f8-4ba6-99e0-46b34268e811"
+          },
+          {
+            "type": "background",
+            "id": "d24482e0-8766-41b7-94ad-83c65b148e48"
+          },
+          {
+            "type": "background",
+            "id": "4c62a41c-5ff6-447e-acad-80d2e1e4e2fc"
+          },
+          {
+            "type": "background",
+            "id": "df95f1b0-12d1-4873-b437-4fd5321d8125"
+          },
+          {
+            "type": "background",
+            "id": "69cc63a3-c3f9-4ba8-b4b4-91bfb86618af"
+          },
+          {
+            "type": "background",
+            "id": "49c6f8d3-6162-4975-aa5a-4fc932a71130"
+          },
+          {
+            "type": "background",
+            "id": "36327fe1-576d-447a-bfd2-e6ffe96a4a0a"
+          },
+          {
+            "type": "background",
+            "id": "ec3926d2-ac2a-49f7-8ba2-5f969d68a713"
+          },
+          {
+            "type": "background",
+            "id": "0e7b6669-f14f-4b73-bcb0-7e83047dfdd8"
+          },
+          {
+            "type": "background",
+            "id": "ef8ef62b-4619-41a3-aa70-19f50ef0db0f"
+          },
+          {
+            "type": "background",
+            "id": "9088336d-03e6-48e8-aeb7-7e1775e224f7"
+          },
+          {
+            "type": "background",
+            "id": "f36b0507-16f4-427b-be14-45b0bbfb94b1"
+          },
+          {
+            "type": "background",
+            "id": "50add70d-3e1b-4ac7-a195-e2fc51a2032b"
+          },
+          {
+            "type": "background",
+            "id": "862eac9d-1d8b-49be-88e0-410db264ca86"
+          },
+          {
+            "type": "background",
+            "id": "3aa00190-5811-474f-9aac-f3394f59ac9e"
+          },
+          {
+            "type": "background",
+            "id": "bcb0c24c-72cb-4ae7-ac3f-2fad8fc2bd76"
+          },
+          {
+            "type": "background",
+            "id": "7b9e6e2f-3cf7-4d1e-909e-d4725986e9c7"
+          },
+          {
+            "type": "background",
+            "id": "8f50433f-e317-4e5e-bad1-0c39f8c55032"
+          },
+          {
+            "type": "background",
+            "id": "19d55c21-a11e-47fb-8f46-51ef64e383ae"
+          },
+          {
+            "type": "background",
+            "id": "05d30ff2-a6f1-4dff-9e96-83c4fe8c5a82"
+          },
+          {
+            "type": "background",
+            "id": "8999ef2d-5fdc-4627-82da-b01029c7ade8"
+          },
+          {
+            "type": "background",
+            "id": "866d979a-5d73-4744-8934-f23f19e311d6"
+          },
+          {
+            "type": "background",
+            "id": "5b21b7b3-7b49-462a-b34f-02e6e2011b45"
+          },
+          {
+            "type": "background",
+            "id": "510a24d4-2578-4aca-8548-fdd4d9ce6f70"
+          },
+          {
+            "type": "background",
+            "id": "df65b20a-c650-41c8-99e3-9810172672cd"
+          },
+          {
+            "type": "background",
+            "id": "87b724d3-25d4-42d7-8a3f-a528d09fe8c7"
+          },
+          {
+            "type": "background",
+            "id": "aed8992c-c3ae-4a3b-a20d-c50c9c3ed8f8"
+          },
+          {
+            "type": "background",
+            "id": "62b11ee2-8efb-4e38-9fb2-2d904f50b424"
+          },
+          {
+            "type": "background",
+            "id": "68fe92c2-6f7f-47a1-9ca2-512f3f8e02d7"
+          },
+          {
+            "type": "background",
+            "id": "4c93f176-bd08-421d-acf1-727a5fa7f94e"
+          },
+          {
+            "type": "background",
+            "id": "760a81c8-66b8-4fcc-8e77-08ef329873c5"
+          },
+          {
+            "type": "background",
+            "id": "47e5e56d-ff79-44e8-8043-095375f7c3c3"
+          },
+          {
+            "type": "background",
+            "id": "e1d8585e-0322-4486-9212-ca92dc4784af"
+          },
+          {
+            "type": "background",
+            "id": "907a4ed4-dd0c-4adc-98de-041d058b4252"
+          },
+          {
+            "type": "background",
+            "id": "5ebec8d9-c084-4a10-ad3b-15dd8feed913"
+          },
+          {
+            "type": "background",
+            "id": "fb05cd6e-2c35-4915-809e-3c513f9edd62"
+          },
+          {
+            "type": "background",
+            "id": "65fdeb29-8dc1-4f42-8aaf-13db7c6ea823"
+          },
+          {
+            "type": "background",
+            "id": "5f312a79-91b5-4b01-8d9c-62abdb5bc74c"
+          },
+          {
+            "type": "background",
+            "id": "e403ef75-7385-4f32-8c54-559db1f7a0e4"
+          },
+          {
+            "type": "background",
+            "id": "791b7b17-b9ce-454a-a1ea-09f938fc72c3"
+          },
+          {
+            "type": "background",
+            "id": "1423f3f3-7f0f-4ee0-84e4-3904bc2c257f"
+          },
+          {
+            "type": "background",
+            "id": "2bad8585-5124-4569-891b-b2a0c4428cec"
+          },
+          {
+            "type": "background",
+            "id": "33252b59-5315-443f-97b4-98a1d8185aab"
+          },
+          {
+            "type": "background",
+            "id": "43edf896-77b7-40f8-a38b-ea2ebc59f0e9"
+          },
+          {
+            "type": "background",
+            "id": "1a8d787e-603a-4d00-9485-684a32760686"
+          },
+          {
+            "type": "background",
+            "id": "a3f2f392-ea76-4fe9-9476-5cee5ac51772"
+          },
+          {
+            "type": "background",
+            "id": "d31dee98-549d-4716-a3c5-640b58a410ee"
+          },
+          {
+            "type": "background",
+            "id": "defbcb34-3ba0-4231-b54e-75a3a11f37a3"
+          },
+          {
+            "type": "background",
+            "id": "66f4f314-31f0-441b-a3b3-ab54726bdb97"
+          },
+          {
+            "type": "background",
+            "id": "ea9bffdb-946e-4a22-a918-17ec00788a80"
+          },
+          {
+            "type": "background",
+            "id": "9086bd7a-91a5-4df4-95ed-aa14d1669f40"
+          },
+          {
+            "type": "background",
+            "id": "6ba32b8e-b855-4159-b26f-b15f4af9f298"
+          },
+          {
+            "type": "background",
+            "id": "0a55b980-4438-4f62-aae2-9965364e72d4"
+          },
+          {
+            "type": "background",
+            "id": "ce9ba36d-926c-4613-9e38-8e110efab1d3"
+          },
+          {
+            "type": "background",
+            "id": "594e15f9-495d-4965-80c8-78431ca6b4ee"
+          },
+          {
+            "type": "background",
+            "id": "025d5c7f-9545-48fc-ad9e-329e032cbcae"
+          },
+          {
+            "type": "background",
+            "id": "d806eb1e-4ae4-4764-bda0-5f87eaa613b8"
+          },
+          {
+            "type": "background",
+            "id": "c8864383-5427-402a-a2ee-ab15017e9dfb"
+          },
+          {
+            "type": "background",
+            "id": "80caa028-de2d-4c40-b84f-272ca2c02696"
+          },
+          {
+            "type": "background",
+            "id": "eae5d60c-7208-45ac-a7c7-98aa04af5b16"
+          },
+          {
+            "type": "background",
+            "id": "520814dd-b339-4fda-ba64-f729abf75d0e"
+          },
+          {
+            "type": "background",
+            "id": "5dbb470e-745f-4f1b-9b07-63ca0d303289"
+          },
+          {
+            "type": "background",
+            "id": "8086ba8a-f5ae-4638-b0d7-ece1048a6c0e"
+          },
+          {
+            "type": "background",
+            "id": "80d582d7-2ac9-486d-8059-c0f11ebcfedd"
+          },
+          {
+            "type": "background",
+            "id": "f5c605db-4f93-4db6-8784-669b36aae52c"
+          },
+          {
+            "type": "background",
+            "id": "df4a0f30-d7ce-4cb3-9da1-930152564e1b"
+          },
+          {
+            "type": "background",
+            "id": "d92c0da6-cf5d-4e76-98f8-4f2ba12e874c"
+          },
+          {
+            "type": "background",
+            "id": "f2596fc7-26a7-4057-b4ea-5fb800321334"
+          },
+          {
+            "type": "background",
+            "id": "572a5bd8-2716-4a64-a136-83375984cbfc"
+          },
+          {
+            "type": "background",
+            "id": "b777ddc4-5c05-4f3a-a842-a6ea607e9830"
+          },
+          {
+            "type": "background",
+            "id": "77a0633f-fd0a-4906-9667-79234eb3f35c"
+          },
+          {
+            "type": "background",
+            "id": "7eb2aebb-3617-4960-a508-6ba957c583b5"
+          },
+          {
+            "type": "background",
+            "id": "e4d375e1-d93e-4f15-b3da-d9165e017132"
+          },
+          {
+            "type": "background",
+            "id": "7bdf22b8-d64d-4b18-b7c7-0252e3c18604"
+          },
+          {
+            "type": "background",
+            "id": "c1ca50cd-8634-4876-bdab-43dd8ad593b1"
+          },
+          {
+            "type": "background",
+            "id": "b6f4b3eb-46fc-4892-bf93-a815133484ad"
+          },
+          {
+            "type": "background",
+            "id": "f08ef84e-d47b-44b3-ae94-2389d5c6a660"
+          },
+          {
+            "type": "background",
+            "id": "4c2503a3-4e5e-4611-934c-4ae960b1f24d"
+          },
+          {
+            "type": "background",
+            "id": "6b5760c6-08b1-4715-9239-dc0f3fde0218"
+          },
+          {
+            "type": "background",
+            "id": "c9b11f88-e845-4227-bb67-f85dc0fe5028"
+          },
+          {
+            "type": "background",
+            "id": "45112339-f6a9-4562-9896-a671c761298c"
+          },
+          {
+            "type": "background",
+            "id": "601d8102-0808-49a8-9508-2907687e1c00"
+          },
+          {
+            "type": "background",
+            "id": "0d97356d-0af3-4fbd-a197-de78cdf386c6"
+          },
+          {
+            "type": "background",
+            "id": "cef48c68-8f91-475e-a241-bd76c5e9af96"
+          },
+          {
+            "type": "background",
+            "id": "49fba5fb-4572-4c17-a1c6-7e6ebd8a7f32"
+          },
+          {
+            "type": "background",
+            "id": "3dc7819b-495b-4531-8566-aca0d2335e23"
+          },
+          {
+            "type": "background",
+            "id": "8f2c69d6-d281-4e6c-a72a-35823349d0e9"
+          },
+          {
+            "type": "background",
+            "id": "4d362590-9eb6-4e90-ace8-ff26f6a7fe76"
+          },
+          {
+            "type": "background",
+            "id": "30ce7fc8-14e7-4b7a-a9d8-f02bddccd5a0"
+          },
+          {
+            "type": "background",
+            "id": "0de9b97f-14f1-443c-a1dc-cbbba5d33adb"
+          },
+          {
+            "type": "background",
+            "id": "46c29e63-e179-4a5a-8a94-2df7c705ef9c"
+          },
+          {
+            "type": "background",
+            "id": "76ee4bd3-784c-46cb-8505-939d7fdfe813"
+          },
+          {
+            "type": "background",
+            "id": "0a60f13f-d478-4eab-a78b-8426b4e4d3e0"
+          },
+          {
+            "type": "background",
+            "id": "1db9e9c8-cf8f-4ea3-9bb7-3b48a941d357"
+          },
+          {
+            "type": "background",
+            "id": "4165106c-52a3-4988-89b4-6dd036828439"
+          },
+          {
+            "type": "background",
+            "id": "cd1fcb16-b72a-45bd-ab88-38344a92fcee"
+          },
+          {
+            "type": "background",
+            "id": "bf768e35-42ed-4f06-8d7a-6fc0a1d3a21c"
+          },
+          {
+            "type": "background",
+            "id": "83b10d6a-7d48-4324-94a3-2e3a8755d3e7"
+          },
+          {
+            "type": "background",
+            "id": "bfc95abb-e6ed-45c0-94d5-241b9d0f0158"
+          },
+          {
+            "type": "background",
+            "id": "2a96bc58-62e7-4a41-ae05-7044a6085e5a"
+          },
+          {
+            "type": "background",
+            "id": "a0d95d09-a3a5-47fd-9532-2021ea10b020"
+          },
+          {
+            "type": "background",
+            "id": "5fc580a5-867d-40f4-afe7-291620a4f0e6"
+          },
+          {
+            "type": "background",
+            "id": "c97729ea-bf94-4c7a-8e7b-84074b081f93"
+          },
+          {
+            "type": "background",
+            "id": "e41114b1-afb7-4b74-b642-719035294957"
+          },
+          {
+            "type": "background",
+            "id": "61acf09e-9998-4871-bc67-f793ef858cb1"
+          },
+          {
+            "type": "background",
+            "id": "26d65d25-3fcf-49fe-8253-595abb4614fa"
+          },
+          {
+            "type": "background",
+            "id": "30af9166-03ce-46e9-828e-9acfc26cff63"
+          },
+          {
+            "type": "background",
+            "id": "3cc1d96b-a60f-4c1b-8f0c-af236e7de98e"
+          },
+          {
+            "type": "background",
+            "id": "75895b63-f207-40b3-b584-2ec63e1d213e"
+          },
+          {
+            "type": "background",
+            "id": "b28f4a0c-0fee-4ab6-a444-77afc5169b69"
+          },
+          {
+            "type": "background",
+            "id": "00b66778-9148-4d26-af9a-e65457174fe0"
+          },
+          {
+            "type": "background",
+            "id": "7e675574-733a-40ce-824f-8f4333b59901"
+          },
+          {
+            "type": "background",
+            "id": "f8e70a94-baa8-441d-88ec-b86eee090f14"
+          },
+          {
+            "type": "background",
+            "id": "6da69368-a998-4148-8922-30d42638f6a5"
+          },
+          {
+            "type": "background",
+            "id": "b7019316-5582-4dd4-bf7f-65dc1d32519a"
+          },
+          {
+            "type": "background",
+            "id": "05022d9c-ecac-4fe5-9bee-7c7e932dff8e"
+          },
+          {
+            "type": "background",
+            "id": "3c2b9dfe-c5d7-4a62-ad33-9e246edcfcb7"
+          },
+          {
+            "type": "background",
+            "id": "57262da3-3b61-4c42-8427-5778f1760597"
+          },
+          {
+            "type": "background",
+            "id": "ee158a8a-0226-4ed0-a0ea-7a2f6b3eb85b"
+          },
+          {
+            "type": "background",
+            "id": "abca1def-c351-42e4-9acb-c9858ce807d1"
+          },
+          {
+            "type": "background",
+            "id": "7a4b45e5-fa01-42a1-a516-24a2a77574f1"
+          },
+          {
+            "type": "background",
+            "id": "d9f83e1d-4e96-4fa8-8977-2f1b7278bf06"
+          },
+          {
+            "type": "background",
+            "id": "488e224f-0609-4b49-accf-b9fa2b148272"
+          },
+          {
+            "type": "background",
+            "id": "b21f68e1-eed7-49ff-a762-0a148cdef265"
+          },
+          {
+            "type": "background",
+            "id": "8cfd0414-86cc-4e99-bb29-a381076c409f"
+          },
+          {
+            "type": "background",
+            "id": "e791285c-ccbd-4dc4-8dad-b4de054d6e63"
+          },
+          {
+            "type": "background",
+            "id": "62dac417-4de0-44cb-b6e0-c917675b3aba"
+          },
+          {
+            "type": "background",
+            "id": "7dfa233f-4ba9-4adf-8a94-403b7a0382cd"
+          },
+          {
+            "type": "background",
+            "id": "679725dc-215d-461a-8c47-078abb8395b7"
+          },
+          {
+            "type": "background",
+            "id": "64d5df6a-6f5f-4bbc-8be6-7eacd7a867e7"
+          },
+          {
+            "type": "background",
+            "id": "5bcfb110-1e21-4cdb-9b19-047e214577ae"
+          },
+          {
+            "type": "background",
+            "id": "efed1d84-813a-4f12-a3c3-6cbeaeaf22b0"
+          },
+          {
+            "type": "background",
+            "id": "898968fa-b0f7-43df-b5ca-754ab9ced6c0"
+          },
+          {
+            "type": "background",
+            "id": "7815a7dd-6ff2-49f0-a505-4183d0718b4a"
+          },
+          {
+            "type": "background",
+            "id": "5ee326d9-7cff-4bfb-8317-ac8a347abcf5"
+          },
+          {
+            "type": "background",
+            "id": "a3e3b859-16e2-4b5e-8aaa-9b6f591fa023"
+          },
+          {
+            "type": "background",
+            "id": "c71b7798-a0ed-456d-b34e-baa9afe85f10"
+          },
+          {
+            "type": "background",
+            "id": "228d0a9f-4e64-4e1a-8d1d-802cab7ea0df"
+          },
+          {
+            "type": "background",
+            "id": "1e241807-b826-48fe-ab80-05162beef15a"
+          },
+          {
+            "type": "background",
+            "id": "fda69e24-d02e-46f2-958d-2ec95ff7050b"
+          },
+          {
+            "type": "background",
+            "id": "fa6ad38e-4f02-42cc-b386-83bb1da320e5"
+          },
+          {
+            "type": "background",
+            "id": "51ac2550-4276-4119-9ae5-71f65522638e"
+          },
+          {
+            "type": "background",
+            "id": "2606997a-dd53-4a64-bd2c-fa2fdce83b56"
+          },
+          {
+            "type": "background",
+            "id": "c7094046-34a4-4d62-b5b4-08560969de47"
+          },
+          {
+            "type": "background",
+            "id": "8dc6b9b6-b974-4e82-97c2-be78ada203a8"
+          },
+          {
+            "type": "background",
+            "id": "f4fea632-96ba-4e00-a18f-1563621ab832"
+          },
+          {
+            "type": "background",
+            "id": "80cca821-6e3b-4ffb-89fd-c4633165f419"
+          },
+          {
+            "type": "background",
+            "id": "c2daeb89-70d3-48d1-8ad4-143b520412f0"
+          },
+          {
+            "type": "background",
+            "id": "67b00739-cf2a-493b-85d1-fab8204982ba"
+          },
+          {
+            "type": "background",
+            "id": "1c364805-1b6d-464e-88b2-398cc900c1c5"
+          },
+          {
+            "type": "background",
+            "id": "969a1a00-4c66-4257-b310-8b7161a2a220"
+          },
+          {
+            "type": "background",
+            "id": "155b2cbb-3d4c-4496-bea5-9a77ebf4aa27"
+          },
+          {
+            "type": "background",
+            "id": "f8418d2b-df43-4a20-b694-a359fadf1df3"
+          },
+          {
+            "type": "background",
+            "id": "b615e402-0c5c-48ea-aca6-e20ceabb166f"
+          },
+          {
+            "type": "background",
+            "id": "81d7c14d-0258-4acc-bf97-2b2209d644d4"
+          },
+          {
+            "type": "background",
+            "id": "f417e136-7b78-43da-8060-4129fa346ccb"
+          },
+          {
+            "type": "background",
+            "id": "8ea0db87-934b-4d09-9821-47dda159c8be"
+          },
+          {
+            "type": "background",
+            "id": "29d6345a-ecd7-438c-b580-f66bd5cc2467"
+          },
+          {
+            "type": "background",
+            "id": "44cdae44-af18-4ad6-b5f3-6265ac15cd76"
+          },
+          {
+            "type": "background",
+            "id": "1c61da10-bd49-451a-8876-64e6d0593077"
+          },
+          {
+            "type": "background",
+            "id": "f786eb76-dabc-427b-adf0-09c78c87c530"
+          },
+          {
+            "type": "background",
+            "id": "00f99ce0-623b-46b2-b48e-8d24a80981f9"
+          },
+          {
+            "type": "background",
+            "id": "25023d3e-bd80-42f9-8dc5-6eefcbf6eb65"
+          },
+          {
+            "type": "background",
+            "id": "6356f4e8-fb6e-4a2e-bded-768edfac6671"
+          },
+          {
+            "type": "background",
+            "id": "d6d7a661-472d-44e9-bfd8-45c20c4d2ee4"
+          },
+          {
+            "type": "background",
+            "id": "3c305490-bee1-4a38-a03b-06b79e503e38"
+          },
+          {
+            "type": "background",
+            "id": "b007f94b-2870-44b4-8246-8513ed257293"
+          },
+          {
+            "type": "background",
+            "id": "0aac3276-1398-4933-a527-a3c7054272ca"
+          },
+          {
+            "type": "background",
+            "id": "4fbbf5d4-9682-44ed-9095-075f4244d12d"
+          },
+          {
+            "type": "background",
+            "id": "ac3880f4-8c12-46fd-b21b-7f69b380755f"
+          },
+          {
+            "type": "background",
+            "id": "c21abb06-588b-4568-ade3-18c22aeec613"
+          },
+          {
+            "type": "background",
+            "id": "155bfb28-2c1d-4dc0-a077-e4a4758bd748"
+          },
+          {
+            "type": "background",
+            "id": "4f6e4315-16a0-44be-8387-3e173baba005"
+          },
+          {
+            "type": "background",
+            "id": "eef01546-8a66-455b-a7a5-79cb4178f793"
+          },
+          {
+            "type": "background",
+            "id": "c881f7f6-312e-4e77-abba-2d7b76c3318e"
+          },
+          {
+            "type": "background",
+            "id": "f3c65c7b-d65b-4f89-ab56-207610052657"
+          },
+          {
+            "type": "background",
+            "id": "ae837b63-d1a0-4979-b9f0-7d95d88b820c"
+          },
+          {
+            "type": "background",
+            "id": "f418f51e-be5c-4839-b627-9d2bfc6cb1b3"
+          },
+          {
+            "type": "background",
+            "id": "163414ed-e828-4a76-8412-1a4a6c3dbfd5"
+          },
+          {
+            "type": "background",
+            "id": "726ab205-1160-4589-94b1-6fb30ae5e466"
+          },
+          {
+            "type": "background",
+            "id": "356743f0-a55e-43e5-b2f1-429a50785a7c"
+          },
+          {
+            "type": "background",
+            "id": "aedb51f6-cd69-44ca-9d06-d462e06314b7"
+          },
+          {
+            "type": "background",
+            "id": "96c29a09-a848-40dc-80db-431c7d4add65"
+          },
+          {
+            "type": "background",
+            "id": "ac4b88e7-d240-4a03-ae3c-c6e35b9f2d4e"
+          },
+          {
+            "type": "background",
+            "id": "6af8608c-7893-416e-a72a-503dd2b1428a"
+          },
+          {
+            "type": "background",
+            "id": "c4fbfa8a-883d-4dee-a144-ecb764c92081"
+          },
+          {
+            "type": "background",
+            "id": "642a787f-fece-4a5e-9b3b-fdd4dd1d7b1e"
+          },
+          {
+            "type": "background",
+            "id": "504ab149-d787-43be-9c93-91d24f0f3c1a"
+          },
+          {
+            "type": "background",
+            "id": "92233246-5067-470b-a50d-e39596fa59f0"
+          },
+          {
+            "type": "background",
+            "id": "d78c1794-ecb4-45ee-a94d-bcd26df87744"
+          },
+          {
+            "type": "background",
+            "id": "d290f8d6-0b4f-47d1-908b-757eb26914a5"
+          },
+          {
+            "type": "background",
+            "id": "ff40eebd-3f25-496e-ad7b-4e9b8e23e5b3"
+          },
+          {
+            "type": "background",
+            "id": "701308d2-9b76-4e71-ae9c-33f4d3fc7488"
+          },
+          {
+            "type": "background",
+            "id": "812c902a-4202-4d3d-805a-d529428704ed"
+          },
+          {
+            "type": "background",
+            "id": "daf58fc2-dc96-457d-8430-ff71988a6935"
+          },
+          {
+            "type": "background",
+            "id": "43d9bafb-e703-484a-9751-bdbc0658061e"
+          },
+          {
+            "type": "background",
+            "id": "c30c0d90-5492-44d2-8186-e1ec9fc3e1ea"
+          },
+          {
+            "type": "background",
+            "id": "fe05f4cd-0a5b-48eb-a6f2-aeeef8d9ede1"
+          },
+          {
+            "type": "background",
+            "id": "80173e42-f23a-4506-bbe4-50911e3721e3"
+          },
+          {
+            "type": "background",
+            "id": "70e2f78f-d367-4143-98ae-254138d55722"
+          },
+          {
+            "type": "background",
+            "id": "2a263ce2-645b-466c-becc-b35d80bc618b"
+          },
+          {
+            "type": "background",
+            "id": "c7546bf8-df87-4e91-8e9b-17fb50546c74"
+          },
+          {
+            "type": "background",
+            "id": "93b0cb0b-092b-4568-91c0-409e496ae03d"
+          },
+          {
+            "type": "background",
+            "id": "fe437a01-55ec-4db1-a577-a420506ee9b7"
+          },
+          {
+            "type": "background",
+            "id": "59be2fbd-d029-41d2-b45f-4fa3dca0c420"
+          },
+          {
+            "type": "background",
+            "id": "b1c3e0cb-4ea8-4f4f-9555-2ebef4ce2622"
+          },
+          {
+            "type": "background",
+            "id": "4054030e-dfc8-4cea-bf37-51ba5b66e307"
+          },
+          {
+            "type": "background",
+            "id": "2792eda7-9772-4ad0-b8a8-a2f4d6a6e890"
+          },
+          {
+            "type": "background",
+            "id": "7c11fbdf-8df0-476f-9787-bf8f31965cef"
+          },
+          {
+            "type": "background",
+            "id": "ac49b2de-894e-4af2-afa5-da2aa27ad690"
+          },
+          {
+            "type": "background",
+            "id": "d7ca8ad7-f36b-48c3-82de-71fbc13e6cc3"
+          },
+          {
+            "type": "background",
+            "id": "0e27efc0-76b5-4024-81ef-6e6c59b9bf0c"
+          },
+          {
+            "type": "background",
+            "id": "59bc7b5e-36bb-43d8-90be-11ebbe3a0fe4"
+          },
+          {
+            "type": "background",
+            "id": "acad3434-50e9-4534-b807-1b74bdb0bf7f"
+          },
+          {
+            "type": "background",
+            "id": "b3917277-0de8-497a-afdc-0ddbd05c6f41"
+          },
+          {
+            "type": "background",
+            "id": "00b074bd-f595-404c-bd29-40b1a74e4374"
+          },
+          {
+            "type": "background",
+            "id": "3f53891b-27db-42b8-b997-8ffe006aae0b"
+          },
+          {
+            "type": "background",
+            "id": "e30754d1-d0e5-417e-a95e-a2ef41307c53"
+          },
+          {
+            "type": "background",
+            "id": "7641c9b5-b8b7-49cf-a2cd-99a9dee5d724"
+          },
+          {
+            "type": "background",
+            "id": "fb55f9fa-d667-4dd1-a75f-730d25867913"
+          },
+          {
+            "type": "background",
+            "id": "650bb913-0565-4ec1-8389-b8e97cf631d3"
+          },
+          {
+            "type": "background",
+            "id": "3b18c41e-acfa-4ff7-acdb-cdc6449c6ddb"
+          },
+          {
+            "type": "background",
+            "id": "238abbc8-1061-4674-92d6-6878b5ded333"
+          },
+          {
+            "type": "background",
+            "id": "624387d4-e421-492b-ac79-596aa41399c2"
+          },
+          {
+            "type": "background",
+            "id": "d3e4567a-268e-4a49-a1b5-f74e866ca662"
+          },
+          {
+            "type": "background",
+            "id": "08ff4523-898f-4247-84f9-c96cc0290c7c"
+          },
+          {
+            "type": "background",
+            "id": "859eb289-7824-49ed-ba41-c0b58e940ee5"
+          },
+          {
+            "type": "background",
+            "id": "a4c740a9-6efb-4d1c-b775-493d4e60083b"
+          },
+          {
+            "type": "background",
+            "id": "25084d45-5f67-48d8-8279-7eb4401ecf6d"
+          },
+          {
+            "type": "background",
+            "id": "e4ab710a-ecbf-4aa3-8ad6-ba70800e0975"
+          },
+          {
+            "type": "background",
+            "id": "391c8ad5-dbaf-41dc-b6c7-1504d0fc763b"
+          },
+          {
+            "type": "background",
+            "id": "f320eb9c-341b-4516-bb7c-a28aac87edd6"
+          },
+          {
+            "type": "background",
+            "id": "fa0bfa48-2c5a-4830-9203-c792f7e723d8"
+          },
+          {
+            "type": "background",
+            "id": "4caff6be-c784-4de4-8efc-2f733a74fbfd"
+          },
+          {
+            "type": "background",
+            "id": "a4f3e167-0a56-4e78-be7c-051ad195374b"
+          },
+          {
+            "type": "background",
+            "id": "a58c8ed6-bd03-4e32-bd11-67d535812c8d"
+          },
+          {
+            "type": "background",
+            "id": "3cac40a2-ecf0-4240-a8bd-7a47fee6bc2e"
+          },
+          {
+            "type": "background",
+            "id": "a6049da9-cede-409a-b91f-430eaaa99329"
+          },
+          {
+            "type": "background",
+            "id": "49d0a291-93c2-437c-bf67-4b05d8fe41c5"
+          },
+          {
+            "type": "background",
+            "id": "4c70c690-ee90-4c46-b972-c629fd5d69e5"
+          },
+          {
+            "type": "background",
+            "id": "dd7e9b13-8f92-4ec7-86b3-e6fa9f443b9f"
+          },
+          {
+            "type": "background",
+            "id": "004c84f4-31e8-4d3e-9cff-f875495ff429"
+          },
+          {
+            "type": "background",
+            "id": "70765ce5-21b2-4a92-aa55-8010a47700d3"
+          }
+        ]
+      },
+      "id": "55d906aa-7d34-451f-bf73-5201ce42d71f"
+    },
+    {
       "command": "MY_EVENT_CALL_NATIVE",
       "args": {
         "argCount": 0,
@@ -354,14 +1393,14 @@
     {
       "command": "EVENT_SWITCH_SCENE",
       "args": {
-        "sceneId": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64",
+        "sceneId": "02ae6e06-a321-47e7-95cf-214d671da2b1",
         "x": {
           "type": "number",
-          "value": 49
+          "value": 0
         },
         "y": {
           "type": "number",
-          "value": 74
+          "value": 0
         },
         "direction": "",
         "fadeSpeed": 0,
@@ -373,5 +1412,5 @@
   "playerHit1Script": [],
   "playerHit2Script": [],
   "playerHit3Script": [],
-  "playerSpriteSheetId": "3b1fd25e-4a32-4c35-bbb0-8a98183d524b"
+  "collisions": "00168+"
 }

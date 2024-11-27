@@ -1,13 +1,13 @@
 {
   "_resourceType": "background",
-  "id": "1d079890-1968-46a5-b703-7327171cdf44",
+  "id": "ee158a8a-0226-4ed0-a0ea-7a2f6b3eb85b",
   "name": "overworld/131",
-  "symbol": "bg_overworld_130",
+  "symbol": "bg_overworld_131",
   "width": 32,
   "height": 32,
   "imageWidth": 256,
   "imageHeight": 256,
   "filename": "overworld/131.png",
   "tileColors": "",
-  "autoColor": false
+  "autoColor":true
 }

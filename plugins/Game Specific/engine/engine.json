@@ -12,6 +12,10 @@
         {
             "key": "STRING_INPUT",
             "label": "String Input"
+        },
+        {
+            "key": "OVERWORLD",
+            "label": "Overworld"
         }
     ]
 }

@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "07ee7ceb-a298-4478-a5f2-31407f2e2347",
+  "name": "overworld_tileset",
+  "symbol": "bg_overworld_tileset",
+  "width": 32,
+  "height": 32,
+  "imageWidth": 256,
+  "imageHeight": 256,
+  "filename": "overworld_tileset.png",
+  "tileColors": "",
+  "autoColor": true
+}
