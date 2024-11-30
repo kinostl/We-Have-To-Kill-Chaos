@@ -1,0 +1,12 @@
+{
+  "_resourceType": "background",
+  "id": "09a31f36-1b0e-459e-9bfa-9a89befa0ac8",
+  "name": "overworld_tiles_wrong_colors",
+  "symbol": "bg_overworld_tiles_wrong_co",
+  "width": 32,
+  "height": 32,
+  "imageWidth": 256,
+  "imageHeight": 256,
+  "filename": "overworld_tiles_wrong_colors.png",
+  "tileColors": ""
+}

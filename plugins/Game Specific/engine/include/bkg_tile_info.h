@@ -3,8 +3,8 @@
 
 #include <gb/gb.h>
 #include <gbs_types.h>
-#include "bkg_tile_list.h" // IWYU pragma: export
 #include "ff_types.h"
+#include "bkg_tile_list.h" // IWYU pragma: export
 
 void set_overworld_ptr(overworld_far_ptr * ptr, UBYTE x, UBYTE y) BANKED;
 

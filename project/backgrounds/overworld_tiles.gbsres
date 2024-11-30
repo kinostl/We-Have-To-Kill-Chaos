@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "c42a9438-bd5a-4398-8e9f-648fedacb0db",
+  "name": "overworld_tiles",
+  "symbol": "bg_overworld_tiles",
+  "width": 32,
+  "height": 32,
+  "imageWidth": 256,
+  "imageHeight": 256,
+  "filename": "overworld_tiles.png",
+  "tileColors": "",
+  "autoColor": true
+}

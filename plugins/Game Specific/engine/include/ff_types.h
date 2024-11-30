@@ -6,6 +6,7 @@
 
 typedef struct {
     UBYTE bank;
-    const background_t * ptr;
+    const unsigned char * map_ptr;
+    const unsigned char * attrs_ptr;
 } overworld_far_ptr;
 #endif
