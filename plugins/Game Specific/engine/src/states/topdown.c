@@ -62,6 +62,12 @@ void set_player_flags(UBYTE x, UBYTE y) BANKED {
   VM_GLOBAL(VAR_HALF_HIDDEN) = tile == HALF_HIDDEN;
   VM_GLOBAL(VAR_SAFE_FROM_MONSTERS) = tile == SAFE_FROM_MONSTERS;
 }
+inline UBYTE my_tile_at(UBYTE tx, UBYTE ty){
+    if(scene_type != SCENE_TYPE_OVERWORLD){
+        return tile_at(tx, ty);
+    }
+    return 0; //We want Overworld to handle its own shit
+}
 
 void topdown_update(void) BANKED {
     actor_t *hit_actor;
@@ -92,7 +98,7 @@ void topdown_update(void) BANKED {
             UBYTE tile_x = ((PLAYER.pos.x >> 4) + PLAYER.bounds.left) >> 3;
             while (tile_start != tile_end) {
                 set_player_flags(tile_x - 1, tile_start);
-                if (tile_at(tile_x - 1, tile_start) & COLLISION_RIGHT) {
+                if (my_tile_at(tile_x - 1, tile_start) & COLLISION_RIGHT) {
                     player_moving = FALSE;
                     break;
                 }
@@ -108,7 +114,7 @@ void topdown_update(void) BANKED {
             UBYTE tile_x = ((PLAYER.pos.x >> 4) + PLAYER.bounds.right) >> 3;
             while (tile_start != tile_end) {
                 set_player_flags(tile_x + 1, tile_start);
-                if (tile_at(tile_x + 1, tile_start) & COLLISION_LEFT) {
+                if (my_tile_at(tile_x + 1, tile_start) & COLLISION_LEFT) {
                     player_moving = FALSE;
                     break;
                 }
@@ -124,7 +130,7 @@ void topdown_update(void) BANKED {
             UBYTE tile_y = ((PLAYER.pos.y >> 4) + PLAYER.bounds.top) >> 3;
             while (tile_start != tile_end) {
                 set_player_flags(tile_start, tile_y - 1);
-                if (tile_at(tile_start, tile_y - 1) & COLLISION_BOTTOM) {
+                if (my_tile_at(tile_start, tile_y - 1) & COLLISION_BOTTOM) {
                     player_moving = FALSE;
                     break;
                 }
@@ -140,7 +146,7 @@ void topdown_update(void) BANKED {
             UBYTE tile_y = ((PLAYER.pos.y >> 4) + PLAYER.bounds.bottom) >> 3;
             while (tile_start != tile_end) {
                 set_player_flags(tile_start, tile_y + 1);
-                if (tile_at(tile_start, tile_y + 1) & COLLISION_TOP) {
+                if (my_tile_at(tile_start, tile_y + 1) & COLLISION_TOP) {
                     player_moving = FALSE;
                     break;
                 }
