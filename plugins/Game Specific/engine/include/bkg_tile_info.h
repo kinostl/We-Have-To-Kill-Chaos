@@ -6,6 +6,14 @@
 #include "ff_types.h"
 #include "bkg_tile_list.h" // IWYU pragma: export
 
-void set_overworld_ptr(overworld_far_ptr * ptr, UBYTE x, UBYTE y) BANKED;
+
+extern const overworld_far_ptr overworld_db[];
+
+BANKREF_EXTERN(overworld_db)
+
+inline void set_overworld_ptr(overworld_far_ptr *ptr, UBYTE x, UBYTE y) {
+  UBYTE pos = x + (y * 16);
+  MemcpyBanked(ptr, &overworld_db[pos], sizeof(overworld_far_ptr), BANK(overworld_db));
+}
 
 #endif

@@ -1,8 +1,11 @@
-#include <data/scene_types.h>
+#include "bkg_tile_info.h"
+#include "states/overworld.h"
+#include <gb/hardware.h>
 #pragma bank 255
 
 #include "scroll.h"
 
+#include <string.h>
 
 #include "system.h"
 #include "actor.h"
@@ -10,7 +13,9 @@
 #include "data_manager.h"
 #include "game_time.h"
 #include "math.h"
+#include "fade_manager.h"
 #include "parallax.h"
+#include "palette.h"
 
 // put submap of a large map to screen
 void set_bkg_submap(UINT8 x, UINT8 y, UINT8 w, UINT8 h, const unsigned char *map, UINT8 map_w) OLDCALL;
@@ -58,23 +63,48 @@ void scroll_reset(void) BANKED {
     game_time       = 0; // was in scroll_render_rows() - that is insane, here is not the best place either 
 }
 
+void overworld_scroll_update(void) BANKED {
+    INT16 x, y;
+
+    x = (camera_x >> 4) - (SCREENWIDTH >> 1);
+    y = (camera_y >> 4) - (SCREENHEIGHT >> 1);
+
+    scroll_x = x;
+    scroll_y = y;
+    draw_scroll_x = x + scroll_offset_x;
+    draw_scroll_y = y + scroll_offset_y;
+
+    if(rerender_overworld){
+        VBK_REG=1;
+        SetBankedBkgTiles(0, 0, 32, 32, overworld_maps[3].attrs_ptr, overworld_maps[3].bank);
+        VBK_REG=0;
+        SetBankedBkgTiles(0, 0, 32, 32, overworld_maps[3].map_ptr, overworld_maps[3].bank);
+        rerender_overworld = FALSE;
+    }
+}
+
 void scroll_update(void) BANKED {
+
+    if (scene_type == SCENE_TYPE_OVERWORLD) {
+        return overworld_scroll_update();
+    }
+    
     INT16 x, y;
     UBYTE render = FALSE;
 
     x = (camera_x >> 4) - (SCREENWIDTH >> 1);
     y = (camera_y >> 4) - (SCREENHEIGHT >> 1);
 
-    // if (x & 0x8000u) {  // check for negative signed bit
-    //     x = 0u;
-    // } else if (x > scroll_x_max) {
-    //     x = scroll_x_max;
-    // }
-    // if (y & 0x8000u) {
-    //     y = 0u;
-    // } else if (y > scroll_y_max) {
-    //     y = scroll_y_max;
-    // }
+    if (x & 0x8000u) {  // check for negative signed bit
+        x = 0u;
+    } else if (x > scroll_x_max) {
+        x = scroll_x_max;
+    }
+    if (y & 0x8000u) {
+        y = 0u;
+    } else if (y > scroll_y_max) {
+        y = scroll_y_max;
+    }
 
     current_col = scroll_x >> 3;
     current_row = scroll_y >> 3;
@@ -113,7 +143,7 @@ UBYTE scroll_viewport(parallax_row_t * port) {
             scroll_load_col(x, port->start_tile, port->tile_height);
         } else if (current_col == new_col + 1) {
             // Render left column
-            UBYTE x = (shift_col - SCREEN_PAD_LEFT);
+            UBYTE x = MAX(0, shift_col - SCREEN_PAD_LEFT);
             scroll_load_col(x, port->start_tile, port->tile_height);
         } else if (current_col != new_col) {
             // If column differs by more than 1 render entire viewport
@@ -128,15 +158,15 @@ UBYTE scroll_viewport(parallax_row_t * port) {
         if (current_col == new_col - 1) {
             // Queue right column
             UBYTE x = new_col - SCREEN_PAD_LEFT + SCREEN_TILE_REFRES_W - 1;
-            UBYTE y = (MAX((new_row - SCREEN_PAD_TOP), port->start_tile));
-            UBYTE full_y = ((new_row - SCREEN_PAD_TOP));
+            UBYTE y = MAX(0, MAX((new_row - SCREEN_PAD_TOP), port->start_tile));
+            UBYTE full_y = MAX(0, (new_row - SCREEN_PAD_TOP));
             scroll_queue_col(x, y);
             activate_actors_in_col(x, full_y);
         } else if (current_col == new_col + 1) {
             // Queue left column
-            UBYTE x = (new_col - SCREEN_PAD_LEFT);
-            UBYTE y = (MAX((new_row - SCREEN_PAD_TOP), port->start_tile));
-            UBYTE full_y = ((new_row - SCREEN_PAD_TOP));
+            UBYTE x = MAX(0, new_col - SCREEN_PAD_LEFT);
+            UBYTE y = MAX(0, MAX((new_row - SCREEN_PAD_TOP), port->start_tile));
+            UBYTE full_y = MAX(0, (new_row - SCREEN_PAD_TOP));
             scroll_queue_col(x, y);
             activate_actors_in_col(x, full_y);
         } else if (current_col != new_col) {
@@ -148,13 +178,13 @@ UBYTE scroll_viewport(parallax_row_t * port) {
         // If row is +/- 1 just render next row
         if (current_row == new_row - 1) {
             // Queue bottom row
-            UBYTE x = (new_col - SCREEN_PAD_LEFT);
+            UBYTE x = MAX(0, new_col - SCREEN_PAD_LEFT);
             UBYTE y = new_row - SCREEN_PAD_TOP + SCREEN_TILE_REFRES_H - 1;
             scroll_queue_row(x, y);
             activate_actors_in_row(x, y);
         } else if (current_row == new_row + 1) {
             // Queue top row
-            UBYTE x = (new_col - SCREEN_PAD_LEFT);
+            UBYTE x = MAX(0, new_col - SCREEN_PAD_LEFT);
             UBYTE y = MAX(port->start_tile, new_row - SCREEN_PAD_TOP);
             scroll_queue_row(x, y);
             activate_actors_in_row(x, y);
@@ -174,8 +204,8 @@ UBYTE scroll_viewport(parallax_row_t * port) {
 }
 
 void scroll_repaint(void) BANKED {
-    scroll_reset();
-    scroll_update();
+  scroll_reset();
+  scroll_update();
 }
 
 void scroll_render_rows(INT16 scroll_x, INT16 scroll_y, BYTE row_offset, BYTE n_rows) {
@@ -183,8 +213,8 @@ void scroll_render_rows(INT16 scroll_x, INT16 scroll_y, BYTE row_offset, BYTE n_
     pending_w_i = 0;
     pending_h_i = 0;
 
-    UBYTE x = ((scroll_x >> 3) - SCREEN_PAD_LEFT);
-    UBYTE y = ((scroll_y >> 3) + row_offset);
+    UBYTE x = MAX(0, (scroll_x >> 3) - SCREEN_PAD_LEFT);
+    UBYTE y = MAX(0, (scroll_y >> 3) + row_offset);
 
     for (BYTE i = 0; i != n_rows && y != image_tile_height; ++i, y++) {
         scroll_load_row(x, y);
@@ -235,16 +265,8 @@ void scroll_load_pending_row(void) NONBANKED {
     }
 #endif
     // DMG Row Load
-    // if (scene_type != SCENE_TYPE_OVERWORLD) {
-      SWITCH_ROM(image_bank);
-      set_bkg_submap(pending_w_x, pending_w_y, width, 1, image_ptr, image_tile_width);
-    // } else {
-    //   SWITCH_ROM(overworld_maps[0].bank);
-    //   set_bkg_submap(pending_w_x, pending_w_y, width, 1, overworld_maps[0].map_ptr, 10);
-
-    //   SWITCH_ROM(overworld_maps[1].bank);
-    //   set_bkg_submap(pending_w_x, pending_w_y, width, 1, overworld_maps[1].map_ptr, 10);
-    // }
+    SWITCH_ROM(image_bank);
+    set_bkg_submap(pending_w_x, pending_w_y, width, 1, image_ptr, image_tile_width);
 
     pending_w_x += width;
     pending_w_i -= width;

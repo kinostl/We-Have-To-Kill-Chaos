@@ -24,75 +24,22 @@
 #include <math.h>
 
 overworld_far_ptr overworld_maps[4];
-UBYTE overworld_tile_quad;
-
-void update_world(UBYTE map_x, UBYTE map_y) BANKED {
-  // Assume player is always in a 256 sq px grid
-  // Split that into 4 sub-grids
-  // Split *those* into 4 sub-grids?
-  // So, proper grid should be 16 64 sq px spaces
-
-  // If in the top-left, set left and up
-  // If in the top-right, set right and up
-
-  // If in the bot-left, set left and down
-  // If in the bot-right, set right and down
-
-  // When player steps into new 256-grid ???
-
-  set_overworld_ptr(&overworld_maps[3], map_x, map_y);
-
-  // image_bank = overworld_ptr.bank;
-  // image_ptr = overworld_ptr.map_ptr;
-
-  // image_attr_bank = overworld_ptr.bank;
-  // image_attr_ptr = overworld_ptr.attrs_ptr;
-  // scroll_repaint();
-
-  // Use 0 for Up and Down
-  // Use 1 for Left and Right
-  // Use 2 for Inter
-
-  /*
-      const UBYTE left = (PLAYER.pos.x >> 7) < 16;
-      const UBYTE top = (PLAYER.pos.y >> 7) < 16;
-
-      if(top && left){
-        // Top Left
-        overworld_tile_quad = 0;
-        set_overworld_ptr(&overworld_maps[0], map_x, map_y - 1);
-        set_overworld_ptr(&overworld_maps[1], map_x - 1, map_y);
-        set_overworld_ptr(&overworld_maps[2], map_x - 1, map_y - 1);
-      }else if(top){
-        // Top Right
-        overworld_tile_quad = 1;
-        set_overworld_ptr(&overworld_maps[0], map_x, map_y - 1);
-        set_overworld_ptr(&overworld_maps[1], map_x + 1, map_y);
-        set_overworld_ptr(&overworld_maps[2], map_x + 1, map_y - 1);
-      }else if(left){
-        // Bottom Left
-        overworld_tile_quad = 2;
-        set_overworld_ptr(&overworld_maps[0], map_x, map_y + 1);
-        set_overworld_ptr(&overworld_maps[1], map_x - 1, map_y);
-        set_overworld_ptr(&overworld_maps[2], map_x - 1, map_y + 1);
-      }else{
-        // Bottom Right
-        overworld_tile_quad = 3;
-        set_overworld_ptr(&overworld_maps[0], map_x, map_y + 1);
-        set_overworld_ptr(&overworld_maps[1], map_x + 1, map_y);
-        set_overworld_ptr(&overworld_maps[2], map_x + 1, map_y + 1);
-      }
-  */
-}
+overworld_quad overworld_tile_quad;
+BOOLEAN rerender_overworld;
 
 void overworld_init(void) BANKED {
   PLAYER.pos.y = PLAYER.pos.x = 4 << 7;
+  rerender_overworld = TRUE;
   SetBankedBkgData(0, overworld_tiles_TILE_COUNT, overworld_tiles_tiles,
                    BANK(overworld_tiles));
   MemcpyBanked(BkgPalette, overworld_tiles_palettes,
                sizeof(palette_entry_t) * overworld_tiles_PALETTE_COUNT,
                BANK(overworld_tiles));
 
+  set_overworld_ptr(&overworld_maps[0], 5, 8);
+  set_overworld_ptr(&overworld_maps[1], 5, 9);
+  set_overworld_ptr(&overworld_maps[2], 6, 8);
+  set_overworld_ptr(&overworld_maps[3], 6, 9);
   // image_tile_height = 32;
   // image_tile_width = 32;
   // image_width = image_tile_width * 8;
@@ -105,14 +52,15 @@ void overworld_init(void) BANKED {
 }
 
 void overworld_update(void) BANKED {
-  static UBYTE map_x = 0;
-  static UBYTE map_y = 0;
-
   topdown_update();
+
+  static UBYTE map_x = 6;
+  static UBYTE map_y = 9;
 
   UBYTE next_map_x = map_x;
   UBYTE next_map_y = map_y;
 
+  // When player steps into new 256-grid ???
   if ((PLAYER.pos.x >> 7) > 32) {
     next_map_x++;
     PLAYER.pos.x -= (32 << 7);
@@ -127,11 +75,64 @@ void overworld_update(void) BANKED {
     PLAYER.pos.y += (32 << 7);
   }
 
+  // Assume player is always in a 256 sq px grid
+  // Split that into 4 sub-grids
+
+  // If in the top-left, set left and up
+  // If in the top-right, set right and up
+
+  // If in the bot-left, set left and down
+  // If in the bot-right, set right and down
+
+  const UBYTE left = (PLAYER.pos.x >> 7) < 16;
+  const UBYTE top = (PLAYER.pos.y >> 7) < 16;
+
+  if (top && left) {
+    // Top Left
+    overworld_tile_quad = Q_TOP_LEFT;
+  } else if (top) {
+    // Top Right
+    overworld_tile_quad = Q_TOP_RIGHT;
+  } else if (left) {
+    // Bottom Left
+    overworld_tile_quad = Q_BOT_LEFT;
+  } else {
+    // Bottom Right
+    overworld_tile_quad = Q_BOT_RIGHT;
+  }
+
   if (map_x != next_map_x || map_y != next_map_y) {
     map_x = next_map_x;
     map_y = next_map_y;
 
-    update_world(map_x, map_y);
-  }
+    // Use 0 for Up and Down
+    // Use 1 for Left and Right
+    // Use 2 for Inter
+    switch (overworld_tile_quad) {
+    case Q_TOP_LEFT:
+      set_overworld_ptr(&overworld_maps[0], map_x, map_y - 1);
+      set_overworld_ptr(&overworld_maps[1], map_x - 1, map_y);
+      set_overworld_ptr(&overworld_maps[2], map_x - 1, map_y - 1);
+      break;
+    case Q_TOP_RIGHT:
+      set_overworld_ptr(&overworld_maps[0], map_x, map_y - 1);
+      set_overworld_ptr(&overworld_maps[1], map_x + 1, map_y);
+      set_overworld_ptr(&overworld_maps[2], map_x + 1, map_y - 1);
+      break;
+    case Q_BOT_LEFT:
+      set_overworld_ptr(&overworld_maps[0], map_x, map_y + 1);
+      set_overworld_ptr(&overworld_maps[1], map_x - 1, map_y);
+      set_overworld_ptr(&overworld_maps[2], map_x - 1, map_y + 1);
+      break;
+    case Q_BOT_RIGHT:
+      set_overworld_ptr(&overworld_maps[0], map_x, map_y + 1);
+      set_overworld_ptr(&overworld_maps[1], map_x + 1, map_y);
+      set_overworld_ptr(&overworld_maps[2], map_x + 1, map_y + 1);
+      break;
+    }
 
+    set_overworld_ptr(&overworld_maps[3], map_x, map_y);
+    rerender_overworld = TRUE;
+    scroll_update();
+  }
 }
