@@ -77,4 +77,8 @@ inline void scroll_shadow_update(void) {
     parallax_rows[2].scx = parallax_rows[2].shadow_scx;
 }
 
+void SetBankedBkgSubmap(UBYTE x, UBYTE y, UBYTE w, UBYTE h,
+                        const unsigned char *tiles, UBYTE map_w,
+                        UBYTE bank) NONBANKED;
+
 #endif

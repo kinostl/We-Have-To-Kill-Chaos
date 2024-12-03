@@ -93,15 +93,35 @@ BOOLEAN overworld_scroll_update(void) BANKED {
   scroll_y = y;
   draw_scroll_x = x + scroll_offset_x;
   draw_scroll_y = y + scroll_offset_y;
+  UBYTE next_map;
 
   if (current_col != new_col) {
+    if (new_col < 0) {
+      next_map = 0;
+      new_col += 32;
+    } else if (new_col > 31) {
+      next_map = 0;
+      new_col -= 32;
+    } else {
+      next_map = 3;
+    }
     SetBankedBkgSubmap(new_col + ((PLAYER.dir == DIR_RIGHT) ? 20 : 0), new_row,
-                       1, 18, overworld_maps[3].map_ptr, 32,
-                       overworld_maps[3].bank);
+                       1, 18, overworld_maps[next_map].map_ptr, 32,
+                       overworld_maps[next_map].bank);
   } else if (current_row != new_row) {
+    if (new_row < 0) {
+      next_map = 1;
+      new_col += 32;
+    } else if (new_row > 31) {
+      next_map = 1;
+      new_col -= 32;
+    } else {
+      next_map = 3;
+    }
+
     SetBankedBkgSubmap(new_col, new_row + ((PLAYER.dir == DIR_DOWN) ? 18 : 0),
-                       20, 1, overworld_maps[3].map_ptr, 32,
-                       overworld_maps[3].bank);
+                       20, 1, overworld_maps[next_map].map_ptr, 32,
+                       overworld_maps[next_map].bank);
   }
 
   return TRUE;
@@ -109,9 +129,9 @@ BOOLEAN overworld_scroll_update(void) BANKED {
 
 void scroll_update(void) BANKED {
 
-    if (overworld_scroll_update()) {
-        return;
-    }
+    // if (overworld_scroll_update()) {
+    //     return;
+    // }
 
     INT16 x, y;
     UBYTE render = FALSE;
@@ -139,6 +159,10 @@ void scroll_update(void) BANKED {
     scroll_y = y;
     draw_scroll_x = x + scroll_offset_x;
     draw_scroll_y = y + scroll_offset_y;
+
+    if (scene_type == SCENE_TYPE_OVERWORLD) {
+      return;
+    }
 
     if (scroll_viewport(parallax_rows)) return;
     if (scroll_viewport(parallax_rows + 1)) return;

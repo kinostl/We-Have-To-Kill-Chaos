@@ -3,10 +3,10 @@
   "id": "1a945012-14c4-4837-a866-10b58a43a0db",
   "name": "fs_placeholder",
   "symbol": "bg_fs_placeholder",
-  "width": 64,
-  "height": 64,
-  "imageWidth": 512,
-  "imageHeight": 512,
+  "width": 32,
+  "height": 32,
+  "imageWidth": 256,
+  "imageHeight": 256,
   "filename": "fs_placeholder.png",
   "tileColors": ""
 }
