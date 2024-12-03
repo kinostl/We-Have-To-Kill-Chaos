@@ -1,5 +1,6 @@
 #include "bkg_tile_info.h"
 #include "states/overworld.h"
+#include <gb/gb.h>
 #include <gb/hardware.h>
 #pragma bank 255
 
@@ -16,6 +17,7 @@
 #include "fade_manager.h"
 #include "parallax.h"
 #include "palette.h"
+#include "ff_debug.h"
 
 // put submap of a large map to screen
 void set_bkg_submap(UINT8 x, UINT8 y, UINT8 w, UINT8 h, const unsigned char *map, UINT8 map_w) OLDCALL;
@@ -63,32 +65,54 @@ void scroll_reset(void) BANKED {
     game_time       = 0; // was in scroll_render_rows() - that is insane, here is not the best place either 
 }
 
-void overworld_scroll_update(void) BANKED {
-    INT16 x, y;
+void SetBankedBkgSubmap(UBYTE x, UBYTE y, UBYTE w, UBYTE h,
+                        const unsigned char *tiles, UBYTE map_w,
+                        UBYTE bank) NONBANKED {
+  const UBYTE _save = CURRENT_BANK;
+  SWITCH_ROM(bank);
+  set_bkg_submap(x, y, w, h, tiles, map_w);
+  SWITCH_ROM(_save);
+}
 
-    x = (camera_x >> 4) - (SCREENWIDTH >> 1);
-    y = (camera_y >> 4) - (SCREENHEIGHT >> 1);
+BOOLEAN overworld_scroll_update(void) BANKED {
+  if (scene_type != SCENE_TYPE_OVERWORLD) {
+    return FALSE;
+  }
 
-    scroll_x = x;
-    scroll_y = y;
-    draw_scroll_x = x + scroll_offset_x;
-    draw_scroll_y = y + scroll_offset_y;
+  INT16 x, y;
 
-    if(rerender_overworld){
-        VBK_REG=1;
-        SetBankedBkgTiles(0, 0, 32, 32, overworld_maps[3].attrs_ptr, overworld_maps[3].bank);
-        VBK_REG=0;
-        SetBankedBkgTiles(0, 0, 32, 32, overworld_maps[3].map_ptr, overworld_maps[3].bank);
-        rerender_overworld = FALSE;
-    }
+  x = (camera_x >> 4) - (SCREENWIDTH >> 1);
+  y = (camera_y >> 4) - (SCREENHEIGHT >> 1);
+
+  current_col = scroll_x >> 3;
+  current_row = scroll_y >> 3;
+  new_col = x >> 3;
+  new_row = y >> 3;
+
+  scroll_x = x;
+  scroll_y = y;
+  draw_scroll_x = x + scroll_offset_x;
+  draw_scroll_y = y + scroll_offset_y;
+
+  if (current_col != new_col) {
+    SetBankedBkgSubmap(new_col + ((PLAYER.dir == DIR_RIGHT) ? 20 : 0), new_row,
+                       1, 18, overworld_maps[3].map_ptr, 32,
+                       overworld_maps[3].bank);
+  } else if (current_row != new_row) {
+    SetBankedBkgSubmap(new_col, new_row + ((PLAYER.dir == DIR_DOWN) ? 18 : 0),
+                       20, 1, overworld_maps[3].map_ptr, 32,
+                       overworld_maps[3].bank);
+  }
+
+  return TRUE;
 }
 
 void scroll_update(void) BANKED {
 
-    if (scene_type == SCENE_TYPE_OVERWORLD) {
-        return overworld_scroll_update();
+    if (overworld_scroll_update()) {
+        return;
     }
-    
+
     INT16 x, y;
     UBYTE render = FALSE;
 

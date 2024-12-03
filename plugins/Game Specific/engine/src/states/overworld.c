@@ -25,11 +25,9 @@
 
 overworld_far_ptr overworld_maps[4];
 overworld_quad overworld_tile_quad;
-BOOLEAN rerender_overworld;
 
 void overworld_init(void) BANKED {
   PLAYER.pos.y = PLAYER.pos.x = 4 << 7;
-  rerender_overworld = TRUE;
   SetBankedBkgData(0, overworld_tiles_TILE_COUNT, overworld_tiles_tiles,
                    BANK(overworld_tiles));
   MemcpyBanked(BkgPalette, overworld_tiles_palettes,
@@ -45,8 +43,8 @@ void overworld_init(void) BANKED {
   // image_width = image_tile_width * 8;
   // image_height = image_tile_height * 8;
 
-  // scroll_x_max = 256 - ((UINT16)SCREENWIDTH);
-  // scroll_y_max = 256 - ((UINT16)SCREENHEIGHT);
+  scroll_x_max = 256;
+  scroll_y_max = 256;
 
   // update_world(0, 0);
 }
@@ -132,7 +130,6 @@ void overworld_update(void) BANKED {
     }
 
     set_overworld_ptr(&overworld_maps[3], map_x, map_y);
-    rerender_overworld = TRUE;
     scroll_update();
   }
 }

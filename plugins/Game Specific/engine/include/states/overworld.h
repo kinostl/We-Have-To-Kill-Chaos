@@ -14,7 +14,6 @@ typedef enum overworld_quad {
 
 extern overworld_far_ptr overworld_maps[4];
 extern overworld_quad overworld_tile_quad;
-extern BOOLEAN rerender_overworld;
 
 void overworld_init(void) BANKED;
 void overworld_update(void) BANKED;
