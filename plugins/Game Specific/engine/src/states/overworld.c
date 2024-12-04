@@ -97,18 +97,18 @@ void overworld_update(void) BANKED {
   const overworld_quad prev_quad = overworld_tile_quad;
 
   // When player steps into new 256-grid ???
-  if (new_col > 32) {
+  if (new_col > 31) {
     map_x++;
     PLAYER.pos.x = 0 << 7;
   } else if (new_col < 0) {
     map_x--;
-    PLAYER.pos.x = 31 << 7;
-  } else if (new_row > 32) {
+    PLAYER.pos.x = 32 << 7;
+  } else if (new_row > 31) {
     map_y++;
     PLAYER.pos.y = 0 << 7;
   } else if (new_row < 0) {
     map_y--;
-    PLAYER.pos.y = 31 << 7;
+    PLAYER.pos.y = 32 << 7;
   }
 
   if(map_x > 15){map_x = 0;}
