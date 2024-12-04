@@ -6,10 +6,15 @@
 #include <gbdk/platform.h>
 
 typedef enum overworld_quad {
+  Q_CENTER,
   Q_TOP_LEFT,
+  Q_TOP,
   Q_TOP_RIGHT,
+  Q_RIGHT,
+  Q_BOT_RIGHT,
+  Q_BOT,
   Q_BOT_LEFT,
-  Q_BOT_RIGHT
+  Q_LEFT,
 } overworld_quad;
 
 extern overworld_far_ptr overworld_maps[4];

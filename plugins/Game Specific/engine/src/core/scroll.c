@@ -139,15 +139,17 @@ void scroll_update(void) BANKED {
     x = (camera_x >> 4) - (SCREENWIDTH >> 1);
     y = (camera_y >> 4) - (SCREENHEIGHT >> 1);
 
-    if (x & 0x8000u) {  // check for negative signed bit
+    if (scene_type != SCENE_TYPE_OVERWORLD) {
+      if (x & 0x8000u) { // check for negative signed bit
         x = 0u;
-    } else if (x > scroll_x_max) {
+      } else if (x > scroll_x_max) {
         x = scroll_x_max;
-    }
-    if (y & 0x8000u) {
+      }
+      if (y & 0x8000u) {
         y = 0u;
-    } else if (y > scroll_y_max) {
+      } else if (y > scroll_y_max) {
         y = scroll_y_max;
+      }
     }
 
     current_col = scroll_x >> 3;

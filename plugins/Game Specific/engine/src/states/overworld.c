@@ -31,32 +31,27 @@ inline WORD get_offset(BYTE x, BYTE y){
 }
 
 void draw_quad(overworld_quad quad, overworld_far_ptr *map) BANKED {
-  WORD x, y, offset;
+  WORD x, y, offset=0;
   switch (quad) {
   case Q_TOP_LEFT:
     x = 0;
     y = 0;
-    offset = get_offset(16, 16); //Get bottom right
     break;
   case Q_TOP_RIGHT:
     x = 16;
     y = 0;
-    offset = get_offset(-16, 16);//Get  bottom left
     break;
   case Q_BOT_LEFT:
     x = 0;
     y = 16;
-    offset = get_offset(16, -16);//Get  top right
     break;
   case Q_BOT_RIGHT:
     x = 16;
     y = 16;
-    offset = get_offset(-16, -16);//Get  top right
     break;
   default:
     x = 0;
     y = 0;
-    offset = 0;
     break;
   }
 
@@ -73,11 +68,6 @@ void overworld_init(void) BANKED {
   MemcpyBanked(BkgPalette, overworld_tiles_palettes,
                sizeof(palette_entry_t) * overworld_tiles_PALETTE_COUNT,
                BANK(overworld_tiles));
-
-  set_overworld_ptr(&overworld_maps[0], 6, 10);
-  set_overworld_ptr(&overworld_maps[1], 7, 9);
-  set_overworld_ptr(&overworld_maps[2], 7, 10);
-  set_overworld_ptr(&overworld_maps[3], 6, 9);
   // image_tile_height = 32;
   // image_tile_width = 32;
   // image_width = image_tile_width * 8;
@@ -85,11 +75,6 @@ void overworld_init(void) BANKED {
 
   scroll_x_max = 256 - ((UINT16)SCREENWIDTH);
   scroll_y_max = 256 - ((UINT16)SCREENHEIGHT);
-
-  draw_quad(Q_TOP_LEFT, &overworld_maps[3]);
-  draw_quad(Q_TOP_RIGHT, &overworld_maps[1]);
-  draw_quad(Q_BOT_LEFT, &overworld_maps[0]);
-  draw_quad(Q_BOT_RIGHT, &overworld_maps[2]);
 
   // update_world(0, 0);
 }
@@ -104,27 +89,32 @@ void overworld_update(void) BANKED {
   // const BYTE new_col = x >> 3;
   // const BYTE new_row = y >> 3;
 
-  // static BYTE map_x = 6;
-  // static BYTE map_y = 9;
+  static BYTE map_x = 6;
+  static BYTE map_y = 9;
 
-  // BYTE next_map_x = map_x;
-  // BYTE next_map_y = map_y;
+  const BYTE new_col = PLAYER.pos.x >> 7;
+  const BYTE new_row = PLAYER.pos.y >> 7;
+  const overworld_quad prev_quad = overworld_tile_quad;
 
-  // // When player steps into new 256-grid ???
-  // if (new_col + 20 > 32) {
-  //   next_map_x++;
-  // } else if (new_col < 0) {
-  //   next_map_x--;
-  // } else if (new_row + 18 > 32) {
-  //   next_map_y++;
-  // } else if (new_row < 0) {
-  //   next_map_y--;
-  // }
+  // When player steps into new 256-grid ???
+  if (new_col > 32) {
+    map_x++;
+    PLAYER.pos.x = 0 << 7;
+  } else if (new_col < 0) {
+    map_x--;
+    PLAYER.pos.x = 31 << 7;
+  } else if (new_row > 32) {
+    map_y++;
+    PLAYER.pos.y = 0 << 7;
+  } else if (new_row < 0) {
+    map_y--;
+    PLAYER.pos.y = 31 << 7;
+  }
 
-  // if(next_map_x > 15) next_map_x = 0;
-  // if(next_map_x < 0) next_map_x = 15;
-  // if(next_map_y > 15) next_map_y = 0;
-  // if(next_map_y < 0) next_map_y = 15;
+  if(map_x > 15){map_x = 0;}
+  if(map_x < 0){map_x = 15;}
+  if(map_y > 15){map_y = 0;}
+  if(map_y < 0){map_y = 15;}
 
   // // Assume player is always in a 256 sq px grid
   // // Split that into 4 sub-grids
@@ -134,55 +124,110 @@ void overworld_update(void) BANKED {
 
   // // If in the bot-left, set left and down
   // // If in the bot-right, set right and down
+    const UBYTE on_left_edge = (PLAYER.pos.x >> 7) < 8;
+    const UBYTE on_right_edge = (PLAYER.pos.x >> 7) > 24;
 
-  // const UBYTE left = (PLAYER.pos.x >> 7) < 16;
-  // const UBYTE top = (PLAYER.pos.y >> 7) < 16;
+    const UBYTE on_top_edge = (PLAYER.pos.y >> 7) < 8;
+    const UBYTE on_bottom_edge = (PLAYER.pos.y >> 7) > 24;
 
-  // if (top && left) {
-  //   // Top Left
-  //   overworld_tile_quad = Q_TOP_LEFT;
-  // } else if (top) {
-  //   // Top Right
-  //   overworld_tile_quad = Q_TOP_RIGHT;
-  // } else if (left) {
-  //   // Bottom Left
-  //   overworld_tile_quad = Q_BOT_LEFT;
-  // } else {
-  //   // Bottom Right
-  //   overworld_tile_quad = Q_BOT_RIGHT;
-  // }
+    if (on_left_edge && on_top_edge) {
+      // Top Left
+      overworld_tile_quad = Q_TOP_LEFT;
+    } else if (on_right_edge && on_top_edge) {
+      // Top Right
+      overworld_tile_quad = Q_TOP_RIGHT;
+    } else if (on_left_edge && on_bottom_edge) {
+      // Bottom Left
+      overworld_tile_quad = Q_BOT_LEFT;
+    } else if (on_right_edge && on_bottom_edge){
+      // Bottom Right
+      overworld_tile_quad = Q_BOT_RIGHT;
+    }else if (on_top_edge) {
+      overworld_tile_quad = Q_TOP;
+    }else if(on_bottom_edge){
+      overworld_tile_quad = Q_BOT;
+    }
+    else if(on_left_edge){
+      overworld_tile_quad = Q_LEFT;
+    }
+    else if(on_right_edge){
+      overworld_tile_quad = Q_RIGHT;
+    }
+    else{
+      overworld_tile_quad = Q_CENTER;
+    }
 
-  // if (map_x != next_map_x || map_y != next_map_y) {
-  //   map_x = next_map_x;
-  //   map_y = next_map_y;
+  if(prev_quad != overworld_tile_quad){
 
-  //   // Use 0 for Up and Down
-  //   // Use 1 for Left and Right
-  //   // Use 2 for Inter
-  //   switch (overworld_tile_quad) {
-  //   case Q_TOP_LEFT:
-  //     set_overworld_ptr(&overworld_maps[0], map_x, map_y - 1);
-  //     set_overworld_ptr(&overworld_maps[1], map_x - 1, map_y);
-  //     set_overworld_ptr(&overworld_maps[2], map_x - 1, map_y - 1);
-  //     break;
-  //   case Q_TOP_RIGHT:
-  //     set_overworld_ptr(&overworld_maps[0], map_x, map_y - 1);
-  //     set_overworld_ptr(&overworld_maps[1], map_x + 1, map_y);
-  //     set_overworld_ptr(&overworld_maps[2], map_x + 1, map_y - 1);
-  //     break;
-  //   case Q_BOT_LEFT:
-  //     set_overworld_ptr(&overworld_maps[0], map_x, map_y + 1);
-  //     set_overworld_ptr(&overworld_maps[1], map_x - 1, map_y);
-  //     set_overworld_ptr(&overworld_maps[2], map_x - 1, map_y + 1);
-  //     break;
-  //   case Q_BOT_RIGHT:
-  //     set_overworld_ptr(&overworld_maps[0], map_x, map_y + 1);
-  //     set_overworld_ptr(&overworld_maps[1], map_x + 1, map_y);
-  //     set_overworld_ptr(&overworld_maps[2], map_x + 1, map_y + 1);
-  //     break;
-  //   }
 
-  //   set_overworld_ptr(&overworld_maps[3], map_x, map_y);
-  //   scroll_update();
-  // }
+    // 0 Top Left
+    // 1 Top Right
+    // 2 Bottom Left
+    // 3 Bottom Right
+    switch (overworld_tile_quad) {
+    case Q_CENTER:
+      set_overworld_ptr(&overworld_maps[3], map_x, map_y);
+      set_overworld_ptr(&overworld_maps[2], map_x, map_y);
+      set_overworld_ptr(&overworld_maps[1], map_x, map_y);
+      set_overworld_ptr(&overworld_maps[0], map_x, map_y);
+      break;
+    case Q_TOP_LEFT:
+      set_overworld_ptr(&overworld_maps[3], map_x - 1, map_y - 1);
+      set_overworld_ptr(&overworld_maps[2], map_x, map_y - 1);
+      set_overworld_ptr(&overworld_maps[1], map_x - 1, map_y);
+      set_overworld_ptr(&overworld_maps[0], map_x, map_y);
+
+      break;
+    case Q_TOP_RIGHT:
+      set_overworld_ptr(&overworld_maps[3], map_x, map_y - 1);
+      set_overworld_ptr(&overworld_maps[2], map_x + 1, map_y - 1);
+      set_overworld_ptr(&overworld_maps[1], map_x, map_y);
+      set_overworld_ptr(&overworld_maps[0], map_x + 1, map_y);
+
+      break;
+    case Q_BOT_LEFT:
+      set_overworld_ptr(&overworld_maps[3], map_x - 1, map_y);
+      set_overworld_ptr(&overworld_maps[2], map_x, map_y);
+      set_overworld_ptr(&overworld_maps[1], map_x - 1, map_y + 1);
+      set_overworld_ptr(&overworld_maps[0], map_x, map_y + 1);
+
+      break;
+    case Q_BOT_RIGHT:
+      set_overworld_ptr(&overworld_maps[3], map_x, map_y);
+      set_overworld_ptr(&overworld_maps[2], map_x + 1, map_y);
+      set_overworld_ptr(&overworld_maps[1], map_x, map_y + 1);
+      set_overworld_ptr(&overworld_maps[0], map_x + 1, map_y + 1);
+      break;
+    case Q_TOP:
+      set_overworld_ptr(&overworld_maps[0], map_x, map_y);
+      set_overworld_ptr(&overworld_maps[1], map_x, map_y);
+      set_overworld_ptr(&overworld_maps[2], map_x, map_y - 1);
+      set_overworld_ptr(&overworld_maps[3], map_x, map_y - 1);
+      break;
+    case Q_RIGHT:
+      set_overworld_ptr(&overworld_maps[0], map_x + 1, map_y);
+      set_overworld_ptr(&overworld_maps[1], map_x, map_y);
+      set_overworld_ptr(&overworld_maps[2], map_x + 1, map_y);
+      set_overworld_ptr(&overworld_maps[3], map_x, map_y);
+      break;
+    case Q_BOT:
+      set_overworld_ptr(&overworld_maps[0], map_x, map_y + 1);
+      set_overworld_ptr(&overworld_maps[1], map_x, map_y + 1);
+      set_overworld_ptr(&overworld_maps[2], map_x, map_y);
+      set_overworld_ptr(&overworld_maps[3], map_x, map_y);
+      break;
+    case Q_LEFT:
+      set_overworld_ptr(&overworld_maps[0], map_x, map_y);
+      set_overworld_ptr(&overworld_maps[1], map_x - 1, map_y);
+      set_overworld_ptr(&overworld_maps[2], map_x, map_y);
+      set_overworld_ptr(&overworld_maps[3], map_x - 1, map_y);
+      break;
+    }
+      draw_quad(Q_BOT_RIGHT, &overworld_maps[3]);
+      draw_quad(Q_BOT_LEFT, &overworld_maps[2]);
+      draw_quad(Q_TOP_RIGHT, &overworld_maps[1]);
+      draw_quad(Q_TOP_LEFT, &overworld_maps[0]);
+    
+  }
+
 }
