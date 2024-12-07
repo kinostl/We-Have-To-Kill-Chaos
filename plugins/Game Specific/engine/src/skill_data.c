@@ -1,6 +1,5 @@
 #include "enums.h"
 #include <bankdata.h>
-#include <string.h>
 #pragma bank 255
 #include "skill_data.h"
 #include <gb/gb.h>
