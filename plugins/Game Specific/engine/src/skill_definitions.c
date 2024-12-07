@@ -48,23 +48,24 @@ ATTACK_RESULTS skill_fight(entity_data *attacker,
   return attack_results;
 }
 
+ATTACK_RESULTS do_targetted_attack(entity_data *attacker, entity_data *defender,
+                                   BATTLE_SKILL skill) BANKED {
+  switch (skill) {
+  case FIGHT:
+    return skill_fight(attacker, defender);
+  case GOBLIN_PUNCH:
+    return skill_goblin_punch(attacker, defender);
+  default:
+    return ATTACK_MISSED;
+  }
+}
+
 void handle_targeted_attack(BATTLE_SKILL skill) BANKED {
   if (!current_turn->is_enemy) {
     LOG("+> is hero");
     const UBYTE target_enemy = rpg_get_target_enemy();
     current_enemy = &enemy_slots[target_enemy];
-    ATTACK_RESULTS attack_results;
-    switch (skill) {
-    case FIGHT:
-      attack_results = skill_fight(current_turn->entity, &current_enemy->ext);
-      break;
-    case GOBLIN_PUNCH:
-      attack_results =
-          skill_goblin_punch(current_turn->entity, &current_enemy->ext);
-      break;
-    default:
-      return;
-    }
+    const ATTACK_RESULTS attack_results=do_targetted_attack(current_turn->entity, &current_enemy->ext, skill);
 
     setup_explosions(&current_enemy->ext.pos);
     animate(ANIMATE_PLAYER_ATTACKING);
@@ -86,20 +87,13 @@ void handle_targeted_attack(BATTLE_SKILL skill) BANKED {
     }
   } else {
     LOG("+> is enemy");
-    const UBYTE target_enemy = drand(0, 4);
-    ATTACK_RESULTS attack_results; 
+    UBYTE target_enemy = drand(0, 4);
     entity_data * target = &hero_slots[target_enemy].ext;
-    switch (skill) {
-    case FIGHT:
-      attack_results = skill_fight(current_turn->entity, target);
-      break;
-    case GOBLIN_PUNCH:
-      attack_results =
-          skill_goblin_punch(current_turn->entity, target);
-      break;
-    default:
-      return;
+    while (target->status & DEAD) {
+      target_enemy = drand(0, 4);
+      target = &hero_slots[target_enemy].ext;
     }
+    const ATTACK_RESULTS attack_results=do_targetted_attack(current_turn->entity, target, skill);
 
     dispatch_action(PANEL_UpdateParty);
 

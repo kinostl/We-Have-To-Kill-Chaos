@@ -338,7 +338,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   }
   case PICK_GetEnemyActionChoice:
     LOG("handle: PICK_GetEnemyActionChoice");
-    handle_skill(FIGHT);
+    handle_skill(GOBLIN_PUNCH);
     break;
   case PICK_Item:
     break;
