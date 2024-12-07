@@ -20,8 +20,8 @@ typedef struct {
   UBYTE evade;
   UBYTE mdef;
   UBYTE morale;
-  UBYTE magic;
-  UBYTE spatk;
+  UBYTE spell_chance;
+  UBYTE skill_chance;
   ENEMY_FAMILY family;
   ENEMY_TYPE weakness;
   UBYTE resists;

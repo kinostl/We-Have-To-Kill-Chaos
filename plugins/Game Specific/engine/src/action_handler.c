@@ -1,5 +1,8 @@
+#include "enemy_data.h"
+#include "entity_data.h"
 #include "enums.h"
 #include "extra_data.h"
+#include "ff_util.h"
 #include "states/rpg_combat.h"
 #include "turn_slots.h"
 #include <actor.h>
@@ -336,10 +339,28 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     }
     break;
   }
-  case PICK_GetEnemyActionChoice:
+  case PICK_GetEnemyActionChoice:{
     LOG("handle: PICK_GetEnemyActionChoice");
-    handle_skill(GOBLIN_PUNCH);
+
+    enemy_data * actor = &enemy_slots[current_turn->entity->idx];
+    const UBYTE spell_roll = drand(0, actor->ext.spell_chance);
+    const UBYTE skill_roll = drand(0, actor->ext.skill_chance);
+
+    if (spell_roll > 0) {
+      // Check to see if theres spell stuff.
+      // Do spell stuff
+    } else if (skill_roll > 0) {
+      BATTLE_SKILL skill = actor->ext.skills[actor->skill_idx];
+      handle_skill(skill);
+      actor->skill_idx++;
+      if(actor->skill_idx > 3){
+        actor->skill_idx = 0;
+      }
+    } else {
+      handle_skill(FIGHT);
+    }
     break;
+  }
   case PICK_Item:
     break;
   case PICK_Magic:
