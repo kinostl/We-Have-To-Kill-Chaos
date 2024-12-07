@@ -24,6 +24,7 @@ extern const enemy_sprite enemy_sprite_db[];
 void load_enemy_tiles(enemy_view *vram_ptr, ENEMY_TYPE enemy_type) BANKED;
 void draw_enemy_sm(enemy_view *enemy_view, UBYTE x, UBYTE y) BANKED;
 void draw_enemy_lg(enemy_view *enemy_view, UBYTE x, UBYTE y) BANKED;
+void clean_enemy_tiles() BANKED;
 
 BANKREF_EXTERN(FF_ENEMY_SPRITES)
 

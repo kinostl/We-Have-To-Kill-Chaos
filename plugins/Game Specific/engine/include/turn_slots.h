@@ -1,7 +1,9 @@
 #ifndef FF_TURN_SLOTS
 #define FF_TURN_SLOTS
 #include <asm/types.h>
+#include <types.h>
 #include "entity_data.h"
+#include "enums.h"
 #include "vm.h"
 
 enum TURN_TAG {PLAYER, ENEMY} ;
@@ -22,5 +24,9 @@ typedef struct turn_slot_t {
   UBYTE initiative_roll;
   BOOLEAN is_enemy;
 } turn_slot_t;
+
+inline BOOLEAN continue_enemy_turn(turn_slot_t *turn) {
+  if(turn->prev && turn->prev->is_enemy) return TRUE;
+}
 
 #endif

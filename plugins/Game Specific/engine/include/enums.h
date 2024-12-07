@@ -125,4 +125,10 @@ typedef enum {
   FOREST,
 } BATTLE_ID;
 
+typedef enum {
+  NO_TURN,
+  PLAYER_TURN,
+  ENEMY_TURN
+} TURN_TYPE;
+
 #endif

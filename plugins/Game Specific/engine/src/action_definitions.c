@@ -181,16 +181,18 @@ ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,
     return ATTACK_MISSED;
 
   ATTACK_RESULTS results = ATTACK_HIT;
-  const UBYTE start_hp = defender->hp;
+  UBYTE total_damage=0;
   const UBYTE atk_dmg = attacker->damage;
   UBYTE damage_calc = MAX(drand(atk_dmg, atk_dmg * 2), 1);
 
   if (attacker->crit_chance > hit_roll) {
     defender->hp -= damage_calc;
     results |= CRITICAL_HIT;
+    total_damage += damage_calc;
   }
 
   damage_calc = MAX(damage_calc - defender->absorb, 1);
+  total_damage += damage_calc;
   if ((defender->hp - damage_calc) < 1) {
     defender->hp = 0;
     defender->status |= DEAD;
@@ -199,8 +201,7 @@ ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,
     defender->hp -= damage_calc;
   }
 
-  const UBYTE end_hp = defender->hp;
-  setupDamageNumbers(start_hp - end_hp, &defender->pos);
+  setupDamageNumbers(total_damage, &defender->pos);
 
   return results;
 }

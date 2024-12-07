@@ -20,14 +20,16 @@
   "script": [
     {
       "command": "FO_EVENT_EXPORT_FLAGS",
-      "args": {},
+      "args": {
+        "__collapse": true
+      },
       "id": "f51462f5-f8e4-4372-b33f-0a3b86ae93ad"
     },
     {
       "command": "FO_EVENT_EXPORT_PALETTES",
       "args": {
         "": "Enemy",
-        "__collapse": false,
+        "__collapse": true,
         "filter": "Enemy"
       },
       "id": "501795aa-c06d-4674-90d5-e449927a466b"
@@ -36,14 +38,16 @@
       "command": "FO_EVENT_EXPORT_PALETTES",
       "args": {
         "": "Enemy",
-        "__collapse": false,
+        "__collapse": true,
         "filter": "Header"
       },
       "id": "7324166a-6539-41ec-8e9d-0da737126fea"
     },
     {
       "command": "FO_EVENT_CONNECT_MAPS",
-      "args": {},
+      "args": {
+        "__collapse": true
+      },
       "id": "8e0cd042-2591-4029-b502-8a5b97a4db17"
     },
     {
@@ -1394,7 +1398,7 @@
     {
       "command": "EVENT_SWITCH_SCENE",
       "args": {
-        "sceneId": "02ae6e06-a321-47e7-95cf-214d671da2b1",
+        "sceneId": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64",
         "x": {
           "type": "number",
           "value": 0

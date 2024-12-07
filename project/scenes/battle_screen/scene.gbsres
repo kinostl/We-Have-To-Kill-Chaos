@@ -184,39 +184,6 @@
     {
       "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
       "args": {
-        "state": 5,
-        "__scriptTabs": "scriptinput",
-        "__collapse": true
-      },
-      "children": {
-        "script": [
-          {
-            "command": "EVENT_CALL_CUSTOM_EVENT",
-            "args": {
-              "customEventId": "18c95038-7066-4edd-991d-856988fa0379",
-              "$actor[0]$": "8ed07833-9d02-4817-acb5-d9e14d31eb95",
-              "$variable[V0]$": {
-                "type": "variable",
-                "value": "48"
-              },
-              "__collapse": false
-            },
-            "id": "e5f8a432-9b8d-4e46-9e9b-64bb4e591fca"
-          },
-          {
-            "command": "EVENT_ACTOR_SHOW",
-            "args": {
-              "actorId": "8ed07833-9d02-4817-acb5-d9e14d31eb95"
-            },
-            "id": "89f8d874-c9b9-45e2-bce4-5e9999c0ec8a"
-          }
-        ]
-      },
-      "id": "eb1e20af-0363-435e-bb92-2ffa663881b6"
-    },
-    {
-      "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
-      "args": {
         "state": 0,
         "__scriptTabs": "scriptinput",
         "__collapse": true
@@ -386,7 +353,7 @@
     {
       "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
       "args": {
-        "state": 3,
+        "state": 4,
         "__scriptTabs": "scriptinput",
         "__collapse": true
       },
@@ -415,33 +382,33 @@
               "closeDelayTime": 0.5,
               "closeDelayFrames": 30
             },
-            "id": "5add49fa-1842-4549-a6b3-52d8a13667f0"
+            "id": "74be7516-3437-4b9c-92ae-bbefb74d395d"
           },
           {
             "command": "EVENT_SWITCH_SCENE",
             "args": {
-              "sceneId": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64",
+              "sceneId": "7f69b524-b5c7-485d-8809-18efbc48c619",
               "x": {
                 "type": "number",
-                "value": 2
+                "value": 0
               },
               "y": {
                 "type": "number",
-                "value": 20
+                "value": 0
               },
               "direction": "",
               "fadeSpeed": "2"
             },
-            "id": "237414a1-51bb-4733-b1fc-5236c5acea51"
+            "id": "1ecbbbbc-7dc9-4ed1-825b-65c511453737"
           }
         ]
       },
-      "id": "210f9f64-27a6-4d89-b407-ffd816ce052e"
+      "id": "57345b36-a599-40ea-b14b-69e7853fa52e"
     },
     {
       "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
       "args": {
-        "state": 4,
+        "state": 5,
         "__scriptTabs": "scriptinput",
         "__collapse": true
       },
@@ -470,28 +437,28 @@
               "closeDelayTime": 0.5,
               "closeDelayFrames": 30
             },
-            "id": "74be7516-3437-4b9c-92ae-bbefb74d395d"
+            "id": "cb2ce060-a870-4854-86ce-8f96d840c273"
           },
           {
             "command": "EVENT_SWITCH_SCENE",
             "args": {
-              "sceneId": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64",
+              "sceneId": "7f69b524-b5c7-485d-8809-18efbc48c619",
               "x": {
                 "type": "number",
                 "value": 0
               },
               "y": {
                 "type": "number",
-                "value": 20
+                "value": 0
               },
               "direction": "",
               "fadeSpeed": "2"
             },
-            "id": "1ecbbbbc-7dc9-4ed1-825b-65c511453737"
+            "id": "427cb036-3b91-4f14-93aa-e2b10bc8707d"
           }
         ]
       },
-      "id": "57345b36-a599-40ea-b14b-69e7853fa52e"
+      "id": "ea785188-4402-47a6-886f-31874376d5ac"
     },
     {
       "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
@@ -609,14 +576,6 @@
       "id": "4ef387cd-570c-41a9-a13c-5bd90acba72a"
     },
     {
-      "command": "EVENT_FADE_IN",
-      "args": {
-        "speed": "2",
-        "__collapse": true
-      },
-      "id": "c271e8aa-f367-436c-958d-072f031f36d3"
-    },
-    {
       "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
       "args": {
         "state": 6,
@@ -647,6 +606,22 @@
         ]
       },
       "id": "d36cb5d6-e184-4fb6-acf4-3683b0c2003c"
+    },
+    {
+      "command": "EVENT_FADE_IN",
+      "args": {
+        "speed": "2",
+        "__collapse": true
+      },
+      "id": "c271e8aa-f367-436c-958d-072f031f36d3"
+    },
+    {
+      "command": "MY_EVENT_CALL_NATIVE",
+      "args": {
+        "argCount": 0,
+        "funName": "KICK_OFF"
+      },
+      "id": "bad45b7d-0c13-4fe9-95da-8967923828ad"
     }
   ],
   "playerHit1Script": [],

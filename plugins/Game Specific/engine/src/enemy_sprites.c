@@ -2,6 +2,7 @@
 #include <asm/types.h>
 #include <data/enemy_palettes.h>
 #include <gbs_types.h>
+#include <string.h>
 #pragma bank 255
 
 #include "enemy_sprites.h"
@@ -13,6 +14,7 @@
 #include <gb/cgb.h>
 #include "palette.h"
 
+const ENEMY_PALETTES empty_colors[4] = {NO_ENEMY_PALETTE, NO_ENEMY_PALETTE, NO_ENEMY_PALETTE, NO_ENEMY_PALETTE};
 ENEMY_PALETTES assigned_colors[4] = {NO_ENEMY_PALETTE, NO_ENEMY_PALETTE, NO_ENEMY_PALETTE, NO_ENEMY_PALETTE};
 
 //hex values for colors because thats what is easiest to copy from GIMP
@@ -57,6 +59,10 @@ inline UBYTE get_palette_id(ENEMY_PALETTES color){
       }
       i++;
     }
+}
+
+void clean_enemy_tiles() BANKED{
+  memcpy(assigned_colors, empty_colors, sizeof(assigned_colors));
 }
 
 void load_enemy_tiles(enemy_view *enemy_view, ENEMY_TYPE enemy_type) BANKED {

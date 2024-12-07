@@ -33,6 +33,8 @@ void setupEnemySlots(void) BANKED {
     initialize_entity_data(&enemy_slots[i]);
   }
 
+  clean_enemy_tiles();
+
   UBYTE tail_of_enemy_vram;
 
   MemcpyBanked(&tail_of_enemy_vram, &bg_battle_concept_tileset.n_tiles,

@@ -23,6 +23,7 @@
 #include "ff_debug.h"
 
 BYTE turn_cursor;
+TURN_TYPE prev_turn_type=NO_TURN;
 
 void take_action(void) BANKED;
 void animate(RPG_ANIMATION_STATE rpg_animation_state) BANKED;
@@ -228,7 +229,13 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       }
     }
 
-      current_turn = current_turn->next;
+    if (current_turn->is_enemy) {
+      prev_turn_type = ENEMY_TURN;
+    } else {
+      prev_turn_type = PLAYER_TURN;
+    }
+
+    current_turn = current_turn->next;
     dispatch_action(ATTACKER_StartNextTurn);
     break;
   }
@@ -291,7 +298,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       current_enemy = &enemy_slots[current_turn->entity->idx];
       current_hero = NULL;
 
-      if (current_turn->prev && !current_turn->prev->is_enemy) {
+      if (prev_turn_type == PLAYER_TURN) {
         dispatch_action(PANEL_HidePartyActors);
         dispatch_action(PANEL_ClosePanel);
         dispatch_action(PANEL_DisplayParty);

@@ -8,5 +8,6 @@
   "imageWidth": 256,
   "imageHeight": 256,
   "filename": "fs_placeholder.png",
-  "tileColors": ""
+  "tileColors": "",
+  "autoColor": false
 }

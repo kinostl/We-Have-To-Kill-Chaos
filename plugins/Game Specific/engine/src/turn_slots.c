@@ -7,6 +7,7 @@
 
 #pragma bank 255
 
+
 void load_attacker(SCRIPT_CTX * THIS) OLDCALL BANKED {
   THIS;
   // BYTE slot_idx = VM_GLOBAL(VAR_ATTACKER_ID);
