@@ -7,9 +7,9 @@
 typedef enum {
   EMPTY_ACTION,
   ANIMATE_EnemyDefeated,
-  ATTACKER_Fight,
   ATTACKER_StartNextTurn,
   ATTACKER_TakeNextTurn,
+  ATTACKER_FinishTurn,
   PANEL_ClosePanel,
   PANEL_DisplayCurrentActor,
   PANEL_DisplayMenu,

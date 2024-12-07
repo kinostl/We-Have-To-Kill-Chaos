@@ -614,14 +614,6 @@
         "__collapse": true
       },
       "id": "c271e8aa-f367-436c-958d-072f031f36d3"
-    },
-    {
-      "command": "MY_EVENT_CALL_NATIVE",
-      "args": {
-        "argCount": 0,
-        "funName": "KICK_OFF"
-      },
-      "id": "bad45b7d-0c13-4fe9-95da-8967923828ad"
     }
   ],
   "playerHit1Script": [],

@@ -28,7 +28,7 @@ TURN_TYPE prev_turn_type=NO_TURN;
 void take_action(void) BANKED;
 void animate(RPG_ANIMATION_STATE rpg_animation_state) BANKED;
 void ui_draw_frame(UBYTE x, UBYTE y, UBYTE width, UBYTE height) BANKED;
-void handle_skill(UBYTE skill_id) BANKED;
+void handle_skill(BATTLE_SKILL skill) BANKED;
 
 inline void ui_display_text(void) {
   // Could technically call vm_display_text but vm calls are bad practice
@@ -111,8 +111,8 @@ void dispatch_action(ACTION_TYPE action_data) BANKED {
   case EMPTY_ACTION:
     LOG("Dispatch: EMPTY_ACTION");
     break;
-  case ATTACKER_Fight:
-    LOG("Dispatch: ATTACKER_Fight");
+  case ATTACKER_FinishTurn:
+    LOG("Dispatch: ATTACKER_FinishTurn");
     break;
   case PANEL_HideCurrentActor:
     LOG("Dispatch: PANEL_HideCurrentActor");
@@ -174,60 +174,8 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case ANIMATE_EnemyDefeated:
     animate(ANIMATE_ENEMY_DEFEATED);
     break;
-  case ATTACKER_Fight: {
-    LOG("handle: ATTACKER_Fight");
-    if (!current_turn->is_enemy) {
-      LOG("+> is hero");
-      const UBYTE target_enemy = rpg_get_target_enemy();
-      current_enemy = &enemy_slots[target_enemy];
-      ATTACK_RESULTS attack_results =
-          defender_TakeDamage(current_turn->entity, &current_enemy->ext);
-
-      setup_explosions(&enemy_slots[target_enemy].ext.pos);
-
-      animate(ANIMATE_PLAYER_ATTACKING);
-      animate(ANIMATE_ENEMY_DAMAGED);
-      if (attack_results & CRITICAL_HIT) {
-        // animate critical hit
-      } else if (attack_results & ATTACK_HIT) {
-        // animate hit
-      } else if (attack_results & CRITICAL_MISS) {
-        // animate critical miss
-      } else if (attack_results & ATTACK_MISSED) {
-        // animate miss
-      }
-
-      if (attack_results & TARGET_DEFEATED) {
-        dispatch_action(ANIMATE_EnemyDefeated);
-        // animate target defeateated
-      }
-    } else {
-      LOG("+> is enemy");
-      const UBYTE target_enemy = rand() % 4;
-      ATTACK_RESULTS attack_results = defender_TakeDamage(
-          current_turn->entity, &hero_slots[target_enemy].ext);
-
-      setup_explosions(&hero_slots[target_enemy].ext.pos);
-
-      animate(ANIMATE_ENEMY_ATTACKING);
-      animate(ANIMATE_ENEMY_DAMAGED);
-
-      dispatch_action(PANEL_UpdateParty);
-
-      if (attack_results & CRITICAL_HIT) {
-        // animate critical hit
-      } else if (attack_results & ATTACK_HIT) {
-        // animate hit
-      } else if (attack_results & CRITICAL_MISS) {
-        // animate critical miss
-      } else if (attack_results & ATTACK_MISSED) {
-        // animate miss
-      }
-
-      if (attack_results & TARGET_DEFEATED) {
-        // animate target defeateated
-      }
-    }
+  case ATTACKER_FinishTurn: {
+    LOG("handle: ATTACKER_FinishTurn");
 
     if (current_turn->is_enemy) {
       prev_turn_type = ENEMY_TURN;
@@ -386,15 +334,17 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     case 8:
       dispatch_action(PICK_Run);
       break;
-    default:
-      handle_skill(player_choice);
+    default: {
+      const BATTLE_SKILL skill = hero_slots[0].ext.skills[player_choice];
+      handle_skill(skill);
       break;
+    }
     }
     break;
   }
   case PICK_GetEnemyActionChoice:
     LOG("handle: PICK_GetEnemyActionChoice");
-    dispatch_action(ATTACKER_Fight);
+    handle_skill(FIGHT);
     break;
   case PICK_Item:
     break;
@@ -435,11 +385,65 @@ void animate(RPG_ANIMATION_STATE rpg_animation_state) BANKED {
   }
 }
 
-void handle_skill(UBYTE menu_id) BANKED {
-  const BATTLE_SKILL skill = hero_slots[0].ext.skills[menu_id];
+void skill_fight() BANKED {
+  if (!current_turn->is_enemy) {
+    LOG("+> is hero");
+    const UBYTE target_enemy = rpg_get_target_enemy();
+    current_enemy = &enemy_slots[target_enemy];
+    ATTACK_RESULTS attack_results =
+        defender_TakeDamage(current_turn->entity, &current_enemy->ext);
+
+    setup_explosions(&enemy_slots[target_enemy].ext.pos);
+
+    animate(ANIMATE_PLAYER_ATTACKING);
+    animate(ANIMATE_ENEMY_DAMAGED);
+    if (attack_results & CRITICAL_HIT) {
+      // animate critical hit
+    } else if (attack_results & ATTACK_HIT) {
+      // animate hit
+    } else if (attack_results & CRITICAL_MISS) {
+      // animate critical miss
+    } else if (attack_results & ATTACK_MISSED) {
+      // animate miss
+    }
+
+    if (attack_results & TARGET_DEFEATED) {
+      dispatch_action(ANIMATE_EnemyDefeated);
+      // animate target defeateated
+    }
+  } else {
+    LOG("+> is enemy");
+    const UBYTE target_enemy = rand() % 4;
+    ATTACK_RESULTS attack_results = defender_TakeDamage(
+        current_turn->entity, &hero_slots[target_enemy].ext);
+
+    setup_explosions(&hero_slots[target_enemy].ext.pos);
+
+    animate(ANIMATE_ENEMY_ATTACKING);
+    animate(ANIMATE_ENEMY_DAMAGED);
+
+    dispatch_action(PANEL_UpdateParty);
+
+    if (attack_results & CRITICAL_HIT) {
+      // animate critical hit
+    } else if (attack_results & ATTACK_HIT) {
+      // animate hit
+    } else if (attack_results & CRITICAL_MISS) {
+      // animate critical miss
+    } else if (attack_results & ATTACK_MISSED) {
+      // animate miss
+    }
+
+    if (attack_results & TARGET_DEFEATED) {
+      // animate target defeateated
+    }
+  }
+}
+
+void handle_skill(BATTLE_SKILL skill) BANKED {
   switch (skill) {
   case FIGHT:
-    dispatch_action(ATTACKER_Fight);
+    skill_fight();
     break;
   case SHIELD_SKILL:
   case LUSTER:
@@ -453,6 +457,8 @@ void handle_skill(UBYTE menu_id) BANKED {
   case RUNE_SWORD_SKILL:
   case BLANK:
     dispatch_action(PICK_GetPlayerActionChoice);
-    break;
+    return;
   }
+
+  dispatch_action(ATTACKER_FinishTurn);
 }
