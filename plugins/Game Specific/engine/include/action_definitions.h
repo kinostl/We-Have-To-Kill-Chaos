@@ -6,7 +6,7 @@
 #include <vm.h>
 
 void turn_rollInitiative(void) BANKED;
-ATTACK_RESULTS defender_TakeDamage(entity_data *attacker, entity_data *defender) BANKED;
+ATTACK_RESULTS defender_TakeDamage(entity_data *attacker, entity_data *defender, UBYTE damage_calc) BANKED;
 
 extern actor_t * damage_numbers[3];
 

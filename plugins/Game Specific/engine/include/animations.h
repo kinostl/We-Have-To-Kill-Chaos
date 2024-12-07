@@ -1,10 +1,11 @@
 #ifndef FF_ANIMS
 #define FF_ANIMS
 #include "position_data.h"
-#include "rpg_combat.h"
+#include "states/rpg_combat.h"
 #include <data/game_globals.h>
 #include <data/rpg_combat_animation_states.h>
 #include <vm.h>
+
 inline void setup_explosions(ff_position_t *position) {
   VM_GLOBAL(VAR_EXPLOSION_X) = position->x;
   VM_GLOBAL(VAR_EXPLOSION_Y) = position->y + 1;

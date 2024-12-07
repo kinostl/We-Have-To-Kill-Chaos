@@ -21,12 +21,12 @@
 #include <data/rpg_combat_animation_states.h>
 #include <vm_ui.h>
 #include "ff_debug.h"
+#include "animations.h"
 
 BYTE turn_cursor;
 TURN_TYPE prev_turn_type=NO_TURN;
 
 void take_action(void) BANKED;
-void animate(RPG_ANIMATION_STATE rpg_animation_state) BANKED;
 void ui_draw_frame(UBYTE x, UBYTE y, UBYTE width, UBYTE height) BANKED;
 void handle_skill(BATTLE_SKILL skill) BANKED;
 

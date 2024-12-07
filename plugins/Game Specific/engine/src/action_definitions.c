@@ -140,7 +140,7 @@ void attacker_prepareNextTurn_Hero(void) BANKED {
 
 void attacker_prepareNextTurn_Enemy(void) BANKED {}
 
-void setupDamageNumbers(UBYTE dmg, ff_position_t *target) {
+inline void setupDamageNumbers(UBYTE dmg, ff_position_t *target) {
   // 0 = Ones
   // 1 = Tens
   // 2 = Hundreds
@@ -166,7 +166,8 @@ void setupDamageNumbers(UBYTE dmg, ff_position_t *target) {
 }
 
 ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,
-                                   entity_data *defender) BANKED {
+                                   entity_data *defender,
+                                   UBYTE damage_calc) BANKED {
   setupDamageNumbers(0, &defender->pos);
 
   const UBYTE hit_roll = drand(0, 200);
@@ -182,8 +183,6 @@ ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,
 
   ATTACK_RESULTS results = ATTACK_HIT;
   UBYTE total_damage=0;
-  const UBYTE atk_dmg = attacker->damage;
-  UBYTE damage_calc = MAX(drand(atk_dmg, atk_dmg * 2), 1);
 
   if (attacker->crit_chance > hit_roll) {
     defender->hp -= damage_calc;
