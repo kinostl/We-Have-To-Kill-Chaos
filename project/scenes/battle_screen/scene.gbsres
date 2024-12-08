@@ -473,7 +473,8 @@
             "command": "EVENT_THREAD_START",
             "args": {
               "variable": "L0",
-              "__scriptTabs": "true"
+              "__scriptTabs": "true",
+              "__collapse": false
             },
             "children": {
               "true": [

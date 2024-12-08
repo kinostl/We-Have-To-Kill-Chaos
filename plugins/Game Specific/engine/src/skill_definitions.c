@@ -1,14 +1,18 @@
 #include "skill_definitions.h"
 #include "action_definitions.h"
 #include "animations.h"
+#include "battle_headers.h"
 #include "entity_data.h"
 #include "enums.h"
 #include "extra_data.h"
 #include "ff_debug.h"
 #include "ff_util.h"
+#include "skill_data.h"
 #include "states/rpg_combat.h"
 #include <asm/types.h>
 #include <math.h>
+#include <string.h>
+#include <ui.h>
 
 #pragma bank 255
 
@@ -138,4 +142,10 @@ void handle_skill(BATTLE_SKILL skill) BANKED {
   }
 
   dispatch_action(ATTACKER_FinishTurn);
+}
+
+void display_skill(BATTLE_SKILL skill) BANKED{
+  skill_data s_data;
+  load_skill(&s_data, skill);
+  strcpy(ui_text_data, s_data.name);
 }

@@ -25,14 +25,14 @@
 #include <vm_ui.h>
 #include "ff_debug.h"
 #include "animations.h"
+#include "skill_definitions.h"
 
 BYTE turn_cursor;
 TURN_TYPE prev_turn_type=NO_TURN;
 
 void take_action(void) BANKED;
-void ui_draw_frame(UBYTE x, UBYTE y, UBYTE width, UBYTE height) BANKED;
-void handle_skill(BATTLE_SKILL skill) BANKED;
 
+void ui_draw_frame(UBYTE x, UBYTE y, UBYTE width, UBYTE height) BANKED;
 inline void ui_display_text(void) {
   // Could technically call vm_display_text but vm calls are bad practice
   ui_draw_frame(0, 0, 8, 18);
@@ -46,20 +46,10 @@ inline void ui_display_text(void) {
 inline void ui_update_text(void) {
   INPUT_RESET;
   text_options = TEXT_OPT_DEFAULT;
+
   text_drawn = text_ff = FALSE;
   ui_set_start_tile(TEXT_BUFFER_START, 0);
   ui_run_modal(UI_WAIT_TEXT);
-}
-
-inline void ui_move_to_xy(UBYTE x, UBYTE y, UBYTE speed) {
-  win_dest_pos_y = y << 3;
-  win_dest_pos_x = x << 3;
-  win_speed = speed;
-}
-
-inline void ui_set_pos_to_xy(UBYTE x, UBYTE y) {
-  win_pos_y = win_dest_pos_y = (y << 3);
-  win_pos_x = win_dest_pos_x = (x << 3);
 }
 
 void init_actions(void) BANKED {
@@ -349,8 +339,10 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     if (spell_roll > 0) {
       // Check to see if theres spell stuff.
       // Do spell stuff
+      handle_skill(FIGHT);
     } else if (skill_roll > 0) {
       BATTLE_SKILL skill = actor->ext.skills[actor->skill_idx];
+      display_skill(skill);
       handle_skill(skill);
       actor->skill_idx++;
       if(actor->skill_idx > 3){

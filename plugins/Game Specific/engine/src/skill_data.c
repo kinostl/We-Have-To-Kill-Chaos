@@ -11,7 +11,7 @@ const skill_data skill_db[] = {
     db_row(SHIELD_SKILL, "Shield", 1),
     db_row(RUNE_SWORD_SKILL, "Runic", 2),
     db_row(LUSTER, "Luster", 3),
-    db_row(GOBLIN_PUNCH, "GobPun", 0),
+    db_row(GOBLIN_PUNCH, "Impunch", 0),
     db_row(HOWL, "Howl", 0),
     db_row(THRASH, "Thrash", 0),
     db_row(FIRE, "Fire", 0),

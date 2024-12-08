@@ -43,7 +43,7 @@ void setupEnemySlots(void) BANKED {
   load_encounter(encounter_table, 9, 10);
 
   const UBYTE n_tiles = load_battle_header(tail_of_enemy_vram, FIELD);
-  draw_battle_header(tail_of_enemy_vram);
+  set_battle_header(tail_of_enemy_vram);
 
   tail_of_enemy_vram+=n_tiles;
 

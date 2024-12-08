@@ -4,5 +4,6 @@
 #include <gb/gb.h>
 #include "enums.h"
 
+void display_skill(BATTLE_SKILL skill) BANKED;
 void handle_skill(BATTLE_SKILL skill) BANKED;
 #endif

@@ -13,9 +13,16 @@ typedef struct {
     HEADER_PALETTES palette;
 } battle_header ;
 
-extern const battle_header battle_header_db[];
 UBYTE load_battle_header(UBYTE vram_ptr, BATTLE_ID battle_id) BANKED;
-void draw_battle_header(UBYTE vram_ptr) BANKED;
+void draw_battle_header(void) BANKED;
+
+extern UBYTE battle_header_ptr;
+extern const battle_header battle_header_db[];
+
+inline void set_battle_header(UBYTE vram_ptr){
+    battle_header_ptr = vram_ptr;
+    draw_battle_header();
+}
 
 BANKREF_EXTERN(FF_BATTLE_HEADERS)
 
