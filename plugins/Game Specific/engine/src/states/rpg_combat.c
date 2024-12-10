@@ -1,6 +1,7 @@
 #include "action_definitions.h"
 #include "action_handler.h"
 #include "extra_data.h"
+#include "load_font_into_bg.h"
 #include <actor.h>
 #include <asm/types.h>
 #include <gbs_types.h>
@@ -19,6 +20,7 @@ void rpg_combat_init(void) BANKED {
   overlay_priority = 0;
   PLAYER.hidden = TRUE;
   rpg_lock = FALSE;
+  loadFontIntoUiSpace();
   ui_set_pos(20 << 3, 0 << 3);
   dispatch_action(TURN_BuildInitiative);
 }

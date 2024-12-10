@@ -11,6 +11,4 @@ extern UBYTE menu_selection;
 extern UBYTE max_menu_selection;
 extern UWORD cursor_base_pos;
 
-void fs_menu_write_bg_font(UBYTE x, UBYTE y, UBYTE w, UBYTE h, BOOLEAN instant, BOOLEAN clear_area) OLDCALL BANKED;
-
 #endif

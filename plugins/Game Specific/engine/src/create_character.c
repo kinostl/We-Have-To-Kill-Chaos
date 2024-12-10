@@ -34,7 +34,7 @@ UBYTE load_centered_text(char name[7]) BANKED {
 
 
 void cc_init_set_name(void) OLDCALL BANKED{
-  loadFontIntoBkg();
+  loadFontIntoUiSpace();
   const UBYTE c = VM_GLOBAL(VAR_CC_CURRENT_C);
   strcpy(ui_text_data, hero_slots[c].name);
   write_bg_font(7, 3, 6, 1);
@@ -53,7 +53,7 @@ void cc_check_finished(SCRIPT_CTX * THIS) OLDCALL BANKED{
 
 void cc_init_confirm_party(void) OLDCALL BANKED{
   UBYTE offset;
-  loadFontIntoBkg();
+  loadFontIntoUiSpace();
 
   offset = load_centered_text(hero_slots[0].name);
   write_bg_font(3+offset, 5, 6-offset, 1);
@@ -104,7 +104,7 @@ void cc_display_class(SCRIPT_CTX *THIS) OLDCALL BANKED {
 
 void cc_display_names(void) OLDCALL BANKED {
   UBYTE offset;
-  loadFontIntoBkg();
+  loadFontIntoUiSpace();
 
   offset = load_centered_text(hero_slots[0].name);
   write_bg_font(2+offset, 6, 6-offset, 1);

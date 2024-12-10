@@ -12,7 +12,7 @@
 #include "skill_data.h"
 #pragma bank 255
 
-BYTE create_hero_data(hero_data *player, unsigned char *d, BYTE row) OLDCALL BANKED {
+BYTE create_hero_data(hero_data *player, unsigned char *d, BYTE row, BYTE col) OLDCALL BANKED {
   unsigned char *f = d;
 
   // Fast Text Speed
@@ -21,7 +21,7 @@ BYTE create_hero_data(hero_data *player, unsigned char *d, BYTE row) OLDCALL BAN
 
   // Set to Name Location
   *d++ = 0x03;
-  *d++ = 2;
+  *d++ = 2 + col;
   *d++ = 2+(row*4);
   // Load Name
   for (int i = 0; i < strlen(player->name); i++) {
@@ -33,7 +33,7 @@ BYTE create_hero_data(hero_data *player, unsigned char *d, BYTE row) OLDCALL BAN
 
   // Set to HP Location
   *d++ = 0x03;
-  *d++ = 5;
+  *d++ = 5 + col;
   *d++ = 4+(row*4);
   // HP Here
   if (player->ext.hp < 100) {
@@ -46,7 +46,7 @@ BYTE create_hero_data(hero_data *player, unsigned char *d, BYTE row) OLDCALL BAN
 
   // Set to AP Location
   *d++ = 0x03;
-  *d++ = 5;
+  *d++ = 5 + col;
   *d++ = 5+(row*4);
   // AP Stars here
   for (int i = 0; i < 3; i++) {
@@ -61,12 +61,16 @@ BYTE create_hero_data(hero_data *player, unsigned char *d, BYTE row) OLDCALL BAN
   return d - f;
 }
 
-void loadPartyMenu() BANKED {
+void loadPartyMenuOffset(BYTE col) BANKED {
   unsigned char *d = ui_text_data;
   for (int i = 0; i < 4; i++) {
-    d += create_hero_data(&hero_slots[i], d, i);
+    d += create_hero_data(&hero_slots[i], d, i, col);
     *d-- = '\n';
   }
+}
+
+void loadPartyMenu() BANKED {
+  loadPartyMenuOffset(0);
 }
 
 
@@ -95,7 +99,7 @@ void loadHeroMenu(hero_data * player) BANKED {
   skill_data skill;
   unsigned char *d = ui_text_data;
 
-  d+=create_hero_data(player, d, 0);
+  d+=create_hero_data(player, d, 0, 0);
   *d-- = '\n';
   *d++ = 0x01;
   *d++ = 1;

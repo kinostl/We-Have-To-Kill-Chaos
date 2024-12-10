@@ -3,6 +3,7 @@
 #include "enums.h"
 #include "extra_data.h"
 #include "ff_util.h"
+#include "load_font_into_bg.h"
 #include "states/rpg_combat.h"
 #include "turn_slots.h"
 #include <actor.h>
@@ -36,20 +37,23 @@ void ui_draw_frame(UBYTE x, UBYTE y, UBYTE width, UBYTE height) BANKED;
 inline void ui_display_text(void) {
   // Could technically call vm_display_text but vm calls are bad practice
   ui_draw_frame(0, 0, 8, 18);
-  INPUT_RESET;
-  text_options = TEXT_OPT_DEFAULT;
-  text_drawn = text_ff = FALSE;
-  ui_set_start_tile(TEXT_BUFFER_START, 0);
-  ui_run_modal(UI_WAIT_TEXT);
+  write_win_font(1, 1, 6, 16);
+  // INPUT_RESET;
+  // text_options = TEXT_OPT_DEFAULT;
+  // text_drawn = text_ff = FALSE;
+  // ui_set_start_tile(TEXT_BUFFER_START, 0);
+  // ui_run_modal(UI_WAIT_TEXT);
 }
 
 inline void ui_update_text(void) {
-  INPUT_RESET;
-  text_options = TEXT_OPT_DEFAULT;
+  // write_win_font(1, 1, 6, 16);
+  render_text(1, 1, 6, 16, TRUE, FALSE, TRUE);
+  // INPUT_RESET;
+  // text_options = TEXT_OPT_DEFAULT;
 
-  text_drawn = text_ff = FALSE;
-  ui_set_start_tile(TEXT_BUFFER_START, 0);
-  ui_run_modal(UI_WAIT_TEXT);
+  // text_drawn = text_ff = FALSE;
+  // ui_set_start_tile(TEXT_BUFFER_START, 0);
+  // ui_run_modal(UI_WAIT_TEXT);
 }
 
 void init_actions(void) BANKED {

@@ -17,9 +17,6 @@ typedef enum overworld_quad {
   Q_LEFT,
 } overworld_quad;
 
-extern overworld_far_ptr overworld_maps[4];
-extern overworld_quad overworld_tile_quad;
-
 void overworld_init(void) BANKED;
 void overworld_update(void) BANKED;
 

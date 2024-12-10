@@ -28,7 +28,7 @@ void menu_init(void) BANKED {
     PLAYER.pos.x = ((PLAYER.pos.x >> 7) << 7);
     PLAYER.pos.y = ((PLAYER.pos.y >> 7) << 7);
 
-    loadFontIntoBkg();
+    loadFontIntoUiSpace();
 }
 
 void menu_update(void) BANKED {

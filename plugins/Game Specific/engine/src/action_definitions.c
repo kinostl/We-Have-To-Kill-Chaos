@@ -38,7 +38,7 @@ UBYTE do_initiative_roll(turn_slot_t * turn_slot) BANKED {
 }
 
 turn_slot_t* sortedInsert(turn_slot_t* createTurnSlot, 
-                          turn_slot_t* sorted) {
+                          turn_slot_t* sorted) BANKED {
     
     // Special case for the head end
     if (sorted == NULL || 
@@ -61,7 +61,7 @@ turn_slot_t* sortedInsert(turn_slot_t* createTurnSlot,
     return sorted;
 }
 
-turn_slot_t* insertionSort(turn_slot_t* head) {
+turn_slot_t* insertionSort(turn_slot_t* head) BANKED {
     
     // Initialize sorted linked list
     turn_slot_t* sorted = NULL;
@@ -84,7 +84,7 @@ turn_slot_t* insertionSort(turn_slot_t* head) {
     return sorted;
 }
 
-struct turn_slot_t *doubleLink(turn_slot_t *start) {
+struct turn_slot_t *doubleLink(turn_slot_t *start) BANKED {
   turn_slot_t *prev = start;
   turn_slot_t *head = start->next;
 

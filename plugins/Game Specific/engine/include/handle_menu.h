@@ -5,4 +5,5 @@
 
 void loadHeroMenu(hero_data * player) BANKED;
 void loadPartyMenu(void) BANKED;
+void loadPartyMenuOffset(BYTE col) BANKED;
 #endif

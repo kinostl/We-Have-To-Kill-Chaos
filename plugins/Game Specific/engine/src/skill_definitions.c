@@ -6,6 +6,7 @@
 #include "enums.h"
 #include "extra_data.h"
 #include "ff_debug.h"
+#include "ff_text.h"
 #include "ff_util.h"
 #include "skill_data.h"
 #include "states/rpg_combat.h"
@@ -147,5 +148,5 @@ void handle_skill(BATTLE_SKILL skill) BANKED {
 void display_skill(BATTLE_SKILL skill) BANKED{
   skill_data s_data;
   load_skill(&s_data, skill);
-  strcpy(ui_text_data, s_data.name);
+  load_battle_message(s_data.name);
 }

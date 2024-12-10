@@ -186,7 +186,7 @@
       "args": {
         "state": 0,
         "__scriptTabs": "scriptinput",
-        "__collapse": true
+        "__collapse": false
       },
       "children": {
         "script": [
@@ -319,7 +319,7 @@
       "args": {
         "state": 1,
         "__scriptTabs": "scriptinput",
-        "__collapse": true
+        "__collapse": false
       },
       "children": {
         "script": [
@@ -329,6 +329,34 @@
               "__collapse": true
             },
             "id": "96cbbfa3-3c3a-492a-afa3-ceba3b42e7ab"
+          },
+          {
+            "command": "MY_EVENT_CALL_NATIVE",
+            "args": {
+              "argCount": 0,
+              "funName": "show_battle_message",
+              "__collapse": false,
+              "__comment": false
+            },
+            "id": "46f26b26-8a4a-4e51-9fcb-9971d1cc6277"
+          },
+          {
+            "command": "EVENT_WAIT",
+            "args": {
+              "time": 0.5,
+              "frames": 30
+            },
+            "id": "5ded70af-a85c-4b19-a6d1-20f2afceed60"
+          },
+          {
+            "command": "MY_EVENT_CALL_NATIVE",
+            "args": {
+              "argCount": 0,
+              "funName": "close_battle_message",
+              "__collapse": false,
+              "__comment": false
+            },
+            "id": "562be0b4-3803-4fde-9e81-0bf90713eaab"
           },
           {
             "command": "EVENT_CALL_CUSTOM_EVENT",
@@ -342,7 +370,8 @@
               "$actor[a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c]$": "a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c",
               "__collapse": true,
               "$actor[0]$": "2927f653-09b8-4dba-967c-4d5629452d4c",
-              "$actor[1]$": "a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c"
+              "$actor[1]$": "a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c",
+              "__comment": false
             },
             "id": "0ccb1224-0a21-4718-9525-df572563920e"
           }
@@ -465,16 +494,33 @@
       "args": {
         "state": 2,
         "__scriptTabs": "scriptinput",
-        "__collapse": true
+        "__collapse": false
       },
       "children": {
         "script": [
+          {
+            "command": "EVENT_CALL_CUSTOM_EVENT",
+            "args": {
+              "customEventId": "4365ddcf-c3b3-4862-9fe5-61fc75a6d925",
+              "$variable[V0]$": {
+                "type": "variable",
+                "value": "L0"
+              },
+              "$actor[2927f653-09b8-4dba-967c-4d5629452d4c]$": "2927f653-09b8-4dba-967c-4d5629452d4c",
+              "$actor[a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c]$": "a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c",
+              "__collapse": true,
+              "$actor[0]$": "2927f653-09b8-4dba-967c-4d5629452d4c",
+              "$actor[1]$": "a7ef4630-fb5b-4d4a-9560-c7e3cd2cee8c",
+              "__comment": true
+            },
+            "id": "3baff435-5d67-4117-947b-9e5ee25a7ce9"
+          },
           {
             "command": "EVENT_THREAD_START",
             "args": {
               "variable": "L0",
               "__scriptTabs": "true",
-              "__collapse": false
+              "__collapse": true
             },
             "children": {
               "true": [
@@ -495,7 +541,7 @@
             "args": {
               "variable": "L1",
               "__scriptTabs": "true",
-              "__collapse": false
+              "__collapse": true
             },
             "children": {
               "true": [
@@ -515,7 +561,8 @@
             "command": "EVENT_THREAD_START",
             "args": {
               "variable": "L2",
-              "__scriptTabs": "true"
+              "__scriptTabs": "true",
+              "__collapse": true
             },
             "children": {
               "true": [
@@ -537,7 +584,8 @@
               "condition": {
                 "type": "expression",
                 "value": "$L0$ > 0 &&\n$L1$ > 0 &&\n$L2$ > 0"
-              }
+              },
+              "__collapse": true
             },
             "children": {
               "true": [

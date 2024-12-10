@@ -67,10 +67,12 @@ void handle_bkg_set_color_slow(WORD color, WORD x, WORD y, WORD w,
   my_tile.attr.draw_over_objects = 0;
   my_tile.attr.palette = color;
   VBK_REG = 1;
+  unsigned char res[1];
 
   for (UBYTE dy = y; dy < y+h; dy++) {
     for (UBYTE dx = x; dx < x+w; dx++) {
-      set_bkg_tile_xy(dx, dy, my_tile._tile);
+      res[0] = my_tile._tile;
+      set_bkg_tiles(dx, dy, 1, 1, res);
       vsync();
     }
   }

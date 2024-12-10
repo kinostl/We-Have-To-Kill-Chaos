@@ -3,5 +3,8 @@
 
 #include <gb/gb.h>
 
-void flash_battle_message(void) OLDCALL BANKED;
+extern BOOLEAN show_message;
+void load_battle_message(unsigned char * message) OLDCALL BANKED;
+void show_battle_message(void) OLDCALL BANKED;
+void close_battle_message(void) OLDCALL BANKED;
 #endif

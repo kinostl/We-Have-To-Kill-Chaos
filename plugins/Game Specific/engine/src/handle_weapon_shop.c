@@ -9,7 +9,7 @@
 #include <string.h>
 #include <ui.h>
 #include <vm.h>
-#include "states/menu.h"
+#include "menu_state_events.h"
 #pragma bank 255
 
 void setWeaponData(weapon_data * wepon, UBYTE weapon_choice) OLDCALL BANKED{
