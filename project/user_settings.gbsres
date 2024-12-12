@@ -27,18 +27,7 @@
   ],
   "debuggerPauseOnScriptChanged": false,
   "debuggerPauseOnWatchedVariableChanged": false,
-  "debuggerBreakpoints": [
-    {
-      "scriptEventId": "9aac8584-0dad-426b-ac08-399c87897c04",
-      "context": {
-        "type": "entity",
-        "entityType": "scene",
-        "entityId": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64",
-        "sceneId": "6b0ebf80-c3de-410a-85dd-b7a8bbd93b64",
-        "scriptKey": "script"
-      }
-    }
-  ],
+  "debuggerBreakpoints": [],
   "debuggerWatchedVariables": [
     "437",
     "108",
