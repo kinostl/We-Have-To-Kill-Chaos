@@ -165,6 +165,18 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case ANIMATE_EnemyDefeated:
     animate(ANIMATE_ENEMY_DEFEATED);
     break;
+  case ANIMATE_EnemyDamaged:
+    animate(ANIMATE_ENEMY_DAMAGED);
+    break;
+  case ANIMATE_PlayerAttacking:
+    animate(ANIMATE_PLAYER_ATTACKING);
+    break;
+  case ANIMATE_EnemyAttacking:
+    animate(ANIMATE_ENEMY_ATTACKING);
+    break;
+  case ANIMATE_EndPlayerTurn:
+    animate(END_PLAYER_TURN);
+    break;
   case ATTACKER_FinishTurn: {
     LOG("handle: ATTACKER_FinishTurn");
 
@@ -175,6 +187,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     }
 
     current_turn = current_turn->next;
+    dispatch_action(ANIMATE_EndPlayerTurn);
     dispatch_action(ATTACKER_StartNextTurn);
     break;
   }

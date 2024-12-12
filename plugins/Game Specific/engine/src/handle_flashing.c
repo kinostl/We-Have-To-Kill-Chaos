@@ -33,12 +33,12 @@ void handle_bkg_flash(WORD color_1, WORD color_2, WORD x, WORD y, WORD w,
   for (uint8_t i = 0; i < 2; i++) {
     my_tile.attr.palette = color_2;
     fill_bkg_rect(x, y, w, h, my_tile._tile);
-    for(UBYTE i=0;i<6;i++){
+    for(UBYTE i=0;i<3;i++){
     vsync();
     }
     my_tile.attr.palette = color_1;
     fill_bkg_rect(x, y, w, h, my_tile._tile);
-    for(UBYTE i=0;i<6;i++){
+    for(UBYTE i=0;i<3;i++){
     vsync();
     }
   }

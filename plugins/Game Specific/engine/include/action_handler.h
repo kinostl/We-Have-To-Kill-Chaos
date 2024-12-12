@@ -7,6 +7,10 @@
 typedef enum {
   EMPTY_ACTION,
   ANIMATE_EnemyDefeated,
+  ANIMATE_EnemyDamaged,
+  ANIMATE_PlayerAttacking,
+  ANIMATE_EnemyAttacking,
+  ANIMATE_EndPlayerTurn,
   ATTACKER_StartNextTurn,
   ATTACKER_TakeNextTurn,
   ATTACKER_FinishTurn,

@@ -102,11 +102,13 @@ typedef enum {
 } SKILL_TARGET;
 
 typedef enum {
-  CRITICAL_MISS,
-  ATTACK_MISSED,
-  ATTACK_HIT,
-  CRITICAL_HIT,
-  TARGET_DEFEATED
+  CRITICAL_MISS = 1 << 0,
+  ATTACK_MISSED = 1 << 1,
+  ATTACK_HIT = 1 << 2,
+  CRITICAL_HIT = 1 << 3,
+  TARGET_DEFEATED = 1 << 4,
+  MAGIC_HIT = 1 << 5,
+  MAGIC_RESISTED = 1 << 6
 } ATTACK_RESULTS;
 
 typedef enum {

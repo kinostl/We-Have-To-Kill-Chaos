@@ -341,12 +341,12 @@
             "id": "46f26b26-8a4a-4e51-9fcb-9971d1cc6277"
           },
           {
-            "command": "EVENT_WAIT",
+            "command": "MY_EVENT_CALL_NATIVE",
             "args": {
-              "time": 0.5,
-              "frames": 30
+              "argCount": 0,
+              "funName": "idle_battle_message"
             },
-            "id": "5ded70af-a85c-4b19-a6d1-20f2afceed60"
+            "id": "3cfd5bfc-f840-452f-8b33-796a776221d2"
           },
           {
             "command": "MY_EVENT_CALL_NATIVE",

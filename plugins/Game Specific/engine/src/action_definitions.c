@@ -204,3 +204,20 @@ ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,
 
   return results;
 }
+
+ATTACK_RESULTS defender_TakeMagicDamage(entity_data *attacker,
+                                        entity_data *defender,
+                                        UBYTE damage_calc,
+                                        UBYTE spell_acc) BANKED {
+  const UBYTE hit_roll = drand(0, 200);
+  const UBYTE base_hit_chance = 148;
+  const UBYTE hit_chance = base_hit_chance + spell_acc - defender->mdef;
+  defender-= damage_calc;
+  ATTACK_RESULTS results = MAGIC_HIT;
+  if(hit_roll < hit_chance){
+    defender -= damage_calc;
+  }else{
+    results |= MAGIC_RESISTED;
+  }
+  return results;
+}
