@@ -8,6 +8,7 @@
 #include "turn_slots.h"
 #include <actor.h>
 #include <data/game_globals.h>
+#include <gb/cgb.h>
 #include <gb/gb.h>
 #include <macro.h>
 #include <stdbool.h>
@@ -27,6 +28,8 @@
 #include "ff_debug.h"
 #include "animations.h"
 #include "skill_definitions.h"
+#include "data/explosion_palettes.h"
+#include <palette.h>
 
 BYTE turn_cursor;
 TURN_TYPE prev_turn_type=NO_TURN;
@@ -191,6 +194,15 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     dispatch_action(ATTACKER_StartNextTurn);
     break;
   }
+  case EXPLOSIONS_SetDefault:
+    load_explosion_palette(FALSE, 5, EXPLOSION_DEFAULT);
+    break;
+  case EXPLOSIONS_SetYellow:
+    load_explosion_palette(FALSE, 5, EXPLOSION_YELLOW);
+    break;
+  case EXPLOSIONS_SetWhite:
+    load_explosion_palette(FALSE, 5, EXPLOSION_WHITE);
+    break;
   case ATTACKER_StartNextTurn: {
     LOG("handle: ATTACKER_StartNextTurn");
 

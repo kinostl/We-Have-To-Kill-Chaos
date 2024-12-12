@@ -36,6 +36,8 @@ const compile = (input, helpers) => {
     return `[${x}]=${palette_rgb[i]}`
   })
 
+  const palette_count = palette_names.length + 1;
+
   writeAsset(
     `${filter.toLowerCase()}_palettes.h`,
       /*h*/`
@@ -44,14 +46,16 @@ const compile = (input, helpers) => {
 
 #include <gbs_types.h> // IWYU pragma: export
 #include <asm/types.h> // IWYU pragma: export
+#include <gb/cgb.h> // IWYU pragma: export
+#include <palette.h> // IWYU pragma: export
 
 typedef enum {
   NO_${filter}_PALETTE,
   ${palette_names.join(',\r  ')}
 } ${filter}_PALETTES;
 
-extern const palette_entry_t ${filter.toLowerCase()}_palette_db[];
-void load_${filter.toLowerCase()}_palette(palette_entry_t * entry, ${filter}_PALETTES palette) BANKED;
+extern const palette_color_t ${filter.toLowerCase()}_palette_db[${palette_count}][4];
+void load_${filter.toLowerCase()}_palette(BOOLEAN is_bkg, UBYTE palette_id, ${filter}_PALETTES palette) BANKED;
 
 BANKREF_EXTERN(${filter}_PALETTES_DEF)
 
@@ -65,12 +69,20 @@ BANKREF_EXTERN(${filter}_PALETTES_DEF)
 #pragma bank 255
 #include "data/${filter.toLowerCase()}_palettes.h"
 
-const palette_entry_t ${filter.toLowerCase()}_palette_db[]={
+const palette_color_t ${filter.toLowerCase()}_palette_db[${palette_count}][4]={
   ${palette_db.join(',\r  ')}
 };
 
-void load_${filter.toLowerCase()}_palette(palette_entry_t * entry, ${filter}_PALETTES palette) BANKED {
-  MemcpyBanked(entry, &${filter.toLowerCase()}_palette_db[palette], sizeof(palette_entry_t), BANK(${filter}_PALETTES_DEF));
+void load_${filter.toLowerCase()}_palette(BOOLEAN is_bkg, UBYTE palette_id, ${filter}_PALETTES palette) BANKED {
+  palette_color_t colors[4];
+  MemcpyBanked(colors, &${filter.toLowerCase()}_palette_db[palette], sizeof(colors), BANK(${filter}_PALETTES_DEF));
+  if(is_bkg){
+    MemcpyBanked(&BkgPalette[palette_id], &${filter.toLowerCase()}_palette_db[palette], sizeof(colors), BANK(${filter}_PALETTES_DEF));
+    set_bkg_palette(palette_id, 1, colors);
+  }else{
+    MemcpyBanked(&SprPalette[palette_id], &${filter.toLowerCase()}_palette_db[palette], sizeof(colors), BANK(${filter}_PALETTES_DEF));
+    set_sprite_palette(palette_id, 1, colors);
+  }
 }
 
 BANKREF(${filter}_PALETTES_DEF)

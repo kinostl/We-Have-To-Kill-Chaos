@@ -38,7 +38,7 @@ UBYTE load_battle_header(UBYTE vram_ptr, BATTLE_ID battle_id) BANKED {
   UBYTE *data = t_set->tiles;
 
   SetBankedBkgData(vram_ptr, n_tiles, data, header.bank);
-  load_header_palette(&BkgPalette[0], header.palette);
+  load_header_palette(TRUE, 0, header.palette);
 
   return n_tiles; // New end of available VRAM
 }

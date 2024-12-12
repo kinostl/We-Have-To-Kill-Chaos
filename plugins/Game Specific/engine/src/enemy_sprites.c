@@ -54,7 +54,7 @@ inline UBYTE get_palette_id(ENEMY_PALETTES color){
         return i+offset;
       if (assigned_colors[i] == NO_ENEMY_PALETTE){
         assigned_colors[i] = color;
-        load_enemy_palette(&BkgPalette[i+offset], color);
+        load_enemy_palette(TRUE, i+offset, color);
         return i+offset;
       }
       i++;

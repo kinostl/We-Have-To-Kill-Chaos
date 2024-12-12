@@ -27,7 +27,7 @@
     "",
     "ce0677a5-03ad-409f-9df6-defebed43c18",
     "",
-    "",
+    "62a9f9aa-9066-4fa2-a336-9833bfd62872",
     ""
   ],
   "autoFadeSpeed": null,
@@ -302,13 +302,6 @@
               "__collapse": true
             },
             "id": "9aac8584-0dad-426b-ac08-399c87897c04"
-          },
-          {
-            "command": "EVENT_ACTOR_HIDE",
-            "args": {
-              "actorId": "8ed07833-9d02-4817-acb5-d9e14d31eb95"
-            },
-            "id": "5481da76-90b9-4a4b-8d23-5b0d73059626"
           }
         ]
       },
@@ -319,7 +312,7 @@
       "args": {
         "state": 1,
         "__scriptTabs": "scriptinput",
-        "__collapse": false
+        "__collapse": true
       },
       "children": {
         "script": [
@@ -494,7 +487,7 @@
       "args": {
         "state": 2,
         "__scriptTabs": "scriptinput",
-        "__collapse": false
+        "__collapse": true
       },
       "children": {
         "script": [
@@ -585,7 +578,7 @@
                 "type": "expression",
                 "value": "$L0$ > 0 &&\n$L1$ > 0 &&\n$L2$ > 0"
               },
-              "__collapse": true
+              "__collapse": false
             },
             "children": {
               "true": [
@@ -655,6 +648,26 @@
         ]
       },
       "id": "d36cb5d6-e184-4fb6-acf4-3683b0c2003c"
+    },
+    {
+      "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
+      "args": {
+        "state": 7,
+        "__scriptTabs": "scriptinput",
+        "__collapse": true
+      },
+      "children": {
+        "script": [
+          {
+            "command": "EVENT_ACTOR_HIDE",
+            "args": {
+              "actorId": "8ed07833-9d02-4817-acb5-d9e14d31eb95"
+            },
+            "id": "5481da76-90b9-4a4b-8d23-5b0d73059626"
+          }
+        ]
+      },
+      "id": "71e8c427-05ac-4cb9-8d68-9789a358f25a"
     },
     {
       "command": "EVENT_FADE_IN",

@@ -88,6 +88,13 @@ void handle_targeted_attack(BATTLE_SKILL skill, BYTE target_enemy) BANKED {
     current_enemy = &enemy_slots[target_enemy];
     const ATTACK_RESULTS attack_results=do_targetted_attack(current_turn->entity, &current_enemy->ext, skill);
 
+    switch (skill) {
+    case RUNE_SWORD_SKILL:
+      dispatch_action(EXPLOSIONS_SetWhite);
+      break;
+    default:
+      dispatch_action(EXPLOSIONS_SetDefault);
+    }
 
     setup_explosions(&current_enemy->ext.pos);
     dispatch_action(ANIMATE_PlayerAttacking);

@@ -44,6 +44,14 @@
       "id": "7324166a-6539-41ec-8e9d-0da737126fea"
     },
     {
+      "command": "FO_EVENT_EXPORT_PALETTES",
+      "args": {
+        "filter": "Explosion",
+        "__collapse": true
+      },
+      "id": "dd7a456c-6aa3-408c-bf45-f595a5f76bb8"
+    },
+    {
       "command": "FO_EVENT_CONNECT_MAPS",
       "args": {
         "__collapse": true
