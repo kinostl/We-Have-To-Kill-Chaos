@@ -13,6 +13,7 @@
 #include "skill_data.h"
 #include "states/rpg_combat.h"
 #include <asm/types.h>
+#include <data/rpg_combat_animation_states.h>
 #include <math.h>
 #include <string.h>
 #include <ui.h>
@@ -72,7 +73,7 @@ ATTACK_RESULTS do_targetted_attack(entity_data *attacker, entity_data *defender,
     return skill_fight(attacker, defender);
   case GOBLIN_PUNCH:
     return skill_goblin_punch(attacker, defender);
-  case RUNE_SWORD_SKILL:
+  case LUSTER:
     return skill_rune_sword(attacker, defender);
   default:
     return ATTACK_MISSED;
@@ -89,7 +90,7 @@ void handle_targeted_attack(BATTLE_SKILL skill, BYTE target_enemy) BANKED {
     const ATTACK_RESULTS attack_results=do_targetted_attack(current_turn->entity, &current_enemy->ext, skill);
 
     switch (skill) {
-    case RUNE_SWORD_SKILL:
+    case LUSTER:
       dispatch_action(EXPLOSIONS_SetWhite);
       break;
     default:
@@ -98,7 +99,8 @@ void handle_targeted_attack(BATTLE_SKILL skill, BYTE target_enemy) BANKED {
 
     setup_explosions(&current_enemy->ext.pos);
     dispatch_action(ANIMATE_PlayerAttacking);
-    dispatch_action(ANIMATE_EnemyDamaged);
+    dispatch_action(ANIMATE_Explosions);
+    dispatch_action(ANIMATE_DamageNumbers);
 
     if (attack_results & CRITICAL_HIT) {
       // animate critical hit
@@ -114,7 +116,7 @@ void handle_targeted_attack(BATTLE_SKILL skill, BYTE target_enemy) BANKED {
       // animate target defeateated
     }
 
-    if(skill == RUNE_SWORD_SKILL){
+    if(skill == LUSTER){
       return handle_targeted_attack(FIGHT, target_enemy);
     }
 
@@ -130,8 +132,6 @@ void handle_targeted_attack(BATTLE_SKILL skill, BYTE target_enemy) BANKED {
       target = &hero_slots[target_enemy].ext;
     }
     const ATTACK_RESULTS attack_results=do_targetted_attack(current_turn->entity, target, skill);
-
-    dispatch_action(PANEL_UpdateParty);
 
     if (attack_results & CRITICAL_HIT) {
       // animate critical hit
@@ -149,7 +149,14 @@ void handle_targeted_attack(BATTLE_SKILL skill, BYTE target_enemy) BANKED {
 
     setup_explosions(&target->pos);
     dispatch_action(ANIMATE_EnemyAttacking);
-    dispatch_action(ANIMATE_EnemyDamaged);
+    if (skill != FIGHT) {
+      dispatch_action(MODAL_Open);
+      dispatch_action(MODAL_Hold);
+      dispatch_action(MODAL_Close);
+    }
+    dispatch_action(ANIMATE_Explosions);
+    dispatch_action(ANIMATE_DamageNumbers);
+    dispatch_action(PANEL_UpdateParty);
   }
 }
 
@@ -157,11 +164,11 @@ void handle_skill(BATTLE_SKILL skill) BANKED {
   switch (skill) {
   case FIGHT:
   case GOBLIN_PUNCH:
-  case RUNE_SWORD_SKILL:
+  case LUSTER:
     handle_targeted_attack(skill, -1);
     break;
   case SHIELD_SKILL:
-  case LUSTER:
+  case BLADE_BLITZ:
   case FIRE:
   case ICE:
   case HARM:

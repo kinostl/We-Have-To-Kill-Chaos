@@ -24,8 +24,8 @@ const hero_data hero_db[] = {
                         {
                             FIGHT,
                             SHIELD_SKILL,
-                            RUNE_SWORD_SKILL,
                             LUSTER,
+                            BLADE_BLITZ,
                         },
                 },
         },

@@ -2,6 +2,7 @@
 #include "entity_data.h"
 #include "enums.h"
 #include "extra_data.h"
+#include "ff_text.h"
 #include "ff_util.h"
 #include "load_font_into_bg.h"
 #include "states/rpg_combat.h"
@@ -168,8 +169,8 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case ANIMATE_EnemyDefeated:
     animate(ANIMATE_ENEMY_DEFEATED);
     break;
-  case ANIMATE_EnemyDamaged:
-    animate(ANIMATE_ENEMY_DAMAGED);
+  case ANIMATE_DamageNumbers:
+    animate(ANIMATE_DAMAGE_NUMBERS);
     break;
   case ANIMATE_PlayerAttacking:
     animate(ANIMATE_PLAYER_ATTACKING);
@@ -179,6 +180,21 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     break;
   case ANIMATE_EndPlayerTurn:
     animate(END_PLAYER_TURN);
+    break;
+  case ANIMATE_Explosions:
+    animate(ANIMATE_EXPLOSIONS);
+    break;
+  case MODAL_Open:
+    ui_move_to_xy(0, 15, text_in_speed);
+    ui_run_modal(UI_WAIT_WINDOW);
+    break;
+  case MODAL_Hold:
+    for(UBYTE i=0;i<30;i++){
+      vsync();
+    }
+    break;
+  case MODAL_Close:
+    close_battle_message();
     break;
   case ATTACKER_FinishTurn: {
     LOG("handle: ATTACKER_FinishTurn");
