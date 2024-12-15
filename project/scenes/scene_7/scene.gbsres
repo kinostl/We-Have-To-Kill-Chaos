@@ -132,14 +132,16 @@
     {
       "command": "EVENT_FADE_IN",
       "args": {
-        "speed": "2"
+        "speed": "2",
+        "__collapse": true
       },
       "id": "12fd0cfb-b3b5-4560-a3f7-dfa93ef7443e"
     },
     {
       "command": "EVENT_COMMENT",
       "args": {
-        "text": "Workaround for weird loading bug on Battle.\nBattle scene can not load graphics when started on directly."
+        "text": "Workaround for weird loading bug on Battle.\nBattle scene can not load graphics when started on directly.",
+        "__collapse": true
       },
       "id": "ceb1ab61-57c1-40a1-843f-59e5537e7d0f"
     },
@@ -157,7 +159,8 @@
         },
         "direction": "",
         "fadeSpeed": "2",
-        "__comment": false
+        "__comment": false,
+        "__collapse": true
       },
       "id": "e35e8347-514f-4ac2-8bb4-d0f7859b517a"
     }

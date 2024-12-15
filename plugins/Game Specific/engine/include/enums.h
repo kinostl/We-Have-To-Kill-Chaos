@@ -73,7 +73,7 @@ typedef enum {
 typedef enum {
   BLANK,
   FIGHT,
-  SHIELD_SKILL,
+  COVER,
   BLADE_BLITZ,
   FIRE,
   ICE,
@@ -119,7 +119,8 @@ typedef enum {
   PARALYZED = 1 << 4,
   ASLEEP = 1 << 5,
   SILENCED = 1 << 6,
-  CONFUSED = 1 << 7
+  CONFUSED = 1 << 7,
+  DEFENDING = 1 << 8
 } STATUS_EFFECT;
 
 typedef enum {

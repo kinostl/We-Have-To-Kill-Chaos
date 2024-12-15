@@ -66,6 +66,11 @@ ATTACK_RESULTS skill_rune_sword(entity_data *attacker,
   return attack_results;
 }
 
+ATTACK_RESULTS skill_cover(entity_data *attacker, entity_data *ally) BANKED {
+  ally->status |= DEFENDING;
+  return ATTACK_HIT;
+}
+
 ATTACK_RESULTS do_targetted_attack(entity_data *attacker, entity_data *defender,
                                    BATTLE_SKILL skill) BANKED {
   switch (skill) {
@@ -75,6 +80,16 @@ ATTACK_RESULTS do_targetted_attack(entity_data *attacker, entity_data *defender,
     return skill_goblin_punch(attacker, defender);
   case LUSTER:
     return skill_rune_sword(attacker, defender);
+  default:
+    return ATTACK_MISSED;
+  }
+}
+
+ATTACK_RESULTS do_targetted_support(entity_data *attacker, entity_data *ally,
+                                    BATTLE_SKILL skill) BANKED {
+  switch (skill) {
+  case COVER:
+    return skill_cover(attacker, ally);
   default:
     return ATTACK_MISSED;
   }
@@ -160,6 +175,28 @@ void handle_targeted_attack(BATTLE_SKILL skill, BYTE target_enemy) BANKED {
   }
 }
 
+void handle_targeted_support(BATTLE_SKILL skill, BYTE target_ally) BANKED {
+    if (target_ally < 0) {
+      target_ally = rpg_get_target_ally(FALSE);
+    }
+    do_targetted_support(current_turn->entity, &hero_slots[target_ally].ext, skill);
+    dispatch_action(PANEL_UpdateParty);
+}
+
+void prepare_for_skill(BATTLE_SKILL skill) BANKED {
+  switch (skill) {
+  case COVER:
+    dispatch_action(ANIMATE_HideActivePlayer);
+    dispatch_action(PANEL_ClosePanel);
+    dispatch_action(PANEL_DisplayParty);
+    dispatch_action(PANEL_OpenPanel);
+    dispatch_action(PANEL_DisplayPartyActors);
+    return;
+  default:
+    return;
+  }
+}
+
 void handle_skill(BATTLE_SKILL skill) BANKED {
   switch (skill) {
   case FIGHT:
@@ -167,7 +204,9 @@ void handle_skill(BATTLE_SKILL skill) BANKED {
   case LUSTER:
     handle_targeted_attack(skill, -1);
     break;
-  case SHIELD_SKILL:
+  case COVER:
+    handle_targeted_support(skill, -1);
+    break;
   case BLADE_BLITZ:
   case FIRE:
   case ICE:

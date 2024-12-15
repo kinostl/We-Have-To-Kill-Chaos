@@ -191,6 +191,9 @@ ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,
   }
 
   damage_calc = MAX(damage_calc - defender->absorb, 1);
+  if (defender->status & DEFENDING) {
+    damage_calc = MAX(damage_calc - defender->absorb, 1);
+  }
   total_damage += damage_calc;
   if ((defender->hp - damage_calc) < 1) {
     defender->hp = 0;

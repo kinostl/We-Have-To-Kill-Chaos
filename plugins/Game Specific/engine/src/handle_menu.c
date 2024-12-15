@@ -114,7 +114,7 @@ void loadHeroMenu(hero_data * player) BANKED {
     d += load_stars(skill.cost, d);
     *d++ = '\n';
   }
-  const char r_menu[25] = "Item >\nMagic>\nBlock-\nRun";
+  const char r_menu[25] = "Item >\nMagic>\nGuard-\nRun";
   for (int i = 0; i < strlen(r_menu); i++) {
     *d++ = r_menu[i];
   }

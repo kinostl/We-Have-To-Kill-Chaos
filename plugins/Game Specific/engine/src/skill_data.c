@@ -8,7 +8,7 @@
 
 const skill_data skill_db[] = {
     db_row(FIGHT, "Fight", 1),
-    db_row(SHIELD_SKILL, "Shield", 1),
+    db_row(COVER, "Cover", 1),
     db_row(LUSTER, "Luster", 2),
     db_row(BLADE_BLITZ, "Bladia", 3),
     db_row(GOBLIN_PUNCH, "Impunch", 0),

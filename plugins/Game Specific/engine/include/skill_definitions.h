@@ -6,4 +6,5 @@
 
 void display_skill(BATTLE_SKILL skill) BANKED;
 void handle_skill(BATTLE_SKILL skill) BANKED;
+void prepare_for_skill(BATTLE_SKILL skill) BANKED;
 #endif

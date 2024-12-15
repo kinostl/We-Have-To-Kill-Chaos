@@ -186,7 +186,7 @@
       "args": {
         "state": 0,
         "__scriptTabs": "scriptinput",
-        "__collapse": false
+        "__collapse": true
       },
       "children": {
         "script": [
@@ -294,9 +294,119 @@
     {
       "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
       "args": {
-        "state": 1,
+        "state": 9,
         "__scriptTabs": "scriptinput",
         "__collapse": false
+      },
+      "children": {
+        "script": [
+          {
+            "command": "EVENT_ACTOR_SET_STATE",
+            "args": {
+              "actorId": "8ed07833-9d02-4817-acb5-d9e14d31eb95",
+              "spriteStateId": "Attack",
+              "loopAnim": true,
+              "__collapse": true
+            },
+            "id": "b93354f1-7a75-4bce-99e6-f8db188f5dc0"
+          },
+          {
+            "command": "EVENT_ACTOR_MOVE_TO",
+            "args": {
+              "actorId": "8ed07833-9d02-4817-acb5-d9e14d31eb95",
+              "x": {
+                "type": "number",
+                "value": 13
+              },
+              "y": {
+                "type": "number",
+                "value": 4
+              },
+              "moveType": "horizontal",
+              "useCollisions": false,
+              "__collapse": true
+            },
+            "id": "e35f5c03-5a94-4d76-ac33-00f1ee112d59"
+          },
+          {
+            "command": "EVENT_ACTOR_SET_STATE",
+            "args": {
+              "actorId": "8ed07833-9d02-4817-acb5-d9e14d31eb95",
+              "spriteStateId": "Casting",
+              "loopAnim": true
+            },
+            "id": "7ad07e26-6aef-4e9b-ae06-74024348e790"
+          },
+          {
+            "command": "EVENT_WAIT",
+            "args": {
+              "time": 0.5,
+              "frames": 30
+            },
+            "id": "de17eae7-43eb-4731-a5a2-80dd2a8c05d5"
+          },
+          {
+            "command": "EVENT_ACTOR_SET_STATE",
+            "args": {
+              "actorId": "8ed07833-9d02-4817-acb5-d9e14d31eb95",
+              "spriteStateId": "Attack",
+              "loopAnim": true,
+              "__collapse": true
+            },
+            "id": "45be49ef-8b75-45c5-9a43-7afade8d16cb"
+          },
+          {
+            "command": "EVENT_ACTOR_MOVE_TO",
+            "args": {
+              "actorId": "8ed07833-9d02-4817-acb5-d9e14d31eb95",
+              "x": {
+                "type": "number",
+                "value": 14
+              },
+              "y": {
+                "type": "number",
+                "value": 4
+              },
+              "moveType": "horizontal",
+              "useCollisions": false,
+              "__collapse": true
+            },
+            "id": "f109c5bb-2143-4cb2-ad11-ebf2ca3a65b7"
+          },
+          {
+            "command": "EVENT_ACTOR_SET_STATE",
+            "args": {
+              "actorId": "8ed07833-9d02-4817-acb5-d9e14d31eb95",
+              "spriteStateId": "",
+              "loopAnim": true
+            },
+            "id": "b5b6acc3-e544-4a75-8f39-5b0720b5bc31"
+          },
+          {
+            "command": "EVENT_WAIT",
+            "args": {
+              "time": 0.1,
+              "frames": 30
+            },
+            "id": "d32ca4af-7787-4517-b90a-c9bae7b14e1e"
+          },
+          {
+            "command": "EVENT_ACTOR_HIDE",
+            "args": {
+              "actorId": "8ed07833-9d02-4817-acb5-d9e14d31eb95"
+            },
+            "id": "b1aa0117-c5f5-4812-8118-c1a32f3d5f07"
+          }
+        ]
+      },
+      "id": "88530880-3a05-4e6c-bb42-df0049653e27"
+    },
+    {
+      "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
+      "args": {
+        "state": 1,
+        "__scriptTabs": "scriptinput",
+        "__collapse": true
       },
       "children": {
         "script": [
@@ -316,7 +426,7 @@
       "args": {
         "state": 8,
         "__scriptTabs": "scriptinput",
-        "__collapse": false
+        "__collapse": true
       },
       "children": {
         "script": [
@@ -733,7 +843,7 @@
       "args": {
         "state": 2,
         "__scriptTabs": "scriptinput",
-        "__collapse": false
+        "__collapse": true
       },
       "children": {
         "script": [
@@ -900,7 +1010,7 @@
       "args": {
         "state": 7,
         "__scriptTabs": "scriptinput",
-        "__collapse": true
+        "__collapse": false
       },
       "children": {
         "script": [

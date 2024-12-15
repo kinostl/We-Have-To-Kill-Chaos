@@ -8,8 +8,9 @@ const stateNames = [
     "Animate Party Win",
     "Animate Party Lose",
     "Begin Player Turn",
-    "End Player Turn",
-    "Animate Explosions"
+    "Animate Hide Active Player",
+    "Animate Explosions",
+    "Animate Player Casting"
 ]
 const name = "Attach Script to Animation State";
 const autoLabel = (fetchArg) => {

@@ -4,6 +4,7 @@
 #include "extra_data.h"
 #include "ff_text.h"
 #include "ff_util.h"
+#include "hero_data.h"
 #include "load_font_into_bg.h"
 #include "states/rpg_combat.h"
 #include "turn_slots.h"
@@ -34,31 +35,10 @@
 
 BYTE turn_cursor;
 TURN_TYPE prev_turn_type=NO_TURN;
+UBYTE player_choice;
 
 void take_action(void) BANKED;
 
-void ui_draw_frame(UBYTE x, UBYTE y, UBYTE width, UBYTE height) BANKED;
-inline void ui_display_text(void) {
-  // Could technically call vm_display_text but vm calls are bad practice
-  ui_draw_frame(0, 0, 8, 18);
-  write_win_font(1, 1, 6, 16);
-  // INPUT_RESET;
-  // text_options = TEXT_OPT_DEFAULT;
-  // text_drawn = text_ff = FALSE;
-  // ui_set_start_tile(TEXT_BUFFER_START, 0);
-  // ui_run_modal(UI_WAIT_TEXT);
-}
-
-inline void ui_update_text(void) {
-  // write_win_font(1, 1, 6, 16);
-  render_text(1, 1, 6, 16, TRUE, FALSE, TRUE);
-  // INPUT_RESET;
-  // text_options = TEXT_OPT_DEFAULT;
-
-  // text_drawn = text_ff = FALSE;
-  // ui_set_start_tile(TEXT_BUFFER_START, 0);
-  // ui_run_modal(UI_WAIT_TEXT);
-}
 
 void init_actions(void) BANKED {
 
@@ -127,8 +107,8 @@ void dispatch_action(ACTION_TYPE action_data) BANKED {
   case PICK_Magic:
     LOG("Dispatch: PICK_Magic");
     break;
-  case PICK_Block:
-    LOG("Dispatch: PICK_Block");
+  case PICK_Guard:
+    LOG("Dispatch: PICK_Guard");
     break;
   case PICK_Run:
     LOG("Dispatch: PICK_Run");
@@ -179,10 +159,13 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     animate(ANIMATE_ENEMY_ATTACKING);
     break;
   case ANIMATE_EndPlayerTurn:
-    animate(END_PLAYER_TURN);
+    animate(ANIMATE_HIDE_ACTIVE_PLAYER);
     break;
   case ANIMATE_Explosions:
     animate(ANIMATE_EXPLOSIONS);
+    break;
+  case ANIMATE_HideActivePlayer:
+    animate(ANIMATE_HIDE_ACTIVE_PLAYER);
     break;
   case MODAL_Open:
     ui_move_to_xy(0, 15, text_in_speed);
@@ -352,23 +335,24 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     break;
   case PICK_GetPlayerActionChoice: {
     LOG("handle: PICK_GetPlayerActionChoice");
-    UBYTE player_choice = rpg_run_menu();
+    player_choice = rpg_run_menu();
     switch (player_choice) {
-    case 5:
+    case 4:
       dispatch_action(PICK_Item);
       break;
-    case 6:
+    case 5:
       dispatch_action(PICK_Magic);
       break;
-    case 7:
-      dispatch_action(PICK_Block);
+    case 6:
+      dispatch_action(PICK_Guard);
       break;
-    case 8:
+    case 7:
       dispatch_action(PICK_Run);
       break;
     default: {
       const BATTLE_SKILL skill = hero_slots[0].ext.skills[player_choice];
-      handle_skill(skill);
+      prepare_for_skill(skill);
+      dispatch_action(PICK_Skill);
       break;
     }
     }
@@ -402,18 +386,22 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     break;
   case PICK_Magic:
     break;
-  case PICK_Block:
+  case PICK_Guard: {
+    current_hero = &hero_slots[current_turn->entity->idx];
+    if (current_hero->ap < 3) {
+      current_hero->ap++;
+    }
+    animate(ANIMATE_PLAYER_CASTING);
+    dispatch_action(ATTACKER_FinishTurn);
     break;
+  }
   case PICK_Run:
     break;
-  case REPORT_AttackResults:
+  case PICK_Skill: {
+    const BATTLE_SKILL skill = hero_slots[0].ext.skills[player_choice];
+    handle_skill(skill);
     break;
-  case REPORT_Prepare:
-    break;
-  case REPORT_RejectMenuChoice:
-    break;
-  case SCENE_FadeIn:
-    break;
+  } 
   case TURN_BuildInitiative:
     LOG("handle: TURN_BuildInitiative");
     turn_rollInitiative();

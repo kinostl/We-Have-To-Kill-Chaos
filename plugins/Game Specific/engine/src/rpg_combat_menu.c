@@ -1,5 +1,10 @@
+#include "action_handler.h"
+#include "animations.h"
 #include "enemy_data.h"
 #include "extra_data.h"
+#include "ff_text.h"
+#include "ff_util.h"
+#include "handle_menu.h"
 #include "position_data.h"
 #include "states/rpg_combat.h"
 
@@ -12,6 +17,7 @@
 #include "projectiles.h"
 #include "shadow.h"
 #include "position.h"
+#include <data/rpg_combat_animation_states.h>
 #include <gb/gb.h>
 #include <math.h>
 #pragma bank 255
@@ -32,8 +38,13 @@ inline void menu_loop_preamble(){
     vsync();
 }
 
-inline void move_cursor(ff_position_t pos) {
+inline void move_cursor_rtl(ff_position_t pos) {
   PLAYER.pos.x = pos(pos.x + pos.w - 1);
+  PLAYER.pos.y = pos(pos.y + (pos.h / 2));
+}
+
+inline void move_cursor_ltr(ff_position_t pos) {
+  PLAYER.pos.x = pos(pos.x - 1);
   PLAYER.pos.y = pos(pos.y + (pos.h / 2));
 }
 
@@ -91,8 +102,52 @@ UBYTE rpg_run_menu(void) BANKED {
   };
 }
 
-UBYTE rpg_get_target_ally (void) BANKED {
+UBYTE rpg_get_target_ally(BOOLEAN targets_dead) BANKED {
+  BYTE current_index = 0;
+  while (targets_dead ? FALSE : (hero_slots[current_index].ext.status & DEAD)) {
+    current_index++;
+  }
 
+  BYTE previous_index = 0;
+  BYTE max_index = 4;
+  move_cursor_ltr(hero_slots[current_index].ext.pos);
+  PLAYER.hidden = FALSE;
+  while (TRUE) {
+    menu_loop_preamble();
+    if (INPUT_UP_PRESSED) {
+      if (current_index - 1 > -1) {
+        previous_index = current_index;
+        current_index--;
+        while (targets_dead ? FALSE
+                            : (hero_slots[current_index].ext.status & DEAD)) {
+          current_index--;
+          if (current_index < 0) {
+            current_index = previous_index;
+            break;
+          }
+        }
+      }
+    } else if (INPUT_DOWN_PRESSED) {
+      if (current_index + 1 < max_index) {
+        previous_index = current_index;
+        current_index++;
+        while ((hero_slots[current_index].ext.status & DEAD)) {
+          current_index++;
+          if (current_index > max_index) {
+            current_index = previous_index;
+            break;
+          }
+        }
+      }
+    } else if (INPUT_A_PRESSED) {
+      PLAYER.hidden = TRUE;
+      return current_index;
+    } else {
+      move_cursor_ltr(hero_slots[current_index].ext.pos);
+      continue;
+    }
+  }
+  return 0;
 }
 
 UBYTE rpg_get_target_enemy(void) BANKED {
@@ -103,7 +158,7 @@ UBYTE rpg_get_target_enemy(void) BANKED {
   while ((enemy_slots[current_index].ext.status & DEAD)) {
     current_index++;
   }
-  move_cursor(enemy_slots[current_index].ext.pos);
+  move_cursor_rtl(enemy_slots[current_index].ext.pos);
   PLAYER.hidden = FALSE;
   actor_set_dir(&PLAYER, DIR_LEFT, FALSE);
 
@@ -138,7 +193,7 @@ UBYTE rpg_get_target_enemy(void) BANKED {
       actor_set_dir(&PLAYER, orig_dir, FALSE);
       return current_index;
     } else {
-      move_cursor(enemy_slots[current_index].ext.pos);
+      move_cursor_rtl(enemy_slots[current_index].ext.pos);
       continue;
     }
   }

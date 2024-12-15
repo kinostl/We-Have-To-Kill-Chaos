@@ -13,7 +13,7 @@ extern script_state_t state_events[RPG_ANIMATION_STATE_LENGTH];
 extern BYTE rpg_lock;
 
 UBYTE rpg_run_menu(void) BANKED;
-UBYTE rpg_get_target_ally(void) BANKED;
+UBYTE rpg_get_target_ally(BOOLEAN targets_dead) BANKED;
 UBYTE rpg_get_target_enemy(void) BANKED;
 
 #endif
