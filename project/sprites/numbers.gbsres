@@ -3,10 +3,10 @@
   "id": "3a68e069-208c-452d-be93-f122add8a707",
   "name": "numbers",
   "symbol": "sprite_numbers",
-  "numFrames": 10,
+  "numFrames": 11,
   "filename": "numbers.png",
-  "checksum": "4c0a0ed8653b2536fefde7392bdb2f8877c74f8d",
-  "width": 160,
+  "checksum": "4fca366d147e1a2c652ab2b176cc1d7ea8160dfd",
+  "width": 176,
   "height": 16,
   "states": [
     {
@@ -539,6 +539,37 @@
             {
               "id": "54bb8eab-0e19-4b78-805c-8cd94a74b7f0",
               "tiles": []
+            },
+            {
+              "id": "2f57b208-24f4-4871-b200-471796d59c4a",
+              "tiles": [
+                {
+                  "id": "a41fd5c9-0654-4b75-9928-3b778a5f7693",
+                  "x": 0,
+                  "y": 0,
+                  "sliceX": 160,
+                  "sliceY": 0,
+                  "palette": 0,
+                  "flipX": false,
+                  "flipY": false,
+                  "objPalette": "OBP0",
+                  "paletteIndex": 3,
+                  "priority": false
+                },
+                {
+                  "id": "6122a5a9-0790-47f6-b68a-24564afb7f9e",
+                  "x": 8,
+                  "y": 0,
+                  "sliceX": 168,
+                  "sliceY": 0,
+                  "palette": 0,
+                  "flipX": false,
+                  "flipY": false,
+                  "objPalette": "OBP0",
+                  "paletteIndex": 3,
+                  "priority": false
+                }
+              ]
             }
           ]
         },
@@ -608,7 +639,7 @@
       ]
     }
   ],
-  "numTiles": 11,
+  "numTiles": 13,
   "canvasWidth": 16,
   "canvasHeight": 16,
   "boundsX": 0,

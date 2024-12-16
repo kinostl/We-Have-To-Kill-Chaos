@@ -350,7 +350,8 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       dispatch_action(PICK_Run);
       break;
     default: {
-      const BATTLE_SKILL skill = hero_slots[0].ext.skills[player_choice];
+      current_hero = &hero_slots[current_turn->entity->idx];
+      const BATTLE_SKILL skill = current_hero->ext.skills[player_choice];
       prepare_for_skill(skill);
       dispatch_action(PICK_Skill);
       break;
@@ -398,7 +399,8 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case PICK_Run:
     break;
   case PICK_Skill: {
-    const BATTLE_SKILL skill = hero_slots[0].ext.skills[player_choice];
+    current_hero = &hero_slots[current_turn->entity->idx];
+    const BATTLE_SKILL skill = current_hero->ext.skills[player_choice];
     handle_skill(skill);
     break;
   } 
