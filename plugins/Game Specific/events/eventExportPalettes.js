@@ -78,7 +78,7 @@ void load_${filter.toLowerCase()}_palette(BOOLEAN is_bkg, UBYTE palette_id, ${fi
   MemcpyBanked(colors, &${filter.toLowerCase()}_palette_db[palette], sizeof(colors), BANK(${filter}_PALETTES_DEF));
   if(is_bkg){
     MemcpyBanked(&BkgPalette[palette_id], &${filter.toLowerCase()}_palette_db[palette], sizeof(colors), BANK(${filter}_PALETTES_DEF));
-    set_bkg_palette(palette_id, 1, colors);
+    //set_bkg_palette(palette_id, 1, colors);
   }else{
     MemcpyBanked(&SprPalette[palette_id], &${filter.toLowerCase()}_palette_db[palette], sizeof(colors), BANK(${filter}_PALETTES_DEF));
     set_sprite_palette(palette_id, 1, colors);

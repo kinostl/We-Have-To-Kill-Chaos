@@ -144,6 +144,14 @@ inline void setupDamageNumbers(UBYTE dmg, ff_position_t *target) {
   // 0 = Ones
   // 1 = Tens
   // 2 = Hundreds
+  if(dmg < 1){
+    actor_set_frame_offset(damage_numbers[0], 11);
+    actor_set_frame_offset(damage_numbers[1], 10);
+    actor_set_frame_offset(damage_numbers[2], 10);
+    damage_numbers[0]->pos.x = pos(((target->x) + (target->w / 2)) - 1);
+    damage_numbers[0]->pos.y = pos((target->y) + (target->h / 2));
+    return;
+  }
 
   UBYTE max_i = 3;
   if (dmg < 100){
