@@ -15,6 +15,7 @@
 #pragma bank 255
 #include "action_definitions.h"
 #include "position.h"
+#include "skill_definitions.h"
 
 #define BASE_PLAYER_EVADE 48
 #define TURN_ORDER_COUNT 10
@@ -173,21 +174,26 @@ inline void setupDamageNumbers(UBYTE dmg, ff_position_t *target) {
   }
 }
 
-ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,
+void defender_TakeDamage(entity_data *attacker,
                                    entity_data *defender,
                                    UBYTE damage_calc) BANKED {
-  setupDamageNumbers(0, &defender->pos);
-
   const UBYTE hit_roll = drand(0, 200);
-  if (hit_roll == 200)
-    return ATTACK_MISSED | CRITICAL_MISS;
+  damage_queue_tail->damage = damage_calc;
+
+  if (hit_roll == 200){
+    damage_queue_tail->attack_results |= ATTACK_MISSED;
+    damage_queue_tail->attack_results |= CRITICAL_MISS;
+    return;
+  }
 
   const UBYTE base_hit_chance = 168;
   const UWORD target_number =
       (base_hit_chance + attacker->hit_chance) - defender->evade;
 
-  if (target_number < hit_roll)
-    return ATTACK_MISSED;
+  if (target_number < hit_roll){
+    damage_queue_tail->attack_results |= ATTACK_MISSED;
+    return;
+  }
 
   ATTACK_RESULTS results = ATTACK_HIT;
   UBYTE total_damage=0;
@@ -211,24 +217,22 @@ ATTACK_RESULTS defender_TakeDamage(entity_data *attacker,
     defender->hp -= damage_calc;
   }
 
-  setupDamageNumbers(total_damage, &defender->pos);
-
-  return results;
+  damage_queue_tail->attack_results = results;
+  damage_queue_tail->damage = total_damage;
 }
 
-ATTACK_RESULTS defender_TakeMagicDamage(entity_data *attacker,
-                                        entity_data *defender,
-                                        UBYTE damage_calc,
-                                        UBYTE spell_acc) BANKED {
+void defender_TakeMagicDamage(entity_data *attacker, entity_data *defender,
+                              UBYTE damage_calc, UBYTE spell_acc) BANKED {
   const UBYTE hit_roll = drand(0, 200);
   const UBYTE base_hit_chance = 148;
   const UBYTE hit_chance = base_hit_chance + spell_acc - defender->mdef;
-  defender-= damage_calc;
-  ATTACK_RESULTS results = MAGIC_HIT;
-  if(hit_roll < hit_chance){
+  damage_queue_tail->damage = damage_calc;
+  damage_queue_tail->attack_results = MAGIC_HIT;
+  defender -= damage_calc;
+  if (hit_roll < hit_chance) {
     defender -= damage_calc;
-  }else{
-    results |= MAGIC_RESISTED;
+    damage_queue_tail->damage += damage_calc;
+  } else {
+    damage_queue_tail->attack_results |= MAGIC_RESISTED;
   }
-  return results;
 }
