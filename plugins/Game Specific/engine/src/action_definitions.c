@@ -4,7 +4,6 @@
 #include "extra_data.h"
 #include "ff_util.h"
 #include "hero_data.h"
-#include "position_data.h"
 #include "turn_slots.h"
 #include "weapon_data.h"
 #include <actor.h>
@@ -140,68 +139,67 @@ void attacker_prepareNextTurn_Hero(void) BANKED {
 
 void attacker_prepareNextTurn_Enemy(void) BANKED {}
 
-
-void defender_TakeDamage(entity_data *attacker,
-                                   entity_data *defender,
-                                   UBYTE damage_calc) BANKED {
+void defender_TakeDamage(entity_data *attacker, entity_data *defender,
+                         UBYTE damage_calc) BANKED {
   const UBYTE hit_roll = drand(0, 200);
-  damage_queue_tail->skill_type = FIGHT_ATTACK;
-  damage_queue_tail->damage = damage_calc;
+  const UBYTE base_hit_chance = 168;
+  const UWORD hit_chance =
+      (base_hit_chance + attacker->hit_chance) - defender->evade;
 
-  if (hit_roll == 200){
+  if (hit_roll == 200) {
     damage_queue_tail->attack_results |= ATTACK_MISSED;
     damage_queue_tail->attack_results |= CRITICAL_MISS;
     return;
   }
 
-  const UBYTE base_hit_chance = 168;
-  const UWORD target_number =
-      (base_hit_chance + attacker->hit_chance) - defender->evade;
-
-  if (target_number < hit_roll){
+  if (hit_chance < hit_roll) {
     damage_queue_tail->attack_results |= ATTACK_MISSED;
     return;
   }
 
-  ATTACK_RESULTS results = ATTACK_HIT;
-  UBYTE total_damage=0;
+  damage_queue_tail->damage = damage_calc;
+  damage_queue_tail->skill_type = FIGHT_ATTACK;
+  damage_queue_tail->attack_results = ATTACK_HIT;
+  damage_queue_tail->damage = MAX(damage_calc - defender->absorb, 1);
+
+  if (defender->status & DEFENDING) {
+    damage_queue_tail->damage =
+        MAX(damage_queue_tail->damage - defender->absorb, 1);
+  }
 
   if (attacker->crit_chance > hit_roll) {
-    defender->hp -= damage_calc;
-    results |= CRITICAL_HIT;
-    total_damage += damage_calc;
+    damage_queue_tail->attack_results |= CRITICAL_HIT;
+    damage_queue_tail->damage += damage_calc;
   }
 
-  damage_calc = MAX(damage_calc - defender->absorb, 1);
-  if (defender->status & DEFENDING) {
-    damage_calc = MAX(damage_calc - defender->absorb, 1);
-  }
-  total_damage += damage_calc;
-  if ((defender->hp - damage_calc) < 1) {
-    defender->hp = 0;
+  defender->hp = MAX(defender->hp - damage_queue_tail->damage, 0);
+
+  if (defender->hp < 1) {
     defender->status |= DEAD;
-    results |= TARGET_DEFEATED;
-  } else {
-    defender->hp -= damage_calc;
+    damage_queue_tail->attack_results |= TARGET_DEFEATED;
   }
-
-  damage_queue_tail->attack_results = results;
-  damage_queue_tail->damage = total_damage;
 }
 
 void defender_TakeMagicDamage(entity_data *attacker, entity_data *defender,
                               UBYTE damage_calc, UBYTE spell_acc) BANKED {
-  damage_queue_tail->skill_type = MAGIC_ATTACK;
   const UBYTE hit_roll = drand(0, 200);
   const UBYTE base_hit_chance = 148;
   const UBYTE hit_chance = base_hit_chance + spell_acc - defender->mdef;
+
   damage_queue_tail->damage = damage_calc;
   damage_queue_tail->attack_results = MAGIC_HIT;
-  defender -= damage_calc;
+  damage_queue_tail->skill_type = MAGIC_ATTACK;
+
   if (hit_roll < hit_chance) {
-    defender -= damage_calc;
     damage_queue_tail->damage += damage_calc;
   } else {
     damage_queue_tail->attack_results |= MAGIC_RESISTED;
+  }
+
+  defender->hp = MAX(defender->hp - damage_queue_tail->damage, 0);
+
+  if(defender->hp < 1){
+    defender->status |= DEAD;
+    damage_queue_tail->attack_results |= TARGET_DEFEATED;
   }
 }

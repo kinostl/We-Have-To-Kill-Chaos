@@ -16,7 +16,7 @@ typedef enum {
 } SKILL_TYPE ;
 
 typedef struct {
-    BYTE damage;
+    UBYTE damage;
     EXPLOSION_PALETTES color;
     SKILL_TYPE skill_type;
     BYTE number_of_hits;

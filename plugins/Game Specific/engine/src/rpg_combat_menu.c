@@ -153,7 +153,7 @@ UBYTE rpg_get_target_ally(BOOLEAN targets_dead) BANKED {
 UBYTE rpg_get_target_enemy(void) BANKED {
   BYTE current_index = 0;
   BYTE previous_index = 0;
-  BYTE max_index = 6;
+  BYTE max_index = 5;
   BYTE orig_dir = PLAYER.dir;
   while ((enemy_slots[current_index].ext.status & DEAD)) {
     current_index++;
