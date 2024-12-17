@@ -167,6 +167,32 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case ANIMATE_HideActivePlayer:
     animate(ANIMATE_HIDE_ACTIVE_PLAYER);
     break;
+  case ANIMATE_Attack:
+    load_explosion_palette(FALSE, 5, damage_queue_head->color);
+    setup_explosions(&damage_queue_head->position);
+    setup_damage_numbers(damage_queue_head->damage, &damage_queue_head->position);
+
+    dispatch_action(ANIMATE_Explosions);
+    dispatch_action(ANIMATE_DamageNumbers);
+    static BOOLEAN enemy_dead = FALSE;
+    if (!enemy_dead) {
+      enemy_dead = damage_queue_head->attack_results & TARGET_DEFEATED;
+    }
+    damage_queue_head++;
+    if (damage_queue_head < damage_queue_tail) {
+      dispatch_action(ANIMATE_Attack);
+    } else {
+      dispatch_action(CLEAN_DamageQueue);
+      if(enemy_dead){
+        enemy_dead = FALSE;
+        dispatch_action(ANIMATE_EnemyDefeated);
+      }
+    }
+    break;
+  case CLEAN_DamageQueue:
+    damage_queue_head = damage_queue;
+    damage_queue_tail = damage_queue;
+    break;
   case MODAL_Open:
     ui_move_to_xy(0, 15, text_in_speed);
     ui_run_modal(UI_WAIT_WINDOW);
@@ -193,15 +219,6 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     dispatch_action(ATTACKER_StartNextTurn);
     break;
   }
-  case EXPLOSIONS_SetDefault:
-    load_explosion_palette(FALSE, 5, EXPLOSION_DEFAULT);
-    break;
-  case EXPLOSIONS_SetYellow:
-    load_explosion_palette(FALSE, 5, EXPLOSION_YELLOW);
-    break;
-  case EXPLOSIONS_SetWhite:
-    load_explosion_palette(FALSE, 5, EXPLOSION_WHITE);
-    break;
   case ATTACKER_StartNextTurn: {
     LOG("handle: ATTACKER_StartNextTurn");
 

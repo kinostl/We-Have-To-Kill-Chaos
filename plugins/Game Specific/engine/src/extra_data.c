@@ -5,6 +5,7 @@
 #include "entity_data.h"
 #include "hero_data.h"
 #include "item_slot.h"
+#include "skill_definitions.h"
 #include <asm/types.h>
 #include <bankdata.h>
 #include <data/game_globals.h>
@@ -25,6 +26,9 @@ turn_slot_t * turn_slots;
 turn_slot_t * current_turn;
 hero_data * current_hero;
 enemy_data * current_enemy;
+ATTACK * damage_queue;
+ATTACK * damage_queue_head;
+ATTACK * damage_queue_tail;
 
 #define valloc(struct_name, count)                                             \
   (struct_name *)&VM_GLOBAL(MAX_GLOBAL_VARS + v_cursor);                       \
@@ -41,6 +45,9 @@ void init_extra_data(void) OLDCALL BANKED {
   item_slots = valloc(item_slot, MAX_ITEM_SLOTS);
   menu_slots = valloc(item_slot, MAX_ITEM_SLOTS);
   turn_slots = valloc(turn_slot_t, 10);
+  damage_queue = valloc(ATTACK, 6);
+  damage_queue_head = damage_queue;
+  damage_queue_tail = damage_queue;
 
 #ifdef STRICT
 #include <gb/crash_handler.h>

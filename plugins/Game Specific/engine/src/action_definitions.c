@@ -14,13 +14,12 @@
 #include <string.h>
 #pragma bank 255
 #include "action_definitions.h"
-#include "position.h"
 #include "skill_definitions.h"
 
 #define BASE_PLAYER_EVADE 48
 #define TURN_ORDER_COUNT 10
 
-actor_t *damage_numbers[3];
+actor_t * damage_numbers[3];
 
 UBYTE do_initiative_roll(turn_slot_t * turn_slot) BANKED {
   if (turn_slot->entity == NULL)
@@ -141,43 +140,12 @@ void attacker_prepareNextTurn_Hero(void) BANKED {
 
 void attacker_prepareNextTurn_Enemy(void) BANKED {}
 
-inline void setupDamageNumbers(UBYTE dmg, ff_position_t *target) {
-  // 0 = Ones
-  // 1 = Tens
-  // 2 = Hundreds
-  if(dmg < 1){
-    actor_set_frame_offset(damage_numbers[0], 11);
-    actor_set_frame_offset(damage_numbers[1], 10);
-    actor_set_frame_offset(damage_numbers[2], 10);
-    damage_numbers[0]->pos.x = pos(((target->x) + (target->w / 2)) - 1);
-    damage_numbers[0]->pos.y = pos((target->y) + (target->h / 2));
-    return;
-  }
-
-  UBYTE max_i = 3;
-  if (dmg < 100){
-    actor_set_frame_offset(damage_numbers[2], 10);
-    max_i--;
-  }
-
-  if (dmg < 10){
-    actor_set_frame_offset(damage_numbers[1], 10);
-    max_i--;
-  }
-
-  for (UBYTE i = 0; i < max_i; i++) {
-    UBYTE digit = dmg % 10;
-    actor_set_frame_offset(damage_numbers[i], digit);
-    damage_numbers[i]->pos.x = pos(((target->x - i) + (target->w / 2)) - 1);
-    damage_numbers[i]->pos.y = pos((target->y) + (target->h / 2));
-    dmg /= 10;
-  }
-}
 
 void defender_TakeDamage(entity_data *attacker,
                                    entity_data *defender,
                                    UBYTE damage_calc) BANKED {
   const UBYTE hit_roll = drand(0, 200);
+  damage_queue_tail->skill_type = FIGHT_ATTACK;
   damage_queue_tail->damage = damage_calc;
 
   if (hit_roll == 200){
@@ -223,6 +191,7 @@ void defender_TakeDamage(entity_data *attacker,
 
 void defender_TakeMagicDamage(entity_data *attacker, entity_data *defender,
                               UBYTE damage_calc, UBYTE spell_acc) BANKED {
+  damage_queue_tail->skill_type = MAGIC_ATTACK;
   const UBYTE hit_roll = drand(0, 200);
   const UBYTE base_hit_chance = 148;
   const UBYTE hit_chance = base_hit_chance + spell_acc - defender->mdef;

@@ -3,10 +3,7 @@
 #include <asm/types.h>
 #include <types.h>
 #include "entity_data.h"
-#include "enums.h"
 #include "vm.h"
-
-enum TURN_TAG {PLAYER, ENEMY} ;
 
 void load_attacker(SCRIPT_CTX * THIS) OLDCALL BANKED;
 void load_defender(SCRIPT_CTX * THIS) OLDCALL BANKED;

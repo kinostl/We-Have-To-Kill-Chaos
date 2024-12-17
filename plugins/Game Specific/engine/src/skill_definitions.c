@@ -2,7 +2,6 @@
 #include "action_definitions.h"
 #include "action_handler.h"
 #include "animations.h"
-#include "battle_headers.h"
 #include "entity_data.h"
 #include "enums.h"
 #include "extra_data.h"
@@ -13,6 +12,7 @@
 #include "skill_data.h"
 #include "states/rpg_combat.h"
 #include <asm/types.h>
+#include <data/explosion_palettes.h>
 #include <data/rpg_combat_animation_states.h>
 #include <math.h>
 #include <string.h>
@@ -56,7 +56,6 @@ void skill_rune_sword(entity_data *attacker,
   const UBYTE atk_dmg = attacker->damage;
   const UBYTE damage_calc = MAX(drand(atk_dmg, atk_dmg * 2), 1);
   defender_TakeMagicDamage(attacker, defender, damage_calc, attacker->hit_chance);
-  do_targetted_attack(attacker, defender, FIGHT);
 }
 
 ATTACK_RESULTS skill_cover(entity_data *attacker, entity_data *ally) BANKED {
@@ -66,6 +65,10 @@ ATTACK_RESULTS skill_cover(entity_data *attacker, entity_data *ally) BANKED {
 
 void do_targetted_attack(entity_data *attacker, entity_data *defender,
                                    BATTLE_SKILL skill) BANKED {
+  memcpy(&damage_queue_tail->position, &defender->pos, sizeof(ff_position_t));
+  damage_queue_tail->number_of_hits = 1;
+  damage_queue_tail->color = EXPLOSION_DEFAULT;
+
   switch (skill) {
   case FIGHT:
     skill_fight(attacker, defender);
@@ -74,7 +77,12 @@ void do_targetted_attack(entity_data *attacker, entity_data *defender,
     skill_goblin_punch(attacker, defender);
     break;
   case LUSTER:
+    damage_queue_tail->color = EXPLOSION_WHITE;
     skill_rune_sword(attacker, defender);
+    damage_queue_tail++;
+    memcpy(&damage_queue_tail->position, &defender->pos, sizeof(ff_position_t));
+    damage_queue_tail->color = EXPLOSION_DEFAULT;
+    skill_fight(attacker, defender);
     break;
   default:
     return;
@@ -102,8 +110,7 @@ void handle_targeted_attack(BATTLE_SKILL skill) BANKED {
 
     setup_explosions(&current_enemy->ext.pos);
     dispatch_action(ANIMATE_PlayerAttacking);
-    dispatch_action(ANIMATE_Explosions);
-    dispatch_action(ANIMATE_DamageNumbers);
+    dispatch_action(ANIMATE_Attack);
   } else {
     LOG("+> is enemy");
     UBYTE target_enemy = drand(0, 4);
@@ -123,9 +130,7 @@ void handle_targeted_attack(BATTLE_SKILL skill) BANKED {
       dispatch_action(MODAL_Close);
     }
 
-    dispatch_action(ANIMATE_Explosions);
-    dispatch_action(ANIMATE_DamageNumbers);
-    dispatch_action(PANEL_UpdateParty);
+    dispatch_action(ANIMATE_Attack);
   }
 }
 
