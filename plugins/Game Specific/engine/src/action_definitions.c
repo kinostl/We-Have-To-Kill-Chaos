@@ -139,27 +139,37 @@ void attacker_prepareNextTurn_Hero(void) BANKED {
 
 void attacker_prepareNextTurn_Enemy(void) BANKED {}
 
-void defender_TakeDamage(entity_data *attacker, entity_data *defender,
-                         UBYTE damage_calc) BANKED {
+void defender_RollToHit(entity_data *attacker, entity_data *defender) BANKED {
   const UBYTE hit_roll = drand(0, 200);
   const UBYTE base_hit_chance = 168;
   const UWORD hit_chance =
       (base_hit_chance + attacker->hit_chance) - defender->evade;
 
+  damage_queue_tail->skill_type = FIGHT_ATTACK;
+  damage_queue_tail->attack_results = ATTACK_MISSED;
+
   if (hit_roll == 200) {
-    damage_queue_tail->attack_results |= ATTACK_MISSED;
     damage_queue_tail->attack_results |= CRITICAL_MISS;
     return;
   }
 
-  if (hit_chance < hit_roll) {
-    damage_queue_tail->attack_results |= ATTACK_MISSED;
+  if (hit_chance < hit_roll)
+    return;
+
+  damage_queue_tail->attack_results = ATTACK_HIT;
+
+  if (attacker->crit_chance > hit_roll) {
+    damage_queue_tail->attack_results |= CRITICAL_HIT;
+  }
+}
+
+void defender_RollForDamage( entity_data *defender, UBYTE damage_calc) BANKED {
+  if(damage_queue_tail->attack_results & ATTACK_MISSED){
+    damage_queue_tail->damage = 0;
     return;
   }
 
   damage_queue_tail->damage = damage_calc;
-  damage_queue_tail->skill_type = FIGHT_ATTACK;
-  damage_queue_tail->attack_results = ATTACK_HIT;
   damage_queue_tail->damage = MAX(damage_calc - defender->absorb, 1);
 
   if (defender->status & DEFENDING) {
@@ -167,17 +177,26 @@ void defender_TakeDamage(entity_data *attacker, entity_data *defender,
         MAX(damage_queue_tail->damage - defender->absorb, 1);
   }
 
-  if (attacker->crit_chance > hit_roll) {
-    damage_queue_tail->attack_results |= CRITICAL_HIT;
+  if (damage_queue_tail->attack_results & CRITICAL_HIT) {
     damage_queue_tail->damage += damage_calc;
   }
+}
 
+void defender_TakeDamage(entity_data *defender) BANKED {
   defender->hp = MAX(defender->hp - damage_queue_tail->damage, 0);
 
   if (defender->hp < 1) {
     defender->status |= DEAD;
     damage_queue_tail->attack_results |= TARGET_DEFEATED;
   }
+
+}
+
+void defender_ReceiveAttack(entity_data *attacker, entity_data *defender,
+                            UBYTE damage_calc) BANKED {
+  defender_RollToHit(attacker, defender);
+  defender_RollForDamage(defender, damage_calc);
+  defender_TakeDamage(defender);
 }
 
 void defender_TakeMagicDamage(entity_data *attacker, entity_data *defender,

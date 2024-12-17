@@ -45,7 +45,7 @@ void init_extra_data(void) OLDCALL BANKED {
   item_slots = valloc(item_slot, MAX_ITEM_SLOTS);
   menu_slots = valloc(item_slot, MAX_ITEM_SLOTS);
   turn_slots = valloc(turn_slot_t, 10);
-  damage_queue = valloc(ATTACK, 6);
+  damage_queue = valloc(ATTACK, 18);
   damage_queue_head = damage_queue;
   damage_queue_tail = damage_queue;
 

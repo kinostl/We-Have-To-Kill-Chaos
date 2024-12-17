@@ -109,7 +109,7 @@ UBYTE rpg_get_target_ally(BOOLEAN targets_dead) BANKED {
   }
 
   BYTE previous_index = 0;
-  BYTE max_index = 4;
+  BYTE max_index = 3;
   move_cursor_ltr(hero_slots[current_index].ext.pos);
   PLAYER.hidden = FALSE;
   while (TRUE) {

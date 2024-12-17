@@ -25,7 +25,7 @@ const hero_data hero_db[] = {
                             FIGHT,
                             COVER,
                             LUSTER,
-                            BLADE_BLITZ,
+                            THRASH,
                         },
                 },
         },
@@ -133,7 +133,7 @@ const hero_data hero_db[] = {
                     .skills =
                         {
                             FIGHT,
-                            BLANK,
+                            THRASH,
                             BLANK,
                             BLANK,
                         },

@@ -30,8 +30,6 @@ Normal Attack
 * 0.75
 * 8
 * Small Max HP / Big Max HP
-
-Short name: GobPun
 */
 void skill_goblin_punch(entity_data *attacker, entity_data *defender) BANKED {
   WORD distance = DISTANCE(attacker->max_hp, defender->max_hp);
@@ -42,13 +40,13 @@ void skill_goblin_punch(entity_data *attacker, entity_data *defender) BANKED {
   damage_calc -= DIV_4(atk_dmg);
   damage_calc *= modifier;
 
-  defender_TakeDamage(attacker, defender, damage_calc);
+  defender_ReceiveAttack(attacker, defender, damage_calc);
 }
 
 void skill_fight(entity_data *attacker, entity_data *defender) BANKED {
   const UBYTE atk_dmg = attacker->damage;
   const UBYTE damage_calc = MAX(drand(atk_dmg, atk_dmg * 2), 1);
-  defender_TakeDamage(attacker, defender, damage_calc);
+  defender_ReceiveAttack(attacker, defender, damage_calc);
 }
 
 void skill_rune_sword(entity_data *attacker,
@@ -63,6 +61,43 @@ ATTACK_RESULTS skill_cover(entity_data *attacker, entity_data *ally) BANKED {
   return ATTACK_HIT;
 }
 
+/*
+Effect: An attack thats more powerful if you're close in level to the target
+
+Normal Attack / 8
+# of Hits = 8
+
+*/
+void skill_thrash(entity_data *attacker, entity_data *defender) BANKED {
+  const UBYTE atk_dmg = MAX(DIV_8(attacker->damage), 1);
+  ATTACK attack_total;
+  memcpy(&attack_total, damage_queue_tail, sizeof(ATTACK));
+
+  attack_total.number_of_hits = 0;
+  attack_total.damage = 0;
+
+  for (UBYTE i = 0; i < 8; i++) {
+    memcpy(damage_queue_tail, 0, sizeof(ATTACK));
+
+    const UBYTE damage_calc = MAX(drand(atk_dmg, atk_dmg * 2), 1);
+    defender_RollToHit(attacker, defender);
+    defender_RollForDamage(defender, damage_calc);
+
+    if (damage_queue_tail->attack_results & CRITICAL_HIT) {
+      attack_total.attack_results |= CRITICAL_HIT;
+    }
+
+    if (damage_queue_tail->attack_results & ATTACK_HIT) {
+      attack_total.attack_results |= ATTACK_HIT;
+      attack_total.number_of_hits++;
+      attack_total.damage += damage_queue_tail->damage;
+    }
+  }
+
+  memcpy(damage_queue_tail, &attack_total, sizeof(ATTACK));
+  defender_TakeDamage(defender);
+}
+
 void do_targetted_attack(entity_data *attacker, entity_data *defender,
                                    BATTLE_SKILL skill) BANKED {
   memcpy(&damage_queue_tail->position, &defender->pos, sizeof(ff_position_t));
@@ -75,6 +110,9 @@ void do_targetted_attack(entity_data *attacker, entity_data *defender,
     break;
   case GOBLIN_PUNCH:
     skill_goblin_punch(attacker, defender);
+    break;
+  case THRASH:
+    skill_thrash(attacker, defender);
     break;
   case LUSTER:
     damage_queue_tail->color = EXPLOSION_WHITE;
@@ -159,6 +197,7 @@ void handle_skill(BATTLE_SKILL skill) BANKED {
   case FIGHT:
   case GOBLIN_PUNCH:
   case LUSTER:
+  case THRASH:
     handle_targeted_attack(skill);
     break;
   case COVER:
@@ -170,7 +209,6 @@ void handle_skill(BATTLE_SKILL skill) BANKED {
   case HARM:
   case HEAL:
   case HOWL:
-  case THRASH:
   case BLANK:
     dispatch_action(PICK_GetPlayerActionChoice);
     return;

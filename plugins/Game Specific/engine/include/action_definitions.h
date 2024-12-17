@@ -8,8 +8,12 @@
 #include "position.h"
 
 void turn_rollInitiative(void) BANKED;
-void defender_TakeDamage(entity_data *attacker, entity_data *defender, UBYTE damage_calc) BANKED;
+void defender_ReceiveAttack(entity_data *attacker, entity_data *defender, UBYTE damage_calc) BANKED;
 void defender_TakeMagicDamage(entity_data *attacker, entity_data *defender, UBYTE damage_calc, UBYTE spell_accuracy) BANKED;
+
+void defender_RollToHit(entity_data *attacker, entity_data *defender) BANKED;
+void defender_RollForDamage( entity_data *defender, UBYTE damage_calc) BANKED;
+void defender_TakeDamage(entity_data *defender) BANKED;
 
 extern actor_t * damage_numbers[3];
 
