@@ -62,14 +62,13 @@ ATTACK_RESULTS skill_cover(entity_data *attacker, entity_data *ally) BANKED {
 }
 
 /*
-Effect: An attack thats more powerful if you're close in level to the target
-
-Normal Attack / 8
-# of Hits = 8
-
+Effect: Attack with Fight 8 times, but no base hit rate
 */
 void skill_thrash(entity_data *attacker, entity_data *defender) BANKED {
-  const UBYTE atk_dmg = MAX(DIV_8(attacker->damage), 1);
+  const UBYTE atk_dmg = attacker->damage;
+  const UBYTE BACKUP_EVADE = defender->evade;
+  defender->evade = 168; //Offset base hit rate
+
   ATTACK attack_total;
   memcpy(&attack_total, damage_queue_tail, sizeof(ATTACK));
 
@@ -88,7 +87,7 @@ void skill_thrash(entity_data *attacker, entity_data *defender) BANKED {
     }
 
     if (damage_queue_tail->attack_results & ATTACK_HIT) {
-      attack_total.attack_results |= ATTACK_HIT;
+      attack_total.attack_results = ATTACK_HIT;
       attack_total.number_of_hits++;
       attack_total.damage += damage_queue_tail->damage;
     }
@@ -96,6 +95,8 @@ void skill_thrash(entity_data *attacker, entity_data *defender) BANKED {
 
   memcpy(damage_queue_tail, &attack_total, sizeof(ATTACK));
   defender_TakeDamage(defender);
+
+  defender->evade = BACKUP_EVADE;
 }
 
 void do_targetted_attack(entity_data *attacker, entity_data *defender,

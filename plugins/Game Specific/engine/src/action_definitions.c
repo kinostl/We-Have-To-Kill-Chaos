@@ -143,7 +143,7 @@ void defender_RollToHit(entity_data *attacker, entity_data *defender) BANKED {
   const UBYTE hit_roll = drand(0, 200);
   const UBYTE base_hit_chance = 168;
   const UWORD hit_chance =
-      (base_hit_chance + attacker->hit_chance) - defender->evade;
+      MAX((base_hit_chance + attacker->hit_chance) - defender->evade, 1);
 
   damage_queue_tail->skill_type = FIGHT_ATTACK;
   damage_queue_tail->attack_results = ATTACK_MISSED;
