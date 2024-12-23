@@ -79,3 +79,13 @@ void handle_bkg_set_color_slow(WORD color, WORD x, WORD y, WORD w,
 
   VBK_REG = 0;
 }
+
+void handle_enemy_defeated(UBYTE enemy_id) BANKED {
+  enemy_data *current_enemy = &enemy_slots[enemy_id];
+  WORD x = current_enemy->ext.pos.x;
+  WORD y = current_enemy->ext.pos.y;
+  WORD w = current_enemy->ext.pos.w;
+  WORD h = current_enemy->ext.pos.h;
+
+  handle_bkg_set_color_slow(5, x, y, w, h);
+}

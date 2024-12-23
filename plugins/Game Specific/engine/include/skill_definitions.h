@@ -3,6 +3,7 @@
 
 #include <data/explosion_palettes.h>
 #include <gb/gb.h>
+#include "entity_data.h"
 #include "enums.h"
 #include "position_data.h"
 
@@ -21,7 +22,7 @@ typedef struct {
     SKILL_TYPE skill_type;
     BYTE number_of_hits;
     ATTACK_RESULTS attack_results;
-    ff_position_t position;
+    entity_data * target;
 } ATTACK;
 
 extern BYTE target_enemy;

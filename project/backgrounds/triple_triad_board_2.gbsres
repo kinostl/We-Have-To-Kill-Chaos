@@ -1,0 +1,13 @@
+{
+  "_resourceType": "background",
+  "id": "5e55f069-a321-4a47-8fb9-5a19a0850680",
+  "name": "triple_triad_board_2",
+  "symbol": "bg_triple_triad_board_2",
+  "width": 32,
+  "height": 32,
+  "imageWidth": 256,
+  "imageHeight": 256,
+  "filename": "triple_triad_board_2.png",
+  "tileColors": "0122+045+017+035+01f+045+017+035+01f+045+017+035+01f+045+017+035+01f+045+017+035+0135+045+011b+045+011b+045+011b+045+011b+045+01293+",
+  "autoColor": false
+}

@@ -14,6 +14,8 @@ typedef enum {
   ANIMATE_HideActivePlayer,
   ANIMATE_Explosions,
   ANIMATE_Attack,
+  ANIMATE_GroupAttack,
+  ANIMATE_Deaths,
   CLEAN_DamageQueue,
   MODAL_Open,
   MODAL_Hold,

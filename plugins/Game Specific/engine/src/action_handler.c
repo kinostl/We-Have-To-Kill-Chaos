@@ -4,6 +4,7 @@
 #include "extra_data.h"
 #include "ff_text.h"
 #include "ff_util.h"
+#include "handle_flashing.h"
 #include "hero_data.h"
 #include "load_font_into_bg.h"
 #include "states/rpg_combat.h"
@@ -146,9 +147,14 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     __HandleCrash();
 #endif
     break;
-  case ANIMATE_EnemyDefeated:
-    animate(ANIMATE_ENEMY_DEFEATED);
+  case ANIMATE_EnemyDefeated: {
+    if (damage_queue_head->attack_results & TARGET_DEFEATED) {
+      current_enemy = &enemy_slots[damage_queue_head->target->idx];
+      animate(ANIMATE_ENEMY_DEFEATED);
+    }
+    damage_queue_head++;
     break;
+  }
   case ANIMATE_DamageNumbers:
     animate(ANIMATE_DAMAGE_NUMBERS);
     break;
@@ -168,25 +174,31 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     animate(ANIMATE_HIDE_ACTIVE_PLAYER);
     break;
   case ANIMATE_Attack:
-    load_explosion_palette(FALSE, 5, damage_queue_head->color);
-    setup_explosions(&damage_queue_head->position);
-    setup_damage_numbers(damage_queue_head->damage, &damage_queue_head->position);
+    setup_damage_numbers(damage_queue_head->damage, &damage_queue_head->target->pos);
 
-    dispatch_action(ANIMATE_Explosions);
-    dispatch_action(ANIMATE_DamageNumbers);
-    static BOOLEAN enemy_dead = FALSE;
-    if (!enemy_dead) {
-      enemy_dead = damage_queue_head->attack_results & TARGET_DEFEATED;
+    if (damage_queue_head->color) {
+      load_explosion_palette(FALSE, 5, damage_queue_head->color);
+      setup_explosions(&damage_queue_head->target->pos);
+      dispatch_action(ANIMATE_Explosions);
     }
+
+    dispatch_action(ANIMATE_DamageNumbers);
     damage_queue_head++;
-    if (damage_queue_head < damage_queue_tail) {
-      dispatch_action(ANIMATE_Attack);
-    } else {
-      dispatch_action(CLEAN_DamageQueue);
-      if(enemy_dead){
-        enemy_dead = FALSE;
+
+    if (damage_queue_head >= damage_queue_tail) {
+      for (damage_queue_head = damage_queue;
+           damage_queue_head < damage_queue_tail; damage_queue_head++) {
         dispatch_action(ANIMATE_EnemyDefeated);
       }
+      damage_queue_head = damage_queue;
+      dispatch_action(CLEAN_DamageQueue);
+    }
+
+    dispatch_action(ATTACKER_FinishTurn);
+    break;
+  case ANIMATE_Deaths:
+    for (damage_queue_head = damage_queue;
+         damage_queue_head < damage_queue_tail; damage_queue_head++) {
     }
     break;
   case CLEAN_DamageQueue:
@@ -207,6 +219,10 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     break;
   case ATTACKER_FinishTurn: {
     LOG("handle: ATTACKER_FinishTurn");
+    if (damage_queue_head < damage_queue_tail) {
+      dispatch_action(ANIMATE_Attack);
+      break;
+    }
 
     if (current_turn->is_enemy) {
       prev_turn_type = ENEMY_TURN;

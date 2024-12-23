@@ -296,7 +296,7 @@
       "args": {
         "state": 9,
         "__scriptTabs": "scriptinput",
-        "__collapse": false
+        "__collapse": true
       },
       "children": {
         "script": [
@@ -420,6 +420,26 @@
         ]
       },
       "id": "a55c0f78-54b3-45e2-8e0e-91f9c9cdb3cb"
+    },
+    {
+      "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
+      "args": {
+        "state": 3,
+        "__scriptTabs": "scriptinput"
+      },
+      "children": {
+        "script": [
+          {
+            "command": "MY_EVENT_CALL_NATIVE",
+            "args": {
+              "argCount": 0,
+              "funName": "handleEnemyDefeated"
+            },
+            "id": "a5318d21-6c75-4e38-a0de-a381896b5eba"
+          }
+        ]
+      },
+      "id": "ed73b433-7b3c-4a53-855c-595843b01cbc"
     },
     {
       "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
@@ -954,28 +974,6 @@
     {
       "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
       "args": {
-        "state": 3,
-        "__scriptTabs": "scriptinput",
-        "__comment": false,
-        "__collapse": true
-      },
-      "children": {
-        "script": [
-          {
-            "command": "MY_EVENT_CALL_NATIVE",
-            "args": {
-              "argCount": 0,
-              "funName": "handleEnemyDefeated"
-            },
-            "id": "35e5c458-f8ac-4bbb-aff4-d9aba937ab2f"
-          }
-        ]
-      },
-      "id": "4ef387cd-570c-41a9-a13c-5bd90acba72a"
-    },
-    {
-      "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
-      "args": {
         "state": 6,
         "__scriptTabs": "scriptinput",
         "__collapse": true
@@ -1010,7 +1008,7 @@
       "args": {
         "state": 7,
         "__scriptTabs": "scriptinput",
-        "__collapse": false
+        "__collapse": true
       },
       "children": {
         "script": [

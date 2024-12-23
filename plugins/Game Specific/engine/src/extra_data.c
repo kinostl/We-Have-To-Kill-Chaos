@@ -24,6 +24,7 @@ action_t * action_head;
 action_t * action_tail;
 turn_slot_t * turn_slots;
 turn_slot_t * current_turn;
+turn_slot_t *head_slot;
 hero_data * current_hero;
 enemy_data * current_enemy;
 ATTACK * damage_queue;

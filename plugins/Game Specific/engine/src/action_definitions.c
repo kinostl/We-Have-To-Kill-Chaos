@@ -98,7 +98,6 @@ struct turn_slot_t *doubleLink(turn_slot_t *start) BANKED {
 
 void turn_rollInitiative(void) BANKED {
   turn_slot_t *tail_slot;
-  turn_slot_t *head_slot;
   
   for (UBYTE i = 0; i < 10; i++) {
     turn_slots[i].next = NULL;
@@ -186,8 +185,10 @@ void defender_TakeDamage(entity_data *defender) BANKED {
   defender->hp = MAX(defender->hp - damage_queue_tail->damage, 0);
 
   if (defender->hp < 1) {
-    defender->status |= DEAD;
-    damage_queue_tail->attack_results |= TARGET_DEFEATED;
+    if (!(defender->status & DEAD)) {
+      damage_queue_tail->attack_results |= TARGET_DEFEATED;
+      defender->status |= DEAD;
+    }
   }
 
 }
@@ -218,7 +219,9 @@ void defender_TakeMagicDamage(entity_data *attacker, entity_data *defender,
   defender->hp = MAX(defender->hp - damage_queue_tail->damage, 0);
 
   if(defender->hp < 1){
-    defender->status |= DEAD;
-    damage_queue_tail->attack_results |= TARGET_DEFEATED;
+    if (!(defender->status & DEAD)) {
+      damage_queue_tail->attack_results |= TARGET_DEFEATED;
+      defender->status |= DEAD;
+    }
   }
 }

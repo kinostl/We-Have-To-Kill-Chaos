@@ -11,6 +11,7 @@
 #include "position_data.h"
 #include "skill_data.h"
 #include "states/rpg_combat.h"
+#include "turn_slots.h"
 #include <asm/types.h>
 #include <data/explosion_palettes.h>
 #include <data/rpg_combat_animation_states.h>
@@ -56,9 +57,8 @@ void skill_rune_sword(entity_data *attacker,
   defender_TakeMagicDamage(attacker, defender, damage_calc, attacker->hit_chance);
 }
 
-ATTACK_RESULTS skill_cover(entity_data *attacker, entity_data *ally) BANKED {
-  ally->status |= DEFENDING;
-  return ATTACK_HIT;
+void skill_cover(entity_data *user, entity_data *target) BANKED {
+  target->status |= DEFENDING;
 }
 
 /*
@@ -98,10 +98,37 @@ void skill_thrash(entity_data *attacker, entity_data *defender) BANKED {
 
   defender->evade = BACKUP_EVADE;
 }
+void skill_blade_blitz(entity_data *user, BOOLEAN is_enemy) BANKED {
+  UBYTE target_idx[6];
+  UBYTE list_i=0;
+  for(turn_slot_t * current_target = &turn_slots[0]; current_target->next; current_target=current_target->next){
+    if(current_target->is_enemy == is_enemy) continue;
+    if(current_target->entity->status & DEAD) continue;
+    target_idx[list_i] = current_target->entity->idx;
+    list_i++;
+  }
+
+  list_i++;
+
+  for (UBYTE attack_count = 0; attack_count < 6; attack_count++) {
+    entity_data *entity;
+    if(is_enemy){
+      entity = &hero_slots[attack_count % list_i].ext;
+    }else{
+      entity = &enemy_slots[attack_count % list_i].ext;
+    };
+
+    damage_queue_tail->color = EXPLOSION_DEFAULT;
+
+    skill_fight(user, entity);
+    damage_queue_tail->target = entity;
+    damage_queue_tail++;
+  }
+}
 
 void do_targetted_attack(entity_data *attacker, entity_data *defender,
                                    BATTLE_SKILL skill) BANKED {
-  memcpy(&damage_queue_tail->position, &defender->pos, sizeof(ff_position_t));
+  damage_queue_tail->target = defender;
   damage_queue_tail->number_of_hits = 1;
   damage_queue_tail->color = EXPLOSION_DEFAULT;
 
@@ -119,7 +146,7 @@ void do_targetted_attack(entity_data *attacker, entity_data *defender,
     damage_queue_tail->color = EXPLOSION_WHITE;
     skill_rune_sword(attacker, defender);
     damage_queue_tail++;
-    memcpy(&damage_queue_tail->position, &defender->pos, sizeof(ff_position_t));
+    damage_queue_tail->target = defender;
     damage_queue_tail->color = EXPLOSION_DEFAULT;
     skill_fight(attacker, defender);
     break;
@@ -130,13 +157,26 @@ void do_targetted_attack(entity_data *attacker, entity_data *defender,
   damage_queue_tail++;
 }
 
-ATTACK_RESULTS do_targetted_support(entity_data *attacker, entity_data *ally,
-                                    BATTLE_SKILL skill) BANKED {
+void do_targetted_support(entity_data *user, entity_data *target,
+                          BATTLE_SKILL skill) BANKED {
   switch (skill) {
   case COVER:
-    return skill_cover(attacker, ally);
+    skill_cover(user, target);
+    break;
   default:
-    return ATTACK_MISSED;
+    break;
+  }
+}
+
+void do_group_attack(entity_data *user, BOOLEAN is_enemy,
+                     BATTLE_SKILL skill) BANKED {
+
+  switch (skill) {
+  case BLADE_BLITZ:
+    skill_blade_blitz(user, is_enemy);
+    break;
+  default:
+    break;
   }
 }
 
@@ -147,9 +187,7 @@ void handle_targeted_attack(BATTLE_SKILL skill) BANKED {
     current_enemy = &enemy_slots[target_enemy];
     do_targetted_attack(current_turn->entity, &current_enemy->ext, skill);
 
-    setup_explosions(&current_enemy->ext.pos);
     dispatch_action(ANIMATE_PlayerAttacking);
-    dispatch_action(ANIMATE_Attack);
   } else {
     LOG("+> is enemy");
     UBYTE target_enemy = drand(0, 4);
@@ -159,8 +197,6 @@ void handle_targeted_attack(BATTLE_SKILL skill) BANKED {
       target = &hero_slots[target_enemy].ext;
     }
     do_targetted_attack(current_turn->entity, target, skill);
-
-    setup_explosions(&target->pos);
     dispatch_action(ANIMATE_EnemyAttacking);
 
     if (skill != FIGHT) {
@@ -169,7 +205,6 @@ void handle_targeted_attack(BATTLE_SKILL skill) BANKED {
       dispatch_action(MODAL_Close);
     }
 
-    dispatch_action(ANIMATE_Attack);
   }
 }
 
@@ -177,6 +212,11 @@ void handle_targeted_support(BATTLE_SKILL skill) BANKED {
   const UBYTE target_ally = rpg_get_target_ally(FALSE);
   do_targetted_support(current_turn->entity, &hero_slots[target_ally].ext, skill);
   dispatch_action(PANEL_UpdateParty);
+}
+
+void handle_group_attack(BATTLE_SKILL skill) BANKED {
+  do_group_attack(current_turn->entity, current_turn->is_enemy, skill);
+  dispatch_action(ANIMATE_PlayerAttacking);
 }
 
 void prepare_for_skill(BATTLE_SKILL skill) BANKED {
@@ -205,6 +245,8 @@ void handle_skill(BATTLE_SKILL skill) BANKED {
     handle_targeted_support(skill);
     break;
   case BLADE_BLITZ:
+    handle_group_attack(skill);
+    break;
   case FIRE:
   case ICE:
   case HARM:
