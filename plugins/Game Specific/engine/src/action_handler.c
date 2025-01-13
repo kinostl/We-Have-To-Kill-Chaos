@@ -173,6 +173,9 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case ANIMATE_HideActivePlayer:
     animate(ANIMATE_HIDE_ACTIVE_PLAYER);
     break;
+  case ANIMATE_PlayerCasting:
+    animate(ANIMATE_PLAYER_CASTING);
+    break;
   case ANIMATE_Attack:
     setup_damage_numbers(damage_queue_head->damage, &damage_queue_head->target->pos);
 
@@ -182,7 +185,9 @@ void handle_action(ACTION_TYPE action_type) BANKED {
       dispatch_action(ANIMATE_Explosions);
     }
 
-    dispatch_action(ANIMATE_DamageNumbers);
+    if ((damage_queue_head->attack_results & SKILL_HIT) == 0) {
+      dispatch_action(ANIMATE_DamageNumbers);
+    }
     damage_queue_head++;
 
     if (damage_queue_head >= damage_queue_tail) {

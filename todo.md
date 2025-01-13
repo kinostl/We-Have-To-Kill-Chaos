@@ -58,7 +58,8 @@
 - [ ] Thief can ignore Defender status
 - [ ] Thief can add Level to Crit Chance?
 - [ ] Thief can unlock doors that require the Mystic Key without the Mystic Key
-- [ ] Skill that ignores Absorb + Evade? (Cost 2?)
+- [X] Weak - Gives target the "Weakened" status
+- [X] Sneak - Skill that ignores Absorb + Evade? (Cost 2?)
 
 # Monk Abilities
 
@@ -67,8 +68,9 @@
 
 # Fighter Abilities
 
-- [ ] Fighter can use Shield to provide Block effects to another hero
-- [ ] Fighter can use OverSoul to distribute 6 attacks across all enemies
+- [X] Cover - Fighter can use Shield to provide Block effects to another hero
+- [X] Bladia - Fighter can use OverSoul to distribute 6 attacks across all enemies
+- [X] Luster - Do a magic attack followed by a normal attack
 
 # Red Mage Abilities
 

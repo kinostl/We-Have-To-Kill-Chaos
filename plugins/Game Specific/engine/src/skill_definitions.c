@@ -61,6 +61,10 @@ void skill_cover(entity_data *user, entity_data *target) BANKED {
   target->status |= DEFENDING;
 }
 
+void skill_weak(entity_data *user, entity_data *target) BANKED {
+  target->status |= WEAKENED;
+}
+
 /*
 Effect: Attack with Fight 8 times, but no base hit rate
 */
@@ -126,6 +130,16 @@ void skill_blade_blitz(entity_data *user, BOOLEAN is_enemy) BANKED {
   }
 }
 
+void skill_sneak(entity_data *attacker, entity_data *defender) BANKED {
+  const UBYTE backup_evade = defender->evade;
+  const UBYTE backup_absorb = defender->absorb;
+  defender->evade = 0;
+  defender->absorb = 0;
+  skill_fight(attacker, defender);
+  defender->evade = backup_evade;
+  defender->absorb = backup_absorb;
+}
+
 void do_targetted_attack(entity_data *attacker, entity_data *defender,
                                    BATTLE_SKILL skill) BANKED {
   damage_queue_tail->target = defender;
@@ -149,6 +163,13 @@ void do_targetted_attack(entity_data *attacker, entity_data *defender,
     damage_queue_tail->target = defender;
     damage_queue_tail->color = EXPLOSION_DEFAULT;
     skill_fight(attacker, defender);
+    break;
+  case SNEAK:
+    skill_sneak(attacker, defender);
+    break;
+  case WEAK:
+    damage_queue_tail->attack_results = SKILL_HIT;
+    skill_weak(attacker, defender);
     break;
   default:
     return;
@@ -239,6 +260,8 @@ void handle_skill(BATTLE_SKILL skill) BANKED {
   case GOBLIN_PUNCH:
   case LUSTER:
   case THRASH:
+  case SNEAK:
+  case WEAK:
     handle_targeted_attack(skill);
     break;
   case COVER:

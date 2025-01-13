@@ -9,6 +9,7 @@ typedef enum {
   ANIMATE_EnemyDefeated,
   ANIMATE_DamageNumbers,
   ANIMATE_PlayerAttacking,
+  ANIMATE_PlayerCasting,
   ANIMATE_EnemyAttacking,
   ANIMATE_EndPlayerTurn,
   ANIMATE_HideActivePlayer,

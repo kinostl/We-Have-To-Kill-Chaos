@@ -425,7 +425,8 @@
       "command": "FF_EVENT_SET_SCRIPT_TO_STATE",
       "args": {
         "state": 3,
-        "__scriptTabs": "scriptinput"
+        "__scriptTabs": "scriptinput",
+        "__collapse": true
       },
       "children": {
         "script": [

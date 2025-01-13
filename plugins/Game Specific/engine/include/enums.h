@@ -108,7 +108,8 @@ typedef enum {
   CRITICAL_HIT = 1 << 3,
   TARGET_DEFEATED = 1 << 4,
   MAGIC_HIT = 1 << 5,
-  MAGIC_RESISTED = 1 << 6
+  MAGIC_RESISTED = 1 << 6,
+  SKILL_HIT = 1 << 7
 } ATTACK_RESULTS;
 
 typedef enum {
@@ -120,7 +121,8 @@ typedef enum {
   ASLEEP = 1 << 5,
   SILENCED = 1 << 6,
   CONFUSED = 1 << 7,
-  DEFENDING = 1 << 8
+  DEFENDING = 1 << 8,
+  WEAKENED = 1 << 9
 } STATUS_EFFECT;
 
 typedef enum {
