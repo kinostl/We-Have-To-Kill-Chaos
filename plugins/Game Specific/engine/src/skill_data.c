@@ -19,7 +19,7 @@ const skill_data skill_db[] = {
     db_row(HARM, "Harm", 0),
     db_row(HEAL, "Heal", 0),
     db_row(BLANK, "", 0),
-    db_row(STEAL, "Steal", 0),
+    db_row(STUN, "Stun", 0),
     db_row(WEAK, "Weak", 0),
     db_row(SNEAK, "Sneak", 0),
     db_row(FOCUS, "Focus", 0),

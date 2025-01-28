@@ -83,7 +83,7 @@ typedef enum {
   HOWL,
   THRASH,
   LUSTER,
-  STEAL,
+  STUN,
   WEAK,
   SNEAK,
   FOCUS,
@@ -122,7 +122,7 @@ typedef enum {
   SILENCED = 1 << 6,
   CONFUSED = 1 << 7,
   DEFENDING = 1 << 8,
-  WEAKENED = 1 << 9
+  WEAKENED = 1 << 9,
 } STATUS_EFFECT;
 
 typedef enum {

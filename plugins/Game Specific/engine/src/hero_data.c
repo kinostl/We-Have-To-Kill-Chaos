@@ -45,7 +45,7 @@ const hero_data hero_db[] = {
                     .skills =
                         {
                             FIGHT,
-                            STEAL,
+                            STUN,
                             WEAK,
                             SNEAK,
                         },

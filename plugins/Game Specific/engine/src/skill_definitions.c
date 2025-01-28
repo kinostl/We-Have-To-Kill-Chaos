@@ -140,6 +140,10 @@ void skill_sneak(entity_data *attacker, entity_data *defender) BANKED {
   defender->absorb = backup_absorb;
 }
 
+void skill_stun(entity_data *attacker, entity_data *defender) BANKED {
+  defender->status |= PARALYZED;
+}
+
 void do_targetted_attack(entity_data *attacker, entity_data *defender,
                                    BATTLE_SKILL skill) BANKED {
   damage_queue_tail->target = defender;
@@ -170,6 +174,10 @@ void do_targetted_attack(entity_data *attacker, entity_data *defender,
   case WEAK:
     damage_queue_tail->attack_results = SKILL_HIT;
     skill_weak(attacker, defender);
+    break;
+  case STUN:
+    damage_queue_tail->attack_results = SKILL_HIT;
+    skill_stun(attacker, defender);
     break;
   default:
     return;
@@ -262,6 +270,7 @@ void handle_skill(BATTLE_SKILL skill) BANKED {
   case THRASH:
   case SNEAK:
   case WEAK:
+  case STUN:
     handle_targeted_attack(skill);
     break;
   case COVER:
