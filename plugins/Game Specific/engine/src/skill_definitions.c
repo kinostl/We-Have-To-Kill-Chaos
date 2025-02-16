@@ -52,6 +52,13 @@ void skill_fight(entity_data *attacker, entity_data *defender) BANKED {
   defender_ReceiveAttack(attacker, defender, damage_calc);
 }
 
+void skill_wreck(entity_data *attacker, entity_data *defender) BANKED {
+  const UBYTE atk_dmg = attacker->damage;
+  const UBYTE damage_calc = MAX(atk_dmg * 2, 1);
+  defender_ReceiveAttack(attacker, defender, damage_calc);
+  attacker->status |= WEAKENED;
+}
+
 void skill_rune_sword(entity_data *attacker,
                                 entity_data *defender) BANKED {
   const UBYTE atk_dmg = attacker->damage;
@@ -180,6 +187,9 @@ void do_targetted_attack(entity_data *attacker, entity_data *defender,
   case STUN:
     damage_queue_tail->attack_results = SKILL_HIT;
     skill_stun(attacker, defender);
+    break;
+  case WRECK:
+    skill_wreck(attacker, defender);
     break;
   default:
     return;

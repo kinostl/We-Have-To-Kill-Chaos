@@ -433,6 +433,7 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     const BATTLE_SKILL skill = action_type == PICK_Guard
                                    ? GUARD
                                    : current_hero->ext.skills[player_choice];
+
     if (handle_skill(skill)) {
       spend_ap_for_skill(skill, current_hero);
     }
