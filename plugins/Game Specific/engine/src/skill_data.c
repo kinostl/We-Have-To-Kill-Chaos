@@ -8,6 +8,7 @@
 
 const skill_data skill_db[] = {
     db_row(FIGHT, "Fight", 1),
+    db_row(GUARD, "Guard", -1),
     db_row(COVER, "Cover", 1),
     db_row(LUSTER, "Luster", 2),
     db_row(BLADE_BLITZ, "Bladia", 3),
@@ -22,7 +23,7 @@ const skill_data skill_db[] = {
     db_row(STUN, "Stun", 0),
     db_row(WEAK, "Weak", 0),
     db_row(SNEAK, "Sneak", 0),
-    db_row(FOCUS, "Focus", 0),
+    db_row(FOCUS, "Focus", -2),
     db_row(WRECK, "Wreck", 0),
     db_row(PIERCE, "Pierce", 0),
     db_row(LOAD, "Load", 0),

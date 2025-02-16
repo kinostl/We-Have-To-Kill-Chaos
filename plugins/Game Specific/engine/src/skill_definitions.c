@@ -8,6 +8,7 @@
 #include "ff_debug.h"
 #include "ff_text.h"
 #include "ff_util.h"
+#include "hero_data.h"
 #include "position_data.h"
 #include "skill_data.h"
 #include "states/rpg_combat.h"
@@ -209,6 +210,17 @@ void do_group_attack(entity_data *user, BOOLEAN is_enemy,
   }
 }
 
+void do_personal_support(entity_data *user, BATTLE_SKILL skill) BANKED {
+  switch (skill) {
+  case GUARD:
+    user->status |= DEFENDING;
+    break;
+  default:
+    // case FOCUS:
+    break;
+  }
+}
+
 void handle_targeted_attack(BATTLE_SKILL skill) BANKED {
   if (!current_turn->is_enemy) {
     LOG("+> is hero");
@@ -248,6 +260,11 @@ void handle_group_attack(BATTLE_SKILL skill) BANKED {
   dispatch_action(ANIMATE_PlayerAttacking);
 }
 
+void handle_personal_support(BATTLE_SKILL skill) BANKED {
+  do_personal_support(&current_hero->ext, skill);
+  dispatch_action(ANIMATE_PlayerCasting);
+}
+
 void prepare_for_skill(BATTLE_SKILL skill) BANKED {
   switch (skill) {
   case COVER:
@@ -260,6 +277,12 @@ void prepare_for_skill(BATTLE_SKILL skill) BANKED {
   default:
     return;
   }
+}
+
+void spend_ap_for_skill(BATTLE_SKILL skill_id, hero_data * hero) BANKED {
+  skill_data skill;
+  load_skill(&skill, skill_id);
+  hero->ap = CLAMP(hero->ap - skill.cost, 0, 4);
 }
 
 void handle_skill(BATTLE_SKILL skill) BANKED {
@@ -278,6 +301,10 @@ void handle_skill(BATTLE_SKILL skill) BANKED {
     break;
   case BLADE_BLITZ:
     handle_group_attack(skill);
+    break;
+  case FOCUS:
+  case GUARD:
+    handle_personal_support(skill);
     break;
   case FIRE:
   case ICE:

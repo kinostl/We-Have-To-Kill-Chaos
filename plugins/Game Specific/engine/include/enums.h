@@ -73,6 +73,7 @@ typedef enum {
 typedef enum {
   BLANK,
   FIGHT,
+  GUARD,
   COVER,
   BLADE_BLITZ,
   FIRE,

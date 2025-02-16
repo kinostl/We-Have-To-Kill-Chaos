@@ -69,7 +69,7 @@ void init_extra_data(void) OLDCALL BANKED {
   action_head = &action_slots[0];
   action_tail = &action_slots[0];
 
-  load_hero(&hero_slots[0], FIGHTER);
+  load_hero(&hero_slots[0], MONK);
   load_hero(&hero_slots[1], THIEF);
   load_hero(&hero_slots[2], RED_MAGE);
   load_hero(&hero_slots[3], BLACK_MAGE);

@@ -425,23 +425,18 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     break;
   case PICK_Magic:
     break;
-  case PICK_Guard: {
-    current_hero = &hero_slots[current_turn->entity->idx];
-    if (current_hero->ap < 3) {
-      current_hero->ap++;
-    }
-    animate(ANIMATE_PLAYER_CASTING);
-    dispatch_action(ATTACKER_FinishTurn);
-    break;
-  }
   case PICK_Run:
     break;
+  case PICK_Guard:
   case PICK_Skill: {
     current_hero = &hero_slots[current_turn->entity->idx];
-    const BATTLE_SKILL skill = current_hero->ext.skills[player_choice];
+    const BATTLE_SKILL skill = action_type == PICK_Guard
+                                   ? GUARD
+                                   : current_hero->ext.skills[player_choice];
+    spend_ap_for_skill(skill, current_hero);
     handle_skill(skill);
     break;
-  } 
+  }
   case TURN_BuildInitiative:
     LOG("handle: TURN_BuildInitiative");
     turn_rollInitiative();
