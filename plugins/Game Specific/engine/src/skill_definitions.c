@@ -132,8 +132,49 @@ void skill_blade_blitz(entity_data *user, BOOLEAN is_enemy) BANKED {
     };
 
     damage_queue_tail->color = EXPLOSION_DEFAULT;
+    const UBYTE BACKUP_EVADE = entity->evade;
+    entity->evade=0;
 
     skill_fight(user, entity);
+    entity->evade = BACKUP_EVADE;
+
+    damage_queue_tail->target = entity;
+    damage_queue_tail++;
+  }
+}
+
+void skill_pierce(entity_data *user, BOOLEAN is_enemy) BANKED {
+  const UBYTE atk_dmg = user->damage;
+  const UBYTE damage_calc = MAX(drand(atk_dmg, atk_dmg * 2), 1);
+
+  UBYTE target_idx[6];
+  UBYTE list_i=0;
+  for(turn_slot_t * current_target = &turn_slots[0]; current_target->next; current_target=current_target->next){
+    if(current_target->is_enemy == is_enemy) continue;
+    if(current_target->entity->status & DEAD) continue;
+    target_idx[list_i] = current_target->entity->idx;
+    list_i++;
+  }
+
+  list_i++;
+
+  for (UBYTE attack_count = 0; attack_count < 6; attack_count++) {
+    entity_data *entity;
+    if(is_enemy){
+      entity = &hero_slots[attack_count % list_i].ext;
+    }else{
+      entity = &enemy_slots[attack_count % list_i].ext;
+    };
+
+    damage_queue_tail->color = EXPLOSION_DEFAULT;
+
+    defender_RollToHit(user, entity);
+    damage_queue_tail->attack_results |= CRITICAL_HIT;
+
+    defender_RollForDamage(user, damage_calc);
+    defender_TakeDamage(entity);
+
+
     damage_queue_tail->target = entity;
     damage_queue_tail++;
   }
@@ -215,6 +256,9 @@ void do_group_attack(entity_data *user, BOOLEAN is_enemy,
   switch (skill) {
   case BLADE_BLITZ:
     skill_blade_blitz(user, is_enemy);
+    break;
+  case PIERCE:
+    skill_pierce(user, is_enemy);
     break;
   default:
     break;
@@ -305,12 +349,14 @@ BOOLEAN handle_skill(BATTLE_SKILL skill) BANKED {
   case SNEAK:
   case WEAK:
   case STUN:
+  case WRECK:
     handle_targeted_attack(skill);
     break;
   case COVER:
     handle_targeted_support(skill);
     break;
   case BLADE_BLITZ:
+  case PIERCE:
     handle_group_attack(skill);
     break;
   case FOCUS:
