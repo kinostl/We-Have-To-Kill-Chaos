@@ -9,7 +9,7 @@
 #include "position_data.h"
 
 void display_skill(BATTLE_SKILL skill) BANKED;
-void handle_skill(BATTLE_SKILL skill) BANKED;
+BOOLEAN handle_skill(BATTLE_SKILL skill) BANKED;
 void prepare_for_skill(BATTLE_SKILL skill) BANKED;
 void spend_ap_for_skill(BATTLE_SKILL skill_id, hero_data * hero) BANKED;
 

@@ -18,6 +18,7 @@
 #include <data/rpg_combat_animation_states.h>
 #include <math.h>
 #include <string.h>
+#include <types.h>
 #include <ui.h>
 
 #pragma bank 255
@@ -285,7 +286,7 @@ void spend_ap_for_skill(BATTLE_SKILL skill_id, hero_data * hero) BANKED {
   hero->ap = CLAMP(hero->ap - skill.cost, 0, 4);
 }
 
-void handle_skill(BATTLE_SKILL skill) BANKED {
+BOOLEAN handle_skill(BATTLE_SKILL skill) BANKED {
   switch (skill) {
   case FIGHT:
   case GOBLIN_PUNCH:
@@ -313,10 +314,11 @@ void handle_skill(BATTLE_SKILL skill) BANKED {
   case HOWL:
   case BLANK:
     dispatch_action(PICK_GetPlayerActionChoice);
-    return;
+    return FALSE;
   }
 
   dispatch_action(ATTACKER_FinishTurn);
+  return TRUE;
 }
 
 void display_skill(BATTLE_SKILL skill) BANKED{
