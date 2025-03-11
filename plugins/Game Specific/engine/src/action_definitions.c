@@ -200,7 +200,7 @@ void defender_ReceiveAttack(entity_data *attacker, entity_data *defender,
   defender_TakeDamage(defender);
 }
 
-void defender_TakeMagicDamage(entity_data *attacker, entity_data *defender,
+void defender_ReceiveMagicAttack(entity_data *attacker, entity_data *defender,
                               UBYTE damage_calc, UBYTE spell_acc) BANKED {
   const UBYTE hit_roll = drand(0, 200);
   const UBYTE base_hit_chance = 148;

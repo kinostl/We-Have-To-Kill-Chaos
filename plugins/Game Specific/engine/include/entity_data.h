@@ -23,8 +23,8 @@ typedef struct {
   UBYTE spell_chance;
   UBYTE skill_chance;
   ENEMY_FAMILY family;
-  ENEMY_TYPE weakness;
-  UBYTE resists;
+  SPELL_ELEMENT weakness;
+  SPELL_ELEMENT resists;
   BATTLE_SKILL skills[4];
   ff_position_t pos;
 } entity_data;

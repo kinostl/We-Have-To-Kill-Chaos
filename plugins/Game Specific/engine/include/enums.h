@@ -137,4 +137,7 @@ typedef enum {
   ENEMY_TURN
 } TURN_TYPE;
 
+typedef enum {
+  FIRE_ELEMENT
+} SPELL_ELEMENT;
 #endif

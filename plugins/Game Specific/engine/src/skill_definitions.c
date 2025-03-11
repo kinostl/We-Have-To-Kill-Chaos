@@ -63,7 +63,7 @@ void skill_rune_sword(entity_data *attacker,
                                 entity_data *defender) BANKED {
   const UBYTE atk_dmg = attacker->damage;
   const UBYTE damage_calc = MAX(drand(atk_dmg, atk_dmg * 2), 1);
-  defender_TakeMagicDamage(attacker, defender, damage_calc, attacker->hit_chance);
+  defender_ReceiveMagicAttack(attacker, defender, damage_calc, attacker->hit_chance);
 }
 
 void skill_cover(entity_data *user, entity_data *target) BANKED {
@@ -194,6 +194,26 @@ void skill_stun(entity_data *attacker, entity_data *defender) BANKED {
   defender->status |= PARALYZED;
 }
 
+UBYTE get_spell_eff(UBYTE atk, entity_data *defender) BANKED {
+  if (defender->resists & FIRE_ELEMENT) {
+    return atk / 2;
+  }
+
+  if (defender->weakness & FIRE_ELEMENT) {
+    return atk * 1.5;
+  }
+
+  return atk;
+}
+
+void spell_fire(entity_data *attacker, entity_data *defender) BANKED {
+  const UBYTE spell_eff = get_spell_eff(10, defender);
+  const UBYTE spell_acc = 24;
+  const UBYTE damage_calc = MAX(drand(spell_eff, spell_eff * 2), 1);
+  defender_ReceiveMagicAttack(attacker, defender, damage_calc, spell_acc);
+
+}
+
 void do_targetted_attack(entity_data *attacker, entity_data *defender,
                                    BATTLE_SKILL skill) BANKED {
   damage_queue_tail->target = defender;
@@ -231,6 +251,9 @@ void do_targetted_attack(entity_data *attacker, entity_data *defender,
     break;
   case WRECK:
     skill_wreck(attacker, defender);
+    break;
+  case FIRE:
+    spell_fire(attacker, defender);
     break;
   default:
     return;
@@ -350,6 +373,7 @@ BOOLEAN handle_skill(BATTLE_SKILL skill) BANKED {
   case WEAK:
   case STUN:
   case WRECK:
+  case FIRE:
     handle_targeted_attack(skill);
     break;
   case COVER:
@@ -363,7 +387,6 @@ BOOLEAN handle_skill(BATTLE_SKILL skill) BANKED {
   case GUARD:
     handle_personal_support(skill);
     break;
-  case FIRE:
   case ICE:
   case HARM:
   case HEAL:

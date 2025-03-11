@@ -3,12 +3,12 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "maps/new_template_of_fiends.tmx",
+    "activeFile": "",
     "automapping.whileDrawing": true,
     "expandedProjectPaths": [
         "tilesets",
-        ".",
-        "maps"
+        "maps",
+        "."
     ],
     "exportAsImage.includeBackgroundColor": true,
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -20,8 +20,8 @@
             "scale": 5.634027777777777,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 194.26599285097996,
-                "y": 81.91297916923457
+                "x": 226.74719585849874,
+                "y": 85.01910513989894
             }
         },
         "maps/armor_store.tmx": {
@@ -36,8 +36,8 @@
             "scale": 5.647222222222222,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 183.8071815051648,
-                "y": 47.98819478603049
+                "x": 216.30103295622234,
+                "y": 50.99852434825382
             }
         },
         "maps/castle1.tsx": {
@@ -64,16 +64,16 @@
             "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 114.45454545454547,
-                "y": 95
+                "x": 147.72727272727272,
+                "y": 98.18181818181819
             }
         },
         "maps/cornelia_castle_2.tmx": {
             "scale": 3,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 593.1666666666666,
-                "y": 288.16666666666663
+                "x": 654.1666666666666,
+                "y": 293.66666666666663
             }
         },
         "maps/cornelia_castle_2_inside.tmx": {
@@ -92,16 +92,16 @@
             "scale": 5.63,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 281.6163410301954,
-                "y": 81.97158081705152
+                "x": 314.1207815275311,
+                "y": 85.07992895204262
             }
         },
         "maps/equip_shop_menu.tmx": {
             "scale": 3,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 472.16666666666663,
-                "y": 112.49999999999999
+                "x": 533.1666666666666,
+                "y": 118
             }
         },
         "maps/frame.tsx": {
@@ -112,16 +112,16 @@
             "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 195.45454545454547,
-                "y": 252.54545454545456
+                "x": 228.81818181818184,
+                "y": 255.63636363636365
             }
         },
         "maps/item_menu.tmx": {
             "scale": 4,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 373.625,
-                "y": 79.875
+                "x": 419.375,
+                "y": 84
             }
         },
         "maps/item_shop.tmx": {
@@ -136,8 +136,8 @@
             "scale": 4,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 301.125,
-                "y": 105.625
+                "x": 346.875,
+                "y": 110
             }
         },
         "maps/kings_garden.tsx": {
@@ -155,8 +155,8 @@
             "scale": 4,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 229.125,
-                "y": 62.875
+                "x": 274.875,
+                "y": 67
             }
         },
         "maps/name_entry.tsx": {
@@ -167,24 +167,24 @@
             "scale": 3,
             "selectedLayer": 11,
             "viewCenter": {
-                "x": 440.5,
-                "y": 367.8333333333333
+                "x": 501.5,
+                "y": 373.66666666666663
             }
         },
         "maps/pause_menu.tmx": {
             "scale": 5.63,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 278.9520426287744,
-                "y": 81.97158081705152
+                "x": 311.45648312611013,
+                "y": 85.07992895204262
             }
         },
         "maps/random_menu.tmx": {
             "scale": 5.634027777777777,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 130.98976950573157,
-                "y": 69.7547146554912
+                "x": 163.5597189695551,
+                "y": 72.77209416985089
             }
         },
         "maps/shed_tileset.tsx": {
@@ -200,8 +200,8 @@
             "scale": 5.634027777777777,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 160.4535929988907,
-                "y": 86.97152717860226
+                "x": 193.0235424627142,
+                "y": 89.98890669296195
             }
         },
         "maps/temple_of_fiends.tsx": {
@@ -234,8 +234,8 @@
             "scale": 4,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 325.625,
-                "y": 198
+                "x": 325.75,
+                "y": 197.75
             }
         },
         "tilesets/store_tiles.tsx": {
