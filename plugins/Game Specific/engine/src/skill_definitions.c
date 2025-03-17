@@ -195,9 +195,11 @@ void skill_stun(entity_data *attacker, entity_data *defender) BANKED {
 }
 
 UBYTE get_spell_eff(UBYTE atk, entity_data *user, entity_data *defender,
-                    SPELL_ELEMENT spell_element) BANKED {
+                    SPELL_ELEMENT spell_element, SPELL_EFFECT spell_effect) BANKED {
 
   atk = atk + user->matk;
+  if (spell_effect == HP_RECOV_SPELL)
+    return atk;
 
   //We use shifts because for some reason SDCC supports floating points and tries to load in a floating point function that pushes us over the edge
   if (defender->resists & spell_element)
@@ -210,7 +212,7 @@ UBYTE get_spell_eff(UBYTE atk, entity_data *user, entity_data *defender,
 }
 
 void spell_fire(entity_data *attacker, entity_data *defender) BANKED {
-  const UBYTE spell_eff = get_spell_eff(10, attacker, defender, FIRE_ELEMENT);
+  const UBYTE spell_eff = get_spell_eff(10, attacker, defender, FIRE_ELEMENT, DAMAGE_SPELL);
   const UBYTE spell_acc = 24;
   const UBYTE damage_calc = MAX(drand(spell_eff, spell_eff * 2), 1);
   defender_ReceiveMagicAttack(attacker, defender, damage_calc, spell_acc);
@@ -218,7 +220,7 @@ void spell_fire(entity_data *attacker, entity_data *defender) BANKED {
 }
 
 void spell_cure(entity_data *user, entity_data *target) BANKED {
-  const UBYTE spell_eff = get_spell_eff(16, user, target, NO_ELEMENT);
+  const UBYTE spell_eff = get_spell_eff(16, user, target, NO_ELEMENT, HP_RECOV_SPELL);
   const UBYTE heal_calc = MAX(drand(spell_eff, spell_eff * 2), 1);
   target->hp = MIN(target->hp + (heal_calc * user->matk), target->max_hp);
 }

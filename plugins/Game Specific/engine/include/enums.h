@@ -141,4 +141,9 @@ typedef enum {
   NO_ELEMENT,
   FIRE_ELEMENT
 } SPELL_ELEMENT;
+
+typedef enum {
+  DAMAGE_SPELL,
+  HP_RECOV_SPELL
+} SPELL_EFFECT;
 #endif
