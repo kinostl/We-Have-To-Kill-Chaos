@@ -87,14 +87,14 @@
 
 ## White Magic
 
-- [ ] Cure
+- [/] Cure
 - [ ] Fog
 - [ ] Harm
 - [ ] Ruse
 
 ## Black Magic
 
-- [ ] Fire
+- [X] Fire
 - [ ] Sleep
 - [ ] Lock
 - [ ] Lit
@@ -135,3 +135,5 @@ Note: It could be fun if this is like Gen 3 or 2 Pokemon Inventory. List of item
 - [ ] Item Information
 - [ ] Equip from Inventory
 - [ ] Use Item From Inventory
+
+incorect wurds

@@ -194,24 +194,32 @@ void skill_stun(entity_data *attacker, entity_data *defender) BANKED {
   defender->status |= PARALYZED;
 }
 
-UBYTE get_spell_eff(UBYTE atk, entity_data *defender) BANKED {
-  if (defender->resists & FIRE_ELEMENT) {
-    return atk / 2;
-  }
+UBYTE get_spell_eff(UBYTE atk, entity_data *user, entity_data *defender,
+                    SPELL_ELEMENT spell_element) BANKED {
 
-  if (defender->weakness & FIRE_ELEMENT) {
+  atk = atk + user->matk;
+
+  if (defender->resists & spell_element)
+    return atk / 2;
+
+  if (defender->weakness & spell_element)
     return atk * 1.5;
-  }
 
   return atk;
 }
 
 void spell_fire(entity_data *attacker, entity_data *defender) BANKED {
-  const UBYTE spell_eff = get_spell_eff(10, defender);
+  const UBYTE spell_eff = get_spell_eff(10, attacker, defender);
   const UBYTE spell_acc = 24;
   const UBYTE damage_calc = MAX(drand(spell_eff, spell_eff * 2), 1);
   defender_ReceiveMagicAttack(attacker, defender, damage_calc, spell_acc);
 
+}
+
+void spell_cure(entity_data *user, entity_data *target) BANKED {
+  const UBYTE spell_eff = get_spell_eff(16, user, target);
+  const UBYTE heal_calc = MAX(drand(spell_eff, spell_eff * 2), 1);
+  target->hp = MIN(target->hp + (heal_calc * user->matk), target->max_hp);
 }
 
 void do_targetted_attack(entity_data *attacker, entity_data *defender,
@@ -268,6 +276,8 @@ void do_targetted_support(entity_data *user, entity_data *target,
   case COVER:
     skill_cover(user, target);
     break;
+  case HEAL:
+    spell_cure(user, target);
   default:
     break;
   }
@@ -346,6 +356,7 @@ void handle_personal_support(BATTLE_SKILL skill) BANKED {
 void prepare_for_skill(BATTLE_SKILL skill) BANKED {
   switch (skill) {
   case COVER:
+  case HEAL:
     dispatch_action(ANIMATE_HideActivePlayer);
     dispatch_action(PANEL_ClosePanel);
     dispatch_action(PANEL_DisplayParty);
@@ -377,6 +388,7 @@ BOOLEAN handle_skill(BATTLE_SKILL skill) BANKED {
     handle_targeted_attack(skill);
     break;
   case COVER:
+  case HEAL:
     handle_targeted_support(skill);
     break;
   case BLADE_BLITZ:
@@ -389,7 +401,6 @@ BOOLEAN handle_skill(BATTLE_SKILL skill) BANKED {
     break;
   case ICE:
   case HARM:
-  case HEAL:
   case HOWL:
   case BLANK:
     dispatch_action(PICK_GetPlayerActionChoice);

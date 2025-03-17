@@ -138,6 +138,7 @@ typedef enum {
 } TURN_TYPE;
 
 typedef enum {
+  NO_ELEMENT,
   FIRE_ELEMENT
 } SPELL_ELEMENT;
 #endif

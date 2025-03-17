@@ -15,7 +15,7 @@ const skill_data skill_db[] = {
     db_row(GOBLIN_PUNCH, "Impunch", 0),
     db_row(HOWL, "Howl", 0),
     db_row(THRASH, "Thrash", 0),
-    db_row(FIRE, "Fire", 0),
+    db_row(FIRE, "Fire", 3), //Fire 2 costs 2, Fire 3 Costs 1. Same for other magics.
     db_row(ICE, "Ice", 0),
     db_row(HARM, "Harm", 0),
     db_row(HEAL, "Heal", 0),

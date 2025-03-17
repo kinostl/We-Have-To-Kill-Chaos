@@ -18,6 +18,7 @@ typedef struct {
   UBYTE crit_chance;
   UBYTE absorb;
   UBYTE evade;
+  UBYTE matk; //Multiplier for magic, Int / 4 + 1
   UBYTE mdef;
   UBYTE morale;
   UBYTE spell_chance;
