@@ -208,7 +208,7 @@ UBYTE get_spell_eff(UBYTE atk, entity_data *user, entity_data *defender,
       return atk >> 1; // Divide by 2
 
     if (defender->weakness & spell_element)
-      return (atk * 3) >> 1; // Multiply by 3 then Divide by 2 (* 1.5)
+      return (atk << 1)  - (atk >> 1); // Multiply by 1.5?
   default:
   case HP_RECOV_SPELL:
     return atk;
