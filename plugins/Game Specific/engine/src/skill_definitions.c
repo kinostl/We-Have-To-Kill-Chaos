@@ -226,7 +226,7 @@ void spell_fire(entity_data *attacker, entity_data *defender) BANKED {
 void spell_cure(entity_data *user, entity_data *target) BANKED {
   const UBYTE spell_eff = get_spell_eff(16, user, target, NO_ELEMENT, HP_RECOV_SPELL);
   const UBYTE heal_calc = MAX(drand(spell_eff, spell_eff * 2), 1);
-  target->hp = MIN(target->hp + (heal_calc * user->matk), target->max_hp);
+  target->hp = MIN(target->hp + heal_calc, target->max_hp);
 }
 
 void do_targetted_attack(entity_data *attacker, entity_data *defender,
