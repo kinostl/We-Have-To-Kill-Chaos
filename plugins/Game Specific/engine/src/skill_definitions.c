@@ -195,20 +195,24 @@ void skill_stun(entity_data *attacker, entity_data *defender) BANKED {
 }
 
 UBYTE get_spell_eff(UBYTE atk, entity_data *user, entity_data *defender,
-                    SPELL_ELEMENT spell_element, SPELL_EFFECT spell_effect) BANKED {
+                    SPELL_ELEMENT spell_element,
+                    SPELL_EFFECT spell_effect) BANKED {
 
   atk = atk + user->matk;
-  if (spell_effect == HP_RECOV_SPELL)
+
+  switch (spell_effect) {
+  case DAMAGE_SPELL:
+    // We use shifts because for some reason SDCC supports floating points and
+    // tries to load in a floating point function that pushes us over the edge
+    if (defender->resists & spell_element)
+      return atk >> 1; // Divide by 2
+
+    if (defender->weakness & spell_element)
+      return ((atk << 1) + atk) >> 1; // Multiply by 3 then Divide by 2 (* 1.5)
+  default:
+  case HP_RECOV_SPELL:
     return atk;
-
-  //We use shifts because for some reason SDCC supports floating points and tries to load in a floating point function that pushes us over the edge
-  if (defender->resists & spell_element)
-    return atk >> 1; // Divide by 2
-
-  if (defender->weakness & spell_element)
-    return ((atk << 1)+atk)>>1; // Multiply by 3 then Divide by 2 (* 1.5)
-
-  return atk;
+  }
 }
 
 void spell_fire(entity_data *attacker, entity_data *defender) BANKED {
