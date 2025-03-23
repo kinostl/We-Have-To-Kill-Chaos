@@ -14,6 +14,7 @@ typedef enum {
   ANIMATE_EndPlayerTurn,
   ANIMATE_HideActivePlayer,
   ANIMATE_Explosions,
+  ANIMATE_Sparkles,
   ANIMATE_Attack,
   ANIMATE_GroupAttack,
   ANIMATE_Deaths,

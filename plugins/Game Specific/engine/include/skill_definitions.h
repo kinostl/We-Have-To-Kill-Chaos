@@ -16,6 +16,7 @@ void spend_ap_for_skill(BATTLE_SKILL skill_id, hero_data * hero) BANKED;
 typedef enum {
     FIGHT_ATTACK,
     MAGIC_ATTACK,
+    MAGIC_SUPPORT
 } SKILL_TYPE ;
 
 typedef struct {

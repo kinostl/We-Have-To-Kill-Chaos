@@ -167,6 +167,9 @@ void handle_action(ACTION_TYPE action_type) BANKED {
   case ANIMATE_EndPlayerTurn:
     animate(ANIMATE_HIDE_ACTIVE_PLAYER);
     break;
+  case ANIMATE_Sparkles:
+    animate(ANIMATE_SPARKLES);
+    break;
   case ANIMATE_Explosions:
     animate(ANIMATE_EXPLOSIONS);
     break;
@@ -182,7 +185,15 @@ void handle_action(ACTION_TYPE action_type) BANKED {
     if (damage_queue_head->color) {
       load_explosion_palette(FALSE, 5, damage_queue_head->color);
       setup_explosions(&damage_queue_head->target->pos);
-      dispatch_action(ANIMATE_Explosions);
+      switch (damage_queue_head->skill_type) {
+      case FIGHT_ATTACK:
+        dispatch_action(ANIMATE_Explosions);
+        break;
+      case MAGIC_ATTACK:
+      case MAGIC_SUPPORT:
+        dispatch_action(ANIMATE_Sparkles);
+        break;
+      }
     }
 
     if ((damage_queue_head->attack_results & SKILL_HIT) == 0) {

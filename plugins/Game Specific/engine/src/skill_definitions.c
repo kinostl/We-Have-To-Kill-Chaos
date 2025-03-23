@@ -198,17 +198,20 @@ UBYTE get_spell_eff(UBYTE atk, entity_data *user, entity_data *defender,
                     SPELL_ELEMENT spell_element,
                     SPELL_EFFECT spell_effect) BANKED {
 
+  // matk is 1 + (int / 4)
   atk = atk + user->matk;
 
   switch (spell_effect) {
-  case DAMAGE_SPELL:
+  case DAMAGE_SPELL: {
     // We use shifts because for some reason SDCC supports floating points and
     // tries to load in a floating point function that pushes us over the edge
+    const UBYTE offset = atk >> 1;
     if (defender->resists & spell_element)
-      return atk >> 1; // Divide by 2
+      return MAX(1, atk - offset);
 
     if (defender->weakness & spell_element)
-      return (atk << 1)  - (atk >> 1); // Multiply by 1.5?
+      return MIN(255, atk + offset);
+  }
   default:
   case HP_RECOV_SPELL:
     return atk;
@@ -279,6 +282,13 @@ void do_targetted_attack(entity_data *attacker, entity_data *defender,
 
 void do_targetted_support(entity_data *user, entity_data *target,
                           BATTLE_SKILL skill) BANKED {
+  damage_queue_tail->target = target;
+  damage_queue_tail->number_of_hits = 1;
+  damage_queue_tail->color = EXPLOSION_WHITE;
+  damage_queue_tail->skill_type = MAGIC_SUPPORT;
+  // Magic animation two frames, slow
+  // https://youtu.be/rEna-Ri5y2Y?list=PLz4NmdSG1VFuepy8o5bnv9RmliDhdyCdU&t=1816
+
   switch (skill) {
   case COVER:
     skill_cover(user, target);
@@ -288,6 +298,8 @@ void do_targetted_support(entity_data *user, entity_data *target,
   default:
     break;
   }
+
+  damage_queue_tail++;
 }
 
 void do_group_attack(entity_data *user, BOOLEAN is_enemy,
